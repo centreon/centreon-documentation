@@ -71,17 +71,26 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Equipment" label="Equipment">
 
-| Name                     | Unit  |
-|:-------------------------|:------|
-| hardware.blade.count     | count |
-| hardware.chassis.count   | count |
-| hardware.cpu.count       | count |
-| hardware.fan.count       | count |
-| hardware.fex.count       | count |
-| hardware.iocard.count    | count |
-| hardware.localdisk.count | count |
-| hardware.memory.count    | count |
-| hardware.psu.count       | count |
+| Name                      | Unit  |
+|:--------------------------|:------|
+| hardware.blade.count      | count |
+| hardware.chassis.count    | count |
+| hardware.cpu.count        | count |
+| hardware.fan.count        | count |
+| hardware.fex.count        | count |
+| hardware.iocard.count     | count |
+| hardware.localdisk.count  | count |
+| hardware.memory.count     | count |
+| hardware.psu.count        | count |
+| hardware.blade.status     | N/A   |
+| hardware.chassis.status   | N/A   |
+| hardware.cpu.status       | N/A   |
+| hardware.fan.status       | N/A   |
+| hardware.fex.status       | N/A   |
+| hardware.iocard.status    | N/A   |
+| hardware.localdisk.status | N/A   |
+| hardware.memory.status    | N/A   |
+| hardware.psu.status       | N/A   |
 
 </TabItem>
 <TabItem value="Faults" label="Faults">
@@ -132,7 +141,7 @@ The target resource must be reachable from the Centreon poller on the UDP/161 SN
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Connectors > Monitoring Connectors** menu.
+**Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -167,8 +176,8 @@ yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco UCS** connector through
-the **Configuration > Connectors > Monitoring Connectors** menu.
+2. Whatever the license type (*online* or *offline*), install the **Cisco UCS SNMP** connector through
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -239,87 +248,87 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 <Tabs groupId="sync">
 <TabItem value="Audit-Logs" label="Audit-Logs">
 
-| Macro                  | Description                                                                                                                                 | Default value            | Mandatory |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------:|
-| WARNINGAUDITCRITICAL   | Threshold                                                                                                                                   |                          |           |
-| CRITICALAUDITCRITICAL  | Threshold                                                                                                                                   |                          |           |
-| WARNINGAUDITWARNING    | Threshold                                                                                                                                   |                          |           |
-| CRITICALAUDITWARNING   | Threshold                                                                                                                                   |                          |           |
-| WARNINGAUDITCLEARED    | Threshold                                                                                                                                   |                          |           |
-| CRITICALAUDITCLEARED   | Threshold                                                                                                                                   |                          |           |
-| WARNINGAUDITCONDITION  | Threshold                                                                                                                                   |                          |           |
-| CRITICALAUDITCONDITION | Threshold                                                                                                                                   |                          |           |
-| WARNINGAUDITINFO       | Threshold                                                                                                                                   |                          |           |
-| CRITICALAUDITINFO      | Threshold                                                                                                                                   |                          |           |
-| WARNINGAUDITMAJOR      | Threshold                                                                                                                                   |                          |           |
-| CRITICALAUDITMAJOR     | Threshold                                                                                                                                   |                          |           |
-| WARNINGAUDITMINOR      | Threshold                                                                                                                                   |                          |           |
-| CRITICALAUDITMINOR     | Threshold                                                                                                                                   |                          |           |
-| WARNINGAUDITTOTAL      | Threshold                                                                                                                                   |                          |           |
-| CRITICALAUDITTOTAL     | Threshold                                                                                                                                   |                          |           |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{severity\}, %\{description\}, %\{dn\}  | %\{severity\} =~ /minor\ | warning/  |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{severity\}, %\{description\}, %\{dn\} | %\{severity\} =~ /major\ | critical/ |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).      | --verbose                |           |
+| Macro                  | Description                                                                                                                                 | Default value                      | Mandatory |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:---------:|
+| WARNINGAUDITCRITICAL   | Threshold                                                                                                                                   |                                    |           |
+| CRITICALAUDITCRITICAL  | Threshold                                                                                                                                   |                                    |           |
+| WARNINGAUDITWARNING    | Threshold                                                                                                                                   |                                    |           |
+| CRITICALAUDITWARNING   | Threshold                                                                                                                                   |                                    |           |
+| WARNINGAUDITCLEARED    | Threshold                                                                                                                                   |                                    |           |
+| CRITICALAUDITCLEARED   | Threshold                                                                                                                                   |                                    |           |
+| WARNINGAUDITCONDITION  | Threshold                                                                                                                                   |                                    |           |
+| CRITICALAUDITCONDITION | Threshold                                                                                                                                   |                                    |           |
+| WARNINGAUDITINFO       | Threshold                                                                                                                                   |                                    |           |
+| CRITICALAUDITINFO      | Threshold                                                                                                                                   |                                    |           |
+| WARNINGAUDITMAJOR      | Threshold                                                                                                                                   |                                    |           |
+| CRITICALAUDITMAJOR     | Threshold                                                                                                                                   |                                    |           |
+| WARNINGAUDITMINOR      | Threshold                                                                                                                                   |                                    |           |
+| CRITICALAUDITMINOR     | Threshold                                                                                                                                   |                                    |           |
+| WARNINGAUDITTOTAL      | Threshold                                                                                                                                   |                                    |           |
+| CRITICALAUDITTOTAL     | Threshold                                                                                                                                   |                                    |           |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{severity\}, %\{description\}, %\{dn\}  | %\{severity\} =~ /minor\|warning/  |           |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{severity\}, %\{description\}, %\{dn\} | %\{severity\} =~ /major\|critical/ |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).      | --verbose                          |           |
 
 </TabItem>
 <TabItem value="Equipment" label="Equipment">
 
-| Macro        | Description                                                                                                                                                  | Default value                   | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:---------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: C\<fan\>, C\<psu\>, C\<chassis\>, C\<iocard\>, C\<blade\>, C\<fex\>, C\<cpu\>, C\<memory\>, C\<localdisk\> | .*                              |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                       | --verbose  --snmp-force-getnext |           |
+| Macro        | Description                                                                                                                                  | Default value                   | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:---------:|
+| COMPONENT    | Which component to check. Can be: C\<fan\>, C\<psu\>, C\<chassis\>, C\<iocard\>, C\<blade\>, C\<fex\>, C\<cpu\>, C\<memory\>, C\<localdisk\> | .*                              |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).       | --verbose  --snmp-force-getnext |           |
 
 </TabItem>
 <TabItem value="Faults" label="Faults">
 
-| Macro                   | Description                                                                                                                                 | Default value            | Mandatory |
-|:------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------:|
-| WARNINGFAULTSWARNING    | Threshold                                                                                                                                   |                          |           |
-| CRITICALFAULTSWARNING   | Threshold                                                                                                                                   |                          |           |
-| WARNINGFAULTSCRITICAL   | Threshold                                                                                                                                   |                          |           |
-| CRITICALFAULTSCRITICAL  | Threshold                                                                                                                                   |                          |           |
-| WARNINGFAULTSCLEARED    | Threshold                                                                                                                                   |                          |           |
-| CRITICALFAULTSCLEARED   | Threshold                                                                                                                                   |                          |           |
-| WARNINGFAULTSCONDITION  | Threshold                                                                                                                                   |                          |           |
-| CRITICALFAULTSCONDITION | Threshold                                                                                                                                   |                          |           |
-| WARNINGFAULTSINFO       | Threshold                                                                                                                                   |                          |           |
-| CRITICALFAULTSINFO      | Threshold                                                                                                                                   |                          |           |
-| WARNINGFAULTSMAJOR      | Threshold                                                                                                                                   |                          |           |
-| CRITICALFAULTSMAJOR     | Threshold                                                                                                                                   |                          |           |
-| WARNINGFAULTSMINOR      | Threshold                                                                                                                                   |                          |           |
-| CRITICALFAULTSMINOR     | Threshold                                                                                                                                   |                          |           |
-| WARNINGFAULTSTOTAL      | Threshold                                                                                                                                   |                          |           |
-| CRITICALFAULTSTOTAL     | Threshold                                                                                                                                   |                          |           |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{severity\}, %\{description\}, %\{dn\}  | %\{severity\} =~ /minor\ | warning/  |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{severity\}, %\{description\}, %\{dn\} | %\{severity\} =~ /major\ | critical/ |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).      | --verbose                |           |
+| Macro                   | Description                                                                                                                                 | Default value                      | Mandatory |
+|:------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:---------:|
+| WARNINGFAULTSWARNING    | Threshold                                                                                                                                   |                                    |           |
+| CRITICALFAULTSWARNING   | Threshold                                                                                                                                   |                                    |           |
+| WARNINGFAULTSCRITICAL   | Threshold                                                                                                                                   |                                    |           |
+| CRITICALFAULTSCRITICAL  | Threshold                                                                                                                                   |                                    |           |
+| WARNINGFAULTSCLEARED    | Threshold                                                                                                                                   |                                    |           |
+| CRITICALFAULTSCLEARED   | Threshold                                                                                                                                   |                                    |           |
+| WARNINGFAULTSCONDITION  | Threshold                                                                                                                                   |                                    |           |
+| CRITICALFAULTSCONDITION | Threshold                                                                                                                                   |                                    |           |
+| WARNINGFAULTSINFO       | Threshold                                                                                                                                   |                                    |           |
+| CRITICALFAULTSINFO      | Threshold                                                                                                                                   |                                    |           |
+| WARNINGFAULTSMAJOR      | Threshold                                                                                                                                   |                                    |           |
+| CRITICALFAULTSMAJOR     | Threshold                                                                                                                                   |                                    |           |
+| WARNINGFAULTSMINOR      | Threshold                                                                                                                                   |                                    |           |
+| CRITICALFAULTSMINOR     | Threshold                                                                                                                                   |                                    |           |
+| WARNINGFAULTSTOTAL      | Threshold                                                                                                                                   |                                    |           |
+| CRITICALFAULTSTOTAL     | Threshold                                                                                                                                   |                                    |           |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{severity\}, %\{description\}, %\{dn\}  | %\{severity\} =~ /minor\|warning/  |           |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{severity\}, %\{description\}, %\{dn\} | %\{severity\} =~ /major\|critical/ |           |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).      | --verbose                          |           |
 
 </TabItem>
 <TabItem value="Mgmt-Entities" label="Mgmt-Entities">
 
-| Macro          | Description                                                                                                                                               | Default value                                                                            |                                 Mandatory                                 |
-|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------------:|
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\}  | %\{role\} =~ /unknown/ or %\{status\} eq "unknown" or %\{services\_status\} eq "unknown" |                                                                           |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\} | %\{role\} =~ /electionFailed\                                                            | inapplicable/ or %\{status\} eq "down" or %\{services\_status\} eq "down" |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\}  |                                                                                          |                                                                           |
-| WARNINGTOTAL   | Threshold                                                                                                                                                 |                                                                                          |                                                                           |
-| CRITICALTOTAL  | Threshold                                                                                                                                                 |                                                                                          |                                                                           |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                    | --verbose                                                                                |                                                                           |
+| Macro          | Description                                                                                                                                               | Default value                                                                                           | Mandatory |
+|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|:---------:|
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\}  | %\{role\} =~ /unknown/ or %\{status\} eq "unknown" or %\{services\_status\} eq "unknown"                |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\} | %\{role\} =~ /electionFailed\|inapplicable/ or %\{status\} eq "down" or %\{services\_status\} eq "down" |           |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\}  |                                                                                                         |           |
+| WARNINGTOTAL   | Threshold                                                                                                                                                 |                                                                                                         |           |
+| CRITICALTOTAL  | Threshold                                                                                                                                                 |                                                                                                         |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                    | --verbose                                                                                               |           |
 
 </TabItem>
 <TabItem value="Service-Profile" label="Service-Profile">
 
-| Macro           | Description                                                                                                                                                   | Default value            | Mandatory |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------:|
-| WARNINGOFFLINE  | Threshold                                                                                                                                                     |                          |           |
-| CRITICALOFFLINE | Threshold                                                                                                                                                     |                          |           |
-| WARNINGONLINE   | Threshold                                                                                                                                                     |                          |           |
-| CRITICALONLINE  | Threshold                                                                                                                                                     |                          |           |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "offline"'). You can use the following variables: %\{dn\}, %\{status\} | %\{status\} eq "offline" |           |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{dn\}, %\{status\}                                        |                          |           |
-| WARNINGTOTAL    | Threshold                                                                                                                                                     |                          |           |
-| CRITICALTOTAL   | Threshold                                                                                                                                                     |                          |           |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                        | --verbose                |           |
+| Macro           | Description                                                                                                                            | Default value            | Mandatory |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------:|
+| WARNINGOFFLINE  | Threshold                                                                                                                              |                          |           |
+| CRITICALOFFLINE | Threshold                                                                                                                              |                          |           |
+| WARNINGONLINE   | Threshold                                                                                                                              |                          |           |
+| CRITICALONLINE  | Threshold                                                                                                                              |                          |           |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{dn\}, %\{status\}                | %\{status\} eq "offline" |           |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{dn\}, %\{status\}                 |                          |           |
+| WARNINGTOTAL    | Threshold                                                                                                                              |                          |           |
+| CRITICALTOTAL   | Threshold                                                                                                                              |                          |           |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                |           |
 
 </TabItem>
 </Tabs>
@@ -485,17 +494,17 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Equipment" label="Equipment">
 
-| Option               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          |   Which component to check (default: '.*'). Can be: C\<fan\>, C\<psu\>, C\<chassis\>, C\<iocard\>, C\<blade\>, C\<fex\>, C\<cpu\>, C\<memory\>, C\<localdisk\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| --filter             |   Exclude the items given as a comma-separated list (example: --filter=fan --filter=psu). You can also exclude items from specific instances: --filter=fan,/sys/chassis-7/fan-module-1-7/fan-1                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --absent-problem     |   Return an error if an entity is not 'present' (default is skipping) (comma separated list) Can be specific or global: --absent-problem=fan,/sys/chassis-7/fan-module-1-7/fan-1                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='fan.operability,OK,poweredOff\|removed'  --threshold-overload='presence,OK,missing'  --threshold-overload='operability,OK,removed' NB: For the memory component you may need to set this option twice if presence status doesn't return OK state and you want to override the operability status. Example when memories are missing because of removing. --threshold-overload='presence,OK,missing' --threshold-overload='operability,OK,removed'    |
-| --warning            |   Define the warning threshold for temperatures (syntax: type,instance,threshold) Example: --warning='temperature,.*,30'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --critical           |   Define the critical threshold for temperatures (syntax: type,instance,threshold) Example: --critical='temperature,.*,40'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Option               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: C\<fan\>, C\<psu\>, C\<chassis\>, C\<iocard\>, C\<blade\>, C\<fex\>, C\<cpu\>, C\<memory\>, C\<localdisk\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter             |   Exclude the items given as a comma-separated list (example: --filter=fan --filter=psu). You can also exclude items from specific instances: --filter=fan,/sys/chassis-7/fan-module-1-7/fan-1                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --absent-problem     |   Return an error if an entity is not 'present' (default is skipping) (comma separated list) Can be specific or global: --absent-problem=fan,/sys/chassis-7/fan-module-1-7/fan-1                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='fan.operability,OK,poweredOff\|removed'  --threshold-overload='presence,OK,missing'  --threshold-overload='operability,OK,removed' NB: For the memory component you may need to set this option twice if presence status doesn't return OK state and you want to override the operability status. Example when memories are missing because of removing. --threshold-overload='presence,OK,missing' --threshold-overload='operability,OK,removed'   |
+| --warning            |   Define the warning threshold for temperatures (syntax: type,instance,threshold) Example: --warning='temperature,.*,30'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --critical           |   Define the critical threshold for temperatures (syntax: type,instance,threshold) Example: --critical='temperature,.*,40'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 </TabItem>
 <TabItem value="Faults" label="Faults">

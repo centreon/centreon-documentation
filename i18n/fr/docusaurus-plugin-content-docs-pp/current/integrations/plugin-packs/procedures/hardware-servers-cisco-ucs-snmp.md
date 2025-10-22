@@ -72,17 +72,26 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Equipment" label="Equipment">
 
-| Nom                      | Unité |
-|:-------------------------|:------|
-| hardware.blade.count     | count |
-| hardware.chassis.count   | count |
-| hardware.cpu.count       | count |
-| hardware.fan.count       | count |
-| hardware.fex.count       | count |
-| hardware.iocard.count    | count |
-| hardware.localdisk.count | count |
-| hardware.memory.count    | count |
-| hardware.psu.count       | count |
+| Nom                       | Unité |
+|:--------------------------|:------|
+| hardware.blade.count      | count |
+| hardware.chassis.count    | count |
+| hardware.cpu.count        | count |
+| hardware.fan.count        | count |
+| hardware.fex.count        | count |
+| hardware.iocard.count     | count |
+| hardware.localdisk.count  | count |
+| hardware.memory.count     | count |
+| hardware.psu.count        | count |
+| hardware.blade.status     | N/A   |
+| hardware.chassis.status   | N/A   |
+| hardware.cpu.status       | N/A   |
+| hardware.fan.status       | N/A   |
+| hardware.fex.status       | N/A   |
+| hardware.iocard.status    | N/A   |
+| hardware.localdisk.status | N/A   |
+| hardware.memory.status    | N/A   |
+| hardware.psu.status       | N/A   |
 
 </TabItem>
 <TabItem value="Faults" label="Faults">
@@ -118,7 +127,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 Le service SNMP doit être activé et configuré sur l'équipement. 
 Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
 Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
@@ -133,7 +141,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -169,8 +177,8 @@ yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco UCS**
-depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco UCS SNMP**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
@@ -223,7 +231,7 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 3. Appliquez le modèle d'hôte **HW-Server-Cisco-Ucs-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -297,14 +305,14 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 </TabItem>
 <TabItem value="Mgmt-Entities" label="Mgmt-Entities">
 
-| Macro          | Description                                                                                                                                                | Valeur par défaut                                                                                       | Obligatoire |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|:-----------:|
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\}   | %\{role\} =~ /unknown/ or %\{status\} eq "unknown" or %\{services\_status\} eq "unknown"                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICALq. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\} | %\{role\} =~ /electionFailed\|inapplicable/ or %\{status\} eq "down" or %\{services\_status\} eq "down" |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\}   |                                                                                                         |             |
-| WARNINGTOTAL   | Threshold                                                                                                                                                  |                                                                                                         |             |
-| CRITICALTOTAL  | Threshold                                                                                                                                                  |                                                                                                         |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).           | --verbose                                                                                               |             |
+| Macro          | Description                                                                                                                                               | Valeur par défaut                                                                                       | Obligatoire |
+|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|:-----------:|
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\}  | %\{role\} =~ /unknown/ or %\{status\} eq "unknown" or %\{services\_status\} eq "unknown"                |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\} | %\{role\} =~ /electionFailed\|inapplicable/ or %\{status\} eq "down" or %\{services\_status\} eq "down" |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{dn\}, %\{role\}, %\{services\_status\}, %\{status\}  |                                                                                                         |             |
+| WARNINGTOTAL   | Threshold                                                                                                                                                 |                                                                                                         |             |
+| CRITICALTOTAL  | Threshold                                                                                                                                                 |                                                                                                         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).          | --verbose                                                                                               |             |
 
 </TabItem>
 <TabItem value="Service-Profile" label="Service-Profile">
@@ -487,17 +495,17 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Equipment" label="Equipment">
 
-| Option               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          |   Which component to check (default: '.*'). Can be: C\<fan\>, C\<psu\>, C\<chassis\>, C\<iocard\>, C\<blade\>, C\<fex\>, C\<cpu\>, C\<memory\>, C\<localdisk\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| --filter             |   Exclude the items given as a comma-separated list (example: --filter=fan --filter=psu). You can also exclude items from specific instances: --filter=fan,/sys/chassis-7/fan-module-1-7/fan-1                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --absent-problem     |   Return an error if an entity is not 'present' (default is skipping) (comma separated list) Can be specific or global: --absent-problem=fan,/sys/chassis-7/fan-module-1-7/fan-1                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='fan.operability,OK,poweredOff\|removed'  --threshold-overload='presence,OK,missing'  --threshold-overload='operability,OK,removed' NB: For the memory component you may need to set this option twice if presence status doesn't return OK state and you want to override the operability status. Example when memories are missing because of removing. --threshold-overload='presence,OK,missing' --threshold-overload='operability,OK,removed'    |
-| --warning            |   Define the warning threshold for temperatures (syntax: type,instance,threshold) Example: --warning='temperature,.*,30'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --critical           |   Define the critical threshold for temperatures (syntax: type,instance,threshold) Example: --critical='temperature,.*,40'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Option               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: C\<fan\>, C\<psu\>, C\<chassis\>, C\<iocard\>, C\<blade\>, C\<fex\>, C\<cpu\>, C\<memory\>, C\<localdisk\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter             |   Exclude the items given as a comma-separated list (example: --filter=fan --filter=psu). You can also exclude items from specific instances: --filter=fan,/sys/chassis-7/fan-module-1-7/fan-1                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --absent-problem     |   Return an error if an entity is not 'present' (default is skipping) (comma separated list) Can be specific or global: --absent-problem=fan,/sys/chassis-7/fan-module-1-7/fan-1                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='fan.operability,OK,poweredOff\|removed'  --threshold-overload='presence,OK,missing'  --threshold-overload='operability,OK,removed' NB: For the memory component you may need to set this option twice if presence status doesn't return OK state and you want to override the operability status. Example when memories are missing because of removing. --threshold-overload='presence,OK,missing' --threshold-overload='operability,OK,removed'   |
+| --warning            |   Define the warning threshold for temperatures (syntax: type,instance,threshold) Example: --warning='temperature,.*,30'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --critical           |   Define the critical threshold for temperatures (syntax: type,instance,threshold) Example: --critical='temperature,.*,40'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 </TabItem>
 <TabItem value="Faults" label="Faults">
