@@ -9,21 +9,21 @@ title: Centreon Cloud release notes
 
 **Centreon Dashboards**
 
-It is now easier to keep your dashboards up to date, thanks to support for regular expressions in the Resource Table, Group Monitoring, Status Grid and Top/Bottom widgets dataset configuration.
+It is now easier to keep your dashboards up to date, as regular expressions are supported in the dataset configuration section of the **Resource Table**, **Group Monitoring**, **Status Grid** and **Top/Bottom** widgets.
 
-**User Interface**
+**User interface**
 
-Few adjustments have been made on Centreon Monitoring Agent configuration interface. 
+A few adjustments have been made to the Centreon Monitoring Agent configuration interface. 
 
-**Note:** More Agent features to come with 25.10 official release of poller. Stay tuned!
+**Note:** More agent features to come with the 25.10 official release of the pollers. Stay tuned!
 
 ### Centreon Pro Edition
 
 **MAP**
 
-This release introduces Image Folders in Resource Access Management, which enable folder-level access control for images in MAP. Administrators can organize images into folders and centrally manage who can use them.
-It is now possible to use MAP API. As for Centreon API, use Authentication token for authentication and start to automatize your MAP usage.
-You can also now personalize geo views tile by adding a custom image on home page tiles.
+This release introduces image folders in Resource Access Management: folder-level access control is now available for images in MAP. Administrators can organize images into folders and manage access permissions in one place.
+It is now possible to use the MAP API. As for the Centreon web API, use an authentication token to get started and begin automating your MAP usage.
+You can now customize geographic view tiles in the dashboard homepage by adding a custom image to the tile.
 
 ## September 25th, 2025
 
