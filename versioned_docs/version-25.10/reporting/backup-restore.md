@@ -67,7 +67,7 @@ Every day, the **/usr/share/centreon/www/modules/centreon-bi-server/tools/purgeA
 
 #### Backed up items
 
-- Database configuration file (**/etc/my.cnf/centreon.cnf**).
+<!--- Database configuration file (**/etc/my.cnf/centreon.cnf**).-->
 - All data aggregated by the ETL (the contents of your datadir folder, by default: **/var/lib/mysql**).
 - Reports designs and report library, and the corresponding XML parameters.
 
@@ -96,8 +96,8 @@ CRONTAB_EXEC_USER=""
 
 Three types of backup are executed during the week:
 
-- Daily backup of reports designs and report library, as well as the configuration files for the report generation engine (cbis). The generated files follow this naming format: ```centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz```
-- Every Sunday, full backup of all data aggregated by the ETL. The generated files follow this naming format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
+- A daily backup of report designs and report library, as well as the configuration files for the report generation engine (cbis). The generated files follow this naming format: ```centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz```
+- Every Sunday, a full backup of all data aggregated by the ETL. The generated files follow this naming format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
 - From Monday to Saturday, an incremental backup of the data aggregated by the ETL for the previous day (only the last partition of each partitioned table, plus all non-partitioned tables). The generated files follow this naming format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
 
 The backup script itself is stored here: **/usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh**. You can change some parameters if you like:
@@ -110,63 +110,29 @@ The backup script itself is stored here: **/usr/share/centreon-bi-backup/centreo
 > During the MBI server backup, make sure that no ETL scripts or report jobs are running.
 > We recommend exporting backups to another server to keep them secure.
 
-## Restore Centreon MBI
+## Restoring Centreon MBI
 
-The restore process is divided into several steps:
+If you need to reinstall your MBI from scratch from a backup, follow these steps:
 
-- Reinstalling the **centreon-bi-server** module in the same version as the one saved
-- Integrating generated reports
-- Integrating custom report settings
-- Integrating Centreon MBI configuration data
-- Integrating database data
-- Deleting data extracted from the backup
-- Reinstalling the backup.
+If you don't have MBI anymore on the central server, you need to:
+- Reinstall the **centreon-bi-server** module in the same version as the one you used before
+- Restore the generated reports
+- Restore custom report designs and libraries (optional)
+- Restore Centreon MBI module data (jobs, ETL configuration, etc)
+- Delete the data from the extracted backup.
 
-### Restore the Centreon MBI module 
+On your MBI server, you need to:
+- Extract your LVM backup of your MBI database
+- Delete data extracted from the backup
+- Reinstall the backup.
 
-#### Re-install the centreon-bi-server module in the same version as the one saved
+### Restore the Centreon MBI module on the central server
 
-On the central server, run the following commands (replace x.y.z by the correct version number):
+#### Re-install the centreon-bi-server module in the same version as the one you used before
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+See [the corresponding installation procedure](install.md#step-2-install-the-extension-on-centreon).
 
-```shell
-dnf install centreon-bi-server-x.y.z
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install centreon-bi-server-x.y.z
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-Install **gpg**:
-
-```shell
-apt install gpg
-```
-
-Import the repository key:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Then install Centreon MBI:
-
-```shell
-apt update && apt install centreon-bi-server-x.y.z
-```
-
-</TabItem>
-</Tabs>
-
-#### Integrate generated reports
+#### Extract your backup to your /tmp folder
 
 Take the latest **centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz** backup and extract it to the **/tmp** directory (by default, the backup folder used is **/var/backup**, change this in the command below if needed):
 
@@ -174,13 +140,15 @@ Take the latest **centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz** 
 tar xzf /var/backup/centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz -C /tmp
 ```
 
+#### Restore the generated reports
+
 Then copy the backed up reports:
 
 ```
 cp -rf /tmp/var/lib/centreon/centreon-bi-server/archives/* /var/lib/centreon/centreon-bi-server/archives
 ```
 
-> If the directory is different than expected, you have to changed the
+> If the directory is different than expected, you have to change the
 > default settings. Just specify the right path.
 
 Change the rights for the files:
@@ -189,9 +157,9 @@ Change the rights for the files:
 chown -R centreonBI:centreonBI /var/lib/centreon/centreon-bi-server/archives
 ```
 
-#### Integrate custom report settings (optional)
+#### Restore custom report designs and libraries (optional)
 
-Copy the saved settings:
+This step applies only if you were using custom report designs. Copy the saved settings from your **/tmp** folder:
 
 ```
 cp -rf /tmp/usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl/* /usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl
@@ -209,9 +177,9 @@ Change the rights for the files:
 chown -R apache:apache /usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl
 ```
 
-#### Integrate Centreon MBI configuration data
+#### Restore Centreon MBI module data
 
-Import the SQL backup using the command:
+Import the SQL backup using the following command:
 
 ```
 mysql -u root -p centreon_storage < /tmp/var/backup/dump_centreon_storage.sql
@@ -229,33 +197,20 @@ rm -Rf /tmp/var
 
 ### Restore the Centreon MBI server
 
-The restore process is divided into several steps:
+The full restoration process is divided into several steps (you can skip the ones that don't apply to your case):
 
-- Reinstalling **centreon-bi-reporting-server** module in the same version
-    as the one saved
-- Integrating the CBIS configuration
-- Integrating the custom report designs
-- Restarting the CBIS engine
-- Deleting the data from the extracted backup
-- Reinstalling the backup.
-
-> If you are provisioning a new server, follow the server configuration prerequisites and install the Centreon Business repository.
+- Reinstall **centreon-bi-reporting-server** module in the same version as the one you used before
+- Restore the CBIS configuration
+- Restore the report designs
+- Restore database data
+- Restart the CBIS engine
+- Delete the data from the extracted backup.
 
 #### Reinstall the centreon-bi-reporting-server module in the same version as the one saved
 
-On the MBI server, run the following command (replace x.y.z with the exact version of the saved module):
+If you are provisioning a new server, follow [the corresponding installation procedure](installation.md#step-3-install-the-reporting-server).
 
-```
-yum install centreon-bi-reporting-server-x.y.z
-```
-
-if your installation was up-to-date, you can just execute:
-
-```
-yum install centreon-bi-reporting-server
-```
-
-#### Integrating the CBIS configuration
+### Extract your backup to your /tmp folder
 
 Take the latest **centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz** backup and extract it to **/tmp** directory (by default, the backup folder used is /var/backup, change this in the command below if needed):
 
@@ -263,13 +218,15 @@ Take the latest **centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz** backup and e
 tar xzf /var/backup/centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz -C /tmp
 ```
 
+#### Restore the CBIS configuration
+
 Then copy the **cbis** settings:
 
 ```
 cp -rf /tmp/etc/centreon-bi/* /etc/centreon-bi
 ```
 
-#### Integrating the custom reports settings
+#### Restore the report settings
 
 Then copy the report designs:
 
@@ -280,7 +237,7 @@ cp -rf /tmp/usr/share/centreon-bi/Resources/* /usr/share/centreon-bi/Resources
 chown -R centreonBI:centreonBI /usr/share/centreon-bi/Resources
 ```
 
-### Integrating database data
+### Restore database data
 
 Stop the MariaDB/MySQL service:
 
@@ -326,7 +283,7 @@ Start the MariaDB/MySQL service:
 systemctl start mysql
 ```
 
-#### Restarting the CBIS engine
+#### Restart the CBIS engine
 
 Restart CBIS using the following command:
 
