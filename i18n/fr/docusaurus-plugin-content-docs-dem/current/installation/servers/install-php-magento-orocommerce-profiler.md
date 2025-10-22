@@ -18,7 +18,15 @@ Le module PHP Quanta se présente sous la forme d'une extension PHP et vous perm
 
 # Compatibilité
 
-QUANTA PHP Module Compatibility list : bientôt disponible.
+| Distribution | Version OS | Version PHP | Module PHP Quanta |
+|--------------|------------|-------------|-------------------|
+| Debian | Buster (10) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
+| Debian | Bullseye (11) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
+| Debian | Bookworm (12) | 7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
+| Ubuntu | Jammy (22.04) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
+| Ubuntu | Kinetic (22.10) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
+| Ubuntu | Lunar (23.04) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
+| CentOS | 7 | 7.3/7.4 | 1.3.3 (beta repo) |
 
 # Installation
 
@@ -29,7 +37,7 @@ QUANTA PHP Module Compatibility list : bientôt disponible.
 
 ### Installer le module PHP Quanta pour Debian / Ubuntu
 
-Il vous faudra avoir ajouté les [dépôts Quanta](https://support.quanta-monitoring.com/hc/fr/articles/360018850454#Debian), vous avez déjà dû le faire lors de l'installation de l'agent.
+Il vous faudra avoir ajouté les dépôts Quanta, vous avez déjà dû le faire lors de l'installation de l'agent.
 
 En fonction de votre version de PHP, il vous faudra installer le package correspondant. Voici quelques exemples:
 
@@ -72,7 +80,7 @@ phpenmod quanta_mon
 
 ### Installer le module PHP Quanta pour CentOS / RedHat
 
-Il vous faudra avoir ajouté les [dépôts Quanta](https://support.quanta-monitoring.com/hc/fr/articles/360018850454#Centos), vous avez déjà dû le faire lors de l'installation de l'agent.
+Il vous faudra avoir ajouté les dépôts Quanta, vous avez déjà dû le faire lors de l'installation de l'agent.
 
 En fonction de votre version de PHP, il vous faudra installer le package correspondant, par exemple:
 
