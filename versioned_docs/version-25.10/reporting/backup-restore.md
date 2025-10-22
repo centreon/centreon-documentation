@@ -6,14 +6,10 @@ title: Backing up and restoring MBI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Centreon MBI backup 
+WHen you install Centreon MBI, crons are automatically installed to backup all your files, one on the central and one on the MBI server.
+Each cron backs up the data that is stored on each server. According to the problem you encounter, you will be able to restore the impacted component (MBI module on the central server, or MBI server or ETL data...).
 
-Centreon MBI backup triggers crons to backup all your files:
-
-- on your Central to backup MBI module, all your reports and database containing ETL configuration.
-- on your MBI server to backup MBI datawarehouse, yours databases, cbis configuration files and birt files.
-
-> Each backup script uses purge mechanism to delete old data
+Each backup script uses a purge mechanism to delete old backup data.
 
 ### Backing up your central server
 
@@ -29,7 +25,7 @@ Centreon MBI backup triggers crons to backup all your files:
 
 #### How the backup script works on the central server
 
-The backup script is executed on a daily basis using a cron job located on your cental server, in **/etc/cron.d/centreon-bi-interface-crons**:
+The backup script is executed on a daily basis using a cron job located on your central server, in **/etc/cron.d/centreon-bi-interface-crons**:
 
 ```
 #
@@ -112,25 +108,13 @@ The backup script itself is stored here: **/usr/share/centreon-bi-backup/centreo
 
 ## Restoring Centreon MBI
 
-If you need to reinstall your MBI from scratch from a backup, follow these steps:
-
-If you don't have MBI anymore on the central server, you need to:
-- Reinstall the **centreon-bi-server** module in the same version as the one you used before
-- Restore the generated reports
-- Restore custom report designs and libraries (optional)
-- Restore Centreon MBI module data (jobs, ETL configuration, etc)
-- Delete the data from the extracted backup.
-
-On your MBI server, you need to:
-- Extract your LVM backup of your MBI database
-- Delete data extracted from the backup
-- Reinstall the backup.
+If you need to reinstall your MBI from scratch from a backup, follow these steps. If you only need to restore part of your MBI, just perform the corresponding step.
 
 ### Restore the Centreon MBI module on the central server
 
-#### Re-install the centreon-bi-server module in the same version as the one you used before
+#### Reinstall the centreon-bi-server module in the same version as the one you used before
 
-See [the corresponding installation procedure](install.md#step-2-install-the-extension-on-centreon).
+See [the corresponding installation procedure](installation.md#step-2-install-the-extension-on-centreon).
 
 #### Extract your backup to your /tmp folder
 
