@@ -8,6 +8,8 @@ import TabItem from '@theme/TabItem';
 
 Si vous souhaitez automatiser la création ou la maintenance de cartes standard, vous pouvez utiliser l'API de Centreon MAP.
 
+> Veuillez noter que les endpoints spécifiés dans cette page ont été mis à jour suite à la dépréciation de la version bêta. Depuis la version 24.10, `beta` est remplacé par `latest` dans les chemins d'accès.
+
 ## Permissions
 
 Avec cette API, vous pouvez créer / mettre à jour / supprimer des cartes standard. Pour pouvoir utiliser l'API, le compte que vous utilisez doit avoir l'un des privilèges suivants :
@@ -25,7 +27,7 @@ Avec cette API, vous pouvez créer / mettre à jour / supprimer des cartes stand
 <TabItem value="HTTP" label="HTTP">
 
 ```
-POST : http://serverURL:8081/centreon-map/api/beta/auth/sign-in
+POST : http://serverURL:8081/centreon-map/api/latest/auth/sign-in
 ```
 
 </TabItem>
@@ -33,7 +35,7 @@ POST : http://serverURL:8081/centreon-map/api/beta/auth/sign-in
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-POST : https://serverURL:9443/centreon-map/api/beta/auth/sign-in
+POST : https://serverURL:9443/centreon-map/api/latest/auth/sign-in
 ```
 
 </TabItem>
@@ -67,7 +69,7 @@ Headers {
 <TabItem value="HTTP" label="HTTP">
 
 ```
-POST http://serverURL:8081/centreon-map/api/beta/maps
+POST http://serverURL:8081/centreon-map/api/latest/maps
 ```
 
 </TabItem>
@@ -75,7 +77,7 @@ POST http://serverURL:8081/centreon-map/api/beta/maps
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-POST https://serverURL:9443/centreon-map/api/beta/maps
+POST https://serverURL:9443/centreon-map/api/latest/maps
 ```
 
 </TabItem>
@@ -101,7 +103,7 @@ Body {
 <TabItem value="HTTP" label="HTTP">
 
 ```
-GET http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views/_viewId_
+GET http://serverURL:8081/centreon-map/api/latest/maps/_mapId_/views/_viewId_
 ```
 
 </TabItem>
@@ -109,7 +111,7 @@ GET http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views/_viewId_
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-GET https://serverURL:9443/centreon-map/api/beta/maps/_mapId_/views/_viewId_
+GET https://serverURL:9443/centreon-map/api/latest/maps/_mapId_/views/_viewId_
 ```
 
 </TabItem>
@@ -123,7 +125,7 @@ Dans ce scénario, l'élément "shape" est un rectangle.
 <TabItem value="HTTP" label="HTTP">
 
 ```
-PUT http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views
+PUT http://serverURL:8081/centreon-map/api/latest/maps/_mapId_/views
 ```
 
 </TabItem>
@@ -131,7 +133,7 @@ PUT http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-PUT https://serverURL:9443/centreon-map/api/beta/maps/_mapId_/views
+PUT https://serverURL:9443/centreon-map/api/latest/maps/_mapId_/views
 ```
 
 </TabItem>
