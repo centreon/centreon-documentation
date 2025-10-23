@@ -111,7 +111,7 @@ Si vous devez complètement réinstaller votre MBI à partir d'une sauvegarde, s
 
 ### Restauration des données de configuration sur le serveur central
 
-#### Réinstallation du module web Centreon MBI sur le serveur central
+#### Réinstaller le module web Centreon MBI sur le serveur central dans la même version que celle utilisée précédemment
 
 Voir [la procédure d'installation correspondante](installation.md#étape-2--installez-linterface-centreon-mbi-dans-lapplication-centreon).
 
@@ -177,11 +177,11 @@ rm -Rf /tmp/usr
 rm -Rf /tmp/var
 ```
 
-### Restauration du serveur MBI
+### Restaurer le serveur MBI
 
 Le processus complet de restauration se divise en plusieurs étapes (vous pouvez ignorer celles qui ne s'appliquent pas à votre cas).
 
-#### Réinstallation du module Centreon MBI dans la m^me version que celle utilisée précédemment
+#### Réinstaller le module Centreon MBI dans la même version que celle utilisée précédemment
 
 > Si vous provisionnez un nouveau serveur, suivez [la procédure d'installation correspondante](installation.md#étape-3--installez-le-serveur-de-reporting).
 
@@ -257,7 +257,7 @@ Démarrez le service MariaDB/MySQL :
 systemctl start mysql
 ```
 
-#### Redémarrage du moteur CBIS
+#### Redémarrer le moteur CBIS
 
 Redémarrez CBIS avec la commande :
 
