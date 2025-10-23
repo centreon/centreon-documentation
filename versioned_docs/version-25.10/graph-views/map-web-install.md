@@ -273,8 +273,6 @@ configuration file, you should not use a Centreon admin user account.
 - Log into Centreon and go to the **Configuration > Users > Contacts/Users** page. Then click the **Centreon Authentication** tab.
 - Set the **Reach API Realtime** parameter to **Yes**.
 
-![image](../assets/graph-views/reach-api.png)
-
 Exclude the user from the password expiration policy on the **Administration > Authentication** page: their password will never expire.
 
 ![image](../assets/graph-views/password-expiration-policy.png)
