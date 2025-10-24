@@ -97,10 +97,8 @@ Release date: `October 29, 2025`
 - [Metaservices] Fixed several issues occuring when using MySQL 8.
 - [Metaservices] Fixed SQLi issues.
 - [Monitoring] A new, modern version of the BA monitoring page is now available.
-- Once this patch applied, partitioning will work again with Amazon RDV Aurora but will be very costly the first time (as nont done for a while).
-- Optimized UI in Additional Connectors Configuration feature.
-- [Packaging] Increased php memory limit in centreon php configuration.
-- Reset password form now take into account login page customization.
+- [Packaging] Increased the PHP memory limit in centreon PHP configuration.
+- The **Reset password** form now applies the customizations defined for the login page.
 - [Resource Status] Added Flapping state in "find ressource by parent" endpoint.
 - [Resource Status] Added Flapping state in listing of resources and details panel.
 - [Resource Status] Added the possibility to export in CSV format the current data being displayed.
@@ -155,6 +153,7 @@ Release date: `October 29, 2025`
 - [Configuration] Fixed XSS in Configuration > SNMP Traps form
 - [Vulnerability] Fixed XSS vulnerability on Connectors.
 - [Vulnerability] [security] Fixed an RCE on poller reload page.
+- [Vulnerability] Disabled shell interpretation for discovery commands by default. Can be enabled again with a Gorgone configuration file parameter.
 
 </details>
 
