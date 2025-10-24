@@ -77,6 +77,9 @@ Release date: `October 29, 2025`
 - [Core] Rectangular logos are now correctly displayed on the login page.
 - [Core] Updated PHP dependencies to version 8.2.
 - [Credentials encryption] Macros containing credentials are now encrypted when the configuration is deployed on pollers.
+  * Encryption is now set by default for new pollers + existing central pollers.
+  * It will be automatically activated for existing pollers, once these pollers are ready to decrypt (i.e., have a valid key file and pass the decryption test successfully). The process is automatic and driven by Engine.
+  * Breaking change : the poller installation script will now require the admin account to be used, as it will retrieve the encryption key from central server.
 - [Custom Views] **Global Health** and **Top 10** widgets: improved display and fixed an issue with MySQL8.
 - [Dashboards] Added default sizes for widgets, and optimized their default positioning on the grid of the dashboard.
 - [Dashboards] Added metaservices to metric widgets (Single metric, Metrics graph, Top/Bottom).
