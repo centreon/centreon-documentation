@@ -385,7 +385,7 @@ Exemple:
 > Remplacez **\<IP_TARGET_NODE\>** par l'adresse IP du serveur Central ou du serveur distant auquel vous voulez rattacher le collecteur (adresse IP vue par le
 > collecteur).
 
-> Le compte **\<API_ACCOUNT\>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
+> Vous devez utiliser le compte **admin** pour le paramètre **\<API_ACCOUNT\>**.
 
 > Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
 > `HTTPS://<IP_TARGET_NODE>:PORT`
