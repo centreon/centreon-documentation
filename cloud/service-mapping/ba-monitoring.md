@@ -50,6 +50,3 @@ The detailed view is divided into six parts:
 - Area containing the BA **Impact tree**. You can open a sublevel, zoom in and out and move the tree.
 - Table containing the **KPI list** impacting the BA level.
 - The **Status timeline** bar displaying a timeline of statuses.
-
-The list of KPIs displays real-time information on their status and also their
-impact on the BA.

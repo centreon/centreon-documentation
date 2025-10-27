@@ -54,5 +54,3 @@ La vue détaillée d'une BA est divisée en 6 parties.
 - Zone contenant l'arbre d'impact de l'activité métier. Vous pouvez ouvrir un sous-niveau, zoomer et dézoomer, et déplacer l'arborescence.
 - Tableau contenant la liste des KPIs ayant un impact sur le niveau de l'activité métier.
 - Barre de chronologie des statuts affichant une séquence chronologique des différents statuts.
-
-Le tableau des KPIs affichent en temps réel les informations sur leurs états mais aussi les impacts sur la BA.
