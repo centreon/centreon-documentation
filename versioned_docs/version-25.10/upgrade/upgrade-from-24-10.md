@@ -97,8 +97,6 @@ apt update
 
 > If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
 >
-> If you have a Business edition, do the same with the Business repository.
->
 > You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Upgrade the Centreon solution

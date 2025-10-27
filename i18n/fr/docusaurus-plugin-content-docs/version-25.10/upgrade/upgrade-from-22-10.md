@@ -87,8 +87,6 @@ apt update
 
 > Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
 >
-> Si vous avez une édition Business, faites de même avec le dépôt Business.
->
 > Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 ### Montée de version de PHP
