@@ -8,6 +8,8 @@ import TabItem from '@theme/TabItem';
 This chapter describes how to upgrade your Centreon platform from version 20.10
 to version 25.10.
 
+> Version 20.10 is no longer supported. Upgrade from this version has not been tested by the Centreon QA team.
+
 You cannot simply upgrade Centreon from a version earlier than 20.10 to version 25.10, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../migrate/introduction.md).
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).

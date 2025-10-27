@@ -8,6 +8,8 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 20.10 vers la version 25.10.
 
+> La version 20.10 n'est plus supportée. La montée de version à partir de cette version n'a pas été testée par l'équipe d'assurance qualité de Centreon.
+
 Vous ne pouvez pas simplement monter de version depuis une version antérieure à Centreon 20.10 et vers une version 25.10, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../migrate/introduction.md).
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo).
