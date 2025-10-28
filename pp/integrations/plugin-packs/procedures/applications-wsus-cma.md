@@ -1,63 +1,49 @@
 ---
-id: applications-wsus-nsclient
-title: Microsoft WSUS Server
+id: applications-wsus-cma
+title: Microsoft WSUS CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du connecteur de supervision
+## Connector dependencies
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft WSUS**
-depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+The following monitoring connectors will be installed when you install the **Microsoft WSUS CMA** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
-## Contenu du pack
+## Pack assets
 
-### Modèles
+### Templates
 
-Le connecteur de supervision **Microsoft WSUS** apporte 2 modèles d'hôte :
+The Monitoring Connector **Microsoft WSUS CMA** brings 2 host templates:
 
-* **App-Wsus-NRPE-custom**
-* **App-Wsus-NSClient-05-Restapi-custom**
+* **App-Wsus-CMA-custom**
 
-Le connecteur apporte les modèles de service suivants
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
+<TabItem value="App-Wsus-CMA-custom" label="App-Wsus-CMA-custom">
 
-| Alias                  | Modèle de service                                         | Description                                                                    |
-|:-----------------------|:----------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Computers-Status       | App-Wsus-Computers-Status-NRPE-custom                     | Contrôle le nombre d'ordinateurs dans chacun des statuts                       |
-| Server-Statistics      | App-Wsus-Server-Statistics-NRPE-custom                    | Contrôle plusieurs statistiques du serveur WSUS                                |
-| Synchronisation-Status | App-Wsus-Synchronisation-Status-NRPE-custom               | Contrôle le statut de la synchronisation des mises à jour avec le serveur WSUS |
-| Update-Status          | App-Wsus-Update-Status-NRPE-custom                        | Contrôle le statut des mises à jour                                            |
+| Alias                  | Modèle de service                          | Description                                           |
+|:-----------------------|:-------------------------------------------|:------------------------------------------------------|
+| Computers-Status       | App-Wsus-Computers-Status-CMA-custom       | Check computers status count                          |
+| Server-Statistics      | App-Wsus-Server-Statistics-CMA-custom      | Check serveral WSUS server statistics                 |
+| Synchronisation-Status | App-Wsus-Synchronisation-Status-CMA-custom | Check updates synchronisation with WSUS server status |
+| Update-Status          | App-Wsus-Update-Status-CMA-custom          | Check updates status                                  |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Wsus-NRPE-custom** est utilisé.
-
-</TabItem>
-<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
-
-| Alias                  | Modèle de service                                         | Description                                                                    |
-|:-----------------------|:----------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Computers-Status       | App-Wsus-Computers-Status-NSClient05-Restapi-custom       | Contrôle le nombre d'ordinateurs dans chacun des statuts                       |
-| Server-Statistics      | App-Wsus-Server-Statistics-NSClient05-Restapi-custom      | Contrôle plusieurs statistiques du serveur WSUS                                |
-| Synchronisation-Status | App-Wsus-Synchronisation-Status-NSClient05-Restapi-custom | Contrôle le statut de la synchronisation des mises à jour avec le serveur WSUS |
-| Update-Status          | App-Wsus-Update-Status-NSClient05-Restapi-custom          | Contrôle le statut des mises à jour                                            |
-
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Wsus-NSClient-05-Restapi-custom** est utilisé.
+> The services listed above are created automatically when the **App-Wsus-CMA-custom** host template is used.
 
 </TabItem>
 </Tabs>
 
-### Métriques & statuts collectés
+### Collected metrics & status
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Computers-Status*" label="Computers-Status*">
+<TabItem value="Computers-Status" label="Computers-Status">
 
-| Nom                | Unité |
+| Name               | Unit  |
 |:-------------------|:------|
 | up-to-date         | N/A   |
 | needing-updates    | N/A   |
@@ -65,14 +51,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | not-contacted      | N/A   |
 | unassigned         | N/A   |
 
-> Concerne les modèles de service suivants : Computers-Status-NRPE, Computers-Status-NSClient-Restapi
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Server-Statistics*" label="Server-Statistics*">
+<TabItem value="Server-Statistics" label="Server-Statistics">
 
-| Nom                  | Unité |
+| Name                 | Unit  |
 |:---------------------|:------|
 | computers            | N/A   |
 | computer-groups      | N/A   |
@@ -83,28 +67,24 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | stale-updates        | N/A   |
 | expired-updates      | N/A   |
 
-> Concerne les modèles de service suivants : Server-Statistics-NRPE, Server-Statistics-NSClient-Restapi
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Synchronisation-Status*" label="Synchronisation-Status*">
+<TabItem value="Synchronisation-Status" label="Synchronisation-Status">
 
-| Nom                           | Unité |
+| Name                          | Unit  |
 |:------------------------------|:------|
 | synchronisation-status        | N/A   |
 | synchronisation_progress      | N/A   |
 | last-synchronisation-status   | N/A   |
 | last_synchronisation_duration | s     |
 
-> Concerne les modèles de service suivants : Synchronisation-Status-NRPE, Synchronisation-Status-NSClient-Restapi
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Update-Status*" label="Update-Status*">
+<TabItem value="Update-Status" label="Update-Status">
 
-| Nom                 | Unité |
+| Name                | Unit  |
 |:--------------------|:------|
 | with-client-errors  | N/A   |
 | with-server-errors  | N/A   |
@@ -112,268 +92,204 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | needed-by-computers | N/A   |
 | up-to-date          | N/A   |
 
-> Concerne les modèles de service suivants : Update-Status-NRPE, Update-Status-NSClient-Restapi
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
 
-## Prérequis
+## Prerequisites
 
-### Centreon NSClient++
+### Network flow
 
-<Tabs groupId="sync">
-<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
+Only one TCP flow must be open from the host to the poller.
 
-Pour surveiller les ressources *WSUS Server* via NRPE, installez la version Centreon de l'agent NSClient++.
-Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que le **serveur NRPE**
-embarqué est correctement configuré.
+| Source         | Destination | Protocol | Port | Purpose                                              |
+|----------------|-------------|----------|------|------------------------------------------------------|
+| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow |
 
-</TabItem>
-<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
+### System prerequisites on the poller
 
-Pour surveiller les ressources *WSUS Server* via NSClient++ API, installez la version Centreon de l'agent NSClient++.
-Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur Web / RestAPI** est correcte.
+> To be able to use the Centreon Monitoring agent, you must use a poller with at least version <!--`24.09.0` for Centreon Cloud users and version--> `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
 
-</TabItem>
-</Tabs>
+### Configure Engine
 
-## Installer le connecteur de supervision
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
+
+### System prerequisites on the monitored host
+
+The installer can be downloaded from the [centreon-collect's releases page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
+
+#### Installing the Centreon Monitoring Agent
+
+The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in 
+[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
+
+## Installing the monitoring connector
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
-1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
-Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquets
-associé à sa distribution :
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-wsus-nsclient
+dnf install centreon-pack-applications-wsus-cma
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-wsus-nsclient
+dnf install centreon-pack-applications-wsus-cma
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-applications-wsus-nsclient
+apt install centreon-pack-applications-wsus-cma
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-wsus-nsclient
+yum install centreon-pack-applications-wsus-cma
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Microsoft WSUS**
-depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+2. Whatever the license type (*online* or *offline*), install the **Microsoft WSUS CMA** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
-À partir de Centreon 22.04, il est possible de demander le déploiement automatique
-du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
-que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
-étape n'est pas requise.
+This connector relies on an integration supported by Centreon Engine and does not need a plugin.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+## Using the monitoring connector
 
-Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+### Using a host template provided by the connector
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="App-Wsus-CMA-custom" label="App-Wsus-CMA-custom">
 
-```bash
-dnf install
-```
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Wsus-CMA-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+| Macro                | Description                                             | Default value                     | Mandatory   |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:-----------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X      |
+| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |             |
 
-```bash
-dnf install
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```bash
-apt install
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install
-```
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
 </TabItem>
 </Tabs>
 
-## Utiliser le connecteur de supervision
+### Using a service template provided by the connector
 
-### Utiliser un modèle d'hôte issu du connecteur
-
-<Tabs groupId="sync">
-<TabItem value="App-Wsus-NRPE-custom" label="App-Wsus-NRPE-custom">
-
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **App-Wsus-NRPE-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
-
-| Macro                     | Description                                                                                          | Valeur par défaut     | Obligatoire |
-|:--------------------------|:-----------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NRPEPORT                  | Port used to reach the NRPE server                                                                                                  | 5666                  |             |
-| NRPECLIENT                | NRPE Plugin binary to use                                                                                                     | check\_centreon\_nrpe |             |
-| NRPETIMEOUT               | Timeout value                                                                                                   | 55                    |             |
-| NRPEEXTRAOPTIONS          | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                       |             |
-
-5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
-
-</TabItem>
-<TabItem value="App-Wsus-NSClient-05-Restapi-custom" label="App-Wsus-NSClient-05-Restapi-custom">
-
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **App-Wsus-NSClient-05-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
-
-| Macro                     | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:--------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                                                                                                     |                   |             |
-| NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use                                                                                                     | https             |             |
-| NSCPRESTAPIPORT           | NSClient++ RestAPI port                                                                                                     | 8443              |             |
-
-5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
-
-</TabItem>
-</Tabs>
-
-### Utiliser un modèle de service issu du connecteur
-
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
-2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
 <TabItem value="Computers-Status" label="Computers-Status">
 
-| Macro                    | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NOTUPDATEDSINCE          | Time in days to count computers not updated since (default: 30)                                    |                   |             |
-| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example: --filter-counters='errors'               |                   |             |
-| WARNINGNEEDINGUPDATES    | Threshold                                                                                          |                   |             |
-| CRITICALNEEDINGUPDATES   | Threshold                                                                                          |                   |             |
-| WARNINGNOTCONTACTED      | Threshold                                                                                          |                   |             |
-| CRITICALNOTCONTACTED     | Threshold                                                                                          |                   |             |
-| WARNINGUNASSIGNED        | Threshold                                                                                          |                   |             |
-| CRITICALUNASSIGNED       | Threshold                                                                                          |                   |             |
-| WARNINGUPTODATE          | Threshold                                                                                          |                   |             |
-| CRITICALUPTODATE         | Threshold                                                                                          |                   |             |
-| WARNINGWITHUPDATEERRORS  | Threshold                                                                                          |                   |             |
-| CRITICALWITHUPDATEERRORS | Threshold                                                                                          |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro                    | Description                                                                                                                            | Default value | Mandatory |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| NOTUPDATEDSINCE          | Time in days to count computers not updated since (default: 30)                                                                        |               |           |
+| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example: --filter-counters='errors'                                                   |               |           |
+| WARNINGNEEDINGUPDATES    | Threshold                                                                                                                              |               |           |
+| CRITICALNEEDINGUPDATES   | Threshold                                                                                                                              |               |           |
+| WARNINGNOTCONTACTED      | Threshold                                                                                                                              |               |           |
+| CRITICALNOTCONTACTED     | Threshold                                                                                                                              |               |           |
+| WARNINGUNASSIGNED        | Threshold                                                                                                                              |               |           |
+| CRITICALUNASSIGNED       | Threshold                                                                                                                              |               |           |
+| WARNINGUPTODATE          | Threshold                                                                                                                              |               |           |
+| CRITICALUPTODATE         | Threshold                                                                                                                              |               |           |
+| WARNINGWITHUPDATEERRORS  | Threshold                                                                                                                              |               |           |
+| CRITICALWITHUPDATEERRORS | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Server-Statistics" label="Server-Statistics">
 
-| Macro                      | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:---------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCOUNTERS             | Only display some counters (regexp can be used). Example: --filter-counters='not'                  |                   |             |
-| WARNINGAPPROVEDUPDATES     | Threshold                                                                                          |                   |             |
-| CRITICALAPPROVEDUPDATES    | Threshold                                                                                          |                   |             |
-| WARNINGCOMPUTERGROUPS      | Threshold                                                                                          |                   |             |
-| CRITICALCOMPUTERGROUPS     | Threshold                                                                                          |                   |             |
-| WARNINGCOMPUTERS           | Threshold                                                                                          |                   |             |
-| CRITICALCOMPUTERS          | Threshold                                                                                          |                   |             |
-| WARNINGDECLINEDUPDATES     | Threshold                                                                                          |                   |             |
-| CRITICALDECLINEDUPDATES    | Threshold                                                                                          |                   |             |
-| WARNINGEXPIREDUPDATES      | Threshold                                                                                          |                   |             |
-| CRITICALEXPIREDUPDATES     | Threshold                                                                                          |                   |             |
-| WARNINGNOTAPPROVEDUPDATES  | Threshold                                                                                          |                   |             |
-| CRITICALNOTAPPROVEDUPDATES | Threshold                                                                                          |                   |             |
-| WARNINGSTALEUPDATES        | Threshold                                                                                          |                   |             |
-| CRITICALSTALEUPDATES       | Threshold                                                                                          |                   |             |
-| WARNINGUPDATES             | Threshold                                                                                          |                   |             |
-| CRITICALUPDATES            | Threshold                                                                                          |                   |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro                      | Description                                                                                                                            | Default value | Mandatory |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERCOUNTERS             | Only display some counters (regexp can be used). Example: --filter-counters='not'                                                      |               |           |
+| WARNINGAPPROVEDUPDATES     | Threshold                                                                                                                              |               |           |
+| CRITICALAPPROVEDUPDATES    | Threshold                                                                                                                              |               |           |
+| WARNINGCOMPUTERGROUPS      | Threshold                                                                                                                              |               |           |
+| CRITICALCOMPUTERGROUPS     | Threshold                                                                                                                              |               |           |
+| WARNINGCOMPUTERS           | Threshold                                                                                                                              |               |           |
+| CRITICALCOMPUTERS          | Threshold                                                                                                                              |               |           |
+| WARNINGDECLINEDUPDATES     | Threshold                                                                                                                              |               |           |
+| CRITICALDECLINEDUPDATES    | Threshold                                                                                                                              |               |           |
+| WARNINGEXPIREDUPDATES      | Threshold                                                                                                                              |               |           |
+| CRITICALEXPIREDUPDATES     | Threshold                                                                                                                              |               |           |
+| WARNINGNOTAPPROVEDUPDATES  | Threshold                                                                                                                              |               |           |
+| CRITICALNOTAPPROVEDUPDATES | Threshold                                                                                                                              |               |           |
+| WARNINGSTALEUPDATES        | Threshold                                                                                                                              |               |           |
+| CRITICALSTALEUPDATES       | Threshold                                                                                                                              |               |           |
+| WARNINGUPDATES             | Threshold                                                                                                                              |               |           |
+| CRITICALUPDATES            | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Synchronisation-Status" label="Synchronisation-Status">
 
-| Macro                               | Description                                                                                                                                         | Valeur par défaut          | Obligatoire |
-|:------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| FILTERCOUNTERS                      | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                |                            |             |
-| WARNINGLASTSYNCHRONISATIONDURATION  | Threshold                                                                                                                                           |                            |             |
-| CRITICALLASTSYNCHRONISATIONDURATION | Threshold                                                                                                                                           |                            |             |
-| CRITICALLASTSYNCHRONISATIONSTATUS   | Set critical threshold for current synchronisation status (default: '%\{status\} !~ /Succeeded/'). You can use the following variables: %\{status\} | %\{status\} !~ /Succeeded/ |             |
-| WARNINGLASTSYNCHRONISATIONSTATUS    | Set warning threshold for current synchronisation status (default: '') You can use the following variables: %\{status\}                             |                            |             |
-| WARNINGSYNCHRONISATIONPROGRESS      | Threshold                                                                                                                                           |                            |             |
-| CRITICALSYNCHRONISATIONPROGRESS     | Threshold                                                                                                                                           |                            |             |
-| WARNINGSYNCHRONISATIONSTATUS        | Set warning threshold for current synchronisation status (default: '') You can use the following variables: %\{status\}                             |                            |             |
-| CRITICALSYNCHRONISATIONSTATUS       | Set critical threshold for current synchronisation status (default: ''). You can use the following variables: %\{status\}                           |                            |             |
-| EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                  | --verbose                  |             |
+| Macro                               | Description                                                                                                                            | Default value              | Mandatory |
+|:------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:---------:|
+| FILTERCOUNTERS                      | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                   |                            |           |
+| WARNINGLASTSYNCHRONISATIONDURATION  | Threshold                                                                                                                              |                            |           |
+| CRITICALLASTSYNCHRONISATIONDURATION | Threshold                                                                                                                              |                            |           |
+| CRITICALLASTSYNCHRONISATIONSTATUS   | Set critical threshold for current synchronisation status. You can use the following variables: %\{status\}                            | %\{status\} !~ /Succeeded/ |           |
+| WARNINGLASTSYNCHRONISATIONSTATUS    | Set warning threshold for current synchronisation status. You can use the following variables: %\{status\}                             |                            |           |
+| WARNINGSYNCHRONISATIONPROGRESS      | Threshold                                                                                                                              |                            |           |
+| CRITICALSYNCHRONISATIONPROGRESS     | Threshold                                                                                                                              |                            |           |
+| WARNINGSYNCHRONISATIONSTATUS        | Set warning threshold for current synchronisation status. You can use the following variables: %\{status\}                             |                            |           |
+| CRITICALSYNCHRONISATIONSTATUS       | Set critical threshold for current synchronisation status. You can use the following variables: %\{status\}                            |                            |           |
+| EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                  |           |
 
 </TabItem>
 <TabItem value="Update-Status" label="Update-Status">
 
-| Macro                    | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example: --filter-counters='errors'               |                   |             |
-| WARNINGNEEDEDBYCOMPUTER  | Threshold                                                                                          |                   |             |
-| CRITICALNEEDEDBYCOMPUTER | Threshold                                                                                          |                   |             |
-| WARNINGNEEDINGFILES      | Threshold                                                                                          |                   |             |
-| CRITICALNEEDINGFILES     | Threshold                                                                                          |                   |             |
-| WARNINGUPTODATE          | Threshold                                                                                          |                   |             |
-| CRITICALUPTODATE         | Threshold                                                                                          |                   |             |
-| WARNINGWITHCLIENTERRORS  | Threshold                                                                                          |                   |             |
-| CRITICALWITHCLIENTERRORS | Threshold                                                                                          |                   |             |
-| WARNINGWITHSERVERERRORS  | Threshold                                                                                          |                   |             |
-| CRITICALWITHSERVERERRORS | Threshold                                                                                          |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro                    | Description                                                                                                                            | Default value | Mandatory |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example: --filter-counters='errors'                                                   |               |           |
+| WARNINGNEEDEDBYCOMPUTER  | Threshold                                                                                                                              |               |           |
+| CRITICALNEEDEDBYCOMPUTER | Threshold                                                                                                                              |               |           |
+| WARNINGNEEDINGFILES      | Threshold                                                                                                                              |               |           |
+| CRITICALNEEDINGFILES     | Threshold                                                                                                                              |               |           |
+| WARNINGUPTODATE          | Threshold                                                                                                                              |               |           |
+| CRITICALUPTODATE         | Threshold                                                                                                                              |               |           |
+| WARNINGWITHCLIENTERRORS  | Threshold                                                                                                                              |               |           |
+| CRITICALWITHCLIENTERRORS | Threshold                                                                                                                              |               |           |
+| WARNINGWITHSERVERERRORS  | Threshold                                                                                                                              |               |           |
+| CRITICALWITHSERVERERRORS | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser une ressource en utilisant une commande
-telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+Test that the plugin is able to monitor your Windows server by using a command like this one (replace the sample values by yours):
 
-```bash
-/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin \
-	--mode=query \
-	--hostname=10.0.0.1 \
-	--port='' \
-	--proto='' \
-	--legacy-password=''  \
-	--command=check_centreon_plugins \
-	--arg='apps::microsoft::wsus::local::plugin' \
-	--arg='updates-status' \
-	--arg=' \
+```cmd
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin=apps::microsoft::wsus::local::plugin \
+    --mode=updates-status \
 	--wsus-server="" \
 	--wsus-port="" \
 	--filter-counters="" \
@@ -387,50 +303,50 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--critical-needed-by-computers="" \
 	--warning-up-to-date="" \
 	--critical-up-to-date="" \
-	--verbose'
+	--verbose
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
 OK: With Client Errors: 32694 With Server Errors: 3648 Needing Files: 40252 Needed By Computers: 5327 Up-to-date: 70835 | 'with-client-errors'=32694;;;0; 'with-server-errors'=3648;;;0; 'needing-files'=40252;;;0; 'needed-by-computers'=5327;;;0; 'up-to-date'=70835;;;0;
 ```
 
-### Diagnostic des erreurs communes
+### Troubleshooting
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-### Modes disponibles
+### Available modes
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
-du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
-implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
-modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
-`--list-mode` à la commande :
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin \
+cd "C:/Program Files/Centreon/Plugins/".\centreon_plugins.exe `
+	--plugin=apps::microsoft::wsus::local::plugin 
 	--list-mode
 ```
 
-Le plugin apporte les modes suivants :
+The plugin brings the following modes:
 
-| Mode                                                                                                                                                   | Modèle de service associé                                                                                  |
-|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
-| computers-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/wsus/local/mode/computersstatus.pm)]             | App-Wsus-Computers-Status-NRPE-custom<br />App-Wsus-Computers-Status-NSClient05-Restapi-custom             |
-| server-statistics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/wsus/local/mode/serverstatistics.pm)]           | App-Wsus-Server-Statistics-NRPE-custom<br />App-Wsus-Server-Statistics-NSClient05-Restapi-custom           |
-| synchronisation-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/wsus/local/mode/synchronisationstatus.pm)] | App-Wsus-Synchronisation-Status-NRPE-custom<br />App-Wsus-Synchronisation-Status-NSClient05-Restapi-custom |
-| updates-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/wsus/local/mode/updatesstatus.pm)]                 | App-Wsus-Update-Status-NRPE-custom<br />App-Wsus-Update-Status-NSClient05-Restapi-custom                   |
+| Mode                                                                                                                                                   | Linked service template                    |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|
+| computers-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/wsus/local/mode/computersstatus.pm)]             | App-Wsus-Computers-Status-CMA-custom       |
+| server-statistics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/wsus/local/mode/serverstatistics.pm)]           | App-Wsus-Server-Statistics-CMA-custom      |
+| synchronisation-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/wsus/local/mode/synchronisationstatus.pm)] | App-Wsus-Synchronisation-Status-CMA-custom |
+| updates-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/wsus/local/mode/updatesstatus.pm)]                 | App-Wsus-Update-Status-CMA-custom          |
 
-### Options disponibles
+### Available options
 
-#### Options génériques
+#### Generic options
 
-Les options génériques sont listées ci-dessous :
+All generic options are listed here:
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -468,12 +384,12 @@ Les options génériques sont listées ci-dessous :
 | --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-#### Options des modes
+#### Modes options
 
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Computers-Status*" label="Computers-Status*">
+<TabItem value="Computers-Status" label="Computers-Status">
 
 | Option                   | Description                                                                                                                              |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -492,7 +408,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-* --critical-* |   Thresholds. Can be: 'needing-updates', 'with-update-errors', 'up-to-date', 'not-contacted', 'unassigned'                               |
 
 </TabItem>
-<TabItem value="Server-Statistics*" label="Server-Statistics*">
+<TabItem value="Server-Statistics" label="Server-Statistics">
 
 | Option            | Description                                                                                                                                                                    |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -511,7 +427,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-*      |   Critical thresholds. Can be: 'computers', 'computer-groups', 'updates', 'approved-updates', 'declined-updates', 'not-approved-updates', 'stale-updates', 'expired-updates'   |
 
 </TabItem>
-<TabItem value="Synchronisation-Status*" label="Synchronisation-Status*">
+<TabItem value="Synchronisation-Status" label="Synchronisation-Status">
 
 | Option                                 | Description                                                                                                                                              |
 |:---------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -533,7 +449,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-* --critical-*               |   Thresholds. Can be: 'last-synchronisation-duration' (s), 'synchronisation-progress' (%).                                                               |
 
 </TabItem>
-<TabItem value="Update-Status*" label="Update-Status*">
+<TabItem value="Update-Status" label="Update-Status">
 
 | Option            | Description                                                                                                                              |
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -554,12 +470,13 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 </Tabs>
 
-Pour un mode, la liste de toutes les options disponibles et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin \
-	--mode=query \
+cd "C:/Program Files/Centreon/Plugins/"
+.\centreon_plugins.exe `
+	--plugin=apps::microsoft::wsus::local::plugin \
+	--mode=updates-status \
 	--help
 ```
