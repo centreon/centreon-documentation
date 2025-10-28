@@ -436,10 +436,6 @@ module.exports = {
           "items": [
             {
               "type": "doc",
-              "id": "alerts-notifications/ticketing-install"
-            },
-            {
-              "type": "doc",
               "id": "alerts-notifications/ticketing"
             },
             {

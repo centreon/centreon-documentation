@@ -6,8 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from '../_poller-agent-configuration.mdx';
 
-> Note to Centreon Cloud users: The Centreon Monitoring Agent is still in its beta phase for Centreon Cloud. To get support, visit [our dedicated group on The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
-
 ## Step 1: Configure Centreon
 
 This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/24.10/).)
@@ -390,7 +388,7 @@ The CMA installer can be executed in 2 modes:
 <TabItem value="Interactive mode" label="Interactive mode">
 
 1. Start the installer (during the configuration, you can click on the (i) icons for help).
-   If you choose to install **centreon-plugins**, the installer will try to download and install the latest version of the Centreon plugins. If it can't (no web connection, network issue...), a popup is displayed to ask confirmation before using embedded plugins.If you only want to use native controls, there is no need to install the plugins.
+   If you choose to install **centreon-plugins**, the installer will try to download and install the latest version of the Centreon plugins. If it can't (no web connection, network issue...), a popup is displayed to ask confirmation before using embedded plugins. If you only want to use native checks, there is no need to install the plugins.
   
    Results are displayed in the installer's window.
 

@@ -1,13 +1,11 @@
 ---
 id: operatingsystems-linux-centreon-monitoring-agent
-title: Linux Centreon Monitoring Agent
+title: Linux CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The **Linux Centreon Monitoring Agent** connector supplies templates and commands to be used with the Centreon Monitoring Agent (this is an observability agent implementing the OpenTelemetry protocol).
-
-> For the moment, this monitoring connector is in **BETA** version. The agent is still in its beta phase for Centreon Cloud users.
+The **Linux CMA** connector supplies templates and commands to be used with the Centreon Monitoring Agent (CMA). This is an observability agent implementing the OpenTelemetry protocol.
 
 Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
 
@@ -15,7 +13,7 @@ Read [this page](../getting-started/how-to-guides/cma/cma.md) for more informati
 
 ### Templates
 
-The Monitoring Connector **Linux Centreon Monitoring Agent** brings a host template:
+The Monitoring Connector **Linux CMA** brings a host template:
 
 * **OS-Linux-Centreon-Monitoring-Agent-custom**
 
@@ -366,7 +364,7 @@ apt-get install centreon-pack-operatingsystems-linux-centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Linux Centreon Monitoring Agent** connector through
+2. Whatever the license type (*online* or *offline*), install the **Linux CMA** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 3. According to your version of Centreon, skip to the next step or create a connector on your central server.
@@ -386,8 +384,8 @@ If your Centreon is in a version older than 24.10.6, you need to create the CMA 
 
 | Parameter             | Value                                                                                                                                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Connector Name        | Centreon Monitoring Agent Beta                                                                                                                                                                     |
-| Connector Description | Centreon Monitoring Agent Beta                                                                                                                                                                    |
+| Connector Name        | Centreon Monitoring Agent                                                                                                                                                                     |
+| Connector Description | Centreon Monitoring Agent                                                                                                                                                                     |
 | Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Used by command       | Select all the commands whose names match `OS-Linux-Centreon-Monitoring-Agent-*`                                                                                                              |
 | Connector Status      | Enabled                                                                                                                                                                                       |
