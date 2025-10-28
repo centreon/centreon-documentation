@@ -111,6 +111,9 @@ You are using the Dashboards feature with a **viewer** or an **editor** profile:
 
 1. Click the **share** button at the bottom right of the dashboard.
 2. In the **Add contact** dropdown list, select the user to add.
+  > The visible contacts are those they respect these two conditions jointly;
+  > - belong to the same **access groups** as yours,
+  > - have access to the Dashboard menu (which can be activated via access rights).
 3. Select either **Viewer** or **Editor** profile.
 4. Click the **+** button to add it.
 5. Repeat the action for each user you want to add.
