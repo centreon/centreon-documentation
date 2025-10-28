@@ -98,14 +98,14 @@ Centreon allows you to create whitelists that define which commands are allowed 
 
 4. Use a regex to define which commands to authorize. Example:
 
-  ```text
-  whitelist:
+   ```text
+   whitelist:
       regex:
 		 - \/usr\/lib(64)?\/nagios\/plugins\/.*
 		 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
          - \/opt\/my_plugins\/my_custom_plugin\.py .*
-  cma-whitelist:
-  default:
+   cma-whitelist:
+   default:
     regex:
       - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
       - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
@@ -113,7 +113,13 @@ Centreon allows you to create whitelists that define which commands are allowed 
       - ^\{\s*"check":".*\}$
       - \/usr\/bin\/echo\s+Host\s+alive
       - cmd\.exe\s+\/C\s+echo\s+.*
-  ```
+   ```
+
+5. Reload the **centreon-engine** service:
+
+   ```text
+   systemctl reload centengine
+   ```
 
 The **whitelist** block defines the commands that can be executed by the poller.
 

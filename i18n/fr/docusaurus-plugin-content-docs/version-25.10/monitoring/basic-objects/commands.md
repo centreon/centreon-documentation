@@ -102,14 +102,14 @@ Centreon vous permet de créer des listes blanches, qui définissent quelles com
    
 4. Utilisez une regex pour définir les commandes autorisées. Exemple : 
 
-  ```text
-  whitelist:
+   ```text
+   whitelist:
       regex:
 		 - \/usr\/lib(64)?\/nagios\/plugins\/.*
 		 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
          - \/opt\/my_plugins\/my_custom_plugin\.py .*
-  cma-whitelist:
-  default:
+   cma-whitelist:
+   default:
     regex:
       - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
       - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
@@ -117,8 +117,14 @@ Centreon vous permet de créer des listes blanches, qui définissent quelles com
       - ^\{\s*"check":".*\}$
       - \/usr\/bin\/echo\s+Host\s+alive
       - cmd\.exe\s+\/C\s+echo\s+.*
-  ```
-   
+   ```
+
+5. Recharger le service **centreon-engine** :
+
+   ```text
+   systemctl reload centengine
+   ```
+
 Le bloc "whitelist" définit les commandes pouvant être exécutées par le collecteur.
 
 > Les deux premières lignes doivent toujours être présentes dans le bloc **whitelist** : elles correspondent aux commandes Centreon.
