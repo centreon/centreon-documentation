@@ -30,7 +30,7 @@ les notifications pourront être envoyées. En-dehors de ces périodes de temps,
  
 * **Autoriser l'utilisateur à se connecter à l'interface web** : permet d’autoriser l’utilisateur à accéder à l’interface web de Centreon.
 * **Mot de passe** et **Confirmation du mot de passe** : contiennent le mot de passe de l'utilisateur.
-  > Pour changer le mot de passe d'un utilisateur local, il est nécessaire de saisir également **Votre mot de passe actuel**. Dans le cas où vous êtes identifié par une connexion SSO, ce champ n'est pas visible. Pour créer un nouvel utilisateur, il n'est pas nécessaire de saisir cette information.
+  > Pour changer le mot de passe d'un utilisateur local, il est nécessaire de saisir également votre **Mot de passe actuel**. Dans le cas où vous êtes identifié par une connexion SSO, ce champ n'est pas visible. Pour créer un nouvel utilisateur, il n'est pas nécessaire de saisir cette information.
 * **Langue par défaut** permet de définir la langue de l’interface Centreon pour cet utilisateur.
 * **Administrateur** définit si cet utilisateur est administrateur de la plateforme de supervision ou non. Un administrateur a tous les droits (lecture, écriture) et peut accéder à toutes les pages de l'interface.
 * **Clé d'auto-connexion** : permet de définir une clé de connexion pour l’utilisateur. L’utilisateur n’aura plus
