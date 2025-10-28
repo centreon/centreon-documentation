@@ -23,6 +23,7 @@ jobs:
       build_next_version: ${{ steps.filters.outputs.build_next_version }}
       build_pp: ${{ steps.filters.outputs.build_pp }}
       build_cloud: ${{ steps.filters.outputs.build_cloud }}
+      build_dem: ${{ steps.filters.outputs.build_dem }}
 
     steps:
       - name: Checkout sources
@@ -49,6 +50,9 @@ jobs:
             cloud:
               - 'cloud/**'
               - 'i18n/**/docusaurus-plugin-content-docs-cloud/**'
+            dem:
+              - 'dem/**'
+              - 'i18n/**/docusaurus-plugin-content-docs-dem/**'
             pp:
               - 'pp/**'
               - 'i18n/**/docusaurus-plugin-content-docs-pp/**'
@@ -70,6 +74,7 @@ jobs:
             }
             let build_pp = '1';
             let build_cloud = '1';
+            let build_dem = '1';
 
             if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.pp }} === false) {
@@ -78,6 +83,10 @@ jobs:
 
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.cloud }} === false) {
                 build_cloud = '0';
+              }
+
+              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.dem }} === false) {
+                build_dem = '0';
               }
 
               build_versions = [];
@@ -97,7 +106,7 @@ jobs:
                 build_versions = [...new Set(build_versions)].sort().reverse(); // remove duplicates and sort desc
               }
 
-              if (build_versions.length === 0 && (build_pp === '1' || build_cloud === '1')) {
+              if (build_versions.length === 0 && (build_pp === '1' || build_cloud === '1' || build_dem === '1')) {
                 build_versions.push(available_versions[0]);
               }
             }
@@ -106,6 +115,7 @@ jobs:
             console.log(`next version will${build_next_version === null ? ' not' : ''} be built`);
             console.log(`pp section will${build_pp === '0' ? ' not' : ''} be built`);
             console.log(`cloud section will${build_cloud === '0' ? ' not' : ''} be built`);
+            console.log(`dem section will${build_dem === '0' ? ' not' : ''} be built`);
 
             const build_environments = [];
             if (build_versions.length) {
@@ -120,6 +130,7 @@ jobs:
             core.exportVariable('build_next_version', build_next_version);
             core.exportVariable('build_pp', build_pp);
             core.exportVariable('build_cloud', build_cloud);
+            core.exportVariable('build_dem', build_dem);
 
       - name: Manage versions to build
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
@@ -138,6 +149,7 @@ jobs:
             core.exportVariable('build_next_version', require('./nextVersion.json').version);
             core.exportVariable('build_pp', '1');
             core.exportVariable('build_cloud', '1');
+            core.exportVariable('build_dem', '1');
 
       - name: Manage versions to build
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
@@ -149,6 +161,7 @@ jobs:
             core.setOutput('build_next_version', '${{ env.build_next_version }}');
             core.setOutput('build_pp', '${{ env.build_pp }}');
             core.setOutput('build_cloud', '${{ env.build_cloud }}');
+            core.setOutput('build_dem', '${{ env.build_dem }}');
 
   build:
     if: ${{ needs.get-versions.outputs.build_environments != '[]' }}
@@ -164,6 +177,7 @@ jobs:
             next_version: ${{ needs.get-versions.outputs.build_next_version }}
             pp: ${{ needs.get-versions.outputs.build_pp }}
             cloud: ${{ needs.get-versions.outputs.build_cloud }}
+            dem: ${{ needs.get-versions.outputs.build_dem }}
 
     name: Build ${{ matrix.environment }}
 
@@ -204,6 +218,7 @@ jobs:
         env:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
+          DEM: ${{ matrix.dem }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 

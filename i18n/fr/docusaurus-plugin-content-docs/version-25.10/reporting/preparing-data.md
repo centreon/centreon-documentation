@@ -21,7 +21,7 @@ Chaque [tâche](https://docs-next-int.centreon.com/fr/docs/reporting/concepts/#t
 
 Créez toutes les périodes personnalisées dont vous avez besoin avant de commencer à configurer les rapports.
 
-## Définir le pérmiètre de données pour MBI
+## Définir le périmètre de données pour MBI
 
 Seules les [données compilées par l'ETL](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées) peuvent être utilisées dans les rapports.
 Pour des raisons de performance, il est recommandé de limiter le périmètre de données pour MBI à ce que vous souhaitez voir dans les rapports, car de grandes quantités de données prennent plus de temps à traiter et occupent de l'espace de stockage.

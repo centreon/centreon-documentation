@@ -1,21 +1,19 @@
 ---
 id: operatingsystems-linux-centreon-monitoring-agent
-title: Linux Centreon Monitoring Agent
+title: Linux CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The **Linux Centreon Monitoring Agent** connector supplies templates and commands to be used with the Centreon Monitoring Agent (this is an observability agent implementing the OpenTelemetry protocol).
+The **Linux CMA** connector supplies templates and commands to be used with the Centreon Monitoring Agent (CMA). This is an observability agent implementing the OpenTelemetry protocol.
 
-> For the moment, this monitoring connector is in **BETA** version. The agent is still in its beta phase for Centreon Cloud users.
-
-Read [this page](../getting-started/how-to-guides/cma.md) for more information about the Centreon Monitoring Agent itself.
+Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
 
 ## Pack assets
 
 ### Templates
 
-The Monitoring Connector **Linux Centreon Monitoring Agent** brings a host template:
+The Monitoring Connector **Linux CMA** brings a host template:
 
 * **OS-Linux-Centreon-Monitoring-Agent-custom**
 
@@ -318,12 +316,12 @@ Only one TCP flow must be open from the host to the poller.
 
 ### Configure poller/agent communication
 
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma.md#configure-polleragent-communication).
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
 
 ### System prerequisites for the monitored host
 
 The installation and configuration procedure of Centreon Monitoring Agent for Linux is detailed in
-[this dedicated page](../getting-started/how-to-guides/cma.md#step-2-prepare-the-host). (This includes installing the agent, and installing the plugins that will execute the non-native checks.)
+[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host). (This includes installing the agent, and installing the plugins that will execute the non-native checks.)
 
 ## Installing the monitoring connector
 
@@ -366,7 +364,7 @@ apt-get install centreon-pack-operatingsystems-linux-centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Linux Centreon Monitoring Agent** connector through
+2. Whatever the license type (*online* or *offline*), install the **Linux CMA** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 3. According to your version of Centreon, skip to the next step or create a connector on your central server.
@@ -386,8 +384,8 @@ If your Centreon is in a version older than 24.10.6, you need to create the CMA 
 
 | Parameter             | Value                                                                                                                                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Connector Name        | Centreon Monitoring Agent Beta                                                                                                                                                                     |
-| Connector Description | Centreon Monitoring Agent Beta                                                                                                                                                                    |
+| Connector Name        | Centreon Monitoring Agent                                                                                                                                                                     |
+| Connector Description | Centreon Monitoring Agent                                                                                                                                                                     |
 | Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Used by command       | Select all the commands whose names match `OS-Linux-Centreon-Monitoring-Agent-*`                                                                                                              |
 | Connector Status      | Enabled                                                                                                                                                                                       |
@@ -563,20 +561,22 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro           | Description                                                                                                                                                         | Default value                | Mandatory   |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| NTPCOMMAND      | Default mode for parsing and command: 'ntpq', 'chronyc' or 'all'                                                                                          | all                          |             |
-| FILTERPEERNAME  | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
-| FILTERPEERSTATE | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
-| WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
-| CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
-| WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
-| CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
+| Macro            | Description                                                                                                                                                         | Default value                | Mandatory   |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| NTPCOMMAND       | Default mode for parsing and command: 'auto', 'ntpq', 'chronyc' or 'all'                                                                                            | auto                         |             |
+| FILTERPEERNAME   | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
+| EXCLUDEPEERNAME  | Exclude by peer name (can be a regexp)                                                                                                                              |                              |             |
+| FILTERPEERSTATE  | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
+| EXCLUDEPEERSTATE | Exclude by peer state (can be a regexp)                                                                                                                             |                              |             |
+| WARNINGOFFSET    | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
+| CRITICALOFFSET   | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
+| WARNINGPEERS     | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
+| CRITICALPEERS    | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |             |
-| WARNINGSTRATUM  | Warning threshold                                                                                                                                                   |                              |             |
-| CRITICALSTRATUM | Critical threshold                                                                                                                                                  |                              |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  | --use-new-perfdata --verbose |             |
+| WARNINGSTRATUM   | Warning threshold                                                                                                                                                   |                              |             |
+| CRITICALSTRATUM  | Critical threshold                                                                                                                                                  |                              |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  | --use-new-perfdata --verbose |             |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">

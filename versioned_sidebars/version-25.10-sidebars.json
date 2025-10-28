@@ -849,7 +849,7 @@
         },
         {
           "type": "doc",
-           "id": "reporting/installation"
+          "id": "reporting/installation"
         },
         {
           "type": "category",
@@ -870,7 +870,7 @@
               "type": "doc",
               "id": "reporting/reports-publication-rule"
             },
-                        {
+            {
               "type": "doc",
               "id": "reporting/share"
             },
@@ -880,22 +880,22 @@
             }
           ]
         },
-                {
+        {
           "type": "category",
           "label": "Fixing MBI issues",
           "link": {
             "type": "generated-index"
           },
           "items": [
-          {
-          "type": "doc",
-          "id": "reporting/troubleshooting"
-          },
-          {
-          "type": "doc",
-          "id": "reporting/rebuilding-data"
-          }
-         ]
+            {
+              "type": "doc",
+              "id": "reporting/troubleshooting"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/rebuilding-data"
+            }
+          ]
         },
         {
           "type": "category",
@@ -1661,6 +1661,10 @@
         {
           "type": "doc",
           "id": "resources/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "resources/logs"
         },
         {
           "type": "doc",

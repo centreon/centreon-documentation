@@ -7,6 +7,9 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+Please note that this connector is only compatible with Windows servers up to version 2012.
+After which, OIDs can no longer be queried (for more information, see [here](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/73c00321-496a-4898-ad5b-5ceb909610c7)). 
+
 ### Templates
 
 The Monitoring Connector **Microsoft DHCP SNMP** brings a host template:

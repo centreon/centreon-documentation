@@ -9,7 +9,7 @@ Each day, MBI follows 3 independent main phases:
 * [The ETL copies the data of the previous day to the MBI server and aggregates it](#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated). The data is then ready to be used in reports.
 * At the scheduled times, [CBIS picks out the data that is relevant for a report and generates it](#phase-3-cbis-generates-the-reports).
 
-Because each phase is independent from the others, incorrect configuration in any of the 3 phases may cause the report generation to fail.
+Although each phase is independent from the others, incorrect configuration in any of the 3 phases may cause the report generation to fail.
 
 ## Phase 1: Data is prepared by the central server
 
@@ -44,7 +44,7 @@ Note that for [BAM](https://docs-next-int.centreon.com/docs/service-mapping/intr
 
 Reports can be generated immediately at the user's request, or when they are scheduled.
 
-> In both cases, all aggregations need to have been calculated first. This means that if you have just made changes to host categories, host groups and service categories, the corresponding aggregations will not have been calculated yet. You will need to [rebuild the data](rebuilding-data.md).
+> In both cases, all aggregation calculations must be finished first. This means that if you have just made changes to host categories, host groups and service categories, the corresponding aggregations will not have been calculated yet. You will need to [rebuild the data](rebuilding-data.md).
 
 * Only one report is generated per format: pdf, xlsx, docx, etc…
 * The scope of the data in the report is determined by the **Report parameters** tab of the job. Bear in mind that the report and all of its data will be shared to other users according to what you have defined in [job groups](https://docs-next-int.centreon.com/docs/reporting/concepts/#job-groups), regardless of other users' ACLs on resources.

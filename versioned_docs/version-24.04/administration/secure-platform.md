@@ -51,7 +51,7 @@ components by the operating system.
 
 ### SELinux Overview
 
-Security Enhanced Linux (SELinux) provides an additional layer of system security. SELinux fundamentally answers the
+Security Enhanced Linux (SELinux) provides an additional layer of system security in EL environments. SELinux fundamentally answers the
 question: `May <subject> do <action> to <object>?`, for example: May a web server access files in users' home
 directories?
 
@@ -179,45 +179,7 @@ Depending on the type of server, install the packages with the following command
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   apt install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   apt install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+SELinux only concerns EL environments.
 
 </TabItem>
 </Tabs>
@@ -703,11 +665,12 @@ dnf install mod_ssl mod_security openssl
   
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
 
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
@@ -719,11 +682,12 @@ dnf install mod_ssl mod_security openssl
   
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example,and the CA certificate) by copying them to the Apache configuration:
 
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
@@ -740,11 +704,12 @@ systemctl restart apache2
 
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
 
 ```shell
 cp centreon7.key /etc/ssl/private/
 cp centreon7.crt /etc/ssl/certs/
+cp ca_demo.crt /etc/ssl/certs/
 ```
 
 </TabItem>
@@ -1070,12 +1035,19 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
+Edit the **/etc/php.d/50-centreon.ini** file:
+
+* Make sure that the `expose_php` parameter is disabled:
 
 ```phpconf
 expose_php = Off
 ```
 
+* Add the path to the CA certificate that was used to sign the server's certificate:
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -1088,11 +1060,19 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
+Edit the **/etc/php.d/50-centreon.ini** file:
+
+* Make sure that the `expose_php` parameter is disabled:
 
 ```phpconf
 expose_php = Off
 ```
+
+* Add the path to the CA certificate that was used to sign the server's certificate:
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
@@ -1108,9 +1088,12 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Edit the **/etc/php/8.1/mods-available/centreon.ini** file and turn off the **expose_php** parameter:
+Edit the **/etc/php/8.2/mods-available/centreon.ini** file and add the following lines:
 
-> This was done during the installation process.
+```text
+openssl.cafile=/etc/ssl/certs/ca_demo.crt
+curl.cainfo=/etc/ssl/certs/ca_demo.crt
+```
 
 </TabItem>
 </Tabs>
@@ -1569,6 +1552,10 @@ systemctl restart apache2
 
 </TabItem>
 </Tabs>
+
+## Add your certificate to your browser
+
+If you use a certificate that is not provided by a trusted authority, you must import the CA certificate into your browser.
 
 ## User authentication
 

@@ -1,15 +1,23 @@
 ---
 id: network-extreme-snmp
-title: Extreme Network
+title: Extreme Networks SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Compatibility
+
+This connector has been tested with the following products.
+
+| Product     | Model        | Versions |
+|-------------|--------------|----------|
+| Extreme Networks | X435-8P-4S | - |
 
 ## Pack assets
 
 ### Templates
 
-The Monitoring Connector **Extreme Network** brings a host template:
+The Monitoring Connector **Extreme Networks SNMP** brings a host template:
 
 * **Net-Extreme-SNMP-custom**
 
