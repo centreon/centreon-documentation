@@ -1495,6 +1495,10 @@
             },
             {
               "type": "doc",
+              "id": "developer/developer-broker-bbdo-switch-versions"
+            },
+            {
+              "type": "doc",
               "id": "developer/developer-broker-mapping"
             }
           ]
