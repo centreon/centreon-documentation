@@ -25,6 +25,8 @@ To display the matrix of notifications for a user, click **View contact notifica
 ## Centreon authentication
 
 * The **Reach Centreon Front-end** field is used to authorize the user to access the Centreon web interface.
+* The **Your current password** field is required when you (the currently logged-in user) need to change another user's password. You must verify your identity by entering your own password.
+  > You can only change another user's password if you are logged in using local authentication, not via an identity provider (for security reasons).
 * The **Password** and **Confirm Password** fields contain the user password.
 * The **Default Language** field is used to define the language of the Centreon interface for this user.
 * The **Admin** field defines whether or not this user is the administrator of the monitoring platform.
