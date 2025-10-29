@@ -69,7 +69,7 @@ Vous pouvez vérifier dans les journaux quelle version de BBDO est active pour u
 - module collecteur :
   
   ```shell
-  tail /var/log/centreon-broker/<poller_name>-module.log
+  grep "using version" /var/log/centreon-engine/config0/centengine.log
   ```
 
 La ligne suivante indique quelle version est utilisée pour chaque serveur :
