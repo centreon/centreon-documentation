@@ -435,28 +435,6 @@ message Check {
 }
 ```
 
-### Host dependency
-
-Cet évènement est émis lorsqu'une dépendance entre hôtes est définie, et que la configuration est déployée.
-
-#### NEB::HostDependency
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 9       | 65545 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété                      | Type             | Description | Version |
-| ------------------------------ | ---------------- | ----------- | ------- |
-| dependency\_period             | chaîne           |             |
-| dependent\_host\_id            | entier non signé |             |
-| enabled                        | booléen          |             |
-| execution\_failure\_options    | chaîne           |             |
-| inherits\_parent               | booléen          |             |
-| host\_id                       | entier non signé |             |
-| notification\_failure\_options | chaîne           |             |
-
 ### Host group
 
 Cet évènement est émis lorsqu'un groupe d'hôtes est créé.
