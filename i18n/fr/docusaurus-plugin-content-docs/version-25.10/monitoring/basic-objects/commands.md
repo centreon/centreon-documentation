@@ -119,7 +119,7 @@ Centreon vous permet de créer des listes blanches, qui définissent quelles com
       - cmd\.exe\s+\/C\s+echo\s+.*
    ```
 
-5. Recharger le service **centreon-engine** :
+5. Rechargez le service **centengine** :
 
    ```text
    systemctl reload centengine

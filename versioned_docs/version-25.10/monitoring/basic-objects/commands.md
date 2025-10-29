@@ -115,7 +115,7 @@ Centreon allows you to create whitelists that define which commands are allowed 
       - cmd\.exe\s+\/C\s+echo\s+.*
    ```
 
-5. Reload the **centreon-engine** service:
+5. Reload the **centengine** service:
 
    ```text
    systemctl reload centengine
