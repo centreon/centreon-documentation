@@ -175,16 +175,9 @@ Release date: `October 29, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [Broker] Added flapping state support for resource status.
-- [Broker] Broker is now Vault compatible, if its passwords to access databases are encrypted, it is able to ask the vault for the decrypted password.
 - [Broker] Broker can now read Engine configurations and if it already knows it, Engine knows it don't have to send it again. Usually, when Engine starts it reads it and sends it to Broker. Now, during the negociation, if broker already knows it, Engine doesn't send it anymore. This means a big evolution on the negociation between Engine and Broker.
 - Cbmod is no longer needed in the Engine configuration as it is automatically loaded when Engine starts.
 - [Configuration] a dedicated whitelist block is now available for Centreon Monitoring Agent.
-- [CMA] Added token management for poller-initiated connection.
-- [CMA] Added token management for Agent-initiated connection.
-- [CMA] Added gRPC logs to agent and opentelemetry engine module.
-- [CMA] Check timeout default value has been set to 120s, in Agent configuration.
-- [CMA] CMA now handles forced checks.
 - [Credentials encryption] Broker is now able to handle encrypted credentials.
 - [Credentials encryption] Engine is now able to check its encryption readiness.
 - Enhanced configuration generation to handle Insecure TLS.
@@ -219,33 +212,7 @@ Release date: `October 29, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [CMA] Check intervals are taken into account for each service.
-- [CMA] Added a silent mode (CLI) to the agent's Windows installer.
-- [CMA] Added a No TLS connection mode (limited duration).
-- [CMA] Added a native Task scheduler check for Windows & Linux.
-- [CMA] Added a native Process check for Windows.
-- [CMA] Added a native Files check for Windows.
-- [CMA] Added a native Eventlog check for Windows.
-- [CMA] Added a native Storage check for Windows.
-- [CMA] Added a native Health check for Windows & Linux.
-- [CMA] Added a native Services check for Windows.
-- [CMA] Added a native Uptime check for Windows.
-- [CMA] Added a native Memory check for Windows.
-- [CMA] Added a native Counter check for Windows.
-- [CMA] Added a silent mode (CLI) on Windows installer.
-- [CMA] Added an option in Windows installer to use embedded plugins in case of offline execution.
-- [CMA] added gRPC logs to agent and opentelemetry engine module.
-- [CMA] Added token management for poller-initiated connection.
-- [CMA] Added token management for Agent-initiated connection.
-- [CMA] Agent checks scheduling has been optimized to avoid delay in case of checks timeouts.
-- [CMA] Centreon Monitoring Agent & installer are now signed.
-- [CMA] CMA - check timeout default value has been set to 120s, in Agent configuration.
-- [CMA] CMA installer and CLI wording has been harmonized to fit with new UI labels.
-- [CMA] CMA now handles forced checks.
-- [CMA] CMA related TLS connections now require tokens.
 - [CMA] Improved error handling for syntax checks.
-- [CMA] The Centreon Monitoring Agent is now available with a Windows installer, which installs the service and deploys Centreon plugins on the host.
-- [CMA] Made Telegraf and Centreon Monitoring Agent commands compliant with Engine whitelists.
 - [Credentials encryption] CMA is now able to retrieve encryption key & handle encrypted credentials.
 - Enhanced configuration generation to handle Insecure TLS.
 - Insecure TLS is now available as encryption mode in CMA.
