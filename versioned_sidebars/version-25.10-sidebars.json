@@ -1524,12 +1524,9 @@
       ]
     },
     {
-      "type": "category",
+      "type": "doc",
       "label": "Centreon HA",
-      "link": {
-        "type": "doc",
-        "id": "installation/installation-of-centreon-ha/overview"
-      },
+      "id": "installation/installation-of-centreon-ha/overview"
     },
     {
       "type": "category",
