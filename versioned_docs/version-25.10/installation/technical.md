@@ -52,7 +52,7 @@ import TabItem from '@theme/TabItem';
 |----------------|----------------|--------------|--------------|--------------------------------------------------------------------|
 | Central server | Poller         | ZMQ          | TCP 5556     | Export of Centreon configuration (depending on communication type) |
 | Central server | Poller         | SSH (legacy) | TCP 22       | Export of Centreon configuration (depending on communication type) |
-| Poller         | Central server | BBDO          | TCP 5669     | Transfer of collected data                                         |
+| Poller         | Central server | BBDO         | TCP 5669     | Transfer of collected data (can be tcp-ipv4 or grpc)               |
 | Poller         | Central server | HTTP(S)      | TCP 80 (443) | Poller registration                                                |
 
 #### Remote Server

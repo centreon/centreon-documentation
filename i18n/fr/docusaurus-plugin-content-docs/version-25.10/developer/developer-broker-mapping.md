@@ -439,58 +439,89 @@ message Check {
 
 Cet évènement est émis lorsqu'un groupe d'hôtes est créé.
 
-#### NEB::HostGroup
+#### NEB::PbHostGroup
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 10      | 65546 |
+| 1         | 49      | 65585 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-| Propriété       | Type             | Description                                                          | Version |
-| --------------- | ---------------- | -------------------------------------------------------------------- | ------- |
-| host\_group\_id | entier non signé |                                                                      |
-| name            | chaîne           | Nom du groupe.                                                       |
-| enabled         | booléen          | True si le groupe est activé, False s’il ne l’est pas (suppression). |
-| poller\_id      | entier non signé |                                                                      |
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
+
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
+
+message HostGroup {  
+  BBDOHeader header = 1;  
+
+  bool enabled = 2;                    // True si le groupe est activé, False s’il ne l’est pas (suppression).  
+  uint64 hostgroup_id = 3;             // ID du groupe.  
+  string name = 4;                     // Nom du groupe.  
+  uint64 poller_id = 5;                // ID du poller.  
+  string alias = 6;                    // Alias du groupe.  
+}
+```
 
 ### Host group member
 
 Ceci est un évènement de configuration. Il est envoyé juste après un évènement **hostgroup** afin de détailler les membres du groupe à configurer. En BBDO v3, la version BBDO v2 de cet évènement est toujours utilisée.
 
-#### NEB::HostGroupMember
+#### NEB::PBHostGroupMember
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 11      | 65547 |
+| 1         | 50      | 65586 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-| Propriété       | Type             | Description                                                                 | Version |
-| --------------- | ---------------- | --------------------------------------------------------------------------- | ------- |
-| group\_id       | unsigned integer | ID du groupe.
-| host\_id        | entier non signé | ID de l’hôte.                                                               |
-| enabled         | booléen          | True si l'hôte est membre du groupe, False s'il ne l’est pas (suppression). |
-| group           | chaîne           | Nom du groupe.                                                              |
-| instance\_id    | entier non signé | ID de l’instance.                                                           |
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
+
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
+
+message HostGroupMember {  
+  BBDOHeader header = 1;  
+
+  bool enabled = 2;                    // True si l'hôte est membre du groupe, False s'il ne l’est pas (suppression).  
+  uint64 hostgroup_id = 3;       // ID du groupe.  
+  string name = 4;                     // Nom du groupe.  
+  uint64 poller_id = 6;              // ID de l'instance.  
+} 
+```
 
 ### Host parent
 
 Ceci est un évènement de configuration envoyé lorsqu'un hôte parent est défini. En BBDO v3, la version BBDO v2 de cet évènement est toujours utilisée.
 
-#### NEB::HostParent
+#### NEB::PbHostParent
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 13      | 65549 |
+| 1         | 53      | 65589 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
 
-| Propriété  | Type             | Description                                                                       | Version |
-| ---------- | ---------------- | --------------------------------------------------------------------------------- | ------- |
-| enabled    | booléen          | True si la fonction parent est activée, False si elle ne l’est pas (suppression). |
-| child\_id  | entier non signé | ID d’hôte enfant.                                                                 |
-| parent\_id | entier non signé | ID d’hôte parent.                                                                 |
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
+
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
+
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
+
+message HostParent {  
+  BBDOHeader header = 1;  
+
+  bool enabled = 2;                     // True si la fonction parent est activée, False si elle ne l’est pas (suppression).  
+  uint64 child_id = 3;                  // ID de l'hôte enfant  
+  uint64 parent_id = 4;              // ID de l'hôte parent  
+}
+```  
 
 ### Host status
 
@@ -692,29 +723,6 @@ message LogEntry {
 }
 ```
 
-### Module
-
-Les évènements relatifs aux modules sont générés lors du chargement ou du déchargement des modules de Centreon Broker. Ils sont peu utiles car les seuls modules disponibles dans Engine sont les modules obligatoires **external command** et **cbmod**.
-
-L'évènement **Module** devrait être supprimé dans un futur proche.
-
-#### NEB::Module
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 18      | 65554 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété          | Type             | Description                                            | Version |
-| ------------------ | ---------------- | ------------------------------------------------------ | ------- |
-| args               | chaîne           | Arguments du module.                                   |
-| enabled            | booléen          | Si ce module est activé ou non.                        |
-| filename           | chaîne           | Chemin d’accès au fichier du module.                   |
-| instance\_id       | entier non signé | ID de l’instance.                                      |
-| loaded             | booléen          | Si ce module est chargé ou non.                        |
-| should\_be\_loaded | booléen          | Si ce module doit être (aurait dû être) chargé ou non. |
-
 ### Service
 
 Ceci est un évènement de configuration. Il est émis par Centreon Engine lorsque la configuration d'un service est modifiée, et que la configuration est déployée.
@@ -893,69 +901,65 @@ message Check {
 }
 ```
 
-### Service dependency
-
-Ceci est un évènement de configuration envoyé lorsqu'une dépendance entre services est définie.
-
-#### NEB::ServiceDependency
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 20      | 65556 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété                      | Type             | Description | Version |
-| ------------------------------ | ---------------- | ----------- | ------- |
-| dependency\_period             | chaîne           |             |
-| dependent\_host\_id            | entier non signé |             |
-| dependent\_service\_id         | entier non signé |             |
-| enabled                        | booléen          |             |
-| execution\_failure\_options    | chaîne           |             |
-| host\_id                       | entier non signé |             |
-| inherits\_parent               | booléen          |             |
-| notification\_failure\_options | chaîne           |             |
-| service\_id                    | entier non signé |             |
-
 ### Service group
 
 Cet évènement de configuration est émis lorsqu'un groupe de services est créé.
 
-#### NEB::ServiceGroup
+#### NEB::PbServiceGroup
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 21      | 65557 |
+| 1         | 51      | 65587 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-| Propriété  | Type             | Description                                                         | Version |
-| ---------- | ---------------- | ------------------------------------------------------------------- | ------- |
-| id         | entier non signé |                                                                     |
-| name       | chaîne           | Nom du groupe.                                                      |
-| enabled    | enabled          | True si le groupe est activé, faux s’il ne l’est pas (suppression). |
-| poller\_id | entier non signé |                                                                     |
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
+
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
+
+message ServiceGroup {  
+  BBDOHeader header = 1;  
+
+  bool enabled = 2;                     // True si le groupe est activé, False s’il ne l’est pas (suppression).  
+  uint64 servicegroup_id = 3;   // ID du groupe.  
+  string name = 4;                      // Nom du groupe.  
+  uint64 poller_id = 5;                // ID du poller.  
+}
+```
 
 ### Service group member
 
 Ceci est un évènement de configuration. Il est envoyé juste après un évènement **servicegroup** afin de détailler les membres du groupe à configurer. En BBDO v3, la version BBDO v2 de l'évènement est toujours utilisée.
 
-#### NEB::ServiceGroupMember
+#### NEB::PbServiceGroupMember
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 22      | 65558 |
+| 1         | 50      | 65586 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-| Propriété   | Type             | Description                                                         | Version |
-| ----------- | ---------------- | ------------------------------------------------------------------- | ------- |
-| id          | entier non signé |                                                                     |
-| host\_id    | entier non signé |                                                                     |
-| service\_id | entier non signé |                                                                     |
-| enabled     | enabled          | True si le groupe est activé, faux s’il ne l’est pas (suppression). |
-| group\_name | chaîne           | Nom du groupe.                                                      |
-| poller\_id  | entier non signé |                                                                     |
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
+
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
+
+message ServiceGroupMember {  
+  BBDOHeader header = 1;  
+
+  bool enabled = 2;                    // True si le groupe est activé, False s’il ne l’est pas (suppression).  
+  uint64 servicegroup_id = 3;             // ID du groupe.  
+  string name = 4;                     // Nom du groupe.  
+  uint64 host_id = 5;                 // ID de l'hôte.  
+  uint64 poller_id = 6;                // ID du poller.  
+  uint64 service_id = 7;                    // ID du service.  
+} 
+```
 
 ### Service status
 
@@ -1036,18 +1040,28 @@ message ServiceStatus {
 
 Ceci est un évènement de configuration annonçant tous les évènements de configuration qui seront envoyés par un collecteur.
 
-#### NEB::InstanceConfiguration
+#### NEB::PbInstanceConfiguration
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 25      | 65561 |
+| 1         | 54      | 65590 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-| Propriété  | Type             | Description                                                                          | Version |
-| ---------- | ---------------- | ------------------------------------------------------------------------------------ | ------- |
-| loaded     | booléen          | True si l’instance s’est chargée avec succès.                                        |
-| poller\_id | entier non signé | ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload). |
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
+
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
+
+message InstanceConfiguration {  
+  BBDOHeader header = 1;  
+
+  bool loaded = 2;           // True si l’instance s’est chargée avec succès.  
+  uint64 poller_id = 3;      // ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload).  
+}
+```
 
 ### Responsive instance
 
