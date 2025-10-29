@@ -192,12 +192,16 @@ Le menu d'action à trois points situé à la fin de la ligne de la liste de dif
 
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Disponibilité de l’Activité Métier | Affiche la disponibilité et les alertes d'une activité métier pour une période donnée. |
+| Historique de la disponibilité d’une Activité Métier | Affiche l’historique de la disponibilité d'une activité métier ou vue métier pour une période donnée. |
 | Diagramme d'activité métier           | Affiche graphiquement et permet la navigation dans la hiérarchie d'une activité métier.   |
 | Historique du statut d’une Activité Métier           | Affiche la répartition des statuts actuels sur une activité métier, sous forme de frise chronologique pour une période donnée.   |
 | Horloge/Minuteur           | Affiche l'heure en fonction du fuseau horaire sélectionné, ou un minuteur.   |
 | Texte générique           | Permet d'ajouter du texte libre à vos tableaux de bord (titres de sections, informations, etc.).   |
 | Group monitoring           | Affiche la répartition des statuts actuels pour les groupes de ressources sélectionnés, sous forme de tableau.   |
+| Historique de la disponibilité des groupes d’hôtes | Affiche l’historique de la disponibilité d’hôtes, catégories d’hôtes ou groupes d’hôtes. |
 | MAP - Afficher une vue           |  Permet de sélectionner et de visualiser une carte créée à partir du module MAP.  |
+| Metric capacity planning | Affiche la moyenne de la métrique en temps réel et une courbe de tendance. |
 | Graphe de métriques         | Affiche les métriques pour une période donnée.                                  |
 | Tableau des ressources                 | Affiche des données sur le statut des ressources et les événements, centralisées dans un tableau. Affiche également les [ressources liées ou non à un ticket](../alerts-notifications/ticketing.md#configuration-du-widget).|
 | Métrique unique        | Affiche la valeur d'une seule métrique sous forme de texte, de jauge ou de diagramme à barres.  |
