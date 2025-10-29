@@ -226,37 +226,6 @@ message Downtime {
 }
 ```
 
-### Event handler
-
-Les **Event handlers** sont des commandes système optionnelles (scripts ou exécutables) qui sont exécutées lorsqu'un changment de statut se produit pour une ressource. Lorsqu'une commande de ce type est configurée, un évènement **event handler** est émis par Centreon Engine. Ces évènements BBDO sont généralement envoyés lorsque Centreon Engine est redémarré ou rechargé.
-
-#### NEB::EventHandler
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 6       | 65542 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété       | Type             | Description                                                                                                                                                                                                                                      |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| early\_timeout  | booléen          | True si le gestionnaire d’évènements a été interrompu.                                                                                                                                                                                           |
-| end\_time       | temps            | Heure à laquelle l’exécution du gestionnaire d’évènements s’est terminée.                                                                                                                                                                        |
-| execution\_time | réel             | Temps d’exécution en secondes.                                                                                                                                                                                                                   |
-| handler\_type   | entier court     | 0 pour le gestionnaire d’évènements spécifiques à l’hôte, 1 pour le gestionnaire d’évènements spécifiques au service, 2 pour le gestionnaire d’évènements global pour les hôtes et 3 pour le gestionnaire d’évènements global pour les services. |
-| host\_id        | entier non signé | ID de l’hôte.                                                                                                                                                                                                                                    |
-| return\_code    | entier court     | Valeur renvoyée par le gestionnaire d’évènements.                                                                                                                                                                                                |
-| service\_id     | entier non signé | ID de service. 0 si c’est un gestionnaire d’évènements d’hôte.                                                                                                                                                                                   |
-| start\_time     | temps            | Heure à laquelle le gestionnaire d’évènements a démarré.                                                                                                                                                                                         |
-| state           | entier court     | État de l’hôte / du service.                                                                                                                                                                                                                     |
-| state\_type     | entier court     | 0 pour SOFT, 1 pour HARD.                                                                                                                                                                                                                        |
-| timeout         | entier court     | Délai d’attente du gestionnaire d’évènements en secondes.                                                                                                                                                                                        |
-| command\_args   | chaîne           | Arguments du gestionnaire d’évènements.                                                                                                                                                                                                          |
-| command\_line   | chaîne           | Ligne de commande du gestionnaire d’évènements.                                                                                                                                                                                                  |
-| output          | chaîne           | Output retourné par le gestionnaire d’évènements.                                                                                                                                                                                                |
-| source\_id      | entier non signé | L’id de l’instance source de cet évènement.                                                                                                                                                                                                      |
-| destination\_id | entier non signé | L’id de l’instance de destination de cet évènement.                                                                                                                                                                                              |
-
 ### Flapping status
 
 Lorsque le statut d'une ressource est instable, Centreon Engine le marque comme en bagotage (**flapping**). Historiquement, un évènement **flapping status** était émis dans ces cas-là. Cela n'est plus d'actualité. L'évènement **flapping status** n'existe plus.
