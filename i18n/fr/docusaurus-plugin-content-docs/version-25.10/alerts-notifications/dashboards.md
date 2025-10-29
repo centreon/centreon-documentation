@@ -111,7 +111,7 @@ Vous utilisez la fonctionnalité Tableaux de bord avec un profil de **viewer** o
 
 1. Cliquez sur le bouton **partager** en bas à droite du tableau de bord.
 2. Dans la liste déroulante **Ajouter un contact**, sélectionnez l'utilisateur à ajouter.
-  > Les contacts visibles sont ceux qui respectent ces deux conditions conjointes
+  > Seuls les utilisateurs remplissant les deux conditions suivantes sont affichés : 
   >  - appartenir aux mêmes **groupes d'accès** que les vôtres,
   >  - avoir accès au menu des Tableaux de Bords (activable via les droits d'accès).
 3. Sélectionnez le profil **Viewer** ou **Editor**.
