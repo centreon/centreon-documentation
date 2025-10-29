@@ -6,8 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from '../_poller-agent-configuration.mdx';
 
-> Note to Centreon Cloud users: The Centreon Monitoring Agent is still in its beta phase for Centreon Cloud. To get support, visit [our dedicated group on The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
-
 ## Step 1: Configure Centreon
 
 This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/24.10/).)
@@ -311,8 +309,9 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
   "host":"host_1",
   "log_type":"file",
   "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "encryption":true,
-  "ca_certificate":"/tmp/ca_1234.crt",
+  "encryption":<full/insecure>,
+  "ca":"/tmp/ca_1234.crt",
+  "ca_common_name":"",
   "token":"<TOKEN>"
 }
 ```
@@ -328,10 +327,10 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
   "log_type":"file",
   "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "reversed_grpc_streaming":true,
-  "encryption":true,
+  "encryption":<full/insecure>,
   "private_key":"/tmp/server_1234.key",
   "public_cert":"/tmp/server_1234.crt",
-  "ca_certificate":"/tmp/ca_1234.crt",
+  "ca":"/tmp/ca_1234.crt",
   "token":"<TOKEN>"
 }
 ```
@@ -344,6 +343,9 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 #### Configure encryption parameters
 
 See [dedicated section](cma-certificates.md) to identify which files are required, depending on your configuration and direction. 
+
+> When migrating from a previous version of CMA, the configured data is retained. Therefore, any encryption that is enabled will be considered “encryption:insecure.”
+You can change this value as needed and restart the agent.
 
 #### Configure the logs
 
@@ -386,26 +388,23 @@ The CMA installer can be executed in 2 modes:
 <TabItem value="Interactive mode" label="Interactive mode">
 
 1. Start the installer (during the configuration, you can click on the (i) icons for help).
-   If you choose to install **centreon-plugins**, the installer will try to download and install the latest version of the Centreon plugins. If it can't (no web connection, network issue...), a popup is displayed to ask confirmation before using embedded plugins.
+   If you choose to install **centreon-plugins**, the installer will try to download and install the latest version of the Centreon plugins. If it can't (no web connection, network issue...), a popup is displayed to ask confirmation before using embedded plugins. If you only want to use native checks, there is no need to install the plugins.
   
    Results are displayed in the installer's window.
 
 2. Configure the endpoint and the connection direction:
    * **Host name in Centreon**. This must be the name of the host as you have defined it in the Centreon interface.
      > Warning : This name will be the unique key for mapping data to the right Centreon host. It must be strictly identical to the Centreon host name (case sensitive).
-   * In most cases (the agent connects to the poller), you have to enter the poller's endpoint. The correct format is \<poller IP or DNS name\>:port (OpenTelemetry listening port on the poller, usually 4317), for example 192.168.45.32:4317.
-   * In case of a poller-initiated connection (the poller connects to the agent), you have to choose a host interface (0.0.0.0 for all interfaces) and the listening port on which poller will connect, usually 4317.
 
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
-   * In **Poller endpoint**, enter the poller's IP/DNS, followed by listening port, usually 4317. For example, 192.168.45.32:4317.
+   * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317. For example, 192.168.45.32:4317.
 
 </TabItem>
 <TabItem value="Poller connects to agent" label="Poller connects to agent">
 
    * **Listening interface** can keep the default value (0.0.0.0:4317) and will be the interface through which the agent accepts incoming connections from the poller. (0.0.0.0) means 'all interfaces'. You can restrict this value for security reasons.
-
 </TabItem>
 </Tabs>
 
@@ -428,7 +427,7 @@ Available parameters are :
 | --install_cma              | Set this flag if you want to install the Centreon Monitoring Agent                                                                                                                                                                                                        |
 | --install_plugins          | Set this flag if you want to download and install the latest version of Centreon plugins                                                                                                                                                                                  |
 | --install_embedded_plugins | Set this flag if you want to install Centreon plugins embedded in the installer (case of a host that cannot access the internet)                                                                                                                                          |
-| --hostname                 | The name of the host as defined in the Centreon interface.                                                                                                                                                                                                                |
+| --hostname                 | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                                                                                                                                                                                                                    |
 | --endpoint                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode, it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) |
 | --reverse                  | Add this flag for Poller-initiated connection mode.                                                                                                                                                                                                                       |
 | --log_type                 | event_log or file. In case of logging in a file, log_file param is mandatory                                                                                                                                                                                              |
@@ -436,11 +435,11 @@ Available parameters are :
 | --log_file                 | log files path.                                                                                                                                                                                                                                                           |
 | --log_max_file_size        | max file in Mo before rotate.                                                                                                                                                                                                                                             |
 | --log_max_files            | max number of log files before delete. For the rotation of logs to be active, it is necessary that both parameters 'Max File Size' and 'Max number of files' are set.                                                                                                     |
-| --encryption               | Add this flag for encrypt connection with poller.                                                                                                                                                                                                                         |
-| --private_key              | Private key file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                                |
-| --public_cert              | Public certificate file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                         |
+| --encryption               | Encryption mode. Possible values: \{full;insecure;no\}.                                                                                                                                                                                                 |
+| --private_key              | Private key file path.                                                                                                                                  |
+| --public_cert              | Public certificate file path.                                                                                                                     |
 | --ca                       | Trusted CA's certificate file path.                                                                                                                                                                                                                                       |
-| --ca_name                  | Expected TLS certificate common name (CN).                                                                                                                                                                                                                                |
+| --ca_name                  | Expected TLS certificate common name (CN). Only for Insecure TLS mode.                                                                                                                                                                                                                               |
 
 | --token                    | Authentication token.
 If you use the **--install_plugins** option but the download of the plugins fails, the installer will install the plugins embedded in the installer.
@@ -460,6 +459,9 @@ Data defined through the installer or silent mode is stored in the registry:
 #### Configure encryption parameters
 
 See [dedicated section](cma-certificates.md) to identify which files are required, depending on your configuration and direction. 
+
+> When migrating from a previous version of CMA, the configured data is retained. Therefore, any encryption that is enabled will be considered “encryption”:insecure.
+You can change this value as needed and restart the agent.
 
 #### Configure the logs
 

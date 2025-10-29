@@ -1,13 +1,11 @@
 ---
 id: operatingsystems-linux-centreon-monitoring-agent
-title: Linux Centreon Monitoring Agent
+title: Linux CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Le connecteur **Linux Centreon Monitoring Agent** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
-
-> Pour le moment, ce connecteur de supervision est en version **BETA**. L'agent est encore dans sa phase beta pour les utilisateurs de Centreon Cloud.
+Le connecteur **Linux CMA** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent - CMA). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
 Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
 
@@ -15,7 +13,7 @@ Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'info
 
 ### Modèles
 
-Le connecteur de supervision **Linux Centreon Monitoring Agent** apporte un modèle d'hôte :
+Le connecteur de supervision **Linux CMA** apporte un modèle d'hôte :
 
 * **OS-Linux-Centreon-Monitoring-Agent-custom**
 
@@ -371,7 +369,7 @@ apt-get install centreon-pack-operatingsystems-linux-centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Linux Centreon Monitoring Agent**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Linux CMA**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 3. Selon votre version de Centreon, passez à l'étape suivante ou créez un connecteur sur votre serveur central.
@@ -390,9 +388,9 @@ Si vous êtes sur une version antérieure à la 24.10.6, vous devez créer le co
 2. Créez un nouveau connecteur avec les données suivantes :
 
 | Paramètre                 | Valeur                                                                                                                                                                                        |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nom du connecteur         | Centreon Monitoring Agent Beta                                                                                                                                                                    |
-| Description du connecteur | Centreon Monitoring Agent Beta                                                                                                                                                                    |
+| ------------------------- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                                     |
+| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                                     |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Utilisé par la commande   | Entrez `Centreon-Monitoring-Agent` et cliquez sur **Sélectionner tout**                                                                                                                       |
 | Statut du connecteur      | Activé                                                                                                                                                                                        |

@@ -19,11 +19,50 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 24.10.10
+
+Release date: `October 22, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Viewer] The Pie chart widget can now be displayed in percentage per status.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Config] Fixed an issue where the configure.sh script was not starting the mysql service anymore.
+- [Config] The MAP address is now used by default when no internal MAP address has been defined.
+- [Dashboards] Reduced the minimum size for MAP and Resource table widgets.
+- [Editor] Fixed issues with copying/pasting elements.
+- [MAP Editor] Fixed an issue causing incorrect parent names to appear in tooltips after saving.
+- [MAP Viewer] Fixed an issue causing inherited status to ignore status computation parameters (downtime, acknowledge) for services.
+- [MAP Viewer] Fixed an issue causing inherited status not to be refreshed when removing a service from a container.
+- [MAP Viewer] Fixed an issue causing text formatting not to be applied in some cases.
+- [Packaging ] Fixed an issue with the Symfony clear cache that was not automatically executed after installation.
+- [Server] BBDO version 3.1.0 is now supported.
+- [Upgrade] Removed the mention of generate_routes.php.
+- [Viewer] Fixed an issue with graphs that were displayed for services without any metric.
+- [Viewer] Fixed an issue where BAs linked to a remote server were not displayed.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Server] Fixed ownership of configuration files.
+- [Vulnerability] Upgraded crypto-js to version 4.2.0.
+- [Vulnerability] Upgraded Tomcat to version 10.1.44.
+
+</details>
+
 ### 24.10.9
 
 Release date: `August 6, 2025`
 
-<details>
+<details open>
   <summary>Enhancements</summary>
 
 - [Dashboards] When displaying an existing public playlist containing a MAP widget with no map selected, a message is now displayed indicating that one must first be selected for it to be displayed.
@@ -291,6 +330,18 @@ Release date: `October 31, 2024`
 
 ## Centreon BAM
 
+### 24.10.7
+
+Release date: `October 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BA diagram] Fixed an issue with disabled indicators that were not displayed in a dedicated node of the tree.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
 ### 24.10.6
 
 Release date: `August 6, 2025`
@@ -397,6 +448,32 @@ Release date: `October 31, 2024`
 
 ## Centreon MBI
 
+### 24.10.6
+
+Release date: `October 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CBIS] Versions 2 and 3 of SMB are now supported.
+- [ETL] Fixed an issue when metric names exceeded 255 characters.
+- Fixed some missing translations in French.
+- Fixed the upload of report templates.
+- [MBI] Fixed an issue causing ACLs not to be applied on Report designs.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Engine] Fixed ownership of configuration files.
+- [MBI] Fixed an issue causing potential privilege escalation.
+- [Vulnerability] Upgraded JDOM version.
+- [Vulnerability] Upgraded versions of Apache Commons and TemporaryFolder dependencies.
+
+</details>
+
 ### 24.10.5
 
 Release date: `August 6, 2025`
@@ -495,6 +572,25 @@ Release date: `October 31, 2024`
 
 ## Centreon Auto Discovery
 
+### 24.10.7
+
+Release date: `October 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed error code and message that were displayed in case of invalid license.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to restrict discovery commands that were too permissive.
+
+</details>
+
 ### 24.10.6
 
 Release date: `June 20, 2025`
@@ -582,6 +678,12 @@ Release date: `October 31, 2024`
 
 ## Centreon License Manager
 
+### 24.10.4
+
+Release date: `October 22, 2025`
+
+- No changes for this version.
+
 ### 24.10.3
 
 Release date: `August 6, 2025`
@@ -623,6 +725,17 @@ Release date: `October 31, 2024`
 
 ## Centreon Anomaly Detection
 
+### 24.10.4
+
+Release date: `October 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
 ### 24.10.3
 
 Release date: `August 6, 2025`
@@ -663,6 +776,18 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon IT Edition Extensions
+
+### 24.10.7
+
+Release date: `October 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Playlists] Fixed an issue with the refresh of the dashboard list to be displayed.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
 
 ### 24.10.6
 
@@ -757,6 +882,12 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+
+### 24.10.6
+
+Release date: `October 22, 2025`
+
+- No changes for this version.
 
 ### 24.10.5
 

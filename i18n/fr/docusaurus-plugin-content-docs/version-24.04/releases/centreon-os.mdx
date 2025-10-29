@@ -51,9 +51,10 @@ Release date: `September 24, 2025`
 - Fixed an issue where the service deployment endpoint was adding the command line to the service.
 - [Packaging] Removed obsolete dependencies for database-related Centreon packages.
 - [Resource Status] Default values for monitoring options are now also applied to non-admin users.
-- [Resources Status] Fixed an issue on the notification tab where the same user was displayed multiple times.
+- [Resource Status] Fixed an issue on the notification tab where the same user was displayed multiple times.
 - [Resource Status] Fixed an issue preventing the selection of multiple resources when using advanced filters.
 - [Resource Status] Fixed an error that occurred when displaying metrics for a metaservice.
+- [Resource Status] Fixed an issue where the notification icon was not displayed in the corresponding column in the Resource Status page.
 - [Resource Status] Fixed the notification tab to display the contact defined on the service template rather than on the host.
 - [Resource Status] The pipe “|” character is now handled correctly in the command section of a resource.
 - [Resource Status] View by host: fixed an issue preventing resources from being displayed when filtering on a resource that had no metrics.
@@ -645,6 +646,20 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.15
+
+Release date: `September 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a segfault on Broker that was occurring when Engine stopped or was restarted, when Engine's version was older than 24.04.
+- [Core] Fixed the compatibility of Engine with older versions of the Linux kernel.
+- [Engine] Engine no longer crashes when users delete a host during downtime notification.
+- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a broker update. 
+
+</details>
+
 ### 24.04.14
 
 Release date: `August 6, 2025`
@@ -873,6 +888,27 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.04.11
+
+Release date: `September 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed centreontrapd configuration file permissions applied when exporting poller configuration.
+- [Gorgone] Gorgone now raises an error if the ETL configuration file doesn't exist.
+- [MBI] Fixed a bug in MBI where a hostname with a semicolon broke database insertion.	
+- [MBI] Fixed an issue where the ETL would never finish executing if some service templates were referencing themselves.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to make discovery commands less permissive.
+
+</details>
 
 ### 24.04.10
 
