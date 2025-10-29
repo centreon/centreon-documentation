@@ -7,7 +7,7 @@ To create a user, go to **Configuration > Users > Contacts/Users**, then click *
 
 ![image](../../assets/configuration/06useradd.png)
 
-To display the matrix of notifications for a user, click **View contact notifications** next to the **Add** menu).
+To display the matrix of notifications for a user, click **View contact notifications** next to the **Add** menu.
 
 ## General information
 
