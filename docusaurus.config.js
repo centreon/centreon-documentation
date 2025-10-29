@@ -109,7 +109,7 @@ const config = {
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
-          showLastUpdateTime: true,
+          showLastUpdateTime: false,
           includeCurrentVersion: false,
           onlyIncludeVersions: versions,
           versions: (() => {
@@ -216,7 +216,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: true,
+            showLastUpdateTime: false,
           },
         ],
       ];
