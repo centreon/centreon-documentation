@@ -3,7 +3,7 @@ id: developer-broker-bbdo-switch-versions
 title: Changer de version de BBDO
 ---
 
-BBDO v2 est déprécié à partir de Centreon 25.10. Lorsque vous montez de version votre Centreon, le central passe automatiquement en BBDO V3. Cependant, voici une procédure pour changer de version manuellement si besoin.
+BBDO v2 est déprécié à partir de Centreon 25.10. Lorsque vous montez de version votre Centreon, le central passe automatiquement en BBDO V3 (les serveurs distants et les collecteurs passeront en BBDO v3 après déploiement de la configuration). Cependant, voici une procédure pour changer de version manuellement si besoin.
 
 La version de BBDO doit être la même pour tous les serveurs de votre architecture (serveur central, serveurs distants, collecteurs). Vous devez également [utiliser BBDO v3 avec vos stream connectors](./developer-broker-stream-connector-migration.md).
 
