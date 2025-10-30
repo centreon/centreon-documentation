@@ -378,6 +378,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 "/centreon_plugins.exe" \
     --plugin=apps::microsoft::exchange::local::plugin \
     --mode=queues \
+	--timeout=120 \
 	--warning-status="" \
 	--critical-status="not %\{status\} =~ /Ready|Active/i" \
 	--verbose
