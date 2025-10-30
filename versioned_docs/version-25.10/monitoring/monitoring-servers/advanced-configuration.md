@@ -86,7 +86,7 @@ with the following parameters:
 Regenerate the configuration of the affected pollers (`Configuration >
 Pollers > Pollers`) and the authentication will be complete.
 
-## Advanced configuration of Centreon Broker
+## Advanced configuration of Centreon Broker 
 
 This section will help you understand how Centreon Broker works and how it
 should be configured according to Centreon's best practices. The various options

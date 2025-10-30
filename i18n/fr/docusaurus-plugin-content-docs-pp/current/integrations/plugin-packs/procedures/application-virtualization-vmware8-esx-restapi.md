@@ -65,6 +65,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | cpu.capacity.demand.hertz          | Hz    |
 | cpu.corecount.usage.count          | count |
 
+
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
@@ -73,6 +74,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | disk.throughput.usage.bytespersecond    | Bps   |
 | disk.throughput.contention.milliseconds | ms    |
 
+
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
@@ -80,6 +82,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:----------------------------|:------|
 | vms.memory.usage.percentage | %     |
 | vms.memory.usage.bytes      | B     |
+
 
 </TabItem>
 <TabItem value="Network-Throughput" label="Network-Throughput">
@@ -90,12 +93,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | network.throughput.usage.percent        | %     |
 | network.throughput.contention.count     | count |
 
+
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Nom                        | Unité |
-|:---------------------------|:------|
-| power.capacity.usage.watts | W     |
+| Nom                       | Unité |
+|:--------------------------|:------|
+| power.capacity.usage.watt | W     |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -219,7 +223,6 @@ collecteur.
 openssl s_client -connect myvcenter.mydomain.tld:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /usr/local/share/ca-certificates/my_vcenter.crt
 update-ca-certificates
 ```
-
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -320,11 +323,11 @@ update-ca-trust
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Macro              | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGEWATTS  | Threshold in Watts                                                                                 |                   |             |
-| CRITICALUSAGEWATTS | Threshold in Watts                                                                                 |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGEWATT  | Threshold in Watts                                                                                 |                   |             |
+| CRITICALUSAGEWATT | Threshold in Watts                                                                                 |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -364,14 +367,14 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--esx-id='host-18' \
 	--username='USERNAME' \
 	--password='PASSWORD'  \
-	--warning-usage-watts='' \
-	--critical-usage-watts='' 
+	--warning-usage-watt='' \
+	--critical-usage-watt='' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Power usage is 219 Watts | 'power.capacity.usage.watts'=219W;;;;
+OK: Power usage is 219 Watts | 'power.capacity.usage.watt'=219W;;;;
 
 ```
 
@@ -543,10 +546,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Option                 | Description              |
-|:-----------------------|:-------------------------|
-| --warning-usage-watts  |   Threshold in Watts.    |
-| --critical-usage-watts |   Threshold in Watts.    |
+| Option                | Description              |
+|:----------------------|:-------------------------|
+| --warning-usage-watt  |   Threshold in Watts.    |
+| --critical-usage-watt |   Threshold in Watts.    |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">

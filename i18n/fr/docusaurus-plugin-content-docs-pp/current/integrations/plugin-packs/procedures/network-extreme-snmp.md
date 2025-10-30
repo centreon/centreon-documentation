@@ -1,15 +1,23 @@
 ---
 id: network-extreme-snmp
-title: Extreme Network
+title: Extreme Networks SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Compatibilité
+
+Ce connecteur a été conçu pour être compatible avec les produits suivants.
+
+| Produit     | Modèles       | Versions |
+| ----------- | ------------- | -------- |
+| Extreme Networks | X435-8P-4S | - |
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Extreme Network** apporte un modèle d'hôte :
+Le connecteur de supervision **Extreme Networks SNMP** apporte un modèle d'hôte :
 
 * **Net-Extreme-SNMP-custom**
 
