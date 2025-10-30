@@ -201,6 +201,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
     filter=none
     "empty-state=ok"
     show-all'
+```
+
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
