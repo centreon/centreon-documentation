@@ -28,58 +28,29 @@ Release date: `October 29, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [Configuration] Added private Map server address.
-- [Core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
-- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
-- [Dashboards] When creating a new widget, the list of existing types of widgets is now categorized and ordered alphabetically.
-- [Dashboards] When displaying an existing public Playlist containing a Map widget with no Map selected, a message is now displayed indicating that one must first be selected for it to be displayed.
-- [Database] Extended bend point limitations for links.
-- [Editor] Added "display icons" option for Map containers and resources. If checked, custom and state icons are displayed on the shape.
-- [Editor] Exit confirmation modals are no longer displayed when no modification has been made.
-- [Editor] Fixed issue that prevented metric parameters from being displayed when editing a metric link.
-- [Editor] Fixed an issue preventing groups of items to be duplicated.
-- [Editor] It is now possible to use sub-groups of items in a Map.
-- [Gauge widget] Added an option to display the name of the parent resource.
-- [Geoviews] Allowed user to define privileges for Geoviews.
-- [Library] Added the possibility to select a custom icon representing a Geoview.
-- [MAP API] It is now possible to use MAP API with API Token when authentication is delegated.
-- [MAP] Removed MAP Legacy elements.
-- [Playlists] The MAP widget is now operational when displayed in the public Playlists of Dashboards.
-- [Server] Adapt protobuf to handle the new event "AdaptiveHostStatus" from Broker.
-- [Server] Adapt protobuf to handle the new event "AdaptiveServiceStatus" from Broker.
+- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
+- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
+- [MAP API] It is now possible to use the MAP API with an API token when authentication is delegated.
+- [MAP] Removed MAP Legacy elements in the MAP configuration screen.
 - [Server] BBDOv2 messages are no longer supported.
-- [Server] Fixed a synchronization issue that could cause resources to disappear from a map.
-- [Server] Modified SQL user rights to grant only necessary ones.
-- [Server] Optimized the propagation of a resource status change.
-- [URL widget] Added a pointer cursor when hovering the widget, to clearly identify that the link is clickable.
-- [URL widget] Fixed an issue that prevented border from being removed.
-- [URL widget] Fixed an issue that made the URL accessible only when clicking two times, instead of one.
-- [URL widget] Labels are now centered vertically.
-- [URL widget] Links are now always opened in a dedicated tab.
-- [Viewer] Fixed issue that prevented pie chart widget from being displayed in percentage per status
-- [Viewer] You can now display the status as the background color for a resource in weather or icon style.
-- MAP Legacy is no longer supported.
-- Maps and Geoviews lists are now sorted alphabetically.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-
 - Added missing French translations.
-- [Config] The configure.sh script does not start the mysql service anymore.
+- [Config] The **configure.sh** script does not start the **mysql** service anymore, as it was not necessary.
 - [Config] The Map address is now used by default when no internal Map address has been defined.
-- [Editor] Fixed issues when copy/pasting elements.
-- [Geoviews] Fixed several issues in the edition modal.
-- [MAP Editor] Fixed an issue causing parent name to be wrong in tooltip after saving.
-- [MAP Viewer] Fixed an issue causing inherited status not to be refreshed when removing a service from a container.
-- [MAP Viewer] Fixed an issue causing inherited status to ignore status computation parameters (downtime, acknowledge) for services.
+- [Editor] Fixed issues occurring when copying and pasting elements.
+- [Geoviews] Fixed several issues in the edition window.
+- [MAP Editor] Fixed an issue causing a resource's parent name to be wrong in the tooltip after saving.
+- [MAP Viewer] Fixed an issue causing an inherited status not to be refreshed when removing a service from a container.
+- [MAP Viewer] Fixed an issue causing an inherited status to ignore status computation parameters (downtime, acknowledgement) for services.
 - [MAP Viewer] Fixed an issue causing text formatting not to be applied in some cases.
 - [Viewer] Fixed an issue where BAs linked to a remote server were not displayed.
-- [Viewer] Fixed the redirection link to Resource Status page when clicking on a meta service.
+- [Viewer] When clicking on a metaservice, the redirection link to the Resource Status page now works correctly.
 - [Viewer] Graphs are no longer being displayed for services without any metric.
-- Restored translations from UI tooltips.
 
 </details>
 
@@ -87,11 +58,6 @@ Release date: `October 29, 2025`
   <summary>Security fixes</summary>
 
 - [Server] Fixed ownership of configuration files.
-- [Vulnerability] Upgraded spring security web dependency to version 6.2.8.
-- [Vulnerability] Upgraded spring security web dependency to version 6.2.8.
-- [Vulnerability] Upgraded spring security web dependency to version 6.2.8.
-- [Vulnerability] Upgraded spring security web dependency to version 6.2.8.
-- [Vulnerability] Upgraded Tomcat to version 10.1.43.
 - [Vulnerability] Upgraded Tomcat to version 10.1.44.
 - [Security] Added authentication for actuator endpoints.
 
@@ -106,13 +72,9 @@ Release date: `October 29, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [Core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
-- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
-- [Dashboards] BA Diagram widget - Added the parent host name on service KPI.
+- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
+- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
 - [Dashboards] When creating a new widget, the list of existing types of widgets is now categorized and ordered alphabetically.
-- [Dashboards][BA Diagram widget] Improved readability by increasing the number of characters displayed per label.
-- [Dashboards] Added new widget "Business Activity Status Timeline" that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
-- [Monitoring] A new, modern version of the BA monitoring page is now available.
 
 </details>
 
@@ -120,7 +82,6 @@ Release date: `October 29, 2025`
   <summary>Bug fixes</summary>
 
 - Added missing French translations.
-- Restored translations from UI tooltips
 - [BA diagram] Disabled indicators are now displayed in a dedicated node of the tree.
 
 </details>
@@ -134,13 +95,13 @@ Release date: `October 29, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
-- [Core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14) on BAM. MBI and ITEE.
-- [Dashboards] Fixed auto-adjustment of curves in graphics.
-- [Dashboards] The MBI reporting widget "Business Activity availability" is now available within Dashboards. It displays availability and alerts of a Business Activity for a given period.
-- [Dashboards] The MBI reporting widget"Business Activity history"" is now available within Dashboards. It displays the availability history of a Business Activity or a Business View for a given period.
-- [Dashboards] The MBI reporting widget "Hostgroup Availability History" is now available within Dashboards. It displays the availability history of hosts, host categories or host groups.
-- [Dashboards] The MBI reporting widget "Metric Capacity Planning" is now available within Dashboards. It allows to display the future evolution of a metric in relation to its history using linear regression.
+- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
+- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
+- [Dashboards] Fixed the auto-adjustment of curves in graphics.
+- [Dashboards] New MBI reporting widget: **Business Activity availability**. It displays availability and alerts for a Business Activity for a given period.
+- [Dashboards]New MBI reporting widget: **Business Activity history**. It displays the availability history for a Business Activity or a Business View for a given period.
+- [Dashboards] New MBI reporting widget: **Hostgroup Availability History**. It displays the availability history of hosts, host categories or host groups.
+- [Dashboards] New MBI reporting widget: **Metric Capacity Planning**. It displays the future evolution of a metric in relation to its history using linear regression.
 
 </details>
 
@@ -148,11 +109,10 @@ Release date: `October 29, 2025`
   <summary>Bug fixes</summary>
 
 - Added missing French translations.
-- [ETL] Fixed issue when metric names exceed 255 characters.
-- [MBI] Fixed an issue causing ACLs not to be applied on Report designs.
-- [MBI]Fixed duplicated report templates when upload fails.
+- [ETL] Fixed an issue occurring when metric names exceeded 255 characters.
+- [MBI] Fixed an issue causing ACLs not to be applied to report designs.
+- [MBI] Fixed duplicated report templates that appeared when upload failed.
 - [MBI] Fixed upload of report templates.
-- Restored translations from UI tooltips
 
 </details>
 
@@ -175,8 +135,8 @@ Release date: `October 29, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
-- [core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
+- [core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
 
 </details>
 
@@ -184,9 +144,8 @@ Release date: `October 29, 2025`
   <summary>Bug fixes</summary>
 
 - Added missing French translations.
-- [Configuration] Fixed SQL Error in service discovery with MySQL platform.
-- Fixed error code and message that were displayed in case of invalid license.
-- Restored translations from UI tooltips.
+- [Configuration] Fixed SQL error in service discovery occurring when using MySQL.
+- Fixed the error code and message that were displayed in case of an invalid license.
 
 </details>
 
@@ -206,7 +165,7 @@ Release date: `October 29, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
+- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
 
 </details>
 
@@ -214,7 +173,6 @@ Release date: `October 29, 2025`
   <summary>Bug fixes</summary>
 
 - Added missing French translations.
-- Restored translations from UI tooltips.
 
 </details>
 
@@ -227,8 +185,8 @@ Release date: `October 29, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
-- [Core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
+- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
 
 </details>
 
@@ -236,7 +194,6 @@ Release date: `October 29, 2025`
   <summary>Bug fixes</summary>
 
 - [Translation] Added missing French translations.
-- [Translation] Translated configuration pages.
 
 </details>
 
@@ -249,9 +206,9 @@ Release date: `October 29, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
-- [Core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
-- [Playlists] The MAP widget is now operational when displayed in the public Playlists of Dashboards.
+- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
+- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
+- [Playlists] The MAP widget is now handled correctly in the public playlists of Dashboards.
 
 </details>
 
@@ -259,8 +216,8 @@ Release date: `October 29, 2025`
   <summary>Bug fixes</summary>
 
 - Added missing French translations.
-- [Playlists] Fixed an issue with the refresh of the dashboard list to be displayed.
-- [Playlists] Fixed error when modifying a dashboard, and then displaying it exclusively in a playlist.
+- [Playlists] Fixed an issue occurring when refreshing the dashboard list to be displayed.
+- [Playlists] Fixed a "Playlist not found" error after modifying widgets in a dashboard.
 
 </details>
 
@@ -273,8 +230,8 @@ Release date: `October 29, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [Configuration] Default 24/7 notification time period is now definied on base pack Host templates.
-- [Monitoring Connectors] User access to this page can now be handled using dedicated ACL.
+- [Configuration] A default 24/7 notification time period is now defined on base pack host templates.
+- [Monitoring Connectors] User access to this page can now be handled using dedicated ACLs.
 
 </details>
 
@@ -282,6 +239,5 @@ Release date: `October 29, 2025`
   <summary>Bug fixes</summary>
 
 - Added missing French translations.
-- Restored translations from UI tooltips.
 
 </details>
