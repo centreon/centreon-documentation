@@ -164,7 +164,7 @@ yum install centreon-nrpe3-plugin
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Files-Generic" label="Files-Generic">
+<TabItem value="New-Orders" label="New-Orders">
 
 | Macro        | Description                                                                                                                    | Default value                                                    | Mandatory |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------:|
@@ -283,7 +283,7 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Files-Generic" label="Files-Generic">
+<TabItem value="New-Orders" label="New-Orders">
 
 | Option            | Description                                                                                                                                                                                                                                                                                 |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

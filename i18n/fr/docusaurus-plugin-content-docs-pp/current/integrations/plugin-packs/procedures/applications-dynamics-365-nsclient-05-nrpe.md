@@ -285,7 +285,7 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Files-Generic" label="Files-Generic">
+<TabItem value="New-Orders" label="New-Orders">
 
 | Option            | Description                                                                                                                                                                                                                                                                                 |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
