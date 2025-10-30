@@ -50,7 +50,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### Centreon NSClient++
 
-To monitor a *Microsoft Dynamics365* server through NRPE, install the Centreon packaged version 
+To monitor a *Microsoft Dynamics365* through NRPE, install the Centreon packaged version 
 of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) 
 and make sure that the **NRPE Server** configuration is correct.
 
