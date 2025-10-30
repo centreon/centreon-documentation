@@ -199,7 +199,6 @@ is able to monitor a resource using a command like this one (replace the sample 
     filter=none
     "empty-state=ok"
     show-all'
-
 The expected command output is shown below:
 
 ```bash
