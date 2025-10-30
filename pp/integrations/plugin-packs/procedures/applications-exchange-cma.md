@@ -381,6 +381,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 "/centreon_plugins.exe" \
     --plugin=apps::microsoft::exchange::local::plugin \
     --mode=queues \
+	--timeout=120 \
 	--warning-status="" \
 	--critical-status="not %\{status\} =~ /Ready|Active/i" \
 	--verbose
