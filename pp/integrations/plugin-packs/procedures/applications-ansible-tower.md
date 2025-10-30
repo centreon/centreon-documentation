@@ -102,7 +102,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 ## Prerequisites
 
 The `tower-cli`command-line tool is required for the plugin to be able to run in custom mode 'towercli'.
-You can refer to [the official documentation of tower-cli](://tower-cli.readthedocs.io/en/latest/install.html) for the installation procedure.
+You can refer to [the official documentation of tower-cli](https://tower-cli.readthedocs.io/en/latest/install.html) for the installation procedure.
 
 ## Installing the monitoring connector
 

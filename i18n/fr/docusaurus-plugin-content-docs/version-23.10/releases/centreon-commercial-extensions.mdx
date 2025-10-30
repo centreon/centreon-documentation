@@ -21,6 +21,29 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 23.10.23
+
+Release date: `October 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Config] Fixed an issue where the configure.sh script was not starting the mysql service anymore.
+- [Editor] Fixed an issue that caused links to be positioned differently in the editor when migrating from MAP Legacy to MAP.	
+- [Editor] Fixed issues occurring when copying/pasting elements.
+- [Viewer] Fixed an issue that prevented pie chart widgets from being displayed in percentage per status.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Server] Fixed ownership of configuration files.
+- [Vulnerability] Upgraded crypto-js to version 4.2.0.
+- [Vulnerability] Upgraded Tomcat to version 10.1.44.
+
+</details>
+
 ### 23.10.22
 
 Release date: `July 24, 2025`
@@ -756,6 +779,29 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon MBI
+
+### 23.10.15
+
+Release date: `October 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ETL] Fixed an issue occurring when metric names exceeded 255 characters.
+- [MBI] Fixed an issue causing ACLs not to be applied to report designs.	
+- [MBI] Fixed upload of report templates.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Engine] Fixed ownership of configuration files.
+- [MBI] Fixed an issue causing potential privilege escalation.
+- [Vulnerability] Upgraded JDOM version.
+- [Vulnerability] Upgraded versions of Apache Commons and TemporaryFolder dependencies.
+
+</details>
 
 ### 23.10.14
 

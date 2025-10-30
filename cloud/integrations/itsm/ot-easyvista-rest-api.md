@@ -7,9 +7,7 @@ The EasyVista Open Tickets provider uses the EasyVista Rest API to open incident
 
 ## Requirements
 
-- Before going any further, make sure that you have correctly set up [Centreon Open Tickets](https://docs.centreon.com/docs/alerts-notifications/ticketing-install/) on your Centreon instance.
-
-- Then you need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
+You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
 
 ## Installing the EasyVistaRest provider
 
