@@ -1,6 +1,6 @@
 ---
 id: applications-dynamics-365-nsclient-05-nrpe
-title: Microsoft Dynamics365 NSClient 0.5 NRPE
+title: Dynamics365 NSClient 0.5 NRPE
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
