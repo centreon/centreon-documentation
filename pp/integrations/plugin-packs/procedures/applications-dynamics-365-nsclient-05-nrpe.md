@@ -196,7 +196,9 @@ is able to monitor a resource using a command like this one (replace the sample 
     critical=age > -1d or count > 100
     top-syntax=${status}: ${problem_count}/${count} files (${problem_list})
     detail-syntax=${name}
-    filter=none'
+    filter=none
+    "empty-state=ok"
+    show-all'
 
 The expected command output is shown below:
 

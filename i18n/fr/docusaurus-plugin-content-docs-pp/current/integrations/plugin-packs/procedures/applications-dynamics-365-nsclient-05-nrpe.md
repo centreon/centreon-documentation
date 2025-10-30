@@ -198,7 +198,9 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
     critical=age > -1d or count > 100
     top-syntax=${status}: ${problem_count}/${count} files (${problem_list})
     detail-syntax=${name}
-    filter=none'
+    filter=none
+    "empty-state=ok"
+    show-all'
 
 La commande devrait retourner un message de sortie similaire à :
 
