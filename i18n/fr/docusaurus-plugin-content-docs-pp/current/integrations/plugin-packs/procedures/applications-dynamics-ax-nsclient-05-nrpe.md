@@ -206,7 +206,7 @@ yum install centreon-nrpe3-plugin
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | "empty-state=ok" show-all                                        |             |
 
 </TabItem>
-<TabItem value="Services-Generic-Name" label="Services-Generic-Name">
+<TabItem value="Service-RIS" label="Service-RIS">
 
 | Macro        | Description                                                                                                                              | Valeur par défaut                   | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
@@ -381,7 +381,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
 
 </TabItem>
-<TabItem value="Services-Generic-Name" label="Services-Generic-Name">
+<TabItem value="Service-RIS" label="Service-RIS">
 
 | Option            | Description                                                                                                                                                                                                                                                                                 |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
