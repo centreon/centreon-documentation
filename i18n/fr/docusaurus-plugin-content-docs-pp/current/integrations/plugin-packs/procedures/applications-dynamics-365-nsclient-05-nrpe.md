@@ -192,15 +192,13 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query'  ' \
-    paths='C:/D365/Interfaces/Input/SalesOrders/New/ '
-    pattern='*.xml '
-    warning='count > 20 '
-    critical='age > -1d or count > 100'
-    top-syntax='${status}: ${problem_count}/${count} files (${problem_list})'
-    detail-syntax='${name}'
-    filter='none'
-    '
-```
+    paths=C:/D365/Interfaces/Input/SalesOrders/New/
+    pattern=*.xml
+    warning=count > 20
+    critical=age > -1d or count > 100
+    top-syntax=${status}: ${problem_count}/${count} files (${problem_list})
+    detail-syntax=${name}
+    filter=none'
 
 La commande devrait retourner un message de sortie similaire à :
 
