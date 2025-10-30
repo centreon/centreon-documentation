@@ -41,7 +41,6 @@ Release date: `October 29, 2025`
 - [API] Enhanced Agent configuration endpoints documentation.
 - [Administration] Added INFO logs on API&CMA Tokens Add/Delete/Activate/Revoke & API Tokens usage.
 - [Agent configuration] It's now possible to configure both connection direction in the same configuration. The user interface has been improved according to this.
-- [Authentication] Improved SAML configuration by adding a "Requested Authentication Context" parameter.
 - [Authentication Tokens] Added a welcome page when no token exists in the token configuration page.
 - [BBDO2 sunset] Added BBDO 3.1 in Broker configuration dropdown.
 - Cbmod entry has been replaced in engine configuration.
@@ -68,11 +67,8 @@ Release date: `October 29, 2025`
 - [Core] Rectangular logos are now correctly displayed on the login page.
 - [Core] Updated PHP dependencies to 8.2 version.
 - [Credentials encryption] Configuration generation is now able to handle encrypted credentials.
-- [Custom Views] "Global Health" and "Top 10" widgets - Improved display and fixed issue with MySQL8.
 - [Dashboards] Added default sizes for widgets, and optimized their default positioning on the grid of the dashboard.
-- [Dashboards] Added meta-services to metric widgets (Single metric, Metrics graph, Top/Bottom).
 - [Dashboards] Added new widget "Business Activity Status Timeline" that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
-- [Dashboards] Added the possibility to mark a dashboard as a favorite one, and to list all favorites.
 - [Dashboards] Custom views menu is now hidden on new installation or if no custom views are present.
 - [Dashboards] Improved Status Grid widget responsiveness in condensed mode.
 - [Dashboards] It is now possible to use regex (regular expressions) to filter certain resource types in specific widgets.
@@ -81,15 +77,12 @@ Release date: `October 29, 2025`
 - [Dashboards] Reduced spacing between items of the Dashboard page. It is now possible to resize the widgets horizontally or diagonally, either on the left or the right side.
 - [Dashboards] When creating a new widget, the list of existing types of widgets is now categorized and ordered alphabetically.
 - [Dashboards][Metrics Graph] Added new time periods: 14 days and 2 months.
-- [Dashboards][Resource Table widget] Added FQDN, Alias, Parent Alias and Monitoring Server columns.
 - [Install] The unattended script is now available for version 24.10.
-- [Library - view by card] Added thumbnail, that show a snapshot of your data, taken when the dashboard is saved.
 - [Metaservices] Fixed several issues occuring when using MySQL 8.
 - [Metaservices] Fixed SQLi issues.
 - [Monitoring] A new, modern version of the BA monitoring page is now available.
 - Once this patch applied, partitioning will work again with Amazon RDV Aurora but will be very costly the first time (as nont done for a while).
 - [Packaging] Increased php memory limit in centreon php configuration.
-- [Resource Status] Added the possibility to export in CSV format the current data being displayed.
 - [Resource Status] Improved copy of executed command.
 - [Resource Status] Improved the label of the "Sticky" option in the acknowledgement window.
 - [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the Administration > Parameters > Centreon UI menu.
@@ -107,7 +100,6 @@ Release date: `October 29, 2025`
 - [ACL] Fixed issue when cumulating ACLs for a same user.
 - [Configuration] Fixed an issue where export wasn't taking in account macros inherited from indirect template parents.
 - [Configuration] Fixed issue preventing user from disabling a meta-service.
-- [Configuration] The creation of metaservices no longer fails for users with several ACL rules on resources.
 - [Dashboards] Fixed contact search when sharing a dashboard or a playlist.
 - Fixed an issue where exported Tokens was ignored by engine.
 - Fixed an issue where notes weren't displayed correctly in Administration > Logs.
@@ -126,7 +118,6 @@ Release date: `October 29, 2025`
   <summary>Security fixes</summary>
 
 - [Administration] Fixed XSS in Administration > ACL > Action Access.
-- [Vulnerability] Custom Views - Fixed XSS in the HTTP Loader widget "Website" field.
 - [Vulnerability] Fixed XSS vulnerability on Hosts templates.
 - [Vulnerability] Fixed XSS vulnerability on Recurrent downtimes.
 - [Vulnerability] Fixed XSS vulnerability on Resources Access parameters.
