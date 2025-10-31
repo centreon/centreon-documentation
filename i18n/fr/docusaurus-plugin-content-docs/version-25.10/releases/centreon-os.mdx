@@ -29,76 +29,56 @@ Release date: `November 3, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- A new feature is available to manage agent configuration settings, including those for the Centreon Monitoring Agent and Telegraf.
-- [ACL] Image folders must now be included in ACL definitions to control access to images in MAP.
-- [API] Added several endpoints concerning host groups: bulk duplicate, bulk enable/disable, bulk delete.
-- [API] Added a new endpoint to bulk delete services.
-- [API] Added missing change logs on the **Administration > Logs** page for the configuration of service severities.
-- [API] Added missing change logs on the **Administration > Logs** page for the configuration of service categories.
-- [API] Added missing change logs on the **Administration > Logs** page for the configuration of host severities.
-- [API] Added missing change logs on the **Administration > Logs** page for the configuration of host categories.
-- [API] Added missing change logs on the **Administration > Logs** page for the configuration of commands (ADD).
-- [API] Added missing change logs on the **Administration > Logs** page for the configuration of timeperiods.
-- [API] Added missing change logs on the **Administration > Logs** page, written when the configuration of services is deployed.
-- [API] Added missing change logs on the **Administration > Logs** page for the configuration of service templates.
-- [API] Added missing change logs on the **Administration > Logs** page for the configuration of host templates.
-- [API] Enhanced the documentation for agent configuration endpoints.
-- [Administration] Added INFO logs on API & CMA tokens (Add/Delete/Activate/Revoke), and on API token usage.
-- [Agent configuration] It is now possible to configure both connection directions in the same configuration. The user interface has been improved to allow this.
-- [Authentication] Improved SAML configuration by adding a **Requested Authentication Context** parameter, to determine how strong the authentication should be.
-- [Authentication Tokens] A welcome page is now displayed when no token exists in the token configuration page.
+- [ACL] Added Image Folders in ACL groups to allow access control to images in MAP.
+- [API] Added a new endpoint to bulk Duplicate Host Groups.
+- [API] Added bulk enable/disable endpoint for hostgroups.
+- [API] Added an endpoint to bulk Delete Host groups.
+- [API] Added a new endpoint to bulk Delete services.
+- [API] Added missing configuration change logs for service template configuration.
+- [Administration] Added INFO logs on API and CMA Tokens Add/Delete/Activate/Revoke and API Tokens usage.
+- [Agent configuration] It is now possible to configure both connection direction in the same configuration. The user interface has been improved according to this.
+- [Authentication Tokens] Added a welcome page when no token exists in the token configuration page.
 - [BBDO2 sunset] Added BBDO 3.1 in Broker configuration dropdown.
+- Cbmod entry has been replaced in engine configuration.
 - [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
-- The Centreon Monitoring Agent connector is now created during installation/upgrade.
-- [Configuration] Added insecure TLS connection mode to agent configuration.
-- [Configuration] Agent configuration: all certificate fields are now optional, providing greater flexibility for environments that rely on public certificates.
-- [Configuration] Cleaned up labels in agent configuration screens.
-- [Configuration] A default 24/7 notification time period is now explicitly defined on base pack host templates to avoid warnings when the configuration is deployed.
-- [Configuration] Harmonized the interface for Additional Configurations with other screens.
-- [Configuration] Host_down_disable_service_checks & flapping detection are now enabled by default on pollers.
-- [Configuration] The name of the selected host no longer disappears when the agent configuration form is saved (poller-initiated connection).
-- [Configuration] The host group form now uses the REST API for updates.
-- [Configuration] The host form is now using the REST API.
-- [Configuration] The host group form is now using the REST API for deletions.
-- [Configuration] The host form is now using the REST API for deletions.
-- [Configuration] The service form is now using the REST API for deletion.
-- [Configuration] The service template form is now using the REST API.
-- [Configuration] Improved the host group Add/Edit form.
-- [Configuration] Improved the host group listing (columns, filtering, sorting).
-- [Configuration] Improved the tooltip for Broker's **Unified SQL** output.
-- [Configuration] The **Replication enabled** option has been removed from the Broker output form, as it was no longer used.
+- [Configuration] Added Insecure TLS connection mode to Agent configuration.
+- [Configuration] Agent configuration - All certificate fields are now optional, to handle public certificate use case.
+- [Configuration] Cleaned up labels in Agent configuration screens.
+- [Configuration] Default 24/7 notification time period is now defined on base pack Host templates.
+- [Configuration] Harmonized the interface for **Additional Configurations** with other screens.
+- [Configuration] Host_down_disable_service_checks and flapping are now enabled by default on pollers.
+- [Configuration] Hostgroup form is now using REST API for update.
+- [Configuration] Host form is now using REST API.
+- [Configuration] Hostgroup form is now using REST API for deletion.
+- [Configuration] Host form is now using REST API for deletion.
+- [Configuration] Improved Hostgroup Add/Edit.
+- [Configuration] Improved Hostgroup listing (columns, filtering, sorting).
+- [Configuration] Improved the tooltip for Broker's Unified SQL output.
+- [Configuration] Insecure TLS is now available as encryption mode in Agent configuration.
+- [Configuration] Replication enabled option has been removed from the Broker output form.
+- [Configuration] Service form is now using REST API for deletion.
+- [Configuration] Service Template form is now using REST API.
 - [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
 - [Core] Rectangular logos are now correctly displayed on the login page.
-- [Core] Updated PHP dependencies to version 8.2.
-- [Credentials encryption] Macros containing credentials are now encrypted when the configuration is deployed on pollers.
-  * Encryption is now set by default for new pollers + existing central pollers.
-  * It will be automatically activated for existing pollers, once these pollers are ready to decrypt (i.e., have a valid key file and pass the decryption test successfully). The process is automatic and driven by Engine.
-  * Breaking change : the poller installation script will now require the admin account to be used, as it will retrieve the encryption key from central server.
-- [Custom Views] **Global Health** and **Top 10** widgets: improved display and fixed an issue with MySQL8.
+- [Core] Updated PHP dependencies to 8.2 version.
+- [Credentials encryption] Configuration generation is now able to handle encrypted credentials.
 - [Dashboards] Added default sizes for widgets, and optimized their default positioning on the grid of the dashboard.
-- [Dashboards] Added metaservices to metric widgets (Single metric, Metrics graph, Top/Bottom).
-- [Dashboards] Added a new widget, **Business Activity Status Timeline**, that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
-- [Dashboards] Added the possibility to mark a dashboard as a favorite, and to list all favorites.
-- [Dashboards] The **Custom views** menu is now hidden on new installations, or on upgraded platforms if no custom views are present.
-- [Dashboards] Improved the responsiveness of the Status Grid widget in condensed mode.
+- [Dashboards] Added new widget **Business Activity Status Timeline** that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
+- [Dashboards] Custom views menu is now hidden on new installation or if no custom views are present.
+- [Dashboards] Improved Status Grid widget responsiveness in condensed mode.
 - [Dashboards] It is now possible to use regex (regular expressions) to filter certain resource types in specific widgets.
-- [Dashboards] Individual widgets can now be expanded.
-- [Dashboards] Metrics are now clearly identifiable in the **Metrics Graph** widget, thanks to the addition of service and/or host related names, when needed.
+- [Dashboards] It is now possible to expand an individual widget.
+- [Dashboards] Metrics are now clearly identifiable in the Metrics Graph widget, thanks to the addition of service and/or host related names, when needed.
 - [Dashboards] Reduced spacing between items of the Dashboard page. It is now possible to resize the widgets horizontally or diagonally, either on the left or the right side.
-- [Dashboards] When creating a new widget, the list of existing widget types is now categorized and ordered alphabetically.
+- [Dashboards] When creating a new widget, the list of existing types of widgets is now categorized and ordered alphabetically.
 - [Dashboards][Metrics Graph] Added new time periods: 14 days and 2 months.
-- [Dashboards][Resource Table widget] Added **FQDN**, **Alias**, **Parent** and **Monitoring server** columns.
-- Enhanced translation and UX for the Additional configuration form.
-- [Library - view by cards] Added a thumbnail showing a snapshot of your data, taken when the dashboard is saved.
 - [Metaservices] Fixed several issues occuring when using MySQL 8.
 - [Metaservices] Fixed SQLi issues.
-- [Monitoring] A new, modern version of the BA monitoring page is now available.
-- [Packaging] Increased the PHP memory limit in centreon PHP configuration.
-- The **Reset password** form now applies the customizations defined for the login page.
+- Once this patch applied, partitioning will work again with Amazon RDV Aurora but will be very costly the first time (as nont done for a while).
+- [Packaging] Increased php memory limit in centreon php configuration.
 - [Resource Status] Improved copy of executed command.
 - [Resource Status] Improved the label of the "Sticky" option in the acknowledgement window.
 - [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the Administration > Parameters > Centreon UI menu.
-- [Upgrade.Install] Fixed an issue on CMA/Telegraf Connector creation.
 - [UX] Added a button to copy the breadcrumbs on ReactJS pages.
 - [UX/UI] Updated forms and pop-ups to improve readability and added a new tab navigation system for quick access to collapsible sub-menus.
 - Vault paths are now exported in plain-text to Pollers.
@@ -187,10 +167,7 @@ Release date: `November 3, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [CMA] CMA installer and CLI wording has been harmonized to fit with new UI labels.
-- [CMA] CMA now handles forced checks.
 - [CMA] Improved error handling for syntax checks.
-- [CMA] Made Telegraf and Centreon Monitoring Agent commands compliant with Engine whitelists.
 - [Credentials encryption] CMA is now able to retrieve encryption key & handle encrypted credentials.
 - Enhanced configuration generation to handle Insecure TLS.
 - Insecure TLS is now available as encryption mode in CMA.
@@ -206,7 +183,7 @@ Release date: `November 3, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [Gorgone] Added the ability to fetch configuration credentials from a vault.
+- [Gorgone] Added the ability to fetch configuration credentials from a Vault.
 
 </details>
 
@@ -219,7 +196,7 @@ Release date: `November 3, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [Core] Updated PHP dependencies to version 8.2.
+- [Core] Updated PHP dependencies to 8.2 version.
 
 </details>
 
@@ -232,14 +209,14 @@ Release date: `November 3, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [Core] Updated PHP dependencies to version 8.2.
+- [Core] Updated PHP dependencies to 8.2 version.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [Packaging] SQL files are now correctly packaged on **centreon-dsm**.
+- [Packaging] sql files are now correctly packaged on centreon-dsm.
 
 </details>
 
@@ -252,13 +229,14 @@ Release date: `November 3, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [Core] Updated PHP dependencies to version 8.2.
+- [Core] Updated PHP dependencies to 8.2 version.
 
 </details>
 
 <details>
   <summary>Security fixes</summary>
 
-- [Vulnerability] Fixed an SQL injection and an XSS vulnerability.
+- [Vulnerability] Fixed SQL injection in the Notification > Rules page.
+- [Vulnerability] Fixed XSS vulnerability in Configuration > Notification > Rules.
 
 </details>

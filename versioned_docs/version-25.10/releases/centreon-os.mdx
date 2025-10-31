@@ -7,16 +7,17 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 ## Introduction
 
-Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Open Source**.
+In this chapter, you can find all the changelogs concerning **Centreon Open Source**.
 
-> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
-> notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
-> ou des développements spécifiques que vous auriez fait.
+> It is very important when you update your system to refer to this section in order to learn about behavior changes or
+> major changes that have been made on this version. This will inform you about the impact of installing these
+> versions on the features you use or the specific developments that you have built on your platform (modules,
+> widgets, plugins).
 
-Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, vous pouvez vous rendre sur
-notre [Github](https://github.com/centreon/centreon/issues/new/choose).
+If you have feature requests or want to report a bug, please go to our
+[Github](https://github.com/centreon/centreon/issues/new/choose).
 
-> Retrouvez plus de détails sur la version 25.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-10/).
+Read more about version 25.10 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-10/).
 
 <ExpandCollapseAll />
 
@@ -32,43 +33,38 @@ Release date: `November 3, 2025`
 - [ACL] Added Image Folders in ACL groups to allow access control to images in MAP.
 - [API] Added a new endpoint to bulk Duplicate Host Groups.
 - [API] Added bulk enable/disable endpoint for hostgroups.
-- [API] Added an endpoint to Bulk Delete Host groups.
+- [API] Added an endpoint to bulk Delete Host groups.
 - [API] Added a new endpoint to bulk Delete services.
-- [API] Added missing configuration change logs for service severities configuration.
-- [API] Added missing configuration change logs written when the configuration of services is deployed.
 - [API] Added missing configuration change logs for service template configuration.
-- [API] Added missing configuration change logs for host template configuration.
-- [API] Enhanced Agent configuration endpoints documentation.
-- [Administration] Added INFO logs on API&CMA Tokens Add/Delete/Activate/Revoke & API Tokens usage.
-- [Agent configuration] It's now possible to configure both connection direction in the same configuration. The user interface has been improved according to this.
+- [Administration] Added INFO logs on API and CMA Tokens Add/Delete/Activate/Revoke and API Tokens usage.
+- [Agent configuration] It is now possible to configure both connection direction in the same configuration. The user interface has been improved according to this.
 - [Authentication Tokens] Added a welcome page when no token exists in the token configuration page.
 - [BBDO2 sunset] Added BBDO 3.1 in Broker configuration dropdown.
 - Cbmod entry has been replaced in engine configuration.
-- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
+- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
 - [Configuration] Added Insecure TLS connection mode to Agent configuration.
 - [Configuration] Agent configuration - All certificate fields are now optional, to handle public certificate use case.
 - [Configuration] Cleaned up labels in Agent configuration screens.
-- [Configuration] Default 24/7 notification time period is now definied on base pack Host templates.
-- [Configuration] Harmonized the interface for Additional Configurations with other screens.
-- [Configuration] Host_down_disable_service_checks & flapping are now enabled by default on Pollers.
+- [Configuration] Default 24/7 notification time period is now defined on base pack Host templates.
+- [Configuration] Harmonized the interface for **Additional Configurations** with other screens.
+- [Configuration] Host_down_disable_service_checks and flapping are now enabled by default on pollers.
 - [Configuration] Hostgroup form is now using REST API for update.
 - [Configuration] Host form is now using REST API.
-- [Configuration] Host group form is now using REST API for deletion.
+- [Configuration] Hostgroup form is now using REST API for deletion.
 - [Configuration] Host form is now using REST API for deletion.
-- [Configuration] Host form is now using REST API.
-- [Configuration] Improved Host Group Add/Edit.
-- [Configuration] Improved Host Group listing (columns, filtering, sorting).
+- [Configuration] Improved Hostgroup Add/Edit.
+- [Configuration] Improved Hostgroup listing (columns, filtering, sorting).
 - [Configuration] Improved the tooltip for Broker's Unified SQL output.
 - [Configuration] Insecure TLS is now available as encryption mode in Agent configuration.
 - [Configuration] Replication enabled option has been removed from the Broker output form.
 - [Configuration] Service form is now using REST API for deletion.
 - [Configuration] Service Template form is now using REST API.
-- [Core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
 - [Core] Rectangular logos are now correctly displayed on the login page.
 - [Core] Updated PHP dependencies to 8.2 version.
 - [Credentials encryption] Configuration generation is now able to handle encrypted credentials.
 - [Dashboards] Added default sizes for widgets, and optimized their default positioning on the grid of the dashboard.
-- [Dashboards] Added new widget "Business Activity Status Timeline" that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
+- [Dashboards] Added new widget **Business Activity Status Timeline** that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
 - [Dashboards] Custom views menu is now hidden on new installation or if no custom views are present.
 - [Dashboards] Improved Status Grid widget responsiveness in condensed mode.
 - [Dashboards] It is now possible to use regex (regular expressions) to filter certain resource types in specific widgets.
@@ -77,10 +73,8 @@ Release date: `November 3, 2025`
 - [Dashboards] Reduced spacing between items of the Dashboard page. It is now possible to resize the widgets horizontally or diagonally, either on the left or the right side.
 - [Dashboards] When creating a new widget, the list of existing types of widgets is now categorized and ordered alphabetically.
 - [Dashboards][Metrics Graph] Added new time periods: 14 days and 2 months.
-- [Install] The unattended script is now available for version 24.10.
 - [Metaservices] Fixed several issues occuring when using MySQL 8.
 - [Metaservices] Fixed SQLi issues.
-- [Monitoring] A new, modern version of the BA monitoring page is now available.
 - Once this patch applied, partitioning will work again with Amazon RDV Aurora but will be very costly the first time (as nont done for a while).
 - [Packaging] Increased php memory limit in centreon php configuration.
 - [Resource Status] Improved copy of executed command.
