@@ -40,12 +40,21 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Environment" label="Environment">
 
-Coming soon
+| Nom                          | Unité |
+|:-----------------------------|:------|
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
+| hardware.temperature.celsius | C     |
+| hardware.voltage.status      | N/A   |
+| hardware.voltage.count       | count |
+| hardware.voltage.volt        | V     |
 
 </TabItem>
 <TabItem value="Ha" label="Ha">
 
-| Métrique                    | Unité |
+| Nom                         | Unité |
 |:----------------------------|:------|
 | sync-status                 | N/A   |
 | *member*~member-status      | N/A   |
@@ -54,7 +63,7 @@ Coming soon
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Métrique               | Unité |
+| Nom                    | Unité |
 |:-----------------------|:------|
 | interfaces.total.count | count |
 | *interface*#status     | N/A   |
@@ -62,7 +71,7 @@ Coming soon
 </TabItem>
 <TabItem value="Ipsec" label="Ipsec">
 
-| Métrique                  | Unité |
+| Nom                       | Unité |
 |:--------------------------|:------|
 | tunnels.ipsec.total.count | count |
 | *tunnels*#status          | N/A   |
@@ -70,7 +79,7 @@ Coming soon
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Métrique          | Unité |
+| Nom               | Unité |
 |:------------------|:------|
 | *features*#status | N/A   |
 
@@ -79,7 +88,7 @@ Coming soon
 </TabItem>
 <TabItem value="System" label="System">
 
-| Métrique                                 | Unité |
+| Nom                                      | Unité |
 |:-----------------------------------------|:------|
 | status                                   | N/A   |
 | system.antivirus.lastupdate.time.seconds | s     |

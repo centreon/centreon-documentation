@@ -39,12 +39,21 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Environment" label="Environment">
 
-Coming soon
+| Name                         | Unit  |
+|:-----------------------------|:------|
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
+| hardware.temperature.celsius | C     |
+| hardware.voltage.status      | N/A   |
+| hardware.voltage.count       | count |
+| hardware.voltage.volt        | V     |
 
 </TabItem>
 <TabItem value="Ha" label="Ha">
 
-| Metric name                 | Unit  |
+| Name                        | Unit  |
 |:----------------------------|:------|
 | sync-status                 | N/A   |
 | *member*~member-status      | N/A   |
@@ -53,7 +62,7 @@ Coming soon
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name            | Unit  |
+| Name                   | Unit  |
 |:-----------------------|:------|
 | interfaces.total.count | count |
 | *interface*#status     | N/A   |
@@ -61,7 +70,7 @@ Coming soon
 </TabItem>
 <TabItem value="Ipsec" label="Ipsec">
 
-| Metric name               | Unit  |
+| Name                      | Unit  |
 |:--------------------------|:------|
 | tunnels.ipsec.total.count | count |
 | *tunnels*#status          | N/A   |
@@ -69,7 +78,7 @@ Coming soon
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Metric name       | Unit  |
+| Name              | Unit  |
 |:------------------|:------|
 | *features*#status | N/A   |
 
@@ -78,7 +87,7 @@ Coming soon
 </TabItem>
 <TabItem value="System" label="System">
 
-| Metric name                              | Unit  |
+| Name                                     | Unit  |
 |:-----------------------------------------|:------|
 | status                                   | N/A   |
 | system.antivirus.lastupdate.time.seconds | s     |
