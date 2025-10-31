@@ -190,6 +190,8 @@ Le menu d'action à trois points situé à la fin de la ligne de la liste de dif
 
 ## Liste des widgets
 
+> Notez que certains widgets nécessitent une licence spécifique.
+
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Disponibilité de l’Activité Métier | Affiche la disponibilité et les alertes d'une activité métier pour une période donnée. |

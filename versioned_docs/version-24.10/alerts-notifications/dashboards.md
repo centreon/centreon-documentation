@@ -190,6 +190,8 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 
 ## List of widgets
 
+> Note that some widgets require a specific license.
+
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Business Activity Diagram           | Displays graphically a business activity hierarchy of KPIs and lets you navigate through it.   |
