@@ -285,7 +285,7 @@ suffisants :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -295,7 +295,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -306,7 +306,7 @@ dnf update
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -385,7 +385,7 @@ Exemple:
 > Remplacez **\<IP_TARGET_NODE\>** par l'adresse IP du serveur Central ou du serveur distant auquel vous voulez rattacher le collecteur (adresse IP vue par le
 > collecteur).
 
-> Le compte **\<API_ACCOUNT\>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
+> Vous devez utiliser le compte **admin** pour le paramètre **\<API_ACCOUNT\>**.
 
 > Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
 > `HTTPS://<IP_TARGET_NODE>:PORT`
@@ -462,7 +462,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 24.10.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 25.10.
 
 ## Étape 4 : Ajouter le Poller à la configuration
 

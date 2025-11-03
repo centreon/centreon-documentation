@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.04
 vers la version 25.10.
 
-Vous ne pouvez pas simplement monter de version une plateforme avec HA (ou Centreon Failover) depuis une version antérieure à Centreon 20.10 et vers une version 24.04 ou ultérieure, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../../migrate/introduction.md), puis installer Centreon HA sur la nouvelle platforme. Vous pouvez également contacter Centreon pour commander une prestation de migration.
+Vous ne pouvez pas simplement monter de version une plateforme avec HA (ou Centreon Failover) depuis une version antérieure à Centreon 20.10 et vers une version 25.10, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../../migrate/introduction.md), puis installer Centreon HA sur la nouvelle platforme. Vous pouvez également contacter Centreon pour commander une prestation de migration.
 
 ## Prérequis
 
