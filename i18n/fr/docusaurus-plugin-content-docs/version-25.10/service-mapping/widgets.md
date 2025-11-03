@@ -3,9 +3,13 @@ id: widgets
 title: Widgets
 ---
 
+> Les widgets Centreon BAM suivants sont disponibles dans les [Tableaux de bord](../alerts-notifications/dashboards.md) :
+> - Diagramme d'Activité Métier
+> - Historique du statut d’une Activité Métier
+
 ## Live Business Activity Status
 
-Ce widget vous permet d'afficher sur la page d'accueil de Centreon, sous
+Ce widget est utilisé dans les **Vues personnalisées**. Il permet d'afficher sur la page d'accueil de Centreon, sous
 forme de widget, l'état actuel de vos activités métier.
 
 ![image](../assets/service-mapping/widget_bam-ba-listing.png)

@@ -3,7 +3,13 @@ id: widgets
 title: MBI Widgets
 ---
 
-Centreon MBI widgets are used in Centreon [custom views](https://docs-next-int.centreon.com/docs/alerts-notifications/custom-views/). This means you can use custom views to create real-time AND
+> The following Centreon MBI widgets are available in [Dashboards](../alerts-notifications/dashboards.md):
+> - Business Activity availability
+> - Business Activity Availability History
+> - Hostgroup Availability History
+> - Metric Capacity planning
+
+MBI widgets are also used in Centreon [custom views](https://docs-next-int.centreon.com/docs/alerts-notifications/custom-views/). This means you can use custom views to create real-time AND
 reporting statistics (e.g., for availability, applications, and
 performance).
 
