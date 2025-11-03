@@ -557,6 +557,22 @@ systemctl start gorgoned
 systemctl enable gorgoned
 ```
 
+### Récupération de la clé de déchiffrement
+
+Exécutez le script suivant afin de permettre au collecteur de recevoir et traiter des données chiffrées : 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Example:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> Vous devez utiliser le compte **admin** par défaut en tant que **\<API_ACCOUNT\>**.
+
 Redémarrez **centengine**:
 
 ```shell
