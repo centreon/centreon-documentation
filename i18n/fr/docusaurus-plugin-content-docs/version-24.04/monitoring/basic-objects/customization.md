@@ -48,7 +48,7 @@ bandeau à droite à côté de l'icône de profil :
 
 ![image](../../assets/administration/password_will_expire.png)
 
-Cliquez sur **Editer le profil**, puis modifiez votre mot de passe :
+Cliquez sur **Editer le profil**, puis modifiez votre mot de passe en renseignant également votre mot de passe actuel :
 
 ![image](../../assets/administration/password_expiration.png)
 
