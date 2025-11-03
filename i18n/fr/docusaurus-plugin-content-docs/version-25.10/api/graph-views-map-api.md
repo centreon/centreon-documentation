@@ -159,6 +159,20 @@ Body: {
 }
 ```
 
+### Avec une authentification déléguée
+
+Un utilisateur peut utiliser les APIs de MAP en utilisant un jeton Centreon, comme ci-dessous dans le header :
+
+```
+Headers {
+    Content-Type = application/json
+    X-client-version =  25.10.0
+    Authorization = Bearer \{jwtToken\}
+}
+```
+
+Remplacer ``Authorization = Bearer \{jwtToken\}`` par ``X-AUTH-TOKEN = your-centreon-token``. Assurez-vous que le jeton n'est pas révoqué ou expiré.
+
 ## Pour plus d'informations
 
 > Suivez ce [lien](https://docs-api.centreon.com/api/centreon-map/24.10/) pour accéder à la documentation de l'API Centreon et avoir un aperçu des fonctionnalités de l'API.
