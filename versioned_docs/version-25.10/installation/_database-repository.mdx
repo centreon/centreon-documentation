@@ -1,11 +1,11 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs groupId="database-sync">
+<Tabs groupId="db">
 
 <TabItem value="MariaDB" label="MariaDB">
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -33,24 +33,29 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
+For new installations, the recommended version of MySQL is 8.4.
+
 <Tabs groupId="sync">
 
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-*Nothing to do, MySQL 8.0 is already available in the official repositories.*
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm -y
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-*Nothing to do, MySQL 8.0 is already available in the official repositories.*
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm -y
+```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
-apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
-# Select Ok to validate installation of "MySQL Tools & Connectors"
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.32-1_all.deb
+dpkg -i mysql-apt-config_0.8.32-1_all.deb
 apt update
 ```
 
