@@ -346,8 +346,6 @@ vers un formulaire de saisie.
 
 Il permet de saisir la valeur des impacts manuellement.
 
-![image](../assets/service-mapping/guide/kpi_advanced.png)
-
 | Paramètre                             | Description                                                                         |
 |---------------------------------------|-------------------------------------------------------------------------------------|
 | Mode de configuration                 | Mode de configuration standard ou avancé                                            |
@@ -453,10 +451,11 @@ La configuration des vues métier est réalisée via le menu
 |-------------|--------------------------------------------------------------------------------------|
 | Nom         | Nom de la vue métier                                                                 |
 | Description | Description                                                                          |
-| Affiché     | Affichage ou non de la BV sur les écrans du logiciel **Centreon BAM** *(deprecated)* |
-| Actions     | Liste d'actions pouvant être effectuées sur la vue métier (modification/affichage)   |
+| Etat     | Affichage ou non de la BV sur les écrans du logiciel **Centreon BAM** *(deprecated)* |
 
-Supprimer une vue métier:
+Liste d'actions pouvant être effectuées sur la vue métier (modification/affichage).
+
+Supprimer une vue métier :
 
 -   La suppression d'une vue métier ne supprime pas les activités
     métier qui lui sont rattachées.

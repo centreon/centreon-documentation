@@ -258,8 +258,6 @@ status switches.
 The BA is managed through the
 `Configuration > Business Activity > Business Activity` menu.
 
-![image](../assets/service-mapping/guide/business-activity-listing.png)
-
 You have inline actions and global actions to delete, duplicate,
 enable/disable the BA and massively change thresholds.
 
@@ -338,15 +336,13 @@ There are several ways to create an indicator:
 To add an indicator, click the **Add a KPI** link, which takes you to the
 following form.
 
-**Regular Mode**:
+**Simple Mode**:
 
 ![image](../assets/service-mapping/guide/kpi_standard.png)
 
 **Advanced mode**:
 
-To be able to manually define an impact:
-
-![image](../assets/service-mapping/guide/kpi_advanced.png)
+To be able to manually define an impact.
 
 | Column          | Description                                                                                                          |
 | ------------------------- | ----------------------------------------------------------------------------- |
@@ -440,8 +436,9 @@ menu.
 | ----------- | ------------------------------------------------------------------------------------ |
 | Name        | Business view name                                                                   |
 | Description | Brief description of BV                                                              |
-| Displayed   | The BV is either displayed or not displayed on the Centreon BAM screens (deprecated) |
-| Actions     | List of actions to be performed on the BV (modification/display)                     |
+| Status   | The BV is either displayed or not displayed on the Centreon BAM screens (deprecated) |
+
+List of actions to be performed on the BV (modification/display).
 
 > Deleting a BV:
 >
