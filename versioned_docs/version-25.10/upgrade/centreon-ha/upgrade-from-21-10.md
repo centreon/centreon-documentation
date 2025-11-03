@@ -5,7 +5,7 @@ title: Upgrade Centreon HA from Centreon 21.10
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon HA platform from version 21.10 to version 24.10.
+This chapter describes how to upgrade your Centreon HA platform from version 21.10 to version 25.10.
 
 ## Prerequisites
 
@@ -307,8 +307,8 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource promotable ms_mysql \
-    promoted-node-max="1" \
-    clone-max="2" \
+    master-node-max="1" \
+    clone_max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -323,8 +323,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource promotable ms_mysql \
-    promoted-node-max="1" \
-    clone-max="2" \
+    master-node-max="1" \
+    clone_max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
