@@ -48,7 +48,7 @@ next to the profile icon:
 
 ![image](../../assets/administration/password_will_expire.png)
 
-Click **Edit profile**, then change your password:
+Click **Edit profile**, then change your password by also entering your current password:
 
 ![image](../../assets/administration/password_expiration.png)
 

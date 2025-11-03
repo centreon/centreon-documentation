@@ -118,8 +118,8 @@ const config = {
             return versions.reduce(
               (accumulator, currentValue) => {
                 accumulator[currentValue] = {
-                  label: Object.keys(accumulator).length === 0 ? `${currentValue}` : currentValue,
-                  banner: currentValue.match(/^(22\.10|23\.04)$/) ? 'unmaintained' : 'none',
+                  label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
+                  banner: currentValue === '23.10' ? 'unmaintained' : 'none'
                 }
 
                 return accumulator;
