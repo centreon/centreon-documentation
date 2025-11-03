@@ -179,7 +179,7 @@ Note that the MAP web interface has the same requirements as the Centreon web in
 
 ### Disable SELinux
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
@@ -273,8 +273,6 @@ configuration file, you should not use a Centreon admin user account.
 - Log into Centreon and go to the **Configuration > Users > Contacts/Users** page. Then click the **Centreon Authentication** tab.
 - Set the **Reach API Realtime** parameter to **Yes**.
 
-![image](../assets/graph-views/reach-api.png)
-
 Exclude the user from the password expiration policy on the **Administration > Authentication** page: their password will never expire.
 
 ![image](../assets/graph-views/password-expiration-policy.png)
@@ -301,7 +299,7 @@ in order to create new Centreon Broker output. It will be revoked later.
 
 You need to install the Centreon repository:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 First you need to install an EPEL repository:
@@ -376,7 +374,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 </TabItem>
 </Tabs>
 
-> If the URL does not work, you can manually find this package in the folder.
+> If the URL does not work, you can find this package in the folder manually.
 
 #### Business repository installation
 
@@ -389,18 +387,14 @@ Install the Centreon Business repository. You can find this on the
 
 ### Step 3 - Option 1: MAP Engine server installation on a new server
 
-Select the tab according to the database to be used.
+Select the tab corresponding to the database you want to use.
 
-<Tabs groupId="sync">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
-
-#### MariaDB requirement
-
-> You need to have a MariaDB database to store your Centreon MAP data.
 
 First you need to add the MariaDB repository:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -424,9 +418,9 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 </TabItem>
 </Tabs>
 
-Then install MariaDB server:
+Then install your MariaDB database:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -483,34 +477,76 @@ mariadb-secure-installation
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
 
-#### MySQL requirement
-
-> You need to have a MySQL database to store your Centreon MAP data.
-
 Depending on your operating system, you may need to add the MySQL repository:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-You have nothing to do, as MySQL 8.0 is already available in the official repository.
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm -y
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-You have nothing to do, as MySQL 8.0 is already available in the official repository.
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm -y
+```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
-apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.32-1_all.deb
+dpkg -i mysql-apt-config_0.8.32-1_all.deb
+apt update
 ```
 
 Select OK to validate the installation of **MySQL Tools & Connectors**. Then enter the following command:
 
 ```shell
 apt update
+```
+
+</TabItem>
+</Tabs>
+
+<Tabs groupId="os" queryString>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm
+dnf config-manager --enable mysql-8.4-lts-community
+dnf module disable mysql
+dnf install mysql-community-server
+systemctl start mysqld
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y mysql-server mysql
+dnf install -y centreon-mysql
+systemctl enable --now mysqld
+echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
+systemctl daemon-reload
+systemctl restart mysqld
+systemctl list-units --type=service | grep -i mysql
+sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
+sudo systemctl start mysqld
+sudo systemctl status mysqld
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt update
+apt install -y centreon-mysql
+# Select "Use Legacy Authentication Method"
+systemctl daemon-reload
+systemctl restart mysql
 ```
 
 </TabItem>
@@ -537,7 +573,7 @@ mysql_secure_installation
 
 Then install the centreon-map-engine package:
    
-   <Tabs groupId="sync">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -575,7 +611,7 @@ Then install the centreon-map-engine package:
 
 ### Step 3 - Option 2: MAP Engine server installation on an existing Centreon MAP Legacy server
 
-<Tabs groupId="sync">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 > If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [step 3 - Option 1: MAP Engine server installation on a new server](#step-3---option-1-map-engine-server-installation-on-a-new-server).
@@ -586,7 +622,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
 
 1. Make a backup of the **map.cnf** file:
 
-   <Tabs groupId="sync">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -612,7 +648,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
 
 2. Install the centreon-map-engine package
    
-   <Tabs groupId="sync">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -638,7 +674,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
 
 3. Retrieve the configuration file backup:
   
-   <Tabs groupId="sync">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -702,7 +738,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
 
 1. Make a backup of the **map.cnf** file:
 
-   <Tabs groupId="sync">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -728,7 +764,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
 
 2. Install the centreon-map-engine package
    
-   <Tabs groupId="sync">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -754,7 +790,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
 
 3. Retrieve the configuration file backup:
   
-   <Tabs groupId="sync">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -820,7 +856,7 @@ max_allowed_packet = 20M
 innodb_log_file_size = 200M
 ```
 
-<Tabs groupId="sync">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 Then, restart MariaDB:
@@ -990,7 +1026,7 @@ Install the Centreon Business repository. You can find this on the
 
 1. From your terminal, run the following command on the central server:
 
-  <Tabs groupId="sync">
+  <Tabs groupId="os" queryString>
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
   ```shell

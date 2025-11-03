@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon HA platform from version 22.04 to version 25.10.
 
+> If you were using Debian 11, you cannot upgrade your platform directly to version 25.10. You need to [migrate your platform to Debian 12](migrate/migrate-from-debian-to-debian.md) first, then reinstall HA. Contact Centreon Professional services to do so.
+
 ## Prerequisites
 
 ### Suspend cluster resources management
@@ -60,16 +62,7 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-On the **passive central node**, move the "install" directory to avoid getting the "upgrade" screen in the interface in the event of a further exchange of roles.
-
-```bash
-mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
-sudo -u www-data /usr/share/centreon/bin/console cache:clear
-```
-
-</TabItem></Tabs>
+</Tabs>
 
 ### Removing cron jobs
 
@@ -91,16 +84,9 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```bash
-systemctl restart cron
-```
-
-</TabItem>
 </Tabs>
 
-As you have deleted the **centreon-ha-mysql** cron, check that the following line appears in the **server** section of the **/etc/my.cnf.d/server.cnf** file (or in the **/etc/mysql/mariadb.conf.d/50-server.cnf** on Debian), it is normally already in place since 22.04 and GTID replication:
+As you have deleted the **centreon-ha-mysql** cron, check that the following line appears in the **server** section of the **/etc/my.cnf.d/server.cnf** file, it is normally already in place since 22.04 and GTID replication:
 
 ```shell
 expire_logs_days=7
@@ -160,67 +146,6 @@ pcs resource group add centreon cbd_central_broker --before gorgone
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-### Backup the confguration
-
-Perform a backup of the cluster on central master node using:
-
-```bash
-pcs config backup centreon_cluster
-cibadmin -Q > export_cluster.xml
-```
-
-Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure.
-
-```bash
-ls -l centreon_cluster.tar.bz2
-```
-
-You should have a result like this:
-
-```text
--rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
-```
-
-### Modifying order of resources on centreon group
-
-To optimize managment of resources and to avoid restart cbd-sql when we just want to restart gorgone, we must change there order in the group.
-
-```bash
-pcs resource group remove centreon cbd_central_broker
-pcs resource group add centreon cbd_central_broker --before gorgone
-```
-
-### Modify php-clone resource to use php 8.2
-
-Modify php8.0-fpm to php8.2-fpm with the command below (an automatic backup of file is made in export_cluster.xml.bak)
-
-```bash
-sed -i.bak s/php8.0-fpm/php8.2-fpm/ export_cluster.xml
-```
-
-Verify if modification is made by searching **php8.2-fpm** in xml file
-
-```bash
-grep php8.2-fpm export_cluster.xml
-```
-
-You should have 3 lines in the result like this:
-
-```text
-        <primitive id="php" class="systemd" type="php8.2-fpm">
-          <lrm_resource id="php" type="php8.2-fpm" class="systemd">
-          <lrm_resource id="php" type="php8.2-fpm" class="systemd">
-```
-
-If it's OK, apply changes to the cluster configuration
-
-```bash
-cibadmin --replace --xml-file export_cluster.xml
-```
-
-</TabItem>
 </Tabs>
 
 ### Clean broker memory files
@@ -257,53 +182,6 @@ colocation-centreon-ms_mysql-clone-INFINITY
 ```
 
 and delete **all** constraints, **adapt IDs with your own**
-
-```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory
-pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
-pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
-```
-
-Verify if all constraint are well deleted:
-
-```bash
-pcs constraint
-```
-
-You should have a result like this:
-
-```text
-Location Constraints:
-Ordering Constraints:
-Colocation Constraints:
-Ticket Constraints:
-```
-
-If it's OK, then recreate only needed constraints
-
-```bash
-pcs constraint colocation add master "ms_mysql-clone" with "centreon"
-pcs constraint colocation add master "centreon" with "ms_mysql-clone"
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-First extract all contraint IDs:
-
-```bash
-pcs constraint show --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
-```
-
-You should have a result like this:
-
-```text
-order-centreon-ms_mysql-clone-mandatory
-colocation-ms_mysql-clone-centreon-INFINITY
-colocation-centreon-ms_mysql-clone-INFINITY
-```
-
-and delete **all** constraints, **adapt ids with your own**
 
 ```bash
 pcs constraint delete order-centreon-ms_mysql-clone-mandatory
@@ -396,77 +274,12 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-First extract all contraint id:
-
-```bash
-pcs constraint show --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
-```
-
-You should have a similar result depending of your host names:
-
-```text
-location-cbd_rrd-clone-deb11-bdd1--INFINITY
-location-cbd_rrd-clone-deb11-bdd2--INFINITY
-location-centreon-deb11-bdd1--INFINITY
-location-centreon-deb11-bdd2--INFINITY
-location-ms_mysql-clone-deb11-central1--INFINITY
-location-ms_mysql-clone-deb11-central2--INFINITY
-location-php-clone-deb11-bdd1--INFINITY
-location-php-clone-deb11-bdd2--INFINITY
-colocation-vip_mysql-ms_mysql-clone-INFINITY-1
-colocation-ms_mysql-clone-vip_mysql-INFINITY
-```
-
-and delete **all** constraints, **adapt ids with your own**
-
-```bash
-pcs constraint delete location-cbd_rrd-clone-deb11-bdd1--INFINITY
-pcs constraint delete location-cbd_rrd-clone-deb11-bdd2--INFINITY
-pcs constraint delete location-centreon-deb11-bdd1--INFINITY
-...
-```
-
-Verify if all constraint are well deleted:
-
-```bash
-pcs constraint
-```
-
-You should have a result like this:
-
-```text
-Location Constraints:
-Ordering Constraints:
-Colocation Constraints:
-Ticket Constraints:
-```
-
-If it's OK, then recreate only needed constraints
-
-```bash
-pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
-pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
-```
-
-</TabItem>
 </Tabs>
 
 Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
-
-```bash
-pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
-pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
