@@ -270,8 +270,6 @@ Vous devez fournir au serveur Centreon MAP Engine un utilisateur dédié **qui a
 - Connectez-vous à Centreon et allez dans **Configuration > Utilisateurs > Contacts/Utilisateurs**. Puis cliquez sur l'onglet **Authentification Centreon**.
 - Définir le paramètre **Accès à l'API de temps réel** sur **Oui**.
 
-![image](../assets/graph-views/reach-api.png)
-
 Excluez l'utilisateur de la politique d'expiration du mot de passe sur la page **Administration > Authentification** : son mot de passe n'expirera jamais.
 
 ![image](../assets/graph-views/password-expiration-policy.png)
