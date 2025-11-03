@@ -29,6 +29,8 @@ les notifications pourront être envoyées. En-dehors de ces périodes de temps,
 ## Onglet Authentification Centreon
  
 * **Autoriser l'utilisateur à se connecter à l'interface web** : permet d’autoriser l’utilisateur à accéder à l’interface web de Centreon.
+* Le champ **Votre mot de passe actuel** est requis lorsque vous (l'utilisateur actuellement connecté) devez modifier le mot de passe d'un autre utilisateur. Vous devez faire vérifier votre identité en saisissant votre propre mot de passe.
+  > Vous ne pouvez modifier le mot de passe d'un autre utilisateur que si vous êtes connecté en utilisant une authentification locale, et non via un fournisseur d'identité (pour des raisons de sécurité).
 * **Mot de passe** et **Confirmation du mot de passe** : contiennent le mot de passe de l'utilisateur.
 * **Langue par défaut** permet de définir la langue de l’interface Centreon pour cet utilisateur.
 * **Administrateur** définit si cet utilisateur est administrateur de la plateforme de supervision ou non. Un administrateur a tous les droits (lecture, écriture) et peut accéder à toutes les pages de l'interface.
