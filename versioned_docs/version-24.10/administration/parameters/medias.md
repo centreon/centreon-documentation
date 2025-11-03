@@ -4,8 +4,11 @@ title: Media
 ---
 
 Media are images used by the Centreon web interface. These images are used to
-represent the monitored resource in a more intuitive way, propose backgrounds
+represent the monitored resource in a more intuitive way, provide backgrounds
 for cartography modules, etc.
+
+* To manage media, you must be logged into Centreon with an administrator or editor profile.
+* In Centreon, a user can only view and use an image if an [access rule](../access-control-lists.md) explicitly allows it.
 
 ## Image management
 
