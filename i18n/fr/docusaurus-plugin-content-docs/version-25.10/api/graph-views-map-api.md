@@ -44,7 +44,7 @@ POST : https://serverURL:9443/centreon-map/api/latest/auth/sign-in
 ```
 Headers {
     Content-Type = application/json
-    X-Client-Version = 24.10.0
+    X-Client-Version = 25.10.0
 }
 
 Body {
@@ -58,7 +58,7 @@ Body {
 ```
 Headers {
     Content-Type = application/json
-    X-client-version = 24.10.0
+    X-client-version = 25.10.0
     Authorization = Bearer \{jwtToken\}
 }
 ```
@@ -86,7 +86,7 @@ POST https://serverURL:9443/centreon-map/api/latest/maps
 ```
 Headers {
     Content-Type = application/json
-    X-client-version =  24.10.0
+    X-client-version =  25.10.0
     Authorization = Bearer \{jwtToken\}
 }
 
@@ -177,4 +177,4 @@ Remplacer ``Authorization = Bearer \{jwtToken\}`` par ``X-AUTH-TOKEN = your-cent
 
 ## Pour plus d'informations
 
-> Suivez ce [lien](https://docs-api.centreon.com/api/centreon-map/24.10/) pour accéder à la documentation de l'API Centreon et avoir un aperçu des fonctionnalités de l'API.
+> Suivez ce [lien](https://docs-api.centreon.com/api/centreon-map/25.10/) pour accéder à la documentation de l'API Centreon et avoir un aperçu des fonctionnalités de l'API.

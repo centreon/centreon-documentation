@@ -79,7 +79,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 24.10
+- Centreon Web 25.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -96,7 +96,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Centreon Web 24.10
+- Centreon Web 25.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -113,7 +113,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-- Centreon Web 24.10
+- Centreon Web 25.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php/8.2/mods-available/centreon.ini` ou `/etc/php/8.2/mods-available/timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -280,6 +280,35 @@ Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
 
 > Ne définissez pas ces optimisations MariaDB/MySQL sur votre serveur de supervision.
 
+Si vous utilisez MySQL :
+
+1. Effectuez l'action suivante :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+Dans le fichier `/etc/mysql/mysql.cnf`, ajoutez:
+
+```shell
+[mysqld]
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+</Tabs>
+
+2. Redémarrez MySQL.
+
 Utilisateurs et groupes :
 
 | Utilisateur | Groupe     |
@@ -337,6 +366,15 @@ apt install centreon-bi-server
 
 </TabItem>
 </Tabs>
+
+### Donner des droits à l'utilisateur centreon
+
+Dans la base de données du central, donnez des droits trigger à l'utilisateur **centreon** :
+
+```shell
+GRANT TRIGGER ON centreon.* TO `centreon`@'%';
+GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
+```
 
 ### Activer l'extension
 
@@ -575,12 +613,6 @@ dnf update
 <TabItem value="Debian 12" label="Debian 12">
 
 Installez les paquets prérequis :
-
-```shell
-apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
-```
-
-Installez les dépôts Centreon :
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
@@ -881,10 +913,7 @@ systemctl restart mariadb
 Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
 
 ```shell
-mkdir -p  /etc/systemd/system/mariadb.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
-systemctl daemon-reload
-systemctl restart mariadb
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 ```
 
 Si le service MariaDB échoue lors du démarrage, supprimer les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à nouveau MariaDB :
