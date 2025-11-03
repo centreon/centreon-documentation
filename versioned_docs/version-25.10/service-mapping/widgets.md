@@ -3,9 +3,13 @@ id: widgets
 title: Widgets
 ---
 
+> The following Centreon BAM widgets are available in [Dashboards](../alerts-notifications/dashboards.md):
+> - Business Activity diagram
+> - Business Activity status timeline
+
 ## Live Business Activity Status
 
-This widget displays the live business activity status and current level in a
+This widget is used in **Custom views**. It displays the live business activity status and current level in a
 listing widget that you can add to your home page.
 
 ![image](../assets/service-mapping/widget_bam-ba-listing.png)

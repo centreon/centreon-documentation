@@ -170,6 +170,8 @@ Le menu d'action à trois points situé à la fin de la ligne de la liste de dif
 
 ## Liste des widgets
 
+> Notez que certains widgets nécessitent une licence spécifique.
+
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Texte générique           | Permet d'ajouter du texte libre à vos tableaux de bord (titres de sections, informations, etc.).   |
