@@ -132,6 +132,13 @@ Dans le mode de chiffrement TLS, le DNS/IP du serveur utilisé par le client doi
 La ligne -subj '/CN=\{server_hostname\}' \ est facultative si des SAN sont définis.
 Dans le mode de chiffrement TLS non sécurisé, le DNS/IP du serveur peut être différent des informations du certificat. Il faudra alors renseigner la valeur à utiliser dans "Nom commun CA", au sein de la configuration du client.
 
+Les fichiers de certificat déposés sur le collecteur doivent être déposés dans **/etc/pki/**, à la racine ou dans un sous-repértoire.
+Ils doivent avoir les permissions suivantes :
+
+```shell
+chmod 644 /etc/pki/agent*
+```
+
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 

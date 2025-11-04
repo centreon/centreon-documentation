@@ -91,26 +91,27 @@ Create the services associated with the host template.
 1. Go to the **Configuration > Pollers > Agent configurations** page, then click **Add**.
 2. In the window that opens, select the **Centreon Monitoring Agent** agent type. Additional fields will appear.
 3. Select the connection direction (default: the agent connects to the poller).
+4. Select encryption mode
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
-4. In the **Settings** section, select the poller(s) that will receive data from the agent.
-5. In the **OTLP Receiver** section, enter the paths to the certificate files. See [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
+5. In the **Settings** section, select the poller(s) that will receive data from the agent.
+6. In the **OTLP Receiver** section, enter the paths to the certificate files. See [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
    > If you are configuring multiple pollers at the same time, make sure that all certificate files have the same name.
-6. Click **Save**.
-7. [Deploy the configuration by restarting the collection engine](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+7. Click **Save**.
+8. [Deploy the configuration by restarting the collection engine](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 
 </TabItem>
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
-4. In the **Settings** section, select the poller that will connect to the agents.
-5. In the **Monitored Hosts** section, select the host you created earlier. Its IP address will be displayed, and a default port will be entered. Change this information if necessary.
-6. Enter the paths to the certificate files. See the [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
-7. Select the authentication token you created earlier. You can also create a token from this screen.
-8. Add the host.
-9. Repeat the operation for each host to be linked to this poller. To configure many hosts, we recommend using the dedicated APIs.
-10. [Deploy the configuration by restarting the collection engine](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+5. In the **Settings** section, select the poller that will connect to the agents.
+6. In the **Monitored Hosts** section, select the host you created earlier. Its IP address will be displayed, and a default port will be entered. Change this information if necessary.
+7. Enter the paths to the certificate files. See the [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
+8. Select the authentication token you created earlier. You can also create a token from this screen.
+9. Add the host.
+10. Repeat the operation for each host to be linked to this poller. To configure many hosts, we recommend using the dedicated APIs.
+11. [Deploy the configuration by restarting the collection engine](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 
 </TabItem>
 </Tabs>
@@ -386,6 +387,8 @@ The CMA installer can be executed in 2 modes:
 
 <Tabs groupId="sync">
 <TabItem value="Interactive mode" label="Interactive mode">
+
+> The installer must be launched with the “Run as administrator” option.
 
 1. Start the installer (during the configuration, you can click on the (i) icons for help).
    If you choose to install **centreon-plugins**, the installer will try to download and install the latest version of the Centreon plugins. If it can't (no web connection, network issue...), a popup is displayed to ask confirmation before using embedded plugins. If you only want to use native checks, there is no need to install the plugins.
