@@ -96,7 +96,7 @@ See [dedicated section for TLS](#certificate-files), prerequisites are the same.
 
 ### Summary of possible configurations
 
-The configuration is similar to [the one specified for TLS](#tls-summary-of-possible-configurations).
+The configuration is similar to [the one specified for TLS](#summary-of-possible-configurations).
 
 The difference lies in the use of the “Common Name CA” field on the client side.
 
