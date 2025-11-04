@@ -367,7 +367,7 @@ Le plugin apporte les modes suivants :
 |:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|
 | list-sites [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/listsites.pm)]         | Used for service discovery                                   |
 | site-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/siteusage.pm)]         | Cloud-Microsoft-Office365-Onedrive-Usage-Api-custom          |
-| Users-Activity-OneDrive [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/usersactivity.pm)] | Cloud-Microsoft-Office365-Onedrive-Users-Activity-OneDrive-Api-custom |
+| users-activity [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/usersactivity.pm)] | Cloud-Microsoft-Office365-Onedrive-Users-Activity-Api-custom |
 
 ### Options disponibles
 
