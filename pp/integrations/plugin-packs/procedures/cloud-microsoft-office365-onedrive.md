@@ -24,10 +24,10 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Microsoft-Office365-Onedrive-Api-custom" label="Cloud-Microsoft-Office365-Onedrive-Api-custom">
 
-| Service Alias  | Service Template                                             | Service Description                                                          | Discovery |
-|:---------------|:-------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------:|
-| Site-Usage     | Cloud-Microsoft-Office365-Onedrive-Usage-Api-custom          | Check OneDrive sites usage                                                   |     X     |
-| Users-Activity | Cloud-Microsoft-Office365-Onedrive-Users-Activity-Api-custom | Check OneDrive users activity (reporting period over the last refreshed day) |           |
+| Service Alias           | Service Template                                             | Service Description                                                          | Discovery |
+|:------------------------|:-------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------:|
+| Site-Usage-OneDrive     | Cloud-Microsoft-Office365-Onedrive-Usage-Api-custom          | Check OneDrive sites usage                                                   |     X     |
+| Users-Activity-OneDrive | Cloud-Microsoft-Office365-Onedrive-Users-Activity-Api-custom | Check OneDrive users activity (reporting period over the last refreshed day) |           |
 
 > The services listed above are created automatically when the **Cloud-Microsoft-Office365-Onedrive-Api-custom** host template is used.
 
@@ -52,7 +52,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage" label="Site-Usage">
+<TabItem value="Site-Usage-OneDrive" label="Site-Usage-OneDrive">
 
 | Name                                       | Unit  |
 |:-------------------------------------------|:------|
@@ -72,7 +72,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-OneDrive" label="Users-Activity-OneDrive">
 
 | Name                                                 | Unit  |
 |:-----------------------------------------------------|:------|
@@ -238,7 +238,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage" label="Site-Usage">
+<TabItem value="Site-Usage-OneDrive" label="Site-Usage-OneDrive">
 
 | Macro                          | Description                                                                                                                            | Default value | Mandatory |
 |:-------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -267,7 +267,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 | EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-OneDrive" label="Users-Activity-OneDrive">
 
 | Macro                              | Description                                                                                                                            | Default value     | Mandatory |
 |:-----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
@@ -369,7 +369,7 @@ The plugin brings the following modes:
 |:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|
 | list-sites [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/listsites.pm)]         | Used for service discovery                                   |
 | site-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/siteusage.pm)]         | Cloud-Microsoft-Office365-Onedrive-Usage-Api-custom          |
-| users-activity [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/usersactivity.pm)] | Cloud-Microsoft-Office365-Onedrive-Users-Activity-Api-custom |
+| Users-Activity-OneDrive [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/usersactivity.pm)] | Cloud-Microsoft-Office365-Onedrive-Users-Activity-OneDrive-Api-custom |
 
 ### Available options
 
@@ -445,7 +445,7 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage" label="Site-Usage">
+<TabItem value="Site-Usage-OneDrive" label="Site-Usage-OneDrive">
 
 | Option            | Description                                                                                                                                                                                                                                                                                  |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -456,7 +456,7 @@ All available options for each service template are listed below:
 | --units           |   Unit of thresholds (default: '%') ('%', 'count').                                                                                                                                                                                                                                          |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-OneDrive" label="Users-Activity-OneDrive">
 
 | Option            | Description                                                                                                                                                                                                                                                                                                                                   |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
