@@ -3,7 +3,13 @@ id: widgets
 title: Widgets MBI
 ---
 
-Les widgets de Centreon MBI s"utilisent dans les [vues personnalisées](../getting-started/create-custom-view.md) de Centreon. Il vous est de ce fait possible de créer des
+> Les widgets Centreon MBI suivants sont disponibles dans [Dashboards](../alerts-notifications/dashboards.md) :
+> - Disponibilité de l’Activité Métier
+> - Historique de la disponibilité d’une Activité Métier
+> - Historique de la disponibilité des groupes d’hôtes
+> - Metric capacity planning
+
+Les widgets de Centreon MBI s'utilisent également dans les [vues personnalisées](../getting-started/create-custom-view.md) de Centreon. Il vous est de ce fait possible de créer des
 vues combinant des données temps réel ET des données agrégées
 (disponibilité, application, performance etc..)
 

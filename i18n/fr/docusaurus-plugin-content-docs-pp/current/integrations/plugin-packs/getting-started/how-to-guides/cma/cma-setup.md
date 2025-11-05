@@ -389,6 +389,8 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 <Tabs groupId="sync">
 <TabItem value="Mode interactif" label="Mode interactif">
 
+> L'installer doit être lancé avec l'option "Exécuter en tant qu'administrateur".
+
 1. Lancez l'installer (durant la configuration, vous pourrez cliquer sur les (i) pour avoir de l'aide).
    Si vous installez les plugins Centreon, l'installer tentera de télécharger et d'installer la dernière version des plugins Centreon. Si l'installer ne peut pas les télécharger (pas d'accès web, problème réseau), une popup vous demandera confirmation pour installer les plugins Centreon embarqués dans l'installer. Si vous souhaitez utiliser uniquement des contrôles natifs, il est inutile d'installer les plugins.
   
