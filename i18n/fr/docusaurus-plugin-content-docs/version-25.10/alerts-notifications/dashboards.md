@@ -111,6 +111,9 @@ Vous utilisez la fonctionnalité Tableaux de bord avec un profil de **viewer** o
 
 1. Cliquez sur le bouton **partager** en bas à droite du tableau de bord.
 2. Dans la liste déroulante **Ajouter un contact**, sélectionnez l'utilisateur à ajouter.
+  > Seuls les utilisateurs remplissant les deux conditions suivantes sont affichés : 
+  >  - appartenir aux mêmes groupes d'accès que les vôtres,
+  >  - avoir accès au menu des Tableaux de bord (activable via les droits d'accès).
 3. Sélectionnez le profil **Viewer** ou **Editor**.
 4. Cliquez sur le bouton **+** pour l'ajouter.
 5. Répétez l'action pour chaque utilisateur que vous souhaitez ajouter.
@@ -190,14 +193,20 @@ Le menu d'action à trois points situé à la fin de la ligne de la liste de dif
 
 ## Liste des widgets
 
+> Notez que certains widgets nécessitent une licence spécifique.
+
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Disponibilité de l’Activité Métier | Affiche la disponibilité et les alertes d'une activité métier pour une période donnée. |
+| Historique de la disponibilité d’une Activité Métier | Affiche l’historique de la disponibilité d'une activité métier ou vue métier pour une période donnée. |
 | Diagramme d'activité métier           | Affiche graphiquement et permet la navigation dans la hiérarchie d'une activité métier.   |
 | Historique du statut d’une Activité Métier           | Affiche la répartition des statuts actuels sur une activité métier, sous forme de frise chronologique pour une période donnée.   |
 | Horloge/Minuteur           | Affiche l'heure en fonction du fuseau horaire sélectionné, ou un minuteur.   |
 | Texte générique           | Permet d'ajouter du texte libre à vos tableaux de bord (titres de sections, informations, etc.).   |
 | Group monitoring           | Affiche la répartition des statuts actuels pour les groupes de ressources sélectionnés, sous forme de tableau.   |
+| Historique de la disponibilité des groupes d’hôtes | Affiche l’historique de la disponibilité d’hôtes, catégories d’hôtes ou groupes d’hôtes. |
 | MAP - Afficher une vue           |  Permet de sélectionner et de visualiser une carte créée à partir du module MAP.  |
+| Metric capacity planning | Affiche la moyenne de la métrique en temps réel et une courbe de tendance. |
 | Graphe de métriques         | Affiche les métriques pour une période donnée.                                  |
 | Tableau des ressources                 | Affiche des données sur le statut des ressources et les événements, centralisées dans un tableau. Affiche également les [ressources liées ou non à un ticket](../alerts-notifications/ticketing.md#configuration-du-widget).|
 | Métrique unique        | Affiche la valeur d'une seule métrique sous forme de texte, de jauge ou de diagramme à barres.  |

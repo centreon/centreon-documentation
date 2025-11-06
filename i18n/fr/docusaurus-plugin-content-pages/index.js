@@ -77,8 +77,8 @@ const cards = [
 ]
 
 const versionInfo = {
-  version: '24.10',
-  link: 'https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-10/',
+  version: '25.10',
+  link: 'https://www.centreon.com/fr/centreon-annonce-la-version-25-10-de-centreon-infra-monitoring-pierre-angulaire-de-la-nouvelle-centreon-observability-platform/',
   target: '_blank'
  }
 
