@@ -17,7 +17,7 @@ A few adjustments have been made to the Centreon Monitoring Agent configuration 
 
 **Collect**
 
-**Note:** Updating your poller (as described [here](../installation/poller-update-upgrade.md)) and the Centreon Monitoring Agent will unlock the following features:
+**Note:** Updating your poller (as described [here](../installation/poller-update-upgrade.md)) and the Centreon Monitoring Agent will unlock the following features.
 
 Thanks to the new version of the Centreon Monitoring Agent, you will be able to use autosigned certificates as CMA now allows insecure TLS connection mode. Security has still be reenforced by making usage of Centreon authentication tokens mandatory.
 
