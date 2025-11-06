@@ -22,7 +22,7 @@ A few adjustments have been made to the Centreon Monitoring Agent configuration 
 - [Credentials encryption] Engine is now able to check its encryption readiness.
 - [Credentials encryption] CMA is now able to retrieve encryption key & handle encrypted credentials.
 - Enhanced configuration generation to handle Insecure TLS.
-- [CMA] Added a native Files check for Windows.
+- Added a native Files check for Windows.
 - CMA installer and CLI wording have been harmonized to fit with new UI labels.
 - CMA now handles forced checks.
 - CMA related TLS connections now require tokens.
