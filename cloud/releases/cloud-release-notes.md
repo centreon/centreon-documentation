@@ -18,15 +18,6 @@ A few adjustments have been made to the Centreon Monitoring Agent configuration 
 **Collect**
 
 **Note:** Updating your poller (as described [here](../installation/poller-update-upgrade.md)) and the Centreon Monitoring Agent will unlock the following features:
-- [Credentials encryption] Broker is now able to handle encrypted credentials.
-- [Credentials encryption] Engine is now able to check its encryption readiness.
-- [Credentials encryption] CMA is now able to retrieve encryption key & handle encrypted credentials.
-- Enhanced configuration generation to handle Insecure TLS.
-- Added a native Files check for Windows.
-- CMA installer and CLI wording have been harmonized to fit with new UI labels.
-- CMA now handles forced checks.
-- CMA related TLS connections now require tokens.
-- Insecure TLS is now available as encryption mode in CMA.
 
 Thanks to the new version of the Centreon Monitoring Agent, you will be able to use autosigned certificates as CMA now allows insecure TLS connection mode. Security has still be reenforced by making usage of Centreon authentication tokens mandatory.
 
