@@ -1450,13 +1450,14 @@ dnf install nghttp2
 
 4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
 
-Commentez la ligne suivante :
+Identifiez la ligne suivante et commentez-la en ajoutant le caractère "#" comme ci-dessous :
+
 
 ```shell
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 ```
 
-Décommentez la ligne suivante :
+Identifiez la ligne suivante et décommentez-la en supprimant le caractère "#" comme ci-dessous :
 
 ```shell
 LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1492,13 +1493,14 @@ dnf install nghttp2
 
 4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
 
-Commentez la ligne suivante :
+Identifiez la ligne suivante et commentez-la en ajoutant le caractère "#" comme ci-dessous :
+
 
 ```shell
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 ```
 
-Décommentez la ligne suivante :
+Identifiez la ligne suivante et décommentez-la en supprimant le caractère "#" comme ci-dessous :
 
 ```shell
 LoadModule mpm_event_module modules/mod_mpm_event.so
