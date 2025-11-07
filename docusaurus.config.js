@@ -366,8 +366,8 @@ const config = {
             items = [
               ...items,
               {
-                to: '/dem/getting-started/quanta-solution',
-                label: 'Quanta by Centreon',
+                to: '/dem/getting-started/welcome',
+                label: 'Centreon DEM',
                 position: 'left',
                 activeBaseRegex: '/dem/',
               },
