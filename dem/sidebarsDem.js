@@ -4,7 +4,7 @@ module.exports = {
       type: 'category',
       label: 'Getting started with Centreon DEM',
       link: {
-        type: "generated-index",
+        type: "doc",
         id: "getting-started/welcome"
       },
       items: [
