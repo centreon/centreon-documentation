@@ -2,7 +2,7 @@ module.exports = {
   dem: [
     {
       type: 'category',
-      label: 'Getting started with Centreon Quanta',
+      label: 'Getting started with Centreon DEM',
       link: {
         type: "generated-index",
         id: "getting-started/welcome"
