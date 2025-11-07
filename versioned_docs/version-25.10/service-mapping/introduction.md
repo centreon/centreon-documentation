@@ -32,6 +32,6 @@ making the best use of the real-time and reporting data in **Centreon BAM**.
 Definitions:
 
   - **BA**: Business Activity
-  - **BV**: Business View: the displayed business activity
+  - **BV**: Business View: group of business activities.
   - **KPI**: Key Performance Indicator: the weighted indicator considered in the
     BA calculation.
