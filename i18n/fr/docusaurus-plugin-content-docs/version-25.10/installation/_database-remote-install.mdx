@@ -75,13 +75,11 @@ systemctl restart mariadb
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y mysql-server mysql
-dnf install -y centreon-mysql
-systemctl enable --now mysqld
-echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
-sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
-systemctl daemon-reload
-systemctl restart mysqld
+dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm
+dnf config-manager --enable mysql-8.4-lts-community
+dnf module disable mysql
+dnf install mysql-community-server
+systemctl start mysqld
 ```
 
 </TabItem>
@@ -89,12 +87,15 @@ systemctl restart mysqld
 
 ```shell
 dnf install -y mysql-server mysql
-dnf install -y centreon-mysql
+dnf install -y centreon-mysql centreon
 systemctl enable --now mysqld
 echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
-sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
 systemctl daemon-reload
 systemctl restart mysqld
+systemctl list-units --type=service | grep -i mysql
+sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
+sudo systemctl start mysqld
+sudo systemctl status mysqld
 ```
 
 </TabItem>
@@ -102,7 +103,8 @@ systemctl restart mysqld
 
 ```shell
 apt update
-apt install -y --no-install-recommends centreon-mysql
+apt install -y centreon-mysql
+apt install -y centreon
 # Selectionner "Use Legacy Authentication Method"
 systemctl daemon-reload
 systemctl restart mysql

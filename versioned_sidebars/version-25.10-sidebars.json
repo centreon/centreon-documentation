@@ -1181,6 +1181,10 @@
             {
               "type": "doc",
               "id": "upgrade/upgrade-mariadb"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-mysql"
             }
           ]
         },
@@ -1495,6 +1499,10 @@
             },
             {
               "type": "doc",
+              "id": "developer/developer-broker-bbdo-switch-versions"
+            },
+            {
+              "type": "doc",
               "id": "developer/developer-broker-mapping"
             }
           ]
@@ -1528,9 +1536,77 @@
       "label": "Centreon HA",
       "link": {
         "type": "doc",
-        "id": "installation/installation-of-centreon-ha/overview"
+        "id": "installation/installation-of-centreon-ha/centreon-ha"
       },
       "items": [
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-faq"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/cluster-elements"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/overview"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-prerequisites"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-small"
+        },
+        {
+          "type": "category",
+          "label": "Completing your Centreon HA setup",
+          "link": {
+            "type": "generated-index",
+            "description": "Your HA platform has been installed by Centreon Professional Services. What can you do next?"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha/integrating-pollers"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/monitoring-guide"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Operating Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/troubleshooting-guide"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Updating Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "update/update-centreon-ha"
+            }
+          ]
+        },
         {
           "type": "category",
           "label": "Upgrading Centreon HA",
@@ -1538,6 +1614,14 @@
             "type": "generated-index"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-24-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-24-04"
+            },
             {
               "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"

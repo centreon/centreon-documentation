@@ -7,6 +7,9 @@ import TabItem from '@theme/TabItem';
 
 ## Contenu du pack
 
+Attention, ce connecteur n'est compatible qu'avec les serveurs Windows  jusqu'à la version 2012. Avec les versions plus récentes,
+les OIDs ne sont plus requêtables (pour plus d'informations voir [ici](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/73c00321-496a-4898-ad5b-5ceb909610c7)). 
+
 ### Modèles
 
 Le connecteur de supervision **Microsoft DHCP SNMP** apporte un modèle d'hôte :
