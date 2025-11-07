@@ -4,7 +4,7 @@ module.exports = {
       type: 'category',
       label: 'Getting started with Centreon Quanta',
       link: {
-        type: "doc",
+        type: "generated-index",
         id: "getting-started/welcome"
       },
       items: [
