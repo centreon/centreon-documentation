@@ -1,6 +1,6 @@
 ---
 id: network-routers-redback-snmp
-title: RedBack Router
+title: RedBack Router SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **RedBack Router** brings a host template:
+The Monitoring Connector **RedBack Router SNMP** brings a host template:
 
 * **Net-Redback-SNMP-custom**
 
@@ -191,7 +191,7 @@ yum install centreon-pack-network-routers-redback-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **RedBack Router** connector through
+2. Whatever the license type (*online* or *offline*), install the **RedBack Router SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

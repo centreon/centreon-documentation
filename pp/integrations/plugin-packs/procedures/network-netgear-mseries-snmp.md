@@ -1,6 +1,6 @@
 ---
 id: network-netgear-mseries-snmp
-title: Netgear MSeries
+title: Netgear MSeries SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

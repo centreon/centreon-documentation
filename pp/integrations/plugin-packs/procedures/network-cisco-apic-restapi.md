@@ -1,6 +1,6 @@
 ---
 id: network-cisco-apic-restapi
-title: Cisco Apic
+title: Cisco Apic RestAPI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Cisco Apic** brings a host template:
+The Monitoring Connector **Cisco Apic RestAPI** brings a host template:
 
 * **Net-Cisco-Apic-Restapi-custom**
 
@@ -70,12 +70,9 @@ https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/1-x/api/re
 
 ### Pack
 
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
-
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Connectors > Monitoring Connectors** menu.
+**Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -110,8 +107,8 @@ yum install centreon-pack-network-cisco-apic-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco Apic** connector through
-the **Configuration > Connectors > Monitoring Connectors** menu.
+2. Whatever the license type (*online* or *offline*), install the **Cisco Apic RestAPI** connector through
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -184,8 +181,8 @@ yum install centreon-plugin-Network-Cisco-Apic-Restapi
 
 | Macro          | Description                                                                                                                                          | Default value     | Mandatory   |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGHEALTH  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%\{previous\} \< %\{current\}' |                   |             |
-| CRITICALHEALTH | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%\{current\} \< 98'        |                   |             |
+| WARNINGHEALTH  | Set warning for the health level You can use the following variables: %{current}, %{previous}. example: --warning-health='%{previous} \< %{current}' |                   |             |
+| CRITICALHEALTH | Set critical for the health level You can use the following variables: %{current}, %{previous}. example: --critical-health='%{current} \< 98'        |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                   |                   |             |
 
 </TabItem>
@@ -200,15 +197,15 @@ yum install centreon-plugin-Network-Cisco-Apic-Restapi
 | CRITICALHEALTHCURRENT | Set critical for each health percentage value.                                                                                                   |                   |             |
 | WARNINGHEALTHMINIMUM  | Set warning for each health percentage value.                                                                                                   |                   |             |
 | CRITICALHEALTHMINIMUM | Set critical for each health percentage value.                                                                                                   |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Tenant" label="Tenant">
 
 | Macro          | Description                                                                                                                                          | Default value     | Mandatory   |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGHEALTH  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%\{previous\} \< %\{current\}' |                   |             |
-| CRITICALHEALTH | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%\{current\} \< 98'        |                   |             |
+| WARNINGHEALTH  | Set warning for the health level You can use the following variables: %{current}, %{previous}. example: --warning-health='%{previous} \< %{current}' |                   |             |
+| CRITICALHEALTH | Set critical for the health level You can use the following variables: %{current}, %{previous}. example: --critical-health='%{current} \< 98'        |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                   |                   |             |
 
 </TabItem>
@@ -293,7 +290,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -344,8 +341,8 @@ All available options for each service template are listed below:
 
 | Option            | Description                                                                                                                                            |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-health  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%\{previous\} \< %\{current\}'   |
-| --critical-health | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%\{current\} \< 98'          |
+| --warning-health  | Set warning for the health level You can use the following variables: %{current}, %{previous}. example: --warning-health='%{previous} \< %{current}'   |
+| --critical-health | Set critical for the health level You can use the following variables: %{current}, %{previous}. example: --critical-health='%{current} \< 98'          |
 
 </TabItem>
 <TabItem value="Node" label="Node">
@@ -362,8 +359,8 @@ All available options for each service template are listed below:
 | Option            | Description                                                                                                                                            |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-tenant   | Regexp filter on the tenant name                                                                                                                       |
-| --warning-health  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%\{previous\} \< %\{current\}'   |
-| --critical-health | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%\{current\} \< 98'          |
+| --warning-health  | Set warning for the health level You can use the following variables: %{current}, %{previous}. example: --warning-health='%{previous} \< %{current}'   |
+| --critical-health | Set critical for the health level You can use the following variables: %{current}, %{previous}. example: --critical-health='%{current} \< 98'          |
 
 </TabItem>
 </Tabs>

@@ -1,6 +1,6 @@
 ---
 id: network-zyxel-snmp
-title: Zyxel
+title: Zyxel SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Zyxel** brings a host template:
+The Monitoring Connector **Zyxel SNMP** brings a host template:
 
 * **Net-Zyxel-SNMP-custom**
 
@@ -178,7 +178,7 @@ yum install centreon-pack-network-zyxel-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Zyxel** connector through
+2. Whatever the license type (*online* or *offline*), install the **Zyxel SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

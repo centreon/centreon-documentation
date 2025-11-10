@@ -1,6 +1,6 @@
 ---
 id: network-cisco-waas-snmp
-title: Cisco Waas
+title: Cisco Waas SNMP
 ---
 
 ## Prerequisites

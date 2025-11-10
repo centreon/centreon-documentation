@@ -1,6 +1,6 @@
 ---
 id: network-switchs-aruba-standard-snmp
-title: Aruba Standard
+title: Aruba Standard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Aruba Standard** brings 2 host templates:
+The Monitoring Connector **Aruba Standard SNMP** brings 2 host templates:
 
 * **Net-Aruba-Standard-Ap-SNMP-custom**
 * **Net-Aruba-Standard-Controller-SNMP-custom**
@@ -251,7 +251,7 @@ yum install centreon-pack-network-switchs-aruba-standard-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Aruba Standard** connector through
+2. Whatever the license type (*online* or *offline*), install the **Aruba Standard SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

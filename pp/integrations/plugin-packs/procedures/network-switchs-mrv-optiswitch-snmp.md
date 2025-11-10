@@ -1,6 +1,6 @@
 ---
 id: network-switchs-mrv-optiswitch-snmp
-title: Mrv Optiswitch
+title: Mrv Optiswitch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Mrv Optiswitch** brings a host template:
+The Monitoring Connector **Mrv Optiswitch SNMP** brings a host template:
 
 * **Net-Mrv-Optiswitch-SNMP-custom**
 
@@ -130,7 +130,7 @@ yum install centreon-pack-network-switchs-mrv-optiswitch-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Mrv Optiswitch** connector through
+2. Whatever the license type (*online* or *offline*), install the **Mrv Optiswitch SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

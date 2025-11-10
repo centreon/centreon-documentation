@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-cisco-asa-snmp
-title: Cisco ASA
+title: Cisco ASA SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Cisco ASA** brings a host template:
+The Monitoring Connector **Cisco ASA SNMP** brings a host template:
 
 * **Net-FW-Cisco-Asa-SNMP-custom**
 
@@ -235,7 +235,7 @@ yum install centreon-pack-network-firewalls-cisco-asa-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco ASA** connector through
+2. Whatever the license type (*online* or *offline*), install the **Cisco ASA SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
