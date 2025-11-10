@@ -1,6 +1,6 @@
 ---
 id: network-routers-juniper-mseries-snmp
-title: Juniper M-Series
+title: Juniper M-Series SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Juniper M-Series** brings a host template:
+The Monitoring Connector **Juniper M-Series SNMP** brings a host template:
 
 * **Net-Juniper-Mseries-SNMP-custom**
 
@@ -233,7 +233,7 @@ yum install centreon-pack-network-routers-juniper-mseries-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Juniper M-Series** connector through
+2. Whatever the license type (*online* or *offline*), install the **Juniper M-Series SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

@@ -1,6 +1,6 @@
 ---
 id: network-switchs-brocade-snmp
-title: Brocade Switch
+title: Brocade Switch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Brocade Switch** brings a host template:
+The Monitoring Connector **Brocade Switch SNMP** brings a host template:
 
 * **Net-Brocade-SNMP-custom**
 
@@ -134,9 +134,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Brocade Switch**
-server. Please refer to the official documentation from Broadcom:
-* [Broadcom](https://www.broadcom.com/products/fibre-channel-networking/switches)
+The SNMP service must be configured and activated on the host. 
+Please refer to the [official documentation](https://www.broadcom.com/products/fibre-channel-networking/switches). 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -184,7 +185,7 @@ yum install centreon-pack-network-switchs-brocade-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Brocade Switch** connector through
+2. Whatever the license type (*online* or *offline*), install the **Brocade Switch SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

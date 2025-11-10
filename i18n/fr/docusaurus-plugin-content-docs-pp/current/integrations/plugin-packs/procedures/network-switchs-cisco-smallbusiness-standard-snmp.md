@@ -1,6 +1,6 @@
 ---
 id: network-switchs-cisco-smallbusiness-standard-snmp
-title: Cisco Small Business
+title: Cisco Small Business SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Cisco Small Business** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco Small Business SNMP** apporte un modèle d'hôte :
 
 * **Net-Cisco-Sb-Standard-SNMP-custom**
 
@@ -176,7 +176,7 @@ yum install centreon-pack-network-switchs-cisco-smallbusiness-standard-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Small Business**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Small Business SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

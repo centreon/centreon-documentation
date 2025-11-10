@@ -1,6 +1,6 @@
 ---
 id: network-netgear-mseries-snmp
-title: Netgear MSeries
+title: Netgear MSeries SNMP
 ---
 
 ## Prerequisites

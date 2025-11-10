@@ -1,6 +1,6 @@
 ---
 id: network-cisco-prime-restapi
-title: Cisco Prime
+title: Cisco Prime RestAPI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Cisco Prime** brings a host template:
+The Monitoring Connector **Cisco Prime RestAPI** brings a host template:
 
 * **Net-Cisco-Prime-Restapi-custom**
 
@@ -89,7 +89,7 @@ yum install centreon-pack-network-cisco-prime-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco Prime** connector through
+2. Whatever the license type (*online* or *offline*), install the **Cisco Prime RestAPI** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

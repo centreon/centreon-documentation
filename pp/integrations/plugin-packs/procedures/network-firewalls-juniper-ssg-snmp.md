@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-juniper-ssg-snmp
-title: Juniper SSG
+title: Juniper SSG SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Juniper SSG** brings a host template:
+The Monitoring Connector **Juniper SSG SNMP** brings a host template:
 
 * **Net-Juniper-SSG-custom**
 
@@ -187,7 +187,7 @@ yum install centreon-pack-network-firewalls-juniper-ssg-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Juniper SSG** connector through
+2. Whatever the license type (*online* or *offline*), install the **Juniper SSG SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

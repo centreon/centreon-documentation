@@ -1,6 +1,6 @@
 ---
 id: network-cisco-prime-restapi
-title: Cisco Prime
+title: Cisco Prime RestAPI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Cisco Prime** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco Prime RestAPI** apporte un modèle d'hôte :
 
 * **Net-Cisco-Prime-Restapi-custom**
 
@@ -90,7 +90,7 @@ yum install centreon-pack-network-cisco-prime-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Prime**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Prime RestAPI**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

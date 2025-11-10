@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-arkoon-snmp
-title: Arkoon
+title: Arkoon SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Arkoon** apporte un modèle d'hôte :
+Le connecteur de supervision **Arkoon SNMP** apporte un modèle d'hôte :
 
 * **Net-FW-Arkoon-SNMP-custom**
 
@@ -208,7 +208,7 @@ yum install centreon-pack-network-firewalls-arkoon-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Arkoon**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Arkoon SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

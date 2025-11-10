@@ -1,6 +1,6 @@
 ---
 id: network-routers-atrica-snmp
-title: Atrica Routeur
+title: Atrica Routeur SNMP
 ---
 
 ## Prerequisites

@@ -1,6 +1,6 @@
 ---
 id: network-switchs-juniper-ex-snmp
-title: Juniper EX Series
+title: Juniper EX Series SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Juniper EX Series** apporte un modèle d'hôte :
+Le connecteur de supervision **Juniper EX Series SNMP** apporte un modèle d'hôte :
 
 * **Net-Juniper-EX-custom**
 
@@ -177,7 +177,7 @@ yum install centreon-pack-network-switchs-juniper-ex-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper EX Series**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper EX Series SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

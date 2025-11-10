@@ -1,6 +1,6 @@
 ---
 id: network-ruckus-zonedirector-snmp
-title: Ruckus Zonedirector
+title: Ruckus Zonedirector SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -82,7 +82,7 @@ Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 ```
 
-2. Installer le connecteur de supervision 'Ruckus Zonedirector' depuis l'interface Web et la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Installer le connecteur de supervision 'Ruckus Zonedirector SNMP' depuis l'interface Web et la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -99,7 +99,7 @@ yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 ```
 
-3. Installer le connecteur de supervision 'Ruckus ZoneDirector' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web.
+3. Installer le connecteur de supervision 'Ruckus Zonedirector SNMP' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web.
 
 </TabItem>
 </Tabs>

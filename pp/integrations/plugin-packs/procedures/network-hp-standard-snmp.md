@@ -1,6 +1,6 @@
 ---
 id: network-hp-standard-snmp
-title: HP Standard Network
+title: HP Standard Network SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **HP Standard Network** brings a host template:
+The Monitoring Connector **HP Standard Network SNMP** brings a host template:
 
 * **Net-HP-Standard-SNMP-custom**
 
@@ -209,7 +209,7 @@ yum install centreon-pack-network-hp-standard-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **HP Standard Network** connector through
+2. Whatever the license type (*online* or *offline*), install the **HP Standard Network SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

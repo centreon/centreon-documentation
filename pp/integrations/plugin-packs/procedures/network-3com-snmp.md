@@ -1,6 +1,6 @@
 ---
 id: network-3com-snmp
-title: 3com Network
+title: 3com Network SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **3com Network** brings a host template:
+The Monitoring Connector **3com Network SNMP** brings a host template:
 
 * **Net-3com-SNMP-custom**
 
@@ -157,7 +157,7 @@ yum install centreon-pack-network-3com-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **3com Network** connector through
+2. Whatever the license type (*online* or *offline*), install the **3com Network SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

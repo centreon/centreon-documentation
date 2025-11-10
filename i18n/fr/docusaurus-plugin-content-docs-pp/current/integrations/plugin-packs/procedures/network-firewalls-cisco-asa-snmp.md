@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-cisco-asa-snmp
-title: Cisco ASA
+title: Cisco ASA SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Cisco ASA** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco ASA SNMP** apporte un modèle d'hôte :
 
 * **Net-FW-Cisco-Asa-SNMP-custom**
 
@@ -233,7 +233,7 @@ yum install centreon-pack-network-firewalls-cisco-asa-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco ASA**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco ASA SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

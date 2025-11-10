@@ -1,6 +1,6 @@
 ---
 id: network-aerohive-snmp
-title: Aerohive
+title: Aerohive SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Aerohive** brings a host template:
+The Monitoring Connector **Aerohive SNMP** brings a host template:
 
 * **Net-Aerohive-SNMP-custom**
 
@@ -135,7 +135,7 @@ yum install centreon-pack-network-aerohive-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Aerohive** connector through
+2. Whatever the license type (*online* or *offline*), install the **Aerohive SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

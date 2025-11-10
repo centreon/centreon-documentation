@@ -1,6 +1,6 @@
 ---
 id: network-citrix-sdx-snmp
-title: Citrix SDX
+title: Citrix SDX SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Citrix SDX** brings a host template:
+The Monitoring Connector **Citrix SDX SNMP** brings a host template:
 
 * **Net-Citrix-Sdx-SNMP-custom**
 
@@ -138,7 +138,7 @@ yum install centreon-pack-network-citrix-sdx-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Citrix SDX** connector through
+2. Whatever the license type (*online* or *offline*), install the **Citrix SDX SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

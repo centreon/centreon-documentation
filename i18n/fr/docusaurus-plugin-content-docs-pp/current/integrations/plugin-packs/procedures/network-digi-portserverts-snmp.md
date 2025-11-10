@@ -1,6 +1,6 @@
 ---
 id: network-digi-portserverts-snmp
-title: Digi PortServers TS
+title: Digi PortServers TS SNMP
 ---
 
 ## Prerequisites

@@ -1,6 +1,6 @@
 ---
 id: network-cisco-voice-gateway-snmp
-title: Cisco Voice Gateway
+title: Cisco Voice Gateway SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Cisco Voice Gateway** brings a host template:
+The Monitoring Connector **Cisco Voice Gateway SNMP** brings a host template:
 
 * **Net-Cisco-Voice-Gateway-SNMP-custom**
 
@@ -151,7 +151,7 @@ yum install centreon-pack-network-cisco-voice-gateway-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco Voice Gateway** connector through
+2. Whatever the license type (*online* or *offline*), install the **Cisco Voice Gateway SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

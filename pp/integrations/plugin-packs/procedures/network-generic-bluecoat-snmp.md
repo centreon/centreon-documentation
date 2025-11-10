@@ -1,6 +1,6 @@
 ---
 id: network-generic-bluecoat-snmp
-title: Bluecoat generic
+title: Bluecoat generic SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Bluecoat generic** brings a host template:
+The Monitoring Connector **Bluecoat generic SNMP** brings a host template:
 
 * **Net-Bluecoat-SNMP-custom**
 
@@ -173,7 +173,7 @@ yum install centreon-pack-network-generic-bluecoat-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Bluecoat generic** connector through
+2. Whatever the license type (*online* or *offline*), install the **Bluecoat generic SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

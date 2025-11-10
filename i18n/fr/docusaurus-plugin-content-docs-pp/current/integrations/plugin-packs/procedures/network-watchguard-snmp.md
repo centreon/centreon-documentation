@@ -1,6 +1,6 @@
 ---
 id: network-watchguard-snmp
-title: Watchguard
+title: Watchguard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Watchguard** apporte un modèle d'hôte :
+Le connecteur de supervision **Watchguard SNMP** apporte un modèle d'hôte :
 
 * **Net-Watchguard-SNMP-custom**
 
@@ -203,7 +203,7 @@ yum install centreon-pack-network-watchguard-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Watchguard**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Watchguard SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

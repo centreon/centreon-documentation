@@ -1,6 +1,6 @@
 ---
 id: network-ruckus-smartzone-snmp
-title: Ruckus Smartzone
+title: Ruckus Smartzone SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -122,7 +122,7 @@ Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 ```
 
-2. Installer le connecteur de supervision 'Ruckus Smartzone' depuis l'interface Web et la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Installer le connecteur de supervision 'Ruckus Smartzone SNMP' depuis l'interface Web et la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -139,7 +139,7 @@ yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 ```
 
-3. Installer le connecteur de supervision 'Ruckus Smartzone' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web. 
+3. Installer le connecteur de supervision 'Ruckus Smartzone SNMP' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web. 
 
 </TabItem>
 </Tabs>

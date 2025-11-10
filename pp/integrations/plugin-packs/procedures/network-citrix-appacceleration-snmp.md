@@ -1,6 +1,6 @@
 ---
 id: network-citrix-appacceleration-snmp
-title: Citrix Acceleration
+title: Citrix Acceleration SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Citrix Acceleration** brings a host template:
+The Monitoring Connector **Citrix Acceleration SNMP** brings a host template:
 
 * **Net-Citrix-Appacceleration-SNMP-custom**
 
@@ -134,7 +134,7 @@ yum install centreon-pack-network-citrix-appacceleration-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Citrix Acceleration** connector through
+2. Whatever the license type (*online* or *offline*), install the **Citrix Acceleration SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

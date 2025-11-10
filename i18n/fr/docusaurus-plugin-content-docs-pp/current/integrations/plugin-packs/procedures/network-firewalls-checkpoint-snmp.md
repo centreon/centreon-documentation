@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-checkpoint-snmp
-title: CheckPoint firewall
+title: CheckPoint firewall SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **CheckPoint firewall** apporte un modèle d'hôte :
+Le connecteur de supervision **CheckPoint firewall SNMP** apporte un modèle d'hôte :
 
 * **Net-FW-Checkpoint-SNMP-custom**
 
@@ -209,7 +209,7 @@ yum install centreon-pack-network-firewalls-checkpoint-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **CheckPoint firewall**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **CheckPoint firewall SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

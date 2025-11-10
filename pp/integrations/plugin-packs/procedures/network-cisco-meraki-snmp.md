@@ -1,6 +1,6 @@
 ---
 id: network-cisco-meraki-snmp
-title: Cisco Meraki
+title: Cisco Meraki SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

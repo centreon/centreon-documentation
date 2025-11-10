@@ -1,6 +1,6 @@
 ---
 id: network-juniper-isg-snmp
-title: Juniper ISG
+title: Juniper ISG SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Juniper ISG** brings a host template:
+The Monitoring Connector **Juniper ISG SNMP** brings a host template:
 
 * **Net-Juniper-Isg-SNMP-custom**
 
@@ -161,7 +161,7 @@ yum install centreon-pack-network-juniper-isg-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Juniper ISG** connector through
+2. Whatever the license type (*online* or *offline*), install the **Juniper ISG SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

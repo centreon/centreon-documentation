@@ -1,6 +1,6 @@
 ---
 id: network-ibm-bladecenter-snmp
-title: IBM Bladecenter Switch
+title: IBM Bladecenter Switch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -102,7 +102,7 @@ avec l'IBM BladeCenter.
 yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 ```
 
-2. Installer le connecteur de supervision *IBM BladeCenter Switch* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
+2. Installer le connecteur de supervision *IBM Bladecenter Switch SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -119,7 +119,7 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 yum install centreon-pack-network-ibm-bladecenter-snmp
 ```
 
-3. Installer le connecteur de supervision *IBM BladeCenter Switch* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
+3. Installer le connecteur de supervision *IBM Bladecenter Switch SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 </Tabs>

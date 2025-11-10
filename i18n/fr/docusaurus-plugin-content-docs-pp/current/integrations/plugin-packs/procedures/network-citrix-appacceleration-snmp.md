@@ -1,6 +1,6 @@
 ---
 id: network-citrix-appacceleration-snmp
-title: Citrix Acceleration
+title: Citrix Acceleration SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Citrix Acceleration** apporte un modèle d'hôte :
+Le connecteur de supervision **Citrix Acceleration SNMP** apporte un modèle d'hôte :
 
 * **Net-Citrix-Appacceleration-SNMP-custom**
 
@@ -135,7 +135,7 @@ yum install centreon-pack-network-citrix-appacceleration-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Citrix Acceleration**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Citrix Acceleration SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

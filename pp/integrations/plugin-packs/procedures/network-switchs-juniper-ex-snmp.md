@@ -1,6 +1,6 @@
 ---
 id: network-switchs-juniper-ex-snmp
-title: Juniper EX Series
+title: Juniper EX Series SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Juniper EX Series** brings a host template:
+The Monitoring Connector **Juniper EX Series SNMP** brings a host template:
 
 * **Net-Juniper-EX-custom**
 
@@ -176,7 +176,7 @@ yum install centreon-pack-network-switchs-juniper-ex-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Juniper EX Series** connector through
+2. Whatever the license type (*online* or *offline*), install the **Juniper EX Series SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

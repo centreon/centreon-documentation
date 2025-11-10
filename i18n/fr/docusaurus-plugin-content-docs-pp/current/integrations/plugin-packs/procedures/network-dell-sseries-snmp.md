@@ -1,6 +1,6 @@
 ---
 id: network-dell-sseries-snmp
-title: Dell S-series
+title: Dell S-series SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Dell S-series** apporte un modèle d'hôte :
+Le connecteur de supervision **Dell S-series SNMP** apporte un modèle d'hôte :
 
 * **Net-Dell-Sseries-SNMP-custom**
 
@@ -161,7 +161,7 @@ yum install centreon-pack-network-dell-sseries-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dell S-series**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dell S-series SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

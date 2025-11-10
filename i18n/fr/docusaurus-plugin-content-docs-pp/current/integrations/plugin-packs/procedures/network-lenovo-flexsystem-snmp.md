@@ -1,6 +1,6 @@
 ---
 id: network-lenovo-flexsystem-snmp
-title: Lenovo Flex System Switch 
+title: Lenovo Flex System Switch SNMP 
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -102,7 +102,7 @@ avec le serveur de lames Lenovo Flex System.
 yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 ```
 
-2. Installer le connecteur de supervision *Lenovo Flex System Switch* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
+2. Installer le connecteur de supervision *Lenovo Flex System Switch SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -119,7 +119,7 @@ yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 yum install centreon-pack-network-lenovo-flexsystem-snmp
 ```
 
-3. Installer le connecteur de supervision *Lenovo Flex System Switch* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
+3. Installer le connecteur de supervision *Lenovo Flex System Switch SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 </Tabs>

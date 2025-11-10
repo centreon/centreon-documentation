@@ -1,6 +1,6 @@
 ---
 id: network-oracle-infiniband-snmp
-title: Oracle Infiniband
+title: Oracle Infiniband SNMP
 ---
 
 ## Prerequisites

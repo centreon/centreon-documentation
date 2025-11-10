@@ -1,6 +1,6 @@
 ---
 id: network-efficientip-snmp
-title: Efficient IP
+title: Efficient IP TS SNMP
 ---
 
 import Tabs from '@theme/Tabs';
@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision Centreon **Efficient IP** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Efficient IP TS SNMP** apporte un modèle d'hôte :
 
 * Net-Efficientip-SNMP-custom
 
@@ -106,7 +106,10 @@ Il apporte les modèles de service suivants :
 
 ### Configuration SNMP
 
-Afin de superviser votre **Efficient IP** en SNMP,  il est nécessaire de configurer l'agent sur le serveur. Veuillez vous référer à la documentation officielle du constructeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -118,30 +121,30 @@ Centreon vers le serveur supervisé.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Efficient IP** :
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Efficient IP TS SNMP** :
 
 ```bash
 yum install centreon-plugin-Network-Efficientip-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le connecteur de supervision **Efficient IP** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Efficient IP TS SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Efficient IP** :
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Efficient IP TS SNMP** :
 
 ```bash
 yum install centreon-plugin-Network-Efficientip-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Efficient IP** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Efficient IP TS SNMP** :
 
 ```bash
 yum install centreon-pack-network-efficientip-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le connecteur de supervision **Efficient IP** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Efficient IP TS SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>

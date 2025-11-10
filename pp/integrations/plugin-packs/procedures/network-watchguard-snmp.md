@@ -1,6 +1,6 @@
 ---
 id: network-watchguard-snmp
-title: Watchguard
+title: Watchguard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Watchguard** brings a host template:
+The Monitoring Connector **Watchguard SNMP** brings a host template:
 
 * **Net-Watchguard-SNMP-custom**
 
@@ -202,7 +202,7 @@ yum install centreon-pack-network-watchguard-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Watchguard** connector through
+2. Whatever the license type (*online* or *offline*), install the **Watchguard SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

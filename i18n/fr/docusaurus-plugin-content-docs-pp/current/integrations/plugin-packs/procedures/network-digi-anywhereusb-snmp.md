@@ -1,6 +1,6 @@
 ---
 id: network-digi-anywhereusb-snmp
-title: Digi Anywhere USB
+title: Digi Anywhere USB SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Digi Anywhere USB** apporte un modèle d'hôte :
+Le connecteur de supervision **Digi Anywhere USB SNMP** apporte un modèle d'hôte :
 
 * **Net-Digi-AnywhereUSB-SNMP-custom**
 
@@ -135,7 +135,7 @@ yum install centreon-pack-network-digi-anywhereusb-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Digi Anywhere USB**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Digi Anywhere USB SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

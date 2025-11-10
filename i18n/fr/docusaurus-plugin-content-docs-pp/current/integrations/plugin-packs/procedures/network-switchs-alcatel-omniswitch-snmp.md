@@ -1,6 +1,6 @@
 ---
 id: network-switchs-alcatel-omniswitch-snmp
-title: Alcatel Omniswitch
+title: Alcatel Omniswitch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Alcatel Omniswitch** apporte un modèle d'hôte :
+Le connecteur de supervision **Alcatel Omniswitch SNMP** apporte un modèle d'hôte :
 
 * **Net-Alcatel-OmniSwitch-SNMP-custom**
 
@@ -128,8 +128,10 @@ Coming soon
 
 ### Configuration SNMP
 
-Afin de superviser votre **Alcatel Omniswitch** en SNMP, il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* [OmniSwitch](https://www.al-enterprise.com/en/search#q=omniswitch&t=all&sort=relevancy)
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la [documentation officielle](https://www.al-enterprise.com/en/search#q=omniswitch&t=all&sort=relevancy). 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -177,7 +179,7 @@ yum install centreon-pack-network-switchs-alcatel-omniswitch-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Alcatel Omniswitch**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Alcatel Omniswitch SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

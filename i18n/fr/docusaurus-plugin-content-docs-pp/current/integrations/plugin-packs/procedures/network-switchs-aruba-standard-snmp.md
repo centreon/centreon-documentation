@@ -1,6 +1,6 @@
 ---
 id: network-switchs-aruba-standard-snmp
-title: Aruba Standard
+title: Aruba Standard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Aruba Standard** apporte 2 modèles d'hôte :
+Le connecteur de supervision **Aruba Standard SNMP** apporte 2 modèles d'hôte :
 
 * **Net-Aruba-Standard-Ap-SNMP-custom**
 * **Net-Aruba-Standard-Controller-SNMP-custom**
@@ -244,7 +244,7 @@ yum install centreon-pack-network-switchs-aruba-standard-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Aruba Standard**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Aruba Standard SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

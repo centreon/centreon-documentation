@@ -1,6 +1,6 @@
 ---
 id: network-juniper-isg-snmp
-title: Juniper ISG
+title: Juniper ISG SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Juniper ISG** apporte un modèle d'hôte :
+Le connecteur de supervision **Juniper ISG SNMP** apporte un modèle d'hôte :
 
 * **Net-Juniper-Isg-SNMP-custom**
 
@@ -162,7 +162,7 @@ yum install centreon-pack-network-juniper-isg-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper ISG**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper ISG SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

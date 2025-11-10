@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-sonicwall-snmp
-title: Sonicwall
+title: Sonicwall SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Sonicwall** brings a host template:
+The Monitoring Connector **Sonicwall SNMP** brings a host template:
 
 * **Net-FW-Sonicwall-SNMP-custom**
 
@@ -136,7 +136,7 @@ yum install centreon-pack-network-firewalls-sonicwall-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Sonicwall** connector through
+2. Whatever the license type (*online* or *offline*), install the **Sonicwall SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

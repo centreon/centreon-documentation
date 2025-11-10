@@ -1,6 +1,6 @@
 ---
 id: network-generic-bluecoat-snmp
-title: Bluecoat generic
+title: Bluecoat generic SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Bluecoat generic** apporte un modèle d'hôte :
+Le connecteur de supervision **Bluecoat generic SNMP** apporte un modèle d'hôte :
 
 * **Net-Bluecoat-SNMP-custom**
 
@@ -174,7 +174,7 @@ yum install centreon-pack-network-generic-bluecoat-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Bluecoat generic**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Bluecoat generic SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

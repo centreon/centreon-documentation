@@ -1,6 +1,6 @@
 ---
 id: hardware-device-gorgy-ntpserver-snmp
-title: Gorgy NTP Server
+title: Gorgy NTP Server SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Gorgy NTP Server** apporte un modèle d'hôte :
+Le connecteur de supervision **Gorgy NTP Server SNMP** apporte un modèle d'hôte :
 
 * **HW-Device-Gorgy-Ntpserver-SNMP-custom**
 
@@ -138,7 +138,7 @@ yum install centreon-pack-hardware-device-gorgy-ntpserver-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Gorgy NTP Server**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Gorgy NTP Server SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

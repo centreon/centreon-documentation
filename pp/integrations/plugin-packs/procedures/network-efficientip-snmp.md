@@ -1,6 +1,6 @@
 ---
 id: network-efficientip-snmp
-title: Efficient IP
+title: Efficient IP TS SNMP
 ---
 
 import Tabs from '@theme/Tabs';
@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Monitoring Connector **Efficient IP** brings a host template:
+The Centreon Monitoring Connector **Efficient IP TS SNMP** brings a host template:
 
 * Net-Efficientip-SNMP-custom
 
@@ -106,8 +106,10 @@ It brings the following service templates:
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Efficient IP**
-server. Please refer to the manufacturer official documentation.
+The SNMP service must be configured and activated on the host. 
+Please refer to the official documentation. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -119,30 +121,30 @@ SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the package on every Centreon poller expected to monitor **Efficient IP** resources:
+1. Install the package on every Centreon poller expected to monitor **Efficient IP TS SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Network-Efficientip-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Efficient IP** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Efficient IP TS SNMP** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the package on every Centreon poller expected to monitor **Efficient IP** resources:
+1. Install the package on every Centreon poller expected to monitor **Efficient IP TS SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Network-Efficientip-Snmp
 ```
 
-2. Install the **Efficient IP** Centreon Monitoring Connector RPM on the Centreon central server:
+2. Install the **Efficient IP TS SNMP** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-network-efficientip-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Efficient IP** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Efficient IP TS SNMP** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

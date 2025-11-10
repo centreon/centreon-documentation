@@ -1,6 +1,6 @@
 ---
 id: network-cisco-apic-restapi
-title: Cisco Apic
+title: Cisco Apic RestAPI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Cisco Apic** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco Apic RestAPI** apporte un modèle d'hôte :
 
 * **Net-Cisco-Apic-Restapi-custom**
 
@@ -108,7 +108,7 @@ yum install centreon-pack-network-cisco-apic-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Apic**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Apic RestAPI**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

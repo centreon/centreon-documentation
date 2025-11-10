@@ -1,6 +1,6 @@
 ---
 id: network-ucopia-snmp
-title: Ucopia
+title: Ucopia SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Ucopia** apporte un modèle d'hôte :
+Le connecteur de supervision **Ucopia SNMP** apporte un modèle d'hôte :
 
 * **Net-Ucopia-Wlc-SNMP-custom**
 
@@ -156,7 +156,7 @@ yum install centreon-pack-network-ucopia-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Ucopia**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Ucopia SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

@@ -1,6 +1,6 @@
 ---
 id: network-cisco-vcs-restapi
-title: Cisco VCS
+title: Cisco VCS Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

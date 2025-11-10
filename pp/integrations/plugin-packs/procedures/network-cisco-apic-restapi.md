@@ -1,6 +1,6 @@
 ---
 id: network-cisco-apic-restapi
-title: Cisco Apic
+title: Cisco Apic RestAPI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Cisco Apic** brings a host template:
+The Monitoring Connector **Cisco Apic RestAPI** brings a host template:
 
 * **Net-Cisco-Apic-Restapi-custom**
 
@@ -107,7 +107,7 @@ yum install centreon-pack-network-cisco-apic-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco Apic** connector through
+2. Whatever the license type (*online* or *offline*), install the **Cisco Apic RestAPI** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

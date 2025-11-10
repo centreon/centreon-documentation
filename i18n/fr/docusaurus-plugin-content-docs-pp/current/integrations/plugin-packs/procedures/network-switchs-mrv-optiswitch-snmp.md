@@ -1,6 +1,6 @@
 ---
 id: network-switchs-mrv-optiswitch-snmp
-title: Mrv Optiswitch
+title: Mrv Optiswitch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Mrv Optiswitch** apporte un modèle d'hôte :
+Le connecteur de supervision **Mrv Optiswitch SNMP** apporte un modèle d'hôte :
 
 * **Net-Mrv-Optiswitch-SNMP-custom**
 
@@ -125,7 +125,7 @@ yum install centreon-pack-network-switchs-mrv-optiswitch-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Mrv Optiswitch**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Mrv Optiswitch SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

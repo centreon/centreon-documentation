@@ -1,6 +1,6 @@
 ---
 id: network-ruckus-snmp
-title: Ruckus
+title: Ruckus SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Ruckus** apporte un modèle d'hôte :
+Le connecteur de supervision **Ruckus SNMP** apporte un modèle d'hôte :
 
 * **Net-Ruckus-Ap-SNMP-custom**
 
@@ -156,7 +156,7 @@ yum install centreon-pack-network-ruckus-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Ruckus**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Ruckus SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

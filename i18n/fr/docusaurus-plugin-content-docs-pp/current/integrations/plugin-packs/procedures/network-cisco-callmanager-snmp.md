@@ -1,6 +1,6 @@
 ---
 id: network-cisco-callmanager-snmp
-title: Cisco Call Manager
+title: Cisco Call Manager SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Cisco Call Manager** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco Call Manager SNMP** apporte un modèle d'hôte :
 
 * **Net-Cisco-Callmanager-SNMP-custom**
 
@@ -144,7 +144,7 @@ yum install centreon-pack-network-cisco-callmanager-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Call Manager**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Call Manager SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

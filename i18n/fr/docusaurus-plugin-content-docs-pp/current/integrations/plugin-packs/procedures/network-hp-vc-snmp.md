@@ -1,6 +1,6 @@
 ---
 id: network-hp-vc-snmp
-title: HP Virtual Connect
+title: HP Virtual Connect SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **HP Virtual Connect** apporte un modèle d'hôte :
+Le connecteur de supervision **HP Virtual Connect SNMP** apporte un modèle d'hôte :
 
 * **Net-Hp-Vc-SNMP-custom**
 
@@ -135,7 +135,7 @@ yum install centreon-pack-network-hp-vc-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HP Virtual Connect**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HP Virtual Connect SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

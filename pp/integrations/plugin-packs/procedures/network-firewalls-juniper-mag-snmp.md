@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-juniper-mag-snmp
-title: Juniper Mag
+title: Juniper Mag SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Juniper Mag** brings a host template:
+The Monitoring Connector **Juniper Mag SNMP** brings a host template:
 
 * **Net-Juniper-MAG-custom**
 
@@ -212,7 +212,7 @@ yum install centreon-pack-network-firewalls-juniper-mag-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Juniper Mag** connector through
+2. Whatever the license type (*online* or *offline*), install the **Juniper Mag SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

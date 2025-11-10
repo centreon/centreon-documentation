@@ -1,6 +1,6 @@
 ---
 id: network-routers-juniper-mseries-snmp
-title: Juniper M-Series
+title: Juniper M-Series SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Juniper M-Series** apporte un modèle d'hôte :
+Le connecteur de supervision **Juniper M-Series SNMP** apporte un modèle d'hôte :
 
 * **Net-Juniper-Mseries-SNMP-custom**
 
@@ -234,7 +234,7 @@ yum install centreon-pack-network-routers-juniper-mseries-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper M-Series**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper M-Series SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

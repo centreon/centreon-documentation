@@ -1,6 +1,6 @@
 ---
 id: network-switchs-arista-snmp
-title: Arista Switch
+title: Arista Switch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Arista Switch** apporte un modèle d'hôte :
+Le connecteur de supervision **Arista Switch SNMP** apporte un modèle d'hôte :
 
 * **Net-Arista-SNMP-custom**
 
@@ -187,7 +187,7 @@ yum install centreon-pack-network-switchs-arista-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Arista Switch**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Arista Switch SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

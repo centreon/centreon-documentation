@@ -1,6 +1,6 @@
 ---
 id: network-switchs-dell-xseries-snmp
-title: Dell Xseries
+title: Dell X-series SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Dell Xseries** apporte un modèle d'hôte :
+Le connecteur de supervision **Dell X-series SNMP** apporte un modèle d'hôte :
 
 * **Net-Dell-Xseries-SNMP-custom**
 
@@ -97,15 +97,16 @@ Pas de métrique pour ce service.
 
 ## Prérequis
 
-### Configuration Dell Xseries Equipment  
+### Configuration SNMP
 
-Afin de contrôler vos équipements Dell Xseries, le SNMP v2 doit être configuré.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
-### Flux de réseaux
+### Flux réseau
 
-La communication doit être possible sur le port UDP 161 de l'équipement Dell Xseries supervisé depuis le Collecteur Centreon.
-
- 
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
@@ -148,7 +149,7 @@ yum install centreon-pack-network-switchs-dell-xseries-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dell Xseries**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dell X-series SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

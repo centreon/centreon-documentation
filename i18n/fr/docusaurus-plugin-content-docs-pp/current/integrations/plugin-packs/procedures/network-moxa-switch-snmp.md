@@ -1,6 +1,6 @@
 ---
 id: network-moxa-switch-snmp
-title: Moxa Switch
+title: Moxa Switch SNMP
 ---
 
 ## Prerequisites

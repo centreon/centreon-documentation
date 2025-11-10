@@ -1,6 +1,6 @@
 ---
 id: network-loadbalancers-netscaler-snmp
-title: Citrix Netscaler
+title: Citrix Netscaler SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Citrix Netscaler** brings a host template:
+The Monitoring Connector **Citrix Netscaler SNMP** brings a host template:
 
 * **Net-Citrix-Netscaler-SNMP-custom**
 
@@ -217,7 +217,7 @@ yum install centreon-pack-network-loadbalancers-netscaler-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Citrix Netscaler** connector through
+2. Whatever the license type (*online* or *offline*), install the **Citrix Netscaler SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

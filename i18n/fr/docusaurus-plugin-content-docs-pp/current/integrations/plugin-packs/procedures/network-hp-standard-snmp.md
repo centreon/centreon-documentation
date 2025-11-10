@@ -1,6 +1,6 @@
 ---
 id: network-hp-standard-snmp
-title: HP Standard Network
+title: HP Standard Network SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **HP Standard Network** apporte un modèle d'hôte :
+Le connecteur de supervision **HP Standard Network SNMP** apporte un modèle d'hôte :
 
 * **Net-HP-Standard-SNMP-custom**
 
@@ -210,7 +210,7 @@ yum install centreon-pack-network-hp-standard-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HP Standard Network**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HP Standard Network SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

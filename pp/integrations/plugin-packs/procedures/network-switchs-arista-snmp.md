@@ -1,6 +1,6 @@
 ---
 id: network-switchs-arista-snmp
-title: Arista Switch
+title: Arista Switch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Arista Switch** brings a host template:
+The Monitoring Connector **Arista Switch SNMP** brings a host template:
 
 * **Net-Arista-SNMP-custom**
 
@@ -186,7 +186,7 @@ yum install centreon-pack-network-switchs-arista-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Arista Switch** connector through
+2. Whatever the license type (*online* or *offline*), install the **Arista Switch SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

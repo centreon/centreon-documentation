@@ -1,6 +1,6 @@
 ---
 id: network-securactive-snmp
-title: SecurActive
+title: SecurActive SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **SecurActive** brings a host template:
+The Monitoring Connector **SecurActive SNMP** brings a host template:
 
 * **Net-Securactive-SNMP-custom**
 
@@ -123,7 +123,7 @@ yum install centreon-pack-network-securactive-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Securactive ** connector through
+2. Whatever the license type (*online* or *offline*), install the **SecurActive SNMP ** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

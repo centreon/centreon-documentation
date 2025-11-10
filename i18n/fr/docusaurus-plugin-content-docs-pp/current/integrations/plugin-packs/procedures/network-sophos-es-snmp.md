@@ -1,6 +1,6 @@
 ---
 id: network-sophos-es-snmp
-title: Sophos ES
+title: Sophos ES SNMP
 ---
 
 ## Prerequisites

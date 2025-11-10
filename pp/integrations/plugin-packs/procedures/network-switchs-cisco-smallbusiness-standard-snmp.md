@@ -1,6 +1,6 @@
 ---
 id: network-switchs-cisco-smallbusiness-standard-snmp
-title: Cisco Small Business
+title: Cisco Small Business SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Cisco Small Business** brings a host template:
+The Monitoring Connector **Cisco Small Business SNMP** brings a host template:
 
 * **Net-Cisco-Sb-Standard-SNMP-custom**
 
@@ -175,7 +175,7 @@ yum install centreon-pack-network-switchs-cisco-smallbusiness-standard-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco Small Business** connector through
+2. Whatever the license type (*online* or *offline*), install the **Cisco Small Business SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

@@ -1,6 +1,6 @@
 ---
 id: network-zyxel-snmp
-title: Zyxel
+title: Zyxel SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Zyxel** apporte un modèle d'hôte :
+Le connecteur de supervision **Zyxel SNMP** apporte un modèle d'hôte :
 
 * **Net-Zyxel-SNMP-custom**
 
@@ -173,7 +173,7 @@ yum install centreon-pack-network-zyxel-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Zyxel**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Zyxel SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

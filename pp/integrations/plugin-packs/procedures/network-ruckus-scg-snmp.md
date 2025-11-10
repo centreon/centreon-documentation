@@ -1,6 +1,6 @@
 ---
 id: network-ruckus-scg-snmp
-title: Ruckus SCG
+title: Ruckus SCG SNMP
 ---
 
 ## Prerequisites

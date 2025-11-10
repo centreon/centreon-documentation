@@ -1,6 +1,6 @@
 ---
 id: network-ruggedcom
-title: Ruggedcom Network
+title: Ruggedcom Network SNMP
 ---
 
 ## Prerequisites

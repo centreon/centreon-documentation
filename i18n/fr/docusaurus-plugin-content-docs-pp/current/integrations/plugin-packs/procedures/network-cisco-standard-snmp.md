@@ -1,6 +1,6 @@
 ---
 id: network-cisco-standard-snmp
-title: Cisco Standard
+title: Cisco Standard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Cisco Standard** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco Standard SNMP** apporte un modèle d'hôte :
 
 * **Net-Cisco-Standard-SNMP-custom**
 
@@ -342,7 +342,7 @@ yum install centreon-pack-network-cisco-standard-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Standard**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Standard SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

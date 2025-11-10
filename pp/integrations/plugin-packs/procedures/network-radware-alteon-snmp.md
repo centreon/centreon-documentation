@@ -1,6 +1,6 @@
 ---
 id: network-radware-alteon-snmp
-title: Radware Alteon
+title: Radware Alteon SNMP
 ---
 
 ## Prerequisites

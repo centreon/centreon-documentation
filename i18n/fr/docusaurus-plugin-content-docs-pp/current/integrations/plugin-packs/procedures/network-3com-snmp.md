@@ -1,6 +1,6 @@
 ---
 id: network-3com-snmp
-title: 3com Network
+title: 3com Network SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **3com Network** apporte un modèle d'hôte :
+Le connecteur de supervision **3com Network SNMP** apporte un modèle d'hôte :
 
 * **Net-3com-SNMP-custom**
 
@@ -158,7 +158,7 @@ yum install centreon-pack-network-3com-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **3com Network**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **3com Network SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

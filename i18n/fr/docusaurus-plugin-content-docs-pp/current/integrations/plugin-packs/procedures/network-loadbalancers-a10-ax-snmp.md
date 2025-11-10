@@ -1,6 +1,6 @@
 ---
 id: network-loadbalancers-a10-ax-snmp
-title: A10 AX
+title: A10 AX SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **A10 AX** apporte un modèle d'hôte :
+Le connecteur de supervision **A10 AX SNMP** apporte un modèle d'hôte :
 
 * **Net-A10-Ax-SNMP-custom**
 
@@ -192,7 +192,7 @@ yum install centreon-pack-network-loadbalancers-a10-ax-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **A10 AX**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **A10 AX SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

@@ -1,6 +1,6 @@
 ---
 id: network-silverpeak-snmp
-title: Silverpeak
+title: Silverpeak SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Silverpeak** brings a host template:
+The Monitoring Connector **Silverpeak SNMP** brings a host template:
 
 * **Net-Silverpeak-SNMP-custom**
 
@@ -145,7 +145,7 @@ yum install centreon-pack-network-silverpeak-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Silverpeak** connector through
+2. Whatever the license type (*online* or *offline*), install the **Silverpeak SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

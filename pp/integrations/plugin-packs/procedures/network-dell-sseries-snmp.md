@@ -1,6 +1,6 @@
 ---
 id: network-dell-sseries-snmp
-title: Dell S-series
+title: Dell S-series SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Dell S-series** brings a host template:
+The Monitoring Connector **Dell S-series SNMP** brings a host template:
 
 * **Net-Dell-Sseries-SNMP-custom**
 
@@ -160,7 +160,7 @@ yum install centreon-pack-network-dell-sseries-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Dell S-series** connector through
+2. Whatever the license type (*online* or *offline*), install the **Dell S-series SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

@@ -1,6 +1,6 @@
 ---
 id: network-aerohive-snmp
-title: Aerohive
+title: Aerohive SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Aerohive** apporte un modèle d'hôte :
+Le connecteur de supervision **Aerohive SNMP** apporte un modèle d'hôte :
 
 * **Net-Aerohive-SNMP-custom**
 
@@ -136,7 +136,7 @@ yum install centreon-pack-network-aerohive-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Aerohive**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Aerohive SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

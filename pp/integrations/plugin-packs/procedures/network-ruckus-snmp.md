@@ -1,6 +1,6 @@
 ---
 id: network-ruckus-snmp
-title: Ruckus
+title: Ruckus SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Ruckus** brings a host template:
+The Monitoring Connector **Ruckus SNMP** brings a host template:
 
 * **Net-Ruckus-Ap-SNMP-custom**
 
@@ -155,7 +155,7 @@ yum install centreon-pack-network-ruckus-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Ruckus** connector through
+2. Whatever the license type (*online* or *offline*), install the **Ruckus SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

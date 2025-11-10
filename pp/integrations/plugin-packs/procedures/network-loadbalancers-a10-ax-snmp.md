@@ -1,6 +1,6 @@
 ---
 id: network-loadbalancers-a10-ax-snmp
-title: A10 AX
+title: A10 AX SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **A10 AX** brings a host template:
+The Monitoring Connector **A10 AX SNMP** brings a host template:
 
 * **Net-A10-Ax-SNMP-custom**
 
@@ -191,7 +191,7 @@ yum install centreon-pack-network-loadbalancers-a10-ax-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **A10 AX** connector through
+2. Whatever the license type (*online* or *offline*), install the **A10 AX SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

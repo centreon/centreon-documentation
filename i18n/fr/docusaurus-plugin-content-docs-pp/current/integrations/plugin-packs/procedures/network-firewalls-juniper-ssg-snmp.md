@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-juniper-ssg-snmp
-title: Juniper SSG
+title: Juniper SSG SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Juniper SSG** apporte un modèle d'hôte :
+Le connecteur de supervision **Juniper SSG SNMP** apporte un modèle d'hôte :
 
 * **Net-Juniper-SSG-custom**
 
@@ -188,7 +188,7 @@ yum install centreon-pack-network-firewalls-juniper-ssg-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper SSG**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper SSG SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

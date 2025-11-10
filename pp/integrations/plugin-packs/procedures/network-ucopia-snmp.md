@@ -1,6 +1,6 @@
 ---
 id: network-ucopia-snmp
-title: Ucopia
+title: Ucopia SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Ucopia** brings a host template:
+The Monitoring Connector **Ucopia SNMP** brings a host template:
 
 * **Net-Ucopia-Wlc-SNMP-custom**
 
@@ -155,7 +155,7 @@ yum install centreon-pack-network-ucopia-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Ucopia** connector through
+2. Whatever the license type (*online* or *offline*), install the **Ucopia SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

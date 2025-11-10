@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-stonesoft
-title: Stonesoft
+title: Stonesoft SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Stonesoft** apporte un modèle d'hôte :
+Le connecteur de supervision **Stonesoft SNMP** apporte un modèle d'hôte :
 
 * **Net-Stonesoft-SNMP-custom**
 
@@ -205,7 +205,7 @@ yum install centreon-pack-network-firewalls-stonesoft
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Stonesoft**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Stonesoft SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

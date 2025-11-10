@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-arkoon-snmp
-title: Arkoon
+title: Arkoon SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Arkoon** brings a host template:
+The Monitoring Connector **Arkoon SNMP** brings a host template:
 
 * **Net-FW-Arkoon-SNMP-custom**
 
@@ -207,7 +207,7 @@ yum install centreon-pack-network-firewalls-arkoon-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Arkoon** connector through
+2. Whatever the license type (*online* or *offline*), install the **Arkoon SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

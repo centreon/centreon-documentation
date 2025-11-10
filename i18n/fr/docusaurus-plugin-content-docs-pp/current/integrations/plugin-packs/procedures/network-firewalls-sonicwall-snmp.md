@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-sonicwall-snmp
-title: Sonicwall
+title: Sonicwall SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Sonicwall** apporte un modèle d'hôte :
+Le connecteur de supervision **Sonicwall SNMP** apporte un modèle d'hôte :
 
 * **Net-FW-Sonicwall-SNMP-custom**
 
@@ -137,7 +137,7 @@ yum install centreon-pack-network-firewalls-sonicwall-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Sonicwall**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Sonicwall SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

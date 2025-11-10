@@ -1,6 +1,6 @@
 ---
 id: network-cisco-standard-snmp
-title: Cisco Standard
+title: Cisco Standard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Cisco Standard** brings a host template:
+The Monitoring Connector **Cisco Standard SNMP** brings a host template:
 
 * **Net-Cisco-Standard-SNMP-custom**
 
@@ -341,7 +341,7 @@ yum install centreon-pack-network-cisco-standard-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco Standard** connector through
+2. Whatever the license type (*online* or *offline*), install the **Cisco Standard SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

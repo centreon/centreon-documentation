@@ -1,6 +1,6 @@
 ---
-id: network-securactive-snmp
-title: SecurActive
+id: network-SecurActive SNMP-snmp
+title: SecurActive SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -124,7 +124,7 @@ yum install centreon-pack-network-securactive-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Securactive **
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **SecurActive SNMP **
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

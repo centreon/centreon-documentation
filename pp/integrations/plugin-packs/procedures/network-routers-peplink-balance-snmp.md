@@ -1,6 +1,6 @@
 ---
 id: network-routers-peplink-balance-snmp
-title: Peplink Balance
+title: Peplink Balance SNMP
 ---
 
 ## Prerequisites

@@ -1,6 +1,6 @@
 ---
 id: network-switchs-alcatel-omniswitch-snmp
-title: Alcatel Omniswitch
+title: Alcatel Omniswitch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Alcatel Omniswitch** brings a host template:
+The Monitoring Connector **Alcatel Omniswitch SNMP** brings a host template:
 
 * **Net-Alcatel-OmniSwitch-SNMP-custom**
 
@@ -127,9 +127,10 @@ Coming soon
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Alcatel Omniswitch**
-server. Please refer to the official documentation from Alcatel:
-* [OmniSwitch](https://www.al-enterprise.com/en/search#q=omniswitch&t=all&sort=relevancy)
+The SNMP service must be configured and activated on the host. 
+Please refer to the [official documentation](https://www.al-enterprise.com/en/search#q=omniswitch&t=all&sort=relevancy). 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -177,7 +178,7 @@ yum install centreon-pack-network-switchs-alcatel-omniswitch-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Alcatel Omniswitch** connector through
+2. Whatever the license type (*online* or *offline*), install the **Alcatel Omniswitch SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

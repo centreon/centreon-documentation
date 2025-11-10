@@ -1,6 +1,6 @@
 ---
 id: network-citrix-sdx-snmp
-title: Citrix SDX
+title: Citrix SDX SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Citrix SDX** apporte un modèle d'hôte :
+Le connecteur de supervision **Citrix SDX SNMP** apporte un modèle d'hôte :
 
 * **Net-Citrix-Sdx-SNMP-custom**
 
@@ -139,7 +139,7 @@ yum install centreon-pack-network-citrix-sdx-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Citrix SDX**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Citrix SDX SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

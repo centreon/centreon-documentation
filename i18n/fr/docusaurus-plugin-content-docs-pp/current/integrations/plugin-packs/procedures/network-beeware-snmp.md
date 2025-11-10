@@ -1,6 +1,6 @@
 ---
 id: network-beeware-snmp
-title: Bee Ware
+title: Bee Ware SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Bee Ware** apporte un modèle d'hôte :
+Le connecteur de supervision **Bee Ware SNMP** apporte un modèle d'hôte :
 
 * **Net-Beeware-SNMP-custom**
 
@@ -120,7 +120,7 @@ yum install centreon-pack-network-beeware-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Bee Ware**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Bee Ware SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

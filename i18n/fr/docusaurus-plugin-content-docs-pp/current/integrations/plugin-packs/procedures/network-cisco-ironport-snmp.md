@@ -1,6 +1,6 @@
 ---
 id: network-cisco-ironport-snmp
-title: Cisco IronPort
+title: Cisco IronPort SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Cisco IronPort** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco IronPort SNMP** apporte un modèle d'hôte :
 
 * **Net-Cisco-Ironport-SNMP-custom**
 
@@ -184,7 +184,7 @@ yum install centreon-pack-network-cisco-ironport-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco IronPort**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco IronPort SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

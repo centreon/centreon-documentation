@@ -1,6 +1,6 @@
 ---
 id: network-digi-anywhereusb-snmp
-title: Digi Anywhere USB
+title: Digi Anywhere USB SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Digi Anywhere USB** brings a host template:
+The Monitoring Connector **Digi Anywhere USB SNMP** brings a host template:
 
 * **Net-Digi-AnywhereUSB-SNMP-custom**
 
@@ -134,7 +134,7 @@ yum install centreon-pack-network-digi-anywhereusb-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Digi Anywhere USB** connector through
+2. Whatever the license type (*online* or *offline*), install the **Digi Anywhere USB SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
