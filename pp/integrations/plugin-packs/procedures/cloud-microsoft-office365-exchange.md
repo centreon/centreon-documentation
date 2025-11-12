@@ -18,10 +18,10 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Microsoft-Office365-Exchange-Api-custom" label="Cloud-Microsoft-Office365-Exchange-Api-custom">
 
-| Service Alias  | Service Template                                             | Service Description       |
-|:---------------|:-------------------------------------------------------------|:--------------------------|
-| Email-Activity | Cloud-Microsoft-Office365-Exchange-Email-Activity-Api-custom | Check activity in mailbox |
-| Users-Activity | Cloud-Microsoft-Office365-Exchange-Mailbox-Usage-Api-custom  | Check mailbox usage       |
+| Service Alias           | Service Template                                             | Service Description       |
+|:------------------------|:-------------------------------------------------------------|:--------------------------|
+| Email-Activity          | Cloud-Microsoft-Office365-Exchange-Email-Activity-Api-custom | Check activity in mailbox |
+| Users-Activity-Exchange | Cloud-Microsoft-Office365-Exchange-Mailbox-Usage-Api-custom  | Check mailbox usage       |
 
 > The services listed above are created automatically when the **Cloud-Microsoft-Office365-Exchange-Api-custom** host template is used.
 
@@ -48,7 +48,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Exchange" label="Users-Activity-Exchange">
 
 | Metric name                                   | Unit  |
 |:----------------------------------------------|:------|
@@ -234,7 +234,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 | CRITICALTOTALSENDCOUNT    | Critical threshold                                                                                                                               |                                  |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                                  |             |
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Exchange" label="Users-Activity-Exchange">
 
 | Macro                      | Description                                                                                                                                                                                        | Default value                       | Mandatory |
 |:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------:|
@@ -405,7 +405,7 @@ All available options for each service template are listed below:
 | --units           | Unit of thresholds (default: '%') ('%', 'count').                                                                                                                                                         |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Exchange" label="Users-Activity-Exchange">
 
 | Option            | Description                                                                                                                                                                                                                                          |
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

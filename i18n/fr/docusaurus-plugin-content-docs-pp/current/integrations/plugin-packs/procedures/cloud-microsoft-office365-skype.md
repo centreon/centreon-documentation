@@ -19,10 +19,10 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Cloud-Microsoft-Office365-Skype-Api-custom" label="Cloud-Microsoft-Office365-Skype-Api-custom">
 
-| Alias          | Modèle de service                                         | Description                                            |
-|:---------------|:----------------------------------------------------------|:-------------------------------------------------------|
-| Devices-Usage  | Cloud-Microsoft-Office365-Skype-Devices-Usage-Api-custom  | Contrôle le nombre d'utilisateurs par type d'appareil |
-| Users-Activity | Cloud-Microsoft-Office365-Skype-Users-Activity-Api-custom | Contrôle les activités des utilisateurs                |
+| Alias                | Modèle de service                                         | Description                                           |
+|:---------------------|:----------------------------------------------------------|:------------------------------------------------------|
+| Devices-Usage-Skype  | Cloud-Microsoft-Office365-Skype-Devices-Usage-Api-custom  | Contrôle le nombre d'utilisateurs par type d'appareil |
+| Users-Activity-Skype | Cloud-Microsoft-Office365-Skype-Users-Activity-Api-custom | Contrôle les activités des utilisateurs               |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Microsoft-Office365-Skype-Api-custom** est utilisé.
 
@@ -34,7 +34,7 @@ Le connecteur apporte les modèles de service suivants
 Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Devices-Usage" label="Devices-Usage">
+<TabItem value="Devices-Usage-Skype" label="Devices-Usage-Skype">
 
 | Métrique                         | Unité |
 |:---------------------------------|:------|
@@ -48,7 +48,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Skype" label="Users-Activity-Skype">
 
 | Métrique                                           | Unité |
 |:---------------------------------------------------|:------|
@@ -211,7 +211,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Devices-Usage" label="Devices-Usage">
+<TabItem value="Devices-Usage-Skype" label="Devices-Usage-Skype">
 
 | Macro                 | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -233,7 +233,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Skype" label="Users-Activity-Skype">
 
 | Macro                               | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -397,7 +397,7 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Devices-Usage" label="Devices-Usage">
+<TabItem value="Devices-Usage-Skype" label="Devices-Usage-Skype">
 
 | Option            | Description                                                                                                                                            |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -408,7 +408,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --units           | Unit of thresholds (default: '%') ('%', 'count').                                                                                                      |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Skype" label="Users-Activity-Skype">
 
 | Option            | Description                                                                                                                                                                                                                                                             |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
