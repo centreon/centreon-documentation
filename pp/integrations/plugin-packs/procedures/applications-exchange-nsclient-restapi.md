@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Microsoft Exchange NSClient RestAPI** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -77,12 +77,12 @@ No metric for this service.
 </TabItem>
 <TabItem value="Exchange-Services" label="Exchange-Services">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Imap-Mailbox" label="Imap-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Mailboxes" label="Mailboxes">
@@ -102,17 +102,17 @@ No metric for this service.
 </TabItem>
 <TabItem value="Mapi-Mailbox" label="Mapi-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Outlook-Webservices" label="Outlook-Webservices">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Owa-Mailbox" label="Owa-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Queues" label="Queues">
@@ -124,7 +124,7 @@ No metric for this service.
 </TabItem>
 <TabItem value="Replication-Health" label="Replication-Health">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 </Tabs>
@@ -143,7 +143,7 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -179,7 +179,7 @@ yum install centreon-pack-applications-exchange-nsclient-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Microsoft Exchange NSClient RestAPI** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

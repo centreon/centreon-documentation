@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Microsoft Exchange NSClient NRPE** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connector** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -57,7 +57,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Activesync-Mailbox" label="Activesync-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Databases" label="Databases">
@@ -77,12 +77,12 @@ No metric for this service.
 </TabItem>
 <TabItem value="Exchange-Services" label="Exchange-Services">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Imap-Mailbox" label="Imap-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Mailboxes" label="Mailboxes">
@@ -103,17 +103,17 @@ No metric for this service.
 </TabItem>
 <TabItem value="Mapi-Mailbox" label="Mapi-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Outlook-Webservices" label="Outlook-Webservices">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Owa-Mailbox" label="Owa-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Queues" label="Queues">
@@ -125,7 +125,7 @@ No metric for this service.
 </TabItem>
 <TabItem value="Replication-Health" label="Replication-Health">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 </Tabs>
@@ -134,7 +134,7 @@ No metric for this service.
 
 ### Centreon NSClient++
 
-To monitor an *Microsoft Exchange* domain controller through NRPE, install the 
+To monitor a *Microsoft Exchange* domain controller through NRPE, install the 
 Centreon packaged version of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
 and make sure that the **NRPE Server** configuration is correct.
 
@@ -144,7 +144,7 @@ and make sure that the **NRPE Server** configuration is correct.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -180,7 +180,7 @@ yum install centreon-pack-applications-exchange-nrpe
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Microsoft Exchange NSClient NRPE** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
