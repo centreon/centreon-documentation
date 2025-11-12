@@ -1865,6 +1865,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-node-exporter-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-hp-moonshot-snmp'
         },
         {
