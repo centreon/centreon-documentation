@@ -5,10 +5,10 @@ title: Microsoft Exchange CMA
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft Exchange CMA** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -38,12 +38,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias               | Modèle de service                           | Description                                                                      |
 |:--------------------|:--------------------------------------------|:---------------------------------------------------------------------------------|
-| Activesync-Mailbox  | App-Exchange-Activesync-Mailbox-CMA-custom  | Contrôle permettant de vérifier activesync sur une boite aux lettres             |
-| Imap-Mailbox        | App-Exchange-Imap-Mailbox-CMA-custom        | Contrôle permettant de vérifier la connexion IMAP à une boite aux lettres        |
-| Mailboxes           | App-Exchange-Mailboxes-CMA-custom           | Contrôle les boites aux lettres (quota et boites aux lettres par base de données |
-| Mapi-Mailbox        | App-Exchange-Mapi-Mailbox-CMA-custom        | Contrôle permettant de vérifier la connexion MAPI à une boite aux lettres        |
-| Outlook-Webservices | App-Exchange-Outlook-Webservices-CMA-custom | Contrôle permettant de vérifier l'auto-découverte outlook                        |
-| Owa-Mailbox         | App-Exchange-Owa-Mailbox-CMA-custom         | Contrôle permettant de vérifier la connexion OWA à une boite aux lettres         |
+| Activesync-Mailbox  | App-Exchange-Activesync-Mailbox-CMA-custom  | Contrôle permettant de vérifier activesync sur une boîte aux lettres             |
+| Imap-Mailbox        | App-Exchange-Imap-Mailbox-CMA-custom        | Contrôle permettant de vérifier la connexion IMAP à une boîte aux lettres        |
+| Mailboxes           | App-Exchange-Mailboxes-CMA-custom           | Contrôle les boîtes aux lettres (quota et boîtes aux lettres par base de données) |
+| Mapi-Mailbox        | App-Exchange-Mapi-Mailbox-CMA-custom        | Contrôle permettant de vérifier la connexion MAPI à une boîte aux lettres        |
+| Outlook-Webservices | App-Exchange-Outlook-Webservices-CMA-custom | Contrôle permettant de vérifier l'auto-découverte Outlook                        |
+| Owa-Mailbox         | App-Exchange-Owa-Mailbox-CMA-custom         | Contrôle permettant de vérifier la connexion OWA à une boîte aux lettres         |
 | Replication-Health  | App-Exchange-Replication-Health-CMA-custom  | Contrôle permettant de vérifier l'état de santé de la réplication                |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -151,7 +151,7 @@ Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 
 ### Prérequis système sur l'hôte à superviser
 
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur [cette page dédiée](https://docs.centreon.com/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-setup#étape-3--préparez-lhôte).
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur [cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte).
 
 #### Installation de Centreon Monitoring Agent
 
@@ -200,7 +200,7 @@ yum install centreon-pack-applications-exchange-cma
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Microsoft Exchange CMA**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 

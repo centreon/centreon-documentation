@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Microsoft Exchange CMA** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -41,7 +41,7 @@ The connector brings the following service templates (sorted by the host templat
 | Imap-Mailbox        | App-Exchange-Imap-Mailbox-CMA-custom        | Check IMAP to a mailbox                                |
 | Mailboxes           | App-Exchange-Mailboxes-CMA-custom           | Check mailboxes (quota and user mailboxes by database) |
 | Mapi-Mailbox        | App-Exchange-Mapi-Mailbox-CMA-custom        | Check MAPI to a mailbox                                |
-| Outlook-Webservices | App-Exchange-Outlook-Webservices-CMA-custom | Check outlook autodiscovery webservices                |
+| Outlook-Webservices | App-Exchange-Outlook-Webservices-CMA-custom | Check Outlook autodiscovery webservices                |
 | Owa-Mailbox         | App-Exchange-Owa-Mailbox-CMA-custom         | Check OWA connection to a mailbox                      |
 | Replication-Health  | App-Exchange-Replication-Health-CMA-custom  | Check replication health                               |
 
@@ -57,7 +57,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Activesync-Mailbox" label="Activesync-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Databases" label="Databases">
@@ -77,12 +77,12 @@ No metric for this service.
 </TabItem>
 <TabItem value="Exchange-Services" label="Exchange-Services">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Imap-Mailbox" label="Imap-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Mailboxes" label="Mailboxes">
@@ -103,17 +103,17 @@ No metric for this service.
 </TabItem>
 <TabItem value="Mapi-Mailbox" label="Mapi-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Outlook-Webservices" label="Outlook-Webservices">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Owa-Mailbox" label="Owa-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Queues" label="Queues">
@@ -125,7 +125,7 @@ No metric for this service.
 </TabItem>
 <TabItem value="Replication-Health" label="Replication-Health">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 </Tabs>
@@ -138,7 +138,7 @@ Only one TCP flow must be open from the host to the poller.
 
 | Source         | Destination | Protocol | Port | Purpose                                              |
 |----------------|-------------|----------|------|------------------------------------------------------|
-| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow |
+| Monitored host | Poller | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow |
 
 ### System prerequisites on the poller
 
@@ -150,7 +150,7 @@ Only one TCP flow must be open from the host to the poller.
 
 ### System prerequisites on the monitored host
 
-The installer can be downloaded from the [centreon-collect's releases page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
+The installer can be downloaded from the [centreon-collect's release page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
 
 #### Installing the Centreon Monitoring Agent
 
@@ -163,7 +163,7 @@ The installation and configuration procedure of Centreon Monitoring Agent for Wi
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -199,7 +199,7 @@ yum install centreon-pack-applications-exchange-cma
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Microsoft Exchange CMA** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -289,8 +289,8 @@ This connector relies on an integration supported by Centreon Engine and does no
 
 | Macro                               | Description                                                                                                                            | Default value | Mandatory |
 |:------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| PSERVER                             | Select mailboxes by an uniq server name (In Powershell)                                                                                |               |           |
-| PSDATABASE                          | Select mailboxes by an uniq database name (In Powershell)                                                                              |               |           |
+| PSERVER                             | Select mailboxes by a unique server name (in Powershell)                                                                                |               |           |
+| PSDATABASE                          | Select mailboxes by a unique database name (in Powershell)                                                                              |               |           |
 | PSMATCHSERVER                       | Filter mailboxes by server name (regexp can be used. In Powershell)                                                                    |               |           |
 | PSMATCHDATABASE                     | Filter mailboxes by database name (regexp can be used. In Powershell)                                                                  |               |           |
 | WARNINGDATABASEMAILBOXESTOTAL       | Threshold                                                                                                                              |               |           |
@@ -338,7 +338,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 
 | Macro        | Description                                                                                                                            | Default value                 | Mandatory |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
-| URL          | Set the OWA Url                                                                                                                        |                               |     X     |
+| URL          | Set the OWA URL                                                                                                                       |                               |     X     |
 | MAILBOX      | Set the mailbox to check                                                                                                               |                               |     X     |
 | PASSWORD     | Set the password for the mailbox                                                                                                       |                               |     X     |
 | CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                | not %\{result\} =~ /Success/i |           |
