@@ -21,17 +21,17 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**APC PDU SNMP**](../procedures/hardware-pdu-apc-snmp.md) - Added **NTP** and **uptime** services templates.
+- [**APC PDU SNMP**](../procedures/hardware-pdu-apc-snmp.md) - Added **NTP** and **uptime** service templates.
 - [**Active Directory WSMAN**](../procedures/applications-active-directory-wsman.md) - Added DE language support, based on community contribution [PR 5780](https://github.com/centreon/centreon-plugins/pull/5780).
 - [**Dell Compellent SNMP**](../procedures/hardware-storage-dell-compellent-snmp.md) - Added SNMP in title to be more explicit.
 - [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added **ap-usage** service template.
 - [**Google Stackdriver**](../procedures/cloud-gcp-management-stackdriver.md) - Enhanced compatibility with DISTRIBUTION type values in **getmetrics** mode.
 - [**Node Exporter w/ Prometheus API**](../procedures/cloud-prometheus-node-exporter-api.md) - Added **uptime** mode, **storage** mode and its discovery and **interfaces** mode and its discovery.
-- [**Office365 Exchange**](../procedures/cloud-microsoft-office365-exchange.md) - Change service template aliases to avoid services deployement issues.
-- [**Office365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Change service template aliases to avoid services deployement issues.
-- [**Office365 SharePoint**](../procedures/cloud-microsoft-office365-sharepoint.md) - Change service template aliases to avoid services deployement issues.
-- [**Office365 Skype**](../procedures/cloud-microsoft-office365-skype.md) - Change service template aliases to avoid services deployement issues.
-- [**Office365 Teams**](../procedures/cloud-microsoft-office365-teams.md) - Change service template aliases to avoid services deployement issues.
+- [**Office365 Exchange**](../procedures/cloud-microsoft-office365-exchange.md) - Change service template aliases to avoid service deployment issues.
+- [**Office365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Change service template aliases to avoid service deployment issues.
+- [**Office365 SharePoint**](../procedures/cloud-microsoft-office365-sharepoint.md) - Change service template aliases to avoid service deployment issues.
+- [**Office365 Skype**](../procedures/cloud-microsoft-office365-skype.md) - Change service template aliases to avoid service deployment issues.
+- [**Office365 Teams**](../procedures/cloud-microsoft-office365-teams.md) - Change service template aliases to avoid service deployment issues.
 - [**Redis Database**](../procedures/applications-databases-redis.md) - Added authentication with username for custommode perlmod, from community contribution [PR 5255](https://github.com/centreon/centreon-plugins/pull/5255).
 - [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Improved execution time in **job-status** mode.
 - [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Improved execution time in **job-status** mode.
@@ -41,12 +41,12 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - Fixed localized time calculation using ` timezone` option.
+- [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - Fixed localized time calculation using the ` timezone` option.
 - [**Azure ServiceBus**](../procedures/cloud-azure-integration-servicebus.md) - Fixed an issue in metric configuration in **namespaces** mode.
-- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Handle empty tables returns.
-- [**Comet P8000 Sensor SNMP**](../procedures/hardware-sensors-comet-p8000-snmp.md) - Removed 'geist' from connector title.
-- [**Dell Compellent Nsclient NRPE**](../procedures/hardware-storage-dell-compellent-api.md) - Explicited NSClient and NRPE usage.
-- [**Dell iDRAC SNMP**](../procedures/hardware-servers-dell-idrac-snmp.md) - Fixed status for `pdisk.state` ready in **hardware** mode.
+- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Handle empty table returns.
+- [**Comet P8000 Sensor SNMP**](../procedures/hardware-sensors-comet-p8000-snmp.md) - Removed 'geist' from connector name.
+- [**Dell Compellent Nsclient NRPE**](../procedures/hardware-storage-dell-compellent-api.md) - Made NSClient and NRPE usage more explicit.
+- [**Dell iDRAC SNMP**](../procedures/hardware-servers-dell-idrac-snmp.md) - Fixed ready status for `pdisk.state` in **hardware** mode.
 - [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md) - Fixed `format-custom` option.
 - [**Emerson PDU SNMP**](../procedures/hardware-pdu-emerson-snmp.md) - Fixed **Receptacles** command.
 - [**Google Stackdriver**](../procedures/cloud-gcp-management-stackdriver.md) - Fixed the minimum aggregation calculation.
@@ -57,12 +57,12 @@ import TabItem from '@theme/TabItem';
 - [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Fixed typo for custom perfdata in **databases** mode.
 - [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - Fixed typo for custom perfdata in **databases** mode.
 - [**Panzura SNMP**](../procedures/hardware-storage-panzura-snmp.md) - Fixed **Disk-Usage-Cloud-Global** command.
-- [**Podman REST API**](../procedures/applications-podman-restapi.md) - **Container-Usage** now returning UNKNOWN when container is not found.
+- [**Podman REST API**](../procedures/applications-podman-restapi.md) - **Container-Usage** now returns UNKNOWN when container is not found.
 - [**TrendMicro Iwsva SNMP**](../procedures/applications-trendmicro-iwsva-snmp.md) - Fixed plugin option value in commands.
-- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Fixed cmdlet not supported anymore in **vsb-jobs** mode.
-- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Fixed cmdlet not supported anymore in **vsb-jobs** mode.
-- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Fixed cmdlet not supported anymore in **vsb-jobs** mode.
-- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Fixed cmdlet not supported anymore in **vsb-jobs** mode.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
 - [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Fixed **Clusters** and **Datastores** discovery macros.
 
 </TabItem>
