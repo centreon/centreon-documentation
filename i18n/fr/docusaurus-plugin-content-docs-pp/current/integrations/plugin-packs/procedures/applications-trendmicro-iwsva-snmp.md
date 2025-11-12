@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **TrendMicro Iwsva SNMP** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -153,7 +153,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-L'agent SNMP doit être activé et configuré sur l'équipement. Référez vous à la [documentation officielle](https://success.trendmicro.com/dcx/s/solution/1096980-best-practices-for-installation-and-deployment-of-interscan-web-security-virtual-appliance-iwsva?language=en_US&sfdcIFrameOrigin=null). 
+L'agent SNMP doit être activé et configuré sur l'équipement. Référez-vous à la [documentation officielle](https://success.trendmicro.com/dcx/s/solution/1096980-best-practices-for-installation-and-deployment-of-interscan-web-security-virtual-appliance-iwsva?language=en_US&sfdcIFrameOrigin=null). 
 Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
 Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
@@ -167,7 +167,7 @@ Centreon vers la ressource supervisée.
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -204,7 +204,7 @@ yum install centreon-pack-applications-trendmicro-iwsva-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **TrendMicro Iwsva SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -257,7 +257,7 @@ yum install centreon-plugin-Applications-TrendMicro-Iwsva
 3. Appliquez le modèle d'hôte **App-Trendmicro-Iwsva-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
