@@ -5,10 +5,10 @@ title: Microsoft Exchange NSClient RestAPI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft Exchange NSClient RestAPI** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -38,12 +38,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias               | Modèle de service                                        | Description                                                                      |
 |:--------------------|:---------------------------------------------------------|:---------------------------------------------------------------------------------|
-| Activesync-Mailbox  | App-Exchange-Activesync-Mailbox-NSClient-Restapi-custom  | Contrôle permettant de vérifier activesync sur une boite aux lettres             |
-| Imap-Mailbox        | App-Exchange-Imap-Mailbox-NSClient-Restapi-custom        | Contrôle permettant de vérifier la connexion IMAP à une boite aux lettres        |
-| Mailboxes           | App-Exchange-Mailboxes-NSClient-Restapi-custom           | Contrôle les boites aux lettres (quota et boites aux lettres par base de données |
-| Mapi-Mailbox        | App-Exchange-Mapi-Mailbox-NSClient-Restapi-custom        | Contrôle permettant de vérifier la connexion MAPI à une boite aux lettres        |
-| Outlook-Webservices | App-Exchange-Outlook-Webservices-NSClient-Restapi-custom | Contrôle permettant de vérifier l'auto-découverte outlook                        |
-| Owa-Mailbox         | App-Exchange-Owa-Mailbox-NSClient-Restapi-custom         | Contrôle permettant de vérifier la connexion OWA à une boite aux lettres         |
+| Activesync-Mailbox  | App-Exchange-Activesync-Mailbox-NSClient-Restapi-custom  | Contrôle permettant de vérifier activesync sur une boîte aux lettres             |
+| Imap-Mailbox        | App-Exchange-Imap-Mailbox-NSClient-Restapi-custom        | Contrôle permettant de vérifier la connexion IMAP à une boîte aux lettres        |
+| Mailboxes           | App-Exchange-Mailboxes-NSClient-Restapi-custom           | Contrôle les boîtes aux lettres (quota et boîtes aux lettres par base de données |
+| Mapi-Mailbox        | App-Exchange-Mapi-Mailbox-NSClient-Restapi-custom        | Contrôle permettant de vérifier la connexion MAPI à une boîte aux lettres        |
+| Outlook-Webservices | App-Exchange-Outlook-Webservices-NSClient-Restapi-custom | Contrôle permettant de vérifier l'auto-découverte Outlook                        |
+| Owa-Mailbox         | App-Exchange-Owa-Mailbox-NSClient-Restapi-custom         | Contrôle permettant de vérifier la connexion OWA à une boîte aux lettres         |
 | Replication-Health  | App-Exchange-Replication-Health-NSClient-Restapi-custom  | Contrôle permettant de vérifier l'état de santé de la réplication                |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -134,7 +134,7 @@ Pas de métriques pour ce service.
 
 ### Centreon NSClient++
 
-Pour surveiller une ressource via NSClient++ API, installez la version Centreon de l'agent NSClient++.
+Pour superviser une ressource via NSClient++ API, installez la version Centreon de l'agent NSClient++.
 Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur Web / RestAPI** est correcte.
 
 ## Installer le connecteur de supervision
@@ -142,7 +142,7 @@ Veuillez suivre notre [documentation officielle](../getting-started/how-to-guide
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -179,7 +179,7 @@ yum install centreon-pack-applications-exchange-nsclient-restapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Microsoft Exchange NSClient RestAPI**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
