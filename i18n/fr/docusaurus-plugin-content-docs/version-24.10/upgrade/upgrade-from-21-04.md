@@ -52,15 +52,18 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 3. Supprimez le fichier **centreon.repo** :
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo
+   cd /etc/yum.repos.d/
+   rm -rf centreon*
    ```
 
 4. Installez le nouveau dépôt :
 
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
-```
+   ```shell
+   dnf install -y dnf-plugins-core
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+   systemctl stop cbd
+   dnf clean all --enablerepo=*
+   ```
 
 > Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
 >
@@ -85,11 +88,18 @@ Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant l
 pour confirmer :
 
 ```shell
+dnf config-manager --disable remi-modular remi-safe
+dnf module disable composer:2
+dnf module disable php:remi-8.1
+rm -rf /etc/yum.repos.d/remi*
 dnf module reset php
 ```
 
 ```shell
 dnf module install php:8.2
+dnf distro-sync php\* --allowerasing
+su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
+systemctl restart php-fpm
 ```
 
 </TabItem>
@@ -354,9 +364,20 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Si vous utilisiez des commandes personnalisées pour un collecteur (sur la page **Configuration > Collecteurs > Collecteurs**, dans la section **Monitoring Engine Information**), sachez qu'une nouvelle expression régulière de validation est désormais appliquée (`[a-zA-Z0-9\-\_]+`) : vos commandes personnalisées devront peut-être être adaptées. Sur le serveur central :
+   * Pour identifier les commandes qui doivent être adaptées, exécutez :
+     ```shell
+     sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
+     ```
+   * Pour adapter automatiquement les commandes, exécutez :
+     ```shell
+     sudo -u apache php /usr/share/centreon/bin/console w:m:c
+     ```
+     (Vous pouvez également les adapter manuellement.)
 
-3. Redémarrez les processus Centreon :
+3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Redémarrez les processus Centreon :
 
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned

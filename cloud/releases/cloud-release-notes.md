@@ -3,6 +3,34 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## November 6th, 2025
+
+### Centreon IT Edition
+
+**Centreon Dashboards**
+
+It is now easier to keep your dashboards up to date, as regular expressions are supported in the dataset configuration section of the **Resource Table**, **Group Monitoring** and **Status Grid** widgets.
+
+**User interface**
+
+A few adjustments have been made to the Centreon Monitoring Agent configuration interface. 
+
+**Collect**
+
+**Note:** Updating your poller (as described [here](../installation/poller-update-upgrade.md)) and the Centreon Monitoring Agent will unlock the following features.
+
+Thanks to the new version of the Centreon Monitoring Agent, you will be able to use autosigned certificates as CMA now allows insecure TLS connection mode. Security has still be reenforced by making usage of Centreon authentication tokens mandatory.
+
+On top of that, new native Files check for Windows have been implemented, and it is now possible to trigger on-demand forced check performed by CMA.
+
+### Centreon Pro Edition
+
+**MAP**
+
+* This release introduces image folders in Resource Access Management: folder-level access control is now available for images in MAP. Administrators can organize images into folders and manage access permissions in one place.
+* It is now possible to use the MAP API. As for the Centreon web API, use an authentication token to get started and begin automating your MAP usage.
+* Besides, you can now customize geographic view tiles in the dashboard homepage by adding a custom image to the tile.
+
 ## September 25th, 2025
 
 ### Centreon IT Edition
