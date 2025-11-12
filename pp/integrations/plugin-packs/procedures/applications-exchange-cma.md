@@ -1,13 +1,13 @@
 ---
-id: applications-exchange-nsclient-restapi
-title: Microsoft Exchange NSClient RestAPI
+id: applications-exchange-cma
+title: Microsoft Exchange CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Microsoft Exchange NSClient RestAPI** connector through the
+The following monitoring connectors will be installed when you install the **Microsoft Exchange CMA** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,35 +15,35 @@ The following monitoring connectors will be installed when you install the **Mic
 
 ### Templates
 
-The Monitoring Connector **Microsoft Exchange NSClient RestAPI** brings a host template:
+The Monitoring Connector **Microsoft Exchange CMA** brings a host template:
 
-* **App-Exchange-NSClient-Restapi-custom**
+* **App-Exchange-CMA-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Exchange-NSClient-Restapi-custom" label="App-Exchange-NSClient-Restapi-custom">
+<TabItem value="App-Exchange-CMA-custom" label="App-Exchange-CMA-custom">
 
-| Service Alias     | Service Template                               | Service Description      |
-|:------------------|:-----------------------------------------------|:-------------------------|
-| Databases         | App-Exchange-Databases-NSClient-Restapi-custom | Check Exchange Databases |
-| Exchange-Services | App-Exchange-Services-NSClient-Restapi-custom  | Check exchange services  |
-| Queues            | App-Exchange-Queues-NSClient-Restapi-custom    | Check queue status       |
+| Service Alias     | Service Template                  | Service Description      |
+|:------------------|:----------------------------------|:-------------------------|
+| Databases         | App-Exchange-Databases-CMA-custom | Check Exchange Databases |
+| Exchange-Services | App-Exchange-Services-CMA-custom  | Check exchange services  |
+| Queues            | App-Exchange-Queues-CMA-custom    | Check queue status       |
 
-> The services listed above are created automatically when the **App-Exchange-NSClient-Restapi-custom** host template is used.
+> The services listed above are created automatically when the **App-Exchange-CMA-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias       | Service Template                                         | Service Description                                    |
-|:--------------------|:---------------------------------------------------------|:-------------------------------------------------------|
-| Activesync-Mailbox  | App-Exchange-Activesync-Mailbox-NSClient-Restapi-custom  | Check activesync to a mailbox                          |
-| Imap-Mailbox        | App-Exchange-Imap-Mailbox-NSClient-Restapi-custom        | Check IMAP to a mailbox                                |
-| Mailboxes           | App-Exchange-Mailboxes-NSClient-Restapi-custom           | Check mailboxes (quota and user mailboxes by database) |
-| Mapi-Mailbox        | App-Exchange-Mapi-Mailbox-NSClient-Restapi-custom        | Check MAPI to a mailbox                                |
-| Outlook-Webservices | App-Exchange-Outlook-Webservices-NSClient-Restapi-custom | Check outlook autodiscovery webservices                |
-| Owa-Mailbox         | App-Exchange-Owa-Mailbox-NSClient-Restapi-custom         | Check OWA connection to a mailbox                      |
-| Replication-Health  | App-Exchange-Replication-Health-NSClient-Restapi-custom  | Check replication health                               |
+| Service Alias       | Service Template                            | Service Description                                    |
+|:--------------------|:--------------------------------------------|:-------------------------------------------------------|
+| Activesync-Mailbox  | App-Exchange-Activesync-Mailbox-CMA-custom  | Check activesync to a mailbox                          |
+| Imap-Mailbox        | App-Exchange-Imap-Mailbox-CMA-custom        | Check IMAP to a mailbox                                |
+| Mailboxes           | App-Exchange-Mailboxes-CMA-custom           | Check mailboxes (quota and user mailboxes by database) |
+| Mapi-Mailbox        | App-Exchange-Mapi-Mailbox-CMA-custom        | Check MAPI to a mailbox                                |
+| Outlook-Webservices | App-Exchange-Outlook-Webservices-CMA-custom | Check Outlook autodiscovery webservices                |
+| Owa-Mailbox         | App-Exchange-Owa-Mailbox-CMA-custom         | Check OWA connection to a mailbox                      |
+| Replication-Health  | App-Exchange-Replication-Health-CMA-custom  | Check replication health                               |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -57,7 +57,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Activesync-Mailbox" label="Activesync-Mailbox">
 
-No metric for this service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Databases" label="Databases">
@@ -99,6 +99,7 @@ No metrics for this service.
 | *publicfolders*#publicfolder.quota.unlimited.limit.count | count |
 | *publicfolders*#publicfolder.total.count                 | count |
 
+
 </TabItem>
 <TabItem value="Mapi-Mailbox" label="Mapi-Mailbox">
 
@@ -131,11 +132,30 @@ No metrics for this service.
 
 ## Prerequisites
 
-### Centreon NSClient++
+### Network flow
 
-To monitor a resource through NSClient++ API, install the Centreon
-packaged version of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
-and make sure that the **Webserver / RESTApi** configuration is correct.
+Only one TCP flow must be open from the host to the poller.
+
+| Source         | Destination | Protocol | Port | Purpose                                              |
+|----------------|-------------|----------|------|------------------------------------------------------|
+| Monitored host | Poller | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow |
+
+### System prerequisites on the poller
+
+> To be able to use the Centreon Monitoring agent, you must use a poller with at least version `24.09.0` for Centreon Cloud users and version `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
+
+### Configure Engine
+
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
+
+### System prerequisites on the monitored host
+
+The installer can be downloaded from the [centreon-collect's release page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
+
+#### Installing the Centreon Monitoring Agent
+
+The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in 
+[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
 
 ## Installing the monitoring connector
 
@@ -151,70 +171,39 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-exchange-nsclient-restapi
+dnf install centreon-pack-applications-exchange-cma
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-exchange-nsclient-restapi
+dnf install centreon-pack-applications-exchange-cma
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-applications-exchange-nsclient-restapi
+apt install centreon-pack-applications-exchange-cma
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-exchange-nsclient-restapi
+yum install centreon-pack-applications-exchange-cma
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Microsoft Exchange NSClient RestAPI** connector through
+2. Whatever the license type (*online* or *offline*), install the **Microsoft Exchange CMA** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
-Use the commands below according to your operating system's package manager:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```bash
-dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```bash
-apt install centreon-plugin-operatingsystems-windows-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Operatingsystems-Windows-Restapi
-```
-
-</TabItem>
-</Tabs>
+This connector relies on an integration supported by Centreon Engine and does not need a plugin.
 
 ## Using the monitoring connector
 
@@ -222,15 +211,14 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **App-Exchange-NSClient-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+3. Apply the **App-Exchange-CMA-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                     | Description                                                                                                                              | Default value | Mandatory |
-|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                                                                                  | PASSWORD      |           |
-| NSCPRESTAPIPROTO          | Protocol used                                                                                                                            | https         |           |
-| NSCPRESTAPIPORT           | Port used by the REST API NSClient++                                                                                                     | 8443          |           |
-| NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
+| Macro                | Description                                             | Default value                     | Mandatory |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:---------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |     X     |
+| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |           |
+| TIMEOUT              | Timeout time for command execution                      | 120                               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -301,8 +289,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 | Macro                               | Description                                                                                                                            | Default value | Mandatory |
 |:------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| PSERVER                             | Select mailboxes by an uniq server name (In Powershell)                                                                                |               |           |
-| PSDATABASE                          | Select mailboxes by an uniq database name (In Powershell)                                                                              |               |           |
+| PSERVER                             | Select mailboxes by a unique server name (in Powershell)                                                                                |               |           |
+| PSDATABASE                          | Select mailboxes by a unique database name (in Powershell)                                                                              |               |           |
 | PSMATCHSERVER                       | Filter mailboxes by server name (regexp can be used. In Powershell)                                                                    |               |           |
 | PSMATCHDATABASE                     | Filter mailboxes by database name (regexp can be used. In Powershell)                                                                  |               |           |
 | WARNINGDATABASEMAILBOXESTOTAL       | Threshold                                                                                                                              |               |           |
@@ -350,7 +338,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 | Macro        | Description                                                                                                                            | Default value                 | Mandatory |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
-| URL          | Set the OWA Url                                                                                                                        |                               |     X     |
+| URL          | Set the OWA URL                                                                                                                       |                               |     X     |
 | MAILBOX      | Set the mailbox to check                                                                                                               |                               |     X     |
 | PASSWORD     | Set the password for the mailbox                                                                                                       |                               |     X     |
 | CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                | not %\{result\} =~ /Success/i |           |
@@ -387,20 +375,13 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin \
-	--mode=query \
-	--hostname='10.0.0.1' \
-	--port='8443' \
-	--proto='https' \
-	--legacy-password='PASSWORD'  \
-	--command=check_centreon_plugins \
-	--arg='apps::microsoft::exchange::local::plugin' \
-	--arg='queues'  \
-	--arg='  \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
+    --plugin=apps::microsoft::exchange::local::plugin \
+    --mode=queues \
+	--timeout=120 \
 	--warning-status="" \
 	--critical-status="not %\{status\} =~ /Ready|Active/i" \
-	--verbose'
+	--verbose
 ```
 
 The expected command output is shown below:
@@ -411,8 +392,8 @@ OK: All queues are ok
 
 ### Troubleshooting
 
-Please find the troubleshooting documentation for the API-based plugins in
-this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
 ### Available modes
 
@@ -425,26 +406,26 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
+    --plugin=apps::microsoft::exchange::local::plugin \
 	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                                 | Linked service template                                  |
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|
-| activesync-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/activesyncmailbox.pm)]   | App-Exchange-Activesync-Mailbox-NSClient-Restapi-custom  |
-| databases [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/databases.pm)]                    | App-Exchange-Databases-NSClient-Restapi-custom           |
-| imap-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/imapmailbox.pm)]               | App-Exchange-Imap-Mailbox-NSClient-Restapi-custom        |
-| list-databases [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/listdatabases.pm)]           | Not used in this Monitoring Connector                    |
-| mailboxes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/mailboxes.pm)]                    | App-Exchange-Mailboxes-NSClient-Restapi-custom           |
-| mapi-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/mapimailbox.pm)]               | App-Exchange-Mapi-Mailbox-NSClient-Restapi-custom        |
-| outlook-webservices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/outlookwebservices.pm)] | App-Exchange-Outlook-Webservices-NSClient-Restapi-custom |
-| owa-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/owamailbox.pm)]                 | App-Exchange-Owa-Mailbox-NSClient-Restapi-custom         |
-| queues [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/queues.pm)]                          | App-Exchange-Queues-NSClient-Restapi-custom              |
-| replication-health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/replicationhealth.pm)]   | App-Exchange-Replication-Health-NSClient-Restapi-custom  |
-| services [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/services.pm)]                      | App-Exchange-Services-NSClient-Restapi-custom            |
+| Mode                                                                                                                                                 | Linked service template                     |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|
+| activesync-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/activesyncmailbox.pm)]   | App-Exchange-Activesync-Mailbox-CMA-custom  |
+| databases [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/databases.pm)]                    | App-Exchange-Databases-CMA-custom           |
+| imap-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/imapmailbox.pm)]               | App-Exchange-Imap-Mailbox-CMA-custom        |
+| list-databases [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/listdatabases.pm)]           | Not used in this Monitoring Connector       |
+| mailboxes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/mailboxes.pm)]                    | App-Exchange-Mailboxes-CMA-custom           |
+| mapi-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/mapimailbox.pm)]               | App-Exchange-Mapi-Mailbox-CMA-custom        |
+| outlook-webservices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/outlookwebservices.pm)] | App-Exchange-Outlook-Webservices-CMA-custom |
+| owa-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/owamailbox.pm)]                 | App-Exchange-Owa-Mailbox-CMA-custom         |
+| queues [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/queues.pm)]                          | App-Exchange-Queues-CMA-custom              |
+| replication-health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/replicationhealth.pm)]   | App-Exchange-Replication-Health-CMA-custom  |
+| services [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/services.pm)]                      | App-Exchange-Services-CMA-custom            |
 
 ### Available options
 
@@ -709,8 +690,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin \
-	--mode=query \
+"/centreon_plugins.exe" \
+	--plugin=apps::microsoft::exchange::local::plugin \
+	--mode=queues \
 	--help
 ```
