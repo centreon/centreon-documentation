@@ -55,9 +55,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+The Centreon Collector must be able to execute HTTP(S) requests to the host's Prometheus Alertmanager.
 
 ## Installing the monitoring connector
 
