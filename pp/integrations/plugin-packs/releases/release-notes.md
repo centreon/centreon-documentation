@@ -14,9 +14,9 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**HPE Athonet w/ Prometheus API**](../procedures/network-hpe-athonet-node-exporter-api.md) - Initial release of HPE Athonet w/ Prometheus API.
-- [**HPE Athonet Alertmanger API**](../procedures/network-hpe-athonet-alertmanager-api.md) - Initial release of HPE Athonet Alertmanger API.
+- [**HPE Athonet Alertmanager w/ Prometheus API**](../procedures/network-hpe-athonet-alertmanager-api.md) - Initial release of HPE Athonet Alertmanager w/ Prometheus API.
 - [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - Initial release of Microsoft Exchange CMA.
-- [**Prometheus Alertmanger RestAPI**](../procedures/cloud-prometheus-alertmanager-restapi.md) - Initial release of Prometheus Alertmanger RestAPI. 
+- [**Prometheus Alertmanager API**](../procedures/cloud-prometheus-alertmanager-api.md) - Initial release of Prometheus Alertmanager API. 
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
