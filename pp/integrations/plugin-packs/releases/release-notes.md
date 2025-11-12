@@ -49,20 +49,20 @@ import TabItem from '@theme/TabItem';
 - [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md) - Fixed `format-custom` option.
 - [**Emerson PDU SNMP**](../procedures/hardware-pdu-emerson-snmp.md) - Fixed **Receptacles** command.
 - [**Google Stackdriver**](../procedures/cloud-gcp-management-stackdriver.md) - Fixed the minimum aggregation calculation.
+- [**HP MSA2000 SNMP**](../procedures/hardware-storage-hp-msa2000-snmp.md) - Fixed **hardware** mode missing in plugin packaging.
 - [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - Fixed missing fan state in short output.
 - [**Huawei WLC SNMP**](../procedures/network-huawei-wlc-snmp.md) - Fixed missing fan state in short output.
-- [**Panzura SNMP**](../procedures/hardware-storage-panzura-snmp.md) - Fixed **Disk-Usage-Cloud-Global** command.
-- [**Podman REST API**](../procedures/applications-podman-restapi.md) - **Container-Usage** now returning UNKNOWN when container is not found.
-- [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Fixed **Clusters** and **Datastores** discovery macros.
-- [**HP MSA2000 SNMP**](../procedures/hardware-storage-hp-msa2000-snmp.md) - Fixed **hardware** mode missing in plugin packaging.
 - [**Lenovo S Series SNMP**](../procedures/hardware-storage-lenovo-sseries-snmp.md) - Fixed **hardware** mode missing in plugin packaging.
 - [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Fixed typo for custom perfdata in **databases** mode.
 - [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - Fixed typo for custom perfdata in **databases** mode.
+- [**Panzura SNMP**](../procedures/hardware-storage-panzura-snmp.md) - Fixed **Disk-Usage-Cloud-Global** command.
+- [**Podman REST API**](../procedures/applications-podman-restapi.md) - **Container-Usage** now returning UNKNOWN when container is not found.
 - [**TrendMicro Iwsva SNMP**](../procedures/applications-trendmicro-iwsva-snmp.md) - Fixed plugin option value in commands.
 - [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Fixed cmdlet not supported anymore in **vsb-jobs** mode.
 - [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Fixed cmdlet not supported anymore in **vsb-jobs** mode.
 - [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Fixed cmdlet not supported anymore in **vsb-jobs** mode.
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Fixed cmdlet not supported anymore in **vsb-jobs** mode.
+- [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Fixed **Clusters** and **Datastores** discovery macros.
 
 </TabItem>
 </Tabs>
