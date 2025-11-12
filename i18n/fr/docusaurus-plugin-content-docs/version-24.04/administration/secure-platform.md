@@ -661,11 +661,12 @@ dnf install mod_ssl mod_security openssl
 
 2. Installez les certificats :
 
-Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
+Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas, et le certificat CA) en les copiant dans la configuration Apache :
 
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
@@ -677,11 +678,12 @@ dnf install mod_ssl mod_security openssl
 
 2. Installez les certificats :
 
-Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
+Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas, et le certificat CA) en les copiant dans la configuration Apache :
 
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
@@ -698,11 +700,12 @@ systemctl restart apache2
 
 2. Installez les certificats :
 
-Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
+Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas, et le certificat CA) en les copiant dans la configuration Apache :
 
 ```shell
 cp centreon7.key /etc/ssl/private/
 cp centreon7.crt /etc/ssl/certs/
+cp ca_demo.crt /etc/ssl/certs/
 ```
 
 </TabItem>
@@ -1025,11 +1028,20 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre `expose_php` :
+Éditez le fichier **/etc/php.d/50-centreon.ini** :
 
-```phpconf
-expose_php = Off
-```
+* Assurez-vous que le paramètre `expose_php` est désactivé :
+
+  ```phpconf
+  expose_php = Off
+  ```
+
+* Ajoutez le chemin d'accès au certificat CA qui a été utilisé pour signer le certificat du serveur :
+  
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -1043,11 +1055,20 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre `expose_php` :
+Éditez le fichier **/etc/php.d/50-centreon.ini** :
 
-```phpconf
-expose_php = Off
-```
+* Assurez-vous que le paramètre `expose_php` est désactivé :
+
+  ```phpconf
+  expose_php = Off
+  ```
+
+* Ajoutez le chemin d'accès au certificat CA qui a été utilisé pour signer le certificat du serveur :
+  
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
@@ -1063,9 +1084,12 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/php/8.1/mods-available/centreon.ini** en désactivant le paramètre **expose_php** :
+Éditez le fichier **/etc/php/8.2/mods-available/centreon.ini** et ajoutez les lignes suivantes :
 
-> Cela a été fait automatiquement pendant l'installation.
+```text
+openssl.cafile=/etc/ssl/certs/ca_demo.crt
+curl.cainfo=/etc/ssl/certs/ca_demo.crt
+```
 
 </TabItem>
 </Tabs>
@@ -1525,6 +1549,10 @@ systemctl restart apache2
 
 </TabItem>
 </Tabs>
+
+## Ajoutez votre certificat à votre navigateur
+
+Si vous utilisez un certificat qui n'est pas fourni par une autorité de confiance, vous devez importer le certificat CA dans votre navigateur.
 
 ## Authentification des utilisateurs
 

@@ -64,13 +64,62 @@ If this is not the case, the connection to this host is not allowed.
 </TabItem>
 </Tabs>
 
+## Insecure TLS
+
+### How it works
+
+Some configurations require a more flexible approach to establishing the connection.
+
+In TLS, the client (agent or poller) verifies that the IP/DNS used to reach the server strictly matches the information in the certificate.
+If this is not the case, the connection is refused.
+The verification is performed on the **alt_names** block of the certificate, which may contain multiple DNS, IP, or CN entries.
+
+It may sometimes be necessary to accept the connection, even when this correspondence is not verified.
+
+For example, in the case of an MSP, which mutualize pollers for its customers.
+The hosts within the customer base do not know the DNS of the pollers and must use the IP, which will not necessarily match the information in the certificate.
+This makes particular sense in cases where the same certificate must be used on multiple pollers, and security restrictions do not allow the use of a wildcard.
+
+The unsecured TLS encryption mode addresses this use case.
+
+In unsecured TLS, the client (agent/poller) first checks the client's “Common Name CA” field.
+* If the “Common Name CA” field is filled in, its value is compared with the certificate information, which must match exactly.
+* If the “Common Name CA” field is empty, the verification is based on the IP/DNS used to reach the server, as in TLS mode.
+
+If no match is found, the connection is denied.
+The verification is performed on the **subject** and **alt_names** blocks of the certificate, which may contain multiple DNS, IP, or CN entries.
+
+
+### Certificate files
+
+See [dedicated section for TLS](#certificate-files), prerequisites are the same.
+
+### Summary of possible configurations
+
+The configuration is similar to [the one specified for TLS](#summary-of-possible-configurations).
+
+The difference lies in the use of the “Common Name CA” field on the client side.
+
+<Tabs groupId="sync">
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
+
+The **Certificate Common Name/ca_name** field will contain the value (DNS, IP, or CN) specified in the certificate.
+
+</TabItem>
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
+
+In the **Host Configurations** section, the **Common Name CA (CN)** field will contain the value (DNS, IP, or CN) specified in the certificate.
+
+</TabItem>
+</Tabs>
+
 ### How to generate a self-signed certificate (optional)
 
 If you do not have a certificate, you can generate a self-signed one. To generate a self-signed certificate that is valid for one year, run the following command on your poller or host:
 
 ```shell
 openssl req -new -subj '/CN={server_hostname}' \
-                 -addext "subjectAltName = DNS:{alt_poller_DNS}, IP:{alt_poller_IP}" \
+                 -addext "subjectAltName = DNS:{alt_server_DNS}, IP:{alt_server_IP}" \
                  -days 365 -nodes -x509 \
                  -newkey rsa:2048 -keyout {key} -out {cert}
 ```
@@ -80,6 +129,14 @@ openssl req -new -subj '/CN={server_hostname}' \
 - \{server_hostname\} = DNS name of the server and/or use \{alt_poller_DNS\} and/or use \{alt_poller_IP\}
 In TLS encryption mode, the DNS/IP of the server used by the client must correspond to a CN or SAN (altName) entry in the certificate (\{server_hostname\}).
 The line -subj '/CN=\{server_hostname\}' \ is optional if SANs are defined.
+In unsecured TLS encryption mode, the server's DNS/IP may differ from the certificate information. In this case, you will need to enter the value to be used in “Common Name CA” in the client configuration.
+
+Certificate files stored on the poller must be stored in **/etc/pki/**, either at the root or in a subdirectory.
+They must have the following permissions:
+
+```shell
+chmod 644 /etc/pki/agent*
+```
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
@@ -113,7 +170,7 @@ The agent will be configured the following way on the host:
 ```json
 {
   "log_level":"info",
-  "endpoint":"<IP/DNS COLLECTEUR>:4317",
+  "endpoint":"<POLLER IP/DNS>:4317",
   "encryption" : "false",
   "host":"host_1",
   "log_type":"file",
