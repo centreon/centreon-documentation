@@ -33,7 +33,7 @@ Le connecteur apporte les modèles de service suivants
 <TabItem value="OS-Linux-Telegraf-Agent-custom" label="OS-Linux-Telegraf-Agent-custom">
 
 | Alias  | Modèle de service                     | Description                                                                                                                                                               |
-| :----- | :------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :----- | :------------------------------------ |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cpu    | OS-Linux-Cpu-Telegraf-Agent-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
 | Load   | OS-Linux-Load-Telegraf-Agent-custom   | Contrôle de la charge serveur                                                                                                                                             |
 | Memory | OS-Linux-Memory-Telegraf-Agent-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |
@@ -80,15 +80,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
 
-| Métrique                | Unité |
-| :---------------------- | :---- |
+| Nom                     | Unité |
+|:------------------------| :---- |
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Connections-Generic" label="Connections-Generic">
 
-| Métrique         | Unité |
-| :--------------- | :---- |
+| Nom              | Unité |
+|:-----------------| :---- |
 | total            | count |
 | con\_synSent     | count |
 | con\_finWait1    | count |
@@ -105,24 +105,24 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Métrique                                   | Unité |
-| :----------------------------------------- | :---- |
+| Nom                                        | Unité |
+|:-------------------------------------------| :---- |
 | cpu.utilization.percentage                 | %     |
 | *cpu_core*#core.cpu.utilization.percentage | %     |
 
 </TabItem>
 <TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Métrique                        | Unité |
-| :------------------------------ | :---- |
+| Nom                             | Unité |
+|:--------------------------------| :---- |
 | core.cpu.utilization.percentage | %     |
 | cpu.utilization.percentage      | %     |
 
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
-| Métrique                                      | Unité |
-| :-------------------------------------------- | :---- |
+| Nom                                           | Unité |
+|:----------------------------------------------| :---- |
 | *device*#device.io.read.usage.bytespersecond  | B/s   |
 | *device*#device.io.write.usage.bytespersecond | B/s   |
 | *device*#device.io.read.wait.milliseconds     | ms    |
@@ -135,51 +135,51 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Métrique                              | Unité |
-| :------------------------------------ | :---- |
+| Nom                                   | Unité |
+|:--------------------------------------| :---- |
 | *disk_name*#storage.space.usage.bytes | B     |
 
 </TabItem>
 <TabItem value="File-Date-Generic" label="File-Date-Generic">
 
-| Métrique                | Unité |
-| :---------------------- | :---- |
+| Nom                     | Unité |
+|:------------------------| :---- |
 | file.mtime.last.seconds | s     |
 
 </TabItem>
 <TabItem value="File-Size-Generic" label="File-Size-Generic">
 
-| Métrique         | Unité |
-| :--------------- | :---- |
+| Nom              | Unité |
+|:-----------------| :---- |
 | file.size.bytes  | B     |
 | files.size.bytes | B     |
 
 </TabItem>
 <TabItem value="Inodes" label="Inodes">
 
-| Métrique                                 | Unité |
-| :--------------------------------------- | :---- |
+| Nom                                      | Unité |
+|:-----------------------------------------| :---- |
 | *inodes*#storage.inodes.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="Is-File-Generic" label="Is-File-Generic">
 
-| Métrique                | Unité |
-| :---------------------- | :---- |
+| Nom                     | Unité |
+|:------------------------| :---- |
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Is-Not-File-Generic" label="Is-Not-File-Generic">
 
-| Métrique                | Unité |
-| :---------------------- | :---- |
+| Nom                     | Unité |
+|:------------------------| :---- |
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Métrique    | Unité |
-| :---------- | :---- |
+| Nom         | Unité |
+|:------------| :---- |
 | avg\_load1  | N/A   |
 | avg\_load5  | N/A   |
 | avg\_load15 | N/A   |
@@ -190,8 +190,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique                    | Unité |
-| :-------------------------- | :---- |
+| Nom                         | Unité |
+|:----------------------------| :---- |
 | memory.usage.bytes          | B     |
 | memory.free.bytes           | B     |
 | memory.usage.percentage     | %     |
@@ -207,8 +207,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Métrique                              | Unité |
-| :------------------------------------ | :---- |
+| Nom                                   | Unité |
+|:--------------------------------------| :---- |
 | peers.detected.count                  | count |
 | *peers*#status                        | N/A   |
 | *peers*#peer.time.offset.milliseconds | ms    |
@@ -217,15 +217,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
 
-| Métrique                | Unité |
-| :---------------------- | :---- |
+| Nom                     | Unité |
+|:------------------------| :---- |
 | system.files.open.count | count |
 
 </TabItem>
 <TabItem value="Packet-Errors" label="Packet-Errors">
 
-| Métrique                                             | Unité |
-| :--------------------------------------------------- | :---- |
+| Nom                                                  | Unité |
+|:-----------------------------------------------------| :---- |
 | *interface*#status                                   | N/A   |
 | *interface*#interface.packets.in.discard.percentage  | %     |
 | *interface*#interface.packets.out.discard.percentage | %     |
@@ -235,8 +235,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Pending-Updates" label="Pending-Updates">
 
-| Métrique                     | Unité |
-| :--------------------------- | :---- |
+| Nom                          | Unité |
+|:-----------------------------| :---- |
 | pending.updates.total.count  | count |
 | security.updates.total.count | count |
 | *updates*#update             | N/A   |
@@ -244,8 +244,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
 
-| Métrique                                      | Unité |
-| :-------------------------------------------- | :---- |
+| Nom                                           | Unité |
+|:----------------------------------------------| :---- |
 | *processes*#time                              | N/A   |
 | *processes*#memory-usage                      | N/A   |
 | *processes*#cpu-utilization                   | N/A   |
@@ -260,13 +260,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Protocol-Telegraf-Agent" label="Protocol-Telegraf-Agent">
 
-Pas de métrique pour ce service.
+Pas de Nom pour ce service.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Métrique              | Unité |
-| :-------------------- | :---- |
+| Nom                   | Unité |
+|:----------------------| :---- |
 | swap.usage.bytes      | B     |
 | swap.free.bytes       | B     |
 | swap.usage.percentage | %     |
@@ -276,15 +276,15 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Systemd-Journal" label="Systemd-Journal">
 
-| Métrique              | Unité |
-| :-------------------- | :---- |
+| Nom                   | Unité |
+|:----------------------| :---- |
 | journal.entries.count | count |
 
 </TabItem>
 <TabItem value="Systemd-Sc-Status" label="Systemd-Sc-Status">
 
-| Métrique                       | Unité |
-| :----------------------------- | :---- |
+| Nom                            | Unité |
+|:-------------------------------| :---- |
 | systemd.services.running.count | count |
 | systemd.services.failed.count  | count |
 | systemd.services.dead.count    | count |
@@ -296,8 +296,8 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Traffic" label="Traffic">
 
-| Métrique                                        | Unité |
-| :---------------------------------------------- | :---- |
+| Nom                                             | Unité |
+|:------------------------------------------------| :---- |
 | *interface*#status                              | N/A   |
 | *interface*#interface.traffic.in.bitspersecond  | b/s   |
 | *interface*#interface.traffic.out.bitspersecond | b/s   |
@@ -305,8 +305,8 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Métrique              | Unité |
-| :-------------------- | :---- |
+| Nom                   | Unité |
+|:----------------------| :---- |
 | system.uptime.seconds | s     |
 
 </TabItem>
@@ -715,8 +715,8 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 <TabItem value="Connections-Generic" label="Connections-Generic">
 
 | Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-| :---------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :---------------- | :---------: |
-| CONNECTIONCOMMAND | Default mode for parsing and command: 'netstat' (default) or 'ss'                                                                                | ss                |      X      |
+| :---------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------| :---------------- | :---------: |
+| CONNECTIONCOMMAND | Default mode for parsing and command: 'netstat' or 'ss'                                                                                          | ss                |      X      |
 | WARNING           | Warning threshold for total connections                                                                                                          |                   |             |
 | CRITICAL          | Critical threshold for total connections                                                                                                         |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -809,16 +809,16 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 <TabItem value="Is-File-Generic" label="Is-File-Generic">
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-| :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :---------------- | :---------: |
-| COMMAND      | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                                                                          | test              |      X      |
+| :----------- |:-------------------------------------------------------------------------------------------------------------------------------------------------| :---------------- | :---------: |
+| COMMAND      | Command to test. You can use 'sh' to use '&&' or '\|\|'                                                                                          | test              |      X      |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Is-Not-File-Generic" label="Is-Not-File-Generic">
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-| :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :---------------- | :---------: |
-| COMMAND      | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                                                                          | test              |      X      |
+| :----------- |:-------------------------------------------------------------------------------------------------------------------------------------------------| :---------------- | :---------: |
+| COMMAND      | Command to test. You can use 'sh' to use '&&' or '\|\|'                                                                                          | test              |      X      |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -892,8 +892,8 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 <TabItem value="Pending-Updates" label="Pending-Updates">
 
 | Macro            | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-| :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :---------------- | :---------: |
-| OSMODE           | Default mode for parsing and command: 'rhel' (default), 'debian', 'suse'                                                                         | rhel              |             |
+| :--------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------| :---------------- | :---------: |
+| OSMODE           | Default mode for parsing and command: 'rhel', 'debian', 'suse'                                                                                   | rhel              |             |
 | FILTERPACKAGE    | Filter package name                                                                                                                              |                   |             |
 | FILTERREPOSITORY | Filter repository name                                                                                                                           |                   |             |
 | WARNINGTOTAL     | Warning threshold for total amount of pending updates                                                                                            |                   |             |
@@ -926,15 +926,15 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 </TabItem>
 <TabItem value="Systemd-Journal" label="Systemd-Journal">
 
-| Macro           | Description                                                                                                                                                     | Valeur par défaut | Obligatoire |
-| :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------- | :---------: |
-| SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution. (default: 'cache') | cache             |             |
-| TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache. (default: 'local')                                              | local             |             |
-| UNIT            | Only look for messages of the specified unit, ie the name of thesystemd service who created the message                                                         |                   |             |
-| FILTERMESSAGE   | Filter on message content (can be a regexp)                                                                                                                     |                   |             |
-| WARNINGENTRIES  | Thresholds on the number of entries found in the journal for the specified parameters                                                                           |                   |             |
-| CRITICALENTRIES | Thresholds on the number of entries found in the journal for the specified parameters                                                                           |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                |                   |             |
+| Macro           | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+| :-------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------| :---------------- | :---------: |
+| SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution      | cache             |             |
+| TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache                                                   | local             |             |
+| UNIT            | Only look for messages of the specified unit, ie the name of thesystemd service who created the message                                          |                   |             |
+| FILTERMESSAGE   | Filter on message content (can be a regexp)                                                                                                      |                   |             |
+| WARNINGENTRIES  | Thresholds on the number of entries found in the journal for the specified parameters                                                            |                   |             |
+| CRITICALENTRIES | Thresholds on the number of entries found in the journal for the specified parameters                                                            |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Systemd-Sc-Status" label="Systemd-Sc-Status">
@@ -1073,7 +1073,7 @@ Le plugin apporte les modes suivants :
 Les options génériques sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| :----------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -1118,7 +1118,7 @@ Les options génériques sont listées ci-dessous :
 | --ssh-priv-key                             | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --sshcli-command                           | ssh command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --sshcli-path                              | ssh command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no'). The default option is --sshcli-options='-o=LogLevel=ERROR' which hides the SSH banner. If you override this parameter, make sure to append '-o=LogLevel=ERROR' to your new value to maintain this behavior. This parameter can be used multiple times and multiple options can be specified in the same parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --plink-command                            | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --plink-path                               | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --plink-option                             | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
