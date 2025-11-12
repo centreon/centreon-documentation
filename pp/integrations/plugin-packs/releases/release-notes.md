@@ -88,7 +88,7 @@ import TabItem from '@theme/TabItem';
 - [**Splunk API**](../procedures/applications-monitoring-splunk-api.md) - Extended **query** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-for-splunk-return-value-of-spl-request-3734). 
 - [**pfSense SNMP**](../procedures/network-firewalls-pfsense-snmp.md) - Added new modes: **cpu**, **cpu-detailed**, **load**, **memory**, **swap** and **uptime**.
 - [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Added **Disk-Name** service discovery rule.
-- [**VMware8 ESXi REST API**](../procedures/applications-virtualization-vmware8-esx-restapi.md) - Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
+- [**VMware8 ESXi REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
 - [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
 - [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Added new modes: **disk-io**, **network** and **power**. Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
 
