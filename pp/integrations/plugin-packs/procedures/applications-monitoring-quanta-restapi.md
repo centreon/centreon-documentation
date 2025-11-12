@@ -1,13 +1,13 @@
 ---
 id: applications-monitoring-quanta-restapi
-title: Quanta Rest API
+title: Centreon DEM (formerly Quanta) Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Quanta Rest API** connector through the
+The following monitoring connectors will be installed when you install the **Centreon DEM (formerly Quanta) Rest API** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Qua
 
 ### Templates
 
-The Monitoring Connector **Quanta Rest API** brings a host template:
+The Monitoring Connector **Centreon DEM (formerly Quanta) Rest API** brings a host template:
 
 * **App-Monitoring-Quanta-Restapi-custom**
 
@@ -166,7 +166,7 @@ yum install centreon-pack-applications-monitoring-quanta-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Quanta Rest API** connector through
+2. Whatever the license type (*online* or *offline*), install the **Centreon DEM (formerly Quanta) Rest API** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
