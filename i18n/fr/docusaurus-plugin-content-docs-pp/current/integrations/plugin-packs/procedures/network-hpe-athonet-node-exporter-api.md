@@ -5,10 +5,10 @@ title: HPE Athonet w/ Prometheus API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **HPE Athonet w/ Prometheus API** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -38,7 +38,7 @@ Le connecteur apporte les modèles de service suivants
 |:------|:----------------------------------------------|:----------------------------------------------------------------|
 | Chf   | Net-HPE-Athonet-Node-Exporter-Chf-Api-custom  | Contrôle la fonction *charging* d'Athonet.                      |
 | Dra   | Net-HPE-Athonet-Node-Exporter-Dra-Api-custom  | Contrôle la fonction *diameter routing agent* d'Athonet.        |
-| Eir   | Net-HPE-Athonet-Node-Exporter-Eir-Api-custom  | Contrôle la fonction equipment identity register d'Athonet      |
+| Eir   | Net-HPE-Athonet-Node-Exporter-Eir-Api-custom  | Contrôle la fonction *equipment identity register* d'Athonet      |
 | Mme   | Net-HPE-Athonet-Node-Exporter-Mme-Api-custom  | Contrôle la fonction *mobility management entity* d'Athonet.    |
 | Nrf   | Net-HPE-Athonet-Node-Exporter-Nrf-Api-custom  | Contrôle la fonction *network repository* d'Athonet.            |
 | Pcf   | Net-HPE-Athonet-Node-Exporter-Pcf-Api-custom  | Contrôle la fonction *policy control* d'Athonet.                |
@@ -232,14 +232,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Le Collecteur Centreon doit être en mesure d'executer des requêtes HTTP(S) vers le Node Exporter Prometheus des serveurs à superviser.
+Le collecteur Centreon doit être en mesure d'exécuter des requêtes HTTP(S) vers le Node Exporter Prometheus des serveurs à superviser.
 
 ## Installer le connecteur de supervision
 
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -276,7 +276,7 @@ yum install centreon-pack-network-hpe-athonet-node-exporter-api
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HPE Athonet w/ Prometheus API**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -725,7 +725,7 @@ OK: fpcf nodes detected: 25250 sessions: 4012 GTP-U interfaces: 55083 IP interfa
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
