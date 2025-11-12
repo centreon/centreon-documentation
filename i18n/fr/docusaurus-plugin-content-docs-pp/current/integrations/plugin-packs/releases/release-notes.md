@@ -49,6 +49,7 @@ import TabItem from '@theme/TabItem';
 - [**Dell iDRAC SNMP**](../procedures/hardware-servers-dell-idrac-snmp.md) - Fixed ready status for `pdisk.state` in **hardware** mode.
 - [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md) - Fixed `format-custom` option.
 - [**Emerson PDU SNMP**](../procedures/hardware-pdu-emerson-snmp.md) - Fixed **Receptacles** command.
+- [**Fortinet Fortigate RestAPI**](../procedures/network-fortinet-fortigate-restapi.md) - Take in charge other encodages than UTF8 in returned content.
 - [**Google Stackdriver**](../procedures/cloud-gcp-management-stackdriver.md) - Fixed the minimum aggregation calculation.
 - [**HP MSA2000 SNMP**](../procedures/hardware-storage-hp-msa2000-snmp.md) - Fixed **hardware** mode missing in plugin packaging.
 - [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - Fixed missing fan state in short output.
