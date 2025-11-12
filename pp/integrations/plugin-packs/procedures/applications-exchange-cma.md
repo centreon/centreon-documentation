@@ -375,7 +375,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-"/centreon_plugins.exe" \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
     --plugin=apps::microsoft::exchange::local::plugin \
     --mode=queues \
 	--timeout=120 \
@@ -406,7 +406,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-"/centreon_plugins.exe" \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
     --plugin=apps::microsoft::exchange::local::plugin \
 	--list-mode
 ```

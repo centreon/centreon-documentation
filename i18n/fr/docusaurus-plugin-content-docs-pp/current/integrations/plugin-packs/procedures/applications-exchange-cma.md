@@ -378,7 +378,7 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-"/centreon_plugins.exe" \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
     --plugin=apps::microsoft::exchange::local::plugin \
     --mode=queues \
 	--timeout=120 \
@@ -409,7 +409,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-"/centreon_plugins.exe" \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
     --plugin=apps::microsoft::exchange::local::plugin \
 	--list-mode
 ```
