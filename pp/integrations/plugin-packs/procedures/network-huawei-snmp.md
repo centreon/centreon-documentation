@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Huawei Standard SNMP** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                | Service Description                         |
 |:--------------|:--------------------------------|:--------------------------------------------|
-| Cpu           | Net-Huawei-Cpu-SNMP-custom      | Check the rate of the utilization of CPU    |
+| Cpu           | Net-Huawei-Cpu-SNMP-custom      | Check the rate of CPU utilization    |
 | Hardware      | Net-Huawei-Hardware-SNMP-custom | Check the state of hardware components      |
-| Memory        | Net-Huawei-Memory-SNMP-custom   | Check the rate of the utilization of memory |
+| Memory        | Net-Huawei-Memory-SNMP-custom   | Check the rate of memory utilization |
 | Uptime        | Net-Huawei-Uptime-SNMP-custom   | Check uptime                                |
 
 > The services listed above are created automatically when the **Net-Huawei-SNMP-custom** host template is used.
@@ -141,7 +141,7 @@ SNMP port.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -177,7 +177,7 @@ yum install centreon-pack-network-huawei-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Huawei Standard SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

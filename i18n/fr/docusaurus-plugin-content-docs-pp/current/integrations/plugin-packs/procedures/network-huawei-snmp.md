@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Huawei Standard SNMP** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:---------|:--------------------------------|:-----------------------------------------------|
 | Cpu      | Net-Huawei-Cpu-SNMP-custom      | Contrôle du taux d'utilisation des processeurs |
 | Hardware | Net-Huawei-Hardware-SNMP-custom | Contrôle l'état des composants matériels       |
-| Memory   | Net-Huawei-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoire     |
+| Memory   | Net-Huawei-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoires     |
 | Uptime   | Net-Huawei-Uptime-SNMP-custom   | Contrôle l'uptime                              |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Huawei-SNMP-custom** est utilisé.
@@ -140,7 +140,7 @@ Centreon vers le serveur supervisé.
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -177,7 +177,7 @@ yum install centreon-pack-network-huawei-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Huawei Standard SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -230,7 +230,7 @@ yum install centreon-plugin-Network-Huawei-Snmp
 3. Appliquez le modèle d'hôte **Net-Huawei-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|

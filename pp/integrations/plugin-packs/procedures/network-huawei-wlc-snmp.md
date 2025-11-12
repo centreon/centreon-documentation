@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Huawei WLC SNMP** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                       | Service Description                             |
 |:--------------|:---------------------------------------|:------------------------------------------------|
-| Cpu           | Net-Huawei-Wlc-Cpu-SNMP-custom         | Monitor the utilization rate of the CPU         |
+| Cpu           | Net-Huawei-Wlc-Cpu-SNMP-custom         | Monitor the CPU utilization rate         |
 | Hardware      | Net-Huawei-Wlc-Hardware-SNMP-custom    | Check the state of hardware components          |
-| Memory        | Net-Huawei-Wlc-Memory-SNMP-custom      | Check the rate of the utilization of memory     |
+| Memory        | Net-Huawei-Wlc-Memory-SNMP-custom      | Check the memory utilization rate  |
 | Uptime        | Net-Huawei-Wlc-Uptime-SNMP-custom      | Check uptime                                    |
 | Wlan-Global   | Net-Huawei-Wlc-Wlan-Global-SNMP-custom | Check the state of the wireless networks (WLAN) |
 
@@ -216,7 +216,7 @@ SNMP port.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -252,7 +252,7 @@ yum install centreon-pack-network-huawei-wlc-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Huawei WLC SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
