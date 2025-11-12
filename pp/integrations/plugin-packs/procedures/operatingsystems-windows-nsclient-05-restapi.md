@@ -342,7 +342,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | COUNTERNAME  | Performance counter to check                                                                                                             | \\Terminal Services\\Active Sessions |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                 |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none                                 |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                             |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                             |             |
 
 </TabItem>
 <TabItem value="Certificates" label="Certificates">
@@ -357,7 +357,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | CRITICALCERTIFICATEEXPIRES   | Thresholds                                                                                                                                                  |                   |             |
 | WARNINGCERTIFICATESDETECTED  | Thresholds                                                                                                                                                  |                   |             |
 | CRITICALCERTIFICATESDETECTED | Thresholds                                                                                                                                                  |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    | --verbose         |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                    | --verbose         |             |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
@@ -367,7 +367,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | COUNTERNAME  | Performance counter to check                                                                                                             |                   |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | none              |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -376,7 +376,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
 | WARNING      | Filter which marks items which generates a warning state                                                                                 | time = '5m' and load > 80 |             |
 | CRITICAL     | Filter which marks items which generates a critical state                                                                                | time = '5m' and load > 80 |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                  |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                  |             |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
@@ -388,7 +388,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | FILTER       | Filter which marks interesting items.                                                                                                    | type = 'fixed' and name not regexp '.*yst.*' |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | total_used>80%                               |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | total_used>90%                               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                                              |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                                              |             |
 
 </TabItem>
 <TabItem value="Eventlog-Generic" label="Eventlog-Generic">
@@ -401,7 +401,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{source} $\{id}                                |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | count>0                                          |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | count>5                                          |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | count>5                                          |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | count>5                                          |             |
 
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
@@ -415,7 +415,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | FILTER       | Filter which marks interesting items.                                                                                                    |                                                                  |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                |                                                                  |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               |                                                                  |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                                                         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                                                         |             |
 
 </TabItem>
 <TabItem value="Logfiles-Generic" label="Logfiles-Generic">
@@ -437,7 +437,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | FILTER       | Filter which marks interesting items.                                                                                                    | type = 'physical'                                  |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | used > 80%                                         |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | used > 90%                                         |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | perf-syntax=used                                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | perf-syntax=used                                   |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -447,7 +447,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | NTPADDR      | Set the ntp hostname (if not set, we try to find it with w32tm command)                                                                  |                   |             |
 | WARNING      | Warning threshold                                                                                                                        | -1:1              |             |
 | CRITICAL     | Critical threshold                                                                                                                       | -2:2              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
@@ -456,7 +456,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}  | %\{RebootPending\} =~ /true/i |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} |                               |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                     |                               |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                                                                                     |                               |             |
 
 </TabItem>
 <TabItem value="Process-generic" label="Process-generic">
@@ -469,7 +469,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | FILTER       | Filter which marks interesting items.                                                                                                    | none                         |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | none                         |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none                         |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                     |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                     |             |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
@@ -484,7 +484,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | FILTER       | Filter which marks interesting items.                                                                                                    | start_type = 'auto' and is_trigger = 0 |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | not state_is_perfect()                 |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                      |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | 'perf-config=none'                     |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | 'perf-config=none'                     |             |
 
 </TabItem>
 <TabItem value="Services-Generic-Name" label="Services-Generic-Name">
@@ -499,7 +499,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | FILTER       | Filter which marks interesting items.                                                                                                    | none                                |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | 'perf-config=none'                  |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | 'perf-config=none'                  |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -517,7 +517,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | CRITICALSESSIONSDISCONNECTED | Thresholds                                                                                                                                           |                   |             |
 | WARNINGSESSIONSRECONNECTED   | Thresholds                                                                                                                                           |                   |             |
 | CRITICALSESSIONSRECONNECTED  | Thresholds                                                                                                                                           |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)             |                   |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -529,7 +529,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | FILTER       | Filter which marks interesting items.                                                                                                    | size > 0 and name = 'total'               |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                      |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | used > 0                                  |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | perf-syntax=swap                          |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | perf-syntax=swap                          |             |
 
 </TabItem>
 <TabItem value="Task-Generic" label="Task-Generic">
@@ -540,7 +540,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | FILTER       | Filter which marks interesting items.                                                                                                    | enabled eq 1 and has_run eq 1                            |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | task_status = 'running' and most_recent_run_time < -60m  |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | task_status not in ('running') and exit_code > 0         |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                                                          |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                                                          |             |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
@@ -552,7 +552,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | FILTERMANDATORY        | Filter only mandatory Windows updates.                                                                                                   | false                       |             |
 | WARNINGPENDINGUPDATES  | Thresholds                                                                                                                               |                             |             |
 | CRITICALPENDINGUPDATES | Thresholds                                                                                                                               |                             |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose --display-updates |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | --verbose --display-updates |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -561,7 +561,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | none              |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
 
 </TabItem>
 </Tabs>
