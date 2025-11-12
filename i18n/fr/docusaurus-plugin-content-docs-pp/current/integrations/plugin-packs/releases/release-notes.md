@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Microsoft WSUS CMA**](../procedures/applications-wsus-cma.md) - Initial release WSUS Microsoft CMA.
+- [**Microsoft WSUS CMA**](../procedures/applications-wsus-cma.md) - Initial release of WSUS Microsoft CMA.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
