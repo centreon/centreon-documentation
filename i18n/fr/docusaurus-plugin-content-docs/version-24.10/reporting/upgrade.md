@@ -61,7 +61,6 @@ dnf update centreon-bi-server
 
 ```shell
 apt clean
-apt update
 apt install --only-upgrade centreon-bi-server
 ```
 
