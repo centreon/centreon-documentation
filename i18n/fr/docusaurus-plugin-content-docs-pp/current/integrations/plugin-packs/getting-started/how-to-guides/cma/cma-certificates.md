@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 La connexion TLS (1.3) est négociée par le client (collecteur ou agent selon le sens), et nécessite des certificats.
 Selon le sens de connexion, l'agent/le collecteur vérifie que l'IP/DNS utilisée pour atteindre le serveur correspond strictement aux informations du certificat.
 Si ce n'est pas le cas, la connexion est refusée.
-La vérification est faite sur le bloc **alt_names** du certificat, qui peut contenir plusieurs DNS, IP ou CN.
+La vérification est faite sur les blocs **subject** et **alt_names** du certificat, qui peuvent contenir plusieurs DNS, IP ou CN.
 
 ### Fichiers de certificat
 
@@ -43,11 +43,11 @@ Si ce n'est pas le cas, la connexion est refusée.
 
 | Cas d'usage      															  | Fichier(s) sur le collecteur | Fichier(s) sur l'hôte (si non chargés dans le magasin de certificats) | Configuration du Collecteur (interface) | Configuration de l'hôte    |
 | -----------      															  | -----------                  | -----------           |-----------							   | -----------				|
-| Certificat signé par CA           	 | Fichiers de certificat public et clé privée                         | Fichier de CA                       |	Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : chemin du certificat public (ex : '/etc'/pki'/certificate.crt)</li><li>**Clé privée** : chemin de la clé privée (ex : '/etc'/pki'/certificate.key)</li><li>**CA** : vide</li></ul> | <ul><li>**Poller endpoint** : IP/DNS du Collecteur</li><li>**Private Key file/private_key**: vide</li><li>**Certificate file** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : chemin du CA</li><li>**Certificate Common Name/ca_name** : vide</li></ul>	|
-| Certificat autosigné         	 | Fichiers de certificat public et clé privée                         | Fichier de certificat public                       |	Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : chemin du certificat public (ex : '/etc'/pki'/certificate.crt)</li><li>**Clé privée** : chemin de la clé privée (ex : '/etc'/pki'/certificate.key)</li><li>**CA** : vide, sauf besoin d'un double handshake</li></ul> | <ul><li>**Poller endpoint** : IP/DNS du Collecteur</li><li>**Private Key file/private_key** : vide</li><li>**Certificate file/public_cert** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : chemin du certificat public</li><li>**Certificate Common Name/ca_name** : vide</li></ul>	|
-| Certificat wildcard      | Fichiers wildcard et clé privée                         | Fichier wildcard              | Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : Fichier de certificat wildcard</li><li>**Clé privée** : chemin de la clé privée</li><li>**CA** : vide</li></ul>	 | <ul><li>**Private Key file/private_key** : vide</li><li>**Certificate file/public_cert** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : chemin du certificat wildcard</li><li>**Certificate Common Name/ca_name** : vide</li></ul>							|
-| Certificat public (service managé, par ex Collecteur central Centreon Cloud)        | Aucun                        | Aucun                 | Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : vide</li><li>**Clé privée** : vide</li><li>**CA**: vide</li></ul> | <ul><li>**Poller endpoint** : IP/DNS du load balancer portant le certificat public</li><li>**Private Key file/private_key** : vide</li><li>**Certificate file/public_cert** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li><li>**Certificate Common Name/ca_name** : vide</li></ul>							|
-| Certificat public (fichiers de clés)        | Fichiers de certificat public et clé privée                         | Aucun                 | Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : chemin du certificat public (ex : '/etc'/pki'/certificate.crt)</li><li>**Clé privée** : chemin de la clé privée (ex : '/etc'/pki'/certificate.key)</li><li>**CA** : vide</li></ul> | <ul><li>**Poller endpoint** : IP/DNS du collecteur</li><li>**Private Key file/private_key** : vide</li><li>**Certificate file/public_cert** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li><li>**Certificate Common Name/ca_name** : vide</li></ul>							|
+| Certificat signé par CA           	 | Fichiers de certificat public et clé privée                         | Fichier de CA                       |	Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : chemin du certificat public (ex : '/etc'/pki'/certificate.crt)</li><li>**Clé privée** : chemin de la clé privée (ex : '/etc'/pki'/certificate.key)</li><li>**CA** : vide</li></ul> | <ul><li>**Poller endpoint** : IP/DNS du Collecteur</li><li>**Private Key file/private_key**: vide</li><li>**Certificate file** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : chemin du CA</li></ul>	|
+| Certificat autosigné         	 | Fichiers de certificat public et clé privée                         | Fichier de certificat public                       |	Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : chemin du certificat public (ex : '/etc'/pki'/certificate.crt)</li><li>**Clé privée** : chemin de la clé privée (ex : '/etc'/pki'/certificate.key)</li><li>**CA** : vide, sauf besoin d'un double handshake</li></ul> | <ul><li>**Poller endpoint** : IP/DNS du Collecteur</li><li>**Private Key file/private_key** : vide</li><li>**Certificate file/public_cert** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : chemin du certificat public</li></ul>	|
+| Certificat wildcard      | Fichiers wildcard et clé privée                         | Fichier wildcard              | Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : Fichier de certificat wildcard</li><li>**Clé privée** : chemin de la clé privée</li><li>**CA** : vide</li></ul>	 | <ul><li>**Private Key file/private_key** : vide</li><li>**Certificate file/public_cert** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : chemin du certificat wildcard</li></ul>							|
+| Certificat public (service managé, par ex Collecteur central Centreon Cloud)        | Aucun                        | Aucun                 | Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : vide</li><li>**Clé privée** : vide</li><li>**CA**: vide</li></ul> | <ul><li>**Poller endpoint** : IP/DNS du load balancer portant le certificat public</li><li>**Private Key file/private_key** : vide</li><li>**Certificate file/public_cert** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li></ul>							|
+| Certificat public (fichiers de clés)        | Fichiers de certificat public et clé privée                         | Aucun                 | Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : chemin du certificat public (ex : '/etc'/pki'/certificate.crt)</li><li>**Clé privée** : chemin de la clé privée (ex : '/etc'/pki'/certificate.key)</li><li>**CA** : vide</li></ul> | <ul><li>**Poller endpoint** : IP/DNS du collecteur</li><li>**Private Key file/private_key** : vide</li><li>**Certificate file/public_cert** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li></ul>							|
 
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
@@ -57,21 +57,70 @@ Si ce n'est pas le cas, la connexion vers cet hôte est refusée.
 
 | Cas d'usage      															  | Fichier(s) sur le Collecteur | Fichier(s) sur l'hôte | Configuration du Collecteur (interface) | Configuration de l'hôte    |
 | -----------      															  | -----------                  | -----------           |-----------								       | -----------							|
-| Certificat signé par CA           	 | Fichier de CA                   | Fichiers de certificat public et clé privée                         | Dans la section **Configurations d'hôte** :<ul><li>**CA** : chemin du CA</li><li>**Nom commun CA (CN)** : vide</li></ul>	 | <ul><li>**Private Key file/private_key** : chemin de la clé privée</li><li>**Certificate file/public_cert** : chemin du certificat public</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li><li>**Certificate Common Name/ca_name** : vide</li></ul>	|
-| Certificat autosigné           	 | Fichier de certificat public                       | Fichiers de certificat public et clé privée                         | Dans la section **Configurations d'hôte** :<ul><li>**CA** : chemin du certificat public</li><li>**Nom commun CA (CN)** : vide</li></ul>	 | <ul><li>**Private Key file/private_key** : chemin de la clé privée</li><li>**Certificate file/public_cert** : chemin du certificat public</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li><li>**Certificate Common Name/ca_name** : vide</li></ul>	|
-| Certificat wildcard      | Fichier wildcard                       | Fichiers wildcard et clé privée   | Dans la section **Configurations d'hôte** :<ul><li>**CA** : chemin du certificat wildcard</li><li>**Nom commun CA (CN)** : vide </li></ul>							       | <ul><li>**Private Key file/private_key** : chemin de la clé privée</li><li>**Certificate file/public_cert** : chemin du certificat wildcard</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li><li>**Certificate Common Name/ca_name** : vide</li></ul>						|
+| Certificat signé par CA           	 | Fichier de CA                   | Fichiers de certificat public et clé privée                         | Dans la section **Configurations d'hôte** :<ul><li>**CA** : chemin du CA</li></ul>	 | <ul><li>**Private Key file/private_key** : chemin de la clé privée</li><li>**Certificate file/public_cert** : chemin du certificat public</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li></ul>	|
+| Certificat autosigné           	 | Fichier de certificat public                       | Fichiers de certificat public et clé privée                         | Dans la section **Configurations d'hôte** :<ul><li>**CA** : chemin du certificat public</li></ul>	 | <ul><li>**Private Key file/private_key** : chemin de la clé privée</li><li>**Certificate file/public_cert** : chemin du certificat public</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li></ul>	|
+| Certificat wildcard      | Fichier wildcard                       | Fichiers wildcard et clé privée   | Dans la section **Configurations d'hôte** :<ul><li>**CA** : chemin du certificat wildcard</li></ul>							       | <ul><li>**Private Key file/private_key** : chemin de la clé privée</li><li>**Certificate file/public_cert** : chemin du certificat wildcard</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li></ul>						|
 
 </TabItem>
 </Tabs>
 
-### Comment générer un certificat autosigné (facultatif)
+## TLS non sécurisé
+
+### Principe de fonctionnement
+
+Certaines configuration nécessitent un assouplissement de la manière dont la connexion est établie.
+
+En TLS, le client (l'agent/le collecteur) vérifie que l'IP/DNS utilisée pour atteindre le serveur correspond strictement aux informations du certificat.
+Si ce n'est pas le cas, la connexion est refusée.
+La vérification est faite sur le bloc **alt_names** du certificat, qui peut contenir plusieurs DNS, IP ou CN.
+
+Il peut parfois être nécessaire d'accepter la connexion, y compris lorsque cette correspondance n'est pas vérifiée.
+
+Par exemple, dans le cas d'un MSP, qui mutualise des collecteurs pour ses clients.
+Les hôtes, au sein du parc client, ne connaissent pas les DNS des collecteurs, et doivent utiliser l'IP, qui ne correspondra pas nécessairement aux informations du certificat.
+Cela fait particulièrement sens dans le cas où le même certificat doit être utilisé sur plusieurs collecteurs, et que des restrictions de sécurité ne permettent pas l'usage d'un wildcard.
+
+Le mode de chiffrement TLS non sécurisé répond à ce cas d'usage.
+
+En TLS non sécurisé, le client (l'agent/le collecteur) vérifie d'abord le champ "Nom commun CA" du client.
+* Si le champ "Nom commun CA" est renseigné, sa valeur est comparée avec les informations du certificat, qui doivent correspondre strictement.
+* Si le champ "Nom commun CA" est vide, la vérification est basée sur l'IP/DNS utilisée pour atteindre le serveur, comme pour le mode TLS.
+
+Si aucune correspondance n'est trouvée, la connexion est refusée.
+La vérification est faite sur les blocs **subject** et **alt_names** du certificat, qui peuvent contenir plusieurs DNS, IP ou CN.
+
+
+### Fichiers de certificat
+
+Voir [section dédiée pour TLS](#fichiers-de-certificat), les prérequis sont identiques.
+
+### Synthèse des configurations possibles
+
+La configuration est similaire à [celle indiquée pour TLS](#synthèse-des-configurations-possibles).
+
+La différence se situe dans l'usage du champ "Nom commun CA", côté client.
+
+<Tabs groupId="sync">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+
+Le champ **Certificate Common Name/ca_name** contiendra la valeur (DNS, IP ou CN) renseignée dans le certificat.
+
+</TabItem>
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+
+Dans la section **Configurations d'hôte**, le champ **Nom commun CA (CN)** contiendra la valeur (DNS, IP ou CN) renseignée dans le certificat.
+
+</TabItem>
+</Tabs>
+
+## Comment générer un certificat autosigné (facultatif)
 
 Si vous ne possédez pas de certificat, il est possible de générer un certificat autosigné.
 Pour générer un certificat autosigné valide un an, exécutez la commande suivante sur votre collecteur ou votre hôte :
 
 ```shell
 openssl req -new -subj '/CN={server_hostname}' \
-                 -addext "subjectAltName = DNS:{alt_poller_DNS}, IP:{alt_poller_IP}" \
+                 -addext "subjectAltName = DNS:{alt_server_DNS}, IP:{alt_server_IP}" \
                  -days 365 -nodes -x509 \
                  -newkey rsa:2048 -keyout {key} -out {cert}
 ```
@@ -81,6 +130,14 @@ openssl req -new -subj '/CN={server_hostname}' \
 - \{server_hostname\} = nom DNS du serveur et/ou utiliser \{alt_poller_DNS\} et/ou utiliser \{alt_poller_IP\}
 Dans le mode de chiffrement TLS, le DNS/IP du serveur utilisé par le client doit obligatoirement correspondre à une entrée CN ou SAN (altName) du certificat (\{server_hostname\}).
 La ligne -subj '/CN=\{server_hostname\}' \ est facultative si des SAN sont définis.
+Dans le mode de chiffrement TLS non sécurisé, le DNS/IP du serveur peut être différent des informations du certificat. Il faudra alors renseigner la valeur à utiliser dans "Nom commun CA", au sein de la configuration du client.
+
+Les fichiers de certificat déposés sur le collecteur doivent être déposés dans **/etc/pki/**, à la racine ou dans un sous-repertoire.
+Ils doivent avoir les permissions suivantes :
+
+```shell
+chmod 644 /etc/pki/agent*
+```
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
