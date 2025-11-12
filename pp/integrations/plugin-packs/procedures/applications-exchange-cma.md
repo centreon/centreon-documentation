@@ -5,65 +5,64 @@ title: Microsoft Exchange CMA
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du connecteur de supervision
+## Connector dependencies
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft Exchange CMA** 
-depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+The following monitoring connectors will be installed when you install the **Microsoft Exchange CMA** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
-## Contenu du pack
+## Pack assets
 
-### Modèles
+### Templates
 
-Le connecteur de supervision **Microsoft Exchange CMA** apporte un modèle d'hôte :
+The Monitoring Connector **Microsoft Exchange CMA** brings a host template:
 
 * **App-Exchange-CMA-custom**
 
-Le connecteur apporte les modèles de service suivants
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
 <TabItem value="App-Exchange-CMA-custom" label="App-Exchange-CMA-custom">
 
-| Alias             | Modèle de service                 | Description                                                     |
-|:------------------|:----------------------------------|:----------------------------------------------------------------|
-| Databases         | App-Exchange-Databases-CMA-custom | Contrôle permettant de vérifier l'état des 'databases' Exchange |
-| Exchange-Services | App-Exchange-Services-CMA-custom  | Contrôle permettant de vérifier l'état des services Exchange    |
-| Queues            | App-Exchange-Queues-CMA-custom    | Contrôle permettant de vérifier l'état des queues Exchange      |
+| Service Alias     | Service Template                  | Service Description      |
+|:------------------|:----------------------------------|:-------------------------|
+| Databases         | App-Exchange-Databases-CMA-custom | Check Exchange Databases |
+| Exchange-Services | App-Exchange-Services-CMA-custom  | Check exchange services  |
+| Queues            | App-Exchange-Queues-CMA-custom    | Check queue status       |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Exchange-CMA-custom** est utilisé.
+> The services listed above are created automatically when the **App-Exchange-CMA-custom** host template is used.
 
 </TabItem>
-<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Alias               | Modèle de service                           | Description                                                                      |
-|:--------------------|:--------------------------------------------|:---------------------------------------------------------------------------------|
-| Activesync-Mailbox  | App-Exchange-Activesync-Mailbox-CMA-custom  | Contrôle permettant de vérifier activesync sur une boîte aux lettres             |
-| Imap-Mailbox        | App-Exchange-Imap-Mailbox-CMA-custom        | Contrôle permettant de vérifier la connexion IMAP à une boîte aux lettres        |
-| Mailboxes           | App-Exchange-Mailboxes-CMA-custom           | Contrôle les boîtes aux lettres (quota et boîtes aux lettres par base de données) |
-| Mapi-Mailbox        | App-Exchange-Mapi-Mailbox-CMA-custom        | Contrôle permettant de vérifier la connexion MAPI à une boîte aux lettres        |
-| Outlook-Webservices | App-Exchange-Outlook-Webservices-CMA-custom | Contrôle permettant de vérifier l'auto-découverte Outlook                        |
-| Owa-Mailbox         | App-Exchange-Owa-Mailbox-CMA-custom         | Contrôle permettant de vérifier la connexion OWA à une boîte aux lettres         |
-| Replication-Health  | App-Exchange-Replication-Health-CMA-custom  | Contrôle permettant de vérifier l'état de santé de la réplication                |
+| Service Alias       | Service Template                            | Service Description                                    |
+|:--------------------|:--------------------------------------------|:-------------------------------------------------------|
+| Activesync-Mailbox  | App-Exchange-Activesync-Mailbox-CMA-custom  | Check activesync to a mailbox                          |
+| Imap-Mailbox        | App-Exchange-Imap-Mailbox-CMA-custom        | Check IMAP to a mailbox                                |
+| Mailboxes           | App-Exchange-Mailboxes-CMA-custom           | Check mailboxes (quota and user mailboxes by database) |
+| Mapi-Mailbox        | App-Exchange-Mapi-Mailbox-CMA-custom        | Check MAPI to a mailbox                                |
+| Outlook-Webservices | App-Exchange-Outlook-Webservices-CMA-custom | Check Outlook autodiscovery webservices                |
+| Owa-Mailbox         | App-Exchange-Owa-Mailbox-CMA-custom         | Check OWA connection to a mailbox                      |
+| Replication-Health  | App-Exchange-Replication-Health-CMA-custom  | Check replication health                               |
 
-> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
 </TabItem>
 </Tabs>
 
-### Métriques & statuts collectés
+### Collected metrics & status
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Activesync-Mailbox" label="Activesync-Mailbox">
 
-Pas de métriques pour ce service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Databases" label="Databases">
 
-| Nom                                           | Unité |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | databases.space.size.bytes                    | B     |
 | databases.space.available.bytes               | B     |
@@ -78,17 +77,17 @@ Pas de métriques pour ce service.
 </TabItem>
 <TabItem value="Exchange-Services" label="Exchange-Services">
 
-Pas de métriques pour ce service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Imap-Mailbox" label="Imap-Mailbox">
 
-Pas de métriques pour ce service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Mailboxes" label="Mailboxes">
 
-| Nom                                                      | Unité |
+| Name                                                     | Unit  |
 |:---------------------------------------------------------|:------|
 | *databases*#database.mailboxes.total.count               | count |
 | *users*#user.soft.limit.count                            | count |
@@ -100,73 +99,73 @@ Pas de métriques pour ce service.
 | *publicfolders*#publicfolder.quota.unlimited.limit.count | count |
 | *publicfolders*#publicfolder.total.count                 | count |
 
+
 </TabItem>
 <TabItem value="Mapi-Mailbox" label="Mapi-Mailbox">
 
-Pas de métriques pour ce service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Outlook-Webservices" label="Outlook-Webservices">
 
-Pas de métriques pour ce service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Owa-Mailbox" label="Owa-Mailbox">
 
-Pas de métriques pour ce service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Queues" label="Queues">
 
-| Nom    | Unité |
+| Name   | Unit  |
 |:-------|:------|
 | status | N/A   |
 
 </TabItem>
 <TabItem value="Replication-Health" label="Replication-Health">
 
-Pas de métriques pour ce service.
+No metrics for this service.
 
 </TabItem>
 </Tabs>
 
-## Prérequis
+## Prerequisites
 
-### Flux réseau
+### Network flow
 
-Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
+Only one TCP flow must be open from the host to the poller.
 
-| Source         | Destination | Protocole | Port | Objet                                                                       |
-|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
-| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
+| Source         | Destination | Protocol | Port | Purpose                                              |
+|----------------|-------------|----------|------|------------------------------------------------------|
+| Monitored host | Poller | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow |
 
-### Prérequis système sur le collecteur
+### System prerequisites on the poller
 
-> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-> minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
+> To be able to use the Centreon Monitoring agent, you must use a poller with at least version `24.09.0` for Centreon Cloud users and version `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
 
-### Configuration de Centreon Engine
+### Configure Engine
 
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
 
-### Prérequis système sur l'hôte à superviser
+### System prerequisites on the monitored host
 
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur [cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte).
+The installer can be downloaded from the [centreon-collect's release page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
 
-#### Installation de Centreon Monitoring Agent
+#### Installing the Centreon Monitoring Agent
 
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
-[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte).
+The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in 
+[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
 
-## Installer le connecteur de supervision
+## Installing the monitoring connector
 
 ### Pack
 
-1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
-Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquets
-associé à sa distribution :
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -199,183 +198,181 @@ yum install centreon-pack-applications-exchange-cma
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Microsoft Exchange CMA**
-depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+2. Whatever the license type (*online* or *offline*), install the **Microsoft Exchange CMA** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
-Ce connecteur de supervision s'appuie sur une intégration prise en charge par Centreon Engine et ne requiert pas de plugin.
+This connector relies on an integration supported by Centreon Engine and does not need a plugin.
 
-## Utiliser le connecteur de supervision
+## Using the monitoring connector
 
-### Utiliser un modèle d'hôte issu du connecteur
+### Using a host template provided by the connector
 
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **App-Exchange-CMA-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Exchange-CMA-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                | Description                                             | Valeur par défaut                 | Obligatoire |
-|:---------------------|:--------------------------------------------------------|:----------------------------------|:-----------:|
-| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X      |
-| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |             |
-| TIMEOUT              | Timeout time for command execution                      | 120                               |             |
+| Macro                | Description                                             | Default value                     | Mandatory |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:---------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |     X     |
+| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |           |
+| TIMEOUT              | Timeout time for command execution                      | 120                               |           |
 
-5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-### Utiliser un modèle de service issu du connecteur
+### Using a service template provided by the connector
 
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
-2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
 <TabItem value="Activesync-Mailbox" label="Activesync-Mailbox">
 
-| Macro        | Description                                                                                                                                      | Valeur par défaut             | Obligatoire |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
-| MAILBOX      | Set the mailbox to check                                                                                                                         |                               |      X      |
-| PASSWORD     | Set the password for the mailbox                                                                                                                 |                               |      X      |
-| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                          | not %\{result\} =~ /Success/i |             |
-| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                           |                               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                     |             |
+| Macro        | Description                                                                                                                            | Default value                 | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
+| MAILBOX      | Set the mailbox to check                                                                                                               |                               |     X     |
+| PASSWORD     | Set the password for the mailbox                                                                                                       |                               |     X     |
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                | not %\{result\} =~ /Success/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                 |                               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                     |           |
 
 </TabItem>
 <TabItem value="Databases" label="Databases">
 
-| Macro                           | Description                                                                                                                                      | Valeur par défaut                             | Obligatoire |
-|:--------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| FILTER                          | Filter database (only wilcard '*' can be used. In Powershell)                                                                                    | *                                             |             |
-| CRITICALCOPYSTATUS              | Set critical threshold. You can use the following variables: %\{copystatus\_indexstate\}, %\{database\}, %\{server\}                             | not %\{copystatus\_indexstate\} =~ /Healthy/i |             |
-| WARNINGCOPYSTATUS               | Set warning threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                                    |                                               |             |
-| WARNINGDATABASESPACEAVAILABLE   | Threshold                                                                                                                                        |                                               |             |
-| CRITICALDATABASESPACEAVAILABLE  | Threshold                                                                                                                                        |                                               |             |
-| WARNINGDATABASESPACESIZE        | Threshold                                                                                                                                        |                                               |             |
-| CRITICALDATABASESPACESIZE       | Threshold                                                                                                                                        |                                               |             |
-| WARNINGDATABASESSPACEAVAILABLE  | Threshold                                                                                                                                        |                                               |             |
-| CRITICALDATABASESSPACEAVAILABLE | Threshold                                                                                                                                        |                                               |             |
-| WARNINGDATABASESSPACESIZE       | Threshold                                                                                                                                        |                                               |             |
-| CRITICALDATABASESSPACESIZE      | Threshold                                                                                                                                        |                                               |             |
-| CRITICALMAILFLOW                | Set critical threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                                   | not %\{mailflow\_result\} =~ /Success/i       |             |
-| WARNINGMAILFLOW                 | Set warning threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                                    |                                               |             |
-| WARNINGMAILFLOWLATENCY          | Threshold                                                                                                                                        |                                               |             |
-| CRITICALMAILFLOWLATENCY         | Threshold                                                                                                                                        |                                               |             |
-| CRITICALMAPI                    | Set critical threshold. You can use the following variables: %\{mapi\_result\}, %\{database\}, %\{server\}                                       | not %\{mapi\_result\} =~ /Success/i           |             |
-| WARNINGMAPI                     | Set warning threshold. You can use the following variables: %\{mapi\_result\}, %\{database\}, %\{server\}                                        |                                               |             |
-| CRITICALSTATUS                  | Set critical threshold. You can use the following variables: %\{mounted\}, %\{database\}, %\{server\}                                            | %\{mounted\} == 0                             |             |
-| WARNINGSTATUS                   | Set warning threshold. You can use the following variables: %\{mounted\}, %\{database\}, %\{server\}                                             |                                               |             |
-| EXTRAOPTIONS                    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --no-mapi --no-mailflow             |             |
+| Macro                           | Description                                                                                                                            | Default value                                 | Mandatory |
+|:--------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------:|
+| FILTER                          | Filter database (only wilcard '*' can be used. In Powershell)                                                                          | *                                             |           |
+| CRITICALCOPYSTATUS              | Set critical threshold. You can use the following variables: %\{copystatus\_indexstate\}, %\{database\}, %\{server\}                   | not %\{copystatus\_indexstate\} =~ /Healthy/i |           |
+| WARNINGCOPYSTATUS               | Set warning threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                          |                                               |           |
+| WARNINGDATABASESPACEAVAILABLE   | Threshold                                                                                                                              |                                               |           |
+| CRITICALDATABASESPACEAVAILABLE  | Threshold                                                                                                                              |                                               |           |
+| WARNINGDATABASESPACESIZE        | Threshold                                                                                                                              |                                               |           |
+| CRITICALDATABASESPACESIZE       | Threshold                                                                                                                              |                                               |           |
+| WARNINGDATABASESSPACEAVAILABLE  | Threshold                                                                                                                              |                                               |           |
+| CRITICALDATABASESSPACEAVAILABLE | Threshold                                                                                                                              |                                               |           |
+| WARNINGDATABASESSPACESIZE       | Threshold                                                                                                                              |                                               |           |
+| CRITICALDATABASESSPACESIZE      | Threshold                                                                                                                              |                                               |           |
+| CRITICALMAILFLOW                | Set critical threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                         | not %\{mailflow\_result\} =~ /Success/i       |           |
+| WARNINGMAILFLOW                 | Set warning threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                          |                                               |           |
+| WARNINGMAILFLOWLATENCY          | Threshold                                                                                                                              |                                               |           |
+| CRITICALMAILFLOWLATENCY         | Threshold                                                                                                                              |                                               |           |
+| CRITICALMAPI                    | Set critical threshold. You can use the following variables: %\{mapi\_result\}, %\{database\}, %\{server\}                             | not %\{mapi\_result\} =~ /Success/i           |           |
+| WARNINGMAPI                     | Set warning threshold. You can use the following variables: %\{mapi\_result\}, %\{database\}, %\{server\}                              |                                               |           |
+| CRITICALSTATUS                  | Set critical threshold. You can use the following variables: %\{mounted\}, %\{database\}, %\{server\}                                  | %\{mounted\} == 0                             |           |
+| WARNINGSTATUS                   | Set warning threshold. You can use the following variables: %\{mounted\}, %\{database\}, %\{server\}                                   |                                               |           |
+| EXTRAOPTIONS                    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --no-mapi --no-mailflow             |           |
 
 </TabItem>
 <TabItem value="Exchange-Services" label="Exchange-Services">
 
-| Macro        | Description                                                                                                                                         | Valeur par défaut                                                                   | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------|:-----------:|
-| CRITICAL     | Set critical threshold. You can use the following variables: %\{servicesrunning\}, %\{servicesnotrunning\}, %\{role\}, %\{requiredservicesrunning\} | %\{requiredservicesrunning\} =~ /True/i and %\{servicesnotrunning\} =~ /\[a-zA-Z\]/ |             |
-| WARNING      | Set warning threshold. You can use the following variables: %\{servicesrunning\}, %\{servicesnotrunning\}, %\{role\}, %\{requiredservicesrunning\}  |                                                                                     |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).    | --verbose                                                                           |             |
+| Macro        | Description                                                                                                                                         | Default value                                                                       | Mandatory |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------|:---------:|
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{servicesrunning\}, %\{servicesnotrunning\}, %\{role\}, %\{requiredservicesrunning\} | %\{requiredservicesrunning\} =~ /True/i and %\{servicesnotrunning\} =~ /\[a-zA-Z\]/ |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{servicesrunning\}, %\{servicesnotrunning\}, %\{role\}, %\{requiredservicesrunning\}  |                                                                                     |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).              | --verbose                                                                           |           |
 
 </TabItem>
 <TabItem value="Imap-Mailbox" label="Imap-Mailbox">
 
-| Macro        | Description                                                                                                                                      | Valeur par défaut             | Obligatoire |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
-| MAILBOX      | Set the mailbox to check                                                                                                                         |                               |      X      |
-| PASSWORD     | Set the password for the mailbox                                                                                                                 |                               |      X      |
-| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                          | not %\{result\} =~ /Success/i |             |
-| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                           |                               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                     |             |
+| Macro        | Description                                                                                                                            | Default value                 | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
+| MAILBOX      | Set the mailbox to check                                                                                                               |                               |     X     |
+| PASSWORD     | Set the password for the mailbox                                                                                                       |                               |     X     |
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                | not %\{result\} =~ /Success/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                 |                               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                     |           |
 
 </TabItem>
 <TabItem value="Mailboxes" label="Mailboxes">
 
-| Macro                               | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PSERVER                             | Select mailboxes by an uniq server name (In Powershell)                                                                                          |                   |             |
-| PSDATABASE                          | Select mailboxes by an uniq database name (In Powershell)                                                                                        |                   |             |
-| PSMATCHSERVER                       | Filter mailboxes by server name (regexp can be used. In Powershell)                                                                              |                   |             |
-| PSMATCHDATABASE                     | Filter mailboxes by database name (regexp can be used. In Powershell)                                                                            |                   |             |
-| WARNINGDATABASEMAILBOXESTOTAL       | Threshold                                                                                                                                        |                   |             |
-| CRITICALDATABASEMAILBOXESTOTAL      | Threshold                                                                                                                                        |                   |             |
-| WARNINGPUBLICFOLDERSHARDLIMIT       | Threshold                                                                                                                                        |                   |             |
-| CRITICALPUBLICFOLDERSHARDLIMIT      | Threshold                                                                                                                                        |                   |             |
-| WARNINGPUBLICFOLDERSQUOTAUNLIMITED  | Threshold                                                                                                                                        |                   |             |
-| CRITICALPUBLICFOLDERSQUOTAUNLIMITED | Threshold                                                                                                                                        |                   |             |
-| WARNINGPUBLICFOLDERSSOFTLIMIT       | Threshold                                                                                                                                        |                   |             |
-| CRITICALPUBLICFOLDERSSOFTLIMIT      | Threshold                                                                                                                                        |                   |             |
-| WARNINGPUBLICFOLDERSTOTAL           | Threshold                                                                                                                                        |                   |             |
-| CRITICALPUBLICFOLDERSTOTAL          | Threshold                                                                                                                                        |                   |             |
-| WARNINGUSERSHARDLIMIT               | Threshold                                                                                                                                        |                   |             |
-| CRITICALUSERSHARDLIMIT              | Threshold                                                                                                                                        |                   |             |
-| WARNINGUSERSQUOTAUNLIMITED          | Threshold                                                                                                                                        |                   |             |
-| CRITICALUSERSQUOTAUNLIMITED         | Threshold                                                                                                                                        |                   |             |
-| WARNINGUSERSSOFTLIMIT               | Threshold                                                                                                                                        |                   |             |
-| CRITICALUSERSSOFTLIMIT              | Threshold                                                                                                                                        |                   |             |
-| WARNINGUSERSTOTAL                   | Threshold                                                                                                                                        |                   |             |
-| CRITICALUSERSTOTAL                  | Threshold                                                                                                                                        |                   |             |
-| EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro                               | Description                                                                                                                            | Default value | Mandatory |
+|:------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| PSERVER                             | Select mailboxes by a unique server name (in Powershell)                                                                                |               |           |
+| PSDATABASE                          | Select mailboxes by a unique database name (in Powershell)                                                                              |               |           |
+| PSMATCHSERVER                       | Filter mailboxes by server name (regexp can be used. In Powershell)                                                                    |               |           |
+| PSMATCHDATABASE                     | Filter mailboxes by database name (regexp can be used. In Powershell)                                                                  |               |           |
+| WARNINGDATABASEMAILBOXESTOTAL       | Threshold                                                                                                                              |               |           |
+| CRITICALDATABASEMAILBOXESTOTAL      | Threshold                                                                                                                              |               |           |
+| WARNINGPUBLICFOLDERSHARDLIMIT       | Threshold                                                                                                                              |               |           |
+| CRITICALPUBLICFOLDERSHARDLIMIT      | Threshold                                                                                                                              |               |           |
+| WARNINGPUBLICFOLDERSQUOTAUNLIMITED  | Threshold                                                                                                                              |               |           |
+| CRITICALPUBLICFOLDERSQUOTAUNLIMITED | Threshold                                                                                                                              |               |           |
+| WARNINGPUBLICFOLDERSSOFTLIMIT       | Threshold                                                                                                                              |               |           |
+| CRITICALPUBLICFOLDERSSOFTLIMIT      | Threshold                                                                                                                              |               |           |
+| WARNINGPUBLICFOLDERSTOTAL           | Threshold                                                                                                                              |               |           |
+| CRITICALPUBLICFOLDERSTOTAL          | Threshold                                                                                                                              |               |           |
+| WARNINGUSERSHARDLIMIT               | Threshold                                                                                                                              |               |           |
+| CRITICALUSERSHARDLIMIT              | Threshold                                                                                                                              |               |           |
+| WARNINGUSERSQUOTAUNLIMITED          | Threshold                                                                                                                              |               |           |
+| CRITICALUSERSQUOTAUNLIMITED         | Threshold                                                                                                                              |               |           |
+| WARNINGUSERSSOFTLIMIT               | Threshold                                                                                                                              |               |           |
+| CRITICALUSERSSOFTLIMIT              | Threshold                                                                                                                              |               |           |
+| WARNINGUSERSTOTAL                   | Threshold                                                                                                                              |               |           |
+| CRITICALUSERSTOTAL                  | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Mapi-Mailbox" label="Mapi-Mailbox">
 
-| Macro        | Description                                                                                                                                      | Valeur par défaut             | Obligatoire |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
-| MAILBOX      | Set the mailbox to check                                                                                                                         |                               |      X      |
-| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                          | not %\{result\} =~ /Success/i |             |
-| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                           |                               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                     |             |
+| Macro        | Description                                                                                                                            | Default value                 | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
+| MAILBOX      | Set the mailbox to check                                                                                                               |                               |     X     |
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                | not %\{result\} =~ /Success/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                 |                               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                     |           |
 
 </TabItem>
 <TabItem value="Outlook-Webservices" label="Outlook-Webservices">
 
-| Macro        | Description                                                                                                                                      | Valeur par défaut                        | Obligatoire |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|:-----------:|
-| MAILBOX      | Set the mailbox to check                                                                                                                         |                                          |      X      |
-| CRITICAL     | Set critical threshold. You can use the following variables: %\{type\}, %\{id\}, %\{message\}                                                    | not %\{type\} =~ /Success\|Information/i |             |
-| WARNING      | Set warning threshold. You can use the following variables: %\{type\}, %\{id\}, %\{message\}                                                     |                                          |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                |             |
+| Macro        | Description                                                                                                                            | Default value                            | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|:---------:|
+| MAILBOX      | Set the mailbox to check                                                                                                               |                                          |     X     |
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{type\}, %\{id\}, %\{message\}                                          | not %\{type\} =~ /Success\|Information/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{type\}, %\{id\}, %\{message\}                                           |                                          |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                                |           |
 
 </TabItem>
 <TabItem value="Owa-Mailbox" label="Owa-Mailbox">
 
-| Macro        | Description                                                                                                                                      | Valeur par défaut             | Obligatoire |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
-| URL          | Set the OWA Url                                                                                                                                  |                               |      X      |
-| MAILBOX      | Set the mailbox to check                                                                                                                         |                               |      X      |
-| PASSWORD     | Set the password for the mailbox                                                                                                                 |                               |      X      |
-| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                          | not %\{result\} =~ /Success/i |             |
-| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                           |                               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                     |             |
+| Macro        | Description                                                                                                                            | Default value                 | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
+| URL          | Set the OWA URL                                                                                                                       |                               |     X     |
+| MAILBOX      | Set the mailbox to check                                                                                                               |                               |     X     |
+| PASSWORD     | Set the password for the mailbox                                                                                                       |                               |     X     |
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                | not %\{result\} =~ /Success/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                 |                               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                     |           |
 
 </TabItem>
 <TabItem value="Queues" label="Queues">
 
-| Macro        | Description                                                                                                                                       | Valeur par défaut                   | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
-| CRITICAL     | Set critical threshold. You can use the following variables: %\{status\}, %\{identity\}, %\{is\_valid\}, %\{delivery\_type\}, %\{message\_count\} | not %\{status\} =~ /Ready\|Active/i |             |
-| WARNING      | Set warning threshold. You can use the following variables: %\{status\}, %\{identity\}, %\{is\_valid\}, %\{delivery\_type\}, %\{message\_count\}  |                                     |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).  | --verbose                           |             |
+| Macro        | Description                                                                                                                                       | Default value                       | Mandatory |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------:|
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{status\}, %\{identity\}, %\{is\_valid\}, %\{delivery\_type\}, %\{message\_count\} | not %\{status\} =~ /Ready\|Active/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{status\}, %\{identity\}, %\{is\_valid\}, %\{delivery\_type\}, %\{message\_count\}  |                                     |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).            | --verbose                           |           |
 
 </TabItem>
 <TabItem value="Replication-Health" label="Replication-Health">
 
-| Macro        | Description                                                                                                                                      | Valeur par défaut            | Obligatoire |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{server\}, %\{isvalid\}, %\{check\}                                  | not %\{result\} =~ /Passed/i |             |
-| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{server\}, %\{isvalid\}, %\{check\}                                   |                              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                    |             |
+| Macro        | Description                                                                                                                            | Default value                | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:---------:|
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{server\}, %\{isvalid\}, %\{check\}                        | not %\{result\} =~ /Passed/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{server\}, %\{isvalid\}, %\{check\}                         |                              |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                    |           |
 
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser une ressource en utilisant une commande
-telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 "/centreon_plugins.exe" \
@@ -387,26 +384,26 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--verbose
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
 OK: All queues are ok 
 ```
 
-### Diagnostic des erreurs communes
+### Troubleshooting
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-### Modes disponibles
+### Available modes
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
-du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
-implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
-modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
-`--list-mode` à la commande :
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 "/centreon_plugins.exe" \
@@ -414,9 +411,9 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 	--list-mode
 ```
 
-Le plugin apporte les modes suivants :
+The plugin brings the following modes:
 
-| Mode                                                                                                                                                 | Modèle de service associé                   |
+| Mode                                                                                                                                                 | Linked service template                     |
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|
 | activesync-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/activesyncmailbox.pm)]   | App-Exchange-Activesync-Mailbox-CMA-custom  |
 | databases [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/databases.pm)]                    | App-Exchange-Databases-CMA-custom           |
@@ -430,11 +427,11 @@ Le plugin apporte les modes suivants :
 | replication-health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/replicationhealth.pm)]   | App-Exchange-Replication-Health-CMA-custom  |
 | services [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/services.pm)]                      | App-Exchange-Services-CMA-custom            |
 
-### Options disponibles
+### Available options
 
-#### Options génériques
+#### Generic options
 
-Les options génériques sont listées ci-dessous :
+All generic options are listed here:
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -472,9 +469,9 @@ Les options génériques sont listées ci-dessous :
 | --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-#### Options des modes
+#### Modes options
 
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+All available options for each service template are listed below:
 
 <Tabs groupId="sync">
 <TabItem value="Activesync-Mailbox" label="Activesync-Mailbox">
@@ -689,8 +686,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 </Tabs>
 
-Pour un mode, la liste de toutes les options disponibles et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
 "/centreon_plugins.exe" \
