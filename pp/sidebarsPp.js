@@ -549,6 +549,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-prometheus-alertmanager-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-api'
         },
         {
@@ -1562,6 +1566,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-aruba-aoscx-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
         },
         {
           type: 'doc',
