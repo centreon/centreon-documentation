@@ -5,10 +5,10 @@ title: HPE Athonet Alertmanager w/ Prometheus
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **HPE Athonet Alertmanager w/ Prometheus** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -56,14 +56,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Le Collecteur Centreon doit être en mesure d'exécuter des requêtes HTTP(S) vers le Prometheus Alertmanager des serveurs à superviser.
+Le collecteur Centreon doit être en mesure d'exécuter des requêtes HTTP(S) vers le Prometheus Alertmanager des serveurs à superviser.
 
 ## Installer le connecteur de supervision
 
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -100,7 +100,7 @@ yum install centreon-pack-network-hpe-athonet-alertmanager-api
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HPE Athonet Alertmanager w/ Prometheus**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -174,7 +174,7 @@ yum install centreon-plugin-Network-Hp-Athonet-Alertmanager-Api
 
 | Macro                  | Description                                                                                                                                 | Valeur par défaut                                                                        | Obligatoire |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------|:-----------:|
-| DISPLAYALERTS          | Display alerts in verbose output (default: C\<'alert \[start: %(startsAt)\] \[state: %(state)\] \[severity: %(severity)\]: %(alertname)'\>) | alert \[start: %(startsAt)\] \[state: %(state)\] \[severity: %(severity)\]: %(alertname) |             |
+| DISPLAYALERTS          | Display alerts in verbose output (default: \<'alert \[start: %(startsAt)\] \[state: %(state)\] \[severity: %(severity)\]: %(alertname)'\>) | alert \[start: %(startsAt)\] \[state: %(state)\] \[severity: %(severity)\]: %(alertname) |             |
 | FILTERNAME             | Filter alerts by name (can use regexp)                                                                                                      |                                                                                          |             |
 | FILTERSEVERITY         | Filter alerts by severity (can use regexp)                                                                                                  |                                                                                          |             |
 | WARNINGACTIVE          | Warning threshold for active alerts count                                                                                                   |                                                                                          |             |
