@@ -357,7 +357,7 @@ with the following:
 
 2. If you were using custom commands for a poller (on the **Configuration > Pollers > Pollers** page, in the **Monitoring Engine Information** section), be aware that a new validation regex is now applied (`[a-zA-Z0-9\-\_]+`): your custom commands may need to be adapted. On the central server:
    * To identify commands that must be adapted, run:
-     ````shell
+     ```shell
      sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
      ```
    * To adapt the commands automatically, run:
