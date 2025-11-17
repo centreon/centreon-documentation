@@ -64,8 +64,6 @@ Pour des raisons de sécurité, Centreon Cloud inclut une liste blanche préremp
    
 4. Utilisez une regex pour définir les commandes autorisées. Exemple : 
 
-  ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
-  ```
   ```text
   whitelist:
       regex:

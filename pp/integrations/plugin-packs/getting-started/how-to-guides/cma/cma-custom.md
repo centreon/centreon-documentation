@@ -62,5 +62,6 @@ Copy the plugin on the host, to the directory of your choice.
 2. Associate this command with the **Centreon Monitoring Agent** connector (**Connectors** field).
 
 3. If you haven't already done so, [create a host](/docs/monitoring/basic-objects/hosts) for the resource to be monitored.
-4. For each service model you want, select the command you just created.
+4. You can associate the command with an existing service template or create a dedicated service template.
+The template must inherit (directly or via its parent) from the **OS-Windows-Centreon-Monitoring-Agent** or **OS-Linux-Generic-Centreon-Monitoring-Agent** templates, or alternatively be configured with passive checks enabled and active checks disabled.
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
