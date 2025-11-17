@@ -1,13 +1,13 @@
 ---
 id: applications-monitoring-quanta-restapi
-title: Quanta Rest API
+title: Centreon DEM (formerly Quanta) Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Quanta Rest API**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Centreon DEM (formerly Quanta) Rest API**
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Quanta Rest API** apporte un modèle d'hôte :
+Le connecteur de supervision **Centreon DEM (formerly Quanta) Rest API** apporte un modèle d'hôte :
 
 * **App-Monitoring-Quanta-Restapi-custom**
 
@@ -168,7 +168,7 @@ yum install centreon-pack-applications-monitoring-quanta-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Quanta Rest API**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Centreon DEM (formerly Quanta) Rest API**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
