@@ -42,8 +42,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                   | Service Description    | Discovery |
 |:--------------|:---------------------------------------------------|:-----------------------|:---------:|
-| Disk-Usage    | HW-Storage-HPE-Primera-Disk-Usage-RESTAPI-custom   | Check the disk usage   |     X     |
-| Volume-Usage  | HW-Storage-HPE-Primera-Volume-Usage-RESTAPI-custom | Check the volume usage |     X     |
+| Disk-Usage    | HW-Storage-HPE-Primera-Disk-Usage-RESTAPI-custom   | Check disk usage   |     X     |
+| Volume-Usage  | HW-Storage-HPE-Primera-Volume-Usage-RESTAPI-custom | Check volume usage |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
