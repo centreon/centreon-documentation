@@ -1,6 +1,6 @@
 ---
 id: hardware-pdu-clever-snmp
-title: Clever PDU
+title: Clever PDU SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Clever PDU** apporte un modèle d'hôte :
+Le connecteur de supervision **Clever PDU SNMP** apporte un modèle d'hôte :
 
 * **HW-Pdu-Clever-SNMP-custom**
 
@@ -32,9 +32,9 @@ Le connecteur apporte le modèle de service suivant
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                       |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Pdu-Clever-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                               |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Pdu-Clever-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -45,12 +45,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Power-Source-Usage" label="Power-Source-Usage">
 
-| Métrique    | Unité |
-|:------------|:------|
-| power       | W     |
-| current     | A     |
-| voltage     | V     |
-
+| Nom     | Unité |
+|:--------|:------|
+| power   | W     |
+| current | A     |
+| voltage | V     |
 
 </TabItem>
 </Tabs>
@@ -59,8 +58,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre **Clever PDU** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* [Clever](https://www.china-clever.com/en/resources/specification/index.html)
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la [documentation officielle](https://www.china-clever.com/en/resources/specification/index.html). 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -108,7 +109,7 @@ yum install centreon-pack-hardware-pdu-clever-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Clever PDU**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Clever PDU SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

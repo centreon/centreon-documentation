@@ -1,6 +1,6 @@
 ---
 id: hardware-ups-mge-snmp
-title: MGE UPS System
+title: MGE UPS System SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **MGE UPS System** apporte un modèle d'hôte :
+Le connecteur de supervision **MGE UPS System SNMP** apporte un modèle d'hôte :
 
 * **HW-UPS-Mge-SNMP-custom**
 
@@ -36,9 +36,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                    |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-UPS-Mge-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                            |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-UPS-Mge-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -49,17 +49,17 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Battery-Status" label="Battery-Status">
 
-| Métrique    | Unité |
-|:------------|:------|
-| load        | %     |
-| current     | A     |
-| voltage     | V     |
-| temp        | C     |
+| Nom     | Unité |
+|:--------|:------|
+| load    | %     |
+| current | A     |
+| voltage | V     |
+| temp    | C     |
 
 </TabItem>
 <TabItem value="Environment" label="Environment">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | hardware.sensor.temperature.celsius | C     |
 | hardware.sensor.humidity.percentage | %     |
@@ -69,7 +69,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Input-Lines" label="Input-Lines">
 
-| Métrique          | Unité |
+| Nom               | Unité |
 |:------------------|:------|
 | status            | N/A   |
 | *iline*#current   | A     |
@@ -81,7 +81,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | output.3phases.stdev.gauge          | N/A   |
 | *oline*#line.output.load.percentage | %     |
@@ -94,9 +94,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Output-Source" label="Output-Source">
 
-| Métrique        | Unité  |
-|:------------------|:------|
-| status            | N/A   |
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
 
 </TabItem>
 </Tabs>
@@ -105,7 +105,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -153,7 +156,7 @@ yum install centreon-pack-hardware-ups-mge-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **MGE UPS System**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **MGE UPS System SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

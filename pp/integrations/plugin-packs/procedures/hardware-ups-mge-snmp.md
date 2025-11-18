@@ -1,6 +1,6 @@
 ---
 id: hardware-ups-mge-snmp
-title: MGE UPS System
+title: MGE UPS System SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **MGE UPS System** brings a host template:
+The Monitoring Connector **MGE UPS System SNMP** brings a host template:
 
 * **HW-UPS-Mge-SNMP-custom**
 
@@ -48,17 +48,17 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Battery-Status" label="Battery-Status">
 
-| Metric name | Unit  |
-|:------------|:------|
-| load        | %     |
-| current     | A     |
-| voltage     | V     |
-| temp        | C     |
+| Name    | Unit  |
+|:--------|:------|
+| load    | %     |
+| current | A     |
+| voltage | V     |
+| temp    | C     |
 
 </TabItem>
 <TabItem value="Environment" label="Environment">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | hardware.sensor.temperature.celsius | C     |
 | hardware.sensor.humidity.percentage | %     |
@@ -68,7 +68,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Input-Lines" label="Input-Lines">
 
-| Metric name       | Unit  |
+| Name              | Unit  |
 |:------------------|:------|
 | status            | N/A   |
 | *iline*#current   | A     |
@@ -80,7 +80,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | output.3phases.stdev.gauge          | N/A   |
 | *oline*#line.output.load.percentage | %     |
@@ -93,9 +93,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Output-Source" label="Output-Source">
 
-| Metric name       | Unit  |
-|:------------------|:------|
-| status            | N/A   |
+| Name   | Unit  |
+|:-------|:------|
+| status | N/A   |
 
 </TabItem>
 </Tabs>
@@ -104,7 +104,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP service must be configured and activated on the host. 
+Please refer to the official documentation. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -152,7 +155,7 @@ yum install centreon-pack-hardware-ups-mge-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **MGE UPS System** connector through
+2. Whatever the license type (*online* or *offline*), install the **MGE UPS System SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

@@ -1,6 +1,6 @@
 ---
 id: hardware-ats-apc
-title: APC ATS
+title: APC ATS SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **APC ATS** apporte un modèle d'hôte :
+Le connecteur de supervision **APC ATS SNMP** apporte un modèle d'hôte :
 
 * **HW-ATS-Apc-SNMP-custom**
 
@@ -37,13 +37,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Device-Status" label="Device-Status">
 
-| Métrique                                      | Unité  |
-|:--------------------------------------------------|:------|
-| *devices*~device-status                           | N/A   |
+| Nom                     | Unité |
+|:------------------------|:------|
+| *devices*~device-status | N/A   |
 </TabItem>
 <TabItem value="Input-Lines" label="Input-Lines">
 
-| Métrique        | Unité |
+| Nom             | Unité |
 |:----------------|:------|
 | *input*#voltage | V     |
 | *input*#current | A     |
@@ -54,7 +54,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Métrique              | Unité |
+| Nom                   | Unité |
 |:----------------------|:------|
 | *oline*#status        | N/A   |
 | *oline*#voltage       | V     |
@@ -70,8 +70,16 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Afin de superviser l'équipement, son agent SNMP doit être configuré. Référez-vous à la documentation officielle correspondant
-à votre modèle sur le site officiel d'APC.
+### Configuration SNMP
+
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
@@ -114,7 +122,7 @@ yum install centreon-pack-hardware-ats-apc
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **APC ATS**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **APC ATS SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

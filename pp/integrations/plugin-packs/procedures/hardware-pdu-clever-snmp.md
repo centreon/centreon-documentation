@@ -1,6 +1,6 @@
 ---
 id: hardware-pdu-clever-snmp
-title: Clever PDU
+title: Clever PDU SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Clever PDU** brings a host template:
+The Monitoring Connector **Clever PDU SNMP** brings a host template:
 
 * **HW-Pdu-Clever-SNMP-custom**
 
@@ -44,12 +44,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Power-Source-Usage" label="Power-Source-Usage">
 
-| Metric name | Unit  |
-|:------------|:------|
-| power       | W     |
-| current     | A     |
-| voltage     | V     |
-
+| Name    | Unit |
+|:--------|:-----|
+| power   | W    |
+| current | A    |
+| voltage | V    |
 
 </TabItem>
 </Tabs>
@@ -58,9 +57,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Clever PDU**
-server. Please refer to the official documentation from Clever:
-* [Clever](https://www.china-clever.com/en/resources/specification/index.html)
+The SNMP service must be configured and activated on the host. 
+Please refer to the [official documentation](https://www.china-clever.com/en/resources/specification/index.html). 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -108,7 +108,7 @@ yum install centreon-pack-hardware-pdu-clever-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Clever PDU** connector through
+2. Whatever the license type (*online* or *offline*), install the **Clever PDU SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

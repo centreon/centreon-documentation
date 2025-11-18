@@ -1,6 +1,6 @@
 ---
 id: hardware-ats-apc
-title: APC ATS
+title: APC ATS SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **APC ATS** brings a host template:
+The Monitoring Connector **APC ATS SNMP** brings a host template:
 
 * **HW-ATS-Apc-SNMP-custom**
 
@@ -36,25 +36,25 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Device-Status" label="Device-Status">
 
-| Metric name                                       | Unit  |
-|:--------------------------------------------------|:------|
-| *devices*~device-status                           | N/A   |
+| Name                    | Unit  |
+|:------------------------|:------|
+| *devices*~device-status | N/A   |
 
 </TabItem>
 <TabItem value="Input-Lines" label="Input-Lines">
 
-| Metric name     | Unit  |
-|:----------------|:------|
-| *input*#voltage | V     |
-| *input*#current | A     |
-| *input*#power   | W     |
+| Name            | Unit |
+|:----------------|:-----|
+| *input*#voltage | V    |
+| *input*#current | A    |
+| *input*#power   | W    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Metric name           | Unit  |
+| Name                  | Unit  |
 |:----------------------|:------|
 | *oline*#status        | N/A   |
 | *oline*#voltage       | V     |
@@ -70,9 +70,16 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To monitor your **APC ATS** Device, configure the SNMP agent to respond to SNMP requests from the poller.
+### SNMP Configuration
 
-Refer to the device's documentation.
+The SNMP service must be configured and activated on the host. 
+Please refer to the official documentation. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
+
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
@@ -115,7 +122,7 @@ yum install centreon-pack-hardware-ats-apc
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **APC ATS** connector through
+2. Whatever the license type (*online* or *offline*), install the **APC ATS SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -185,9 +192,9 @@ yum install centreon-plugin-Hardware-Ats-Apc-Snmp
 <Tabs groupId="sync">
 <TabItem value="Device-Status" label="Device-Status">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'entity'                                         | .*                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'entity'                                                                                             | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>

@@ -1,6 +1,6 @@
 ---
 id: hardware-ups-powerware-snmp
-title: Powerware UPS
+title: Powerware UPS SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Powerware UPS** apporte un modèle d'hôte :
+Le connecteur de supervision **Powerware UPS SNMP** apporte un modèle d'hôte :
 
 * **HW-UPS-Powerware-SNMP-custom**
 
@@ -45,9 +45,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                          |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-UPS-Powerware-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                                  |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-UPS-Powerware-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -58,26 +58,26 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Alarms" label="Alarms">
 
-| Métrique                                 | Unité |
-|:-----------------------------------------|:------|
-| alarms.status | N/A     |
-| alarms.count | count     |
+| Nom           | Unité |
+|:--------------|:------|
+| alarms.status | N/A   |
+| alarms.count  | count |
 
 </TabItem>
 <TabItem value="Battery-Status" label="Battery-Status">
 
-| Métrique                                 | Unité |
-|:-----------------------------------------|:------|
-| battery.status | N/A     |
+| Nom                              | Unité |
+|:---------------------------------|:------|
+| battery.status                   | N/A   |
 | battery.charge.remaining.percent | %     |
 | battery.charge.remaining.minutes | m     |
-| battery.current.ampere   | A     |
-| battery.voltage.volt   | V     |
+| battery.current.ampere           | A     |
+| battery.voltage.volt             | V     |
 
 </TabItem>
 <TabItem value="Environment" label="Environment">
 
-| Métrique                                 | Unité |
+| Nom                                      | Unité |
 |:-----------------------------------------|:------|
 | environment.internal.temperature.celsius | C     |
 | environment.internal.humidity.percentage | %     |
@@ -89,7 +89,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Input-Lines" label="Input-Lines">
 
-| Métrique                          | Unité |
+| Nom                               | Unité |
 |:----------------------------------|:------|
 | lines.input.frequence.hertz       | Hz    |
 | *iline*#line.input.current.ampere | A     |
@@ -101,7 +101,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Métrique                           | Unité |
+| Nom                                | Unité |
 |:-----------------------------------|:------|
 | lines.output.load.percentage       | %     |
 | lines.output.frequence.hertz       | Hz    |
@@ -114,9 +114,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Output-Source" label="Output-Source">
 
-| Métrique          | Unité  |
+| Nom                  | Unité |
 |:---------------------|:------|
-| output source status |  N/A     |
+| output source status | N/A   |
 
 </TabItem>
 </Tabs>
@@ -125,7 +125,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -173,7 +176,7 @@ yum install centreon-pack-hardware-ups-powerware-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Powerware UPS**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Powerware UPS SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -250,20 +253,20 @@ yum install centreon-plugin-Hardware-Ups-Powerware-Snmp
 </TabItem>
 <TabItem value="Battery-Status" label="Battery-Status">
 
-| Macro                          | Description                                                                                                                                                 | Valeur par défaut                  | Obligatoire |
-|:-------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-----------:|
-| UNKNOWNSTATUS                  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %{status}            | %{status} =~ /unknown/i            |             |
-| WARNINGCHARGEREMAINING         | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                              |                                    |             |
-| CRITICALCHARGEREMAINING        | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                              |                                    |             |
-| WARNINGCHARGEREMAININGMINUTES  | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                              |                                    |             |
-| CRITICALCHARGEREMAININGMINUTES | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                              |                                    |             |
-| WARNINGCURRENT                 | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                              |                                    |             |
-| CRITICALCURRENT                | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                              |                                    |             |
-| WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /batteryDischarging/i'). You can use the following variables: %{status} | %{status} =~ /batteryDischarging/i |             |
-| CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %{status}                                  |                                    |             |
-| WARNINGVOLTAGE                 | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                              |                                    |             |
-| CRITICALVOLTAGE                | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                              |                                    |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                          |                                    |             |
+| Macro                          | Description                                                                                                                                      | Valeur par défaut                  | Obligatoire |
+|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-----------:|
+| UNKNOWNSTATUS                  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}                                      | %{status} =~ /unknown/i            |             |
+| WARNINGCHARGEREMAINING         | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                   |                                    |             |
+| CRITICALCHARGEREMAINING        | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                   |                                    |             |
+| WARNINGCHARGEREMAININGMINUTES  | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                   |                                    |             |
+| CRITICALCHARGEREMAININGMINUTES | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                   |                                    |             |
+| WARNINGCURRENT                 | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                   |                                    |             |
+| CRITICALCURRENT                | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                   |                                    |             |
+| WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                      | %{status} =~ /batteryDischarging/i |             |
+| CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                     |                                    |             |
+| WARNINGVOLTAGE                 | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                   |                                    |             |
+| CRITICALVOLTAGE                | Thresholds. : 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V)                                                   |                                    |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                    |             |
 
 </TabItem>
 <TabItem value="Environment" label="Environment">

@@ -1,6 +1,6 @@
 ---
 id: hardware-ups-inmatics-sputnik-snmp
-title: Inmatics PSU Sputnik
+title: Inmatics PSU Sputnik SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Inmatics PSU Sputnik** apporte un modèle d'hôte :
+Le connecteur de supervision **Inmatics PSU Sputnik SNMP** apporte un modèle d'hôte :
 
 * **HW-UPS-Inmatics-Sputnik-SNMP-custom**
 
@@ -37,9 +37,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                                 |
-|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-UPS-Inmatics-Sputnik-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                                         |
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-UPS-Inmatics-Sputnik-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -50,7 +50,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Alarms" label="Alarms">
 
-| Métrique             | Unité |
+| Nom                  | Unité |
 |:---------------------|:------|
 | alarms.current.count | count |
 | test-status          | N/A   |
@@ -58,7 +58,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Battery-Status" label="Battery-Status">
 
-| Métrique                         | Unité   |
+| Nom                              | Unité   |
 |:---------------------------------|:--------|
 | status                           | N/A     |
 | battery.charge.remaining.percent | %       |
@@ -70,7 +70,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Environment" label="Environment">
 
-| Métrique                                  | Unité |
+| Nom                                       | Unité |
 |:------------------------------------------|:------|
 | *sensors*#environment.temperature.celsius | C     |
 | *sensors*#environment.humidity.percentage | %     |
@@ -78,7 +78,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Input-Lines" label="Input-Lines">
 
-| Métrique                          | Unité |
+| Nom                               | Unité |
 |:----------------------------------|:------|
 | *line*#line.input.frequence.hertz | Hz    |
 | *line*#line.input.voltage.volt    | V     |
@@ -88,7 +88,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | output.3phases.stdev.gauge          | N/A   |
 | lines.output.frequence.hertz        | Hz    |
@@ -100,7 +100,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Output-Source" label="Output-Source">
 
-| Métrique      | Unité |
+| Nom           | Unité |
 |:--------------|:------|
 | source-status | N/A   |
 
@@ -113,7 +113,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -160,7 +163,7 @@ yum install centreon-pack-hardware-ups-inmatics-sputnik-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Inmatics PSU Sputnik**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Inmatics PSU Sputnik SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -230,31 +233,31 @@ yum install centreon-plugin-Hardware-Ups-Sputnik-Snmp
 <Tabs groupId="sync">
 <TabItem value="Alarms" label="Alarms">
 
-| Macro                 | Description                                                                                                                                                             | Valeur par défaut                   | Obligatoire |
-|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
-| WARNINGALARMSCURRENT  | Thresholds                                                                                                                                                              |                                     |             |
-| CRITICALALARMSCURRENT | Thresholds                                                                                                                                                              |                                     |             |
-| WARNINGTESTSTATUS     | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /doneWarning\|aborted/'). You can use the following variables: %{status}, %{detail} | %{status} =~ /doneWarning\|aborted/ |             |
-| CRITICALTESTSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /doneError/'). You can use the following variables: %{status}, %{detail}           | %{status} =~ /doneError/            |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                      | --verbose                           |             |
+| Macro                 | Description                                                                                                                                      | Valeur par défaut                   | Obligatoire |
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
+| WARNINGALARMSCURRENT  | Thresholds                                                                                                                                       |                                     |             |
+| CRITICALALARMSCURRENT | Thresholds                                                                                                                                       |                                     |             |
+| WARNINGTESTSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{detail}                           | %{status} =~ /doneWarning\|aborted/ |             |
+| CRITICALTESTSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{detail}                          | %{status} =~ /doneError/            |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                           |             |
 
 </TabItem>
 <TabItem value="Battery-Status" label="Battery-Status">
 
-| Macro               | Description                                                                                                                                        | Valeur par défaut        | Obligatoire |
-|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %{status}   | %{status} =~ /unknown/i  |             |
-| WARNING             | Thresholds                                                                                                                                         |                          |             |
-| CRITICAL            | Thresholds                                                                                                                                         |                          |             |
-| WARNINGCURRENT      | Thresholds                                                                                                                                         |                          |             |
-| CRITICALCURRENT     | Thresholds                                                                                                                                         |                          |             |
-| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /low/i'). You can use the following variables: %{status}       | %{status} =~ /low/i      |             |
-| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /depleted/i'). You can use the following variables: %{status} | %{status} =~ /depleted/i |             |
-| WARNINGTEMPERATURE  | Thresholds                                                                                                                                         |                          |             |
-| CRITICALTEMPERATURE | Thresholds                                                                                                                                         |                          |             |
-| WARNINGVOLTAGE      | Thresholds                                                                                                                                         |                          |             |
-| CRITICALVOLTAGE     | Thresholds                                                                                                                                         |                          |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                          |             |
+| Macro               | Description                                                                                                                                      | Valeur par défaut        | Obligatoire |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
+| UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}                                      | %{status} =~ /unknown/i  |             |
+| WARNING             | Thresholds                                                                                                                                       |                          |             |
+| CRITICAL            | Thresholds                                                                                                                                       |                          |             |
+| WARNINGCURRENT      | Thresholds                                                                                                                                       |                          |             |
+| CRITICALCURRENT     | Thresholds                                                                                                                                       |                          |             |
+| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                      | %{status} =~ /low/i      |             |
+| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                     | %{status} =~ /depleted/i |             |
+| WARNINGTEMPERATURE  | Thresholds                                                                                                                                       |                          |             |
+| CRITICALTEMPERATURE | Thresholds                                                                                                                                       |                          |             |
+| WARNINGVOLTAGE      | Thresholds                                                                                                                                       |                          |             |
+| CRITICALVOLTAGE     | Thresholds                                                                                                                                       |                          |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                          |             |
 
 </TabItem>
 <TabItem value="Environment" label="Environment">
@@ -285,31 +288,31 @@ yum install centreon-plugin-Hardware-Ups-Sputnik-Snmp
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Macro                | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCURRENT       | Threshold                                                                                          |                   |             |
-| CRITICALCURRENT      | Threshold                                                                                          |                   |             |
-| WARNINGFREQUENCE     |                                                                                                    |                   |             |
-| CRITICALFREQUENCE    |                                                                                                    |                   |             |
-| WARNINGLOAD          | Threshold                                                                                          |                   |             |
-| CRITICALLOAD         | Threshold                                                                                          |                   |             |
-| WARNINGPOWER         | Threshold                                                                                          |                   |             |
-| CRITICALPOWER        | Threshold                                                                                          |                   |             |
-| WARNINGSTDEV3PHASES  | Warning threshold for standard deviation of 3 phases                                               |                   |             |
-| CRITICALSTDEV3PHASES | Critical threshold for standard deviation of 3 phases                                              |                   |             |
-| WARNINGVOLTAGE       | Threshold                                                                                          |                   |             |
-| CRITICALVOLTAGE      | Threshold                                                                                          |                   |             |
+| Macro                | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCURRENT       | Threshold                                                                                                                                        |                   |             |
+| CRITICALCURRENT      | Threshold                                                                                                                                        |                   |             |
+| WARNINGFREQUENCE     | Threshold                                                                                                                                        |                   |             |
+| CRITICALFREQUENCE    | Threshold                                                                                                                                        |                   |             |
+| WARNINGLOAD          | Threshold                                                                                                                                        |                   |             |
+| CRITICALLOAD         | Threshold                                                                                                                                        |                   |             |
+| WARNINGPOWER         | Threshold                                                                                                                                        |                   |             |
+| CRITICALPOWER        | Threshold                                                                                                                                        |                   |             |
+| WARNINGSTDEV3PHASES  | Warning threshold for standard deviation of 3 phases                                                                                             |                   |             |
+| CRITICALSTDEV3PHASES | Critical threshold for standard deviation of 3 phases                                                                                            |                   |             |
+| WARNINGVOLTAGE       | Threshold                                                                                                                                        |                   |             |
+| CRITICALVOLTAGE      | Threshold                                                                                                                                        |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Output-Source" label="Output-Source">
 
-| Macro                | Description                                                                                                                                                              | Valeur par défaut                                | Obligatoire |
-|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
-| UNKNOWNSOURCESTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /other/') You can use the following variables: %{status}                             | %{status} =~ /other/                             |             |
-| WARNINGSOURCESTATUS  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /bypass\|battery\|booster\|reducer/') You can use the following variables: %{status} | %{status} =~ /bypass\|battery\|booster\|reducer/ |             |
-| CRITICALSOURCESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /none/') You can use the following variables: %{status}                             | %{status} =~ /none/                              |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                       |                                                  |             |
+| Macro                | Description                                                                                                                                      | Valeur par défaut                                | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
+| UNKNOWNSOURCESTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}                                      | %{status} =~ /other/                             |             |
+| WARNINGSOURCESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                      | %{status} =~ /bypass\|battery\|booster\|reducer/ |             |
+| CRITICALSOURCESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                     | %{status} =~ /none/                              |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                  |             |
 
 </TabItem>
 </Tabs>
