@@ -1,6 +1,6 @@
 ---
 id: hardware-ats-apc
-title: APC ATS
+title: APC ATS SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **APC ATS** brings a host template:
+The Monitoring Connector **APC ATS SNMP** brings a host template:
 
 * **HW-ATS-Apc-SNMP-custom**
 
@@ -36,25 +36,25 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Device-Status" label="Device-Status">
 
-| Metric name                                       | Unit  |
-|:--------------------------------------------------|:------|
-| *devices*~device-status                           | N/A   |
+| Name                    | Unit  |
+|:------------------------|:------|
+| *devices*~device-status | N/A   |
 
 </TabItem>
 <TabItem value="Input-Lines" label="Input-Lines">
 
-| Metric name     | Unit  |
-|:----------------|:------|
-| *input*#voltage | V     |
-| *input*#current | A     |
-| *input*#power   | W     |
+| Name            | Unit |
+|:----------------|:-----|
+| *input*#voltage | V    |
+| *input*#current | A    |
+| *input*#power   | W    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Metric name           | Unit  |
+| Name                  | Unit  |
 |:----------------------|:------|
 | *oline*#status        | N/A   |
 | *oline*#voltage       | V     |
@@ -70,20 +70,24 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To monitor your **APC ATS** Device, configure the SNMP agent to respond to SNMP requests from the poller.
+### SNMP Configuration
 
-Refer to the device's documentation.
+The SNMP service must be configured and activated on the host. 
+Please refer to the official documentation. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
+
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
 ### Pack
 
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
-
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Connectors > Monitoring Connectors** menu.
+**Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -118,8 +122,8 @@ yum install centreon-pack-hardware-ats-apc
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **APC ATS** connector through
-the **Configuration > Connectors > Monitoring Connectors** menu.
+2. Whatever the license type (*online* or *offline*), install the **APC ATS SNMP** connector through
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -188,9 +192,9 @@ yum install centreon-plugin-Hardware-Ats-Apc-Snmp
 <Tabs groupId="sync">
 <TabItem value="Device-Status" label="Device-Status">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'entity'                                         | .*                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'entity'                                                                                             | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -219,8 +223,8 @@ yum install centreon-plugin-Hardware-Ats-Apc-Snmp
 | CRITICALLOADCAPACITY | Critical threshold                                                                                                                                                         |                                      |             |
 | WARNINGPOWER         | Warning threshold                                                                                                                                                          |                                      |             |
 | CRITICALPOWER        | Critical threshold                                                                                                                                                         |                                      |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /nearoverload/'). You can use the following variables: %\{status\}, %\{display\}           | %\{status\} =~ /nearoverload/          |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^(lowload\|overload)$/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} =~ /^(lowload\|overload)$/ |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /nearoverload/'). You can use the following variables: %{status}, %{display}           | %{status} =~ /nearoverload/          |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^(lowload\|overload)$/'). You can use the following variables: %{status}, %{display} | %{status} =~ /^(lowload\|overload)$/ |             |
 | WARNINGVOLTAGE       | Warning threshold                                                                                                                                                          |                                      |             |
 | CRITICALVOLTAGE      | Critical threshold                                                                                                                                                         |                                      |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                         | --verbose                            |             |
@@ -306,7 +310,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -382,8 +386,8 @@ All available options for each service template are listed below:
 | --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='^power$'                                                                                         |
 | --warning-*       | Warning threshold. Can be: 'voltage', 'current', 'power', 'load', 'load-capacity'.                                                                                            |
 | --critical-*      | Critical threshold. Can be: 'voltage', 'current', 'power', 'load', 'load-capacity'.                                                                                           |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /nearoverload/'). You can use the following variables: %\{status\}, %\{display\}              |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^(lowload\|overload)$/'). You can use the following variables: %\{status\}, %\{display\}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /nearoverload/'). You can use the following variables: %{status}, %{display}              |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^(lowload\|overload)$/'). You can use the following variables: %{status}, %{display}    |
 
 </TabItem>
 </Tabs>
