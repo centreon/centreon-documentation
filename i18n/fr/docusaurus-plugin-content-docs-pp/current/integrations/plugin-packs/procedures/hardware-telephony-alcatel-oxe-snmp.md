@@ -1,6 +1,6 @@
 ---
 id: hardware-telephony-alcatel-oxe-snmp
-title: Alcatel OXE
+title: Alcatel OXE SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision Centreon **Alcatel OXE** apporte un modèle d'hôte :
+Le connecteur de supervision Centreon **Alcatel OXE SNMP** apporte un modèle d'hôte :
 
 * HW-Telephony-Alcatel-OXE-SNMP-custom
 
@@ -34,7 +34,7 @@ Il apporte les modèles de service suivants :
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Métrique                                   | Unité |
+| Nom                                        | Unité |
 |:-------------------------------------------|:------|
 | cpu.utilization.percentage                 | %     |
 | *cpu_core*#core.cpu.utilization.percentage | %     |
@@ -42,7 +42,7 @@ Il apporte les modèles de service suivants :
 </TabItem>
 <TabItem value="Disk-Generic-Id" label="Disk-Generic-Id">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | storage.partitions.count            | count |
 | *storage*#storage.access.count      | count |
@@ -51,7 +51,7 @@ Il apporte les modèles de service suivants :
 </TabItem>
 <TabItem value="Disk-Generic-Name" label="Disk-Generic-Name">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | storage.partitions.count            | count |
 | *storage*#storage.access.count      | count |
@@ -60,7 +60,7 @@ Il apporte les modèles de service suivants :
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | storage.partitions.count            | count |
 | *storage*#storage.access.count      | count |
@@ -69,7 +69,7 @@ Il apporte les modèles de service suivants :
 </TabItem>
 <TabItem value="Domain-Usage" label="Domain-Usage">
 
-| Métrique                                              | Unité |
+| Nom                                                   | Unité |
 |:------------------------------------------------------|:------|
 | *domain*#domain.communications.external.overrun.count | count |
 | *domain*#domain.communications.external.current.count | count |
@@ -82,7 +82,7 @@ Il apporte les modèles de service suivants :
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | memory.buffer.bytes     | B     |
 | memory.cached.bytes     | B     |
@@ -107,7 +107,7 @@ Statut sous forme de chaîne.
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Métrique              | Unité |
+| Nom                   | Unité |
 |:----------------------|:------|
 | swap.usage.bytes      | B     |
 | swap.free.bytes       | B     |
@@ -116,11 +116,11 @@ Statut sous forme de chaîne.
 </TabItem>
 <TabItem value="Trunks" label="Trunks">
 
-| Métrique                                  | Unité  |
+| Nom                                       | Unité  |
 |:------------------------------------------|:-------|
 | *trunk*#trunk.channels.outofservice.count | count  |
 | *trunk*#trunk.channels.current.count      | count  |
-| %\{trunkstatus\}                            | string |
+| %{trunkstatus}                            | string |
 
 </TabItem>
 </Tabs>
@@ -129,10 +129,8 @@ Statut sous forme de chaîne.
 
 ### Configuration SNMP
 
-L'agent SNMP doit être activé et configuré sur l'équipement. 
-Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
-Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
-Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
+Afin de superviser votre **Alcatel OXE SNMP** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
+* LINK
 
 ### Flux réseau
 
@@ -144,30 +142,30 @@ Centreon vers le serveur supervisé.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Alcatel OXE** :
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Alcatel OXE SNMP** :
 
 ```bash
 yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 ```
 
-2. Sur l'interface web de Centreon, installez le connecteur de supervision **Alcatel OXE** depuis la page **Configuration > Packs de plugins**.
+2. Sur l'interface web de Centreon, installez le connecteur de supervision **Alcatel OXE SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Alcatel OXE** :
+1. Installez le plugin sur tous les collecteurs Centreon devant superviser des ressources **Alcatel OXE SNMP** :
 
 ```bash
 yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 ```
 
-2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Alcatel OXE** :
+2. Sur le serveur central Centreon, installez le RPM du connecteur de supervision **Alcatel OXE SNMP** :
 
 ```bash
 yum install centreon-pack-hardware-telephony-alcatel-oxe-snmp
 ```
 
-3. Sur l'interface web de Centreon, installez le connecteur de supervision **Alcatel OXE** depuis la page **Configuration > Packs de plugins**.
+3. Sur l'interface web de Centreon, installez le connecteur de supervision **Alcatel OXE SNMP** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
 </Tabs>
@@ -181,7 +179,7 @@ yum install centreon-pack-hardware-telephony-alcatel-oxe-snmp
 * Appliquez le modèle d'hôte **HW-Telephony-Alcatel-OXE-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Obligatoire | Macro            | Description                                  |
 |:------------|:-----------------|:---------------------------------------------|

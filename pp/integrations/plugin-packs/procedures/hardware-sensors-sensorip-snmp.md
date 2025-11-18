@@ -1,6 +1,6 @@
 ---
 id: hardware-sensors-sensorip-snmp
-title: Sensor IP
+title: Sensor IP SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Sensor IP** brings a host template:
+The Monitoring Connector **Sensor IP SNMP** brings a host template:
 
 * **HW-Sensor-Sensorip-SNMP-custom**
 
@@ -56,39 +56,52 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Metric        | Unit  |
-|:---------------------|:------|
-| sp.status | N/A |
-| switch.status | N/A |
-| hardware.sensor.humidity.percentage | C |
+| Name                                | Unit  |
+|:------------------------------------|:------|
+| hardware.sp.status                  | N/A   |
+| hardware.sp.count                   | count |
+| hardware.switch.status              | N/A   |
+| hardware.switch.count               | count |
+| hardware.sensor.humidity.percentage | %     |
+| hardware.sensor.humidity.status     | N/A   |
+| hardware.sensor.humidity.count      | count |
+| hardware.sensor.temperature.celsius | C     |
+| hardware.sensor.temperature.status  | N/A   |
+| hardware.sensor.temperature.count   | count |
 
 </TabItem>
 <TabItem value="Sensors-Humidity" label="Sensors-Humidity">
 
-| Metric name          | Unit  |
-|:---------------------|:------|
-| hardware.sensor.humidity.percentage | % |
+| Name                                | Unit  |
+|:------------------------------------|:------|
+| hardware.sensor.humidity.percentage | %     |
+| hardware.sensor.humidity.status     | N/A   |
+| hardware.sensor.humidity.count      | count |
 
 </TabItem>
 <TabItem value="Sensors-Sp" label="Sensors-Sp">
 
-| Metric name          | Unit  |
-|:---------------------|:------|
-| status | N/A |
+| Name               | Unit  |
+|:-------------------|:------|
+| hardware.sp.status | N/A   |
+| hardware.sp.count  | count |
 
 </TabItem>
 <TabItem value="Sensors-Switch" label="Sensors-Switch">
 
-| Metric name          | Unit  |
-|:---------------------|:------|
-| status | N/A |
+| Name                   | Unit  |
+|:-----------------------|:------|
+| hardware.switch.status | N/A   |
+| hardware.switch.count  | count |
 
 </TabItem>
 <TabItem value="Sensors-Temperature" label="Sensors-Temperature">
 
-| Metric name          | Unit  |
-|:---------------------|:------|
-| hardware.sensor.temperature.celsius | C |
+| Name                                | Unit  |
+|:------------------------------------|:------|
+| hardware.sensor.temperature.celsius | C     |
+| hardware.sensor.temperature.status  | N/A   |
+| hardware.sensor.temperature.count   | count |
 
 </TabItem>
 </Tabs>
@@ -97,9 +110,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Sensor IP**
-server. Please refer to the official documentation from Sensor IP:
-* [AKCP](https://www.akcp.com/knowledge-base/)
+The SNMP service must be configured and activated on the host. 
+Please refer to the [official documentation](https://www.akcp.com/knowledge-base/). 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -110,12 +124,9 @@ SNMP port.
 
 ### Pack
 
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
-
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Connectors > Monitoring Connectors** menu.
+**Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -150,8 +161,8 @@ yum install centreon-pack-hardware-sensors-sensorip-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Sensor IP** connector through
-the **Configuration > Connectors > Monitoring Connectors** menu.
+2. Whatever the license type (*online* or *offline*), install the **Sensor IP SNMP** connector through
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -222,41 +233,41 @@ yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | .*                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                            | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Humidity" label="Sensors-Humidity">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | humidity          |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                            | humidity          |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Sp" label="Sensors-Sp">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | sp                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                            | sp                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Switch" label="Sensors-Switch">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | switch            |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                            | switch            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Temperature" label="Sensors-Temperature">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | temperature       |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                            | temperature       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -285,7 +296,6 @@ The expected command output is shown below:
 
 ```bash
 OK: All 2 components are ok [1/1 temperatures][1/1 humidity]. | 'sensor1#hardware.sensor.temperature.celsius'=23C;;;; 'sensor1#hardware.sensor.humidity.percentage'=35%;;;0;100
-
 ```
 
 ### Troubleshooting
@@ -332,7 +342,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |

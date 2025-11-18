@@ -1,6 +1,6 @@
 ---
 id: hardware-printers-standard-rfc3805-snmp
-title: Printer standard
+title: Printer standard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Printer standard** brings a host template:
+The Monitoring Connector **Printer standard SNMP** brings a host template:
 
 * **HW-Printer-standard-rfc3805-custom**
 
@@ -160,7 +160,7 @@ yum install centreon-pack-hardware-printers-standard-rfc3805-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Printer standard** connector through
+2. Whatever the license type (*online* or *offline*), install the **Printer standard SNMP** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
