@@ -102,7 +102,9 @@ Expected content found | 'size'=158714B;;;0; 'time'=0.262s;;;0;
 
 ### Collect only one metric
 
-For the **HTTP-response-Time** service, let's say we are only interested in the **time** metric. So there's no need to collect the **size** metric, which will use storage space for nothing. We can use the **--filter perfdata** option or the **--filter-perfdata-adv** option in the **EXTRAOPTIONS** macro of the service.
+For the **HTTP-response-Time** service, let's say we are only interested in the **time** metric. 
+So there's no need to collect the **size** metric, which will use storage space for nothing. 
+We can use the **--filter-perfdata** option or the **--filter-perfdata-adv** option in the **EXTRAOPTIONS** macro of the service.
 
 Command:
 
