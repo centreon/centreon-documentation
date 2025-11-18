@@ -1,6 +1,6 @@
 ---
 id: hardware-sensors-sensorip-snmp
-title: Sensor IP
+title: Sensor IP SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Sensor IP** brings a host template:
+The Monitoring Connector **Sensor IP SNMP** brings a host template:
 
 * **HW-Sensor-Sensorip-SNMP-custom**
 
@@ -56,39 +56,52 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Metric        | Unit  |
-|:---------------------|:------|
-| sp.status | N/A |
-| switch.status | N/A |
-| hardware.sensor.humidity.percentage | C |
+| Name                                | Unit  |
+|:------------------------------------|:------|
+| hardware.sp.status                  | N/A   |
+| hardware.sp.count                   | count |
+| hardware.switch.status              | N/A   |
+| hardware.switch.count               | count |
+| hardware.sensor.humidity.percentage | %     |
+| hardware.sensor.humidity.status     | N/A   |
+| hardware.sensor.humidity.count      | count |
+| hardware.sensor.temperature.celsius | C     |
+| hardware.sensor.temperature.status  | N/A   |
+| hardware.sensor.temperature.count   | count |
 
 </TabItem>
 <TabItem value="Sensors-Humidity" label="Sensors-Humidity">
 
-| Metric name          | Unit  |
-|:---------------------|:------|
-| hardware.sensor.humidity.percentage | % |
+| Name                                | Unit  |
+|:------------------------------------|:------|
+| hardware.sensor.humidity.percentage | %     |
+| hardware.sensor.humidity.status     | N/A   |
+| hardware.sensor.humidity.count      | count |
 
 </TabItem>
 <TabItem value="Sensors-Sp" label="Sensors-Sp">
 
-| Metric name          | Unit  |
-|:---------------------|:------|
-| status | N/A |
+| Name               | Unit  |
+|:-------------------|:------|
+| hardware.sp.status | N/A   |
+| hardware.sp.count  | count |
 
 </TabItem>
 <TabItem value="Sensors-Switch" label="Sensors-Switch">
 
-| Metric name          | Unit  |
-|:---------------------|:------|
-| status | N/A |
+| Name                   | Unit  |
+|:-----------------------|:------|
+| hardware.switch.status | N/A   |
+| hardware.switch.count  | count |
 
 </TabItem>
 <TabItem value="Sensors-Temperature" label="Sensors-Temperature">
 
-| Metric name          | Unit  |
-|:---------------------|:------|
-| hardware.sensor.temperature.celsius | C |
+| Name                                | Unit  |
+|:------------------------------------|:------|
+| hardware.sensor.temperature.celsius | C     |
+| hardware.sensor.temperature.status  | N/A   |
+| hardware.sensor.temperature.count   | count |
 
 </TabItem>
 </Tabs>
@@ -97,9 +110,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Sensor IP**
-server. Please refer to the official documentation from Sensor IP:
-* [AKCP](https://www.akcp.com/knowledge-base/)
+The SNMP service must be configured and activated on the host. 
+Please refer to the [official documentation](https://www.akcp.com/knowledge-base/). 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -147,7 +161,7 @@ yum install centreon-pack-hardware-sensors-sensorip-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Sensor IP** connector through
+2. Whatever the license type (*online* or *offline*), install the **Sensor IP SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -219,41 +233,41 @@ yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | .*                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                            | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Humidity" label="Sensors-Humidity">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | humidity          |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                            | humidity          |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Sp" label="Sensors-Sp">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | sp                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                            | sp                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Switch" label="Sensors-Switch">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | switch            |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                            | switch            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Temperature" label="Sensors-Temperature">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | temperature       |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                            | temperature       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -282,7 +296,6 @@ The expected command output is shown below:
 
 ```bash
 OK: All 2 components are ok [1/1 temperatures][1/1 humidity]. | 'sensor1#hardware.sensor.temperature.celsius'=23C;;;; 'sensor1#hardware.sensor.humidity.percentage'=35%;;;0;100
-
 ```
 
 ### Troubleshooting

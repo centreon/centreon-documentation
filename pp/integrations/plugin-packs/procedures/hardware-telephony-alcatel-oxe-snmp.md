@@ -1,6 +1,6 @@
 ---
 id: hardware-telephony-alcatel-oxe-snmp
-title: Alcatel OXE
+title: Alcatel OXE SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Centreon Monitoring Connector **Alcatel OXE** brings a host template:
+The Centreon Monitoring Connector **Alcatel OXE SNMP** brings a host template:
 
 * HW-Telephony-Alcatel-OXE-SNMP-custom
 
@@ -34,15 +34,15 @@ It brings the following service templates:
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Metric Name                                | Unit  |
-|:-------------------------------------------|:------|
-| cpu.utilization.percentage                 | %     |
-| *cpu_core*#core.cpu.utilization.percentage | %     |
+| Name                                       | Unit |
+|:-------------------------------------------|:-----|
+| cpu.utilization.percentage                 | %    |
+| *cpu_core*#core.cpu.utilization.percentage | %    |
 
 </TabItem>
 <TabItem value="Disk-Generic-Id" label="Disk-Generic-Id">
 
-| Metric Name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | storage.partitions.count            | count |
 | *storage*#storage.access.count      | count |
@@ -51,7 +51,7 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="Disk-Generic-Name" label="Disk-Generic-Name">
 
-| Metric Name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | storage.partitions.count            | count |
 | *storage*#storage.access.count      | count |
@@ -60,7 +60,7 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
 
-| Metric Name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | storage.partitions.count            | count |
 | *storage*#storage.access.count      | count |
@@ -69,7 +69,7 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="Domain-Usage" label="Domain-Usage">
 
-| Metric Name                                           | Unit  |
+| Name                                                  | Unit  |
 |:------------------------------------------------------|:------|
 | *domain*#domain.communications.external.overrun.count | count |
 | *domain*#domain.communications.external.current.count | count |
@@ -82,7 +82,7 @@ It brings the following service templates:
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric Name             | Unit  |
+| Name                    | Unit  |
 |:------------------------|:------|
 | memory.buffer.bytes     | B     |
 | memory.cached.bytes     | B     |
@@ -107,7 +107,7 @@ Only stringified status is reported.
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric Name           | Unit  |
+| Name                  | Unit  |
 |:----------------------|:------|
 | swap.usage.bytes      | B     |
 | swap.free.bytes       | B     |
@@ -116,7 +116,7 @@ Only stringified status is reported.
 </TabItem>
 <TabItem value="Trunks" label="Trunks">
 
-| Metric Name                               | Unit   |
+| Name                                      | Unit   |
 |:------------------------------------------|:-------|
 | *trunk*#trunk.channels.outofservice.count | count  |
 | *trunk*#trunk.channels.current.count      | count  |
@@ -129,8 +129,10 @@ Only stringified status is reported.
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Alcatel OXE**
-server. Please refer to the official documentation from the manufacturer.
+The SNMP service must be configured and activated on the host. 
+Please refer to the official documentation. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -142,30 +144,30 @@ SNMP port.
 <Tabs groupId="sync">
 <TabItem value="Online License" label="Online License">
 
-1. Install the package on every Centreon poller expected to monitor **Alcatel OXE** resources:
+1. Install the package on every Centreon poller expected to monitor **Alcatel OXE SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Alcatel OXE** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Alcatel OXE SNMP** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
 
-1. Install the package on every Centreon poller expected to monitor **Alcatel OXE** resources:
+1. Install the package on every Centreon poller expected to monitor **Alcatel OXE SNMP** resources:
 
 ```bash
 yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 ```
 
-2. Install the **Alcatel OXE** Centreon Monitoring Connector RPM on the Centreon central server:
+2. Install the **Alcatel OXE SNMP** Centreon Monitoring Connector RPM on the Centreon central server:
 
 ```bash
 yum install centreon-pack-hardware-telephony-alcatel-oxe-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Alcatel OXE** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Alcatel OXE SNMP** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

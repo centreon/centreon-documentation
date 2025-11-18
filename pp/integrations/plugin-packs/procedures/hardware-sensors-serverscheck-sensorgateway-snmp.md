@@ -1,6 +1,6 @@
 ---
 id: hardware-sensors-serverscheck-sensorgateway-snmp
-title: SensorGateway
+title: SensorGateway SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **SensorGateway** brings a host template:
+The Monitoring Connector **SensorGateway SNMP** brings a host template:
 
 * **HW-Sensor-Serverscheck-Sensorgateway-SNMP-custom**
 
@@ -18,8 +18,8 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Sensor-Serverscheck-Sensorgateway-SNMP-custom" label="HW-Sensor-Serverscheck-Sensorgateway-SNMP-custom">
 
-| Service Alias  | Service Template                                                 | Service Description            |
-|:---------------|:-----------------------------------------------------------------|:-------------------------------|
+| Service Alias  | Service Template                                                 | Service Description                    |
+|:---------------|:-----------------------------------------------------------------|:---------------------------------------|
 | Sensors-Global | HW-Sensors-Serverscheck-Sensorgateway-Sensors-Global-SNMP-custom | Check all the sensors on the equipment |
 
 > The services listed above are created automatically when the **HW-Sensor-Serverscheck-Sensorgateway-SNMP-custom** host template is used.
@@ -44,9 +44,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Metric name             | Unit  |
-| :---------------------- | :---- |
-| status  				| N/A      |
+| Name   | Unit |
+|:-------|:-----|
+| status | N/A  |
 
 </TabItem>
 </Tabs>
@@ -55,7 +55,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP service must be configured and activated on the host. 
+Please refer to the official documentation. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -103,7 +106,7 @@ yum install centreon-pack-hardware-sensors-serverscheck-sensorgateway-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **SensorGateway** connector through
+2. Whatever the license type (*online* or *offline*), install the **SensorGateway SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -175,9 +178,9 @@ yum install centreon-plugin-Hardware-Sensors-Serverscheck-Sensorgateway-Snmp
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sensors'                                        | .*                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sensors'                                                                                            | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>

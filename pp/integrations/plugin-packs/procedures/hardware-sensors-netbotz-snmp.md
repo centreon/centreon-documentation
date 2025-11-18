@@ -1,6 +1,6 @@
 ---
 id: hardware-sensors-netbotz-snmp
-title: Netbotz Sensor
+title: Netbotz Sensor SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Netbotz Sensor** brings a host template:
+The Monitoring Connector **Netbotz Sensor SNMP** brings a host template:
 
 * **HW-Sensor-Netbotz-SNMP-custom**
 
@@ -18,8 +18,8 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Sensor-Netbotz-SNMP-custom" label="HW-Sensor-Netbotz-SNMP-custom">
 
-| Service Alias  | Service Template                              | Service Description            |
-|:---------------|:----------------------------------------------|:-------------------------------|
+| Service Alias  | Service Template                              | Service Description                 |
+|:---------------|:----------------------------------------------|:------------------------------------|
 | Sensors-Global | HW-Sensors-Netbotz-Sensors-Global-SNMP-custom | Check all the sensors of the device |
 
 > The services listed above are created automatically when the **HW-Sensor-Netbotz-SNMP-custom** host template is used.
@@ -44,13 +44,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Metric name    | Unit  |
-|:---------------|:------|
-| hardware.sensor.airflow.cubicmeterperminute         | m/min   |
-| cameras.status | N/A   |
-| hardware.sensor.dewpoint.celsius | C   |
-| doorswitch.status | N/A   |
-| hardware.sensor.humidity.percentage | %   |
+| Name                                        | Unit  |
+|:--------------------------------------------|:------|
+| hardware.sensor.airflow.cubicmeterperminute | m/min |
+| cameras.status                              | N/A   |
+| hardware.sensor.dewpoint.celsius            | C     |
+| doorswitch.status                           | N/A   |
+| hardware.sensor.humidity.percentage         | %     |
 
 </TabItem>
 </Tabs>
@@ -59,9 +59,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Netbotz Sensor**
-server. Please refer to the official documentation from Netbotz Sensor:
-* [Netbotz Sensor](https://docs.fortinet.com/document/fortisiem/6.5.0/external-systems-configuration-guide/325357/apc-netbotz-environmental-monitor)
+The SNMP service must be configured and activated on the host. 
+Please refer to the [official documentation](https://docs.fortinet.com/document/fortisiem/6.5.0/external-systems-configuration-guide/325357/apc-netbotz-environmental-monitor). 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -109,7 +110,7 @@ yum install centreon-pack-hardware-sensors-netbotz-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Netbotz Sensor** connector through
+2. Whatever the license type (*online* or *offline*), install the **Netbotz Sensor SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -181,10 +182,10 @@ yum install centreon-plugin-Hardware-Sensors-Netbotz-Snmp
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Macro        | Description                                                                                                                              | Default value     | Mandatory   |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'temperature', 'humidity', 'dewpoint', 'airflow', 'doorswitch', 'camera', 'otherstate' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                       | --verbose         |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'temperature', 'humidity', 'dewpoint', 'airflow', 'doorswitch', 'camera', 'otherstate'               | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -212,7 +213,6 @@ The expected command output is shown below:
 
 ```bash
 OK: All 2 components are ok [1/1 temperatures][1/1 humidity]. | 'sensor1#hardware.sensor.temperature.celsius'=23C;;;; 'sensor1#hardware.sensor.humidity.percentage'=35%;;;0;100
-
 ```
 
 ### Troubleshooting

@@ -1,6 +1,6 @@
 ---
 id: hardware-sensors-akcp-snmp
-title: AKCP Sensor
+title: AKCP Sensor SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **AKCP Sensor** brings a host template:
+The Monitoring Connector **AKCP Sensor SNMP** brings a host template:
 
 * **HW-Sensor-Akcp-SNMP-custom**
 
@@ -44,13 +44,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Metric name                         | Unit  |
-|:------------------------------------|:------|
-| hardware.sensor.temperature                | C     |
-| hardware.sensor.humidity.percentage              | %     |
-| hardware.sensor.switch.status         | N/A     |
-| hardware.sensor.serial.status | N/A    |
-| hardware.sensor.water.status                 | N/A      |
+| Name                                | Unit |
+|:------------------------------------|:-----|
+| hardware.sensor.temperature         | C    |
+| hardware.sensor.humidity.percentage | %    |
+| hardware.sensor.switch.status       | N/A  |
+| hardware.sensor.serial.status       | N/A  |
+| hardware.sensor.water.status        | N/A  |
 
 </TabItem>
 </Tabs>
@@ -59,9 +59,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **AKCP Sensor**
-server. Please refer to the official documentation from AKCP:
-* [AKCP](https://www.akcp.com/knowledge-base/)
+The SNMP service must be configured and activated on the host. 
+Please refer to the official [documentation](https://www.akcp.com/knowledge-base/). 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -109,7 +110,7 @@ yum install centreon-pack-hardware-sensors-akcp-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **AKCP Sensor** connector through
+2. Whatever the license type (*online* or *offline*), install the **AKCP Sensor SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -181,10 +182,10 @@ yum install centreon-plugin-Hardware-Sensors-Akcp-Snmp
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Macro        | Description                                                                                              | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'temperature', 'humidity', 'switch', 'serial', 'water' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).       | --verbose         |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'temperature', 'humidity', 'switch', 'serial', 'water'                                               | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 </Tabs>

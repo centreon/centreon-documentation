@@ -1,6 +1,6 @@
 ---
 id: hardware-sensors-sensorip-snmp
-title: Sensor IP
+title: Sensor IP SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Sensor IP** apporte un modèle d'hôte :
+Le connecteur de supervision **Sensor IP SNMP** apporte un modèle d'hôte :
 
 * **HW-Sensor-Sensorip-SNMP-custom**
 
@@ -44,9 +44,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                            |
-|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Sensor-Sensorip-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                                    |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Sensor-Sensorip-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -57,39 +57,52 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Métrique         | Unité  |
-|:---------------------|:------|
-| sp.status | N/A |
-| switch.status | N/A |
-| hardware.sensor.humidity.percentage | C |
+| Nom                                 | Unité |
+|:------------------------------------|:------|
+| hardware.sp.status                  | N/A   |
+| hardware.sp.count                   | count |
+| hardware.switch.status              | N/A   |
+| hardware.switch.count               | count |
+| hardware.sensor.humidity.percentage | %     |
+| hardware.sensor.humidity.status     | N/A   |
+| hardware.sensor.humidity.count      | count |
+| hardware.sensor.temperature.celsius | C     |
+| hardware.sensor.temperature.status  | N/A   |
+| hardware.sensor.temperature.count   | count |
 
 </TabItem>
 <TabItem value="Sensors-Humidity" label="Sensors-Humidity">
 
-| Métrique         | Unité  |
-|:---------------------|:------|
-| hardware.sensor.humidity.percentage | % |
+| Nom                                 | Unité |
+|:------------------------------------|:------|
+| hardware.sensor.humidity.percentage | %     |
+| hardware.sensor.humidity.status     | N/A   |
+| hardware.sensor.humidity.count      | count |
 
 </TabItem>
 <TabItem value="Sensors-Sp" label="Sensors-Sp">
 
-| Métrique          | Unité  |
-|:---------------------|:------|
-| status | N/A |
+| Nom                | Unité |
+|:-------------------|:------|
+| hardware.sp.status | N/A   |
+| hardware.sp.count  | count |
 
 </TabItem>
 <TabItem value="Sensors-Switch" label="Sensors-Switch">
 
-| Métrique          | Unité  |
-|:---------------------|:------|
-| status | N/A |
+| Nom                    | Unité |
+|:-----------------------|:------|
+| hardware.switch.status | N/A   |
+| hardware.switch.count  | count |
 
 </TabItem>
 <TabItem value="Sensors-Temperature" label="Sensors-Temperature">
 
-| Métrique          | Unité  |
-|:---------------------|:------|
-| hardware.sensor.temperature.celsius | C |
+| Nom                                 | Unité |
+|:------------------------------------|:------|
+| hardware.sensor.temperature.celsius | C     |
+| hardware.sensor.temperature.status  | N/A   |
+| hardware.sensor.temperature.count   | count |
 
 </TabItem>
 </Tabs>
@@ -98,8 +111,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre **Sensor IP** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* [AKCP](https://www.akcp.com/knowledge-base/)
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la [documentation officielle](https://www.akcp.com/knowledge-base/). 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -147,7 +162,7 @@ yum install centreon-pack-hardware-sensors-sensorip-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Sensor IP**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Sensor IP SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -203,8 +218,8 @@ yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -217,41 +232,41 @@ yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | .*                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                                      | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Humidity" label="Sensors-Humidity">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | humidity          |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                                      | humidity          |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Sp" label="Sensors-Sp">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | sp                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                                      | sp                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Switch" label="Sensors-Switch">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | switch            |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                                      | switch            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sensors-Temperature" label="Sensors-Temperature">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'sp', 'temperature', 'humidity', 'switch'        | temperature       |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sp', 'temperature', 'humidity', 'switch'                                                                      | temperature       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -282,7 +297,6 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: All 2 components are ok [1/1 temperatures][1/1 humidity]. | 'sensor1#hardware.sensor.temperature.celsius'=23C;;;; 'sensor1#hardware.sensor.humidity.percentage'=35%;;;0;100
-
 ```
 
 ### Diagnostic des erreurs communes

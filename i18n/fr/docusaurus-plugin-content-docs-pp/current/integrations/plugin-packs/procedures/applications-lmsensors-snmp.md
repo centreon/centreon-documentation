@@ -1,6 +1,6 @@
 ---
 id: applications-lmsensors-snmp
-title: LM Sensors
+title: LM Sensors SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **LM Sensors** apporte un modèle d'hôte :
+Le connecteur de supervision **LM Sensors SNMP** apporte un modèle d'hôte :
 
 * **App-Lmsensors-SNMP-custom**
 
@@ -32,9 +32,9 @@ Le connecteur apporte le modèle de service suivant
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                       |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **App-Lmsensors-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                               |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **App-Lmsensors-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -45,12 +45,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Sensors" label="Sensors">
 
-| Métrique                       | Unité  |
-|:----------------------------------|:------|
-| sensor.fan.speed.rpm | rpm |
-| sensor.temperature.celsius             | N/A   |
-| sensor.voltage.volt            | V   |
-| sensor.misc.current            | N/A   |
+| Nom                        | Unité |
+|:---------------------------|:------|
+| sensor.fan.speed.rpm       | rpm   |
+| sensor.temperature.celsius | N/A   |
+| sensor.voltage.volt        | V     |
+| sensor.misc.current        | N/A   |
 
 </TabItem>
 </Tabs>
@@ -59,7 +59,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -107,7 +110,7 @@ yum install centreon-pack-applications-lmsensors-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **LM Sensors**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **LM Sensors SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -177,9 +180,9 @@ yum install centreon-plugin-Applications-Lmsensors-Snmp
 <Tabs groupId="sync">
 <TabItem value="Sensors" label="Sensors">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'voltage', 'temperature', 'misc'          | .*                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'fan', 'voltage', 'temperature', 'misc'                                                                        | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>

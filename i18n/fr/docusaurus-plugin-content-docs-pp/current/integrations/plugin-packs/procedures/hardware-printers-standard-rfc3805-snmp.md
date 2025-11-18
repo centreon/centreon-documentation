@@ -1,6 +1,6 @@
 ---
 id: hardware-printers-standard-rfc3805-snmp
-title: Printer standard
+title: Printer standard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Printer standard** apporte un modèle d'hôte :
+Le connecteur de supervision **Printer standard SNMP** apporte un modèle d'hôte :
 
 * **HW-Printer-standard-rfc3805-custom**
 
@@ -158,7 +158,7 @@ yum install centreon-pack-hardware-printers-standard-rfc3805-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Printer standard**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Printer standard SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

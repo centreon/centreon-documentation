@@ -1,6 +1,6 @@
 ---
 id: hardware-devices-abb-cms700-snmp
-title: ABB CMS-700
+title: ABB CMS-700 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **ABB CMS-700** brings a host template:
+The Monitoring Connector **ABB CMS-700 SNMP** brings a host template:
 
 * **HW-Device-Abb-Cms700-SNMP-custom**
 
@@ -18,10 +18,10 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Device-Abb-Cms700-SNMP-custom" label="HW-Device-Abb-Cms700-SNMP-custom">
 
-| Service Alias        | Service Template                                      | Service Description                   | Discovery  |
-|:---------------------|:------------------------------------------------------|:--------------------------------------|:----------:|
-| Mains-Measurements   | HW-Device-Abb-Cms700-Mains-Measurements-SNMP-custom   | Check collected data for mains/phases     |            |
-| Sensors-Measurements | HW-Device-Abb-Cms700-Sensors-Measurements-SNMP-custom | Check collected data for branches/sensors | X          |
+| Service Alias        | Service Template                                      | Service Description                       | Discovery |
+|:---------------------|:------------------------------------------------------|:------------------------------------------|:---------:|
+| Mains-Measurements   | HW-Device-Abb-Cms700-Mains-Measurements-SNMP-custom   | Check collected data for mains/phases     |           |
+| Sensors-Measurements | HW-Device-Abb-Cms700-Sensors-Measurements-SNMP-custom | Check collected data for branches/sensors |     X     |
 
 > The services listed above are created automatically when the **HW-Device-Abb-Cms700-SNMP-custom** host template is used.
 
@@ -42,8 +42,8 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                                      | Description |
-|:-----------------------------------------------|:------------|
+| Rule name                                      | Description                                            |
+|:-----------------------------------------------|:-------------------------------------------------------|
 | HW-Device-Abb-Cms700-SNMP-Sensors-Measurements | Discovers the sensors that are provided by the device. |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -56,7 +56,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Mains-Measurements" label="Mains-Measurements">
 
-| Metric name                                            | Unit  |
+| Name                                                   | Unit  |
 |:-------------------------------------------------------|:------|
 | power.active.watt                                      | W     |
 | power.reactive.voltamperereactive                      | VAR   |
@@ -77,7 +77,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Sensors-Measurements" label="Sensors-Measurements">
 
-| Metric name                                 | Unit  |
+| Name                                        | Unit  |
 |:--------------------------------------------|:------|
 | *sensors*#sensor.current.mixte.ampere       | A     |
 | *sensors*#sensor.current.alternative.ampere | A     |
@@ -93,7 +93,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP service must be configured and activated on the host. 
+Please refer to the official documentation. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -141,7 +144,7 @@ yum install centreon-pack-hardware-devices-abb-cms700-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **ABB CMS-700** connector through
+2. Whatever the license type (*online* or *offline*), install the **ABB CMS-700 SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

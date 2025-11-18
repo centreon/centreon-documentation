@@ -1,6 +1,6 @@
 ---
 id: hardware-sensors-hwgste-snmp
-title: HWg-STE Sensor
+title: HWg-STE Sensor SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **HWg-STE Sensor** brings a host template:
+The Monitoring Connector **HWg-STE Sensor SNMP** brings a host template:
 
 * **HW-Sensors-HWgSTE-SNMP-custom**
 
@@ -18,8 +18,8 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Sensors-HWgSTE-SNMP-custom" label="HW-Sensors-HWgSTE-SNMP-custom">
 
-| Service Alias  | Service Template                            | Service Description            |
-|:---------------|:--------------------------------------------|:-------------------------------|
+| Service Alias  | Service Template                            | Service Description                 |
+|:---------------|:--------------------------------------------|:------------------------------------|
 | Sensors-Global | HW-Sensor-HWgSTE-Sensors-Global-SNMP-custom | Check all the sensors of the device |
 
 > The services listed above are created automatically when the **HW-Sensors-HWgSTE-SNMP-custom** host template is used.
@@ -44,10 +44,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Metric name    | Unit  |
-|:---------------|:------|
-| hardware.sensor.temperature         | C   |
-| hardware.sensor.humidity.percentage | %   |
+| Name                                | Unit |
+|:------------------------------------|:-----|
+| hardware.sensor.temperature         | C    |
+| hardware.sensor.humidity.percentage | %    |
 
 </TabItem>
 </Tabs>
@@ -56,9 +56,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **HWg-STE Sensor**
-server. Please refer to the official documentation from HWg-STE:
-* [HWg-STE](https://www.hw-group.com/revision-overview/manuals)
+The SNMP service must be configured and activated on the host. 
+Please refer to the official [documentation](https://www.hw-group.com/revision-overview/manuals). 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -106,7 +107,7 @@ yum install centreon-pack-hardware-sensors-hwgste-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **HWg-STE Sensor** connector through
+2. Whatever the license type (*online* or *offline*), install the **HWg-STE Sensor SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -178,12 +179,12 @@ yum install centreon-plugin-Hardware-Sensors-Hwgste-Snmp
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Macro        | Description                                                                                                              | Default value     | Mandatory   |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'temperature', 'humidity'                                              | .*                |             |
-| WARNING      | Set warning threshold for temperature, humidity (syntax: type,instance,threshold) Example: --warning='temperature,.*,30' |                   |             |
-| CRITICAL     | Set critical threshold for temperature, humidity (syntax: type,instance,threshold) Example: --critical='humidty,.*,40'   |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                       | --verbose         |             |
+| Macro        | Description                                                                                                                                                 | Default value     | Mandatory   |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'temperature', 'humidity'                                                                                                 | .*                |             |
+| WARNING      | Set warning threshold for temperature, humidity (syntax: type,instance,threshold) Example: --warning='temperature,.*,30'                                    |                   |             |
+| CRITICAL     | Set critical threshold for temperature, humidity (syntax: type,instance,threshold) Example: --critical='humidty,.*,40'                                      |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                      | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -213,7 +214,6 @@ The expected command output is shown below:
 
 ```bash
 OK: All 2 components are ok [1/1 temperatures][1/1 humidity]. | 'sensor1#hardware.sensor.temperature.celsius'=23C;;;; 'sensor1#hardware.sensor.humidity.percentage'=35%;;;0;100
-
 ```
 
 ### Troubleshooting
