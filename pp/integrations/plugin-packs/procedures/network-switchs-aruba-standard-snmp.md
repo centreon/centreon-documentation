@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+> Since HP acquired Aruba, some MIBs may have changed. If your Aruba device is no longer correcty monitored by the Aruba connector, use the [HP Procurve SNMP](network-switchs-hp-procurve-snmp.md) connector instead.
+
 ### Templates
 
 The Monitoring Connector **Aruba Standard** brings 2 host templates:
@@ -195,7 +197,10 @@ No metrics for this service.
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

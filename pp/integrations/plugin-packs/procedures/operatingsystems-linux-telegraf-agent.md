@@ -29,10 +29,10 @@ The connector brings the following service templates (sorted by the host templat
 <TabItem value="OS-Linux-Telegraf-Agent-custom" label="OS-Linux-Telegraf-Agent-custom">
 
 | Service Alias | Service Template                      | Service Description                                                                                                                                  |
-| :------------ | :------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :------------ | :------------------------------------ |:-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cpu           | OS-Linux-Cpu-Telegraf-Agent-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
 | Load          | OS-Linux-Load-Telegraf-Agent-custom   | Check the server load average                                                                                                                        |
-| Memory        | OS-Linux-Memory-Telegraf-Agent-custom | Check the rate of memory utilization                                                                                                          |
+| Memory        | OS-Linux-Memory-Telegraf-Agent-custom | Check the rate of memory utilization                                                                                                                 |
 | Ntp           | OS-Linux-Ntp-Telegraf-Agent-custom    | Check system time synchronization with an NTP server                                                                                                 |
 | Swap          | OS-Linux-Swap-Telegraf-Agent-custom   | Check virtual memory usage                                                                                                                           |
 | Uptime        | OS-Linux-Uptime-Telegraf-Agent-custom | Time since the server has been working and available                                                                                                 |
@@ -42,25 +42,25 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias       | Service Template                                   | Service Description                                                                                                                                           | Discovery |
-| :------------------ | :------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------: |
-| Cmd-Generic         | OS-Linux-Cmd-Generic-Telegraf-Agent-custom         | Check exit code for Linux commands                                                                                                                            |           |
-| Connections-Generic | OS-Linux-Connections-Generic-Telegraf-Agent-custom | Check TCP/UDP connections                                                                                                                                     |           |
+| Service Alias       | Service Template                                   | Service Description                                                                                                                                       | Discovery |
+| :------------------ | :------------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------| :-------: |
+| Cmd-Generic         | OS-Linux-Cmd-Generic-Telegraf-Agent-custom         | Check exit code for Linux commands                                                                                                                        |           |
+| Connections-Generic | OS-Linux-Connections-Generic-Telegraf-Agent-custom | Check TCP/UDP connections                                                                                                                                 |           |
 | Cpu-Detailed        | OS-Linux-Cpu-Detailed-Telegraf-Agent-custom        | Check the detailed rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |           |
-| Disk-IO             | OS-Linux-Disk-IO-Telegraf-Agent-custom             | Check I/O counters of disks                                                                                                                                   |           |
-| Disks               | OS-Linux-Disks-Telegraf-Agent-custom               | Check the rate of free space on disks. For each check the mount point of disks will appear                                                                    |     X     |
-| File-Date-Generic   | OS-Linux-File-Date-Generic-Telegraf-Agent-custom   | Check file or/and directory modification/creation/access times                                                                                                |           |
-| File-Size-Generic   | OS-Linux-File-Size-Generic-Telegraf-Agent-custom   | Check file or/and directory sizes                                                                                                                             |           |
-| Inodes              | OS-Linux-Inodes-Telegraf-Agent-custom              | Check the rate of free inodes on disks                                                                                                                        |           |
-| Is-File-Generic     | OS-Linux-Is-File-Generic-Telegraf-Agent-custom     | Check if file 'xxx' is present                                                                                                                                |           |
-| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-Telegraf-Agent-custom | Check if file 'xxx' is not present                                                                                                                            |           |
-| Open-Files          | OS-Linux-Open-Files-Telegraf-Agent-custom          | Check file or/and directory modification/creation/access times                                                                                                |           |
-| Packet-Errors       | OS-Linux-Packet-Errors-Telegraf-Agent-custom       | Check packets in error/discarded from multiple network interfaces                                                                                             |           |
-| Pending-Updates     | OS-Linux-Pending-Updates-Telegraf-Agent-custom     | Check systemd services status                                                                                                                                 |           |
-| Process-Generic     | OS-Linux-Process-Generic-Telegraf-Agent-custom     | Check Linux processes                                                                                                                                         |           |
-| Systemd-Journal     | OS-Linux-Systemd-Journal-Telegraf-Agent-custom     | Count journal entries using the `journalctl` command.                                                                                                         |           |
-| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-Telegraf-Agent-custom   | Check systemd services status                                                                                                                                 |           |
-| Traffic             | OS-Linux-Traffic-Telegraf-Agent-custom             | Check the bandwidth of interfaces.                                                                                                                            |     X     |
+| Disk-IO             | OS-Linux-Disk-IO-Telegraf-Agent-custom             | Check I/O counters of disks                                                                                                                               |           |
+| Disks               | OS-Linux-Disks-Telegraf-Agent-custom               | Check the rate of free space on disks. For each check the mount point of disks will appear                                                                |     X     |
+| File-Date-Generic   | OS-Linux-File-Date-Generic-Telegraf-Agent-custom   | Check file or/and directory modification/creation/access times                                                                                            |           |
+| File-Size-Generic   | OS-Linux-File-Size-Generic-Telegraf-Agent-custom   | Check file or/and directory sizes                                                                                                                         |           |
+| Inodes              | OS-Linux-Inodes-Telegraf-Agent-custom              | Check the rate of free inodes on disks                                                                                                                    |           |
+| Is-File-Generic     | OS-Linux-Is-File-Generic-Telegraf-Agent-custom     | Check if file 'xxx' is present                                                                                                                            |           |
+| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-Telegraf-Agent-custom | Check if file 'xxx' is not present                                                                                                                        |           |
+| Open-Files          | OS-Linux-Open-Files-Telegraf-Agent-custom          | Check file or/and directory modification/creation/access times                                                                                            |           |
+| Packet-Errors       | OS-Linux-Packet-Errors-Telegraf-Agent-custom       | Check packets in error/discarded from multiple network interfaces                                                                                         |           |
+| Pending-Updates     | OS-Linux-Pending-Updates-Telegraf-Agent-custom     | Check systemd services status                                                                                                                             |           |
+| Process-Generic     | OS-Linux-Process-Generic-Telegraf-Agent-custom     | Check Linux processes                                                                                                                                     |           |
+| Systemd-Journal     | OS-Linux-Systemd-Journal-Telegraf-Agent-custom     | Count journal entries using the `journalctl` command.                                                                                                     |           |
+| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-Telegraf-Agent-custom   | Check systemd services status                                                                                                                             |           |
+| Traffic             | OS-Linux-Traffic-Telegraf-Agent-custom             | Check the bandwidth of interfaces.                                                                                                                        |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -76,15 +76,15 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
 
-| Metric name             | Unit  |
-| :---------------------- | :---- |
+| Name                    | Unit  |
+|:------------------------| :---- |
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Connections-Generic" label="Connections-Generic">
 
-| Metric name      | Unit  |
-| :--------------- | :---- |
+| Name             | Unit  |
+|:-----------------| :---- |
 | total            | count |
 | con\_synSent     | count |
 | con\_finWait1    | count |
@@ -101,24 +101,24 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                                | Unit |
-| :----------------------------------------- | :--- |
+| Name                                       | Unit |
+|:-------------------------------------------| :--- |
 | cpu.utilization.percentage                 | %    |
 | *cpu_core*#core.cpu.utilization.percentage | %    |
 
 </TabItem>
 <TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Metric name                     | Unit |
-| :------------------------------ | :--- |
+| Name                            | Unit |
+|:--------------------------------| :--- |
 | core.cpu.utilization.percentage | %    |
 | cpu.utilization.percentage      | %    |
 
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
-| Metric name                                   | Unit  |
-| :-------------------------------------------- | :---- |
+| Name                                          | Unit  |
+|:----------------------------------------------| :---- |
 | *device*#device.io.read.usage.bytespersecond  | B/s   |
 | *device*#device.io.write.usage.bytespersecond | B/s   |
 | *device*#device.io.read.wait.milliseconds     | ms    |
@@ -131,51 +131,51 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Metric name                           | Unit |
-| :------------------------------------ | :--- |
+| Name                                  | Unit |
+|:--------------------------------------| :--- |
 | *disk_name*#storage.space.usage.bytes | B    |
 
 </TabItem>
 <TabItem value="File-Date-Generic" label="File-Date-Generic">
 
-| Metric name             | Unit |
-| :---------------------- | :--- |
+| Name                    | Unit |
+|:------------------------| :--- |
 | file.mtime.last.seconds | s    |
 
 </TabItem>
 <TabItem value="File-Size-Generic" label="File-Size-Generic">
 
-| Metric name      | Unit |
-| :--------------- | :--- |
+| Name             | Unit |
+|:-----------------| :--- |
 | file.size.bytes  | B    |
 | files.size.bytes | B    |
 
 </TabItem>
 <TabItem value="Inodes" label="Inodes">
 
-| Metric name                              | Unit |
-| :--------------------------------------- | :--- |
+| Name                                     | Unit |
+|:-----------------------------------------| :--- |
 | *inodes*#storage.inodes.usage.percentage | %    |
 
 </TabItem>
 <TabItem value="Is-File-Generic" label="Is-File-Generic">
 
-| Metric name             | Unit  |
-| :---------------------- | :---- |
+| Name                    | Unit  |
+|:------------------------| :---- |
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Is-Not-File-Generic" label="Is-Not-File-Generic">
 
-| Metric name             | Unit  |
-| :---------------------- | :---- |
+| Name                    | Unit  |
+|:------------------------| :---- |
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Metric name | Unit |
-| :---------- | :--- |
+| Name        | Unit |
+|:------------| :--- |
 | avg\_load1  | N/A  |
 | avg\_load5  | N/A  |
 | avg\_load15 | N/A  |
@@ -186,8 +186,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name                 | Unit |
-| :-------------------------- | :--- |
+| Name                        | Unit |
+|:----------------------------| :--- |
 | memory.usage.bytes          | B    |
 | memory.free.bytes           | B    |
 | memory.usage.percentage     | %    |
@@ -203,8 +203,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Metric name                           | Unit  |
-| :------------------------------------ | :---- |
+| Name                                  | Unit  |
+|:--------------------------------------| :---- |
 | peers.detected.count                  | count |
 | *peers*#status                        | N/A   |
 | *peers*#peer.time.offset.milliseconds | ms    |
@@ -213,15 +213,15 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
 
-| Metric name             | Unit  |
-| :---------------------- | :---- |
+| Name                    | Unit  |
+|:------------------------| :---- |
 | system.files.open.count | count |
 
 </TabItem>
 <TabItem value="Packet-Errors" label="Packet-Errors">
 
-| Metric name                                          | Unit |
-| :--------------------------------------------------- | :--- |
+| Name                                                 | Unit |
+|:-----------------------------------------------------| :--- |
 | *interface*#status                                   | N/A  |
 | *interface*#interface.packets.in.discard.percentage  | %    |
 | *interface*#interface.packets.out.discard.percentage | %    |
@@ -231,8 +231,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Pending-Updates" label="Pending-Updates">
 
-| Metric name                  | Unit  |
-| :--------------------------- | :---- |
+| Name                         | Unit  |
+|:-----------------------------| :---- |
 | pending.updates.total.count  | count |
 | security.updates.total.count | count |
 | *updates*#update             | N/A   |
@@ -240,8 +240,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
 
-| Metric name                                   | Unit  |
-| :-------------------------------------------- | :---- |
+| Name                                          | Unit  |
+|:----------------------------------------------| :---- |
 | *processes*#time                              | N/A   |
 | *processes*#memory-usage                      | N/A   |
 | *processes*#cpu-utilization                   | N/A   |
@@ -261,8 +261,8 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric name           | Unit |
-| :-------------------- | :--- |
+| Name                  | Unit |
+|:----------------------| :--- |
 | swap.usage.bytes      | B    |
 | swap.free.bytes       | B    |
 | swap.usage.percentage | %    |
@@ -272,15 +272,15 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Systemd-Journal" label="Systemd-Journal">
 
-| Metric name           | Unit  |
-| :-------------------- | :---- |
+| Name                  | Unit  |
+|:----------------------| :---- |
 | journal.entries.count | count |
 
 </TabItem>
 <TabItem value="Systemd-Sc-Status" label="Systemd-Sc-Status">
 
-| Metric name                    | Unit  |
-| :----------------------------- | :---- |
+| Name                           | Unit  |
+|:-------------------------------| :---- |
 | systemd.services.running.count | count |
 | systemd.services.failed.count  | count |
 | systemd.services.dead.count    | count |
@@ -292,8 +292,8 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Traffic" label="Traffic">
 
-| Metric name                                     | Unit |
-| :---------------------------------------------- | :--- |
+| Name                                            | Unit |
+|:------------------------------------------------| :--- |
 | *interface*#status                              | N/A  |
 | *interface*#interface.traffic.in.bitspersecond  | b/s  |
 | *interface*#interface.traffic.out.bitspersecond | b/s  |
@@ -301,8 +301,8 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Metric name           | Unit |
-| :-------------------- | :--- |
+| Name                  | Unit |
+|:----------------------| :--- |
 | system.uptime.seconds | s    |
 
 </TabItem>
@@ -339,7 +339,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 > The `-days 365` option limits the certificate validity to one year. You may choose a longer or shorter duration according to your security/maintainance preferences.
 
 2. On your central server, go to **Configuration > Monitoring Connector Manager**.
-3. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
+3. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
 
 ### Configure Engine
 
@@ -666,8 +666,8 @@ In the **Configuration > Commands > Connectors** menu, click **Add** and fill th
 
 | Parameter             | Value                                                                                                                                                                                                                            |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connector Name        | Telegraf Agent                                                                                                                                                                                                                   |
-| Connector Description | Telegraf Agent                                                                                                                                                                                                                   |
+| Connector Name        | Telegraf Agent Beta                                                                                                                                                                                                                   |
+| Connector Description | Telegraf Agent Beta                                                                                                                                                                                                                  |
 | Command Line          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.host --service_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.service` |
 | Used by command       | Select all the commands whose names match `OS-Linux-Telegraf-Agent-*`                                                                                                                                                            |
 | Connector Status      | Enabled                                                                                                                                                                                                                          |
@@ -685,10 +685,10 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 3. Apply the **OS-Linux-Telegraf-Agent-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                | Description                                                                                                                                        | Valeur par défaut           | Obligatoire |
-| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------- | :---------: |
-| TELEGRAFPLUGINS      | Path where the Centreon Plugins can be found.                                                                                                      | `/usr/lib/centreon/plugins` |      X      |
-| TELEGRAFSTATEFILEDIR | Define the cache directory.                                                                                                                        | `/var/lib/telegraf`          |      X      |
+| Macro                | Description                                                                                                                                      | Valeur par défaut           | Obligatoire |
+| :------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------| :-------------------------- | :---------: |
+| TELEGRAFPLUGINS      | Path where the Centreon Plugins can be found.                                                                                                    | `/usr/lib/centreon/plugins` |      X      |
+| TELEGRAFSTATEFILEDIR | Define the cache directory.                                                                                                                      | `/var/lib/telegraf`          |      X      |
 | TELEGRAFEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                              |             |
 
 
@@ -703,7 +703,7 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
 
 | Macro          | Description                                                                                                                                       | Default value | Mandatory |
-| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :------------ | :-------: |
+| :------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------| :------------ | :-------: |
 | COMMAND        | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                                                                           |               |     X     |
 | COMMANDOPTIONS | Command options (default: none)                                                                                                                   |               |           |
 | THRESHOLDS     | Set action according command exit code. Example: %(code) == 0,OK,File xxx exist#%(code) == 1,CRITICAL,File xxx not exist#,UNKNOWN,Command problem |               |     X     |
@@ -713,8 +713,8 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 <TabItem value="Connections-Generic" label="Connections-Generic">
 
 | Macro             | Description                                                                                                                            | Default value | Mandatory |
-| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :-------: |
-| CONNECTIONCOMMAND | Default mode for parsing and command: 'netstat' (default) or 'ss'                                                                      | ss            |     X     |
+| :---------------- |:---------------------------------------------------------------------------------------------------------------------------------------| :------------ | :-------: |
+| CONNECTIONCOMMAND | Default mode for parsing and command: 'netstat' or 'ss'                                                                                | ss            |     X     |
 | WARNING           | Warning threshold for total connections                                                                                                |               |           |
 | CRITICAL          | Critical threshold for total connections                                                                                               |               |           |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
@@ -723,7 +723,7 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 <TabItem value="Cpu" label="Cpu">
 
 | Macro           | Description                                                                                                                            | Default value | Mandatory |
-| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :-------: |
+| :-------------- |:---------------------------------------------------------------------------------------------------------------------------------------| :------------ | :-------: |
 | WARNINGAVERAGE  | Warning threshold average CPU utilization                                                                                              |               |           |
 | CRITICALAVERAGE | Critical threshold average CPU utilization                                                                                             |               |           |
 | WARNINGCORE     | Warning thresholds for each CPU core                                                                                                   |               |           |
@@ -807,16 +807,16 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 <TabItem value="Is-File-Generic" label="Is-File-Generic">
 
 | Macro        | Description                                                                                                                            | Default value | Mandatory |
-| :----------- | :------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :-------: |
-| COMMAND      | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                                                                | test          |     X     |
+| :----------- |:---------------------------------------------------------------------------------------------------------------------------------------| :------------ | :-------: |
+| COMMAND      | Command to test. You can use 'sh' to use '&&' or '\|\|'                                                                                | test          |     X     |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Is-Not-File-Generic" label="Is-Not-File-Generic">
 
 | Macro        | Description                                                                                                                            | Default value | Mandatory |
-| :----------- | :------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :-------: |
-| COMMAND      | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                                                                | test          |     X     |
+| :----------- |:---------------------------------------------------------------------------------------------------------------------------------------| :------------ | :-------: |
+| COMMAND      | Command to test. You can use 'sh' to use '&&' or '\|\|'                                                                                | test          |     X     |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
@@ -840,20 +840,22 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro           | Description                                                                                                                                                                     | Default value                | Mandatory |
-| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------------------- | :-------: |
-| NTPCOMMAND      | Default mode for parsing and command: 'ntpq' (default), 'chronyc' or 'all'                                                                                                      | all                          |           |
-| FILTERPEERNAME  | Filter peer name (can be a regexp)                                                                                                                                              | .*                           |           |
-| FILTERPEERSTATE | Filter peer state (can be a regexp)                                                                                                                                             | .*                           |           |
-| WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                                        |                              |           |
-| CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                                       |                              |           |
-| WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                                  |                              |           |
-| CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                                 |                              |           |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |           |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |           |
-| WARNINGSTRATUM  | Warning threshold                                                                                                                                                               |                              |           |
-| CRITICALSTRATUM | Critical threshold                                                                                                                                                              |                              |           |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                          | --use-new-perfdata --verbose |           |
+| Macro            | Description                                                                                                                                                                     | Default value                | Mandatory |
+| :--------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :--------------------------- | :-------: |
+| NTPCOMMAND       | Default mode for parsing and command: 'auto', 'ntpq', 'chronyc' or 'all'                                                                                                        | auto                         |           |
+| FILTERPEERNAME   | Filter peer name (can be a regexp)                                                                                                                                              | .*                           |           |
+| EXCLUDEPEERNAME  | Exclude by peer name (can be a regexp)                                                                                                                                          |                              |           |
+| FILTERPEERSTATE  | Filter peer state (can be a regexp)                                                                                                                                             | .*                           |           |
+| EXCLUDEPEERSTATE | Exclude by peer state (can be a regexp)                                                                                                                                         |                              |           |
+| WARNINGOFFSET    | Warning threshold offset deviation value in milliseconds                                                                                                                        |                              |           |
+| CRITICALOFFSET   | Critical threshold offset deviation value in milliseconds                                                                                                                       |                              |           |
+| WARNINGPEERS     | Warning threshold minimum amount of NTP-Server                                                                                                                                  |                              |           |
+| CRITICALPEERS    | Critical threshold minimum amount of NTP-Server                                                                                                                                 |                              |           |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |           |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |           |
+| WARNINGSTRATUM   | Warning threshold                                                                                                                                                               |                              |           |
+| CRITICALSTRATUM  | Critical threshold                                                                                                                                                              |                              |           |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                          | --use-new-perfdata --verbose |           |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
@@ -888,8 +890,8 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 <TabItem value="Pending-Updates" label="Pending-Updates">
 
 | Macro            | Description                                                                                                                            | Default value | Mandatory |
-| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :-------: |
-| OSMODE           | Default mode for parsing and command: 'rhel' (default), 'debian', 'suse'                                                               | rhel          |           |
+| :--------------- |:---------------------------------------------------------------------------------------------------------------------------------------| :------------ | :-------: |
+| OSMODE           | Default mode for parsing and command: 'rhel', 'debian', 'suse'                                                                         | rhel          |           |
 | FILTERPACKAGE    | Filter package name                                                                                                                    |               |           |
 | FILTERREPOSITORY | Filter repository name                                                                                                                 |               |           |
 | WARNINGTOTAL     | Warning threshold for total amount of pending updates                                                                                  |               |           |
@@ -922,21 +924,21 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 </TabItem>
 <TabItem value="Systemd-Journal" label="Systemd-Journal">
 
-| Macro           | Description                                                                                                                                                     | Default value | Mandatory |
-| :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :-------: |
-| SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution. (default: 'cache') | cache         |           |
-| TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache. (default: 'local')                                              | local         |           |
-| UNIT            | Only look for messages of the specified unit, ie the name of thesystemd service who created the message                                                         |               |           |
-| FILTERMESSAGE   | Filter on message content (can be a regexp)                                                                                                                     |               |           |
-| WARNINGENTRIES  | Thresholds on the number of entries found in the journal for the specified parameters                                                                           |               |           |
-| CRITICALENTRIES | Thresholds on the number of entries found in the journal for the specified parameters                                                                           |               |           |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                          |               |           |
+| Macro           | Description                                                                                                                                 | Default value | Mandatory |
+| :-------------- |:--------------------------------------------------------------------------------------------------------------------------------------------| :------------ | :-------: |
+| SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution | cache         |           |
+| TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache                                              | local         |           |
+| UNIT            | Only look for messages of the specified unit, ie the name of thesystemd service who created the message                                     |               |           |
+| FILTERMESSAGE   | Filter on message content (can be a regexp)                                                                                                 |               |           |
+| WARNINGENTRIES  | Thresholds on the number of entries found in the journal for the specified parameters                                                       |               |           |
+| CRITICALENTRIES | Thresholds on the number of entries found in the journal for the specified parameters                                                       |               |           |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).      |               |           |
 
 </TabItem>
 <TabItem value="Systemd-Sc-Status" label="Systemd-Sc-Status">
 
 | Macro                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Default value                | Mandatory |
-| :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- | :-------: |
+| :------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :--------------------------- | :-------: |
 | FILTERNAME           | Filter service name (can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                                       | .*                           |           |
 | EXCLUDENAME          | Exclude service name (can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                                      |                              |           |
 | WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{active\}, %\{sub\}, %\{load\}, %\{boot\} Example of statuses for the majority of these variables: %\{active\}: active, inactive %\{sub\}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %\{load\}: loaded, not-found %\{boot\}: enabled, disabled, static, indirect                                        |                              |           |
@@ -1067,7 +1069,7 @@ The plugin brings the following modes:
 All generic options are listed here:
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| :----------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -1112,7 +1114,7 @@ All generic options are listed here:
 | --ssh-priv-key                             | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --sshcli-command                           | ssh command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --sshcli-path                              | ssh command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no'). The default option is --sshcli-options='-o=LogLevel=ERROR' which hides the SSH banner. If you override this parameter, make sure to append '-o=LogLevel=ERROR' to your new value to maintain this behavior. This parameter can be used multiple times and multiple options can be specified in the same parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --plink-command                            | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --plink-path                               | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --plink-option                             | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |

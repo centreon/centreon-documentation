@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                           | Service Description |
 |:--------------|:-------------------------------------------|:--------------------|
-| Environment   | Net-Mrv-Optiswitch-Environment-SNMP-custom |                     |
+| Environment   | Net-Mrv-Optiswitch-Environment-SNMP-custom | Check devices       |
 | Interfaces    | Net-Mrv-Optiswitch-Interfaces-SNMP-custom  | Check interfaces    |
 | Uptime        | Net-Mrv-Optiswitch-Uptime-SNMP-custom      | Check system uptime |
 
@@ -46,11 +46,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Environment" label="Environment">
 
-| Metric name         | Unit      |
-|:--------------------|:----------|
-| cpu.status          | N/A       |
-| psu.status          | N/A       |
-| fan.status          | N/A       |
+| Metric name | Unit |
+|:------------|:-----|
+| cpu.status  | N/A  |
+| psu.status  | N/A  |
+| fan.status  | N/A  |
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
@@ -76,7 +76,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

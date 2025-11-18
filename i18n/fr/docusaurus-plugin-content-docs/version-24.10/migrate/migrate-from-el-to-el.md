@@ -187,6 +187,12 @@ apt install centreon-plugin-\*
 
 Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoires qui contiennent ceux-ci, ainsi que toutes éventuelles dépendances.
 
+Utilisez la commande suivante pour synchroniser les images et autres médias entre votre ancien serveur et le nouveau.
+
+```shell
+rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img/
+```
+
 ### Étape 5 : Montée de version de la solution Centreon
 
 1. Sur le nouveau serveur, forcez la montée de version en déplacant le contenu du répertoire

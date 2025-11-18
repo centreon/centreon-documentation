@@ -896,12 +896,11 @@ The content of this message is serialized as follows:
 
 | Property        | Type             | Description                                                       |
 | --------------- | ---------------- | ----------------------------------------------------------------- |
+| group\_id       | unsigned integer | Group ID.                                                         |
+| host\_id        | unsigned integer | Host ID.                                                          |
 | enabled         | boolean          | True if the membership is enabled, false if it is not (deletion). |
 | group           | string           | Group name.                                                       |
 | instance\_id    | unsigned integer | Instance ID.                                                      |
-| host\_id        | unsigned integer | Host ID.                                                          |
-| source\_id      | unsigned integer | The id of the source instance of this event.                         |
-| destination\_id | unsigned integer | The id of the destination instance of this event.                 |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">

@@ -90,24 +90,24 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name                      | Description       | Unit  |
-|:---------------------------------|:------------------|:------|
-| fan status                       | Status of the fan |       |
-| *fan_name*hardware.fan.speed.rpm | Current fan speed | rpm   |
-| temperature status               |                   |       |
+| Metric name                      | Description       | Unit |
+|:---------------------------------|:------------------|:-----|
+| fan status                       | Status of the fan | N/A  |
+| *fan_name*hardware.fan.speed.rpm | Current fan speed | rpm  |
+| temperature status               |                   | N/A  |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                                               | Description                                            | Unit  |
-|:----------------------------------------------------------|:-------------------------------------------------------|:------|
-| status                                                    | Status of the interface                                |       |
-| *interface_name*#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface           | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface           | b/s   |
-| *interface_name*#interface.packets.in.error.percentage    | Incoming errored packets going through the interface   | %     |
-| *interface_name*#interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface | %     |
-| *interface_name*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface   | %     |
-| *interface_name*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface | %     |
+| Metric name                                               | Description                                            | Unit |
+|:----------------------------------------------------------|:-------------------------------------------------------|:-----|
+| status                                                    | Status of the interface                                | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface           | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface           | b/s  |
+| *interface_name*#interface.packets.in.error.percentage    | Incoming errored packets going through the interface   | %    |
+| *interface_name*#interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface | %    |
+| *interface_name*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface   | %    |
+| *interface_name*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface | %    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -148,7 +148,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP agent must be configured and activated on the host. Please refer to the [official documentation](https://docs.fortinet.com/product/fortiac/) from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the [official documentation](https://docs.fortinet.com/product/fortiac/) from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

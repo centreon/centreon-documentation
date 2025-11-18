@@ -5,7 +5,9 @@ title: Aruba Standard
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Contenu du pack
+## Contenu du connecteur
+
+> Depuis le rachat d'Aruba par HP, certaines MIB peuvent avoir changé. Si votre équipement Aruba n'est plus supervisé correctement par le connecteur Aruba, utilisez le connecteur [HP Procurve SNMP](network-switchs-hp-procurve-snmp.md).
 
 ### Modèles
 
@@ -67,18 +69,18 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle     | Description                                                |
-|:--------------------|:-----------------------------------------------------------|
-| Aruba Access Points | Discover Aruba Access Points through the Aruba Controller |
+| Nom de la règle     | Description                                                             |
+|:--------------------|:------------------------------------------------------------------------|
+| Aruba Access Points | Découvre les points d'accès Aruba Access au travers du Controller Aruba |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 #### Découverte de service
 
-| Nom de la règle                            | Description                                                           |
-|:-------------------------------------------|:----------------------------------------------------------------------|
-| Net-Aruba-Standard-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets |
-| Net-Aruba-Standard-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
+| Nom de la règle                            | Description                                                                      |
+|:-------------------------------------------|:---------------------------------------------------------------------------------|
+| Net-Aruba-Standard-SNMP-Packet-Errors-Name | Découvre les interfaces réseau et supervise les paquets en erreur et rejetés     |
+| Net-Aruba-Standard-SNMP-Traffic-Name       | Découvre les interfaces réseau et supervise l'utilisation de leur bande passante |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -196,7 +198,10 @@ Pas de métrique pour ce service.
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

@@ -61,7 +61,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique        | Unité |
 |:----------------|:------|
-| devices status  |       |
+| devices status  | N/A   |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -77,7 +77,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                | Unité |
 |:------------------------|:------|
-| unit and overall status |       |
+| unit and overall status | N/A   |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -93,8 +93,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent SNMP v2 ou v3
-sur la ressource comme indiqué sur la documentation officielle du constructeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

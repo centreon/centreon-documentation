@@ -48,6 +48,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <TabItem value="Collection" label="Collection">
 
 Les métriques obtenues dépendent entièrement de la configuration de la collection.
+Vous pouvez vous reporter au [tutoriel The Watch](https://thewatch.centreon.com/product-how-to-21/http-collections-tutorial-how-to-monitor-an-api-2634) dédié pour ce mode.
 
 </TabItem>
 <TabItem value="HTTP-Expected-Content" label="HTTP-Expected-Content">

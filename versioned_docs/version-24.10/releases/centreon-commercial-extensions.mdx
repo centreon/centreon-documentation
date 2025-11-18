@@ -19,6 +19,187 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 24.10.12
+
+Release date: `November 4, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Resolved unreliable communication between Broker and MAP.
+
+</details>
+
+### 24.10.11
+
+Release date: `October 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### 24.10.10
+
+Release date: `October 22, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Viewer] The Pie chart widget can now be displayed in percentage per status.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Config] Fixed an issue where the configure.sh script was not starting the mysql service anymore.
+- [Config] The MAP address is now used by default when no internal MAP address has been defined.
+- [Dashboards] Reduced the minimum size for MAP and Resource table widgets.
+- [Editor] Fixed issues with copying/pasting elements.
+- [MAP Editor] Fixed an issue causing incorrect parent names to appear in tooltips after saving.
+- [MAP Viewer] Fixed an issue causing inherited status to ignore status computation parameters (downtime, acknowledge) for services.
+- [MAP Viewer] Fixed an issue causing inherited status not to be refreshed when removing a service from a container.
+- [MAP Viewer] Fixed an issue causing text formatting not to be applied in some cases.
+- [Packaging ] Fixed an issue with the Symfony clear cache that was not automatically executed after installation.
+- [Server] BBDO version 3.1.0 is now supported.
+- [Upgrade] Removed the mention of generate_routes.php.
+- [Viewer] Fixed an issue with graphs that were displayed for services without any metric.
+- [Viewer] Fixed an issue where BAs linked to a remote server were not displayed.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Server] Fixed ownership of configuration files.
+- [Vulnerability] Upgraded crypto-js to version 4.2.0.
+- [Vulnerability] Upgraded Tomcat to version 10.1.44.
+
+</details>
+
+### 24.10.9
+
+Release date: `August 6, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Dashboards] When displaying an existing public playlist containing a MAP widget with no map selected, a message is now displayed indicating that one must first be selected for it to be displayed.
+- [Editor] Fixed an issue preventing groups of items to be duplicated.
+- [Editor] It is now possible to use sub-groups of items in a map.
+- [Playlists] The MAP widget is now operational when displayed in the public playlists of Dashboards.
+- [Server] Modified SQL user rights to grant only necessary ones.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] A new updated version of the API documentation is now available.
+- [Editor] Rectangle shapes can no longer have a width or height of 0 pixel, which caused errors when saving a map.
+- [Editor] Fixed an issue that caused links to be positioned differently in the editor when migrating from MAP Legacy to MAP.
+- [Editor] Line break management has been added to the extended Output widget when parsing BBDOv3 packets.
+- [Installation] Fixed my.cnf path for Debian.
+- [Map list] Fixed pagination.
+- [Migration] Added multiple information logs when migrating from MAP Legacy.
+- [Server] Fixed access right issue with the media directory, preventing images from being copied to a remote server.
+- [Server] Fixed an issue that sometimes prevented users from duplicating a map.
+- [Server] Fixed an issue causing BAs to disappear after a BAM reinstallation.
+- [Server] Fixed an issue preventing resources from being displayed when the configuration contained a host with no service associated to it.
+- [Viewer] Business Activities - Fixed visualisation of status and state of KPIs.
+- [Viewer] Fixed an issue where links to triangle shapes were shifted in view mode.
+- [Viewer] Fixed an issue preventing data from being displayed when hovering over a metaservice.
+- Fixed a naming issue that occurred when modifying resources to be displayed.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded axios to version 1.8.4.
+
+</details>
+
+### 24.10.8
+
+Release date: `July 2, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Custom Views] Fixed issue preventing the MAP widget from being displayed.
+
+</details>
+
+### 24.10.7
+
+Release date: `June 20, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Configuration] Added the possibility to use a MAP server address.
+- [Editor] You can now use a "Display icons" option for MAP containers and resources. If checked, custom and state icons are displayed on the shape.
+- [Geoviews] You can now define privileges for geographic views.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed issue preventing the gauge widget from being saved.
+- [Map Legacy] Fixed issue preventing user from creating a new geographic view.
+- [Server] Fixed incompatibility with newer MySQL 8 versions for Java connector.
+- [Viewer] Fixed issue that caused the gauge widget to disappear.
+- [Viewer] Fixed several issues preventing details from being correctly displayed when hovering over a BA.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed tomcat CVE-2025-24813 vulnerability.
+
+</details>
+
+### 24.10.6
+
+Release date: `May 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Fixed issue preventing MAP from being started when loading a service by host group.
+
+</details>
+
+### 24.10.5
+
+Release date: `April 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Added missing macros to the Output widget.
+- [Editor] Fixed an issue preventing service groups from being available in the bulk resource selection.
+- [Editor] Removed deleted service relations on the detailed view of a host.
+- [Geoviews] Fixed a display issue preventing a large list of host groups from being displayed correctly when selecting the resources to add.
+- [Server] Fixed an issue that could duplicate unwanted elements.
+- [Server] Fixed an issue that could prevent users from duplicating a map.
+- [Viewer] Fixed broken link to the Resource Status page for resources containing a slash ("/") in their name
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded spring security web dependency to version 6.2.8.
+
+</details>
+
 ### 24.10.4
 
 Release date: `March 12, 2025`
@@ -171,6 +352,84 @@ Release date: `October 31, 2024`
 
 ## Centreon BAM
 
+### 24.10.9
+
+Release date: `November 4, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed an installation issue caused by the upgrade script 24.10.7.
+
+</details>
+
+### 24.10.8
+
+Release date: `October 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### 24.10.7
+
+Release date: `October 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BA diagram] Fixed an issue with disabled indicators that were not displayed in a dedicated node of the tree.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+### 24.10.6
+
+Release date: `August 6, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Monitoring] A new, modern version of the BA monitoring page is now available.
+- [Dashboards] Added new widget "Business Activity Status Timeline" that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
+
+</details>
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed an issue on mod_bam_reporting_timeperiods column size which was too small.
+
+</details>
+
+### 24.10.5
+
+Release date: `June 20, 2025`
+
+- No changes for this module in this version.
+
+### 24.10.4
+
+Release date: `April 30, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Dashboards] BA Diagram widget - Added the parent host name on service KPIs.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed issue preventing BAs from being added to a remote server if one of their KPIs was a BA itself.
+- [Dashboards] BA Diagram widget - Fixed dataset autocomplete when searching for a Business Activity.
+
+</details>
+
 ### 24.10.3
 
 Release date: `March 12, 2025`
@@ -233,6 +492,83 @@ Release date: `October 31, 2024`
 
 ## Centreon MBI
 
+### 24.10.7
+
+Release date: `October 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### 24.10.6
+
+Release date: `October 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CBIS] Versions 2 and 3 of SMB are now supported.
+- [ETL] Fixed an issue when metric names exceeded 255 characters.
+- Fixed some missing translations in French.
+- Fixed the upload of report templates.
+- [MBI] Fixed an issue causing ACLs not to be applied on Report designs.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Engine] Fixed ownership of configuration files.
+- [MBI] Fixed an issue causing potential privilege escalation.
+- [Vulnerability] Upgraded JDOM version.
+- [Vulnerability] Upgraded versions of Apache Commons and TemporaryFolder dependencies.
+
+</details>
+
+### 24.10.5
+
+Release date: `August 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dependencies] Added missing dependency of Tie/File.pm on Alma 9.
+- Increased column size for MTBF, MTRS and MTBSI columns.
+- [Install] Fixed several issues in the diagnostic script.
+- [Reporting] Hosts-not-classified report - Fixed issue with hosts appearing multiple times when having no category.
+- [Publication Rules] Fixed SFTP test.
+- [Publication Rules] Fixed several issues and brought some enhancements and clarifications when sending a test email.
+
+</details>
+
+### 24.10.4
+
+Release date: `June 20, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed error with special characters in CBIS log.
+- [Packaging] Enforced permissions on centreon-bi backup cron.
+- [Server] Fixed incompatibility with newer MySQL 8 versions for Java connector.
+
+</details>
+
+### 24.10.3
+
+Release date: `April 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed an issue preventing reports from being exported in XLSX format.
+
+</details>
+
 ### 24.10.2
 
 Release date: `January 9, 2025`
@@ -291,6 +627,69 @@ Release date: `October 31, 2024`
 
 ## Centreon Auto Discovery
 
+### 24.10.8
+
+Release date: `October 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### 24.10.7
+
+Release date: `October 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed error code and message that were displayed in case of invalid license.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to restrict discovery commands that were too permissive.
+
+</details>
+
+### 24.10.6
+
+Release date: `June 20, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Install] Minor bug fix.
+
+</details>
+
+### 24.10.5
+
+Release date: `June 20, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed a security issue on Centreon Auto Discovery.
+
+</details>
+
+### 24.10.4
+
+Release date: `April 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Discovery] Fixed an issue where manually scanned services could not be saved by non-admin users.
+
+</details>
+
 ### 24.10.3
 
 Release date: `March 12, 2024`
@@ -345,6 +744,29 @@ Release date: `October 31, 2024`
 
 ## Centreon License Manager
 
+### 24.10.4
+
+Release date: `October 22, 2025`
+
+- No changes for this version.
+
+### 24.10.3
+
+Release date: `August 6, 2025`
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- Upgraded DOM purify dependency.
+
+</details>
+
+### 24.10.2
+
+Release date: `June 20, 2025`
+
+- No changes for this module in this version.
+
 ### 24.10.1
 
 Release date: `January 9, 2025`
@@ -369,6 +791,45 @@ Release date: `October 31, 2024`
 
 ## Centreon Anomaly Detection
 
+### 24.10.5
+
+Release date: `October 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### 24.10.4
+
+Release date: `October 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+### 24.10.3
+
+Release date: `August 6, 2025`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
+### 24.10.2
+
+Release date: `June 20, 2025`
+
+- No changes for this module in this version.
+
 ### 24.10.1
 
 Release date: `January 9, 2025`
@@ -392,6 +853,51 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon IT Edition Extensions
+
+### 24.10.8
+
+Release date: `October 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### 24.10.7
+
+Release date: `October 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Playlists] Fixed an issue with the refresh of the dashboard list to be displayed.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+### 24.10.6
+
+Release date: `August 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Playlists] The Status Grid widget is now filtering correctly the services to be displayed.
+
+</details>
+
+### 24.10.5
+
+Release date: `June 20, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Updated axios dependency on centreon it-edition.
+
+</details>
 
 ### 24.10.4
 
@@ -464,6 +970,40 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+
+### 24.10.6
+
+Release date: `October 22, 2025`
+
+- No changes for this version.
+
+### 24.10.5
+
+Release date: `August 6, 2025`
+
+- No changes for this version.
+
+### 24.10.4
+
+Release date: `June 20, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Monitoring Connectors] You can now access the **Monitoring Connector Manager** page using dedicated ACLs.
+
+</details>
+
+### 24.10.3
+
+Release date: `April 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a translation issue on menu & breadcrumb and added a "Connectors" submenu that includes Monitoring Connectors and Additional configurations.
+
+</details>
 
 ### 24.10.2
 

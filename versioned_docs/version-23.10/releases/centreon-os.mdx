@@ -23,6 +23,131 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.29
+
+Release date: `November 17, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] Password change attempts are now logged in a dedicated log file.
+- [Authentication] When users are authenticated using an IdP, the password fields no longer appear when editing a contact.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an RCE on poller reload page.
+- [Security] Securized backup script to prevent command injections.
+- [Vulnerability] Fixed several XSS vulnerabilities.
+
+</details>
+
+### 23.10.28
+
+Release date: `September 24, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API v1] Fixed an issue affecting the creation of services by CLAPI by non-administrator users.
+- [Configuration] Fixed a circular dependency issue for service template inheritance (interface + API).
+- [Configuration] Fixed an issue where host aliases were not handling quotes in inputs properly.
+- [Custom Views] Host Monitoring - Fixed the export feature for all resources.
+- [Install] Added **monitoring-plugins-basic** dependency for installation on Debian platforms.
+- [Resource Status] Fixed a notification tab issue that occurred when using the “Inherit only contacts/contacts group from host” parameter.
+- [Resource Status] The pipe “|” character is now handled correctly in the command section of a resource.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] The current password is now required when modifying a user's password.
+- [Vulnerability] Upgraded select2 dependency.
+- [Vulnerability] Fixed multiple XSS vulnerabilities.
+- Securized Poller configuration commands to avoid RCE vulnerability.
+
+</details>
+
+### 23.10.27
+
+Release date: `August 21, 2025`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] The current password is now required when modifying a user's password.
+
+</details>
+
+### 23.10.26
+
+Release date: `July 24, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] Improved SAML configuration by adding a "Requested Authentication Context" parameter.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Custom Views] Servicegroup monitoring widget - Fixed issue preventing non admin users from seeing widget data.
+- [Metaservices] Fixed SQLi issues. Fixed several issues occuring when using MySQL 8.
+- [Upgrade] Fixed migration script for version 23.10.8.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed vulnerability on notification escalation pages.
+- [Security] Fixed SQLi vulnerabilities on Configuration > Users > Contact templates.
+- [Vulnerability] Fixed SQL injection in Monitoring > Event Logs page.
+- [Vulnerability] Fixed SQL injection on meta-service configuration page.
+- [Vulnerability] SQL injections are now prevented on Host Category configuration page.
+- [Vulnerability] SQL injections are now prevented on the Host dependency field, in the Host configuration page.
+
+</details>
+
+### 23.10.25
+
+Release date: `June 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Added missing update file for version 23.10.24.
+
+</details>
+
+### 23.10.24
+
+Release date: `June 4, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Cron] The script that deletes expired tokens is now run with the **apache** user to avoid invalid permissions on a web log file.
+- [Install] Fixed incorrect rights on a database configuration file.
+- [Resource Status] Searching for an item containing a slash character is now handled correctly.
+- [Resource Status] The **Select all** checkbox in the view by host now works correctly.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed XSS in host listing.
+- [Vulnerability] Upgraded axios to version 1.8.1.
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
 ### 23.10.23
 
 Release date: `March 31, 2025`
@@ -170,7 +295,7 @@ Release date: `November 21, 2024`
 - [Administration] The names of the metaservices are now correctly displayed in the "Administration > Parameters > Data" menu.
 - [API] Fixed ACLs allowing access to a resource (host or service) upon its creation via the APIs by a non-administrator user.
 - [API] The is_notifications_enabled value in the host configuration endpoint of the API is now correctly updated when notifications are enabled.
-- [API Token] Fixed an issue with the expiration date of tokens in the API tokens page.
+- [API Token] Fixed an issue with the expiration date of API-generated tokens.
 - [Configuration] Custom macros are now correctly exported to the Remote Server when the configuration is deployed.
 - [Configuration] Engine log options are now correctly displayed, regardless of the user's language and the selected log level.
 - [Configuration] Fixed incorrect links in the Export configuration page.
@@ -694,6 +819,29 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.17
+
+Release date: `September 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Engine] Engine no longer crashes when users delete a host during downtime notification.
+- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a broker update.
+
+</details>
+
+### 23.10.16
+
+Release date: `July 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resource status] Fixed issues on tags (filters on host groups, host categories, service groups, service categories).
+
+</details>
+
 ### 23.10.15
 
 Release date: `April 8, 2025`
@@ -954,6 +1102,69 @@ Release date: `October 30, 2023`
 
 ## Centreon Gorgone
 
+### 23.10.16
+
+Release date: `November 17, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed Gorgone whitelist to allow NRPE service discovery.
+
+</details>
+
+### 23.10.15
+
+Release date: `September 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed centreontrapd configuration file permissions applied when exporting poller configuration.
+- [MBI] Fixed an issue where the ETL would never finish executing if some service templates were referencing themselves.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to make discovery commands less permissive.
+
+</details>
+
+### 23.10.14
+
+Release date: `August 11, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added option to disable bash interpolation in discovery commands.
+
+</details>
+
+### 23.10.13
+
+Release date: `July 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue on Alma 9 where plugins were not installed because yum did not exist anymore.
+
+</details>
+
+### 23.10.12
+
+Release date: `May 21, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed missing part on the Poller-Performances report.
+
+</details>
+
 ### 23.10.11
 
 Release date: `March 5, 2024`
@@ -1096,6 +1307,17 @@ Release date: `October 30, 2023`
 
 ## Centreon High Availability
 
+### 23.10.1
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [HA] Fixed an issue on cron for outdated token removal.
+
+</details>
+
 ### 23.10.0
 
 Release date: `October 30, 2023`
@@ -1108,6 +1330,23 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon DSM
+
+### 23.10.5
+
+Release date: `November 17, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed XSS in the Extensions Dynamic Services Configure page. 
+
+</details>
+
+### 23.10.4
+
+Release date: `July 24, 2025`
+
+No changes for this module in this version.
 
 ### 23.10.3
 
@@ -1161,6 +1400,18 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Open Tickets
+
+### 23.10.4
+
+Release date: `November 17, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed SQL injection in the Notification > Rules page.
+- [Vulnerability] Fixed XSS vulnerability in Configuration > Notification > Rules.
+
+</details>
 
 ### 23.10.3
 

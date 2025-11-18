@@ -12,6 +12,10 @@ module.exports = {
           type: 'doc',
           id: 'getting-started/about-centreon-cloud',
         },
+         {
+          type: 'doc',
+          id: 'getting-started/centreon-cloud-trial',
+        },
         {
           "collapsed": true,
           "type": "category",
@@ -150,6 +154,10 @@ module.exports = {
           type: 'doc',
           id: 'administration/ram',
         },
+        {
+          type: 'doc',
+          id: 'ciam/cloud-saml',
+        },
       ],
     },
     {
@@ -272,6 +280,10 @@ module.exports = {
             {
               "type": "doc",
               "id": "monitoring/basic-objects/services-templates"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/meta-services"
             }
           ]
         },
@@ -411,6 +423,10 @@ module.exports = {
           "id": "alerts-notifications/notif-configuration"
         },
         {
+          "type": "doc",
+          "id": "alerts-notifications/notif-flapping"
+        },
+        {
           "type": "category",
           "label": "Managing tickets",
           "link": {
@@ -418,10 +434,6 @@ module.exports = {
             "id": "alerts-notifications/ticketing-overview"
           },
           "items": [
-            {
-              "type": "doc",
-              "id": "alerts-notifications/ticketing-install"
-            },
             {
               "type": "doc",
               "id": "alerts-notifications/ticketing"

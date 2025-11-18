@@ -132,7 +132,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 
 ### Configuration de Centreon Engine
 
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma.md#configurez-engine).
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
 
 ### Prérequis système sur l'hôte à superviser
 
@@ -230,8 +230,8 @@ Dans le menu **Configuration > Commandes > Connecteurs**, cliquez sur **Ajouter*
 
 | Paramètre                 | Valeur                                                                                                                                                                                                                           |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nom du connecteur         | Telegraf Agent                                                                                                                                                                                                                   |
-| Description du connecteur | Telegraf Agent                                                                                                                                                                                                                   |
+| Nom du connecteur         | Telegraf Agent Beta                                                                                                                                                                                                                  |
+| Description du connecteur | Telegraf Agent Beta                                                                                                                                                                                                                  |
 | Ligne de commande         | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.host --service_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.service` |
 | Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `OS-Windows-Telegraf-Agent-*`                                                                                                                                         |
 | Statut du connecteur      | Activé                                                                                                                                                                                                                           |

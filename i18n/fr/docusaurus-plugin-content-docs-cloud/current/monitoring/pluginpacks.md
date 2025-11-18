@@ -30,7 +30,7 @@ que les prérequis nécessaires à son fonctionnement. Cliquez sur l'icône ``i`
 
 ### Installer le pack
 
-Vous pouvez accéder au catalogue des connecteurs de supervision à la page **Configuration > Gestionnaire de connecteurs de supervision** :
+Vous pouvez accéder au catalogue des connecteurs de supervision à la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 

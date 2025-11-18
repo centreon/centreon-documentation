@@ -540,44 +540,6 @@ apt update
 </TabItem>
 </Tabs>
 
-Then install MySQL server:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-map-engine
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install centreon-map-engine
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-apt update && apt install centreon-map-engine
-```
-
-> MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
-> 
-> ```shell
-> /etc/mysql/mysql.conf.d/mysqld.cnf
-> ```
-> 
-> Set the **bind-address** parameter to **0.0.0.0** and restart MySQL:
-> 
-> ```shell
-> sudo service mysql restart
-> ```
-
-</TabItem>
-</Tabs>
-
 Then enable and restart MySQL.
 
 ```shell
@@ -596,6 +558,44 @@ mysql_secure_installation
 
 </TabItem>
 </Tabs>
+
+Then install the centreon-map-engine package:
+   
+   <Tabs groupId="sync">
+   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+   ```shell
+   dnf install centreon-map-engine
+   ```
+   
+   </TabItem>
+   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+   ```shell
+   dnf install centreon-map-engine
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   
+   ```shell
+   apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
+   ```
+   
+ > **If you use MySQL:** MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+> 
+> ```shell
+> /etc/mysql/mysql.conf.d/mysqld.cnf
+> ```
+> 
+> Set the **bind-address** parameter to **0.0.0.0** and restart MySQL:
+> 
+> ```shell
+> sudo service mysql restart
+> ```
+
+   </TabItem>
+   </Tabs>
 
 ### Step 3 - Option 2: MAP Engine server installation on an existing Centreon MAP Legacy server
 

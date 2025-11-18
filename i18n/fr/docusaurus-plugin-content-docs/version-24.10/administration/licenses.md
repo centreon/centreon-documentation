@@ -129,3 +129,5 @@ chmod 640 /etc/centreon/license.d/*
   ```sql
   SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
   ```
+
+  > Les hôtes désactivés sont pris en compte par la licence. Assurez-vous que le total des hôtes existants (activés + désactivés) est inférieur à la limite fixée par votre licence.

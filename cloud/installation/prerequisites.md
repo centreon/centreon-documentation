@@ -41,7 +41,7 @@ Perform the partitioning following these recommendations:
 | swap                       | 1 to 1.5 total size of RAM space                                      |
 | /                          | at least 20 GB                                                        |
 | /var/log                   | at least 10 GB                                                        |
-| /var/lib/centreon-broker   | at least 5 GB                                                         |
+| /var/lib/centreon-engine   | at least 5 GB                                                         |
 
 ## Network
 

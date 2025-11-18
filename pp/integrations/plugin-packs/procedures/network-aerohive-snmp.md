@@ -66,8 +66,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                     | Unit  |
 |:--------------------------------|:------|
-| users.current.count             | users |
-| *ssid*#ssid.users.current.count | users |
+| users.current.count             | count |
+| *ssid*#ssid.users.current.count | count |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -87,7 +87,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

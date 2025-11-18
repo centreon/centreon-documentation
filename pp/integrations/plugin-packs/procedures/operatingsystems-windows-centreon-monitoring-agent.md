@@ -1,20 +1,19 @@
 ---
 id: operatingsystems-windows-centreon-monitoring-agent
-title: Windows Centreon Monitoring Agent
+title: Windows CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+The **Windows CMA** connector supplies templates and commands to be used with the Centreon Monitoring Agent (CMA). This is an observability agent implementing the OpenTelemetry protocol.
 
-> At the moment, this monitoring connector is in a **BETA** version.
-
-You may refer to [this page](../getting-started/how-to-guides/cma.md) for more information about Centreon Monitoring Agent.
+Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
 
 ## Pack assets
 
 ### Templates
 
-The Monitoring Connector **Windows Centreon Monitoring Agent** brings a host template:
+The Monitoring Connector **Windows CMA** brings a host template:
 
 * **OS-Windows-Centreon-Monitoring-Agent-custom**
 
@@ -23,31 +22,36 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-Centreon-Monitoring-Agent-custom" label="OS-Windows-Centreon-Monitoring-Agent-custom">
 
-| Service Alias  | Service Template                                           | Service Description                                                                                                                                  |
-|:---------------|:-----------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| CMA-Health     | OS-Windows-Health-Centreon-Monitoring-Agent-custom         | Check Centreon monitoring agent health                                                                                                               |
-| CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Check the rate of the utilization of memory                                                                                                          |
-| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Check the synchronization with a NTP server.                                                                                                         |
-| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Check if Windows needs rebooting.                                                                                                                    |
-| Services-Auto  | OS-Windows-Services-Auto-Centreon-Monitoring-Agent-custom  | CCheck if all auto-start Windows services are running                                                                                                |
-| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Check the number of active sessions.                                                                                                                 |
-| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Check virtual memory usage                                                                                                                           |
-| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Check if there are pending updates.                                                                                                                  |
-| Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Check time since the server has been working and available                                                                                           |
+| Service Alias  | Service Template                                           | Service Description                                                                                                                                             | Type of check |
+|:---------------|:-----------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| CMA-Health     | OS-Windows-Health-Centreon-Monitoring-Agent-custom         | Check Centreon monitoring agent health                                                                                                                          | native        |
+| CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs            | native        |
+| CPU-detailed   | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom   | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs.  | native        |
+| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Check the rate of memory utilization                                                                                                                            | native        |
+| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Check the synchronization with a NTP server.                                                                                                                    | non-native    |
+| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Check if Windows needs rebooting.                                                                                                                               | non-native    |
+| Services-Auto  | OS-Windows-Services-Auto-Centreon-Monitoring-Agent-custom  | Check if all auto-start Windows services are running                                                                                                           | native        |
+| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Check the number of active sessions.                                                                                                                            | non-native    |
+| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Check virtual memory usage                                                                                                                                      | native        |
+| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Check if there are pending updates.                                                                                                                             | non-native    |
+| Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Check time since the server has been working and available                                                                                                      | native        |
 
 > The services listed above are created automatically when the **OS-Windows-Centreon-Monitoring-Agent-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                                         | Service Description                                                                                                                                           |
-|:--------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Certificates  | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Check the local certificates.                                                                                                                                 |
-| CPU-detailed  | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Eventlog-Nscp      | OS-Windows-Eventlog-Nscp-Centreon-Monitoring-Agent-custom     | Check event log errors, in the manner of NSClient++                                                                                                                                        |
-| Services      | OS-Windows-Services-Centreon-Monitoring-Agent-custom     | Check Windows services states                                                                                                                                 |
-| Storage       | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Check storage usages                                                                                                                                          |
+| Service Alias   | Service Template                                                 | Service Description                                                  | Type of check |
+|:----------------|:-----------------------------------------------------------------|:---------------------------------------------------------------------|---------------|
+| Certificates    | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom         | Check the local certificates.                                        | non-native    |
+| Counter-Generic | OS-Windows-Counter-Generic-Centreon-Monitoring-Agent-custom      | Monitor the value of a Windows _perfmon_ counter.                    | native        |
+| Eventlog-Nscp   | OS-Windows-Eventlog-Nscp-Centreon-Monitoring-Agent-custom        | Check event log errors, in the manner of NSClient++.                 | native        |
+| Files-Generic   | OS-Windows-Files-Generic-Centreon-Monitoring-Agent-custom        | Check the size or any aspect of a file, in the manner of NSClient++. | native        |
+| Process-Generic | OS-Windows-Process-Generic-Nscp-Centreon-Monitoring-Agent-custom | Check the status of a process.                                       | native        |
+| Services        | OS-Windows-Services-Centreon-Monitoring-Agent-custom             | Check Windows services states.                                       | native        |
+| Storage         | OS-Windows-Storage-Centreon-Monitoring-Agent-custom              | Check storage usages.                                                | native        |
+| Task-Global     | OS-Windows-Task-Global-Centreon-Monitoring-Agent-custom          | Check the exit status of the active Windows scheduled tasks.         | native        |
+| Task-Name       | OS-Windows-Task-Name-Centreon-Monitoring-Agent-custom            | Check the exit status of a scheduled task.                           | native        |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -61,7 +65,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Certificates" label="Certificates">
 
-| Metric                               | Unit  |
+| Name                                 | Unit  |
 |:-------------------------------------|:------|
 | certificates.detected.count          | count |
 | certificate#certificate.expires.days | d     |
@@ -69,15 +73,27 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="CMA-Health" label="CMA-Health">
 
-| Metric   | Unit |
+| Name     | Unit |
 |:---------|:-----|
 | runtime  | s    |
 | interval | s    |
 
 </TabItem>
+<TabItem value="Counter-Generic" label="Counter-Generic">
+
+| Name           | Unit   |
+|:---------------|:-------|
+| *counter_name* | *unit* |
+| critical-count | count  |
+| warning-count  | count  |
+| _total         | *unit* |
+
+The counters names and their unit depend on the specified counters.
+
+</TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Metric                                       | Unit |
+| Name                                         | Unit |
 |:---------------------------------------------|:-----|
 | *core_index*#core.cpu.utilization.percentage | %    |
 | user#cpu.utilization.percentage              | %    |
@@ -85,28 +101,37 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
-| Metric                                                      | Unit |
+| Name                                                        | Unit |
 |:------------------------------------------------------------|:-----|
 | *core_index*\~user#core.cpu.utilization.percentage          | %    |
 | user#cpu.utilization.percentage                             | %    |
- | *core_index*\~system#core.cpu.utilization.percentage        | %    |
- | *core_index*\~idle#core.cpu.utilization.percentage          | %    |
- | *core_index*\~interrupt#core.cpu.utilization.percentage     | %    |
- | *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %    |
- | *core_index*\~used#core.cpu.utilization.percentage          | %    |
+| *core_index*\~system#core.cpu.utilization.percentage        | %    |
+| *core_index*\~idle#core.cpu.utilization.percentage          | %    |
+| *core_index*\~interrupt#core.cpu.utilization.percentage     | %    |
+| *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %    |
+| *core_index*\~used#core.cpu.utilization.percentage          | %    |
 
 </TabItem>
 <TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
 
-| Metric         | Unit  |
+| Name           | Unit  |
 |:---------------|:------|
 | critical-count | count |
 | warning-count  | count |
 
 </TabItem>
+<TabItem value="Files-Generic" label="Files-Generic">
+
+| Name           | Unit  |
+|:---------------|:------|
+| critical_count | count |
+| warning_count  | count |
+| ok_count       | count |
+
+</TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric                  | Unit |
+| Name                    | Unit |
 |:------------------------|:-----|
 | memory.usage.bytes      | B    |
 | memory.free.bytes       | B    |
@@ -115,9 +140,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Metric   | Unit |
-|:---------|:-----|
-| offset   | s    |
+| Name   | Unit |
+|:-------|:-----|
+| offset | s    |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
@@ -125,9 +150,16 @@ Here is the list of services for this connector, detailing all metrics linked to
 No metrics for this service.
 
 </TabItem>
+<TabItem value="Process-Generic" label="Process-Generic">
+
+| Name          | Unit  |
+|:--------------|:------|
+| process.count | count |
+
+</TabItem>
 <TabItem value="Services" label="Services">
 
-| Metric                    | Unit  |
+| Name                      | Unit  |
 |:--------------------------|:------|
 | services.stopped.count    | count |
 | services.starting.count   | count |
@@ -140,7 +172,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-| Metric                    | Unit  |
+| Name                      | Unit  |
 |:--------------------------|:------|
 | services.stopped.count    | count |
 | services.starting.count   | count |
@@ -153,7 +185,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Metric                              | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | sessions.created.total.count        | count |
 | sessions.disconnected.total.count   | count |
@@ -166,7 +198,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Metric   | Unit |
+| Name     | Unit |
 |:---------|:-----|
 | used_C:\ | B    |
 | used_D:\ | B    |
@@ -174,7 +206,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric                  | Unit |
+| Name                    | Unit |
 |:------------------------|:-----|
 | memory.usage.bytes      | B    |
 | memory.free.bytes       | B    |
@@ -184,16 +216,36 @@ No metrics for this service.
 | swap.usage.percentage   | %    |
 
 </TabItem>
+<TabItem value="Task-Global" label="Task-Global">
+
+| Name           | Unit      |
+|:---------------|:----------|
+| *task_name*    | exit_code |
+| ok_count       | count     |
+| warning_count  | count     |
+| critical_count | count     |
+
+</TabItem>
+<TabItem value="Task-Name" label="Task-Name">
+
+| Name           | Unit      |
+|:---------------|:----------|
+| *task_name*    | exit_code |
+| ok_count       | count     |
+| warning_count  | count     |
+| critical_count | count     |
+
+</TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Metric                        | Unit  |
+| Name                          | Unit  |
 |:------------------------------|:------|
 | windows.pending.updates.count | count |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Metric | Unit |
+| Name   | Unit |
 |:-------|:-----|
 | uptime | s    |
 
@@ -210,29 +262,24 @@ Only one TCP flow must be open from the host to the poller.
 |----------------|-------------|----------|------|--------------------------------------------------|
 | Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval OpenTelemetry data flow. |
 
-### System prerequisites on the poller
+### System prerequisites for the poller
 
-> To be able to use the Centreon Monitoring agent, you must use a poller with at least version `24.09.0` for Centreon Cloud users and version `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
+> To be able to use the Centreon Monitoring agent, you must use a poller with at least version <!--`24.09.0` for Centreon Cloud users and version--> `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will retrieve its configuration by connecting to Centreon Engine.
 
-### Configure Engine
+### Configure poller/agent communication
 
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma.md#configure-engine).
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
 
-### System prerequisites on the monitored host
+### System prerequisites for the monitored host
 
-The installer can be downloaded from the [centreon-collect's releases page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
-
-#### Installing the Centreon Monitoring Agent
-
-The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in 
-[this dedicated page](../getting-started/how-to-guides/cma.md#step-2-prepare-the-host).
+The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in
+[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
 
 ## Installing the monitoring connector
 
 ### Pack
 
  The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -269,21 +316,34 @@ apt install centreon-pack-operatingsystems-windows-centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Windows Centreon Monitoring Agent** connector through
+2. Whatever the license type (*online* or *offline*), install the **Windows CMA** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
-3. Create the corresponding connector:
+3. According to your version of Centreon, skip to the next step or create a connector on your central server.
 
-In the **Configuration > Commands > Connectors** menu, click **Add** and fill the following fields:
+<Tabs groupId="sync">
+<TabItem value="OnPrem version 24.10.6 or newer" label="OnPrem version 24.10.6 or newer">
+
+For this version, no configuration is needed. Move on to the [next step](#plugin).
+
+</TabItem>
+<TabItem value="OnPrem version older than 24.10.6" label="OnPrem version older than 24.10.6">
+
+If your Centreon is in a version older than 24.10.6, you need to create the CMA connector on your central server:
+
+1. Go to **Configuration > Commands > Connectors**.
+2. Create a new connector with the following values:
 
 | Parameter             | Value                                                                                                                                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Connector Name        | Centreon Monitoring Agent Agent                                                                                                                                                               |
-| Connector Description | Centreon Monitoring Agent Agent                                                                                                                                                               |
+| Connector Name        | Centreon Monitoring Agent                                                                                                                                                                     |
+| Connector Description | Centreon Monitoring Agent                                                                                                                                                                     |
 | Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Used by command       | Select all the commands named like `OS-Windows-Centreon-Monitoring-Agent-*`                                                                                                                   |
 | Connector Status      | Enabled                                                                                                                                                                                       |
 
+</TabItem>
+</Tabs>
 
 ### Plugin
 
@@ -323,17 +383,32 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 | 30:           |           |
 | WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |               |           |
 | CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |               |           |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                    |               |           |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |               |           |
 
 </TabItem>
 <TabItem value="CMA-Health" label="CMA-Health">
 
-| Macro            | Description                                                  | Valeur par défaut | Obligatoire |
-|:-----------------|:-------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGRUNTIME   | Warning if a check duration is greater than this value (s)   |                   |             |
-| CRITICALRUNTIME  | Critical if a check duration is greater than this value (s)  |                   |             |
-| WARNINGINTERVAL  | Warning if a check interval is greater than this value (s)   |                   |             |
-| CRITICALINTERVAL | Critical if a check interval is greater than this value (s)  |                   |             |
+| Macro            | Description                                                 | Default value | Mandatory |
+|:-----------------|:------------------------------------------------------------|:--------------|:---------:|
+| WARNINGRUNTIME   | Warning if a check duration is greater than this value (s)  |               |           |
+| CRITICALRUNTIME  | Critical if a check duration is greater than this value (s) |               |           |
+| WARNINGINTERVAL  | Warning if a check interval is greater than this value (s)  |               |           |
+| CRITICALINTERVAL | Critical if a check interval is greater than this value (s) |               |           |
+
+</TabItem>
+<TabItem value="Counter-Generic" label="Counter-Generic">
+
+| Macro          | Description                                                                                                       | Default value       | Mandatory |
+|:---------------|:------------------------------------------------------------------------------------------------------------------|:--------------------|:---------:|
+| COUNTERNAME    | Counter name. Examples: `\\System\\System Up Time`, `\\LogicalDisk(*)\\% Free Space`.                             |                     |     X     |
+| DETAILSYNTAX   | Format for each element inside `{list}`. Place-holders: `{label}`, `{value}`.                                     | `{alias} = {value}` |           |
+| WARNING        | Minimum WARNING items before overall status is WARNING.                                                           | 1                   |           |
+| CRITICAL       | Minimum CRITICAL items before overall status is CRITICAL.                                                         | 1                   |           |
+| WARNINGSTATUS  | Filter expression that marks an item WARNING. Example: `value > 80`.                                              |                     |           |
+| CRITICALSTATUS | Filter expression that marks an item CRITICAL. Example: `value > 90`.                                             |                     |           |
+| OUTPUTSYNTAX   | Format the output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, ... | `{status}: {list}`  |           |
+| USEENGLISH     | Force the use of English counter names, otherwise they'll be in the local language.                               | true                |           |
+| VERBOSE        | Add verbose output in the end.                                                                                    | false               |           |
 
 </TabItem>
 <TabItem value="CPU" label="CPU">
@@ -366,21 +441,39 @@ This connector relies on an integration supported by Centreon Engine and does no
 </TabItem>
 <TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
 
-| Macro             | Description                                                                                                                                                   | Valeur par défaut                                           | Obligatoire |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-----------:|
-| FILE              | Event log file to monitor                                                                                                                                     |                                                             |             |
-| FILTEREVENT       | Filter to apply on event log                                                                                                                                  | written > 60m and level in ('error', 'warning', 'critical') |             |
-| SCANRANGE         | Validity of events, can be s, second, m, minute, h, hour, d, day, w, week                                                                                     | 24h                                                         |             |
-| WARNINGSTATUS     | Filter to apply on event log to get warning events                                                                                                            | level = 'warning'                                           |             |
-| CRITICALSTATUS    | Filter to apply on event log to get critical events                                                                                                           | level in ('error', 'critical')                              |             |
-| WARNINGCOUNT      | Number of warning events to trigger a warning                                                                                                                 | 1                                                           |             |
-| CRITICALCOUNT     | Number of critical events to trigger a critical                                                                                                               | 1                                                           |             |
-| EMPTYSTATE        | Message to display when no event is found                                                                                                                     | Empty or no match for this filter                           |             |
-| OUTPUTSYNTAX      | Output format when status is not ok                                                                                                                           | \{status\}: \{count\} \{problem_list\}                             |             |
-| OKSYNTAX          | Output format when status is ok                                                                                                                               | \{status\}: Event log seems fine                              |             |
-| EVENTDETAILSYNTAX | Output format for each event                                                                                                                                  | '\{source\} \{id\}'                                             |             |
-| UNIQUEINDEX       | Unique index for events, events are grouped by this index. For example is two events have the same provider and the same id, only latest is printed to output | \{provider\}\{id\}                                              |             |
-| VERBOSE           | Display all events in long plugins output format (one line per event)                                                                                         | true                                                        |             |
+| Macro             | Description                                                                                                                                                   | Default value                                               | Mandatory |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:---------:|
+| FILE              | Event log file to monitor                                                                                                                                     |                                                             |           |
+| FILTEREVENT       | Filter to apply on event log                                                                                                                                  | written > 60m and level in ('error', 'warning', 'critical') |           |
+| SCANRANGE         | Validity of events, can be s, second, m, minute, h, hour, d, day, w, week                                                                                     | 24h                                                         |           |
+| WARNINGSTATUS     | Filter to apply on event log to get warning events                                                                                                            | level = 'warning'                                           |           |
+| CRITICALSTATUS    | Filter to apply on event log to get critical events                                                                                                           | level in ('error', 'critical')                              |           |
+| WARNINGCOUNT      | Number of warning events to trigger a warning                                                                                                                 | 1                                                           |           |
+| CRITICALCOUNT     | Number of critical events to trigger a critical                                                                                                               | 1                                                           |           |
+| EMPTYSTATE        | Message to display when no event is found                                                                                                                     | Empty or no match for this filter                           |           |
+| OUTPUTSYNTAX      | Output format when status is not ok                                                                                                                           | \{status\}: \{count\} \{problem_list\}                      |           |
+| OKSYNTAX          | Output format when status is ok                                                                                                                               | \{status\}: Event log seems fine                            |           |
+| EVENTDETAILSYNTAX | Output format for each event                                                                                                                                  | '\{source\} \{id\}'                                         |           |
+| UNIQUEINDEX       | Unique index for events, events are grouped by this index. For example is two events have the same provider and the same id, only latest is printed to output | \{provider\}\{id\}                                          |           |
+| VERBOSE           | Display all events in long plugins output format (one line per event)                                                                                         | true                                                        |           |
+
+</TabItem>
+<TabItem value="Files-Generic" label="Files-Generic">
+
+| Macro          | Description                                                                                                                                                                        | Default value                                              | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:---------:|
+| PATHS          | Root directory to search files in.                                                                                                                                                 |                                                            |     X     |
+| PATTERN        | Shell-style wildcards pattern to match filenames.                                                                                                                                  | `*.*`                                                      |           |
+| FILTER         | Filter expression to select files for the check. Example: `size > 1M && extension == '.dll'`                                                                                       |                                                            |           |
+| MAXDEPTH       | Max recursion depth (0: top only, 1: include subdirs, -1: recursively include all subdirs).                                                                                        | 0                                                          |           |
+| WARNING        | Minimum WARNING files to set overall status to WARNING.                                                                                                                            |                                                            |           |
+| CRITICAL       | Minimum CRITICAL files to set overall status to CRITICAL.                                                                                                                          |                                                            |           |
+| WARNINGSTATUS  | Filter expression: files matching are considered WARNING.                                                                                                                          |                                                            |           |
+| CRITICALSTATUS | Filter expression: files matching are considered CRITICAL.                                                                                                                         |                                                            |           |
+| DETAILSYNTAX   | Format for each file detail inside `{list}`. Placeholders: `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{write}`, `{version}`, `{line_count}`, `{extension}`.      | `{name}`                                                   |           |
+| OUTPUTSYNTAX   | Output format string for the overall check result. Placeholders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, `{problem_count}`, `{ok_count}`, etc. | `{status}: {problem_count}/{count} files ({problem_list})` |           |
+| OKSYNTAX       | Output if all files are OK.                                                                                                                                                        | `{status}: {ok_count} files found - {ok_list}`             |           |
+| VERBOSE        | Display detailed file info.                                                                                                                                                        | false                                                      |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -419,23 +512,39 @@ This connector relies on an integration supported by Centreon Engine and does no
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                               |                               |           |
 
 </TabItem>
+<TabItem value="Process-Generic" label="Process-Generic">
+
+| Macro          | Description                                                      | Default value                         | Mandatory |
+|:---------------|:-----------------------------------------------------------------|:--------------------------------------|:---------:|
+| PROCESS        | Name of the executable                                           |                                       |     X     |
+| WARNINGSTATUS  | Filter to apply on processes to identify those in WARNING state  | `status != 'started'`                 |           |
+| CRITICALSTATUS | Filter to apply on processes to identify those in CRITICAL state | `status == 'stopped'`                 |           |
+| WARNINGRULES   | Condition to match for the overall status to be WARNING          | `warn_count > 0`                      |           |
+| CRITICALRULES  | Condition to match for the overall status to be CRITICAL         | `crit_count > 0`                      |           |
+| EMPTYSTATE     | Message to display when no process is found                      | `No files found matching this filter` |           |
+| OUTPUTSYNTAX   | Format of the output when the status is not OK                   | `{status}: {problem_list}`            |           |
+| OKSYNTAX       | Format of the output when the status is OK                       | `{status}: All processes are ok`      |           |
+| DETAILSYNTAX   | How each process is displayed in the output                      | `{exe}={state}`                       |           |
+| VERBOSE        | Display all not ok processes in long output                      | true                                  |           |
+
+</TabItem>
 <TabItem value="Services" label="Services">
 
-| Macro                | Description                                                                                                                               | Valeur par défaut | Obligatoire |
-|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| STARTAUTO            | Only services that start automatically will be counted                                                                                    | false             |             |
-| FILTERNAME           | Regex to filter service names                                                                                                             | .*                |             |
-| EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
-| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
-| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
-| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
-| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
-| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
-| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
-| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
-| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
-| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
-| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                 |                   |             |
+| Macro                | Description                                                                                                                               | Default value | Mandatory |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| STARTAUTO            | Only services that start automatically will be counted                                                                                    | false         |           |
+| FILTERNAME           | Regex to filter service names                                                                                                             | .*            |           |
+| EXCLUDENAME          | Regex to exclude service names                                                                                                            |               |           |
+| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |               |           |
+| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |               |           |
+| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |               |           |
+| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |               |           |
+| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |               |           |
+| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |               |           |
+| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |               |           |
+| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |               |           |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |               |           |
+| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |               |           |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
@@ -453,7 +562,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
 | WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
 | CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
-| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                  |                   |             |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
 | CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
 
 </TabItem>
@@ -499,6 +608,36 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage |               |           |
 | WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage   |               |           |
 | CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage  |               |           |
+
+</TabItem>
+<TabItem value="Task-Global" label="Task-Global">
+
+| Macro          | Description                                                                                                   | Default value                                                                                   | Mandatory |
+|:---------------|:--------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|:---------:|
+| FILTERTASK     | Filter expression that determines which tasks to check.                                                       | `enabled == 1`                                                                                  |     X     |
+| WARNINGSTATUS  | Filter expression that marks a task WARNING.                                                                  | `exit_code != 0`                                                                                |           |
+| CRITICALSTATUS | Filter expression that marks a task CRITICAL.                                                                 | `exit_code < 0 \|\| missed_runs > 2`                                                            |           |
+| WARNING        | Minimum WARNING tasks before overall status is WARNING.                                                       | `1`                                                                                             |           |
+| CRITICAL       | Minimum CRITICAL tasks before overall status is CRITICAL.                                                     | `1`                                                                                             |           |
+| OUTPUTSYNTAX   | Format the not OK output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, etc. | `{status}: {ok_count} Ok - {warn_count} Warning - {crit_count} Critical tasks - {problem_list}` |           |
+| OKSYNTAX       | Format the OK output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, etc.     | `{status}: All tasks are ok - {ok_list}`                                                        |           |
+| DETAILSYNTAX   | Format for each task detail inside `{list}`. Place-holders: `{folder}`, `{name}`, `{exit_code}`, etc.                 | `{folder}/{name} exit code: {exit_code}`                                                        |           |
+| VERBOSE        | Add verbose output including detailed task information.                                                       | `false`                                                                                         |           |
+
+</TabItem>
+<TabItem value="Task-Name" label="Task-Name">
+
+| Macro          | Description                                                                                                             | Default value                                                                                   | Mandatory |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|:---------:|
+| TASKNAME       | Name of the task to monitor. Omit the task's folder. Example: put `WinSAT` not ` \Microsoft\Windows\Maintenance\WinSAT` |                                                                                                 |    X      |
+| WARNINGSTATUS  | Filter expression that marks a task WARNING.                                                                            | `exit_code != 0`                                                                                |           |
+| CRITICALSTATUS | Filter expression that marks a task CRITICAL.                                                                           | `exit_code < 0 \|\| missed_runs > 2`                                                            |           |
+| WARNING        | Minimum WARNING tasks before overall status is WARNING.                                                                 | `1`                                                                                             |           |
+| CRITICAL       | Minimum CRITICAL tasks before overall status is CRITICAL.                                                               | `1`                                                                                             |           |
+| OUTPUTSYNTAX   | Format the not OK output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, etc.           | `{status}: {ok_count} Ok - {warn_count} Warning - {crit_count} Critical tasks - {problem_list}` |           |
+| OKSYNTAX       | Format the OK output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, etc.               | `{status}: All tasks are ok - {ok_list}`                                                        |           |
+| DETAILSYNTAX   | Format for each task detail inside `{list}`. Place-holders: `{folder}`, `{name}`, `{exit_code}`, etc.                           | `{folder}/{name} exit code: {exit_code}`                                                        |           |
+| VERBOSE        | Add verbose output including detailed task information.                                                                 | `false`                                                                                         |           |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
@@ -562,36 +701,36 @@ The plugin brings the following modes:
 
 All generic options are listed here:
 
-| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
-| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                        |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)' |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 #### Modes options
 
@@ -703,17 +842,17 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Option            | Description                                                                                                                                                                                                                                               |
-|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --timeout         | Set timeout time for command execution (Default: 50 sec)                                                                                                                                                                                                  |
-| --no-ps           | Don't encode powershell. To be used with --command and 'type' command.                                                                                                                                                                                    |
-| --command         | Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                                                                    |
-| --command-path    | Command path (Default: none).                                                                                                                                                                                                                             |
-| --command-options | Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                                                                                   |
-| --ps-display      | Display powershell script.                                                                                                                                                                                                                                |
-| --ps-exec-only    | Print powershell output.                                                                                                                                                                                                                                  |
+| Option            | Description                                                                                                                                                                                                                                                             |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --timeout         | Set timeout time for command execution (Default: 50 sec)                                                                                                                                                                                                                |
+| --no-ps           | Don't encode powershell. To be used with --command and 'type' command.                                                                                                                                                                                                  |
+| --command         | Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                                                                                  |
+| --command-path    | Command path (Default: none).                                                                                                                                                                                                                                           |
+| --command-options | Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                                                                                                 |
+| --ps-display      | Display powershell script.                                                                                                                                                                                                                                              |
+| --ps-exec-only    | Print powershell output.                                                                                                                                                                                                                                                |
 | --warning-status  | Define the conditions to match for the status to be WARNING (Default: '%\{RebootPending\} =~ /true/i'). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}. |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}.                           |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}.                             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -739,8 +878,8 @@ All available options for each service template are listed below:
 | --warning             | warning threshold                                                                                                                                                                                                                                                                              |
 | --critical            | critical threshold                                                                                                                                                                                                                                                                             |
 | --filter-storage-type | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat |
-| --filter-fs           | Regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                                                                   |
-| --exclude-fs          | Regex to exclude filesystem                                                                                                                                                                                                                                                                   |
+| --filter-fs           | Regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                                                |
+| --exclude-fs          | Regex to exclude filesystem                                                                                                                                                                                                                                                                    |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
