@@ -59,6 +59,7 @@ The status of a resource can be one of these two types:
 
 The **Tries** column in the **Resource Status** page indicates the number of attempts to confirm a status. It also shows a letter (H or S) corresponding the type of status.
 
+
 You can filter the view on the [Resources Status](resources-status.md) page according to the resources' status type.
 
 ### Explanation
