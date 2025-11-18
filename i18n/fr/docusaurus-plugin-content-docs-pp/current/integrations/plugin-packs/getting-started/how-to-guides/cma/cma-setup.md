@@ -423,6 +423,13 @@ Vous pouvez afficher une liste des arguments avec la ligne de commande suivante 
 centreon-monitoring-agent.exe /S --help
 ```
 
+Pour échapper le caractère **-** dans la valeur d'un argument, celui-ci doit être précédé par **--%**
+
+```
+--% --hostname "Test-Hostname"
+```
+
+
 Les différents arguments sont:
 
 | flag                       | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |

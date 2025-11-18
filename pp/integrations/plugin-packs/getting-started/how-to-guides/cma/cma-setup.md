@@ -423,6 +423,12 @@ To run it in silent mode, you need to set /S as the first argument. You can disp
 centreon-monitoring-agent.exe /S --help
 ```
 
+To escape the **-** character in an argument value, it must be preceded by **--%**.
+
+```
+--% --hostname "Test-Hostname"
+```
+
 Available parameters are :
 
 | flag                       | description                                                                                                                                                                                                                                                               |
