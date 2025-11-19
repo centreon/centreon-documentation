@@ -45,23 +45,21 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="DWH-db-content" label="DWH-db-content">
 
-| Nom | Unité |
-|:----|:------|
-|     |       |
+Pas de métriques pour ce service.
+
 
 </TabItem>
 <TabItem value="DWH-partitions" label="DWH-partitions">
 
-| Nom | Unité |
-|:----|:------|
-|     |       |
+Pas de métriques pour ce service.
+
 
 </TabItem>
 <TabItem value="failed-jobs" label="failed-jobs">
 
 | Nom | Unité |
 |:----|:------|
-|     |       |
+| failedJob | count |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -410,23 +408,17 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 <Tabs groupId="sync">
 <TabItem value="DWH-db-content" label="DWH-db-content">
 
-| Option   | Description   |
-|:---------|:--------------|
-|          |               |
+Pas d'options pour ces modes
 
 </TabItem>
 <TabItem value="DWH-partitions" label="DWH-partitions">
 
-| Option   | Description   |
-|:---------|:--------------|
-|          |               |
+Pas d'options pour ces modes
 
 </TabItem>
 <TabItem value="failed-jobs" label="failed-jobs">
 
-| Option   | Description   |
-|:---------|:--------------|
-|          |               |
+Pas d'options pour ces modes
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">

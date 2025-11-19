@@ -46,23 +46,19 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="DWH-db-content" label="DWH-db-content">
 
-| Name | Unit |
-|:-----|:-----|
-|      |      |
+No metrics for this service.
 
 </TabItem>
 <TabItem value="DWH-partitions" label="DWH-partitions">
 
-| Name | Unit |
-|:-----|:-----|
-|      |      |
+No metrics for this service.
 
 </TabItem>
 <TabItem value="failed-jobs" label="failed-jobs">
 
 | Name | Unit |
 |:-----|:-----|
-|      |      |
+| failedJob | count |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -415,23 +411,17 @@ All available options for each service template are listed below:
 <Tabs groupId="sync">
 <TabItem value="DWH-db-content" label="DWH-db-content">
 
-| Option   | Description   |
-|:---------|:--------------|
-|          |               |
+No options for this mode.
 
 </TabItem>
 <TabItem value="DWH-partitions" label="DWH-partitions">
 
-| Option   | Description   |
-|:---------|:--------------|
-|          |               |
+No options for this mode.
 
 </TabItem>
 <TabItem value="failed-jobs" label="failed-jobs">
 
-| Option   | Description   |
-|:---------|:--------------|
-|          |               |
+No options for this mode.
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
