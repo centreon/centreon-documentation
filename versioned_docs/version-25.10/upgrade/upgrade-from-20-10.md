@@ -94,7 +94,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
