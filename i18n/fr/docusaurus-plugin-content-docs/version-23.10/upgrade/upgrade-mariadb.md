@@ -157,16 +157,14 @@ dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-co
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf module enable -y mariadb-10.5
-dnf install mariadb-server-10.5\* mariadb-client-10.5\* mariadb-shared-10.5\* mariadb-compat-10.5\* mariadb-common-10.5\*
+dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf module enable -y mariadb-10.5
-dnf install mariadb-server-10.5\* mariadb-client-10.5\* mariadb-shared-10.5\* mariadb-compat-10.5\* mariadb-common-10.5\*
+dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
 ```
 
 </TabItem>

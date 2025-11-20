@@ -371,7 +371,7 @@ Execute the following command to install MariaDB:
 You need first to add the MariaDB repository: 
 
 ```shell
-dnf module enable -y mariadb:10.5
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
 ```
 
 Then install MariaDB:
