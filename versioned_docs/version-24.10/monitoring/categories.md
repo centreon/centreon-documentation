@@ -8,7 +8,7 @@ Categories allow you to:
 - organize hosts or services so as to define user rights on them using [ACLs](../administration/access-control-lists.md)
 - [filter the view](../alerts-notifications/resources-status.md#filtering-events) in the **Resources status** page
 - classify the hosts and services within sub-groups in [MBI reports](../reporting/concepts.md).
-- define types of objects in the Centreon [MAP module](../graph-views/introduction.md).
+- define types of objects in the Centreon [MAP module](../graph-views/introduction-map.md).
 
 A special type of category is called severity. Severities can be used to achieve all of the above, but also to:
 
