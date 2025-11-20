@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-quantum-dxi-ssh
-title: Quantum DXi Series
+title: Quantum DXi Series SSH
 ---
 
 ## Prerequisites
