@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-emc-xtremio-restapi
-title: EMC Xtremio
+title: EMC Xtremio Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **EMC Xtremio** connector through the
+The following monitoring connectors will be installed when you install the **EMC Xtremio Rest API** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **EMC
 
 ### Templates
 
-The Monitoring Connector **EMC Xtremio** brings a host template:
+The Monitoring Connector **EMC Xtremio Rest API** brings a host template:
 
 * **HW-Storage-EMC-Xtremio-Restapi-custom**
 
@@ -44,21 +44,21 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Cluster-Health" label="Cluster-Health">
 
-| Name          | Unit  |
-|:--------------|:------|
-| consistency-state         | N/A  |
-| shared-memory-efficiency-level    | N/A  |
-| free-ud-ssd-space-level   | N/A  |
-| vaai-tp-limit-crossing | N/A  |
+| Name                             | Unit |
+|:---------------------------------|:-----|
+| consistency-state                | N/A  |
+| shared-memory-efficiency-level   | N/A  |
+| free-ud-ssd-space-level          | N/A  |
+| vaai-tp-limit-crossing           | N/A  |
 | shared-memory-in-use-ratio-level | N/A  |
-| sys-health-state | N/A  |
+| sys-health-state                 | N/A  |
 
 </TabItem>
 <TabItem value="SSDs-Endurance" label="SSDs-Endurance">
 
-| Name          | Unit  |
-|:--------------|:------|
-| ssd-endurence         | %  |
+| Name          | Unit |
+|:--------------|:-----|
+| ssd-endurence | %    |
 
 </TabItem>
 <TabItem value="SSDs-Iops" label="SSDs-Iops">
@@ -80,23 +80,23 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="XenVS-CPU" label="XenVS-CPU">
 
-| Name          | Unit  |
-|:--------------|:------|
-| cpu-usage         | %  |
+| Name      | Unit |
+|:----------|:-----|
+| cpu-usage | %    |
 
 </TabItem>
 <TabItem value="XenVS-State" label="XenVS-State">
 
-| Name          | Unit  |
-|:--------------|:------|
-| xenv-status         | N/A  |
+| Name        | Unit |
+|:------------|:-----|
+| xenv-status | N/A  |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-An API username and password are required to monitor EMC Xtremio via the REST API.
+An API username and password are required to monitor EMC Xtremio Rest API via the REST API.
 
 ## Installing the monitoring connector
 
@@ -139,7 +139,7 @@ yum install centreon-pack-hardware-storage-emc-xtremio-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **EMC Xtremio** connector through
+2. Whatever the license type (*online* or *offline*), install the **EMC Xtremio Rest API** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -195,11 +195,11 @@ yum install centreon-plugin-Hardware-Storage-Emc-Xtremio-Restapi
 3. Apply the **HW-Storage-EMC-Xtremio-Restatpi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro           | Description      | Default value     | Mandatory   |
-|:----------------|:-----------------|:------------------|:-----------:|
-| XTREMIOUSERNAME | Xtremio username |                   |     X       |
-| XTREMIOPASSWORD | Xtremio password |                   |     X       |
-| APIEXTRAOPTS    |                  |                   |             |
+| Macro           | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| XTREMIOUSERNAME | Xtremio username                                                                                                                         |                   |     X       |
+| XTREMIOPASSWORD | Xtremio password                                                                                                                         |                   |     X       |
+| APIEXTRAOPTS    | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 

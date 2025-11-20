@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-dell-tl2000-snmp
-title: Dell TL2000
+title: Dell TL2000 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Dell TL2000**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Dell TL2000 SNMP**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -51,7 +51,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="GlobalStatus" label="GlobalStatus">
 
-| Nom   | Unité |
+| Nom           | Unité |
 |:--------------|:-----|
 | global.status | N/A  |
 
@@ -62,7 +62,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée.
 Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
@@ -112,7 +113,7 @@ yum install centreon-pack-hardware-storage-dell-tl2000-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dell TL2000**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dell TL2000 SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
