@@ -12,7 +12,6 @@ Ce connecteur a été conçu pour être compatible avec les produits suivants.
 | Produit     | Modèles       | Versions |
 | ----------- | ------------- | -------- |
 | HPE Primera | C650 2 noeuds | 4.5.24.7 |
-| HPE Alletra | 9000          | NA       |
 
 ## Contenu du pack
 
@@ -31,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias       | Modèle de service                                 | Description                                             | Découverte |
 |:------------|:--------------------------------------------------|:--------------------------------------------------------|:----------:|
 | Capacity    | HW-Storage-HPE-Primera-Capacity-RESTAPI-custom    | Contrôle la capacité des différents types de stockage   |            |
-| Disk-Status | HW-Storage-HPE-Primera-Disk-Status-RESTAPI-custom | Contrôle l'état de fonctionnement des disques physiques | X          |
+| Disk-Status | HW-Storage-HPE-Primera-Disk-Status-RESTAPI-custom | Contrôle l'état de fonctionnement des disques physiques |     X      |
 | Licenses    | HW-Storage-HPE-Primera-Licenses-RESTAPI-custom    | Contrôle l'état des licences                            |            |
 | Nodes       | HW-Storage-HPE-Primera-Nodes-RESTAPI-custom       | Contrôle l'état des noeuds                              |            |
 
@@ -44,8 +43,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                                  | Description                                | Découverte |
 |:-------------|:---------------------------------------------------|:-------------------------------------------|:----------:|
-| Disk-Usage   | HW-Storage-HPE-Primera-Disk-Usage-RESTAPI-custom   | Contrôle l'utilisation des disques         | X          |
-| Volume-Usage | HW-Storage-HPE-Primera-Volume-Usage-RESTAPI-custom | Contrôle le taux d'utilisation des volumes | X          |
+| Disk-Usage   | HW-Storage-HPE-Primera-Disk-Usage-RESTAPI-custom   | Contrôle l'utilisation des disques         |     X      |
+| Volume-Usage | HW-Storage-HPE-Primera-Volume-Usage-RESTAPI-custom | Contrôle le taux d'utilisation des volumes |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -58,14 +57,14 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle                                     | Description                                                |
-|:----------------------------------------------------|:-----------------------------------------------------------|
+| Nom de la règle                                     | Description                                                   |
+|:----------------------------------------------------|:--------------------------------------------------------------|
 | HW-Storage-HPE-Primera-RESTAPI-Disk-Status-Id       | Découvre les disques physiques et en supervise le statut.     |
 | HW-Storage-HPE-Primera-RESTAPI-Disk-Status-Position | Découvre les disques physiques et en supervise le statut.     |
 | HW-Storage-HPE-Primera-RESTAPI-Disk-Usage-Id        | Découvre les disques physiques et en supervise l'utilisation. |
 | HW-Storage-HPE-Primera-RESTAPI-Disk-Usage-Position  | Découvre les disques physiques et en supervise l'utilisation. |
 | HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Id      | Découvre les volumes et en supervise l'utilisation.           |
-| HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Name    | Découvre les volumes et en supervise l'utilisation.
+| HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Name    | Découvre les volumes et en supervise l'utilisation.           |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -77,7 +76,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Capacity" label="Capacity">
 
-| Métrique                                                  | Unité |
+| Nom                                                       | Unité |
 |:----------------------------------------------------------|:------|
 | *storage_type*~storage.space.usage.bytes                  | B     |
 | *storage_type*~storage.space.free.bytes                   | B     |
@@ -93,7 +92,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Disk-Status" label="Disk-Status">
 
-| Métrique             | Unité |
+| Nom                  | Unité |
 |:---------------------|:------|
 | disks.total.count    | count |
 | disks.normal.count   | count |
@@ -106,7 +105,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Disk-Usage" label="Disk-Usage">
 
-| Métrique                              | Unité |
+| Nom                                   | Unité |
 |:--------------------------------------|:------|
 | disks.total.space.usage.bytes         | B     |
 | disks.total.space.usage.percent       | %     |
@@ -118,7 +117,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Métrique                                  | Unité |
+| Nom                                       | Unité |
 |:------------------------------------------|:------|
 | licenses.total.count                      | count |
 | licenses.expired.count                    | count |
@@ -127,7 +126,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Nodes" label="Nodes">
 
-| Métrique              | Unité |
+| Nom                   | Unité |
 |:----------------------|:------|
 | nodes.total.count     | count |
 | nodes.online.count    | count |
@@ -137,7 +136,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Volume-Usage" label="Volume-Usage">
 
-| Métrique                                  | Unité |
+| Nom                                       | Unité |
 |:------------------------------------------|:------|
 | *volume_id*#volume.space.usage.bytes      | B     |
 | *volume_id*#volume.space.free.bytes       | B     |
@@ -303,28 +302,28 @@ yum install centreon-plugin-Hardware-Storage-Hpe-Primera-Restapi
 </TabItem>
 <TabItem value="Disk-Status" label="Disk-Status">
 
-| Macro                 | Description                                                                                                                                                                                                                                                                                                                                                                  | Valeur par défaut                         | Obligatoire |
-|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
-| FILTERID              | Define which disks should be monitored based on their IDs. This option will be treated as a regular expression                                                                                                                                                                                                                                                               |                                           |             |
-| FILTERMANUFACTURER    | Define which volumes should be monitored based on the disk manufacturer. This option will be treated as a regular expression                                                                                                                                                                                                                                                 |                                           |             |
-| FILTERMODEL           | Define which volumes should be monitored based on the disk model. This option will be treated as a regular expression                                                                                                                                                                                                                                                        |                                           |             |
-| FILTERSERIAL          | Define which volumes should be monitored based on the disk serial number. This option will be treated as a regular expression                                                                                                                                                                                                                                                |                                           |             |
-| FILTERPOSITION        | Define which volumes should be monitored based on the disk position. The position is composed of 3 integers, separated by colons: - Cage number where the physical disk is in. - Magazine number where the physical disk is in. - For DC4 cages, disk position within the magazine. For non-DC4 cages, 0. Example: 7:5:0 This option will be treated as a regular expression |                                           |             |
-| WARNINGDISKSDEGRADED  | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| CRITICALDISKSDEGRADED | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| WARNINGDISKSFAILED    | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| CRITICALDISKSFAILED   | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| WARNINGDISKSNEW       | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| CRITICALDISKSNEW      | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| WARNINGDISKSNORMAL    | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| CRITICALDISKSNORMAL   | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| WARNINGDISKSTOTAL     | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| CRITICALDISKSTOTAL    | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| WARNINGDISKSUNKNOWN   | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| CRITICALDISKSUNKNOWN  | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                           |             |
-| WARNINGSTATUS         | Define the condition to match for the returned status to be WARNING. Default: '%\{status\} =~ /^(new\|degraded\|unknown)$/'                                                                                                                                                                                                                                                    | %\{status\} =~ /^(new\|degraded\|unknown)$/ |             |
-| CRITICALSTATUS        | Define the condition to match for the returned status to be CRITICAL. Default: '%\{status\} =~ /failed/'                                                                                                                                                                                                                                                                       | %\{status\} =~ /failed/                     |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                                             | --verbose                                 |             |
+| Macro                 | Description                                                                                                                                                                                                                                                                                                                                                                  | Valeur par défaut                           | Obligatoire |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:-----------:|
+| FILTERID              | Define which disks should be monitored based on their IDs. This option will be treated as a regular expression                                                                                                                                                                                                                                                               |                                             |             |
+| FILTERMANUFACTURER    | Define which volumes should be monitored based on the disk manufacturer. This option will be treated as a regular expression                                                                                                                                                                                                                                                 |                                             |             |
+| FILTERMODEL           | Define which volumes should be monitored based on the disk model. This option will be treated as a regular expression                                                                                                                                                                                                                                                        |                                             |             |
+| FILTERSERIAL          | Define which volumes should be monitored based on the disk serial number. This option will be treated as a regular expression                                                                                                                                                                                                                                                |                                             |             |
+| FILTERPOSITION        | Define which volumes should be monitored based on the disk position. The position is composed of 3 integers, separated by colons: - Cage number where the physical disk is in. - Magazine number where the physical disk is in. - For DC4 cages, disk position within the magazine. For non-DC4 cages, 0. Example: 7:5:0 This option will be treated as a regular expression |                                             |             |
+| WARNINGDISKSDEGRADED  | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| CRITICALDISKSDEGRADED | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| WARNINGDISKSFAILED    | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| CRITICALDISKSFAILED   | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| WARNINGDISKSNEW       | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| CRITICALDISKSNEW      | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| WARNINGDISKSNORMAL    | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| CRITICALDISKSNORMAL   | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| WARNINGDISKSTOTAL     | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| CRITICALDISKSTOTAL    | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| WARNINGDISKSUNKNOWN   | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| CRITICALDISKSUNKNOWN  | Thresholds.                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
+| WARNINGSTATUS         | Define the condition to match for the returned status to be WARNING. Default: '%\{status\} =~ /^(new\|degraded\|unknown)$/'                                                                                                                                                                                                                                                  | %\{status\} =~ /^(new\|degraded\|unknown)$/ |             |
+| CRITICALSTATUS        | Define the condition to match for the returned status to be CRITICAL. Default: '%\{status\} =~ /failed/'                                                                                                                                                                                                                                                                     | %\{status\} =~ /failed/                     |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                                             | --verbose                                   |             |
 
 </TabItem>
 <TabItem value="Disk-Usage" label="Disk-Usage">
@@ -370,8 +369,8 @@ yum install centreon-plugin-Hardware-Storage-Hpe-Primera-Restapi
 | Macro              | Description                                                                                                                                      | Valeur par défaut     | Obligatoire |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
 | FILTERNODEID       | Define which nodes (filtered by regular expression) should be monitored. Example: --filter-node='^(0\|1)$'                                       |                       |             |
-| WARNINGNODESTATUS  | Define the conditions to match for the status to be WARNING. You can use the %\{status\} variables.                                                | %\{status\} ne "online" |             |
-| CRITICALNODESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the %\{status\} variables.                                               |                       |             |
+| WARNINGNODESTATUS  | Define the conditions to match for the status to be WARNING. You can use the %\{status\} variables.                                              | %\{status\} ne "online" |             |
+| CRITICALNODESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the %\{status\} variables.                                             |                       |             |
 | WARNINGOFFLINE     | Thresholds for the number of offline nodes                                                                                                       | 0:0                   |             |
 | CRITICALOFFLINE    | Thresholds for the number of offline nodes                                                                                                       |                       |             |
 | WARNINGONLINE      | Thresholds for the number of online nodes                                                                                                        |                       |             |
