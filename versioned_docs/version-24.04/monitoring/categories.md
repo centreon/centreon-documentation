@@ -12,7 +12,7 @@ Categories allow you to:
 
 A special type of category is called severity. Severities can be used to achieve all of the above, but also to:
 
-- sort the view on the **Resources Status** page by severity level to show the most important alerts first. The severities with the lowest number are considered the most important, e.g. an alert with a severity level of 1 appears higher than an alert level 100. (Severities are shown in the **S** column in the **Resources Status** page.)
+- sort the view on the **Resources Status** page by severity level. Severities are shown in the **S** column in the **Resources Status** page.
 
 - filter data in the **Host monitoring**, **Service monitoring** and **Open Tickets** widgets in [custom views](../alerts-notifications/custom-views.md).
 
@@ -20,7 +20,7 @@ Severities are assigned in the host categories and service categories configurat
 
 ## Hosts category
 
-Go to the **Configuration > Hosts > Categories** menu and click **Add**. 
+Go to the **Configuration > Hosts > Categories** menu and click **Add**.
 
 ![image](../assets/configuration/08hostcategory.png)
 
