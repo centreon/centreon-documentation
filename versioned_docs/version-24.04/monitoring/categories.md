@@ -20,7 +20,7 @@ Severities are assigned in the host categories and service categories configurat
 
 ## Hosts category
 
-Go to the **Configuration > Hosts > Categories** menu and click **Add**.
+Go to the **Configuration > Hosts > Categories** menu and click **Add**. 
 
 ![image](../assets/configuration/08hostcategory.png)
 
