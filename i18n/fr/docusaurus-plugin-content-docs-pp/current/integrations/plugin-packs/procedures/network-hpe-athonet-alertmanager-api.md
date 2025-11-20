@@ -1,13 +1,13 @@
 ---
-id: cloud-microsoft-office365-onedrive
-title: Office 365 OneDrive
+id: network-hpe-athonet-alertmanager-api
+title: HPE Athonet Alertmanager w/ Prometheus
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Office 365 OneDrive** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **HPE Athonet Alertmanager w/ Prometheus** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,114 +15,48 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Office 365 OneDrive** apporte un modèle d'hôte :
+Le connecteur de supervision **HPE Athonet Alertmanager w/ Prometheus** apporte un modèle d'hôte :
 
-* **Cloud-Microsoft-Office365-Onedrive-Api-custom**
+* **Net-HPE-Athonet-Alertmanager-Api-custom**
 
-Le connecteur apporte les modèles de service suivants
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
+Le connecteur apporte le modèle de service suivant
+(classé selon le modèle d'hôte auquel il est rattaché) :
 
 <Tabs groupId="sync">
-<TabItem value="Cloud-Microsoft-Office365-Onedrive-Api-custom" label="Cloud-Microsoft-Office365-Onedrive-Api-custom">
+<TabItem value="Net-HPE-Athonet-Alertmanager-Api-custom" label="Net-HPE-Athonet-Alertmanager-Api-custom">
 
-| Alias                   | Modèle de service                                            | Description                                                                                             | Découverte |
-|:------------------------|:-------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
-| Site-Usage-OneDrive     | Cloud-Microsoft-Office365-Onedrive-Usage-Api-custom          | Contrôle l'utilisation des sites OneDrive                                                               |     X      |
-| Users-Activity-OneDrive | Cloud-Microsoft-Office365-Onedrive-Users-Activity-Api-custom | Contrôle l'activité des utilisateurs OneDrive (période de référence au cours du dernier jour actualisé) |            |
+| Alias  | Modèle de service                              | Description          |
+|:-------|:-----------------------------------------------|:---------------------|
+| Alerts | Net-HPE-Athonet-Alertmanager-Alerts-Api-custom | Contrôle les alertes |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Microsoft-Office365-Onedrive-Api-custom** est utilisé.
-
-> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-HPE-Athonet-Alertmanager-Api-custom** est utilisé.
 
 </TabItem>
 </Tabs>
-
-### Règles de découverte
-
-#### Découverte de services
-
-| Nom de la règle                                   | Description                                               |
-|:--------------------------------------------------|:----------------------------------------------------------|
-| Cloud-Microsoft-Office365-Onedrive-Api-Site-Usage | Découvre des sites OneDrive et supervise leur utilisation |
-
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage-OneDrive" label="Site-Usage-OneDrive">
+<TabItem value="Alerts" label="Alerts">
 
-| Nom                                        | Unité |
-|:-------------------------------------------|:------|
-| active-sites                               | N/A   |
-| onedrive.sites.active.usage.total.bytes    | B     |
-| onedrive.sites.inactive.usage.total.bytes  | B     |
-| onedrive.sites.active.files.total.count    | count |
-| onedrive.sites.inactive.files.total.count  | count |
-| onedrive.sites.files.active.total.count    | count |
-| usage                                      | N/A   |
-| *sites1*#onedrive.sites.files.count        | count |
-| *sites2*#onedrive.sites.files.count        | count |
-| *sites1*#onedrive.sites.files.active.count | count |
-| *sites2*#onedrive.sites.files.active.count | count |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
-</TabItem>
-<TabItem value="Users-Activity-OneDrive" label="Users-Activity-OneDrive">
-
-| Nom                                                  | Unité |
-|:-----------------------------------------------------|:------|
-| active-users                                         | N/A   |
-| onedrive.users.files.viewed.total.count              | count |
-| onedrive.users.files.synced.total.count              | count |
-| onedrive.users.files.shared.internally.total.count   | count |
-| onedrive.users.files.shared.externally.total.count   | count |
-| *users*#onedrive.users.files.viewed.count            | count |
-| *users*#onedrive.users.files.synced.count            | count |
-| *users*#onedrive.users.files.shared.internally.count | count |
-| *users*#onedrive.users.files.shared.externally.count | count |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+| Nom                          | Unité |
+|:-----------------------------|:------|
+| alerts.active.count          | count |
+| alerts.active.warning.count  | count |
+| alerts.active.critical.count | count |
+| alerts.active.info.count     | count |
+| alerts.total.count           | count |
+| alerts.unprocessed.count     | count |
+| alerts.suppressed.count      | count |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-Si vous n'avez pas encore créé votre compte sous Office 365, reportez-vous à la
-documentation d'Office 365 Management ou suivez le lien dans la partie
-[Aide supplémentaire](#aide-supplémentaire).
-
-### Enregistrez une application
-
-Les API de gestion Office 365 utilisent Azure AD pour assurer l’authentification
-sécurisée des données dans Office 365. Pour accéder aux API de gestion
-Office 365, vous devez enregistrer votre application dans Azure AD. Le terme
-*Application* est utilisé comme concept, faisant référence non seulement au
-programme d’application, mais également à son inscription Azure AD et à son rôle
-lors des « dialogues » d’authentification/autorisation au moment de l’exécution.
-(https://docs.microsoft.com/fr-fr/azure/active-directory/develop/app-objects-and-service-principals)
-
-### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
-
-Afin de récupérer les données de OneDrive Online, vous devez spécifier les
-autorisations que votre application requiert. Dans le portail de gestion Azure :
-
-* Microsoft Graph :
-    * Reports.Read.All (Type : Application)
-    * User.Read (Type : Delegated)
-* Office 365 Management APIs :
-    * ServiceHealth.Read (Type : Application)
-    * ActivityFeed.Read (Type : Application)
-
-### Aide supplémentaire
-
-Suivez le guide pratique pour obtenir une explication complète sur la façon d’enregistrer une demande et d’obtenir un *ID client* et un *ID secret* :
-https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-with-office-365-management-apis
+Le collecteur Centreon doit être en mesure d'exécuter des requêtes HTTP(S) vers le Prometheus Alertmanager des serveurs à superviser.
 
 ## Installer le connecteur de supervision
 
@@ -138,34 +72,34 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-cloud-microsoft-office365-onedrive
+dnf install centreon-pack-network-hpe-athonet-alertmanager-api
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-cloud-microsoft-office365-onedrive
+dnf install centreon-pack-network-hpe-athonet-alertmanager-api
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-cloud-microsoft-office365-onedrive
+apt install centreon-pack-network-hpe-athonet-alertmanager-api
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-cloud-microsoft-office365-onedrive
+yum install centreon-pack-network-hpe-athonet-alertmanager-api
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Office 365 OneDrive**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HPE Athonet Alertmanager w/ Prometheus**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -183,28 +117,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
+dnf install centreon-plugin-Network-Hp-Athonet-Alertmanager-Api
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
+dnf install centreon-plugin-Network-Hp-Athonet-Alertmanager-Api
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-cloud-microsoft-office365-onedrive-api
+apt install centreon-plugin-network-hp-athonet-alertmanager-api
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
+yum install centreon-plugin-Network-Hp-Athonet-Alertmanager-Api
 ```
 
 </TabItem>
@@ -216,15 +150,17 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **Cloud-Microsoft-Office365-Onedrive-Api-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+3. Appliquez le modèle d'hôte **Net-HPE-Athonet-Alertmanager-Api-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                 | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
-|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| OFFICE365CLIENTID     | Set Office 365 client ID                                                                                                                           |                   |      X      |
-| OFFICE365CLIENTSECRET | Set Office 365 client secret                                                                                                                       |                   |      X      |
-| OFFICE365TENANT       | Set Office 365 tenant ID                                                                                                                           |                   |      X      |
-| OFFICE365EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro                     | Description                                                                                          | Valeur par défaut         | Obligatoire |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
+| PROMETHEUSAPIUSERNAME     | Define the username for authentication                                                               |                           | X           |
+| PROMETHEUSAPIPASSWORD     | Define the password for authentication                                                               |                           | X           |
+| PROMETHEUSAPIPROTOCOL     | Define the protocol (default: 'https')                                                               | https                     |             |
+| PROMETHEUSAPIPORT         | API port (default: 443)                                                                              | 443                       |             |
+| PROMETHEUSAPIURLPATH      | API url path (default: C\<'/core/alertmanager/api/v2'\>)                                             | /core/alertmanager/api/v2 |             |
+| PROMETHEUSAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                           |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -234,61 +170,28 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage-OneDrive" label="Site-Usage-OneDrive">
+<TabItem value="Alerts" label="Alerts">
 
-| Macro                          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNITS                          | Unit of thresholds ('%', 'count')                                                                                                                | %                 |             |
-| FILTERCOUNTERS                 | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active-sites\                             | total'            | active-sites\|total |             |
-| FILTERURL                      | Filter on url                                                                                                                                    |               |           |
-| FILTEROWNER                    | Filter on owner                                                                                                                                  |                   |             |
-| WARNINGACTIVEFILECOUNT         | Threshold                                                                                                                                        |                   |             |
-| CRITICALACTIVEFILECOUNT        | Threshold                                                                                                                                        |                   |             |
-| WARNINGACTIVESITES             | Threshold                                                                                                                                        |                   |             |
-| CRITICALACTIVESITES            | Threshold                                                                                                                                        |                   |             |
-| WARNINGFILECOUNT               | Threshold                                                                                                                                        |                   |             |
-| CRITICALFILECOUNT              | Threshold                                                                                                                                        |                   |             |
-| WARNINGTOTALACTIVEFILECOUNT    | Threshold                                                                                                                                        |                   |             |
-| CRITICALTOTALACTIVEFILECOUNT   | Threshold                                                                                                                                        |                   |             |
-| WARNINGTOTALFILECOUNTACTIVE    | Threshold                                                                                                                                        |                   |             |
-| CRITICALTOTALFILECOUNTACTIVE   | Threshold                                                                                                                                        |                   |             |
-| WARNINGTOTALFILECOUNTINACTIVE  | Threshold                                                                                                                                        |                   |             |
-| CRITICALTOTALFILECOUNTINACTIVE | Threshold                                                                                                                                        |                   |             |
-| WARNINGTOTALUSAGEACTIVE        | Threshold                                                                                                                                        |                   |             |
-| CRITICALTOTALUSAGEACTIVE       | Threshold                                                                                                                                        |                   |             |
-| WARNINGTOTALUSAGEINACTIVE      | Threshold                                                                                                                                        |                   |             |
-| CRITICALTOTALUSAGEINACTIVE     | Threshold                                                                                                                                        |                   |             |
-| WARNINGUSAGE                   | Threshold                                                                                                                                        |                   |             |
-| CRITICALUSAGE                  | Threshold                                                                                                                                        |                   |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
-
-</TabItem>
-<TabItem value="Users-Activity-OneDrive" label="Users-Activity-OneDrive">
-
-| Macro                              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCOUNTERS                     | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\| total'            | active\|total     |             |
-| UNITS                              | Unit of thresholds ('%', 'count')                                                                                                 | %                 |             |
-| FILTERUSER                         | Filter users                                                                                                                                     |                   |             |
-| WARNINGACTIVEUSERS                 | Threshold                                                                                                                                        |                   |             |
-| CRITICALACTIVEUSERS                | Threshold                                                                                                                                        |                   |             |
-| WARNINGSHAREDEXTFILECOUNT          | Threshold                                                                                                                                        |                   |             |
-| CRITICALSHAREDEXTFILECOUNT         | Threshold                                                                                                                                        |                   |             |
-| WARNINGSHAREDINTFILECOUNT          | Threshold                                                                                                                                        |                   |             |
-| CRITICALSHAREDINTFILECOUNT         | Threshold                                                                                                                                        |                   |             |
-| WARNINGSYNCEDFILECOUNT             | Threshold                                                                                                                                        |                   |             |
-| CRITICALSYNCEDFILECOUNT            | Threshold                                                                                                                                        |                   |             |
-| WARNINGTOTALSHAREDEXTFILECOUNT     | Threshold                                                                                                                                        |                   |             |
-| CRITICALTOTALSHAREDEXTFILECOUNT    | Threshold                                                                                                                                        |                   |             |
-| WARNINGTOTALSHAREDINTFILECOUNT     | Threshold                                                                                                                                        |                   |             |
-| CRITICALTOTALSHAREDINTFILECOUNT    | Threshold                                                                                                                                        |                   |             |
-| WARNINGTOTALSYNCEDFILECOUNT        | Threshold                                                                                                                                        |                   |             |
-| CRITICALTOTALSYNCEDFILECOUNT       | Threshold                                                                                                                                        |                   |             |
-| WARNINGTOTALVIEWEDEDITEDFILECOUNT  | Threshold                                                                                                                                        |                   |             |
-| CRITICALTOTALVIEWEDEDITEDFILECOUNT | Threshold                                                                                                                                        |                   |             |
-| WARNINGVIEWEDEDITEDFILECOUNT       | Threshold                                                                                                                                        |                   |             |
-| CRITICALVIEWEDEDITEDFILECOUNT      | Threshold                                                                                                                                        |                   |             |
-| EXTRAOPTIONS                       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                               |                   |             |
+| Macro                  | Description                                                                                                                                 | Valeur par défaut                                                                        | Obligatoire |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------|:-----------:|
+| DISPLAYALERTS          | Display alerts in verbose output (default: \<'alert \[start: %(startsAt)\] \[state: %(state)\] \[severity: %(severity)\]: %(alertname)'\>) | alert \[start: %(startsAt)\] \[state: %(state)\] \[severity: %(severity)\]: %(alertname) |             |
+| FILTERNAME             | Filter alerts by name (can use regexp)                                                                                                      |                                                                                          |             |
+| FILTERSEVERITY         | Filter alerts by severity (can use regexp)                                                                                                  |                                                                                          |             |
+| WARNINGACTIVE          | Warning threshold for active alerts count                                                                                                   |                                                                                          |             |
+| CRITICALACTIVE         | Critical threshold for active alerts count                                                                                                  |                                                                                          |             |
+| WARNINGACTIVEWARNING   | Warning threshold for active alerts with warning severity count                                                                             |                                                                                          |             |
+| CRITICALACTIVEWARNING  | Critical threshold for active alerts with warning severity count                                                                            |                                                                                          |             |
+| WARNINGACTIVECRITICAL  | Warning threshold for active alerts with critical severity count                                                                            |                                                                                          |             |
+| CRITICALACTIVECRITICAL | Critical threshold for active alerts with critical severity count                                                                           |                                                                                          |             |
+| WARNINGACTIVEINFO      | Warning threshold for active alerts with info severity count                                                                                |                                                                                          |             |
+| CRITICALACTIVEINFO     | Critical threshold for active alerts with info severity count                                                                               |                                                                                          |             |
+| WARNINGSUPPRESSED      | Warning threshold for suppressed alerts count                                                                                               |                                                                                          |             |
+| CRITICALSUPPRESSED     | Critical threshold for suppressed alerts count                                                                                              |                                                                                          |             |
+| WARNINGTOTAL           | Warning threshold for total alerts count                                                                                                    |                                                                                          |             |
+| CRITICALTOTAL          | Critical threshold for total alerts count                                                                                                   |                                                                                          |             |
+| WARNINGUNPROCESSED     | Warning threshold for unprocessed alerts count                                                                                              |                                                                                          |             |
+| CRITICALUNPROCESSED    | Critical threshold for unprocessed alerts count                                                                                             |                                                                                          |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                          |                                                                                          |             |
 
 </TabItem>
 </Tabs>
@@ -304,46 +207,44 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_office365_onedrive_api.pl \
-	--plugin=cloud::microsoft::office365::onedrive::plugin \
-	--mode=site-usage \
-	--tenant='XXXX' \
-	--client-id='XXXX' \
-	--client-secret='XXXX'  \
-	--filter-url='' \
-	--filter-owner='' \
-	--warning-usage='' \
-	--critical-usage='' \
-	--warning-file-count='' \
-	--critical-file-count='' \
-	--warning-active-file-count='' \
-	--critical-active-file-count='' \
-	--warning-total-usage-active='' \
-	--critical-total-usage-active='' \
-	--warning-total-usage-inactive='' \
-	--critical-total-usage-inactive='' \
-	--warning-total-file-count-active='' \
-	--critical-total-file-count-active='' \
-	--warning-total-file-count-inactive='' \
-	--critical-total-file-count-inactive='' \
-	--warning-total-active-file-count='' \
-	--critical-total-active-file-count='' \
-	--warning-active-sites='' \
-	--critical-active-sites='' \
-	--units=% \
-	--filter-counters='active-sites|total' 
+/usr/lib/centreon/plugins/centreon_hp_athonet_alertmanager_api.pl \
+	--plugin=network::hp::athonet::alertmanager::api::plugin \
+	--mode=alerts \
+	--hostname=10.0.0.1 \
+	--url-path='/core/alertmanager/api/v2' \
+	--port='443' \
+	--proto='https' \
+	--api-username='' \
+	--api-password=''  \
+	--filter-name='' \
+	--filter-severity='' \
+	--display-alerts='alert [start: %(startsAt)] [state: %(state)] [severity: %(severity)]: %(alertname)' \
+	--warning-active='' \
+	--critical-active='' \
+	--warning-active-warning='' \
+	--critical-active-warning='' \
+	--warning-active-critical='' \
+	--critical-active-critical='' \
+	--warning-active-info='' \
+	--critical-active-info='' \
+	--warning-total='' \
+	--critical-total='' \
+	--warning-unprocessed='' \
+	--critical-unprocessed='' \
+	--warning-suppressed='' \
+	--critical-suppressed='' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Usage (active sites): 75 75 Usage (inactive sites): 46 46 File Count (active sites): 13 File Count (inactive sites): 19 Active File Count (active sites): 55 All sites usage are ok | 'active-sites'=56;;;;'onedrive.sites.active.usage.total.bytes'=75B;;;0;'onedrive.sites.inactive.usage.total.bytes'=46B;;;0;'onedrive.sites.active.files.total.count'=13;;;0;'onedrive.sites.inactive.files.total.count'=19;;;0;'onedrive.sites.files.active.total.count'=55;;;0;'*sites*#usage'=;;;;'*sites*#onedrive.sites.files.count'=;;;0;'*sites*#onedrive.sites.files.active.count'=;;;0;
+OK: detected: 56664 warning: 62358 critical: 20307 info: 29219 total: 56111 unprocessed: 94526 suppressed: 81112 | 'alerts.active.count'=56664;;;0;total 'alerts.active.warning.count'=62358;;;0;total 'alerts.active.critical.count'=20307;;;0;total 'alerts.active.info.count'=29219;;;0;total 'alerts.total.count'=56111;;;0; 'alerts.unprocessed.count'=94526;;;0;total 'alerts.suppressed.count'=81112;;;0;total 
 ```
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
+des plugins basés sur HTTP/API.
 
 ### Modes disponibles
 
@@ -356,27 +257,46 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_office365_onedrive_api.pl \
-	--plugin=cloud::microsoft::office365::onedrive::plugin \
+/usr/lib/centreon/plugins/centreon_hp_athonet_alertmanager_api.pl \
+	--plugin=network::hp::athonet::alertmanager::api::plugin \
 	--list-mode
 ```
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                            | Modèle de service associé                                    |
-|:------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|
-| list-sites [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/listsites.pm)]         | Used for service discovery                                   |
-| site-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/siteusage.pm)]         | Cloud-Microsoft-Office365-Onedrive-Usage-Api-custom          |
-| users-activity [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/microsoft/office365/onedrive/mode/usersactivity.pm)] | Cloud-Microsoft-Office365-Onedrive-Users-Activity-Api-custom |
+| Mode                                                                                                                                | Modèle de service associé                      |
+|:------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|
+| alerts [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/alertmanager/restapi/mode/alerts.pm)] | Net-HPE-Athonet-Alertmanager-Alerts-Api-custom |
 
 ### Options disponibles
 
-#### Options génériques
+#### Options des modes
 
-Les options génériques sont listées ci-dessous :
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Alerts" label="Alerts">
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --filter-name                              |   Filter alerts by name (can use regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-severity                          |   Filter alerts by severity (can use regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --display-alerts                           |   Display alerts in verbose output (default: C\<'alert \[start: %(startsAt)\] \[state: %(state)\] \[severity: %(severity)\]: %(alertname)'\>).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --warning-active                           |   Warning threshold for active alerts count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --critical-active                          |   Critical threshold for active alerts count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --warning-active-warning                   |   Warning threshold for active alerts with warning severity count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --critical-active-warning                  |   Critical threshold for active alerts with warning severity count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --warning-active-critical                  |   Warning threshold for active alerts with critical severity count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --critical-active-critical                 |   Critical threshold for active alerts with critical severity count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --warning-active-info                      |   Warning threshold for active alerts with info severity count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --critical-active-info                     |   Critical threshold for active alerts with info severity count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --warning-total                            |   Warning threshold for total alerts count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --critical-total                           |   Critical threshold for total alerts count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --warning-unprocessed                      |   Warning threshold for unprocessed alerts count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --critical-unprocessed                     |   Critical threshold for unprocessed alerts count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --warning-suppressed                       |   Warning threshold for suppressed alerts count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --critical-suppressed                      |   Critical threshold for suppressed alerts count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -392,12 +312,8 @@ Les options génériques sont listées ci-dessous :
 | --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
 | --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -413,10 +329,9 @@ Les options génériques sont listées ci-dessous :
 | --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --proxypac                                 |   Proxy PAC file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -431,38 +346,13 @@ Les options génériques sont listées ci-dessous :
 | --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --tenant                                   |   Set Office 365 tenant ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --client-id                                |   Set Office 365 client ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --client-secret                            |   Set Office 365 client secret.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --login-endpoint                           |   Set Office 365 login endpoint URL (default: 'https://login.microsoftonline.com')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --graph-endpoint                           |   Set Office 365 graph endpoint URL (default: 'https://graph.microsoft.com')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --timeout                                  |   Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-
-#### Options des modes
-
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
-
-<Tabs groupId="sync">
-<TabItem value="Site-Usage-OneDrive" label="Site-Usage-OneDrive">
-
-| Option            | Description                                                                                                                                                                                                                                                                                  |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-*        |   Filter sites. Can be: 'url', 'owner' (can be a regexp).                                                                                                                                                                                                                                    |
-| --warning-*       |   Warning threshold. Can be: 'active-sites', 'total-usage-active' (count), 'total-usage-inactive' (count), 'total-file-count-active' (count), 'total-file-count-inactive' (count), 'total-active-file-count' (count), 'usage' (count), 'file-count' (count), 'active-file-count' (count).    |
-| --critical-*      |   Critical threshold. Can be: 'active-sites', 'total-usage-active' (count), 'total-usage-inactive' (count), 'total-file-count-active' (count), 'total-file-count-inactive' (count), 'total-active-file-count' (count), 'usage' (count), 'file-count' (count), 'active-file-count' (count).   |
-| --filter-counters |   Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active-sites\|total' (default: 'active-sites\|total')                                                                                                                               |
-| --units           |   Unit of thresholds (default: '%') ('%', 'count').                                                                                                                                                                                                                                          |
-
-</TabItem>
-<TabItem value="Users-Activity-OneDrive" label="Users-Activity-OneDrive">
-
-| Option            | Description                                                                                                                                                                                                                                                                                                                                   |
-|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-user     |   Filter users.                                                                                                                                                                                                                                                                                                                               |
-| --warning-*       |   Warning threshold. Can be: 'active-users', 'total-viewed-edited-file-count' (count), 'total-synced-file-count' (count), 'total-shared-int-file-count' (count), 'total-shared-ext-file-count' (count), 'viewed-edited-file-count' (count), 'synced-file-count' (count), 'shared-int-file-count' (count), 'shared-ext-file-count' (count).    |
-| --critical-*      |   Critical threshold. Can be: 'active-users', 'total-viewed-edited-file-count' (count), 'total-synced-file-count' (count), 'total-shared-int-file-count' (count), 'total-shared-ext-file-count' (count), 'viewed-edited-file-count' (count), 'synced-file-count' (count), 'shared-int-file-count' (count), 'shared-ext-file-count' (count).   |
-| --filter-counters |   Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\|total' (default: 'active\|total')                                                                                                                                                                                            |
-| --units           |   Unit of thresholds (default: '%') ('%', 'count').                                                                                                                                                                                                                                                                                           |
+| --hostname                                 |   Prometheus hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --url-path                                 |   API url path (default: C\<'/core/alertmanager/api/v2'\>).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --port                                     |   API port (default: 443).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proto                                    |   Define the protocol (default: 'https').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --api-username                             |   Define the username for authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --api-password                             |   Define the password for authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --timeout                                  |   Set HTTP timeout.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 </TabItem>
 </Tabs>
@@ -471,8 +361,8 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_office365_onedrive_api.pl \
-	--plugin=cloud::microsoft::office365::onedrive::plugin \
-	--mode=site-usage \
+/usr/lib/centreon/plugins/centreon_hp_athonet_alertmanager_api.pl \
+	--plugin=network::hp::athonet::alertmanager::api::plugin \
+	--mode=alerts \
 	--help
 ```

@@ -20,8 +20,8 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Protocol-X509-custom" label="App-Protocol-X509-custom">
 
-| Service Alias    | Service Template                     | Service Description                           |
-|:-----------------|:-------------------------------------|:----------------------------------------------|
+| Service Alias    | Service Template                     | Service Description                         |
+|:-----------------|:-------------------------------------|:--------------------------------------------|
 | X509-Certificate | App-Protocol-X509-Certificate-custom | Check expiration date of a X509 certificate |
 
 > The services listed above are created automatically when the **App-Protocol-X509-custom** host template is used.
@@ -36,9 +36,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="X509-Certificate" label="X509-Certificate">
 
-| Metric name | Unit  |
-|:------------|:------|
-| status      | N/A   |
+| Name   | Unit |
+|:-------|:-----|
+| status | N/A  |
 
 </TabItem>
 </Tabs>
@@ -274,22 +274,22 @@ All **custom modes** specific options are listed here:
 </TabItem>
 <TabItem value="opensslcli" label="opensslcli">
 
-| Option                  | Description                                                                                                                                                            |
-|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --hostname              | IP Addr/FQDN of the host.                                                                                                                                              |
-| --port                  | Port used by host.                                                                                                                                                     |
-| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
-| --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
-| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
-| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                         |
-| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                            |
-| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                          |
-| --sshcli-path           | ssh command path (default: none)                                                                                                                                       |
-| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                      |
-| --plink-command         | plink command (default: 'plink').                                                                                                                                      |
-| --plink-path            | plink command path (default: none)                                                                                                                                     |
-| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
-| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
+| Option                  | Description                                                                                                                                                                                                                                                                                                                                                                                          |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --hostname              | IP Addr/FQDN of the host.                                                                                                                                                                                                                                                                                                                                                                            |
+| --port                  | Port used by host.                                                                                                                                                                                                                                                                                                                                                                                   |
+| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                                                                                                                                                                                   |
+| --ssh-username          | Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                          |
+| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                                                                                                                                                                                 |
+| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                       |
+| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                          |
+| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                        |
+| --sshcli-path           | ssh command path (default: none)                                                                                                                                                                                                                                                                                                                                                                     |
+| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no'). The default option is --sshcli-options='-o=LogLevel=ERROR' which hides the SSH banner. If you override this parameter, make sure to append '-o=LogLevel=ERROR' to your new value to maintain this behavior. This parameter can be used multiple times and multiple options can be specified in the same parameter. |
+| --plink-command         | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                    |
+| --plink-path            | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                   |
+| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                |
+| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                                                                                                                                                                                  |
 
 </TabItem>
 <TabItem value="tcp" label="tcp">
