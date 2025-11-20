@@ -28,13 +28,6 @@ dnf install postfix mailx cyrus-sasl-plain
 ```
 
 </TabItem>
-<TabItem value="Alma 9" label="Alma 9">
-
-``` shell
-dnf install postfix mailx cyrus-sasl-plain
-```
-
-</TabItem>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ``` shell
@@ -42,7 +35,7 @@ dnf install mailx cyrus-sasl-plain
 ```
 
 </TabItem>
-<TabItem value="RHEL / Oracle Linux 9" label="RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
 dnf install s-nail cyrus-sasl-plain
