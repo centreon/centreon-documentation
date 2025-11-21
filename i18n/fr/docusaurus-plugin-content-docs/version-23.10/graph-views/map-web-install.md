@@ -318,7 +318,7 @@ Ensuite installez le dépôt Centreon :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10-el8.repo
 ```
 
 </TabItem>
@@ -343,7 +343,7 @@ Ensuite installez le dépôt Centreon :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
 ```
 
 </TabItem>

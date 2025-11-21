@@ -67,7 +67,7 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10-el8.repo
 ```
 
 > Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -83,7 +83,7 @@ dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/c
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
 ```
 
 > Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).

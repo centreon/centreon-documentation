@@ -46,7 +46,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10-el8.repo
 ```
 
 </TabItem>
@@ -64,7 +64,7 @@ dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/c
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
 ```
 
 </TabItem>
@@ -582,7 +582,7 @@ Run the following command:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10-el8.repo
 ```
 
 </TabItem>
@@ -590,7 +590,7 @@ dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/c
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
 ```
 
 </TabItem>
