@@ -35,7 +35,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 ### Installer les nouveaux dépôts
 
-1. Sur votre plateforme 21.04, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
+1. Sur votre plateforme 21.04, remplacez `https://archives.centreon.com/standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
 
 2.Mettez à jour votre Centreon 21.04 jusqu'à la dernière version mineure.
 
@@ -49,7 +49,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10.repo
 ```
 
 > Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
@@ -376,7 +376,7 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10.repo
 ```
 
 </TabItem>

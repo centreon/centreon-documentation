@@ -35,7 +35,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 ### Install the new repositories
 
-1. On your 21.04 platform, replace `https://packages.centreon.com/rpm-standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
+1. On your 21.04 platform, replace `https://archives.centreon.com/standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
 
 2. Update your Centreon 21.04 to the latest minor version.
 
@@ -49,7 +49,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10.repo
 ```
 
 > If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
@@ -380,7 +380,7 @@ Run the following command:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10.repo
 ```
 
 </TabItem>
