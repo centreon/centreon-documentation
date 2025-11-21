@@ -275,7 +275,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All output lines are ok | 'oline1#voltage'=51315V;;;; 'oline2#voltage'=13745V;;;; 'oline1#current'=41330A;;;; 'oline2#current'=74384A;;;; 'oline1#power'=5954W;;;; 'oline2#power'=68398W;;;; 'oline1#load'=31994VA;;;; 'oline2#load'=44154VA;;;; 'oline1#load-capacity'=83376%;;;0;100 'oline2#load-capacity'=13537%;;;0;100 
+OK: All output lines are ok | 'oline1#voltage'=15V;;;; 'oline2#voltage'=45V;;;; 'oline1#current'=4A;;;; 'oline2#current'=7;;;; 'oline1#power'=59W;;;; 'oline2#power'=68W;;;; 'oline1#load'=31VA;;;; 'oline2#load'=44VA;;;; 'oline1#load-capacity'=86%;;;0;100 'oline2#load-capacity'=37%;;;0;100 
 ```
 
 ### Diagnostic des erreurs communes

@@ -36,10 +36,10 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                                        | Description                                              | Découverte |
 |:---------------------|:---------------------------------------------------------|:---------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-Cisco-Voice-Gateway-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau        |            |
-| Traffic-Generic-Name | Net-Cisco-Voice-Gateway-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau        |            |
+| Traffic-Generic-Id   | Net-Cisco-Voice-Gateway-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau        |            |
+| Traffic-Generic-Name | Net-Cisco-Voice-Gateway-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau        |            |
 | Traffic-Global       | Net-Cisco-Voice-Gateway-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau |     X      |
-| Voice-Call           | Net-Cisco-Voice-Gateway-Voice-Call-SNMP-custom           | Contrôle les statistiques d'appels                       |            |
+| Voice-Call           | Net-Cisco-Voice-Gateway-Voice-Call-SNMP-custom           | Contrôle les statistiques d'appel                       |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -330,7 +330,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: 97247 (1m) 40393 (5m) 91629 (15m) All connection types are ok | 'calls.active.1m.average.count'=97247;;;0; 'calls.active.5m.average.count'=40393;;;0; 'calls.active.15m.average.count'=91629;;;0; 'ctype1#connection.calls.active.count'=83439;;;0; 'ctype2#connection.calls.active.count'=85227;;;0; 
+OK: 10 (1m) 12 (5m) 15 (15m) All connection types are ok | 'calls.active.1m.average.count'=10;;;0;'calls.active.5m.average.count'=12;;;0;'calls.active.15m.average.count'=15;;;0;'*ctype*#connection.calls.active.count'=;;;0;'ctype1#connection.calls.active.count'=83439;;;0; 'ctype2#connection.calls.active.count'=85227;;;0; 
 ```
 
 ### Diagnostic des erreurs communes

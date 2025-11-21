@@ -38,9 +38,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                         | Description                                               | Découverte |
 |:---------------------|:------------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-3com-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Generic-Name | Net-3com-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Global       | Net-3com-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau |     X      |
+| Traffic-Generic-Id   | Net-3com-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Generic-Name | Net-3com-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Global       | Net-3com-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -338,7 +338,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=61721b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=59272b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=32563b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=39307b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=61b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=59b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=32b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=39b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes

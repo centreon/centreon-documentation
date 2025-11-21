@@ -36,9 +36,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                                           | Description                                               | Découverte |
 |:---------------------|:------------------------------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | HW-Storage-Dell-Compellent-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Generic-Name | HW-Storage-Dell-Compellent-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Global       | HW-Storage-Dell-Compellent-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau |     X      |
+| Traffic-Generic-Id   | HW-Storage-Dell-Compellent-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Generic-Name | HW-Storage-Dell-Compellent-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Global       | HW-Storage-Dell-Compellent-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -73,7 +73,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Métrique           | Unité |
+| Nom           | Unité |
 |:-------------------|:------|
 | ctrl.status        | N/A   |
 | disk.status        | N/A   |
@@ -311,7 +311,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=48101b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=71580b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=97580b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=87172b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=48b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=71b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=58b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=72b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes

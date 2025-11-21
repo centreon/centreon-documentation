@@ -40,7 +40,7 @@ Le connecteur apporte les modèles de service suivants
 |:--------------|:---------------------------------------------|:--------------------------------------------------------------------------|:----------:|
 | Aaa-Servers   | Net-Cisco-Standard-Aaa-Servers-SNMP-custom   | Contrôle les serveurs AAA                                                 |     X      |
 | Anycast       | Net-Cisco-Standard-Anycast-SNMP-custom       | Contrôle le type de trafic (unicast, broadcast, multicast) des interfaces |            |
-| Arp           | Net-Cisco-Standard-Arp-SNMP-custom           | Contrôle la table arp                                                     |            |
+| Arp           | Net-Cisco-Standard-Arp-SNMP-custom           | Contrôle la table ARP                                                     |            |
 | Bgp           | Net-Cisco-Standard-Bgp-SNMP-custom           | Contrôle le BGP                                                           |            |
 | Configuration | Net-Cisco-Standard-Configuration-SNMP-custom | Contrôle si la configuration "running" est sauvegardée                    |            |
 | Hsrp          | Net-Cisco-Standard-Hsrp-SNMP-custom          | Contrôle Cisco HSRP                                                       |            |
@@ -764,7 +764,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: 8707 (1m) 41623 (5m) 38742 (15m) All connection types are ok | 'calls.active.1m.average.count'=8707;;;0; 'calls.active.5m.average.count'=41623;;;0; 'calls.active.15m.average.count'=38742;;;0; 'ctype1#connection.calls.active.count'=741;;;0; 'ctype2#connection.calls.active.count'=14943;;;0; 
+OK: 47 (1m) 81 (5m) 35 (15m) All connection types are ok | 'calls.active.1m.average.count'=47;;;0;'calls.active.5m.average.count'=81;;;0;'calls.active.15m.average.count'=35;;;0;'ctype1#connection.calls.active.count'=741;;;0; 'ctype2#connection.calls.active.count'=14943;;;0; 
 ```
 
 ### Diagnostic des erreurs communes

@@ -218,7 +218,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All 1 components are ok [ 1/1 sensors,]. | 'hardware.sensors.count'=34098;;;; 'hardware.sensors.count'=36964;;;; 
+OK: All 1 components are ok [ 1/1 sensors]. | 'hardware.sensors.count'=1;;;; 'hardware.sensors.count'=1;;;; 
 ```
 
 ### Diagnostic des erreurs communes

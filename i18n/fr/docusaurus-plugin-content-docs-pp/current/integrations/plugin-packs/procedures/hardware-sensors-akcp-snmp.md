@@ -226,7 +226,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All 5 components are ok [ 1/1 temperature, 1/1 humidity, 1/1 switch, 1/1 serial, 1/1 water,]. | 'hardware.temperature.count'=60705;;;; 'hardware.temperature.count'=50303;;;; 'hardware.humidity.count'=11754;;;; 'hardware.humidity.count'=56384;;;; 'hardware.switch.count'=56462;;;; 'hardware.switch.count'=84769;;;; 'hardware.serial.count'=81104;;;; 'hardware.serial.count'=27832;;;; 'hardware.water.count'=43293;;;; 'hardware.water.count'=89979;;;; 
+OK: All 2 components are ok [1/1 temperatures][1/1 humidity]. | 'sensor1#hardware.sensor.temperature.celsius'=23C;;;; 'sensor1#hardware.sensor.humidity.percentage'=35%;;;0;100
 ```
 
 ### Diagnostic des erreurs communes

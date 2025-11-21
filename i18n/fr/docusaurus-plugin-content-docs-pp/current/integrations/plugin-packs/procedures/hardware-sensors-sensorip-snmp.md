@@ -69,8 +69,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | sp status                  | N/A   |
 | hardware.temperature.count | count |
 | temperature status         | N/A   |
+| hardware.temperature.celsius | C |
 | hardware.humidity.count    | count |
 | humidity status            | N/A   |
+| hardware.humidity.percentage | % |
 | hardware.switch.count      | count |
 | switch status              | N/A   |
 
@@ -79,14 +81,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 | Nom                        | Unité |
 |:---------------------------|:------|
-| hardware.sp.count          | count |
-| sp status                  | N/A   |
-| hardware.temperature.count | count |
-| temperature status         | N/A   |
 | hardware.humidity.count    | count |
 | humidity status            | N/A   |
-| hardware.switch.count      | count |
-| switch status              | N/A   |
+| hardware.humidity.percentage | % |
 
 </TabItem>
 <TabItem value="Sensors-Sp" label="Sensors-Sp">
@@ -95,24 +92,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:---------------------------|:------|
 | hardware.sp.count          | count |
 | sp status                  | N/A   |
-| hardware.temperature.count | count |
-| temperature status         | N/A   |
-| hardware.humidity.count    | count |
-| humidity status            | N/A   |
-| hardware.switch.count      | count |
-| switch status              | N/A   |
 
 </TabItem>
 <TabItem value="Sensors-Switch" label="Sensors-Switch">
 
 | Nom                        | Unité |
 |:---------------------------|:------|
-| hardware.sp.count          | count |
-| sp status                  | N/A   |
-| hardware.temperature.count | count |
-| temperature status         | N/A   |
-| hardware.humidity.count    | count |
-| humidity status            | N/A   |
 | hardware.switch.count      | count |
 | switch status              | N/A   |
 
@@ -324,7 +309,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All 4 components are ok [ 1/1 sp, 1/1 temperature, 1/1 humidity, 1/1 switch,]. | 'hardware.sp.count'=8083;;;; 'hardware.sp.count'=18517;;;; 'hardware.temperature.count'=87555;;;; 'hardware.temperature.count'=34081;;;; 'hardware.humidity.count'=51476;;;; 'hardware.humidity.count'=85874;;;; 'hardware.switch.count'=78711;;;; 'hardware.switch.count'=9458;;;; 
+OK: All 2 components are ok [1/1 temperatures][1/1 humidity]. | 'sensor1#hardware.sensor.temperature.celsius'=23C;;;; 'sensor1#hardware.sensor.humidity.percentage'=35%;;;0;100
 ```
 
 ### Diagnostic des erreurs communes
