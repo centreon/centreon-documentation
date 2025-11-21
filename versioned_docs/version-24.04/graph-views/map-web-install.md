@@ -440,14 +440,14 @@ Then install MariaDB server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install MariaDB-server
+dnf install mariadb-server
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install MariaDB-server
+dnf install mariadb-server
 ```
 
 </TabItem>

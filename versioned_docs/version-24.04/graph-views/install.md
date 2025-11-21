@@ -378,14 +378,14 @@ dnf module enable -y mariadb:10.11
 Then install MariaDB:
 
 ```shell
-dnf install mariadb-client mariadb-server
+dnf install mariadb mariadb-server
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install mariadb-client mariadb-server
+dnf install mariadb mariadb-server
 ```
 
 </TabItem>

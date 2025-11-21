@@ -387,7 +387,8 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 3. Installez la version 10.11 :
 
     ```shell
-    dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
+    dnf module enable -y mariadb:10.11
+    dnf install mariadb-server-10.11\* mariadb-10.11\*
     ```
 
 4. Démarrer le service mariadb :

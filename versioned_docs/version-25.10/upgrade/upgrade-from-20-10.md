@@ -399,7 +399,8 @@ You must uninstall and then reinstall MariaDB to upgrade between major versions 
 3. Install the 10.11 version:
 
     ```shell
-    dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
+    dnf module enable -y mariadb:10.11
+    dnf install mariadb-server-10.11\* mariadb-10.11\*
     ```
 
 4. Start the MariaDB service:
