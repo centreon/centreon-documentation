@@ -16,7 +16,7 @@ Synthetic Monitoring consists of regularly browsing a target site in order to:
 
 As you can see, for a single feature, "User Journeys", Quanta actually groups at least **4 major features** here, allowing a web application manager to ensure a good experience on their site.
 
-The concept of a "**typical journey**" is central to the use of Synthetic Monitoring. Indeed, to monitor and optimize the site, you must choose **one or more reference scenarios**. In Quanta, flexibility in creating these scenarios is extremely important. It is typically possible to perform almost anything a real user could do on the site (e.g., click, move the cursor to a specific spot on the page, change pages, check boxes, add a product to the cart, fill out a form, go to checkout, place an online order, enter a credit card number, etc.).
+The concept of a "**typical journey**" is central to the use of Synthetic Monitoring. Indeed, to monitor and optimize the site, you must choose **one or more reference scenarios**. In Quanta, flexibility in creating these scenarios is extremely important. It is possible to perform almost anything a real user could do on the site (e.g., click, move the cursor to a specific spot on the page, change pages, check boxes, add a product to the cart, fill out a form, go to checkout, place an online order, enter a credit card number, etc.).
 
 Here is an example of a typical journey for an ecommerce site:
 
@@ -25,7 +25,6 @@ Here is an example of a typical journey for an ecommerce site:
 These journeys can be performed under several different conditions, for example:
 
 - Using a browser in **Desktop or Mobile** mode
-- Simulating a **slow (3G) or fast (fiber) network connection**
 - Deciding whether or not to load **third parties** (e.g., Google Analytics tags, AB Tasty, etc.)
 
 In most cases, we recommend choosing one or more scenarios representing **the majority of user actions** performed on the site. For example, if it is an ecommerce site, it will be important to test proper login to a user account as it is an essential step in the sales funnel, or the search engine if it is central to site navigation.
@@ -33,5 +32,3 @@ In most cases, we recommend choosing one or more scenarios representing **the ma
 This way, if a structural change to the site (e.g., new deployment, tag addition, etc.) causes an unexpected malfunction at one of these key steps, Quanta can automatically alert the right people with the corresponding explanations.
 
 The malfunction may not be a functional error, but rather a **severe slowdown** at one of the steps, which would drastically reduce the user experience and potentially cause an immediate loss of conversion. That is why it is crucial to get the information **in real time** in this type of situation.
-
-To complement this article, below is a video showing the use of [User Journeys in Quanta](https://youtu.be/My1FGpvhhWM).

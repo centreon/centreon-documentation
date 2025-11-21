@@ -22,5 +22,3 @@ Quanta provides a clear and unified interface, enhanced by:
 - And human support from our experts (the *Perfgurus*), to identify the most impactful areas for improvement.
 
 **Objective: to help you improve user experience, boost your SEO performance, secure your traffic peaks, and concretely reduce your environmental impact.**
-
-Watch the [video presentation of the Quanta interface](https://www.youtube.com/watch?v=ae_8gF-KFG8).

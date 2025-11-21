@@ -25,7 +25,6 @@ Voici un exemple de parcours type, pour un site ecommerce :
 Ces parcours peuvent être effectués dans plusieurs conditions différentes, par exemple :
 
 - en utilisant un navigateur en mode **Desktop ou Mobile**
-- en simulant une **connexion réseau lente (3G) ou rapide (fibre)**
 - en décidant de charger ou non les **“third parties”** (ex: tags Google Analytics, AB Tasty, etc.)
 
 Dans la plupart des cas, nous vous conseillons de choisir un ou plusieurs scénarios représentant **la majorité des usages** qui sont effectués par l’internaute sur le site. Ex : s’il s’agit d’un site de ecommerce, il sera important de tester la bonne connexion à un compte utilisateur car c’est une étape essentielle dans le tunnel de vente, ou encore le moteur de recherche s’il est central dans la navigation sur le site.

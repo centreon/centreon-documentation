@@ -5,14 +5,14 @@ title: System View
 
 # System View
 
-This section allows you to analyze the overall health of the platform hosting your web application. To access it, open the main menu and select **System**.
+The System section provides metrics from the infrastructure hosting your web application, helping you analyze system & middleware's health. You will find it by opening the main menu and clicking **System**.
 
 ![image](../assets/getting-started/system-view-1.png)
 
 Prerequisites:
 
 - a Quanta license of type **OPS**, **Full**, or **Enterprise**.
-- a hosting platform that allows installing Linux packages — this excludes fully managed SaaS platforms like Salesforce or Shopify. For such services, the available platform visibility is not relevant because it is the SaaS provider’s responsibility to keep the application they provide running.
+- a hosting platform that allows installing Linux packages — this excludes fully managed SaaS platforms like Salesforce or Shopify. For these kind of hosting solutions, the System section would not be as relevant as you don't have control on the underlying platform as it's the SaaS provider responsibility to keep their application running smoothly.
 - Quanta system agents installed. They are distributed as Linux packages and require a few minutes of work from a system administrator to install.
 
 The **key benefits** provided by the System view are:

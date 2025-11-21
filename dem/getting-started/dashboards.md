@@ -33,6 +33,6 @@ In your dashboard list, your private dashboards appear first. By clicking the lo
 
 Suppose you want to focus on your site's shopping cart. It's useful to have up-to-date information on that page coming from RUM measurements and User Journeys.
 
-However, that information lives on different screens: user journeys have a tab for Core Web Vitals and one for performance, and RUM is not on the same page either.
+However, that information lives on different screens: user journeys have a tab for Core Web Vitals and another one for performance, and RUM is not on the same page either.
 
 Dashboards let you build custom screens for this purpose.

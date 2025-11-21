@@ -15,15 +15,15 @@ With just a few clicks, it's possible to reproduce the conditions of a day of **
 
 Depending on the needs, a Load Test can serve **three main objectives**:
 
-- **measure the site's capacity** on its current architecture or on a planned/future architecture (in that case, the test is performed in pre-production or “future prod”).
+- **measure the site's capacity** on its current architecture or on a planned/future architecture (in that case, the test is performed in a pre-production or a “future prod” environment).
 
-Example conclusion: “*During the load test performed on the production site MonSite.com, we observed 1,450 page views per minute before user experience degradation, equivalent to 43,500 unique visitors per hour. Comparing this with the site's Google Analytics history shows the load test exceeded the last January sales traffic peak by a factor of 4.5 in a comfortable browsing context.*”
+Example conclusion: “*During the load test performed on the production site MonSite.com, we observed 1,450 page views per minute before user experience degradation, equivalent to 43,500 unique visitors per hour. Compared with the site's Google Analytics history, the load test exceeded last January sales traffic peak by factor of 4.5 while preserving a comfortable browsing context.*”
 
 - **identify the bottleneck(s)** mainly responsible for reaching the capacity limit. Identifying these bottlenecks will generally help **strongly direct optimization work** that increases capacity.
 
 Example conclusion: “*We observe that the add-to-cart function and the delivery selection are the steps whose times increase the fastest. Just before failure, they reach average load times of 18 and 34 seconds respectively. Optimizing them would save resources and increase capacity.*”
 
-- **analyze the symptoms of disruptions under overload and the nature of any 'crash'** to guide DEV and OPS teams in improving the site's operational reliability.
+- **analyze the disruption's symptoms under overload and the nature of any 'crash'** to guide DEV and OPS teams in improving the site's operational reliability.
 
 Example conclusion: “*Near the limit, several 503 errors (internal server error) were detected on the webservice MonSiteEcommerce.com/reloadBasket.php, making cart display inoperative in the user's browser; a few minutes later, delivery selection had [...]*”
 
