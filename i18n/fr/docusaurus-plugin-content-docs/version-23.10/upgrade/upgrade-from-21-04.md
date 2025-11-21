@@ -35,7 +35,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 ### Installer les nouveaux dépôts
 
-1. Sur votre plateforme 21.04, remplacez `https://archives.centreon.com/standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
+1. Sur votre plateforme 21.04, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
 
 2.Mettez à jour votre Centreon 21.04 jusqu'à la dernière version mineure.
 
