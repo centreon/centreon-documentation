@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:---------------|:------------------------------------------------|:----------------------------------------------------------|:----------:|
 | Cpu            | Net-Digi-AnywhereUSB-Cpu-SNMP-custom            | Contrôle du taux d'utilisation du CPU de la machine       |            |
 | Memory         | Net-Digi-AnywhereUSB-Memory-SNMP-custom         | Contrôle du taux d'utilisation de la mémoire vive (RAM)   |            |
-| Traffic-Global | Net-Digi-AnywhereUSB-Traffic-Global-SNMP-custom | Contrôle le traffic réseau de plusieurs interfaces réseau |     X      |
+| Traffic-Global | Net-Digi-AnywhereUSB-Traffic-Global-SNMP-custom | Contrôle le trafic réseau de plusieurs interfaces réseau |     X      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Digi-AnywhereUSB-SNMP-custom** est utilisé.
 
@@ -281,7 +281,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=21035b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=43032b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=79766b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=11021b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=21b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=43b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=66b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=21b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes

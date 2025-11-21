@@ -41,9 +41,9 @@ Le connecteur apporte les modèles de service suivants
 | Packet-Errors-Generic-Name | Net-FW-Arkoon-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau         |            |
 | Packet-Errors-Global       | Net-FW-Arkoon-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau | X          |
 | Process-Generic            | Net-FW-Arkoon-Process-Generic-SNMP-custom            | Contrôle permettant de vérifier le fonctionnement d'un processus/service Arkoon    |            |
-| Traffic-Generic-Name       | Net-FW-Arkoon-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                  |            |
-| Traffic-Global             | Net-FW-Arkoon-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau de plusieurs interfaces réseau                          | X          |
-| Uptime                     | Net-FW-Arkoon-Uptime-SNMP-custom                     | Contrôle permettant de récuperer l'uptime                                          |            |
+| Traffic-Generic-Name       | Net-FW-Arkoon-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                  |            |
+| Traffic-Global             | Net-FW-Arkoon-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau de plusieurs interfaces réseau                          | X          |
+| Uptime                     | Net-FW-Arkoon-Uptime-SNMP-custom                     | Contrôle permettant de récupérer l'uptime                                          |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -429,7 +429,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=9256b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=49971b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=97701b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=87671b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=26b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=49b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=51b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=71b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes
