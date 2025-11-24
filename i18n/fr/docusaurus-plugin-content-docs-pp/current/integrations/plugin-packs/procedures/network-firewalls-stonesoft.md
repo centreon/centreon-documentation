@@ -42,8 +42,8 @@ Le connecteur apporte les modèles de service suivants
 |:---------------------|:-----------------------------------------------|:-----------------------------------------------|:----------:|
 | Cluster-Load         | Net-Stonesoft-Cluster-Load-SNMP-custom         | Contrôle de la charge consommée par le cluster |            |
 | Cluster-State        | Net-Stonesoft-Cluster-State-SNMP-custom        | Contrôle l'état du cluster                     |            |
-| Disk-Global          | Net-Stonesoft-Disk-Global-SNMP-custom          | Contrôle du taux d'utilization des disques     |            |
-| Disk-Name            | Net-Stonesoft-Disk-Name-SNMP-custom            | Contrôle du taux d'utilization des disques     |            |
+| Disk-Global          | Net-Stonesoft-Disk-Global-SNMP-custom          | Contrôle du taux d'utilisation des disques     |            |
+| Disk-Name            | Net-Stonesoft-Disk-Name-SNMP-custom            | Contrôle du taux d'utilisation des disques     |            |
 | Traffic-Generic-ID   | Net-Stonesoft-Traffic-Generic-ID-SNMP-custom   | Contrôle de la bande passante de l'interface   |            |
 | Traffic-Generic-Name | Net-Stonesoft-Traffic-Generic-Name-SNMP-custom | Contrôle de la bande passante de l'interface   |            |
 | Traffic-Global       | Net-Stonesoft-Traffic-Global-SNMP-custom       | Contrôle de la bande passante de l'interface   |     X      |
@@ -434,7 +434,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=91395b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=52899b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=68830b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=77710b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=35b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=52b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=68b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=77b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes

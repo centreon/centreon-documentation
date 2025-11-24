@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias              | Modèle de service                           | Description                                                                         |
 |:-------------------|:--------------------------------------------|:------------------------------------------------------------------------------------|
 | Client-Connections | Net-Bluecoat-Client-Connections-SNMP-custom | Contrôle permettant de vérifier le nombre de connexions clientes sur un Bluecoat    |
-| Client-Requests    | Net-Bluecoat-Client-Requests-SNMP-custom    | Contrôle permettant de vérifier le nombre de requêtes http clientes sur un Bluecoat |
+| Client-Requests    | Net-Bluecoat-Client-Requests-SNMP-custom    | Contrôle permettant de vérifier le nombre de requêtes HTTP clientes sur un Bluecoat |
 | Client-Traffic     | Net-Bluecoat-Client-Traffic-SNMP-custom     | Contrôle permettant de vérifier les octets reçus/émis aux clients sur un Bluecoat   |
 | Cpu                | Net-Bluecoat-Cpu-SNMP-custom                | Contrôle permettant de vérifier l'utilisation CPU sur un Bluecoat                   |
 | Disk               | Net-Bluecoat-Disk-SNMP-custom               | Contrôle permettant de vérifier l'utilisation du disque sur un Bluecoat             |
@@ -351,7 +351,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All 2 components are ok [ 1/1 sensor, 1/1 disk,]. | 'hardware.sensor.count'=82860;;;; 'hardware.sensor.count'=32084;;;; 'hardware.disk.count'=83073;;;; 'hardware.disk.count'=9901;;;; 
+OK: All 2 components are ok [ 1/1 sensor, 1/1 disk,]. | 'hardware.sensor.count'=1;;;; 'hardware.disk.count'=1;;;;
 ```
 
 ### Diagnostic des erreurs communes

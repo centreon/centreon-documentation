@@ -433,7 +433,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=34615b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=8980b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=98028b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=74928b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=34b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=60b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=28b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=49b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes
