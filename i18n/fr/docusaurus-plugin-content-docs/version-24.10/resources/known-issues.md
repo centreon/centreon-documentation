@@ -170,6 +170,8 @@ Si vous possédez une très large infrastructure, il est possible que la taille 
     /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD
     ```
 
+## Base de données
+
 ### Vous avez un conflit entre les paquets mysql-common et MariaDB-common
 
 #### Description

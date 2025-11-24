@@ -165,6 +165,8 @@ If you have a very large infrastructure, it is possible that the `servicemetric_
     /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD
     ```
 
+## Database
+
 ### You have a conflict between packages mysql-common and MariaDB-common
 
 #### Description
