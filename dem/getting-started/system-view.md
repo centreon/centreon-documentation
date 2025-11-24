@@ -5,7 +5,7 @@ title: System View
 
 # System View
 
-The **System data** section provides metrics from the infrastructure hosting your web application, helping you analyze system & middleware's health. You will find it by opening the main menu and clicking **System**.
+The **System data** section provides metrics from the infrastructure hosting your web application, helping you analyze system & middleware's health. You will find it by opening the main menu and clicking **System data**.
 
 ![image](../assets/getting-started/system-view-1.png)
 
