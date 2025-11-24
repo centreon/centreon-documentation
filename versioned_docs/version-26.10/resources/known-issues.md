@@ -170,3 +170,32 @@ If you have a very large infrastructure, it is possible that the `servicemetric_
     ```shell
     /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD
     ```
+
+### You have a conflict between packages mysql-common and MariaDB-common
+
+#### Description
+
+If you have installed MariaDB from the official MariaDB repositories, you may encounter the following error when updating your platform (`dnf update`):
+
+```shell
+Error: Transaction test error:
+  file /usr/share/mysql/charsets/Index.xml conflicts between attempted installs of mysql-common-8.0.43-1.el9_6.x86_64 and MariaDB-common-10.11.15-1.el9.x86_64
+  file /usr/share/mysql/charsets/armscii8.xml conflicts between attempted installs of mysql-common-8.0.43-1.el9_6.x86_64 and MariaDB-common-10.11.15-1.el9.x86_64
+  ...
+```
+
+This is due to version 4.053 of perl-DBD-MySQL which now requires mysql-common and conflicts with MariaDB-common.
+
+#### Workaround
+
+In order to update the platform, it is necessary to block the installation of perl-DBD-MySQL-4.053:
+
+```shell
+echo "exclude=perl-DBD-MySQL-4.053*" >> /etc/dnf/dnf.conf
+```
+
+You should now be able to update your platform:
+
+```shell
+dnf update
+```
