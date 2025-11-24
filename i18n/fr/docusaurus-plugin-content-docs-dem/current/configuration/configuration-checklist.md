@@ -1,17 +1,17 @@
 ---
 id: configuration-checklist
-title: Checklist de configuration de Quanta
+title: Checklist de configuration de DEM
 --- 
 
-# Checklist de configuration de Quanta
+# Checklist de configuration de DEM
 
-Cette documentation sous-entend que vous avez réalisé l’installation de Quanta. Référez-vous à la page d’installation:
+Cette documentation sous-entend que vous avez réalisé l’installation de DEM. Référez-vous à la page d’installation:
 
-[Checklist d’installation de Quanta](../installation/installation-checklist.md)
+[Checklist d’installation de DEM](../installation/installation-checklist.md)
 
 # Inviter les utilisateurs et configurer l’expiration des mots de passes
 
-Les licences Quanta ne contiennent pas de limites de nombre d’utilisateurs. Nous vous recommandons d’inviter toutes les personnes concernées par le projet, quelque soit leurs fonctions. Rendez-vous directement dans la page Organisation pour les inviter.
+Les licences DEM ne contiennent pas de limites de nombre d’utilisateurs. Nous vous recommandons d’inviter toutes les personnes concernées par le projet, quelque soit leurs fonctions. Rendez-vous directement dans la page Organisation pour les inviter.
 
 La procédure et la gestion des utilisateurs est détaillée sur cette page:
 
@@ -19,21 +19,21 @@ La procédure et la gestion des utilisateurs est détaillée sur cette page:
 
 # Configurer l’évaluation du CO2 émis
 
-Pour évaluer le CO2, Quanta a besoin de quelques informations. Suivez le guide sur cette page: 
+Pour évaluer le CO2, DEM a besoin de quelques informations. Suivez le guide sur cette page: 
 
 [Configurer la Sobriété Numérique](./configure-digital-sobriety.md)
 
 # Suivi du chiffre d’affaires et des manques à gagner
 
-Quanta peut récupérer le chiffre d’affaires et les taux de conversion depuis votre compte Google Analytics pour les corréler à la performance et la disponibilité de votre site internet.
+DEM peut récupérer le chiffre d’affaires et les taux de conversion depuis votre compte Google Analytics pour les corréler à la performance et la disponibilité de votre site internet.
 
 Pour cela vous devez donner un accès en lecture à votre compte Google Analytics. Cette page détaille comment configurer ce lien:
 
-[Configurer Google Analytics avec Quanta](./configure-google-analytics.md)
+[Configurer Google Analytics avec DEM](./configure-google-analytics.md)
 
 # Parcours utilisateurs
 
-Les parcours utilisateurs peuvent être réalisés par le support Quanta. Demandez à votre interlocuteur commercial ou au support en cliquant sur le point d’interrogation en bas à droite.
+Les parcours utilisateurs peuvent être réalisés par le support DEM. Demandez à votre interlocuteur commercial ou au support en cliquant sur le point d’interrogation en bas à droite.
 
 Retrouver la page de documentation pour les parcours utilisateurs ici: 
 

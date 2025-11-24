@@ -24,7 +24,7 @@ Enfin, lorsque le TTFB est très long, en règle général il se produit car l�
 - les ressources cloud utilisées
 - l’impact environnementale de l’application
 
-Dans Quanta, le TTFB est visible dans les analyses synthétiques des Parcours Utilisateurs, mais également dans le [Real User Monitoring](../../getting-started/real-user-monitoring.md).
+Dans DEM, le TTFB est visible dans les analyses synthétiques des Parcours Utilisateurs, mais également dans le [Real User Monitoring](../../getting-started/real-user-monitoring.md).
 
 L’échelle de notation est la suivante :
 

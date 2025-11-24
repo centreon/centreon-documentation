@@ -7,7 +7,7 @@ title: Utiliser les graphiques
 
 # **Zoomer sur les graphs**
 
-Les graphs Quanta sont interactifs. Zoomez facilement sur la période qui vous intéresse : en utilisant l’action « glisser/déplacer » de la gauche vers la droite sur le graphique (et inversement pour dézoomer).
+Les graphs DEM sont interactifs. Zoomez facilement sur la période qui vous intéresse : en utilisant l’action « glisser/déplacer » de la gauche vers la droite sur le graphique (et inversement pour dézoomer).
 
 ![Image](../assets/how-to-articles/using-charts-1.png)
 

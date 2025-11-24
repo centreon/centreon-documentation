@@ -1,10 +1,10 @@
 ---
-id: quanta-probes-in-google-analytics
+id: dem-probes-in-google-analytics
 title: Checklist d'installation
 --- 
 
-# Les sondes QUANTA sont-elles comptabilisées dans Google Analytics ?
+# Les sondes DEM sont-elles comptabilisées dans Google Analytics ?
 
-Non, QUANTA n'est pas repéré par Google Analytics. En effet, nous ne requêtons pas le tag Google Analytics présent sur les pages de votre site.
+Non, DEM n'est pas repéré par Google Analytics. En effet, nous ne requêtons pas le tag Google Analytics présent sur les pages de votre site.
 
 Ainsi, vos statistiques ne seront pas affectées par les visites effectuées par nos sondes.

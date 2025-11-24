@@ -5,9 +5,9 @@ title: FAQ
 
 # Foire aux questions
 
-### **Quels sont les ports de firewall à ouvrir pour l'agent Quanta ?**
+### **Quels sont les ports de firewall à ouvrir pour l'agent DEM ?**
 
-Il est nécessaire pour que l'agent fonctionne, d'autoriser en sortie les connections HTTPS [vers nos IPs](../installation/quanta-ip-addresses.md).
+Il est nécessaire pour que l'agent fonctionne, d'autoriser en sortie les connections HTTPS [vers nos IPs](../installation/dem-ip-addresses.md).
 
 Pour l'installation des paquets il faudra également autoriser votre serveur à se connecter en HTTP à apt.quanta.io
 
@@ -67,7 +67,7 @@ Pour varnish, le paramètre "instance" est également utilisé comme nom d'insta
 
 Nous recommandons d'installer l'agent sur l'ensemble des serveurs de votre infrastructure, néanmoins si vous ne pouvez pas le faire sur certains de vos serveurs (base de données par exemple) et que vous souhaitez tout de même monitorer le service MySQL, vous pouvez changer le paramètre **host** dans la configuration de l'agent (*/etc/quanta/modules.d/&lt;service&gt;.yml*)
 
-### **Mon serveur est mutualisé entre plusieurs sites qui ont chacun un abonnement Quanta, comment faire pour que les données soient visibles dans les 2 sites ?**
+### **Mon serveur est mutualisé entre plusieurs sites qui ont chacun un abonnement DEM, comment faire pour que les données soient visibles dans les 2 sites ?**
 
 Pour rattacher un serveur à plusieurs sites, vous pouvez renseigner dans le fichier de configuration */etc/quanta/agent.yml* plusieurs tokens (un pour chaque site) en les séparent par des virgules, cela donne par exemple "quanta_token: tokensite1,tokensite2".
 
@@ -76,15 +76,7 @@ Le serveur sera alors crée sur les 2 sites et les données système remonteront
 Il y a quelques limitations à ce système si vos 2 sites utilisent également le module PHP:
 
 - Les évènements Magento seront remontés sur les 2 sites, quelque soit le site qui les a généré.
-- Les informations qui remonteront dans la partie Magento de l'interface de configuration dans Quanta seront celles de l'un ou l'autre site (et du coup ne seront pas forcément les bonnes).
-
-### **J'ai déjà installé l'agent Zabbix auparavant, comment gérer la mise à jour ?**
-
-La mise à jour se fait de manière automatique lors de l'installation de l'agent Quanta, nous arrêterons de requêter l'agent Zabbix dès lors que nous recevrons des métriques du nouvel agent.
-
-Vous pourrez vérifier que votre serveur remonte bien des données via le nouvel agent en vérifiant la présence du flag "Nouvel agent" dans la configuration de vos serveurs dans Quanta.
-
-Une fois que vous avez validé que les métriques remontent bien via le nouvel agent, vous pouvez désinstaller complètement Zabbix.
+- Les informations qui remonteront dans la partie Magento de l'interface de configuration dans DEM seront celles de l'un ou l'autre site (et du coup ne seront pas forcément les bonnes).
 
 ### **J'ai déjà installé le module Magento auparavant, comment se passe la mise à jour ?**
 
@@ -92,32 +84,32 @@ La mise à jour se fait de manière automatique, lorsque nous recevrons les prem
 
 Nous vous recommandons de désinstaller l'ancien module lorsque le nouveau est installé.
 
-### **Ai-je besoin de créer mon serveur dans Quanta ?**
+### **Ai-je besoin de créer mon serveur dans DEM ?**
 
-Non, la création est automatique et se fait la première fois que nous recevons des données. Si votre serveur existait déjà dans Quanta sa configuration sera mise à jour automatiquement.
+Non, la création est automatique et se fait la première fois que nous recevons des données. Si votre serveur existait déjà dans DEM sa configuration sera mise à jour automatiquement.
 
-Vous devrez néanmoins supprimer le serveur dans Quanta manuellement si vous le retirez de votre infrastructure.
+Vous devrez néanmoins supprimer le serveur dans DEM manuellement si vous le retirez de votre infrastructure.
 
-### **Je suis concerné par la sécurité de mon serveur, pouvez-vous m'expliquer un peu plus en détail comment l'agent Quanta et le module PHP fonctionnent ?**
+### **Je suis concerné par la sécurité de mon serveur, pouvez-vous m'expliquer un peu plus en détail comment l'agent DEM et le module PHP fonctionnent ?**
 
 Nous nous sentons tout aussi concernés que vous de la sécurité des outils que nous vous proposons, voici une description technique de leur fonctionnement.
 
 Tout les paquets que nous fournissons sont signés avec une clef GPG qu'il vous faut installer dans votre système de paquets et qui permet de vérifier la provenance de ces paquets.
 
-*L'agent Quanta:*
+*L'agent DEM:*
 
-L'agent Quanta est un service qui tourne en tache de fond sur votre serveur (daemon) et qui effectue plusieurs opérations:
+L'agent DEM est un service qui tourne en tache de fond sur votre serveur (daemon) et qui effectue plusieurs opérations:
 
 - Collecte de données système via lecture des fichiers présents dans */proc*.
 - Collecte de données sur les services actifs de votre server (Apache, Nginx, Varnish, Memcached, Redis, MySQL), via une connection au service généralement. Dans tout les cas, il n'est jamais nécéssaire de créer un utilisateur privilégié pour que l'agent puisse accéder à ces données.
 - Réception des données du module PHP via une socket Unix (les droits étant configurables si besoin)
-- Envoi des données collectées à Quanta via le protocole sécurisé HTTPS (il est possible d'utiliser un proxy si besoin).
+- Envoi des données collectées à DEM via le protocole sécurisé HTTPS (il est possible d'utiliser un proxy si besoin).
 
-Tout les modules de l'agent Quanta sont désactivables indépendamment si vous le souhaitez.
+Tout les modules de l'agent DEM sont désactivables indépendamment si vous le souhaitez.
 
 L'agent se lance en root pour sa phase d'initialisation (ouverture de sa socket, chargement de la configuration, etc) mais change en utilisateur standard pour toutes les opérations de collecte (l'utilisateur et le groupe sont configurables).
 
-Les données récoltées par l'agent sont stockées en mémoire avant d'être envoyées à Quanta mais ne jamais stockées ailleurs.
+Les données récoltées par l'agent sont stockées en mémoire avant d'être envoyées à DEM mais ne jamais stockées ailleurs.
 
 *Le module PHP*:
 
@@ -130,7 +122,7 @@ Il collecte ses données uniquement:
 
 Le module n'altère pas le fonctionnement de l'application, il se contente de récupérer différentes informations de profiling sur le fonctionnement de Magento.
 
-Le module dispose également d'un mode "xhprof" (profiling complet de l'exécution), qui fonctionne sur le même principe mais n'est jamais activé par Quanta sans action de l'utilisateur.
+Le module dispose également d'un mode "xhprof" (profiling complet de l'exécution), qui fonctionne sur le même principe mais n'est jamais activé par DEM sans action de l'utilisateur.
 
 Les données sont transmises à l'agent via la socket Unix prévue à cet effet et ne seront jamais stockées ou envoyées autre part.
 

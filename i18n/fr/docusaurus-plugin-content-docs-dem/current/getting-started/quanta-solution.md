@@ -1,11 +1,11 @@
 ---
-id: quanta-solution
-title: La solution Quanta
+id: dem-solution
+title: La solution DEM
 --- 
 
-# La solution Quanta
+# La solution DEM
 
-**Quanta est une plateforme de Digital Experience Monitoring conçue pour allier performance web et sobriété numérique.** Elle permet aux équipes tech, produit et métier de collaborer efficacement pour offrir des expériences digitales rapides et fiables tout en économisant les ressources matérielles.
+**DEM (anciennement Quanta) est une plateforme de Digital Experience Monitoring conçue pour allier performance web et sobriété numérique.** Elle permet aux équipes tech, produit et métier de collaborer efficacement pour offrir des expériences digitales rapides et fiables tout en économisant les ressources matérielles.
 
 La solution combine plusieurs briques complémentaires :
 
@@ -14,7 +14,7 @@ La solution combine plusieurs briques complémentaires :
 - **Monitoring de sobriété numérique** : évaluation continue de l’empreinte carbone et du score d’éco-conception de chaque page.
 - **Tests de montée en charge** : validation de la robustesse technique du site en conditions de trafic élevé.
 
-Quanta fournit une interface claire et unifiée, enrichie par :
+DEM fournit une interface claire et unifiée, enrichie par :
 
 - des **graphes dynamiques** pour visualiser les temps de chargement,
 - des **alertes personnalisables** et intelligentes,
@@ -23,4 +23,4 @@ Quanta fournit une interface claire et unifiée, enrichie par :
 
 **Objectif : vous aider à améliorer l’expérience utilisateur, booster vos performances SEO, sécuriser vos pics de trafic et réduire concrètement votre impact environnemental.**
 
-Regarder la [vidéo de présentation de l'interface Quanta](https://www.youtube.com/watch?v=ae_8gF-KFG8).
+Regarder la [vidéo de présentation de l'interface DEM (Quanta)](https://www.youtube.com/watch?v=ae_8gF-KFG8).

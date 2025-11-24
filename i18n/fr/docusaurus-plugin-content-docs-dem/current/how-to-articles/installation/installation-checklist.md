@@ -3,15 +3,15 @@ id: installation-checklist
 title: Checklist d'installation
 --- 
 
-# Checklist d’installation de Quanta
+# Checklist d’installation de DEM
 
-Cette liste couvre les besoins pour permettre le bon fonctionnement des différents modules de Quanta sur un site donnée.
+Cette liste couvre les besoins pour permettre le bon fonctionnement des différents modules de DEM sur un site donnée.
 
 # Parcours utilisateur
 
 **Rien n’est à installer**. Vous pouvez avoir besoin d’autoriser les IPs pour éviter que la sécurité ne les arrête.
 
-[Les adresses IP de Quanta](./quanta-ip-addresses.md)
+[Les adresses IP de DEM](./dem-ip-addresses.md)
 
 # Real User Monitoring
 
@@ -21,7 +21,7 @@ Le Real User Monitoring s’installe comme Google Analytics (ou autres outils du
 
 # Agent système
 
-La partie système de Quanta nécessite à minima l’installation des agents systèmes, puis l’ajout de modules selon le niveau de détails souhaité ou accessible avec la licence de votre entreprise.
+La partie système de DEM nécessite à minima l’installation des agents systèmes, puis l’ajout de modules selon le niveau de détails souhaité ou accessible avec la licence de votre entreprise.
 
 ## Installation minimale
 

@@ -1,23 +1,23 @@
 ---
 id: configure-google-analytics
-title: Configurer Google Analytics avec Quanta
+title: Configurer Google Analytics avec DEM
 --- 
 
-# Configurer Google Analytics avec Quanta
+# Configurer Google Analytics avec DEM
 
 # Questions fréquentes
 
-## Pourquoi intégrer Google Analytics dans Quanta ?
+## Pourquoi intégrer Google Analytics dans DEM ?
 
 L'intégration de ces données va permettre de corréler des données techniques (temps de réponse, charge serveur, etc) avec vos données Business (traffic, conversion, etc). Ces corrélations vous permettront de tirer des conclusions.
 
-## Les sondes Quanta sont-elles comptabilisées dans GA?
+## Les sondes DEM sont-elles comptabilisées dans GA?
 
-**Non**, Quanta est un ninja pour Google Analytics ! En effet nous n'appelons pas le tag Google Analytics présent sur les pages de votre site.
+**Non**, DEM est un ninja pour Google Analytics ! En effet nous n'appelons pas le tag Google Analytics présent sur les pages de votre site.
 
 Ainsi vos statistiques ne seront pas affectées par nos sondes.
 
-## Pourquoi je n'ai pas de données Analytics qui remonte dans Quanta ?
+## Pourquoi je n'ai pas de données Analytics qui remonte dans DEM ?
 
 Google Analytics a toujours un certain retard, pouvant aller jusqu'à plusieurs heures. Étant donné que nous récupérons les données via leur API, tant qu'elles ne sont pas visibles dans GA, nous ne pouvons les récupérer.
 
@@ -25,31 +25,27 @@ Google Analytics a toujours un certain retard, pouvant aller jusqu'à plusieurs 
 
 Google Analytics a toujours un certain retard, pouvant aller jusqu'à plusieurs heures. Étant donné que nous récupérons les données via leur API, tant qu'elles ne sont pas visibles dans GA, nous ne pouvons les
 
-## J’ai désactivé par erreur le module Google Analytics de Quanta. Est-il possible de récupérer de l’historique ?
+## J’ai désactivé par erreur le module Google Analytics de DEM. Est-il possible de récupérer de l’historique ?
 
 Pas de problème, nous récupérons toujours les 24 dernières heures de données. Attendez un peu et vous devriez les voir arriver.
 
 Si vous souhaitez récupérer plus de 24h de retard, n'hésitez pas à contacter le support via le bouton "Aide" en bas à droit de votre écran quand vous êtes dans l'app.
 
-# Lier Google Analytics à Quanta
+# Lier Google Analytics à DEM
 
-Avec QUANTA, vous pouvez corréler le temps d’exécution de vos webscénarios avec le traffic mesuré par Google Analytics sur la même période et ainsi analyser les effets du traffic sur les temps de chargement du site.
+Avec DEM, vous pouvez corréler le temps d’exécution de vos webscénarios avec le traffic mesuré par Google Analytics sur la même période et ainsi analyser les effets du traffic sur les temps de chargement du site.
 
 <aside>
-⚠️ Pour pouvoir ajouter/supprimer une liaison vous avez besoin d’avoir les permissions « Administrateur » ou « Propriétaire » sur votre Organisation dans QUANTA.
+⚠️ Pour pouvoir ajouter/supprimer une liaison vous avez besoin d’avoir les permissions « Administrateur » ou « Propriétaire » sur votre Organisation dans DEM.
 
 </aside>
 
 [https://youtu.be/vOVU7zv_GZg?list=PLgmedpAAxo-5XqQVueiuwFwhKs_DifUDb](https://youtu.be/vOVU7zv_GZg?list=PLgmedpAAxo-5XqQVueiuwFwhKs_DifUDb)
 
-Pour lier QUANTA avec votre compte Google Analytics, rendez-vous dans l’onglet « Configuration » (icône qui ressemble à un engrenage en haut à droite de votre écran) sélectionnez le site (en cliquant sur son nom) pour lequel vous voulez lier votre compte Google Analytics.
+Pour lier DEM avec votre compte Google Analytics, rendez-vous dans l’onglet « Configuration » (icône qui ressemble à un engrenage en haut à droite de votre écran) sélectionnez le site (en cliquant sur son nom) pour lequel vous voulez lier votre compte Google Analytics.
 
-Allez dans l’onglet « Intégrations » :
+Allez dans l’onglet « Intégrations ».
 
-![](https://support.quanta.io/hc/article_attachments/360021840553/mceclip2.png)
+Pour créer la liaison, cliquez sur « Connecter ». Vous allez être redirigé sur la page d’authentification de Google, saisissez alors l’identifiant et le mot de passe du compte que vous voulez lier.
 
-Pour créer la liaison, cliquez sur « Connecter ». Vous allez être redirigé sur la page d’authentification de Google, saisissez alors l’identifiant et le mot de passe du compte que vous voulez lier :
-
-![](https://support.quanta.io/hc/fr/article_attachments/204283399/KB_analytics_2.png)
-
-Une fois authentifié vous êtes de nouveau redirigé vers QUANTA, vos profils Analytics sont importés dans l’interface et il ne vous reste plus qu’à choisir celui que vous souhaitez utiliser.
+Une fois authentifié vous êtes de nouveau redirigé vers DEM, vos profils Analytics sont importés dans l’interface et il ne vous reste plus qu’à choisir celui que vous souhaitez utiliser.

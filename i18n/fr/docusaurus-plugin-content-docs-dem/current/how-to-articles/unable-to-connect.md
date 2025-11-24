@@ -17,15 +17,15 @@ Un mail vous sera alors envoyé vous permettant de configurer un nouveau mot de 
 
 # Mail oublié
 
-Si vous avez oublié le mail que vous utilisez pour vous connecter à Quanta, vous pouvez demander à un administrateur de votre organisation de le vérifier dans la vue "Organisation" accessible comme suit dans Quanta :
+Si vous avez oublié le mail que vous utilisez pour vous connecter à DEM, vous pouvez demander à un administrateur de votre organisation de le vérifier dans la vue "Organisation" accessible comme suit dans DEM :
 
 - Se rendre dans l'onglet "Configuration"  ** (en haut à droite de l'écran)
 - Sélectionner le site concerné
 - Aller dans l'onglet  *Organisation*
 
-# Je n'ai pas de compte sur Quanta
+# Je n'ai pas de compte sur DEM
 
-Il est également possible que vous n'ayez pas encore de compte sur notre outil, auquel cas un administrateur de votre organisation (sur Quanta) pourra vous envoyer une invitation par mail, si besoin, la démarche à suivre est disponible ici :
+Il est également possible que vous n'ayez pas encore de compte sur notre outil, auquel cas un administrateur de votre organisation (sur DEM) pourra vous envoyer une invitation par mail, si besoin, la démarche à suivre est disponible ici :
 
 [Gérez vos utilisateurs et leurs droits](../configuration/manage-users-and-rights.md)
 
@@ -33,4 +33,4 @@ Il est également possible que vous n'ayez pas encore de compte sur notre outil,
 
 Si malgré cela vous éprouvez toujours des difficultés, n'hésitez pas à prendre directement contact avec notre support:
 
-[Contacter le support Quanta](../getting-started/contact-support.md)
+[Contacter le support DEM](../getting-started/contact-support.md)

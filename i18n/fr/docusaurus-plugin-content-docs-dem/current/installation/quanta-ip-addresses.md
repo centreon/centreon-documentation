@@ -1,15 +1,15 @@
 ---
-id: quanta-ip-addresses
-title: Les adresses IP de Quanta
+id: dem-ip-addresses
+title: Les adresses IP de DEM
 --- 
 
-# Les adresses IP de Quanta
+# Les adresses IP de DEM
 
 ## Adresses des sondes
 
 Nos sondes peuvent interroger votre site sur les ports 80 (HTTP) et 443 (HTTPS) ou utiliser le protocole ICMP. Pour la plupart des sites ouverts au public aucun configuration ne sera nécessaire, néanmoins dans d’autres cas des pare-feux ou des protections contre les robots comme Imperva ou reCaptcha peuvent automatiquement bloquer nos visites.
 
-Si vous êtes dans ce cas, alors voici la liste des IPs devant être utilisées pour ajouter Quanta en liste blanche :
+Si vous êtes dans ce cas, alors voici la liste des IPs devant être utilisées pour ajouter DEM en liste blanche :
 
 - 18.200.8.204
 - 34.241.126.134
@@ -39,9 +39,9 @@ Si vous êtes dans ce cas, alors voici la liste des IPs devant être utilisées 
 
 ## Adresses des points de terminaisons pour les agents serveurs
 
-Si vous utilisez les agents serveurs (section “Système” dans Quanta), alors chacun de vos serveurs envoi à fréquence régulière (une fois par minute) des données à destination de la solution Quanta.
+Si vous utilisez les agents serveurs (section “Système” dans DEM), alors chacun de vos serveurs envoi à fréquence régulière (une fois par minute) des données à destination de la solution DEM.
 
-Il s’agit d’un **trafic sortant** en HTTPS (port 443) et donc assez souvent ouvert par défaut, mais si vos restrictions firewalls sont assez strictes et qu’il est nécessaire d’ajouter une autorisation spécifique pour l’usage de Quanta, voici les adresses IP de destination à lister :
+Il s’agit d’un **trafic sortant** en HTTPS (port 443) et donc assez souvent ouvert par défaut, mais si vos restrictions firewalls sont assez strictes et qu’il est nécessaire d’ajouter une autorisation spécifique pour l’usage de DEM, voici les adresses IP de destination à lister :
 
 - 52.215.166.110
 - 52.215.179.235

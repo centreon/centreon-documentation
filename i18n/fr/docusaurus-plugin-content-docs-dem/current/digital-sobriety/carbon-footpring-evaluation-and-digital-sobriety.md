@@ -1,21 +1,21 @@
 ---
 id: carbon-footpring-evaluation-and-digital-sobriety
-title: Approche d’évaluation carbone et sobriété numérique dans Quanta
+title: Approche d’évaluation carbone et sobriété numérique dans DEM
 --- 
 
-# Approche d’évaluation carbone et sobriété numérique dans Quanta
+# Approche d’évaluation carbone et sobriété numérique dans DEM
 
 Mesurer l’empreinte environnementale du numérique liée à l’activité d’un site Internet nécessite de prendre de nombreux paramètres en compte et de se tenir à jour sur les meilleurs méthodes de calculs car le domaine d’étude est récent et par conséquent l’état de l’art sur le sujet est en perpétuelle évolution.
 
-Bien que ce domaine évolue rapidement, Quanta s’attache dès aujourd’hui à fournir des mesures actionnables permettant de respecter les principes du [GHG Protocol](https://www.greenly.earth/blog-fr/ghg-protocol-quest-ce-que-cest-comment-ca-marche) (Pertinence, Exhaustivité, Permanence, Transparence et Exactitude). Ces critères sont particulièrement importants à suivre afin de permettre aux entreprises qui le souhaite d’intégrer les données d’impact de leurs sites Internet dans leur bilan carbone global d’entreprise.
+Bien que ce domaine évolue rapidement, DEM s’attache dès aujourd’hui à fournir des mesures actionnables permettant de respecter les principes du [GHG Protocol](https://www.greenly.earth/blog-fr/ghg-protocol-quest-ce-que-cest-comment-ca-marche) (Pertinence, Exhaustivité, Permanence, Transparence et Exactitude). Ces critères sont particulièrement importants à suivre afin de permettre aux entreprises qui le souhaite d’intégrer les données d’impact de leurs sites Internet dans leur bilan carbone global d’entreprise.
 
-Pour respecter ces principes et fournir une mesure d’impact carbone la plus proche de la réalité pour les sites Internet étudiés, Quanta s’appuie donc sur plusieurs algorithmes faisant références sur le marché :
+Pour respecter ces principes et fournir une mesure d’impact carbone la plus proche de la réalité pour les sites Internet étudiés, DEM s’appuie donc sur plusieurs algorithmes faisant références sur le marché :
 
 - Le Score de Sobriété Numérique pour le score d’éco-conception, représenté par un score par page sur un total de 100 points
     
-    ![Mesure du score d’éco-conception dans Quanta pour un parcours utilisateur donné](Approche%20d%E2%80%99%C3%A9valuation%20carbone%20et%20sobri%C3%A9t%C3%A9%20num%C3%A9riqu%20535c966ec6bf448989ab738cf21e7f24/Untitled.png)
+    ![Mesure du score d’éco-conception dans DEM pour un parcours utilisateur donné](Approche%20d%E2%80%99%C3%A9valuation%20carbone%20et%20sobri%C3%A9t%C3%A9%20num%C3%A9riqu%20535c966ec6bf448989ab738cf21e7f24/Untitled.png)
     
-    Mesure du score d’éco-conception dans Quanta pour un parcours utilisateur donné
+    Mesure du score d’éco-conception dans DEM pour un parcours utilisateur donné
     
 - La méthode [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/) pour l’estimation du coût en CO2eq émis par le téléchargement d’une page sur le réseau
     
@@ -23,23 +23,23 @@ Pour respecter ces principes et fournir une mesure d’impact carbone la plus pr
     
     Mesure de l’impact carbone, en CO2eq, réalisé via des requêtes synthétiques pour un parcours utilisateur donné
     
-- La base de donnée d’impact open source de Boavizta pour les calculs d’impact de fabrication et fin de vie des serveurs (mesure à paraitre dans Quanta au Q2 2023).
+- La base de donnée d’impact open source de Boavizta pour les calculs d’impact de fabrication et fin de vie des serveurs (mesure à paraitre dans DEM au Q2 2023).
 
-Selon les fonctionnalités concernées, que cela soit pour la mesure d’impact carbone d’un parcours utilisateur donné sur le site, pour la mesure d’impact carbone de chacune des pages du site pondérées à leur fréquentation, ou encore l’affichage des pages ayant les plus gros leviers d’optimisations d’éco-conception à réaliser, Quanta va utiliser l’une ou l’autre de ces méthodes, et toujours de façon transparente.
+Selon les fonctionnalités concernées, que cela soit pour la mesure d’impact carbone d’un parcours utilisateur donné sur le site, pour la mesure d’impact carbone de chacune des pages du site pondérées à leur fréquentation, ou encore l’affichage des pages ayant les plus gros leviers d’optimisations d’éco-conception à réaliser, DEM va utiliser l’une ou l’autre de ces méthodes, et toujours de façon transparente.
 
-![Mesure globale d’un site Internet (score d’éco-conception et empreinte carbone) calculé sur la base du **trafic réel** dans le module Real User Monitoring de Quanta](Approche%20d%E2%80%99%C3%A9valuation%20carbone%20et%20sobri%C3%A9t%C3%A9%20num%C3%A9riqu%20535c966ec6bf448989ab738cf21e7f24/Untitled%202.png)
+Mesure globale d’un site Internet (score d’éco-conception et empreinte carbone) calculé sur la base du **trafic réel** dans le module Real User Monitoring de DEM.
 
-Mesure globale d’un site Internet (score d’éco-conception et empreinte carbone) calculé sur la base du **trafic réel** dans le module Real User Monitoring de Quanta
+Mesure globale d’un site Internet (score d’éco-conception et empreinte carbone) calculé sur la base du **trafic réel** dans le module Real User Monitoring de DEM.
 
-Enfin, au delà de l’utilisation de ces méthodes qui font aujourd’hui référence, Quanta contribue à affiner ces méthodes de calculs par des échanges réguliers avec les professionnels de cette discipline, en particulier :
+Enfin, au delà de l’utilisation de ces méthodes qui font aujourd’hui référence, DEM contribue à affiner ces méthodes de calculs par des échanges réguliers avec les professionnels de cette discipline, en particulier :
 
-- l’éco-système des signataires de [Planet’Tech Care](https://planet-techcare.green/) (dont Quanta est membre actif)
+- l’éco-système des signataires de [Planet’Tech Care](https://planet-techcare.green/) (dont DEM est membre actif)
 - le groupe de travail inter-entreprise [Boavizta](https://www.boavizta.org/)
 - l’association [La Fresque du Numérique](https://www.fresquedunumerique.org/)
 
 L’objectif de ces échanges est de faire avancer l’état de l’art sur la mesure d’impact du numérique, et de confronter les résultats avec d’autres professionnels pour s’assurer de la bonne cohérence des mesures prises par chacune des parties (cf. critères de Pertinence et Exactitude imposées par le GHG Protocol).
 
-Pour en savoir + sur la décarbonation du numérique et sur les outils de mesure qui en découlent, vous pouvez également consulter cette interview de Laurent Eskenazi (cofondateur de Boavizta) et Guillaume Thibaux (cofondateur de Quanta) pour BSmart TV :
+Pour en savoir + sur la décarbonation du numérique et sur les outils de mesure qui en découlent, vous pouvez également consulter cette interview de Laurent Eskenazi (cofondateur de Boavizta) et Guillaume Thibaux (cofondateur de DEM) pour BSmart TV :
 
 [https://www.youtube.com/watch?v=UELsTjTDMag](https://www.youtube.com/watch?v=UELsTjTDMag)
 
@@ -56,9 +56,9 @@ Pour mesurer l’impact carbone global d’un site Internet, 2 grandes dimension
     - Réseau (routeurs, firewall, antennes 4G, fibre sous-marine, etc.);
     - Matériel utilisé par l’internaute (ordinateur, tablette ou téléphone);
 
-Comme on peut le voir dans ce tableau c-dessous en 2 dimensions, Quanta permet aujourd’hui de mesurer précisément les émissions liées à “l’usage” du site, sur l’ensemble de la chaîne (datacenter, réseau et matériel de l’internaute). Cette mesure représente très généralement la partie la plus émettrice de gaz à effet de serre, et c’est également sur cette mesure que les principes d’éco-conception du site auront le plus d’impact lors de leur mise en oeuvre.
+Comme on peut le voir dans ce tableau c-dessous en 2 dimensions, DEM permet aujourd’hui de mesurer précisément les émissions liées à “l’usage” du site, sur l’ensemble de la chaîne (datacenter, réseau et matériel de l’internaute). Cette mesure représente très généralement la partie la plus émettrice de gaz à effet de serre, et c’est également sur cette mesure que les principes d’éco-conception du site auront le plus d’impact lors de leur mise en oeuvre.
 
-Voici le détail à date du périmètre fonctionnel de Quanta :
+Voici le détail à date du périmètre fonctionnel de DEM :
 
 |  | Scope 1 | Scope 2 | Scope 3 |  |
 | --- | --- | --- | --- | --- |

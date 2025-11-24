@@ -8,7 +8,7 @@ title: Installer le Real User Monitoring
 # Considérations RGPD
 
 <aside>
-🏆 Bien que Quanta utilise un cookie, **aucun consentement n’est nécessaire.**
+🏆 Bien que DEM utilise un cookie, **aucun consentement n’est nécessaire.**
 
 </aside>
 
@@ -20,7 +20,7 @@ La CNIL exempte de consentement les cookies sous certaines conditions:
 - ne pas transmettre les données à des tiers
 - ne pas permettre le suivi global de la navigation de la personne sur d’autres sites web
 
-**Quanta répond à ces conditions.**
+**DEM répond à ces conditions.**
 
 Vous pouvez retrouver les recommandations de la CNIL [sur cette page](https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience).
 

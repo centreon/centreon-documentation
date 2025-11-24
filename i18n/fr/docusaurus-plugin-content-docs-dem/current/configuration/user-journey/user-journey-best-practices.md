@@ -7,7 +7,7 @@ title: Bonnes pratiques des Parcours Utilisateurs
 
 # Gestion des iframes
 
-Vu la façon dont Quanta gère la possible présence d’iframes dans une page, un point important est à prendre en compte dans ce cas de figure précis. Si des iframes sont présentes et que nous souhaitons manipuler des sélecteurs CSS, il est nécessaire de choisir des selecteurs CSS qui sont soit à l'intérieur d'une iframe, soit à l'extérieur, mais **PAS** des selecteurs qui "traversent" les 2 contextes, ce qui ne fonctionnera pas. 
+Vu la façon dont DEM gère la possible présence d’iframes dans une page, un point important est à prendre en compte dans ce cas de figure précis. Si des iframes sont présentes et que nous souhaitons manipuler des sélecteurs CSS, il est nécessaire de choisir des selecteurs CSS qui sont soit à l'intérieur d'une iframe, soit à l'extérieur, mais **PAS** des selecteurs qui "traversent" les 2 contextes, ce qui ne fonctionnera pas. 
 
 Voici un exemple explicatif, imaginons que le code HTML est architecturé comme ceci :
 
@@ -63,9 +63,9 @@ iframe #my-form
     
     Évidemment, plus le texte est spécifique, plus il a de chances d'être unique.
     
-    Attention : une phrase visible à l’écran sur le site peut en réalité être fragmentée dans le code HTML. C’est systématiquement le cas typiquement si un ou plusieurs mots sont dans un style différent (bold ou autre couleur). Or dans son attente d’une chaine de caractère spécifiée dans le scénario, Quanta ira rechercher à l’intérieur du code HTML ⇒ en clair, si le texte est fractionné, il pourrait ne pas être trouvé.
+    Attention : une phrase visible à l’écran sur le site peut en réalité être fragmentée dans le code HTML. C’est systématiquement le cas typiquement si un ou plusieurs mots sont dans un style différent (bold ou autre couleur). Or dans son attente d’une chaine de caractère spécifiée dans le scénario, DEM ira rechercher à l’intérieur du code HTML ⇒ en clair, si le texte est fractionné, il pourrait ne pas être trouvé.
     
-    Pour être certain que la chaîne spécifiée comme élément attendu dans Quanta est bien celle qui est présente dans le code HTML, nous vous conseillons d’effectuer un “Clic-droit” puis “Inspecter dans le code HTML” pour copier/coller la chaine directement depuis le code HTML, ce qui évite toute erreur. Enfin, les espaces avant et après le texte sont également à éviter, il est préférable de les supprimer manuellement.
+    Pour être certain que la chaîne spécifiée comme élément attendu dans DEM est bien celle qui est présente dans le code HTML, nous vous conseillons d’effectuer un “Clic-droit” puis “Inspecter dans le code HTML” pour copier/coller la chaine directement depuis le code HTML, ce qui évite toute erreur. Enfin, les espaces avant et après le texte sont également à éviter, il est préférable de les supprimer manuellement.
     
 
 - Spécifier un sélecteur CSS pour les formulaires
@@ -140,7 +140,7 @@ iframe #my-form
     
     Les sites web ont souvent de nombreuses solutions tierces intégrées à leur page. Il est souvent de bon usage de “blacklister” les trackers de solutions d'analytics pour éviter de fausser les stats de l’équipe digital marketing.
     
-    Pour répondre à cette problématique, Quanta contient une blacklist par défaut configurée dans tout nouveau scénario. Cette blacklist filtre par exemple par défaut les requêtes vers Google Analytics, mais d’autres outils de tracking spécifique au site peuvent encore passer. Il peut donc être judicieux d’évoquer ce point avec l’équipe marketing digital pour s’assurer qu’il n’y a pas de contre-indication à ce que Quanta requête leurs autres tags.
+    Pour répondre à cette problématique, DEM contient une blacklist par défaut configurée dans tout nouveau scénario. Cette blacklist filtre par exemple par défaut les requêtes vers Google Analytics, mais d’autres outils de tracking spécifique au site peuvent encore passer. Il peut donc être judicieux d’évoquer ce point avec l’équipe marketing digital pour s’assurer qu’il n’y a pas de contre-indication à ce que DEM requête leurs autres tags.
     
     A garder en tête également que certains tags 3rd party sont nécessaires au bon fonctionnement de la page. Dans ce cas il sera donc important de ne pas les bloquer.
     
@@ -201,10 +201,10 @@ iframe #my-form
 
     On peut alors insérer un test dans le scénario qui vérifie l'apparition du sélecteur CSS suivant : **#product-addtocart-button:not(.disabled)**
     
-    En effet, si on teste cette chaine avec la console de Chrome, alors que le bouton est grisé on voit que le sélecteur CSS ne renvoi rien. Par contre, dès que la taille du produit a été sélectionnée et que la classe .disabled disparait, alors le sélecteur CSS va renvoyer l'objet. Au sens du scénario Quanta, cet élément **#product-addtocart-button:not(.disabled)** apparait ! C'est donc un parfait test pour vérifier que le bouton d'ajout au panier est désormais dé-grisé, avant d'envisager de le cliquer.
+    En effet, si on teste cette chaine avec la console de Chrome, alors que le bouton est grisé on voit que le sélecteur CSS ne renvoi rien. Par contre, dès que la taille du produit a été sélectionnée et que la classe .disabled disparait, alors le sélecteur CSS va renvoyer l'objet. Au sens du scénario DEM, cet élément **#product-addtocart-button:not(.disabled)** apparait ! C'est donc un parfait test pour vérifier que le bouton d'ajout au panier est désormais dé-grisé, avant d'envisager de le cliquer.
     
     Exemple 3 :
-    La formulation :not() peut s'appliquer à d'autres éléments que les classes. En l'occurence, Quanta surveille également l'apparition et la disparition des paramètres "disabled" ou "disable" au sein des objets du DOM, car il est fréquent que l'aspect "grisé" d'un bouton soit stocké sous forme d'un paramètre et non d'une classe (attention à ces subtilités qui sont spécifique à chaque site !).
+    La formulation :not() peut s'appliquer à d'autres éléments que les classes. En l'occurence, DEM surveille également l'apparition et la disparition des paramètres "disabled" ou "disable" au sein des objets du DOM, car il est fréquent que l'aspect "grisé" d'un bouton soit stocké sous forme d'un paramètre et non d'une classe (attention à ces subtilités qui sont spécifique à chaque site !).
     Vous pouvez donc avoir un bouton qui ressemble à ça :
 
     ```css
@@ -238,7 +238,7 @@ iframe #my-form
     
     Ce sélecteur permet de dire : je veux l'élément cliquable ("a") dont l'URL de destination est "https://www.xxxxx.com/".
     Cela peut être utile dans certains cas, mais attention tout de même, car utiliser cette formule revient un peu à naviguer sur une URL spécifique. En effet, si l'URL de la page de destination devait être ne serait-ce que très légèrement modifiée, alors le scénario sera en échec.
-    Quand les boutons ont des classes ou des ID bien explicites, il est préférable de les utiliser pour réaliser les actions clics, ainsi en cas de léger changement d'URL, le scénario Quanta va s'adapter et faire sa navigation toujours correctement comme le ferait un internaute.
+    Quand les boutons ont des classes ou des ID bien explicites, il est préférable de les utiliser pour réaliser les actions clics, ainsi en cas de léger changement d'URL, le scénario DEM va s'adapter et faire sa navigation toujours correctement comme le ferait un internaute.
     Notre recommandation est d'utiliser cette formule pour :
     
     - aller sur des URLs dont la formulation n'est pas amené a changer, exemple : "www.site.com/checkout/cart/".
@@ -248,7 +248,7 @@ iframe #my-form
     
     Il est possible de désigner des objets en fonction des paramètres spécifiques qui les composent. Cette chaine permettra de cliquer sur l'élément de ce type : &lt;button data-role="change-store"&gt;
     
-    ⚠️ Attention néanmoins, il est important de savoir que Quanta ne vérifie pas systématiquement **les changements d'états des paramètres** des objets de la page après avoir récupéré le code HTML initial. En effet, un compromis a du être fait en matière de performance lors de l'exécution des scénarios, et il a été choisi de surveiller les changements suivants :
+    ⚠️ Attention néanmoins, il est important de savoir que DEM ne vérifie pas systématiquement **les changements d'états des paramètres** des objets de la page après avoir récupéré le code HTML initial. En effet, un compromis a du être fait en matière de performance lors de l'exécution des scénarios, et il a été choisi de surveiller les changements suivants :
     
     - changement sur les classes (apparition, disparition)
     - changement sur les paramètres "disabled" ou "disable"
@@ -263,7 +263,7 @@ iframe #my-form
     
     Ce sélecteur permet de dire "je souhaite récupérer les boutons de la page, dont l'ID **commence par** "checkout-". Cela permet par exemple de récupérer un bouton de ce type : &lt;button id="checkout-920284853"&gt;
     
-    On aurait pu mettre dans le scénario le sélecteur CSS "button#checkout-920284853", mais voyant le très grand chiffre qui figure sur la fin de cette ID, on peut largement supposer qu'il s'agit d'un paramètre généré automatiquement. La mention d'un objet comprenant un grand chiffre ou une chaine de caractère ayant l'air aléatoire est à éviter, car si ce chiffre est re-généré au moment d'une nouvelle mise en production sur le site, le scénario Quanta se mettra en erreur. Par exemple, si suite à la mise en production le bouton devient &lt;button id="checkout-946202742"&gt;, alors notre chaine de sélection ne correspondra plus et ne trouvera pas le bouton.
+    On aurait pu mettre dans le scénario le sélecteur CSS "button#checkout-920284853", mais voyant le très grand chiffre qui figure sur la fin de cette ID, on peut largement supposer qu'il s'agit d'un paramètre généré automatiquement. La mention d'un objet comprenant un grand chiffre ou une chaine de caractère ayant l'air aléatoire est à éviter, car si ce chiffre est re-généré au moment d'une nouvelle mise en production sur le site, le scénario DEM se mettra en erreur. Par exemple, si suite à la mise en production le bouton devient &lt;button id="checkout-946202742"&gt;, alors notre chaine de sélection ne correspondra plus et ne trouvera pas le bouton.
     A l'inverse, si nous avons utilisé la chaine **button[id^="checkout-"]** alors le scénario continuera d'identifier le bon bouton avec son chiffre pourtant modifié.
     Ces subtilités sont importantes pour éviter d'avoir à mener des maintenances trop récurrentes sur un scénario. Il y a une balance à trouver entre :
     
@@ -274,7 +274,7 @@ iframe #my-form
     
     La virgule au milieu d'un sélecteur CSS dans l'exemple ci-dessus veut dire : "je veux l'objet 'a' qui a la classe "action-button" OU BIEN (dans le cas où le premier n'existe pas) l'objet 'a' qui a la classe "action-checkout".
     
-    Les possibilités via ce caractère "," sont assez puissantes, car on peut tout à fait l'utiliser pour créer **une condition** dans Quanta.
+    Les possibilités via ce caractère "," sont assez puissantes, car on peut tout à fait l'utiliser pour créer **une condition** dans DEM.
     
     Exemple : j'ai un site Ecommerce à surveiller, et je créé un scénario assez classique qui, depuis la homepage va cliquer sur la première catégorie disponible, puis sur le premier produit de cette catégorie pour ensuite faire un ajout au panier.
     Il peut arriver assez souvent que certains produits du catalogue soit "**configurables"** et d'autres non. Configurable veut dire qu'il y a une option à choisir avant de pouvoir ajouter au panier, des options comme :
@@ -288,11 +288,11 @@ iframe #my-form
     
     select.choose-color,select.choose-size,select.choose-pattern
     
-    Dans ce cas, Quanta va cliquer sur le premier élément existant dans l'ordre de la gauche vers la droite. De cette façon, qu'il faille configurer le produit par sa couleur, sa taille ou son motif, Quanta saura alors cliquer celui qui est existant sur la page, ce qui va dégriser le bouton d'ajout au panier. Ceci est un bon exemple de scénario adaptatif.
+    Dans ce cas, DEM va cliquer sur le premier élément existant dans l'ordre de la gauche vers la droite. De cette façon, qu'il faille configurer le produit par sa couleur, sa taille ou son motif, DEM saura alors cliquer celui qui est existant sur la page, ce qui va dégriser le bouton d'ajout au panier. Ceci est un bon exemple de scénario adaptatif.
     
     **Pour aller plus loin**
     
-    Comme vous avez pu le voir par ces exemples, les sélecteurs CSS regorgent de fonctions, qui vont donner une immense flexibilité aux scénarios créés dans Quanta.
+    Comme vous avez pu le voir par ces exemples, les sélecteurs CSS regorgent de fonctions, qui vont donner une immense flexibilité aux scénarios créés dans DEM.
     
     Nous avons regroupé ci-dessus les cas d'utilisation les plus fréquents, mais la liste est non exhaustive. Pour aller plus loin, n'hésitez pas à consulter la "bible", le site w3schools.com :D
     

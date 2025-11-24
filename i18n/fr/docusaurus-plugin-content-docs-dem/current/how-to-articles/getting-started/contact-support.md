@@ -1,9 +1,9 @@
 ---
 id: contact-support
-title: Contacter le support Quanta
+title: Contacter le support DEM
 ---
 
-# Contacter le support Quanta
+# Contacter le support DEM
 
 Une question ? Besoin d'aide sur votre outil, sur vos scénarios ? Vous ne comprenez pas les alertes remontées par l'outil?
 

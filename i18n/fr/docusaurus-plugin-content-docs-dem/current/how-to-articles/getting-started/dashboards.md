@@ -5,13 +5,13 @@ title: Les tableaux de bord
 
 # Les tableaux de bord
 
-Les tableaux de bord sont un moyen de visualiser en un coup d’oeil des informations issues de Quanta.
+Les tableaux de bord sont un moyen de visualiser en un coup d’oeil des informations issues de DEM.
 
 # Cas d’usage
 
 ## 1. Regrouper des informations issues de sites ou d’organisation différentes
 
-Dans Quanta, vous pouvez appartenir à plusieurs organisations, et chaque organisation peut avoir plusieurs sites internet. Les tableaux de bord vous permettent d’afficher n’importe quelles cartes de Quanta auxquelles vous avez accès.
+Dans DEM, vous pouvez appartenir à plusieurs organisations, et chaque organisation peut avoir plusieurs sites internet. Les tableaux de bord vous permettent d’afficher n’importe quelles cartes de DEM auxquelles vous avez accès.
 
 ![image](../assets/getting-started/dashboards-1.png)
 
@@ -29,7 +29,7 @@ Vous pouvez créer des tableaux de bord et les partager avec votre organisation 
 
 Dans la liste de vos tableaux de bord, vous verrez en premier vos tableaux de bord privés. En cliquant sur le cadenas, vous accédez aux options de partage pour choisir avec quelle organisation le partager.
 
-## 3. Agréger des données d’écran différents de Quanta
+## 3. Agréger des données d’écran différents de DEM
 
 En imaginant que sur votre site, vous souhaitez vous concentrer sur le panier de votre site, il est intéressant d’avoir les informations à jour sur cette page venant des mesures faites par le RUM et les Parcours Utilisateurs.
 

@@ -7,7 +7,7 @@ title: Hero Time
 
 ## Principe
 
-Le Hero Time est une mesure propre à Quanta. Elle n’existe nul part ailleurs. Il s’agit du temps que la sonde Quanta va mettre entre le début et la fin d’une étape.
+Le Hero Time est une mesure propre à DEM. Elle n’existe nul part ailleurs. Il s’agit du temps que la sonde DEM va mettre entre le début et la fin d’une étape.
 
 Une étape débute au moment de l’action, comme cliquer sur un lien, remplir un formulaire, ajouter un objet au panier, etc. Cette action se termine quand toutes les vérifications de succès sont atteintes. Ces vérifications peuvent être par exemple l’affichage d’une popup, la navigation vers une nouvelle page, ou une requête vers un de vos serveurs. Le Hero Time mesure le temps entre ces 2 évènements. 
 

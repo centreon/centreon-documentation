@@ -7,7 +7,7 @@ title: Les tests de montée en charge
 
 Cette section permet l’analyse du comportement de la plateforme qui héberge votre application Web, **dans des conditions de trafic intense**. Pour y accéder, rendez-vous dans le menu de gauche, puis **Tests de charge**.
 
-Réaliser un Test de Montée en Charge (ou “TMC” pour les intimes) consiste à lancer, directement depuis Quanta, un grand nombre de navigateurs web en parallèle et les faire interagir avec un site Internet afin de “stresser” volontairement la plateforme et l’application web.
+Réaliser un Test de Montée en Charge (ou “TMC” pour les intimes) consiste à lancer, directement depuis DEM, un grand nombre de navigateurs web en parallèle et les faire interagir avec un site Internet afin de “stresser” volontairement la plateforme et l’application web.
 
 ![image](../assets/getting-started/load-tests-1.png)
 
@@ -25,4 +25,4 @@ Exemple de conclusion : “*on constate que la fonction d’ajout au panier et l
 
 Exemple de conclusion : “*proche de l’atteinte de la limite, plusieurs erreurs 503 (internal server error) ont été repérées sur les webservices MonSiteEcommerce.com/reloadBasket.php rendant l’affichage du panier inopérant dans le navigateur de l’internaute, quelques minutes plus tard la sélection de la livraison avait [...]*”
 
-Proposés avec ou sans accompagnement d’experts, les TMC Quanta font l’objet d’une facturation spécifique. Pour en savoir + n’hésitez pas à contacter votre commercial ou l’équipe commerciale sur [sales@quanta.io](mailto:sales@quanta.io).
+Proposés avec ou sans accompagnement d’experts, les TMC DEM font l’objet d’une facturation spécifique. Pour en savoir + n’hésitez pas à contacter votre commercial ou l’équipe commerciale sur [sales@quanta.io](mailto:sales@quanta.io).

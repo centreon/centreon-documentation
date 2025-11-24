@@ -5,7 +5,7 @@ title: Ajouter les métriques avancées
 
 # Ajouter les métriques avancées
 
-L'agent Quanta dispose de modules (ou agents applicatifs), permettant de récupérer des données systèmes sur différents composants de votre infrastructure tels que vos services Apache, MySQL, Redis, Varnish, PostgreSQL, …
+L'agent DEM dispose de modules (ou agents applicatifs), permettant de récupérer des données systèmes sur différents composants de votre infrastructure tels que vos services Apache, MySQL, Redis, Varnish, PostgreSQL, …
 
 <aside>
 ⚠️ Ces agents applicatifs sont à installer **après** l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
@@ -44,7 +44,7 @@ L'agent Quanta dispose de modules (ou agents applicatifs), permettant de récup�
     ```
     
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 ### MySQL
 
@@ -75,7 +75,7 @@ Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 ### PostgreSQL
 
@@ -106,7 +106,7 @@ Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 ### Nginx
 
@@ -138,7 +138,7 @@ Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 ### Varnish
 
@@ -155,7 +155,7 @@ Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
     yum install quanta-agent-varnish
     ```
     
-2. Si vous utilisez plusieurs instances Varnish, il faut indiquer pour quelle instance vous souhaitez remonter les données vers Quanta en ajoutant les lignes suivantes à la fin du fichier **/etc/quanta/modules.d/varnish.yml**
+2. Si vous utilisez plusieurs instances Varnish, il faut indiquer pour quelle instance vous souhaitez remonter les données vers DEM en ajoutant les lignes suivantes à la fin du fichier **/etc/quanta/modules.d/varnish.yml**
     
     ```
     varnish:
@@ -169,7 +169,7 @@ Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 ### Redis
 
@@ -193,7 +193,7 @@ Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
     auth: password
     ```
     
-4. Si vous utilisez plusieurs instances Redis, il faut indiquer pour quelle instance vous souhaitez remonter les données vers Quanta en ajoutant les lignes suivantes à la fin du fichier **/etc/quanta/modules.d/redis.yml**
+4. Si vous utilisez plusieurs instances Redis, il faut indiquer pour quelle instance vous souhaitez remonter les données vers DEM en ajoutant les lignes suivantes à la fin du fichier **/etc/quanta/modules.d/redis.yml**
     
     ```
     instance: nom_de_votre_instance
@@ -206,7 +206,7 @@ Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 ### Memcached
 
@@ -232,7 +232,7 @@ Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 <aside>
 💡 Le profiler PHP est à installer à part. Référez-vous à la page dédiée:

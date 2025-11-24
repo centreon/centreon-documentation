@@ -5,22 +5,22 @@ title: Installer les agents systèmes
 
 # Installer les agents systèmes
 
-Pour pouvoir ajouter/modifier/supprimer un serveur dans Quanta vous avez besoin d’avoir les permissions « Admin » ou « Propriétaire » sur votre Organisation. Demandez à votre administrateur ou au support Quanta de vous créer cet accès ([support@quanta.io](mailto:support@quanta.io)).
+Pour pouvoir ajouter/modifier/supprimer un serveur dans DEM vous avez besoin d’avoir les permissions « Admin » ou « Propriétaire » sur votre Organisation. Demandez à votre administrateur ou au support DEM de vous créer cet accès ([support@quanta.io](mailto:support@quanta.io)).
 
 A l’heure actuelle, il n’est pas possible de rattacher un serveur à plusieurs sites, qu’ils soient dans la même Organisation ou non.
 
-La remontée d’information vers l’application QUANTA nécessite l’installation d’un agent sur tous les serveurs que vous souhaitez surveiller. Pour ce faire, vous devez installer l’agent Quanta.
+La remontée d’information vers l’application DEM nécessite l’installation d’un agent sur tous les serveurs que vous souhaitez surveiller. Pour ce faire, vous devez installer l’agent DEM.
 
 <aside>
 💡 Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur la page dédiée :
 
-[Les adresses IP de Quanta](../quanta-ip-addresses.md)
+[Les adresses IP de QuDEManta](../dem-ip-addresses.md)
 
 </aside>
 
 # Obtenir le token
 
-Pour installer les Agents Systèmes Quanta vous aurez besoin de votre **token** d'auto enregistrement. Il est disponible dans *Configuration > Système.*
+Pour installer les Agents Systèmes DEM vous aurez besoin de votre **token** d'auto enregistrement. Il est disponible dans *Configuration > Système.*
 
 Retrouvez l’emplacement du token en vidéo:
 
@@ -37,7 +37,7 @@ Trouver le token pour les agents systèmes
 
 ## Installation pour Debian
 
-Pour installer l'agent Quanta :
+Pour installer l'agent DEM :
 
 1. Ajoutez la ligne suivante dans le fichier **/etc/apt/sources.list.d/quanta.list**
 *Pour Buster (versions 10.*)*
@@ -86,11 +86,11 @@ Pour installer l'agent Quanta :
     ```
     
 
-Le token vous sera demandé lors de l'installation, vous devriez voir apparaître des données systèmes dans Quanta une minute plus tard.
+Le token vous sera demandé lors de l'installation, vous devriez voir apparaître des données systèmes dans DEM une minute plus tard.
 
 ## Installation pour Ubuntu
 
-Pour installer l'agent Quanta :
+Pour installer l'agent DEM :
 
 1. Ajoutez la ligne suivante dans le fichier **/etc/apt/sources.list.d/quanta.list**
 *Pour Jammy*
@@ -137,7 +137,7 @@ Pour installer l'agent Quanta :
     ```
     
 
-Le token vous sera demandé lors de l'installation, vous devriez voir apparaître des données systèmes dans Quanta une minute plus tard.
+Le token vous sera demandé lors de l'installation, vous devriez voir apparaître des données systèmes dans DEM une minute plus tard.
 
 ## Installation pour CentOS / RHEL
 
@@ -146,7 +146,7 @@ Le token vous sera demandé lors de l'installation, vous devriez voir apparaîtr
 - Centos 7
 - Centos 8 Stream
 
-Pour installer l'agent Quanta :
+Pour installer l'agent DEM :
 
 1. Créez le fichier de configuration du dépôt dans le fichier **/etc/yum.repos.d/quanta.repo**. Pour ce faire vous pouvez télécharger le fichier de configuration disponible ici: [https://rpm.quanta.io/quanta-centos-repo.txt](https://rpm.quanta.io/quanta-centos-repo.txt)
     
@@ -202,17 +202,17 @@ Pour installer l'agent Quanta :
     ```
     
 
-Vous devriez voir apparaître des données système dans Quanta une minute plus tard.
+Vous devriez voir apparaître des données système dans DEM une minute plus tard.
 
 ## Installation pour Docker et systèmes d’autoscaling
 
-L'utilisation de l'agent Quanta est tout à fait compatible avec les infrastructures “conteneurisées", néanmoins **elle nécessite une légère variante dans le processus d'installation**.
+L'utilisation de l'agent DEM est tout à fait compatible avec les infrastructures “conteneurisées", néanmoins **elle nécessite une légère variante dans le processus d'installation**.
 
 [Configuration de nos agents pour le cloud](cloud-configuration-of-agents.md)
 
 ### Explications
 
-Le *hostid* est un paramètre interne permettant à Quanta d'identifier de manière unique un serveur. Il est nécessaire d'utiliser un *hostid* différent pour chaque serveur. Il est configuré automatiquement par le script d'installation du paquet (en utilisant l'adresse MAC de la première interface réseau sans les ":")
+Le *hostid* est un paramètre interne permettant à DEM d'identifier de manière unique un serveur. Il est nécessaire d'utiliser un *hostid* différent pour chaque serveur. Il est configuré automatiquement par le script d'installation du paquet (en utilisant l'adresse MAC de la première interface réseau sans les ":")
 
 Or, dans le cas d'un conteneur Docker, la configuration ne permet pas au script d'installation de trouver cette valeur. Dans le cas des systèmes de scalabilité automatique (comme AWS ASG ou Azure Scale Set), la copie de l’image copie également le *hostid*.
 
@@ -230,7 +230,7 @@ L'agent n'est compatible **qu'avec Linux**.
 
 # Modifier une installation déjà effectuée
 
-Si vous souhaitez modifier la configuration d’un agent Quanta **déjà installé** sur l’un de vos serveurs, vous trouverez sa configuration dans le fichier ***/etc/quanta/agent.yml***. Il contient les informations principales de connexion, dont le token Quanta correspondant au site concerné. L’accès à ce fichier peut se révéler utile si vous surveillez plusieurs sites avec un même compte Quanta, auquel cas vous souhaiterez spécifier le bon token pour rattacher chaque serveur au  site qu’il héberge, par exemple pour un site de production et un site de préproduction ayant chacun leur(s) serveur(s) distinct(s).
+Si vous souhaitez modifier la configuration d’un agent DEM **déjà installé** sur l’un de vos serveurs, vous trouverez sa configuration dans le fichier ***/etc/quanta/agent.yml***. Il contient les informations principales de connexion, dont le token DEM correspondant au site concerné. L’accès à ce fichier peut se révéler utile si vous surveillez plusieurs sites avec un même compte DEM, auquel cas vous souhaiterez spécifier le bon token pour rattacher chaque serveur au  site qu’il héberge, par exemple pour un site de production et un site de préproduction ayant chacun leur(s) serveur(s) distinct(s).
 
 Voici un extrait du fichier ***/etc/quanta/agent.yml*** :
 
@@ -259,4 +259,4 @@ Vous pouvez désormais installer les modules applicatifs pour obtenir des métri
 
 En cas de doute, vous pouvez vous reportez à la checklist d’installation :
 
-[Checklist d’installation de Quanta](../installation-checklist.md)
+[Checklist d’installation de DEM](../installation-checklist.md)

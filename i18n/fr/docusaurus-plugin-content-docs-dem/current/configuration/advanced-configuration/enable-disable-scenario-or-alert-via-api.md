@@ -7,16 +7,16 @@ title: Automatiser l’activation/désactivation d’un scénario ou d’une ale
 
 # Préambule
 
-Dans certains cas, il peut être utile de modifier la configuration de Quanta de façon automatisée. Les cas d’usage sont très nombreux, mais les plus fréquents vont être :
+Dans certains cas, il peut être utile de modifier la configuration de DEM de façon automatisée. Les cas d’usage sont très nombreux, mais les plus fréquents vont être :
 
 - de désactiver ou réactiver le fonctionnement d’un scénario (typiquement pour le désactiver lors d’une mise en maintenance du site, afin d’exclure la plage de maintenance des statistiques d’indisponibilité)
 - de modifier une variable à l’intérieur de la configuration du scénario (par exemple pour changer le parcours suite à une mise en production d’une nouvelle version du site), ou bien pour modifier l’adresse email à utiliser dans un scénario de création de compte utilisateur.
 
 # Exemple avec une requête REST simple
 
-Dans Quanta, l’ensemble des fonctionnalités sont accessibles par API, il est donc possible d’effectuer des requêtes vers Quanta avec des outils comme “*curl*” ou “*wget*” en spécifiant l’ID du site, l’ID du Parcours Utilisateurs ainsi que les paramètres d’authentification (*x-csrf-token* et *_qm3k_session*).
+Dans DEM, l’ensemble des fonctionnalités sont accessibles par API, il est donc possible d’effectuer des requêtes vers DEM avec des outils comme “*curl*” ou “*wget*” en spécifiant l’ID du site, l’ID du Parcours Utilisateurs ainsi que les paramètres d’authentification (*x-csrf-token* et *_qm3k_session*).
 
-Exemple de requête REST pour désactiver un scénario dont l’URL du panel de modification dans Quanta est https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913 :
+Exemple de requête REST pour désactiver un scénario dont l’URL du panel de modification dans DEM est https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913 :
 
 ```bash
 curl "https://app.quanta.io/api/sites/29274/uj/journeys/2913" -X 'PUT' \
@@ -107,7 +107,7 @@ curl "$api_url" -X 'PUT' \
 
 # Token d’authentification
 
-Ces requêtes ayant besoin des droits d’administration sur le site concerné dans Quanta, il sera nécessaire d’utiliser des tokens d’authentification et de les spécifier en haut du script : 
+Ces requêtes ayant besoin des droits d’administration sur le site concerné dans DEM, il sera nécessaire d’utiliser des tokens d’authentification et de les spécifier en haut du script : 
 
 ```bash
 # Définir les variables CSRF-Token et _qm3k_session
@@ -115,17 +115,17 @@ csrf_token="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX="
 qm3k_session="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ```
 
-Pour récupérer ces paramètres, il suffit d’ouvrir la console “Network” dans Chrome au moment du chargement d’une page de l’interface Quanta, puis d’aller chercher les paramètres **csrf_token** et **qm3k_session** dans la requête HTTP effectuée par le navigateur web, comme ici :
+Pour récupérer ces paramètres, il suffit d’ouvrir la console “Network” dans Chrome au moment du chargement d’une page de l’interface DEM, puis d’aller chercher les paramètres **csrf_token** et **qm3k_session** dans la requête HTTP effectuée par le navigateur web, comme ici :
 
 ![image](../../assets/configuration/advanced-config/scenario-or-alert-via-api-1.png)
 
-Pour assurer une bonne sécurité des données du site dans Quanta, il est fortement conseillé de créer un compte utilisateur dédié à cet usage dans Quanta.
+Pour assurer une bonne sécurité des données du site dans DEM, il est fortement conseillé de créer un compte utilisateur dédié à cet usage dans DEM.
 
 Par exemple : monlogin+api@mondomaine.com
 
 # Exemple d’utilisation du script
 
-Dans notre script d’exemple les 2 premiers chiffres à passer en paramètre correspondent à l’ID du site, et l’ID du Parcours Utilisateur. Ils sont tous les deux présents dans l’URL d’accès au scénario quand on accède à la configuration du scénario en question dans Quanta :
+Dans notre script d’exemple les 2 premiers chiffres à passer en paramètre correspondent à l’ID du site, et l’ID du Parcours Utilisateur. Ils sont tous les deux présents dans l’URL d’accès au scénario quand on accède à la configuration du scénario en question dans DEM :
 https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913
 
 Une fois ces paramètres récupérés, on utilise le script de modification automatique comme ceci :
@@ -140,4 +140,4 @@ $
 
 # Pour aller plus loin
 
-La même logique s’applique à l’ensemble des fonctionnalités de Quanta, qui sont toutes accessibles par API. N’hésitez pas à observer le fonctionnement des requêtes et à reproduire une variante de ce même script selon vos besoins.
+La même logique s’applique à l’ensemble des fonctionnalités de DEM, qui sont toutes accessibles par API. N’hésitez pas à observer le fonctionnement des requêtes et à reproduire une variante de ce même script selon vos besoins.

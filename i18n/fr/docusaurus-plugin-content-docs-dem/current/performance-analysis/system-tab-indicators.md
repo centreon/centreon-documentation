@@ -7,7 +7,7 @@ title: Comprendre les indicateurs de l’onglet Système
 
 # Qu’est-ce que l’interface réseau ?
 
-L’interface réseau correspond à la bande passante. C’est grâce à cet indicateur que vous pourrez savoir la quantité de données reçues et émises par votre serveur, appelées respectivement incoming traffic et outgoing traffic dans Quanta. Par exemple, lorsque quelqu’un se connecte sur votre site il s’agit d’incoming traffic, ou de flux entrant.
+L’interface réseau correspond à la bande passante. C’est grâce à cet indicateur que vous pourrez savoir la quantité de données reçues et émises par votre serveur, appelées respectivement incoming traffic et outgoing traffic dans DEM. Par exemple, lorsque quelqu’un se connecte sur votre site il s’agit d’incoming traffic, ou de flux entrant.
 
 # Qu’est-ce que la mémoire ?
 
