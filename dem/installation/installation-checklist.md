@@ -13,7 +13,7 @@ There is **nothing to install** because DEM connects to your application just li
 
 However, depending on the security level on your site, you may need to allow our IPs so that your anti-bot system does not block our probes. If that's the case, you'll find the procedure here:
 
-[DEM IP addresses](./quanta-ip-addresses.md)
+[DEM IP addresses](./dem-ip-addresses.md)
 
 # Real User Monitoring
 

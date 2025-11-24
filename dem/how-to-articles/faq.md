@@ -7,7 +7,7 @@ title: FAQ
 
 ### **Which firewall ports should be opened for the DEM agent?**
 
-To ensure the agent works, outgoing HTTPS connections [to our IPs](../installation/quanta-ip-addresses.md) must be allowed.
+To ensure the agent works, outgoing HTTPS connections [to our IPs](../installation/dem-ip-addresses.md) must be allowed.
 
 For package installation, your server must also be allowed to connect via HTTP to apt.quanta.io.
 

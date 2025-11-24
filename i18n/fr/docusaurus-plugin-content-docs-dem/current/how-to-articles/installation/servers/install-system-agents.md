@@ -16,7 +16,7 @@ La remontée d’information vers l’application DEM nécessite l’installatio
 
 Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur la page dédiée:
 
-[Les adresses IP de DEM](../quanta-ip-addresses.md)
+[Les adresses IP de DEM](../dem-ip-addresses.md)
 
 </aside>
 
