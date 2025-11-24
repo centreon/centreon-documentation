@@ -100,7 +100,9 @@ Expected content found | 'size'=158714B;;;0; 'time'=0.262s;;;0;
 
 ### Ne collecter qu'une seule métrique
 
-Pour le service **HTTP-response-Time**, on décide que seule la métrique **time** nous intéresse. Il est donc inutile de collecter la métrique **size**, qui utilisera de l'espace de stockage pour rien. On peut utiliser l'option **--filter perfdata** ou bien l'option **--filter-perfdata-adv** dans la macro **EXTRAOPTIONS** du service.
+Pour le service **HTTP-response-Time**, on décide que seule la métrique **time** nous intéresse. 
+Il est donc inutile de collecter la métrique **size**, qui utilisera de l'espace de stockage pour rien. 
+On peut utiliser l'option **--filter-perfdata** ou bien l'option **--filter-perfdata-adv** dans la macro **EXTRAOPTIONS** du service.
 
 Commande :
 

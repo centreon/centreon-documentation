@@ -91,6 +91,8 @@ in version 8 or above and having the following privileges:
 - Collect Stats Data
 - Query Stats Data
 
+These privileges are granted by the predefined role named `vStatsUser`.
+
 NB: This connector has only been tested with a 'Basic' authentication (like `user@vsphere.local`).
 
 ## Installing the monitoring connector

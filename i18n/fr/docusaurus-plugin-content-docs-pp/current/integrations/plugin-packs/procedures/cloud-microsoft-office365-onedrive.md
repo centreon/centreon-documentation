@@ -25,10 +25,10 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Cloud-Microsoft-Office365-Onedrive-Api-custom" label="Cloud-Microsoft-Office365-Onedrive-Api-custom">
 
-| Alias          | Modèle de service                                            | Description                                                                                             | Découverte |
-|:---------------|:-------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
-| Site-Usage     | Cloud-Microsoft-Office365-Onedrive-Usage-Api-custom          | Contrôle l'utilisation des sites OneDrive                                                               |     X      |
-| Users-Activity | Cloud-Microsoft-Office365-Onedrive-Users-Activity-Api-custom | Contrôle l'activité des utilisateurs OneDrive (période de référence au cours du dernier jour actualisé) |            |
+| Alias                   | Modèle de service                                            | Description                                                                                             | Découverte |
+|:------------------------|:-------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
+| Site-Usage-OneDrive     | Cloud-Microsoft-Office365-Onedrive-Usage-Api-custom          | Contrôle l'utilisation des sites OneDrive                                                               |     X      |
+| Users-Activity-OneDrive | Cloud-Microsoft-Office365-Onedrive-Users-Activity-Api-custom | Contrôle l'activité des utilisateurs OneDrive (période de référence au cours du dernier jour actualisé) |            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Microsoft-Office365-Onedrive-Api-custom** est utilisé.
 
@@ -53,7 +53,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage" label="Site-Usage">
+<TabItem value="Site-Usage-OneDrive" label="Site-Usage-OneDrive">
 
 | Nom                                        | Unité |
 |:-------------------------------------------|:------|
@@ -72,7 +72,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-OneDrive" label="Users-Activity-OneDrive">
 
 | Nom                                                  | Unité |
 |:-----------------------------------------------------|:------|
@@ -234,7 +234,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage" label="Site-Usage">
+<TabItem value="Site-Usage-OneDrive" label="Site-Usage-OneDrive">
 
 | Macro                          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -263,7 +263,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 | EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-OneDrive" label="Users-Activity-OneDrive">
 
 | Macro                              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -443,7 +443,7 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage" label="Site-Usage">
+<TabItem value="Site-Usage-OneDrive" label="Site-Usage-OneDrive">
 
 | Option            | Description                                                                                                                                                                                                                                                                                  |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -454,7 +454,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --units           |   Unit of thresholds (default: '%') ('%', 'count').                                                                                                                                                                                                                                          |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-OneDrive" label="Users-Activity-OneDrive">
 
 | Option            | Description                                                                                                                                                                                                                                                                                                                                   |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

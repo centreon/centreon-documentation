@@ -417,6 +417,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-exchange-nrpe'
         },
         {
@@ -546,6 +550,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-podman-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-prometheus-alertmanager-api'
         },
         {
           type: 'doc',
@@ -1565,6 +1573,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-athonet-epc-snmp'
         },
         {
@@ -1865,6 +1877,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-node-exporter-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-hp-moonshot-snmp'
         },
         {
@@ -2002,10 +2018,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-nokia-timos-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-alcatel-omniswitch-6850'
         },
         {
           type: 'doc',
