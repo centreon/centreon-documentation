@@ -7,7 +7,7 @@ title: Measurement interval
 
 ## Definition
 
-The measurement interval of a user journey defines the time between each Quanta probe run on your site.
+The measurement interval of a user journey defines the time between each DEM probe run on your site.
 
 For example: if your measurement interval is 3 minutes, the probe will perform a full run of the journey every 3 minutes.
 

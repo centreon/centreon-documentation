@@ -7,7 +7,7 @@ title: Understanding the System tab indicators
 
 ## What is the network interface?
 
-The network interface corresponds to bandwidth. This indicator shows the amount of data received and sent by your server, referred to in Quanta as incoming traffic and outgoing traffic. For example, when someone visits your site that is incoming traffic.
+The network interface corresponds to bandwidth. This indicator shows the amount of data received and sent by your server, referred to in DEM as incoming traffic and outgoing traffic. For example, when someone visits your site that is incoming traffic.
 
 ## What is memory?
 

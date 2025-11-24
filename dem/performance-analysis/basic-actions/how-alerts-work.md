@@ -1,13 +1,13 @@
 ---
 id: how-alerts-work
-title: Understanding how alerts work in Quanta
+title: Understanding how alerts work in DEM
 ---
 
-# Understanding how alerts work in Quanta
+# Understanding how alerts work in DEM
 
 ## Preamble
 
-Quanta can alert you about many different events. If you haven't enabled alerts yet, see:
+DEM can alert you about many different events. If you haven't enabled alerts yet, see:
 
 [Receive and configure alerts](../../configuration/receive-and-configure-alerts.md)
 
@@ -76,4 +76,3 @@ You can also set a fixed conversion-rate threshold below which you want to be al
 ### Page view alerts
 
 This works the same way as conversion-rate alerts but is applied to page views per minute.
-

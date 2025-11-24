@@ -7,7 +7,7 @@ title: Hero Time
 
 ## Concept
 
-Hero Time is a Quanta-specific measurement. It doesn't exist elsewhere. It measures the time the Quanta probe takes between the start and the end of a step.
+Hero Time is a DEM-specific measurement. It doesn't exist elsewhere. It measures the time the DEM probe takes between the start and the end of a step.
 
 A step begins when an action is performed, such as clicking a link, filling a form, adding an item to the cart, etc. The step ends when all success verifications are met. These verifications can be, for example, the appearance of a popup, navigation to a new page, or a request to one of your servers. Hero Time measures the time between these two events.
 

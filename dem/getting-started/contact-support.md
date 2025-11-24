@@ -1,9 +1,9 @@
 ---
 id: contact-support
-title: Contact Quanta Support
+title: Contact DEM Support
 ---
 
-# Contact Quanta Support
+# Contact DEM Support
 
 Have a question? Need help with your tool or your scenarios? Not sure what the alerts from the tool mean? We are here to help!
 

@@ -1,15 +1,15 @@
 ---
-id: quanta-ip-addresses
-title: Quanta IP addresses
+id: dem-ip-addresses
+title: DEM IP addresses
 ---
 
-# Quanta IP addresses
+# DEM IP addresses
 
 ## Probe addresses
 
 Our probes can query your site on ports 80 (HTTP) and 443 (HTTPS) or use the ICMP protocol. For most publicly accessible sites no configuration is required; however, in some cases firewalls or bot protections like Imperva or reCaptcha may automatically block our visits.
 
-If that's the case, here is the list of IPs you should whitelist to allow Quanta access:
+If that's the case, here is the list of IPs you should whitelist to allow DEM access:
 
 - 18.200.8.204
 - 34.241.126.134
@@ -38,9 +38,9 @@ If that's the case, here is the list of IPs you should whitelist to allow Quanta
 
 ## Endpoint addresses for server agents
 
-If you use server agents (the “System” section in Quanta), each of your servers regularly sends data (once per minute) to the Quanta service.
+If you use server agents (the “System” section in DEM), each of your servers regularly sends data (once per minute) to the DEM service.
 
-This is **outbound** HTTPS traffic (port 443) and is often allowed by default, but if your firewall restrictions are strict and you need to allow specific destinations for Quanta, list the following destination IPs:
+This is **outbound** HTTPS traffic (port 443) and is often allowed by default, but if your firewall restrictions are strict and you need to allow specific destinations for DEM, list the following destination IPs:
 
 - 52.215.166.110
 - 52.215.179.235

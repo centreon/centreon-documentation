@@ -18,15 +18,15 @@ An email will be sent to you allowing you to set a new password that you can use
 
 ## Forgot which email you used
 
-If you don’t remember the email address you use to sign in to Quanta, ask an administrator in your organization to check it in the "Organization" view in Quanta as follows:
+If you don’t remember the email address you use to sign in to DEM, ask an administrator in your organization to check it in the "Organization" view in DEM as follows:
 
 - Go to the "Configuration" tab (top right of the screen)
 - Select the relevant site
 - Open the *Organization* tab
 
-## I don't have a Quanta account
+## I don't have a DEM account
 
-It is also possible you don't yet have an account. In that case, an administrator of your organization (within Quanta) can send you an invitation by email. Instructions are available here:
+It is also possible you don't yet have an account. In that case, an administrator of your organization (within DEM) can send you an invitation by email. Instructions are available here:
 
 [Manage users and rights](../configuration/manage-users-and-rights.md)
 
@@ -34,4 +34,4 @@ It is also possible you don't yet have an account. In that case, an administrato
 
 If you still experience difficulties after trying the steps above, please contact our support directly:
 
-[Contact Quanta support](../getting-started/contact-support.md)
+[Contact DEM support](../getting-started/contact-support.md)

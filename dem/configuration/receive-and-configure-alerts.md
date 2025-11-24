@@ -9,7 +9,7 @@ Alerts are available **by email with all licenses**.
 
 Some licenses allow receiving alerts **by SMS, Slack, or webhooks** (Microsoft Teams, Google Chat, Mattermost...). To subscribe to this option, contact your sales representative or support:
 
-[Contact Quanta support](../getting-started/contact-support.md)
+[Contact DEM support](../getting-started/contact-support.md)
 
 # Configure communication channels
 
@@ -70,7 +70,7 @@ Example SMS alert
 
 ### Webhook
 
-In addition to email or SMS alerts, Quanta allows users to receive alerts via a **webhook**, giving greater flexibility for integrating with other tools and systems. When an incident is detected on a monitored web application, Quanta can send an **HTTP POST** request to a URL specified by the user. This URL can be protected by htaccess, and the user can also define **custom headers** if needed.
+In addition to email or SMS alerts, DEM allows users to receive alerts via a **webhook**, giving greater flexibility for integrating with other tools and systems. When an incident is detected on a monitored web application, DEM can send an **HTTP POST** request to a URL specified by the user. This URL can be protected by htaccess, and the user can also define **custom headers** if needed.
 You can configure this URL by clicking the word “Webhook” for a newly created or existing alert, then clicking the “**+**” icon (**Create a webhook**):
 
 ![image](../assets/configuration/receive-and-configure-alerts-7.png)
@@ -120,13 +120,13 @@ Explanation of the data sent:
   - **`pending_expectations`**: List of checks that failed (e.g., a text test).
   - **`details`**: Additional information about the incident (e.g., a 50s wait).
   - **`current_url`**: The URL open in the browser at the time of the incident.
-- **`url`**: Direct link to the incident in the Quanta interface.
+- **`url`**: Direct link to the incident in the DEM interface.
 - **`settings_url`**: Link to the alert settings for the concerned site.
 - **`alert_status`**: Alert status (e.g., "error" for a critical error).
 - **`site_name`** and **`site_id`**: Name and ID of the affected site.
 - **`detected_at_clock`**: Unix timestamp of when the incident was detected.
 
-When the alert ends (when the site is back to normal), Quanta will send a new webhook call of type “Recovery” indicating the issue has been resolved.
+When the alert ends (when the site is back to normal), DEM will send a new webhook call of type “Recovery” indicating the issue has been resolved.
 The POST body sent when an **alert is resolved** also contains a **JSON payload** with detailed information, like this:
 
 ```json
@@ -151,11 +151,11 @@ Explanation of the data sent:
 - **`end_clock`**: Unix timestamp indicating when the incident ended (the moment the situation returned to normal).
 - **`duration`**: Total duration of the incident in seconds (e.g., **1380s** which is **23 minutes**).
 - **`journey_id`** and **`journey_name`**: ID and name of the user journey affected by the incident.
-- **`url`**: Direct link to the incident in the Quanta interface to review the event timeline.
+- **`url`**: Direct link to the incident in the DEM interface to review the event timeline.
 - **`settings_url`**: Link to the alert settings for the concerned site.
 - **`alert_status`**: Alert status, here `"recovery"` to indicate the incident is over.
 - **`site_name`** and **`site_id`**: Name and ID of the affected site.
-- **`detected_at_clock`**: Unix timestamp of the recovery detection, i.e., when Quanta observed the problem was resolved.
+- **`detected_at_clock`**: Unix timestamp of the recovery detection, i.e., when DEM observed the problem was resolved.
 
 With this feature, technical teams can **automate alert handling** by integrating alerts into their internal systems (Slack, monitoring tools, custom scripts, etc.) or external services (Zapier, PagerDuty, etc.).
 
@@ -179,7 +179,7 @@ Depending on the type of alert, you can control different thresholds:
 
 You will receive an alert for anomalies such as: error codes, site unavailable, excessively long load times (over 20 sec), etc.
 
-Each error is represented by red bars in QUANTA. To know exactly what happened, check the alert message you received — it explains the reason for the incident.
+Each error is represented by red bars in DEM. To know exactly what happened, check the alert message you received — it explains the reason for the incident.
 
 ## Are there quotas on alerts?
 
@@ -245,7 +245,7 @@ Exemple d’alerte par SMS
 
 ### Webhook
 
-En complément des alertes par e-mail ou SMS, Quanta permet aux utilisateurs de recevoir leurs alertes via un **webhook**, offrant ainsi une plus grande flexibilité pour l'intégration avec d'autres outils et systèmes. Lorsqu'un incident est détecté sur une application web surveillée, Quanta peut envoyer une requête **HTTP POST** à une URL spécifiée par l'utilisateur. Cette URL peut être protégée par un accès **htaccess**, et l'utilisateur peut également définir des **headers spécifiques** si nécessaire.
+En complément des alertes par e-mail ou SMS, DEM permet aux utilisateurs de recevoir leurs alertes via un **webhook**, offrant ainsi une plus grande flexibilité pour l'intégration avec d'autres outils et systèmes. Lorsqu'un incident est détecté sur une application web surveillée, DEM peut envoyer une requête **HTTP POST** à une URL spécifiée par l'utilisateur. Cette URL peut être protégée par un accès **htaccess**, et l'utilisateur peut également définir des **headers spécifiques** si nécessaire.
 La configuration de cette URL est disponible en cliquant sur le mot “Webhook” d’une alerte nouvellement créée ou pré-existante, puis en cliquant sur l’icone “**+**” (**Créer un webhook**) :
 
 ![image](../assets/configuration/receive-and-configure-alerts-7.png)
@@ -295,13 +295,13 @@ Explication des données envoyées :
     - **`pending_expectations`** : Liste des vérifications qui ont échoué (ex: un test de texte).
     - **`details`** : Informations complémentaires sur l'incident (ex: temps d'attente de 50s).
     - **`current_url`** : URL en cours dans le navigateur au moment de l'incident.
-- **`url`** : Lien direct vers l'incident dans l'interface Quanta.
+- **`url`** : Lien direct vers l'incident dans l'interface DEM.
 - **`settings_url`** : Lien vers la configuration des alertes associées au site concerné.
 - **`alert_status`** : Statut de l'alerte (ex: "error" pour une erreur critique).
 - **`site_name`** et **`site_id`** : Nom et ID du site concerné.
 - **`detected_at_clock`** : Timestamp Unix de la détection de l'incident.
 
-Une fois l’alerte terminée (quand le site est de nouveau opérationnel), Quanta enverra un nouvel appel webhook de “Recovery” indiquant que le problème est résolu.
+Une fois l’alerte terminée (quand le site est de nouveau opérationnel), DEM enverra un nouvel appel webhook de “Recovery” indiquant que le problème est résolu.
 Le corps de la requête POST qui sera envoyée en cas de **résolution d’alerte** contient également un **payload JSON** avec des informations détaillées, comme ceci :
 
 ```json
@@ -326,11 +326,11 @@ Explication des données envoyées :
 - **`end_clock`** : Timestamp Unix indiquant la fin de l'incident (moment où la situation est revenue à la normale).
 - **`duration`** : Durée totale de l'incident en secondes (ex: ici **1380s** soit **23 minutes**).
 - **`journey_id`** et **`journey_name`** : ID et nom du parcours utilisateur concerné par l’incident.
-- **`url`** : Lien direct vers l'incident dans l'interface Quanta, permettant de consulter l’évolution de la situation.
+- **`url`** : Lien direct vers l'incident dans l'interface DEM, permettant de consulter l’évolution de la situation.
 - **`settings_url`** : Lien vers la configuration des alertes associées au site concerné.
 - **`alert_status`** : Statut de l’alerte, ici `"recovery"` pour indiquer que l'incident est terminé.
 - **`site_name`** et **`site_id`** : Nom et ID du site concerné par l'incident.
-- **`detected_at_clock`** : Timestamp Unix de la détection de la récupération, soit le moment où Quanta a constaté la résolution du problème.
+- **`detected_at_clock`** : Timestamp Unix de la détection de la récupération, soit le moment où DEM a constaté la résolution du problème.
 
 Grâce à cette fonctionnalité, les équipes techniques peuvent **automatiser le traitement des alertes** en les intégrant dans leurs systèmes internes (Slack, outils de monitoring, scripts personnalisés, etc.) ou externes (Zapier, Pagerduty, etc.).
 
@@ -354,7 +354,7 @@ En fonction de votre type d'alerte, vous allez pouvoir contrôler différents 
 
 Vous recevrez une alerte pour les anomalies de type : Code d’erreur, Site indisponible, Temps de chargement trop longs (+ de 20 sec), etc.
 
-Chaque erreur est représentée par des barres rouges dans QUANTA. Pour savoir exactement ce qui s’est passé, nous vous invitons à regarder le message d’alerte que vous avez reçu et dans lequel la raison de l’incident est explicitée.
+Chaque erreur est représentée par des barres rouges dans DEM. Pour savoir exactement ce qui s’est passé, nous vous invitons à regarder le message d’alerte que vous avez reçu et dans lequel la raison de l’incident est explicitée.
 
 ## Y-a-t’il des quotas dans les alertes ?
 

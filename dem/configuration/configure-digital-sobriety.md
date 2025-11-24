@@ -5,12 +5,12 @@ title: Configure Digital Sobriety
 
 # Configure Digital Sobriety
 
-If you have the Digital Sobriety option, you must provide Quanta with two pieces of information:
+If you have the Digital Sobriety option, you must provide DEM with two pieces of information:
 
 - Where are your servers located?
 - Are they hosted in the Cloud?
 
-Based on this information, Quanta will estimate the CO2 emitted per page.
+Based on this information, DEM will estimate the CO2 emitted per page.
 
 To fill in these details, go to *Configuration* > *Site*
 

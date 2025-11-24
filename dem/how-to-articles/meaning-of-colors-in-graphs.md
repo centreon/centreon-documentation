@@ -8,7 +8,7 @@ title: Meaning of green/yellow/red and gray bars in graphs
 
 ## Preamble
 
-While browsing Quanta graphs you may sometimes see colored bars or shaded areas — red or gray — indicating incomplete data. What do they mean?
+While browsing DEM graphs you may sometimes see colored bars or shaded areas — red or gray — indicating incomplete data. What do they mean?
 
 ## Top summary bar
 
@@ -32,13 +32,13 @@ Hovering over segments in this top bar highlights matching segments in the chart
 
 Red vertical bars that appear on your scenarios highlight errors that occurred during execution.
 
-To learn the error details, hover the red bar — Quanta will indicate at which step the scenario stopped and why.
+To learn the error details, hover the red bar — DEM will indicate at which step the scenario stopped and why.
 
 Clicking the bar also often offers a screenshot of the page at the time of the error, which is useful to understand what happened.
 
 ### Gray bars
 
-You may also see gray bars on some Quanta charts. These simply indicate that data could not be received at the measurement time.
+You may also see gray bars on some DEM charts. These simply indicate that data could not be received at the measurement time.
 
 This typically happens for two main reasons:
 

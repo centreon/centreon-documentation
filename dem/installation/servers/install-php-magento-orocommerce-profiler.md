@@ -5,7 +5,7 @@ title: Install the PHP / Magento / OroCommerce Profiler
 
 # Install the PHP / Magento / OroCommerce Profiler
 
-The Quanta PHP module comes as a PHP extension that allows you to collect detailed information about the execution time of each part of your CMS.
+The DEM PHP module comes as a PHP extension that allows you to collect detailed information about the execution time of each part of your CMS.
 
 # Prerequisites
 
@@ -17,7 +17,7 @@ The Quanta PHP module comes as a PHP extension that allows you to collect detail
 
 # Compatibility
 
-| Distribution | OS Version | PHP Version | Quanta PHP Module |
+| Distribution | OS Version | PHP Version | DEM PHP Module |
 |--------------|------------|-------------|-------------------|
 | Debian | Buster (10) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
 | Debian | Bullseye (11) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
@@ -33,9 +33,9 @@ The Quanta PHP module comes as a PHP extension that allows you to collect detail
 💡 The PHP module must be installed on every server running your PHP application.
 </aside>
 
-### Install the Quanta PHP Module for Debian / Ubuntu
+### Install the DEM PHP Module for Debian / Ubuntu
 
-You must have added the Quanta repositories, which you should already have done during the system agent installation.
+You must have added the DEM repositories, which you should already have done during the system agent installation.
 
 Depending on your PHP version, install the corresponding package. Here are a few examples:
 
@@ -75,9 +75,9 @@ Then, enable the extension with the command:
 phpenmod quanta_mon
 ```
 
-### Install the Quanta PHP Module for CentOS / RedHat
+### Install the DEM PHP Module for CentOS / RedHat
 
-You must have added the Quanta repositories, which you should already have done during the system agent installation.
+You must have added the DEM repositories, which you should already have done during the system agent installation.
 
 Depending on your PHP version, install the corresponding package, for example:
 
@@ -112,7 +112,7 @@ We do not officially support packages for other operating systems. However, you 
 
 # Configure Your Backoffice URL if You Use Magento
 
-If you use Magento and a custom URL is used to access the Magento backoffice (i.e., an URL that does **not** start with **"/admin/"**), you must modify the module configuration so that “Magento” type events are correctly reported in Quanta.
+If you use Magento and a custom URL is used to access the Magento backoffice (i.e., an URL that does **not** start with **"/admin/"**), you must modify the module configuration so that “Magento” type events are correctly reported in DEM.
 
 This file is usually located here for Debian/Ubuntu:
 
@@ -152,7 +152,7 @@ After installing the module, you must restart your web service so that the PHP e
 
 # Verifying Proper Operation
 
-Once everything is installed **and the web scenario has been created in Quanta**, go to the Web Scenario menu, then click “+ details” in the legend of one of the pages requiring PHP execution (for example: a Cart page, which is usually never cached).
+Once everything is installed **and the web scenario has been created in DEM**, go to the Web Scenario menu, then click “+ details” in the legend of one of the pages requiring PHP execution (for example: a Cart page, which is usually never cached).
 
 You should then see an “Application” tab (otherwise this tab is grayed out) with information about the time spent in PHP.
 

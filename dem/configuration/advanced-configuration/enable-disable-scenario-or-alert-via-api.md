@@ -8,16 +8,16 @@ title: Automate enabling/disabling a scenario or an alert via API
 
 ## Preamble
 
-In some situations it can be useful to modify Quanta's configuration automatically. Use cases are many, but the most common are:
+In some situations it can be useful to modify DEM's configuration automatically. Use cases are many, but the most common are:
 
 - disabling or re-enabling a journey (for example disabling it during a site maintenance window so the maintenance period is excluded from downtime statistics)
 - changing a variable inside a journey configuration (for instance swapping the journey after a new site release), or changing the e-mail address used by an account creation scenario.
 
 ## Example with a simple REST request
 
-In Quanta, all features are accessible through the API, so you can send requests to Quanta using tools such as curl or wget by specifying the site ID, the User Journey ID and the authentication parameters (*x-csrf-token* and *_qm3k_session*).
+In DEM, all features are accessible through the API, so you can send requests to DEM using tools such as curl or wget by specifying the site ID, the User Journey ID and the authentication parameters (*x-csrf-token* and *_qm3k_session*).
 
-Example REST request to disable a journey where the Quanta UI edit panel URL is https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913:
+Example REST request to disable a journey where the DEM UI edit panel URL is https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913:
 
 ```bash
 curl "https://app.quanta.io/api/sites/29274/uj/journeys/2913" -X 'PUT' \
@@ -108,7 +108,7 @@ curl "$api_url" -X 'PUT' \
 
 ## Authentication tokens
 
-These requests require administrative rights on the targeted site in Quanta, so you must provide authentication tokens at the top of the script:
+These requests require administrative rights on the targeted site in DEM, so you must provide authentication tokens at the top of the script:
 
 ```bash
 # Define CSRF token and _qm3k_session variables
@@ -116,17 +116,17 @@ csrf_token="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX="
 qm3k_session="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ```
 
-To obtain these values, open Chrome DevTools > Network while loading a Quanta UI page and look for the **csrf_token** and **qm3k_session** parameters in the browser's HTTP request, like in the screenshot below:
+To obtain these values, open Chrome DevTools > Network while loading a DEM UI page and look for the **csrf_token** and **qm3k_session** parameters in the browser's HTTP request, like in the screenshot below:
 
 ![image](../../assets/configuration/advanced-config/scenario-or-alert-via-api-1.png)
 
-For security, we strongly recommend creating a dedicated Quanta user account for API usage.
+For security, we strongly recommend creating a dedicated DEM user account for API usage.
 
 Example: mylogin+api@mydomain.com
 
 ## Example usage
 
-In the sample script the first two arguments are the site ID and the User Journey ID. Both IDs appear in the journey edit URL in Quanta:
+In the sample script the first two arguments are the site ID and the User Journey ID. Both IDs appear in the journey edit URL in DEM:
 https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913
 
 Once you have these values, use the script like this:
@@ -141,4 +141,4 @@ $
 
 ## Next steps
 
-The same logic applies to all Quanta features, which are accessible via the API. Feel free to inspect requests and adapt this script to your needs.
+The same logic applies to all DEM features, which are accessible via the API. Feel free to inspect requests and adapt this script to your needs.

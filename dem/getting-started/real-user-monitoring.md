@@ -12,9 +12,9 @@ Called “RUM”🍹 among insiders, Real User Monitoring consists of observing 
 It's important to note that:
 
 - this feature requires adding an **external tag** to the page, which is designed to be loaded **asynchronously** and to be **extremely lightweight** so it doesn't slow the user's browsing on the site.
-- the type of data sent by the browser via the Quanta tag and the way Quanta stores these elements in its database ensure **the Quanta tag is excluded from the scope of GDPR**. Indeed, the figures sent through the tag are purely technical and **not personally identifiable**. The Quanta dashboard allows observing site behavior for different browser types (Chrome, Mobile Safari, EDGE, ...) but without any possibility to identify a unique user.
+- the type of data sent by the browser via the DEM tag and the way DEM stores these elements in its database ensure **the DEM tag is excluded from the scope of GDPR**. Indeed, the figures sent through the tag are purely technical and **not personally identifiable**. The DEM dashboard allows observing site behavior for different browser types (Chrome, Mobile Safari, EDGE, ...) but without any possibility to identify a unique user.
 
-Once this tag is in place, Quanta can record the experience perceived by all users **with or without sampling**, which provides a very precise view of key performance metrics (e.g., TTFB, Speed Index, full page load time, etc.).
+Once this tag is in place, DEM can record the experience perceived by all users **with or without sampling**, which provides a very precise view of key performance metrics (e.g., TTFB, Speed Index, full page load time, etc.).
 
 The **key benefits** provided by RUM are:
 

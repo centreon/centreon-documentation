@@ -5,11 +5,11 @@ title: Overview of metrics
 
 # Overview of metrics
 
-Quanta presents several performance metrics; this page describes them **very briefly**. Click any metric to open a dedicated page with more details.
+DEM presents several performance metrics; this page describes them **very briefly**. Click any metric to open a dedicated page with more details.
 
 ## [Hero Time](./hero-time.md)
 
-Hero Time is a Quanta-specific metric. It doesn't exist anywhere else. It measures the time the Quanta probe takes from the start of the interaction until the success verification occurs (examples: the page is loaded, the cookie consent popup appears, etc.).
+Hero Time is a DEM-specific metric. It doesn't exist anywhere else. It measures the time the DEM probe takes from the start of the interaction until the success verification occurs (examples: the page is loaded, the cookie consent popup appears, etc.).
 
 Improving this metric means interactivity is better: clicks produce visible results faster.
 

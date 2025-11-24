@@ -22,7 +22,7 @@ Both are network tests. What changes is the protocol used — TCP or ICMP — so
 
 ### What do the red bars mean?
 
-If you see occasional red on this chart, it means your site was unreachable due to a network problem. Ping response time depends on both bandwidth and the route between the QUANTA probe and your hosting location. For clarity we separate what is harmless, what requires attention, and what requires an urgent intervention.
+If you see occasional red on this chart, it means your site was unreachable due to a network problem. Ping response time depends on both bandwidth and the route between the DEM probe and your hosting location. For clarity we separate what is harmless, what requires attention, and what requires an urgent intervention.
 
 Note: at the moment all measurements are performed from our infrastructure in Europe. If your site is hosted on another continent, latency may be higher.
 
@@ -38,5 +38,5 @@ A significant increase in response time or recurring spikes on the charts indica
 
 An isolated spike on one of the charts is not necessarily serious — a single measurement spike often does not affect end users.
 
-- A persistent red bar on the ICMP chart since QUANTA was installed usually means ICMP has been intentionally disabled; this is not an incident. For better visibility you can ask your network administrator (or hosting provider) to enable ICMP ping.
+- A persistent red bar on the ICMP chart since DEM was installed usually means ICMP has been intentionally disabled; this is not an incident. For better visibility you can ask your network administrator (or hosting provider) to enable ICMP ping.
 - If a red bar suddenly appears on the ICMP chart but the TCP test still succeeds, don’t panic: your site remains available. This typically means ICMP has been deliberately blocked while the web service remains reachable via TCP.

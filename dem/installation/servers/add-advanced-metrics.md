@@ -5,7 +5,7 @@ title: Add Advanced Metrics
 
 # Add Advanced Metrics
 
-The Quanta agent includes modules (or application agents) that allow you to collect system data from various components of your infrastructure, such as Apache, MySQL, Redis, Varnish, PostgreSQL, and more.
+The DEM agent includes modules (or application agents) that allow you to collect system data from various components of your infrastructure, such as Apache, MySQL, Redis, Varnish, PostgreSQL, and more.
 
 <aside>
 ⚠️ These application agents must be installed **after** installing the system agent. Refer to the dedicated page to install the agent.
@@ -42,7 +42,7 @@ The Quanta agent includes modules (or application agents) that allow you to coll
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in Quanta within a few minutes.
+You should see metrics appear in DEM within a few minutes.
 
 ### MySQL
 
@@ -72,7 +72,7 @@ You should see metrics appear in Quanta within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in Quanta within a few minutes.
+You should see metrics appear in DEM within a few minutes.
 
 ### PostgreSQL
 
@@ -102,7 +102,7 @@ You should see metrics appear in Quanta within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in Quanta within a few minutes.
+You should see metrics appear in DEM within a few minutes.
 
 ### Nginx
 
@@ -133,7 +133,7 @@ You should see metrics appear in Quanta within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in Quanta within a few minutes.
+You should see metrics appear in DEM within a few minutes.
 
 ### Varnish
 
@@ -163,7 +163,7 @@ You should see metrics appear in Quanta within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in Quanta within a few minutes.
+You should see metrics appear in DEM within a few minutes.
 
 ### Redis
 
@@ -199,7 +199,7 @@ You should see metrics appear in Quanta within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in Quanta within a few minutes.
+You should see metrics appear in DEM within a few minutes.
 
 ### Memcached
 
@@ -223,7 +223,7 @@ You should see metrics appear in Quanta within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in Quanta within a few minutes.
+You should see metrics appear in DEM within a few minutes.
 
 <aside>
 💡 The PHP profiler must be installed separately. Refer to the dedicated page:

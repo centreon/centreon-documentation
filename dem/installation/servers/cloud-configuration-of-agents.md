@@ -23,11 +23,11 @@ And the installation guide for our PHP module (if you use that technology) here:
 
 When instances (VMs or containers) are deployed automatically or semi-automatically, some configuration fields must be modified or replicated for each newly created instance:
 
-- **Token**: The identification token must be the same for all Quanta agents that belong to the same license and site; it is stored in the configuration file `/etc/quanta/agent.yml`. The token tells the agent which site the monitored data belongs to.
-- **Hostid**: Also located in `/etc/quanta/agent.yml`. The hostid is a unique identifier used by Quanta to uniquely identify an instance:
+- **Token**: The identification token must be the same for all DEM agents that belong to the same license and site; it is stored in the configuration file `/etc/quanta/agent.yml`. The token tells the agent which site the monitored data belongs to.
+- **Hostid**: Also located in `/etc/quanta/agent.yml`. The hostid is a unique identifier used by DEM to uniquely identify an instance:
     - In most cases the hostid must be different for each new instance, so your new instance `front-nginx-3` won't overwrite the data sent by `front-nginx-2`.
-    - In auto-scaling scenarios you may need to preserve a stable identifier when an instance is removed and later recreated. For example, if you add a fourth front each evening at 19:00 to handle peak traffic and remove it at 21:00, you probably want to avoid seeing a new chart created every day in Quanta (and a rapidly growing list of charts). In that case you should preserve a unique identifier each time you remove and recreate that front so its data always appears in the same chart.
-- **Hostname**: Also in `/etc/quanta/agent.yml`, this setting lets you assign a label to your instance. Unlike hostid, hostname is just a human-friendly name to make charts easier to read (for example `VM prod 006 - Varnish - 3`). You can also change it from the QUANTA UI.
+    - In auto-scaling scenarios you may need to preserve a stable identifier when an instance is removed and later recreated. For example, if you add a fourth front each evening at 19:00 to handle peak traffic and remove it at 21:00, you probably want to avoid seeing a new chart created every day in DEM (and a rapidly growing list of charts). In that case you should preserve a unique identifier each time you remove and recreate that front so its data always appears in the same chart.
+- **Hostname**: Also in `/etc/quanta/agent.yml`, this setting lets you assign a label to your instance. Unlike hostid, hostname is just a human-friendly name to make charts easier to read (for example `VM prod 006 - Varnish - 3`). You can also change it from the DEM UI.
 
 # Adaptation for managed/cloud services
 

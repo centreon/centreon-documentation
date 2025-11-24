@@ -24,7 +24,7 @@ Long TTFB usually indicates the application isn't using a full-page cache (for e
 - cloud resource usage
 - the environmental footprint of the application
 
-In Quanta, TTFB is visible in synthetic User Journey analyses and in [Real User Monitoring](../../getting-started/real-user-monitoring.md).
+In DEM, TTFB is visible in synthetic User Journey analyses and in [Real User Monitoring](../../getting-started/real-user-monitoring.md).
 
 Scoring guideline:
 

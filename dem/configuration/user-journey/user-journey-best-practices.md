@@ -7,7 +7,7 @@ title: User Journey Best Practices
 
 # Managing iframes
 
-Because of the way Quanta handles possible iframes on a page, one important point must be considered in this specific case. If iframes are present and you want to manipulate CSS selectors, you must choose selectors that are either inside an iframe or outside it — **NOT** selectors that "cross" the two contexts, which will not work.
+Because of the way DEM handles possible iframes on a page, one important point must be considered in this specific case. If iframes are present and you want to manipulate CSS selectors, you must choose selectors that are either inside an iframe or outside it — **NOT** selectors that "cross" the two contexts, which will not work.
 
 Here is an explanatory example. Imagine the HTML is structured like this:
 
@@ -63,9 +63,9 @@ iframe #my-form
     
     Of course, the more specific the text, the likelier it is to be unique.
     
-    Note: a phrase visible on the site can actually be fragmented in the HTML. This commonly happens when one or more words have different styling (bold or a different color). Since Quanta searches inside the HTML for the specified string, if the text is split, it may not be found.
+    Note: a phrase visible on the site can actually be fragmented in the HTML. This commonly happens when one or more words have different styling (bold or a different color). Since DEM searches inside the HTML for the specified string, if the text is split, it may not be found.
     
-    To be sure the string you add in Quanta matches exactly what's in the HTML, we recommend right-clicking and choosing "Inspect" to copy the string directly from the HTML — this avoids errors. Also remove any leading or trailing spaces manually.
+    To be sure the string you add in DEM matches exactly what's in the HTML, we recommend right-clicking and choosing "Inspect" to copy the string directly from the HTML — this avoids errors. Also remove any leading or trailing spaces manually.
 
 - Specify a CSS selector for forms
     
@@ -135,7 +135,7 @@ iframe #my-form
     
     Websites often integrate many third-party solutions. It's common to blacklist analytics trackers to avoid skewing marketing statistics.
     
-    To address this, Quanta includes a default blacklist for new scenarios (it filters requests to Google Analytics, for example), but some site-specific trackers may still pass. It's a good idea to check this with the digital marketing team to ensure there is no objection to Quanta requesting their other tags.
+    To address this, DEM includes a default blacklist for new scenarios (it filters requests to Google Analytics, for example), but some site-specific trackers may still pass. It's a good idea to check this with the digital marketing team to ensure there is no objection to DEM requesting their other tags.
     
     Keep in mind that some third-party tags are necessary for the page to function correctly. In such cases, do not block them.
 
@@ -196,10 +196,10 @@ After an action (e.g. selecting a product size), the button will be enabled by r
 
 You can then add a test that checks for the selector: **#product-addtocart-button:not(.disabled)**
 
-If you test that selector in Chrome's console while the button is disabled, it returns nothing. Once the size is selected and `.disabled` disappears, the selector returns the element. In Quanta, the selector **#product-addtocart-button:not(.disabled)** thus "appears" — a perfect test to verify the add-to-cart button is enabled before clicking it.
+If you test that selector in Chrome's console while the button is disabled, it returns nothing. Once the size is selected and `.disabled` disappears, the selector returns the element. In DEM, the selector **#product-addtocart-button:not(.disabled)** thus "appears" — a perfect test to verify the add-to-cart button is enabled before clicking it.
 
 Example 3:
-The `:not()` syntax applies to attributes as well. Quanta also monitors the appearance and disappearance of `disabled` attributes because a button's "grayed" state is frequently represented by an attribute rather than a class (site-specific subtlety!).
+The `:not()` syntax applies to attributes as well. DEM also monitors the appearance and disappearance of `disabled` attributes because a button's "grayed" state is frequently represented by an attribute rather than a class (site-specific subtlety!).
 
 You can encounter a button like:
 
@@ -232,7 +232,7 @@ In that case, the selector will "appear" when the `disabled` attribute is remove
 **a[href="https://www.xxxxx.com/"]**
 
 This selector targets an anchor (`a`) whose destination URL is `https://www.xxxxx.com/`. It can be useful but be cautious: using this is akin to navigating to a very specific URL. If the destination URL changes even slightly, the scenario will fail.
-When buttons have clear classes or IDs, prefer those for click actions; then Quanta will adapt to small destination-URL changes like a real user.
+When buttons have clear classes or IDs, prefer those for click actions; then DEM will adapt to small destination-URL changes like a real user.
 We recommend this pattern for:
 
 - URLs unlikely to change, e.g. `www.site.com/checkout/cart/`.
@@ -242,7 +242,7 @@ We recommend this pattern for:
 
 You can target elements by specific attributes. This selector clicks a button like `<button data-role="change-store">`.
 
-⚠️ Note: Quanta doesn't systematically monitor **all attribute state changes** after capturing the initial HTML. For performance reasons, Quanta focuses on monitoring:
+⚠️ Note: DEM doesn't systematically monitor **all attribute state changes** after capturing the initial HTML. For performance reasons, DEM focuses on monitoring:
 
 - class changes (appearance/disappearance)
 - `disabled` or `disable` attribute changes
@@ -265,7 +265,7 @@ These subtleties help avoid frequent maintenance. There's a balance between bein
 
 The comma in the selector above means: target the `a` element with class `action-button` OR (if not present) the `a` element with class `action-checkout`.
 
-The comma is powerful because it can implement **a conditional** in Quanta.
+The comma is powerful because it can implement **a conditional** in DEM.
 
 Example: On an e-commerce site, a common scenario clicks the first available category from the homepage, then the first product, then adds it to the cart. Some products are **configurable** (require options) while others are not. Configurable products require choosing an option like size or color before adding to cart, leaving the add-to-cart button disabled until configured.
 
@@ -273,11 +273,11 @@ To make a scenario adaptive across product types, use a selector like:
 
 `select.choose-color,select.choose-size,select.choose-pattern`
 
-Quanta will click the first existing element from left to right. Whether the product needs a color, size, or pattern, Quanta will click the available control, enabling the add-to-cart button. This is a good example of an adaptive scenario.
+DEM will click the first existing element from left to right. Whether the product needs a color, size, or pattern, DEM will click the available control, enabling the add-to-cart button. This is a good example of an adaptive scenario.
 
 **To go further**
 
-As these examples show, CSS selectors offer many features that provide great flexibility for Quanta scenarios.
+As these examples show, CSS selectors offer many features that provide great flexibility for DEM scenarios.
 
 We've gathered the most common use cases above, but the list isn't exhaustive. For deeper reference, consult the canonical resource: w3schools.
 
