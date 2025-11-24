@@ -5,7 +5,7 @@ title: La vue Système
 
 # La vue Système
 
-Cette section permet l’analyse de **la bonne santé de la plateforme** qui héberge votre application Web. Pour y accéder, rendez-vous dans le menu principal, puis **Système**.
+La section **Données système** permet l’analyse de **la bonne santé de la plateforme** qui héberge votre application Web. Pour y accéder, rendez-vous dans le menu principal, puis **Système**.
 
 ![image](../assets/getting-started/system-view-1.png)
 
