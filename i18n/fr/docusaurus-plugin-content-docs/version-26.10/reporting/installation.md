@@ -631,22 +631,6 @@ apt update
 
 2. Installez le dépôt Business. Vous pouvez trouver son adresse sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-3. Assurez-vous qu'une version de Java 17 (ou 18) est installée.
-   
-   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-   
-   ```shell
-   java -version
-   ```
-   
-   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
-   
-   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-   
-   ```shell
-   sudo update-alternatives --config java
-   ```
-
 #### Installer le dépôt de base de données
 
 <DatabaseRepository />
@@ -851,6 +835,22 @@ apt install centreon-bi-reporting-server
 
 </TabItem>
 </Tabs>
+
+Assurez-vous qu'une version de Java 17 (ou 18) est installée.
+   
+   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+   
+   ```shell
+   java -version
+   ```
+   
+   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+   
+   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
 
 #### Activer les services
 
