@@ -673,10 +673,6 @@
             },
             {
               "type": "doc",
-              "id": "service-mapping/migrate"
-            },
-            {
-              "type": "doc",
               "id": "service-mapping/remote-server"
             }
           ]
@@ -789,6 +785,10 @@
                 },
                 {
                   "type": "doc",
+                  "id": "graph-views/map-web-backup-restore"
+                },
+                {
+                  "type": "doc",
                   "id": "graph-views/map-web-known-issues"
                 },
                 {
@@ -882,6 +882,10 @@
         "type": "generated-index"
       },
       "items": [
+        {
+          "type": "doc",
+          "id": "alerts-notifications/availability"
+        },
         {
           "type": "doc",
           "id": "reporting/introduction"

@@ -28,15 +28,15 @@ Il apporte les modèles de service suivants :
 
 | Métrique                   | Unité |
 |:---------------------------|:------|
-| calls.total.lasthour.count |       |
+| calls.total.lasthour.count | count |
 
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
 | Métrique                           | Unité |
 |:-----------------------------------|:------|
-| stations.capacity.usage.count      |       |
-| stations.capacity.free.count       |       |
+| stations.capacity.usage.count      | count |
+| stations.capacity.free.count       | count |
 | stations.capacity.usage.percentage | %     |
 
 </TabItem>
@@ -44,7 +44,7 @@ Il apporte les modèles de service suivants :
 
 | Métrique            | Unité |
 |:--------------------|:------|
-| trunk signal status |       |
+| trunk signal status | N/A   |
 
 </TabItem>
 </Tabs>
@@ -53,7 +53,10 @@ Il apporte les modèles de service suivants :
 
 ### Configuration SNMP
 
-Afin de superviser votre **Avaya CM** en SNMP, il est nécessaire de configurer l'agent sur votre équipement.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

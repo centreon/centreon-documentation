@@ -13,6 +13,8 @@ The following monitoring connectors will be installed when you install the **Aru
 
 ## Pack assets
 
+> Since HP acquired Aruba, some MIBs may have changed. If your Aruba device is no longer correcty monitored by the Aruba connector, use the [HP Procurve SNMP](network-switchs-hp-procurve-snmp.md) connector instead.
+
 ### Templates
 
 The Monitoring Connector **ArubaOS-CX SNMP** brings a host template:
@@ -307,7 +309,7 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 
 | Macro        | Description                                                                                                                            | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'fan', 'fantry'                                                |                   |             |
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'fan', 'fantray'                                               |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -579,7 +581,7 @@ All available options for each service template are listed below:
 
 | Option               | Description                                                                                                                                                                                                              |
 |:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          |   Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'fan', 'fantry'.                                                                                                                               |
+| --component          |   Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'fan', 'fantray'.                                                                                                                               |
 | --filter             |   Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=fan,1.1                                                                        |
 | --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.   |
 | --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                             |

@@ -122,9 +122,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre Informix en SNMP, il est nécessaire de configurer l'agent
-sur le serveur comme indiqué sur la documentation officielle :
-* https://www.ibm.com/support/pages/simple-steps-support-snmp-informix-server
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la [documentation officielle](https://www.ibm.com/support/pages/simple-steps-support-snmp-informix-server) du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien. 
 
 ### Flux réseau
 

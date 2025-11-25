@@ -24,11 +24,12 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Net-Fortinet-Fortigate-Restapi-custom" label="Net-Fortinet-Fortigate-Restapi-custom">
 
-| Service Alias | Service Template                               | Service Description                           |
-|:--------------|:-----------------------------------------------|:----------------------------------------------|
-| Health        | Net-Fortinet-Fortigate-Health-Restapi-custom   | Check firewall health                         |
-| Licenses      | Net-Fortinet-Fortigate-Licenses-Restapi-custom | Check licenses                                |
-| System        | Net-Fortinet-Fortigate-System-Restapi-custom   | Check VDOM systems (cpu, memory and sessions) |
+| Service Alias | Service Template                                   | Service Description                           |
+|:--------------|:---------------------------------------------------|:----------------------------------------------|
+| Certificates  | Net-Fortinet-Fortigate-Certificates-Restapi-custom | Check certificates validity                   |
+| Health        | Net-Fortinet-Fortigate-Health-Restapi-custom       | Check firewall health                         |
+| Licenses      | Net-Fortinet-Fortigate-Licenses-Restapi-custom     | Check licenses                                |
+| System        | Net-Fortinet-Fortigate-System-Restapi-custom       | Check VDOM systems (cpu, memory and sessions) |
 
 > The services listed above are created automatically when the **Net-Fortinet-Fortigate-Restapi-custom** host template is used.
 
@@ -49,6 +50,14 @@ The connector brings the following service templates (sorted by the host templat
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Name                                       | Unit  |
+|:-------------------------------------------|:------|
+| status                                     | N/A   |
+| *certificates*#certificate.expires.seconds | s     |
+
+</TabItem>
 <TabItem value="Ha" label="Ha">
 
 | Name                                        | Unit  |
@@ -88,15 +97,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To control your Fortinet Fortigate, the Rest API must be configured.
-See: https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator
+To monitor your Fortinet Fortigate, the Rest API must be configured. See [official documentation]( https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator).
 
 ## Installing the monitoring connector
 
 ### Pack
 
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -191,12 +198,12 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 3. Apply the **Net-Fortinet-Fortigate-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro           | Description                                                                                                                              | Default value     | Mandatory |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
-| APIACCESSTOKEN  | API token                                                                                                                                |                   |     X     |
-| APIPROTO        | Specify https if needed                                                                                                                  | https             |           |
-| APIPORT         | Port used                                                                                                                                | 443               |           |
-| APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |           |
+| Macro           | Description                                                                                                                              | Default value | Mandatory |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| APIACCESSTOKEN  | API token                                                                                                                                |               |     X     |
+| APIPROTO        | Specify https if needed                                                                                                                  | https         |           |
+| APIPORT         | Port used                                                                                                                                | 443           |           |
+| APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -206,59 +213,72 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Macro           | Description                                                                                                                            | Default value              | Mandatory |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:---------:|
+| UNIT            | Select the unit for 'certificate.expires.seconds' metric threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks.            | s                          |           |
+| FILTERNAME      | Filter certificates by name (can be a regexp)                                                                                          |                            |           |
+| WARNINGEXPIRES  | Thresholds                                                                                                                             |                            |           |
+| CRITICALEXPIRES | Thresholds                                                                                                                             |                            |           |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}              | %\{status\} =~ /expired/i |           |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}               |                            |           |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                  |           |
+
+</TabItem>
 <TabItem value="Ha" label="Ha">
 
-| Macro                   | Description                                                                                                                            | Default value     | Mandatory   |
-|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME              | Filter members by name                                                                                                                 |                   |             |
-| WARNINGCPUUTILIZATION   | Threshold                                                                                                                              |                   |             |
-| CRITICALCPUUTILIZATION  | Threshold                                                                                                                              |                   |             |
-| WARNINGMEMBERSDETECTED  | Threshold                                                                                                                              |                   |             |
-| CRITICALMEMBERSDETECTED | Threshold                                                                                                                              |                   |             |
-| WARNINGMEMORYUSAGE      | Threshold                                                                                                                              |                   |             |
-| CRITICALMEMORYUSAGE     | Threshold                                                                                                                              |                   |             |
-| WARNINGSESSIONSACTIVE   | Threshold                                                                                                                              |                   |             |
-| CRITICALSESSIONSACTIVE  | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro                   | Description                                                                                                                            | Default value | Mandatory |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERNAME              | Filter members by name                                                                                                                 |               |           |
+| WARNINGCPUUTILIZATION   | Threshold                                                                                                                              |               |           |
+| CRITICALCPUUTILIZATION  | Threshold                                                                                                                              |               |           |
+| WARNINGMEMBERSDETECTED  | Threshold                                                                                                                              |               |           |
+| CRITICALMEMBERSDETECTED | Threshold                                                                                                                              |               |           |
+| WARNINGMEMORYUSAGE      | Threshold                                                                                                                              |               |           |
+| CRITICALMEMORYUSAGE     | Threshold                                                                                                                              |               |           |
+| WARNINGSESSIONSACTIVE   | Threshold                                                                                                                              |               |           |
+| CRITICALSESSIONSACTIVE  | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
-| Macro          | Description                                                                                                                            | Default value             | Mandatory   |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
-| FILTERVDOM     | Filter vdom by name                                                                                                                    |                           |             |
-| CRITICALHEALTH | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}              | %\{status\} !~ /success/i |             |
-| WARNINGHEALTH  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}               |                           |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                 |             |
+| Macro          | Description                                                                                                                            | Default value             | Mandatory |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:---------:|
+| FILTERVDOM     | Filter vdom by name                                                                                                                    |                           |           |
+| CRITICALHEALTH | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}              | %\{status\} !~ /success/i |           |
+| WARNINGHEALTH  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}               |                           |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                 |           |
 
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Macro              | Description                                                                                                                                                 | Default value             | Mandatory   |
-|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
-| FILTERNAME         | Filter licenses by name (can be a regexp)                                                                                                                   |                           |             |
-| UNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds |                           |             |
-| WARNINGEXPIRES     | Threshold                                                                                                                                                   |                           |             |
-| CRITICALEXPIRES    | Threshold                                                                                                                                                   |                           |             |
-| WARNINGLASTUPDATE  | Threshold                                                                                                                                                   |                           |             |
-| CRITICALLASTUPDATE | Threshold                                                                                                                                                   |                           |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}                                   | %\{status\} =~ /expired/i |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}                                    |                           |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                      | --verbose                 |             |
+| Macro              | Description                                                                                                                                                 | Default value             | Mandatory |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:---------:|
+| FILTERNAME         | Filter licenses by name (can be a regexp)                                                                                                                   |                           |           |
+| UNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds |                           |           |
+| WARNINGEXPIRES     | Threshold                                                                                                                                                   |                           |           |
+| CRITICALEXPIRES    | Threshold                                                                                                                                                   |                           |           |
+| WARNINGLASTUPDATE  | Threshold                                                                                                                                                   |                           |           |
+| CRITICALLASTUPDATE | Threshold                                                                                                                                                   |                           |           |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}                                   | %\{status\} =~ /expired/i |           |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}                                    |                           |           |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                      | --verbose                 |           |
 
 </TabItem>
 <TabItem value="System" label="System">
 
-| Macro                  | Description                                                                                                                            | Default value     | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERVDOM             | Filter vdom by name                                                                                                                    |                   |             |
-| WARNINGCPUUTILIZATION  | Threshold                                                                                                                              |                   |             |
-| CRITICALCPUUTILIZATION | Threshold                                                                                                                              |                   |             |
-| WARNINGMEMORYUSAGE     | Threshold                                                                                                                              |                   |             |
-| CRITICALMEMORYUSAGE    | Threshold                                                                                                                              |                   |             |
-| WARNINGSESSIONSACTIVE  | Threshold                                                                                                                              |                   |             |
-| CRITICALSESSIONSACTIVE | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro                  | Description                                                                                                                            | Default value | Mandatory |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERVDOM             | Filter vdom by name                                                                                                                    |               |           |
+| WARNINGCPUUTILIZATION  | Threshold                                                                                                                              |               |           |
+| CRITICALCPUUTILIZATION | Threshold                                                                                                                              |               |           |
+| WARNINGMEMORYUSAGE     | Threshold                                                                                                                              |               |           |
+| CRITICALMEMORYUSAGE    | Threshold                                                                                                                              |               |           |
+| WARNINGSESSIONSACTIVE  | Threshold                                                                                                                              |               |           |
+| CRITICALSESSIONSACTIVE | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 </Tabs>
@@ -278,7 +298,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--access-token='xxxxxx'  \
+	--access-token='xxxx'  \
 	--filter-vdom='' \
 	--warning-cpu-utilization='' \
 	--critical-cpu-utilization='' \
@@ -318,12 +338,13 @@ the command:
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                 | Linked service template                        |
-|:-------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|
-| ha [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/ha.pm)]             | Net-Fortinet-Fortigate-Ha-Restapi-custom       |
-| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/health.pm)]     | Net-Fortinet-Fortigate-Health-Restapi-custom   |
-| licenses [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/licenses.pm)] | Net-Fortinet-Fortigate-Licenses-Restapi-custom |
-| system [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/system.pm)]     | Net-Fortinet-Fortigate-System-Restapi-custom   |
+| Mode                                                                                                                                         | Linked service template                            |
+|:---------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
+| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/certificates.pm)] | Net-Fortinet-Fortigate-Certificates-Restapi-custom |
+| ha [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/ha.pm)]                     | Net-Fortinet-Fortigate-Ha-Restapi-custom           |
+| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/health.pm)]             | Net-Fortinet-Fortigate-Health-Restapi-custom       |
+| licenses [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/licenses.pm)]         | Net-Fortinet-Fortigate-Licenses-Restapi-custom     |
+| system [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/system.pm)]             | Net-Fortinet-Fortigate-System-Restapi-custom       |
 
 ### Available options
 
@@ -386,6 +407,18 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Option             | Description                                                                                                                                                           |
+|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name      |   Filter certificates by name (can be a regexp).                                                                                                                      |
+| --warning-status   |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}.                                           |
+| --critical-status  |   Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /expired/i'). You can use the following variables: %\{name\}, %\{status\}.   |
+| --unit             |   Select the unit for expires threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                     |
+| --warning-expires  |   Thresholds.                                                                                                                                                         |
+| --critical-expires |   Thresholds.                                                                                                                                                         |
+
+</TabItem>
 <TabItem value="Ha" label="Ha">
 
 | Option                   | Description                                                                                                |

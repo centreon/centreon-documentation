@@ -34,7 +34,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Nom de la règle | Description                                                                                                                                                                                                                                        |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Sensor-Akcp-SNMP-custom** host template |
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Sensor-Akcp-SNMP-custom**. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -45,13 +45,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Métrique                        | Unité  |
+| Métrique                            | Unité |
 |:------------------------------------|:------|
-| hardware.sensor.temperature                | C     |
-| hardware.sensor.humidity.percentage              | %     |
-| hardware.sensor.switch.status         | N/A     |
-| hardware.sensor.serial.status | N/A    |
-| hardware.sensor.water.status                 | N/A      |
+| hardware.sensor.temperature         | C     |
+| hardware.sensor.humidity.percentage | %     |
+| hardware.sensor.switch.status       | N/A   |
+| hardware.sensor.serial.status       | N/A   |
+| hardware.sensor.water.status        | N/A   |
 
 </TabItem>
 </Tabs>
@@ -60,8 +60,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre **AKCP Sensor** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* [AKCP](https://www.akcp.com/knowledge-base/)
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la [documentation officielle](https://www.akcp.com/knowledge-base/) du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

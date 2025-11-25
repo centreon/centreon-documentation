@@ -273,8 +273,6 @@ configuration file, you should not use a Centreon admin user account.
 - Log into Centreon and go to the **Configuration > Users > Contacts/Users** page. Then click the **Centreon Authentication** tab.
 - Set the **Reach API Realtime** parameter to **Yes**.
 
-![image](../assets/graph-views/reach-api.png)
-
 Exclude the user from the password expiration policy on the **Administration > Authentication** page: their password will never expire.
 
 ![image](../assets/graph-views/password-expiration-policy.png)
@@ -516,44 +514,6 @@ apt update
 </TabItem>
 </Tabs>
 
-Then install MySQL server:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-map-engine
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install centreon-map-engine
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-apt update && apt install centreon-map-engine
-```
-
-> MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
-> 
-> ```shell
-> /etc/mysql/mysql.conf.d/mysqld.cnf
-> ```
-> 
-> Set the **bind-address** parameter to **0.0.0.0** and restart MySQL:
-> 
-> ```shell
-> sudo service mysql restart
-> ```
-
-</TabItem>
-</Tabs>
-
 Then enable and restart MySQL.
 
 ```shell
@@ -572,6 +532,44 @@ mysql_secure_installation
 
 </TabItem>
 </Tabs>
+
+Then install the centreon-map-engine package:
+   
+   <Tabs groupId="sync">
+   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+   ```shell
+   dnf install centreon-map-engine
+   ```
+   
+   </TabItem>
+   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+   ```shell
+   dnf install centreon-map-engine
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   
+   ```shell
+   apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
+   ```
+   
+   > **If you use MySQL:** MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+> 
+> ```shell
+> /etc/mysql/mysql.conf.d/mysqld.cnf
+> ```
+> 
+> Set the **bind-address** parameter to **0.0.0.0** and restart MySQL:
+> 
+> ```shell
+> sudo service mysql restart
+> ```
+
+   </TabItem>
+   </Tabs>
 
 ### Step 3 - Option 2: MAP Engine server installation on an existing Centreon MAP Legacy server
 

@@ -15,11 +15,7 @@ The following monitoring connectors will be installed when you install the **Qna
 
 ### Supported equipment models
 
-* EKI using the QTS operating system.
-
-### Unsupported equipment models
-
-* **Only for volume service** : LAGMT using the QuTS hero operating system (The volume information isn't present in the QuTS hero MIB file).
+* EKI using the QTS and QuTS hero operating system.
 
 ### Templates
 
@@ -162,7 +158,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

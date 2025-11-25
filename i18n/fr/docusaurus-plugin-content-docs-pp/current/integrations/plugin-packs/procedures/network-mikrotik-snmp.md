@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Mikrotik SNMP** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -37,12 +37,15 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias      | Modèle de service                   | Description                                                 |
-|:-----------|:------------------------------------|:------------------------------------------------------------|
-| Interfaces | Net-Mikrotik-Interfaces-SNMP-custom | Contrôle les interfaces                                     |
-| Uptime     | Net-Mikrotik-Uptime-SNMP-custom     | Durée depuis laquelle l'équipement tourne sans interruption |
+| Alias          | Modèle de service                       | Description                                                 | Découverte |
+|:---------------|:----------------------------------------|:------------------------------------------------------------|:----------:|
+| Interfaces     | Net-Mikrotik-Interfaces-SNMP-custom     | Contrôle les interfaces                                     |     X      |
+| Lte-Interfaces | Net-Mikrotik-Lte-Interfaces-SNMP-custom | Contrôle les interfaces LTE                                 |     X      |
+| Uptime         | Net-Mikrotik-Uptime-SNMP-custom         | Durée depuis laquelle l'équipement tourne sans interruption |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 </Tabs>
@@ -56,6 +59,16 @@ Le connecteur apporte les modèles de service suivants
 | SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **Net-Mikrotik-SNMP-custom**. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+
+#### Découverte de services
+
+| Nom de la règle                      | Description                                                                                       |
+|:-------------------------------------|:--------------------------------------------------------------------------------------------------|
+| Net-Mikrotik-SNMP-Interface-Name     | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
+| Net-Mikrotik-SNMP-Lte-Interface-Name | Découvre les interfaces LTE en utilisant leur nom et supervise leur statut et leur utilisation    |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
@@ -74,7 +87,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Environment" label="Environment">
 
-| Métrique                               | Unité |
+| Nom                                    | Unité |
 |:---------------------------------------|:------|
 | *device_name*#environment.current      | A     |
 | *device_name*#environment.fan.status   | N/A   |
@@ -86,7 +99,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                                               | Unité |
+| Nom                                                       | Unité |
 |:----------------------------------------------------------|:------|
 | *interface_name*#status                                   | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
@@ -97,9 +110,39 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *interface_name*#interface.packets.out.error.percentage   | %     |
 
 </TabItem>
+<TabItem value="Lte-Interfaces" label="Lte-Interfaces">
+
+| Nom                                                    | Unité |
+|:-------------------------------------------------------|:------|
+| *interface_name*#status                                | N/A   |
+| *interface_name*#interface.packets.in.broadcast.count  | count |
+| *interface_name*#interface.packets.in.discard.count    | count |
+| *interface_name*#interface.packets.in.error.count      | count |
+| *interface_name*#interface.packets.in.multicast.count  | count |
+| *interface_name*#interface.traffic.in.bitspersecond    | b/s   |
+| *interface_name*#interface.packets.in.unicast.count    | count |
+| *interface_name*#interface.volume.in.bytes             | B     |
+| *interface_name*#interface.packets.out.broadcast.count | count |
+| *interface_name*#interface.packets.out.broadcast.count | count |
+| *interface_name*#iinterface.packets.out.error.count    | count |
+| *interface_name*#interface.packets.out.multicast.count | count |
+| *interface_name*#interface.traffic.out.bitspersecond   | b/s   |
+| *interface_name*#interface.packets.out.unicast.count   | count |
+| *interface_name*#interface.signal.rsrp.dbm             | dbm   |
+| *interface_name*#interface.signal.rsrq.db              | db    |
+| *interface_name*#interface.signal.rssi.dbm             | dbm   |
+| *interface_name*#interface.signal.sinr.dbm             | dbm   |
+| *interface_name*#interface.speed.bitspersecond         | b/s   |
+| total.interfaces.admin.down.count                      | count |
+| total.interfaces.admin.up.count                        | count |
+| total.interfaces.operational.down.count                | count |
+| total.interfaces.operational.up.count                  | count |
+| total.interfaces.count                                 | count |
+
+</TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name                           | Unité |
+| Nom                                   | Unité |
 |:--------------------------------------|:------|
 | storage.partitions.count              | count |
 | *disk_name*#storage.space.usage.bytes | B     |
@@ -108,14 +151,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Signal" label="Signal">
 
-| Nom                  | Unité |
-|:---------------------|:------|
-| *wreg1*#rx-strength  | dBm   |
-| *wreg2*#rx-strength  | dBm   |
-| *wreg1*#tx-strength  | dBm   |
-| *wreg2*#tx-strength  | dBm   |
-| *wreg1*#signal2noise | dB    |
-| *wreg2*#signal2noise | dB    |
+| Nom                 | Unité |
+|:--------------------|:------|
+| *wreg*#rx-strength  | dBm   |
+| *wreg*#tx-strength  | dBm   |
+| *wreg*#signal2noise | dB    |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -271,7 +311,7 @@ yum install centreon-plugin-Network-Mikrotik-Snmp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'current', 'fan', 'power', 'status', 'temperature', 'voltage'                                  | .*                |             |
+| COMPONENT    | Which component to check. Can be: 'current', 'fan', 'power', 'status', 'temperature', 'voltage'                                                  | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -279,8 +319,8 @@ yum install centreon-plugin-Network-Mikrotik-Snmp
 
 | Macro                  | Description                                                                                                                                                       | Valeur par défaut                                         | Obligatoire |
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-----------:|
-| OIDFILTER              | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                        | ifname                                                    |             |
-| OIDDISPLAY             | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                               | ifname                                                    |             |
+| OIDFILTER              | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                          | ifname                                                    |             |
+| OIDDISPLAY             | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                 | ifname                                                    |             |
 | INTERFACENAME          | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                         |                                                           |             |
 | WARNINGINDISCARD       | Threshold                                                                                                                                                         |                                                           |             |
 | CRITICALINDISCARD      | Threshold                                                                                                                                                         |                                                           |             |
@@ -301,6 +341,66 @@ yum install centreon-plugin-Network-Mikrotik-Snmp
 | WARNINGTOTALOPERDOWN   | Threshold                                                                                                                                                         |                                                           |             |
 | CRITICALTOTALOPERDOWN  | Threshold                                                                                                                                                         |                                                           |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                  | --verbose --no-skipped-counters                           |             |
+
+</TabItem>
+<TabItem value="Lte-Interfaces" label="Lte-Interfaces">
+
+| Macro                  | Description                                                                                                                                                       | Valeur par défaut                                  | Obligatoire |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
+| OIDFILTER              | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                          | ifname                                             |             |
+| OIDDISPLAY             | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                 | ifname                                             |             |
+| INTERFACENAME          | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                         |                                                    |             |
+| WARNINGINBCAST         | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALINBCAST        | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGINDISCARD       | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALINDISCARD      | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGINERROR         | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALINERROR        | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGINMCAST         | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALINMCAST        | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGINTRAFFIC       | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALINTRAFFIC      | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGINUCAST         | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALINUCAST        | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGINVOLUME        | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALINVOLUME       | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGOUTBCAST        | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALOUTBCAST       | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGOUTDISCARD      | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALOUTDISCARD     | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGOUTERROR        | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALOUTERROR       | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGOUTMCAST        | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALOUTMCAST       | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGOUTTRAFFIC      | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALOUTTRAFFIC     | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGOUTUCAST        | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALOUTUCAST       | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGOUTVOLUME       | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALOUTVOLUME      | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGRSRP            | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALRSRP           | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGRSRQ            | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALRSRQ           | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGRSSI            | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALRSSI           | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGSINR            | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALSINR           | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGSPEED           | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALSPEED          | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} ne "up"   |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}  |                                                    |             |
+| WARNINGTOTALADMINDOWN  | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALTOTALADMINDOWN | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGTOTALADMINUP    | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALTOTALADMINUP   | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGTOTALOPERDOWN   | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALTOTALOPERDOWN  | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGTOTALOPERUP     | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALTOTALOPERUP    | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGTOTALPORT       | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALTOTALPORT      | Threshold                                                                                                                                                         |                                                    |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                  | --add-traffic --add-errors  --add-status --verbose |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -333,6 +433,7 @@ yum install centreon-plugin-Network-Mikrotik-Snmp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| UNIT         | Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds     |                   |             |
 | WARNING      | Warning threshold                                                                                                                                |                   |             |
 | CRITICAL     | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --check-overload  |             |
@@ -394,20 +495,22 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                   | Modèle de service associé             |
-|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpu.pm)]                                  | Net-Mikrotik-Cpu-SNMP-custom          |
-| disk [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/disk.pm)]                        | Not used in this Monitoring Connector |
-| environment [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/environment.pm)]          | Net-Mikrotik-Environment-SNMP-custom  |
-| firmware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/firmware.pm)]                | Not used in this Monitoring Connector |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/interfaces.pm)]            | Net-Mikrotik-Interfaces-SNMP-custom   |
-| list-frequencies [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/listfrequencies.pm)] | Not used in this Monitoring Connector |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]           | Not used in this Monitoring Connector |
-| list-ssids [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/listssids.pm)]             | Not used in this Monitoring Connector |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/memory.pm)]                    | Net-Mikrotik-Memory-SNMP-custom       |
-| signal [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/signal.pm)]                    | Net-Mikrotik-Signal-SNMP-custom       |
-| time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/ntp.pm)]                                 | Not used in this Monitoring Connector |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                            | Net-Mikrotik-Uptime-SNMP-custom       |
+| Mode                                                                                                                                        | Modèle de service associé               |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpu.pm)]                                       | Net-Mikrotik-Cpu-SNMP-custom            |
+| disk [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/disk.pm)]                             | Not used in this Monitoring Connector   |
+| environment [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/environment.pm)]               | Net-Mikrotik-Environment-SNMP-custom    |
+| firmware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/firmware.pm)]                     | Not used in this Monitoring Connector   |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/interfaces.pm)]                 | Net-Mikrotik-Interfaces-SNMP-custom     |
+| list-frequencies [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/listfrequencies.pm)]      | Not used in this Monitoring Connector   |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                | Used for service discovery              |
+| list-lte-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/listlteinterfaces.pm)] | Used for service discovery              |
+| list-ssids [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/listssids.pm)]                  | Not used in this Monitoring Connector   |
+| lte-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/lteinterfaces.pm)]          | Net-Mikrotik-Lte-Interfaces-SNMP-custom |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/memory.pm)]                         | Net-Mikrotik-Memory-SNMP-custom         |
+| signal [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/mikrotik/snmp/mode/signal.pm)]                         | Net-Mikrotik-Signal-SNMP-custom         |
+| time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/ntp.pm)]                                      | Not used in this Monitoring Connector   |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                                 | Net-Mikrotik-Uptime-SNMP-custom         |
 
 ### Options disponibles
 
@@ -559,6 +662,46 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-cipher                              |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --warning-errors                                |   Set warning threshold for all error counters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --critical-errors                               |   Set critical threshold for all error counters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
+</TabItem>
+<TabItem value="Lte-Interfaces" label="Lte-Interfaces">
+
+| Option                                          | Description                                                                                                                                                                                                                                                                                                                                                                             |
+|:------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --add-global                                    |   Check global port statistics (by default if no --add-* option is set).                                                                                                                                                                                                                                                                                                                |
+| --add-status                                    |   Check interface status.                                                                                                                                                                                                                                                                                                                                                               |
+| --add-duplex-status                             |   Check duplex status (with --warning-status and --critical-status).                                                                                                                                                                                                                                                                                                                    |
+| --add-traffic                                   |   Check interface traffic.                                                                                                                                                                                                                                                                                                                                                              |
+| --add-errors                                    |   Check interface errors.                                                                                                                                                                                                                                                                                                                                                               |
+| --add-cast                                      |   Check interface cast.                                                                                                                                                                                                                                                                                                                                                                 |
+| --add-speed                                     |   Check interface speed.                                                                                                                                                                                                                                                                                                                                                                |
+| --add-volume                                    |   Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                                                                                                                 |
+| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                                                                                                                    |
+| --warning-status                                |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                                                                                                      |
+| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                                       |
+| --warning-* --critical-*                        |   Thresholds (will superseed --\[warning\|critical\]-errors). Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).  And also: 'rsrp', 'rsrq', 'rssi', 'sinr'.   |
+| --units-traffic                                 |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                                                                                                                 |
+| --units-errors                                  |   Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                                                                                                                     |
+| --units-cast                                    |   Units of thresholds for communication types (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                                                                                                                 |
+| --nagvis-perfdata                               |   Display traffic perfdata to be compatible with NagVis widget.                                                                                                                                                                                                                                                                                                                         |
+| --interface                                     |   Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                                                                                                            |
+| --name                                          |   Allows you to define the interface (in option --interface) by name instead of OID index. The name matching mode supports regular expressions.                                                                                                                                                                                                                                         |
+| --regex-id                                      |   With this option, interface IDs will be filtered using the --interface parameter as a regular expression instead of a list of IDs.                                                                                                                                                                                                                                                    |
+| --speed                                         |   Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                                                                                                            |
+| --speed-in                                      |   Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                                                                                                                     |
+| --speed-out                                     |   Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                                                                                                                     |
+| --map-speed-dsl                                 |   Get interface speed configuration for interfaces of type 'ADSL' and 'VDSL2'.  Syntax: --map-speed-dsl=interface-src-name,interface-dsl-name  E.g: --map-speed-dsl=Et0.835,Et0-vdsl2                                                                                                                                                                                                   |
+| --force-counters64                              |   Force to use 64 bits counters only. Can be used to improve performance.                                                                                                                                                                                                                                                                                                               |
+| --force-counters32                              |   Force to use 32 bits counters (even in snmp v2c and v3). Should be used when 64 bits counters are buggy.                                                                                                                                                                                                                                                                              |
+| --reload-cache-time                             |   Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                                                                                                           |
+| --oid-filter                                    |   Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                                                                                           |
+| --oid-display                                   |   Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                                                                                  |
+| --oid-extra-display                             |   Add an OID to display.                                                                                                                                                                                                                                                                                                                                                                |
+| --display-transform-src --display-transform-dst |   Modify the interface name displayed by using a regular expression.  Example: adding --display-transform-src='eth' --display-transform-dst='ens'  will replace all occurrences of 'eth' with 'ens'                                                                                                                                                                                     |
+| --show-cache                                    |   Display cache interface data.                                                                                                                                                                                                                                                                                                                                                         |
+| --warning-errors                                |   Set warning threshold for all error counters.                                                                                                                                                                                                                                                                                                                                         |
+| --critical-errors                               |   Set critical threshold for all error counters.                                                                                                                                                                                                                                                                                                                                        |
+| --custom-perfdata-instances                     |   Define perfdatas instance (default: '%(display) %(imei)')                                                                                                                                                                                                                                                                                                                             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

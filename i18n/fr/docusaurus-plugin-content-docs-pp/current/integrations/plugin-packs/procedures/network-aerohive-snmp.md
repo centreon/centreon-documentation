@@ -67,8 +67,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                        | Unité |
 |:--------------------------------|:------|
-| users.current.count             | users |
-| *ssid*#ssid.users.current.count | users |
+| users.current.count             | count |
+| *ssid*#ssid.users.current.count | count |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -88,7 +88,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

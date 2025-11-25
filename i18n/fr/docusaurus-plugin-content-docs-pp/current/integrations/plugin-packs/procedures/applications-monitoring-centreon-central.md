@@ -58,9 +58,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Broker-Stats" label="Broker-Stats">
 
-| Métrique                         | Unité    |
+| Nom                              | Unité    |
 |:---------------------------------|:---------|
-| *endpoint*#status                | string      |
+| *endpoint*#status                | string   |
 | *endpoint*#speed-events          | events/s |
 | *endpoint*#queued-events         | events   |
 | *endpoint*#unacknowledged-events | events   |
@@ -70,89 +70,89 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="proc-broker-rrd" label="proc-broker-rrd">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | count   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | count |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
 
 </TabItem>
 <TabItem value="proc-broker-sql" label="proc-broker-sql">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | count   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom          | Unité |
+|:-------------|:------|
+| nbproc       | count |
+| mem_total    | B     |
+| mem_avg      | B     |
+| cpu_total    | %     |
 
 </TabItem>
 <TabItem value="proc-centcore" label="proc-centcore">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | count   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom        | Unité |
+|:-----------|:------|
+| nbproc     | count |
+| mem_total  | B     |
+| mem_avg    | B     |
+| cpu_total  | %     |
 
 </TabItem>
 <TabItem value="proc-centengine" label="proc-centengine">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | count   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom        | Unité |
+|:-----------|:------|
+| nbproc     | count |
+| mem_total  | B     |
+| mem_avg    | B     |
+| cpu_total  | %     |
 
 </TabItem>
 <TabItem value="proc-centreontrapd" label="proc-centreontrapd">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | count   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom        | Unité |
+|:-----------|:------|
+| nbproc     | count |
+| mem_total  | B     |
+| mem_avg    | B     |
+| cpu_total  | %     |
 
 </TabItem>
 <TabItem value="proc-crond" label="proc-crond">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | count   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | count |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
 
 </TabItem>
 <TabItem value="proc-gorgoned" label="proc-gorgoned">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | count   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom          | Unité |
+|:-------------|:------|
+| nbproc       | count |
+| mem_total    | B     |
+| mem_avg      | B     |
+| cpu_total    | %     |
 
 </TabItem>
 <TabItem value="proc-httpd" label="proc-httpd">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | count   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | count |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
 
 </TabItem>
 <TabItem value="proc-ntpd" label="proc-ntpd">
 
-| Métrique    | Unité |
+| Nom         | Unité |
 |:------------|:------|
-| nbproc      | count   |
+| nbproc      | count |
 | mem_total   | B     |
 | mem_avg     | B     |
 | cpu_total   | %     |
@@ -160,22 +160,22 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="proc-snmptrapd" label="proc-snmptrapd">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | count   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom          | Unité |
+|:-------------|:------|
+| nbproc       | count |
+| mem_total    | B     |
+| mem_avg      | B     |
+| cpu_total    | %     |
 
 </TabItem>
 <TabItem value="proc-sshd" label="proc-sshd">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | count   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | count |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
 
 </TabItem>
 </Tabs>
@@ -184,7 +184,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP de l'équipement
 
-SNMP doit être configuré sur le serveur central. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prérequis) pour mettre en place rapidement une simple configuration SNMP.
+L'agent SNMP doit être activé et configuré sur le serveur central. 
+Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prérequis) pour mettre en place rapidement une simple configuration SNMP.
 
 ### Configuration de la connexion SSH sans mot de passe
 
@@ -334,11 +335,11 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Central
 3. Appliquez le modèle d'hôte **App-Monitoring-Centreon-Central-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro            | Description                                                                                           | Valeur par défaut                                         | Obligatoire |
-|:-----------------|:------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-----------:|
-| MODULESTATSFILE  | Specify the centreon-broker json stats file (Required). Can be multiple                               | /var/lib/centreon-engine/central-module-master-stats.json | X           |
-| RRDSTATSFILE     | Specify the centreon-broker json stats file (Required). Can be multiple                               | /var/lib/centreon-broker/central-rrd-master-stats.json    | X           |
-| SQLSTATSFILE     | Specify the centreon-broker json stats file (Required). Can be multiple                               | /var/lib/centreon-broker/central-broker-master-stats.json | X           |
+| Macro            | Description                                                                                                                                | Valeur par défaut                                         | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-----------:|
+| MODULESTATSFILE  | Specify the centreon-broker json stats file (Required). Can be multiple                                                                    | /var/lib/centreon-engine/central-module-master-stats.json | X           |
+| RRDSTATSFILE     | Specify the centreon-broker json stats file (Required). Can be multiple                                                                    | /var/lib/centreon-broker/central-rrd-master-stats.json    | X           |
+| SQLSTATSFILE     | Specify the centreon-broker json stats file (Required). Can be multiple                                                                    | /var/lib/centreon-broker/central-broker-master-stats.json | X           |
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                                                           |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -351,149 +352,149 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Central
 <Tabs groupId="sync">
 <TabItem value="Broker-Stats" label="Broker-Stats">
 
-| Macro                        | Description                                                                                                                                                                                                                                 | Valeur par défaut                                               | Obligatoire |
-|:-----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:-----------:|
-| FILTERNAME                   | Filter endpoint name                                                                                                                                                                                                                        |                                                                 |             |
-| WARNINGQUEUEDEVENTS          | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| CRITICALQUEUEDEVENTS         | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| WARNINGSPEEDEVENTS           | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| CRITICALSPEEDEVENTS          | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL (Default: '%\{type\} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\} | %\{type\} eq "output" and %\{queue_file_enabled\}=~ /true\|yes/i |             |
-| WARNINGSTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                         |                                                                 |             |
-| WARNINGUNACKNOWLEDGEDEVENTS  | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| CRITICALUNACKNOWLEDGEDEVENTS | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                         | --verbose                                                       |             |
+| Macro                        | Description                                                                                                                                                                  | Valeur par défaut                                               | Obligatoire |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:-----------:|
+| FILTERNAME                   | Filter endpoint name                                                                                                                                                         |                                                                 |             |
+| WARNINGQUEUEDEVENTS          | Thresholds                                                                                                                                                                   |                                                                 |             |
+| CRITICALQUEUEDEVENTS         | Thresholds                                                                                                                                                                   |                                                                 |             |
+| WARNINGSPEEDEVENTS           | Thresholds                                                                                                                                                                   |                                                                 |             |
+| CRITICALSPEEDEVENTS          | Thresholds                                                                                                                                                                   |                                                                 |             |
+| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\} | %\{type\} eq "output" and %\{queue_file_enabled\}=~ /true\|yes/i |             |
+| WARNINGSTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}  |                                                                 |             |
+| WARNINGUNACKNOWLEDGEDEVENTS  | Thresholds                                                                                                                                                                   |                                                                 |             |
+| CRITICALUNACKNOWLEDGEDEVENTS | Thresholds                                                                                                                                                                   |                                                                 |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                     | --verbose                                                       |             |
 
 </TabItem>
 <TabItem value="proc-broker-rrd" label="proc-broker-rrd">
 
-| Macro        | Description                                                                                         | Valeur par défaut                               | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | cbd                                             |             |
-| PROCESSARGS  | Filter process arguments                                                                            | '/etc/centreon-broker/central-rrd(.xml\|.json)' |             |
-| PROCESSPATH  | Filter process path                                                                                 |                                                 |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1                                             |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                                                 |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                               | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | cbd                                             |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 | '/etc/centreon-broker/central-rrd(.xml\|.json)' |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                                                 |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           | 1:1                                             |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                                                 |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --cpu --memory                                  |             |
 
 </TabItem>
 <TabItem value="proc-broker-sql" label="proc-broker-sql">
 
-| Macro        | Description                                                                                         | Valeur par défaut                                  | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | cbd                                                |             |
-| PROCESSARGS  | Filter process arguments                                                                            | '/etc/centreon-broker/central-broker(.xml\|.json)' |             |
-| PROCESSPATH  | Filter process path                                                                                 |                                                    |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1                                                |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                                                    |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                                  | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | cbd                                                |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 | '/etc/centreon-broker/central-broker(.xml\|.json)' |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                                                    |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           | 1:1                                                |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                                                    |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --cpu --memory                                     |             |
 
 </TabItem>
 <TabItem value="proc-centcore" label="proc-centcore">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | centcore          |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | centcore          |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="proc-centengine" label="proc-centengine">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | centengine        |             |
-| PROCESSPATH  | Filter process path                                                                                 | /usr/sbin/        |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | centengine        |             |
+| PROCESSPATH  | Filter process path                                                                                                                      | /usr/sbin/        |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="proc-centreontrapd" label="proc-centreontrapd">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | centreontrapd     |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | centreontrapd     |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="proc-crond" label="proc-crond">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | crond\|cron       |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | crond\|cron       |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 |                   |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="proc-gorgoned" label="proc-gorgoned">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | perl              |             |
-| PROCESSARGS  | Filter process arguments                                                                            | /usr/bin/gorgoned |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | perl              |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 | /usr/bin/gorgoned |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --cpu --memory    |             |
 
 </TabItem>
 <TabItem value="proc-httpd" label="proc-httpd">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | httpd\|apache2    |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | httpd\|apache2    |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 |                   |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="proc-ntpd" label="proc-ntpd">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | ntpd\|chronyd     |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                              | Default value                  | Mandatory   |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | ntpd\|chronyd\|systemd-timesyn |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                                |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 |                                |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           | 1:1                            |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="proc-snmptrapd" label="proc-snmptrapd">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | snmptrapd         |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | snmptrapd         |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="proc-sshd" label="proc-sshd">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | sshd              |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | sshd              |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 |                   |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
@@ -635,28 +636,28 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 <Tabs groupId="sync">
 <TabItem value="Broker-Stats" label="Broker-Stats">
 
-| Option                   | Description                                                                                                                                                                                                                                    |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --ssh-backend            | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                             |
-| --ssh-username           | Define the user name to log in to the host.                                                                                                                                                                                                    |
-| --ssh-password           | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                           |
-| --ssh-port               | Define the TCP port on which SSH is listening.                                                                                                                                                                                                 |
-| --ssh-priv-key           | Define the private key file to use for user authentication.                                                                                                                                                                                    |
-| --sshcli-command         | ssh command (default: 'ssh').                                                                                                                                                                                                                  |
-| --sshcli-path            | ssh command path (default: none)                                                                                                                                                                                                               |
-| --sshcli-option          | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                                              |
-| --plink-command          | plink command (default: 'plink').                                                                                                                                                                                                              |
-| --plink-path             | plink command path (default: none)                                                                                                                                                                                                             |
-| --plink-option           | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                          |
-| --libssh-strict-connect  | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                            |
-| --hostname               | Hostname to query in ssh.                                                                                                                                                                                                                      |
-| --timeout                | Timeout in seconds for the command (Default: 30).                                                                                                                                                                                              |
-| --sudo                   | Use 'sudo' to execute the command.                                                                                                                                                                                                             |
-| --broker-stats-file      | Specify the centreon-broker json stats file (Required). Can be multiple.                                                                                                                                                                       |
-| --filter-name            | Filter endpoint name.                                                                                                                                                                                                                          |
-| --warning-* --critical-* | Thresholds. Can be: 'speed-events', 'queued-events', 'unacknowledged-events'.                                                                                                                                                                  |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                            |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%\{type\} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}    |
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                          |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --ssh-backend            | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                                                                                                                                                                                   |
+| --ssh-username           | Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                          |
+| --ssh-password           | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                                                                                                                                                                                 |
+| --ssh-port               | Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                       |
+| --ssh-priv-key           | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                          |
+| --sshcli-command         | ssh command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                        |
+| --sshcli-path            | ssh command path (default: none)                                                                                                                                                                                                                                                                                                                                                                     |
+| --sshcli-option          | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no'). The default option is --sshcli-options='-o=LogLevel=ERROR' which hides the SSH banner. If you override this parameter, make sure to append '-o=LogLevel=ERROR' to your new value to maintain this behavior. This parameter can be used multiple times and multiple options can be specified in the same parameter. |
+| --plink-command          | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                    |
+| --plink-path             | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                   |
+| --plink-option           | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                |
+| --libssh-strict-connect  | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                                                                                                                                                                                  |
+| --hostname               | Hostname to query in ssh.                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                | Timeout in seconds for the command (Default: 30).                                                                                                                                                                                                                                                                                                                                                    |
+| --sudo                   | Use 'sudo' to execute the command.                                                                                                                                                                                                                                                                                                                                                                   |
+| --broker-stats-file      | Specify the centreon-broker json stats file (Required). Can be multiple.                                                                                                                                                                                                                                                                                                                             |
+| --filter-name            | Filter endpoint name.                                                                                                                                                                                                                                                                                                                                                                                |
+| --warning-* --critical-* | Thresholds. Can be: 'speed-events', 'queued-events', 'unacknowledged-events'.                                                                                                                                                                                                                                                                                                                        |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                                                                                                                                                                          |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%\{type\} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                                                                                                 |
 
 </TabItem>
 <TabItem value="proc-broker-rrd" label="proc-broker-rrd">

@@ -25,7 +25,7 @@ jobs:
           run_install: false
 
       - name: Set up Node
-        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
           cache: pnpm
@@ -45,7 +45,7 @@ jobs:
         run: ARCHIVED_VERSION="${{ github.event.inputs.version }}" pnpm build
 
       - name: Store build archived doc in cache
-        uses: actions/cache/save@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
+        uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
@@ -55,7 +55,7 @@ jobs:
     runs-on: infrastructure
     steps:
       - name: Restore built archived doc from cache
-        uses: actions/cache/restore@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
+        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
@@ -63,9 +63,11 @@ jobs:
 
       - name: Setup awscli
         run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          sudo unzip -q awscliv2.zip
-          sudo ./aws/install
+          if ! command -v aws >/dev/null 2>&1; then
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            sudo unzip -q awscliv2.zip
+            sudo ./aws/install
+          fi
         shell: bash
 
       - name: Copy to S3

@@ -39,9 +39,19 @@ const cloud = (() => {
   return true;
 })();
 
+const dem = (() => {
+  if (archivedVersion) {
+    return false;
+  }
+  if (process.env.DEM !== undefined && process.env.DEM === '0') {
+    return false;
+  }
+  return true;
+})();
+
 const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
 
-if (versions.length == 0 && !pp && !cloud) {
+if (versions.length == 0 && !pp && !cloud && !dem) {
   throw new Error('Nothing is selected for build');
 }
 
@@ -59,9 +69,9 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl,
-  onBrokenLinks: archivedVersion || !cloud || !pp ? 'log' : 'throw',
-  onBrokenMarkdownLinks: archivedVersion || !cloud || !pp  ? 'log' : 'throw',
-  onBrokenAnchors: archivedVersion || !cloud || !pp ? 'log' : 'throw',
+  onBrokenLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
+  onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
+  onBrokenAnchors: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -109,7 +119,7 @@ const config = {
               (accumulator, currentValue) => {
                 accumulator[currentValue] = {
                   label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
-                  banner: currentValue === '22.10' ? 'unmaintained' : 'none',
+                  banner: currentValue === '23.10' ? 'unmaintained' : 'none'
                 }
 
                 return accumulator;
@@ -141,8 +151,8 @@ const config = {
       ({
         hashed: true,
         indexBlog: false,
-        docsRouteBasePath: ["docs", "cloud", "pp"],
-        docsDir: ["i18n", "versioned_docs", "cloud", "pp"],
+        docsRouteBasePath: ["docs", "cloud", "pp", "dem"],
+        docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem"],
         explicitSearchResultPath: true,
         // searchContextByPaths: [
         //   {
@@ -215,6 +225,25 @@ const config = {
             path: 'pp',
             routeBasePath: 'pp',
             sidebarPath: './pp/sidebarsPp.js',
+            breadcrumbs: true,
+            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+            editLocalizedFiles: true,
+            showLastUpdateTime: true,
+          },
+        ],
+      ];
+    }
+
+    if (dem) {
+      plugins = [
+        ...plugins,
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'dem',
+            path: 'dem',
+            routeBasePath: 'dem',
+            sidebarPath: './dem/sidebarsDem.js',
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
@@ -333,6 +362,18 @@ const config = {
             ];
           }
 
+          if (dem) {
+            items = [
+              ...items,
+              {
+                to: '/dem/getting-started/welcome',
+                label: 'Quanta by Centreon',
+                position: 'left',
+                activeBaseRegex: '/dem/',
+              },
+            ];
+          }
+
           return [
             ...items,
             {
@@ -411,3 +452,4 @@ const config = {
 };
 
 export default config;
+

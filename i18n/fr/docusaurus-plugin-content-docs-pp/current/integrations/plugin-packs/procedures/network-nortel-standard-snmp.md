@@ -1,15 +1,26 @@
 ---
 id: network-nortel-standard-snmp
-title: Nortel Standard
+title: Extreme (formerly Nortel/Avaya) SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Compatibilité
+
+Ce connecteur a été conçu pour être compatible avec les produits suivants.
+
+| Produit     | Modèles       | Versions |
+| ----------- | ------------- | -------- |
+| Extreme Networks | 4950GTS-PWR+ | - |
+| Extreme Networks | 5520-24T | - |
+| Extreme Networks | 7520-48Y-8C | - |
+| Extreme Networks | 7520-48YE-8CE | - |
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Nortel Standard** apporte un modèle d'hôte :
+Le connecteur de supervision **Extreme (formerly Nortel/Avaya) SNMP** apporte un modèle d'hôte :
 
 * **Net-Nortel-Standard-SNMP-custom**
 
@@ -85,14 +96,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Métrique         | Unité      |
-|:--------------------|:----------|
-| fan.status          | N/A       |
-| card.status          | N/A       |
-| entity.status   | N/A   |
-| led.status       | N/A     |
-| temperature.status         | N/A       |
-| psu.status         | N/A       |
+| Métrique           | Unité |
+|:-------------------|:------|
+| fan.status         | N/A   |
+| card.status        | N/A   |
+| entity.status      | N/A   |
+| led.status         | N/A   |
+| temperature.status | N/A   |
+| psu.status         | N/A   |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -143,7 +154,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

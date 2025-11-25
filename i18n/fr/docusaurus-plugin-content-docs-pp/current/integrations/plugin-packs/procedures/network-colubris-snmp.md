@@ -129,7 +129,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -317,8 +320,6 @@ yum install centreon-plugin-Network-Colubris-Snmp
 
 | Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCURRENT    | Warning threshold                                                                                                                                |                   |             |
-| CRITICALCURRENT   | Critical threshold                                                                                                                               |                   |             |
 | WARNINGUSAGEPRCT  | Warning threshold                                                                                                                                |                   |             |
 | CRITICALUSAGEPRCT | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |

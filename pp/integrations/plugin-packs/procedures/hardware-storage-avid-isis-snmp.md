@@ -18,12 +18,12 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-Avid-Isis-SNMP-custom" label="HW-Storage-Avid-Isis-SNMP-custom">
 
-| Service Alias | Service Template                                   | Service Description |
-|:--------------|:---------------------------------------------------|:--------------------|
-| Hardware      | Hardware-Storage-Avid-Isis-Hardware-SNMP-custom    |                     |
-| Performance   | Hardware-Storage-Avid-Isis-Performance-SNMP-custom |                     |
-| Status        | Hardware-Storage-Avid-Isis-Status-SNMP-custom      |                     |
-| Usage         | Hardware-Storage-Avid-Isis-Usage-SNMP-custom       |                     |
+| Service Alias | Service Template                                   | Service Description                                             |
+|:--------------|:---------------------------------------------------|:----------------------------------------------------------------|
+| Hardware      | Hardware-Storage-Avid-Isis-Hardware-SNMP-custom    | Check hardware                                                  |
+| Performance   | Hardware-Storage-Avid-Isis-Performance-SNMP-custom | Check client performances                                       |
+| Status        | Hardware-Storage-Avid-Isis-Status-SNMP-custom      | Check System Director state and workspaces redistributing count |
+| Usage         | Hardware-Storage-Avid-Isis-Usage-SNMP-custom       | Check storage usage                                             |
 
 > The services listed above are created automatically when the **HW-Storage-Avid-Isis-SNMP-custom** host template is used.
 
@@ -47,15 +47,33 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-Coming soon
+| Name                         | Unit  |
+|:-----------------------------|:------|
+| hardware.alarm.status        | N/A   |
+| hardware.alarm.count         | count |
+| hardware.fan.status          | N/A   |
+| hardware.fan.count           | count |
+| hardware.pdrive.status       | N/A   |
+| hardware.pdrive.count        | count |
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.sim.status          | N/A   |
+| hardware.sim.count           | count |
+| hardware.slot.status         | N/A   |
+| hardware.slot.count          | count |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
+| hardware.temperature.celsius | C     |
+| hardware.vdrive.status       | N/A   |
+| hardware.vdrive.count        | count |
 
 </TabItem>
 <TabItem value="Performance" label="Performance">
 
-| Metric name      | Unit       |
+| Name             | Unit       |
 |:-----------------|:-----------|
-| active_clients   | clients    |
-| open-files       | files      |
+| active_clients   | count      |
+| open-files       | count      |
 | processing-speed | messages/s |
 | read-throughput  | B/s        |
 | write-throughput | B/s        |
@@ -65,7 +83,7 @@ Coming soon
 </TabItem>
 <TabItem value="Status" label="Status">
 
-| Metric name          | Unit  |
+| Name                 | Unit  |
 |:---------------------|:------|
 | status               | N/A   |
 | redistributing-count | N/A   |
@@ -75,7 +93,7 @@ Coming soon
 </TabItem>
 <TabItem value="Usage" label="Usage">
 
-| Metric name     | Unit  |
+| Name            | Unit  |
 |:----------------|:------|
 | allocated       | B     |
 | workspace-count | N/A   |
@@ -91,7 +109,10 @@ Coming soon
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

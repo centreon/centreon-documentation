@@ -5,17 +5,19 @@ title: Upgrade from Centreon 24.04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon platform from version 24.04 to version 24.10.
+This chapter describes how to upgrade your Centreon platform from version 24.04 to version 25.10.
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
 >
 > All servers in your architecture must have the same version of Centreon.
 >
-> In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+> In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
 
 > If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
 
-> Version 24.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+> Version 25.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+
+> If you were using MySQL 8.0, you may want to [upgrade to MySQL 8.4](upgrade-mysql.md) before the end of support for version 8.0. at the end of April 2026.
 
 > Warning: If you were using the following monitoring connectors, from version 24.10 you must declare all of their configurations using [the **Configuration \> Additional connector configurations** page](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) before deploying the configuration of the corresponding poller:
 > * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
@@ -51,16 +53,18 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 2. Remove the repository files:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-24.04.repo
-   rm /etc/yum.repos.d/centreon.repo
+   cd /etc/yum.repos.d/
+   rm -rf centreon*
    ```
 
 3. Install the new repository:
 
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
-```
+   ```shell
+   dnf install -y dnf-plugins-core
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+   systemctl stop cbd
+   dnf clean all --enablerepo=*
+   ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -78,7 +82,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 ```
 
 </TabItem>
@@ -89,7 +93,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 2. Run the following commands:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -105,13 +109,11 @@ apt update
 
 > If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
 >
-> If you have a Business edition, do the same with the Business repository.
->
 > You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 ### Upgrade PHP
 
-Centreon 24.10 uses PHP in version 8.2.
+Centreon 25.10 uses PHP in version 8.2.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -120,11 +122,18 @@ You need to change the PHP stream from version 8.1 to 8.2 by executing the follo
 to confirm:
 
 ```shell
+dnf config-manager --disable remi-modular remi-safe
+dnf module disable composer:2
+dnf module disable php:remi-8.1
+rm -rf /etc/yum.repos.d/remi*
 dnf module reset php
 ```
 
 ```shell
-dnf module enable php:remi-8.2
+dnf module enable php:8.2
+dnf distro-sync php\* --allowerasing
+su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
+systemctl restart php-fpm
 ```
 
 </TabItem>
@@ -247,7 +256,7 @@ dnf update centreon\* php-pecl-gnupg
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-apt install --only-upgrade centreon\*
+apt install --only-upgrade centreon
 ```
 
 </TabItem>
@@ -523,14 +532,14 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
    -  port: 80
-   -  version: 24.10
+   -  version: 25.10
    -  login: Admin
    -  password: xxxxx
 
 2. Enter the following request:
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v25.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -618,9 +627,20 @@ with the following:
 
    Then you can upgrade all other commercial extensions.
 
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. If you were using custom commands for a poller (on the **Configuration > Pollers > Pollers** page, in the **Monitoring Engine Information** section), be aware that a new validation regex is now applied (`[a-zA-Z0-9\-\_]+`): your custom commands may need to be adapted. On the central server:
+   * To identify commands that must be adapted, run:
+     ```shell
+     sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
+     ```
+   * To adapt the commands automatically, run:
+     ```shell
+     sudo -u apache php /usr/share/centreon/bin/console w:m:c
+     ```
+     (You can also adapt them manually.)
 
-3. Restart the processes:
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Restart the processes:
 
     ``` shell
     systemctl restart cbd centengine centreontrapd gorgoned
@@ -643,7 +663,7 @@ Run the following command:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 ```
 
 </TabItem>
@@ -651,14 +671,14 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 apt update
 ```
 
@@ -726,4 +746,26 @@ Restart **centreon**:
 
 ```shell
 systemctl restart centreon
+```
+
+### Retrieving the decryption key
+
+Run the following script to enable the poller to receive and process encrypted data: 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Example:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> You must use the default **admin** account as the **\<API_ACCOUNT\>**.
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
 ```

@@ -1,21 +1,19 @@
 ---
 id: operatingsystems-windows-centreon-monitoring-agent
-title: Windows Centreon Monitoring Agent
+title: Windows CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Le connecteur **Windows CMA** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent - CMA). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
-> Pour le moment, ce connecteur de supervision est en version **BETA**.
-
-Vous pouvez consulter [cette page](../getting-started/how-to-guides/cma.md) pour plus d'informations sur ce que permet 
-Centreon Monitoring Agent.
+Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Windows Centreon Monitoring Agent** apporte un modèle d'hôte :
+Le connecteur de supervision **Windows CMA** apporte un modèle d'hôte :
 
 * **OS-Windows-Centreon-Monitoring-Agent-custom**
 
@@ -25,27 +23,36 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-Centreon-Monitoring-Agent-custom" label="OS-Windows-Centreon-Monitoring-Agent-custom">
 
-| Alias          | Modèle de service                                          | Description                                                                                                                                                               |
-|:---------------|:-----------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
-| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Contrôle du taux d'utilisation de la mémoire                                                                                                                           |
-| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Contrôle la synchronisation avec un serveur NTP                                                                                                                           |
-| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Contrôle si Windows nécessite un redémarrage                                                                                                                              |
-| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Contrôle le nombre de sessions actives                                                                                                                                    |
-| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |
-| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Contrôle si des mises à jour sont en attente                                                                                                                              |
-| Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Contrôle la durée depuis laquelle le serveur tourne sans interruption                                                                                                     |
+| Alias          | Modèle de service                                          | Description                                                                                                                                                               | Type de contrôle |
+|:---------------|:-----------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
+| CMA-Health     | OS-Windows-Health-Centreon-Monitoring-Agent-custom         | Contrôle permettant de vérifier l'état de santé de l'agent Centreon                                                                                                       | natif            |
+| CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif            |
+| CPU-detailed   | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif            |
+| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Contrôle du taux d'utilisation de la mémoire                                                                                                                              | natif            |
+| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Contrôle la synchronisation avec un serveur NTP                                                                                                                           | non natif        |
+| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Contrôle si Windows nécessite un redémarrage                                                                                                                              | non natif        |
+| Services-Auto  | OS-Windows-Services-Auto-Centreon-Monitoring-Agent-custom  | Contrôle permettant de vérifier si les services Windows automatiques sont démarrés                                                                                        | natif            |
+| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Contrôle le nombre de sessions actives                                                                                                                                    | non natif        |
+| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    | natif            |
+| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Contrôle si des mises à jour sont en attente                                                                                                                              | non natif        |
+| Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Contrôle la durée depuis laquelle le serveur tourne sans interruption                                                                                                     | natif            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias        | Modèle de service                                        | Description                                                                                                                                                               |
-|:-------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Certificates | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Contrôle les certificats locaux                                                                                                                                           |
-| CPU-detailed | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
-| Storage      | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Contrôle du taux d'utilisation des disques                                                                                                                                |
+| Alias           | Modèle de service                                           | Description                                                                                                                                                               | Type de contrôle |
+|:----------------|:------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
+| Certificates    | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom    | Contrôle les certificats locaux                                                                                                                                           | non natif        |
+| Counter         | OS-Windows-Counter-Generic-Centreon-Monitoring-Agent-custom | Contrôle la valeur d'un compteur Windows _perfmon_.                                                                                                                       | natif            |
+| Eventlog-Nscp   | OS-Windows-Eventlog-Nscp-Centreon-Monitoring-Agent-custom   | Contrôle les événements en erreur dans les eventlogs à la manière de NSClient++                                                                                           | natif            |
+| Files-Generic   | OS-Windows-Files-Generic-Centreon-Monitoring-Agent-custom   | Contrôle la taille ou n'importe quel aspect d'un fichier à la manière de NSClient+.+.                                                                                     | natif            |
+| Process-generic | OS-Windows-Process-Nscp-Centreon-Monitoring-Agent-custom    | Contrôle le statut d'un processus.                                                                                                                                        | natif            |
+| Services        | OS-Windows-Services-Centreon-Monitoring-Agent-custom        | Contrôle permettant de vérifier l'état des services Windows                                                                                                               | natif            |                    
+| Storage         | OS-Windows-Storage-Centreon-Monitoring-Agent-custom         | Contrôle du taux d'utilisation des disques                                                                                                                                | natif            |
+| Task-Global     | OS-Windows-Task-Global-Centreon-Monitoring-Agent-custom     | Contrôle le résultat de la dernière exécution des tâches planifiées Windows.                                                                                              | natif            |
+| Task-Name       | OS-Windows-Task-Name-Centreon-Monitoring-Agent-custom       | Contrôle le résultat de la dernière exécution d'une tâche planifiée Windows.                                                                                              | natif            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -59,15 +66,35 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Certificates" label="Certificates">
 
-| Métrique                             | Unité |
+| Nom                                  | Unité |
 |:-------------------------------------|:------|
 | certificates.detected.count          | count |
 | certificate#certificate.expires.days | d     |
 
 </TabItem>
+<TabItem value="CMA-Health" label="CMA-Health">
+
+| Nom      | Unité |
+|:---------|:------|
+| runtime  | s     |
+| interval | s     |
+
+</TabItem>
+<TabItem value="Counter-Generic" label="Counter-Generic">
+
+| Nom            | Unité  |
+|:---------------|:-------|
+| *counter_name* | *unit* |
+| critical-count | count  |
+| warning-count  | count  |
+| _total         | *unit* |
+
+The counters names and their unit depend on the specified counters.
+
+</TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Métrique                                     | Unité |
+| Nom                                          | Unité |
 |:---------------------------------------------|:------|
 | *core_index*#core.cpu.utilization.percentage | %     |
 | user#cpu.utilization.percentage              | %     |
@@ -75,20 +102,37 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
-| Métrique                                                    | Unité |
+| Nom                                                         | Unité |
 |:------------------------------------------------------------|:------|
 | *core_index*\~user#core.cpu.utilization.percentage          | %     |
 | user#cpu.utilization.percentage                             | %     |
- | *core_index*\~system#core.cpu.utilization.percentage        | %     |
- | *core_index*\~idle#core.cpu.utilization.percentage          | %     |
- | *core_index*\~interrupt#core.cpu.utilization.percentage     | %     |
- | *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %     |
- | *core_index*\~used#core.cpu.utilization.percentage          | %     |
+| *core_index*\~system#core.cpu.utilization.percentage        | %     |
+| *core_index*\~idle#core.cpu.utilization.percentage          | %     |
+| *core_index*\~interrupt#core.cpu.utilization.percentage     | %     |
+| *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %     |
+| *core_index*\~used#core.cpu.utilization.percentage          | %     |
+
+</TabItem>
+<TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
+
+| Nom            | Unité |
+|:---------------|:------|
+| critical-count | count |
+| warning-count  | count |
+
+</TabItem>
+<TabItem value="Files-Generic" label="Files-Generic">
+
+| Nom            | Unité |
+|:---------------|:------|
+| critical_count | count |
+| warning_count  | count |
+| ok_count       | count |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | memory.usage.bytes      | B     |
 | memory.free.bytes       | B     |
@@ -97,9 +141,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Métrique    | Unité |
-|:------------|:------|
-| offset      | s     |
+| Nom    | Unité |
+|:-------|:------|
+| offset | s     |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
@@ -107,9 +151,42 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 Pas de métrique pour ce service.
 
 </TabItem>
+<TabItem value="Process-Generic" label="Process-Generic">
+
+| Nom           | Unité |
+|:--------------|:------|
+| process.count | count |
+
+</TabItem>
+<TabItem value="Services" label="Services">
+
+| Nom                       | Unité |
+|:--------------------------|:------|
+| services.stopped.count    | count |
+| services.starting.count   | count |
+| services.stopping.count   | count |
+| services.running.count    | count |
+| services.continuing.count | count |
+| services.pausing.count    | count |
+| services.paused.count     | count |
+
+</TabItem>
+<TabItem value="Services-Auto" label="Services-Auto">
+
+| Nom                       | Unité |
+|:--------------------------|:------|
+| services.stopped.count    | count |
+| services.starting.count   | count |
+| services.stopping.count   | count |
+| services.running.count    | count |
+| services.continuing.count | count |
+| services.pausing.count    | count |
+| services.paused.count     | count |
+
+</TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | sessions.created.total.count        | count |
 | sessions.disconnected.total.count   | count |
@@ -122,15 +199,15 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Métrique  | Unité |
-|:----------|:------|
-| used_C:\  | B     |
-| used_D:\  | B     |
+| Nom      | Unité |
+|:---------|:------|
+| used_C:\ | B     |
+| used_D:\ | B     |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | memory.usage.bytes      | B     |
 | memory.free.bytes       | B     |
@@ -140,18 +217,38 @@ Pas de métrique pour ce service.
 | swap.usage.percentage   | %     |
 
 </TabItem>
+<TabItem value="Task-Global" label="Task-Global">
+
+| Nom            | Unité     |
+|:---------------|:----------|
+| *task_name*    | exit_code |
+| ok_count       | count     |
+| warning_count  | count     |
+| critical_count | count     |
+
+</TabItem>
+<TabItem value="Task-Name" label="Task-Name">
+
+| Nom            | Unité     |
+|:---------------|:----------|
+| *task_name*    | exit_code |
+| ok_count       | count     |
+| warning_count  | count     |
+| critical_count | count     |
+
+</TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Métrique                      | Unité |
+| Nom                           | Unité |
 |:------------------------------|:------|
 | windows.pending.updates.count | count |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Métrique | Unité |
-|:---------|:------|
-| uptime   | s     |
+| Nom    | Unité |
+|:-------|:------|
+| uptime | s     |
 
 </TabItem>
 </Tabs>
@@ -166,24 +263,19 @@ Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 |----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
 | Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
 
-### Prérequis système sur le collecteur
+### Prérequis système pour le collecteur
 
 > Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
+minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la version--> `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent récupérera sa configuration en se connectant à Centreon Engine.
 
-### Configuration de Centreon Engine
+### Configuration de la communication collecteur/agent
 
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma.md#configurez-engine).
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
 
-### Prérequis système sur l'hôte à superviser
+### Prérequis système pour l'hôte à superviser
 
-L'installateur de Centreon Monitoring Agent pour Windows peut se télécharger à partir des [pages de release du projet
-centreon-collect](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
-
-#### Installation de Centreon Monitoring Agent
-
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
-[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma.md#étape-2--préparez-lhôte).
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur
+[cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte)
 
 ## Installer le connecteur de supervision
 
@@ -226,20 +318,20 @@ apt install centreon-pack-operatingsystems-windows-centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows Centreon Monitoring Agent**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows CMA**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 3. Créez le connecteur suivant :
 
 Dans le menu **Configuration > Commandes > Connecteurs**, cliquez sur **Ajouter** puis saisissez les champs suivants :
 
-| Paramètre                 | Valeur                                                                                                                                                                                        |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                                     |
-| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                                     |
+| Paramètre                 | Valeur                                                                                                                                                                                      |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                               |
+| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                               |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `OS-Windows-Centreon-Monitoring-Agent-*`                                                                                           |
-| Statut du connecteur      | Activé                                                                                                                                                                                        |
+| Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `OS-Windows-Centreon-Monitoring-Agent-*`                                                                                         |
+| Statut du connecteur      | Activé                                                                                                                                                                                      |
 
 ### Plugin
 
@@ -275,52 +367,115 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | FILTERTHUMBPRINT             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |                   |             |
 | FILTERPATH                   | Filter certificate by path (can be a regexp).                                                                                                               |                   |             |
 | THRESHOLDSUNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. | d                 |             |
-| WARNINGCERTIFICATEEXPIRES    | Thresholds.                                                                                                                                                 | 60:               |             |
-| CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 | 30:               |             |
-| WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |                   |             |
-| CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |                   |             |
+| WARNINGCERTIFICATEEXPIRES    | Thresholds                                                                                                                                                  | 60:               |             |
+| CRITICALCERTIFICATEEXPIRES   | Thresholds                                                                                                                                                  | 30:               |             |
+| WARNINGCERTIFICATESDETECTED  | Thresholds                                                                                                                                                  |                   |             |
+| CRITICALCERTIFICATESDETECTED | Thresholds                                                                                                                                                  |                   |             |
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    |                   |             |
+
+</TabItem>
+<TabItem value="CMA-Health" label="CMA-Health">
+
+| Macro            | Description                                                  | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGRUNTIME   | Warning if a check duration is greater than this value (s)   |                   |             |
+| CRITICALRUNTIME  | Critical if a check duration is greater than this value (s)  |                   |             |
+| WARNINGINTERVAL  | Warning if a check interval is greater than this value (s)   |                   |             |
+| CRITICALINTERVAL | Critical if a check interval is greater than this value (s)  |                   |             |
+
+</TabItem>
+<TabItem value="Counter-Generic" label="Counter-Generic">
+
+| Macro          | Description                                                                                                       | Valeur par défaut   | Obligatoire |
+|:---------------|:------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
+| COUNTERNAME    | Counter name. Examples: `\\System\\System Up Time`, `\\LogicalDisk(*)\\% Free Space`.                             |                     |      X      |
+| DETAILSYNTAX   | Format for each element inside `{list}`. Place-holders: `{label}`, `{value}`.                                     | `{alias} = {value}` |             |
+| WARNING        | Minimum WARNING items before overall status is WARNING.                                                           | 1                   |             |
+| CRITICAL       | Minimum CRITICAL items before overall status is CRITICAL.                                                         | 1                   |             |
+| WARNINGSTATUS  | Filter expression that marks an item WARNING. Example: `value > 80`.                                              |                     |             |
+| CRITICALSTATUS | Filter expression that marks an item CRITICAL. Example: `value > 90`.                                             |                     |             |
+| OUTPUTSYNTAX   | Format the output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, ... | `{status}: {list}`  |             |
+| USEENGLISH     | Force the use of English counter names, otherwise they'll be in the local language.                               | true                |             |
+| VERBOSE        | Add verbose output in the end.                                                                                    | false               |             |
 
 </TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Macro           | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCORE     | Threshold for warning status on core usage in percentage                                                                                 |                   |             |
-| CRITICALCORE    | Threshold for critical status on core usage in percentage                                                                                |                   |             |
-| WARNINGAVERAGE  | Threshold for warning status on average usage in percentage                                                                              |                   |             |
-| CRITICALAVERAGE | Threshold for critical status on average usage in percentage                                                                             |                   |             |
+| Macro           | Description                                                  | Valeur par défaut | Obligatoire |
+|:----------------|:-------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCORE     | Threshold for warning status on core usage in percentage     |                   |             |
+| CRITICALCORE    | Threshold for critical status on core usage in percentage    |                   |             |
+| WARNINGAVERAGE  | Threshold for warning status on average usage in percentage  |                   |             |
+| CRITICALAVERAGE | Threshold for critical status on average usage in percentage |                   |             |
+
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
-| Macro                 | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCORE           | Threshold for warning status on core usage in percentage                                                                                 |                   |             |
-| CRITICALCORE          | Threshold for critical status on core usage in percentage                                                                                |                   |             |
-| WARNINGAVERAGE        | Threshold for warning status on average usage in percentage                                                                              |                   |             |
-| CRITICALAVERAGE       | Threshold for critical status on average usage in percentage                                                                             |                   |             |
-| WARNINGCOREUSER       | Threshold for warning status on core user usage in percentage                                                                            |                   |             |
-| CRITICALCOREUSER      | Threshold for critical status on core user usage in percentage                                                                           |                   |             |
-| WARNINGAVERAGEUSER    | Threshold for warning status on average user usage in percentage                                                                         |                   |             |
-| CRITICALAVERAGEUSER   | Threshold for critical status on average user usage in percentage                                                                        |                   |             |
-| WARNINGCORESYSTEM     | Threshold for warning status on core system usage in percentage                                                                          |                   |             |
-| CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage                                                                         |                   |             |
-| WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage                                                                       |                   |             |
-| CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage                                                                      |                   |             |
+| Macro                 | Description                                                         | Valeur par défaut | Obligatoire |
+|:----------------------|:--------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCORE           | Threshold for warning status on core usage in percentage            |                   |             |
+| CRITICALCORE          | Threshold for critical status on core usage in percentage           |                   |             |
+| WARNINGAVERAGE        | Threshold for warning status on average usage in percentage         |                   |             |
+| CRITICALAVERAGE       | Threshold for critical status on average usage in percentage        |                   |             |
+| WARNINGCOREUSER       | Threshold for warning status on core user usage in percentage       |                   |             |
+| CRITICALCOREUSER      | Threshold for critical status on core user usage in percentage      |                   |             |
+| WARNINGAVERAGEUSER    | Threshold for warning status on average user usage in percentage    |                   |             |
+| CRITICALAVERAGEUSER   | Threshold for critical status on average user usage in percentage   |                   |             |
+| WARNINGCORESYSTEM     | Threshold for warning status on core system usage in percentage     |                   |             |
+| CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage    |                   |             |
+| WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage  |                   |             |
+| CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage |                   |             |
+
+</TabItem>
+<TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
+
+| Macro             | Description                                                                                                                                                   | Valeur par défaut                                           | Obligatoire |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-----------:|
+| FILE              | Event log file to monitor                                                                                                                                     |                                                             |             |
+| FILTEREVENT       | Filter to apply on event log                                                                                                                                  | written > 60m and level in ('error', 'warning', 'critical') |             |
+| SCANRANGE         | Validity of events, can be s, second, m, minute, h, hour, d, day, w, week                                                                                     | 24h                                                         |             |
+| WARNINGSTATUS     | Filter to apply on event log to get warning events                                                                                                            | level = 'warning'                                           |             |
+| CRITICALSTATUS    | Filter to apply on event log to get critical events                                                                                                           | level in ('error', 'critical')                              |             |
+| WARNINGCOUNT      | Number of warning events to trigger a warning                                                                                                                 | 1                                                           |             |
+| CRITICALCOUNT     | Number of critical events to trigger a critical                                                                                                               | 1                                                           |             |
+| EMPTYSTATE        | Message to display when no event is found                                                                                                                     | Empty or no match for this filter                           |             |
+| OUTPUTSYNTAX      | Output format when status is not ok                                                                                                                           | \{status\}: \{count\} \{problem_list\}                      |             |
+| OKSYNTAX          | Output format when status is ok                                                                                                                               | \{status\}: Event log seems fine                            |             |
+| EVENTDETAILSYNTAX | Output format for each event                                                                                                                                  | '\{source\} \{id\}'                                         |             |
+| UNIQUEINDEX       | Unique index for events, events are grouped by this index. For example is two events have the same provider and the same id, only latest is printed to output | \{provider\}\{id\}                                          |             |
+| VERBOSE           | Display all events in long plugins output format (one line per event)                                                                                         | true                                                        |             |
+
+</TabItem>
+<TabItem value="Files-Generic" label="Files-Generic">
+
+| Macro          | Description                                                                                                                                                                        | Valeur par défaut                                          | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:-----------:|
+| PATHS          | Root directory to search files in.                                                                                                                                                 |                                                            |      X      |
+| PATTERN        | Shell-style wildcards pattern to match filenames.                                                                                                                                  | `*.*`                                                      |             |
+| FILTER         | Filter expression to select files for the check. Example: `size > 1M && extension == '.dll'`                                                                                       |                                                            |             |
+| MAXDEPTH       | Max recursion depth (0: top only, 1: include subdirs, -1: recursively include all subdirs).                                                                                        | 0                                                          |             |
+| WARNING        | Minimum WARNING files to set overall status to WARNING.                                                                                                                            |                                                            |             |
+| CRITICAL       | Minimum CRITICAL files to set overall status to CRITICAL.                                                                                                                          |                                                            |             |
+| WARNINGSTATUS  | Filter expression: files matching are considered WARNING.                                                                                                                          |                                                            |             |
+| CRITICALSTATUS | Filter expression: files matching are considered CRITICAL.                                                                                                                         |                                                            |             |
+| DETAILSYNTAX   | Format for each file detail inside `{list}`. Placeholders: `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{write}`, `{version}`, `{line_count}`, `{extension}`.      | `{name}`                                                   |             |
+| OUTPUTSYNTAX   | Output format string for the overall check result. Placeholders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, `{problem_count}`, `{ok_count}`, etc. | `{status}: {problem_count}/{count} files ({problem_list})` |             |
+| OKSYNTAX       | Output if all files are OK.                                                                                                                                                        | `{status}: {ok_count} files found - {ok_list}`             |             |
+| VERBOSE        | Display detailed file info.                                                                                                                                                        | false                                                      |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                 | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE          | Threshold for warning status on physical memory usage in bytes                                                                           |                   |             |
-| CRITICALUSAGE         | Threshold for critical status on physical memory usage in bytes                                                                          |                   |             |
-| WARNINGUSAGEFREE      | Threshold for warning status on free physical memory in bytes                                                                            |                   |             |
-| CRITICALUSAGEFREE     | Threshold for critical status on free physical memory in bytes                                                                           |                   |             |
-| WARNINGUSAGEPRCT      | Threshold for warning status on physical memory usage in percentage                                                                      |                   |             |
-| CRITICALUSAGEPRCT     | Threshold for critical status on physical memory usage in percentage                                                                     |                   |             |
-| WARNINGUSAGEFREEPRCT  | Threshold for warning status on free physical memory in percentage                                                                       |                   |             |
-| CRITICALUSAGEFREEPRCT | Threshold for critical status on free physical memory in percentage                                                                      |                   |             |
+| Macro                 | Description                                                          | Valeur par défaut | Obligatoire |
+|:----------------------|:---------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGE          | Threshold for warning status on physical memory usage in bytes       |                   |             |
+| CRITICALUSAGE         | Threshold for critical status on physical memory usage in bytes      |                   |             |
+| WARNINGUSAGEFREE      | Threshold for warning status on free physical memory in bytes        |                   |             |
+| CRITICALUSAGEFREE     | Threshold for critical status on free physical memory in bytes       |                   |             |
+| WARNINGUSAGEPRCT      | Threshold for warning status on physical memory usage in percentage  |                   |             |
+| CRITICALUSAGEPRCT     | Threshold for critical status on physical memory usage in percentage |                   |             |
+| WARNINGUSAGEFREEPRCT  | Threshold for warning status on free physical memory in percentage   |                   |             |
+| CRITICALUSAGEFREEPRCT | Threshold for critical status on free physical memory in percentage  |                   |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -329,20 +484,74 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NTPHOSTNAME    | Set the NTP server to use (if not set, we try to find it with w32tm command).                                                            |                   |             |
 | NTPPORT        | Set the NTP port (default: 123).                                                                                                         |                   |             |
-| WARNINGOFFSET  | Thresholds.                                                                                                                              | -1:1              |             |
-| CRITICALOFFSET | Thresholds.                                                                                                                              | -2:2              |             |
+| WARNINGOFFSET  | Thresholds                                                                                                                               | -1:1              |             |
+| CRITICALOFFSET | Thresholds                                                                                                                               | -2:2              |             |
 | TIMEOUT        | Set timeout time for 'w32tm' command execution (default: 30 sec).                                                                        | 10                |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Macro          | Description                                                                                                                                                                                                                                              | Valeur par défaut             | Obligatoire |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} | `%{RebootPending} =~ /true/i` |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}                           |                               |             |
-| TIMEOUT        | Set timeout time for command execution                                                                                                                                                                                                | 10                            |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                 |                               |             |
+| Macro          | Description                                                                                                                                                                                                                  | Valeur par défaut             | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}  | `%{RebootPending} =~ /true/i` |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} |                               |             |
+| TIMEOUT        | Set timeout time for command execution                                                                                                                                                                                       | 10                            |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                     |                               |             |
+
+</TabItem>
+<TabItem value="Process-Generic" label="Process-Generic">
+
+| Macro          | Description                                                      | Valeur par défaut                     | Obligatoire |
+|:---------------|:-----------------------------------------------------------------|:--------------------------------------|:-----------:|
+| PROCESS        | Name of the executable                                           |                                       |      X      |
+| WARNINGSTATUS  | Filter to apply on processes to identify those in WARNING state  | `status != 'started'`                 |             |
+| CRITICALSTATUS | Filter to apply on processes to identify those in CRITICAL state | `status == 'stopped'`                 |             |
+| WARNINGRULES   | Condition to match for the overall status to be WARNING          | `warn_count > 0`                      |             |
+| CRITICALRULES  | Condition to match for the overall status to be CRITICAL         | `crit_count > 0`                      |             |
+| EMPTYSTATE     | Message to display when no process is found                      | `No files found matching this filter` |             |
+| OUTPUTSYNTAX   | Format of the output when the status is not OK                   | `{status}: {problem_list}`            |             |
+| OKSYNTAX       | Format of the output when the status is OK                       | `{status}: All processes are ok`      |             |
+| DETAILSYNTAX   | How each process is displayed in the output                      | `{exe}={state}`                       |             |
+| VERBOSE        | Display all not ok processes in long output                      | true                                  |             |
+
+</TabItem>
+<TabItem value="Services" label="Services">
+
+| Macro                | Description                                                                                                                               | Valeur par défaut | Obligatoire |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| STARTAUTO            | Only services that start automatically will be counted                                                                                    | false             |             |
+| FILTERNAME           | Regex to filter service names                                                                                                             | .*                |             |
+| EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
+| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
+| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
+| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
+| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
+| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
+| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
+| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
+| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
+
+</TabItem>
+<TabItem value="Services-Auto" label="Services-Auto">
+
+| Macro                | Description                                                                                                                               | Valeur par défaut | Obligatoire |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| STARTAUTO            | Only services that start automatically will be counted                                                                                    | true              |             |
+| FILTERNAME           | Regex to filter service names                                                                                                             | .*                |             |
+| EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
+| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
+| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
+| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
+| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
+| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
+| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
+| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
+| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -351,17 +560,17 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 |:------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERSESSIONNAME                   | Filter session name (can be a regexp).                                                                                                               |                   |             |
 | CONFIG                              | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |                   |             |
-| WARNINGSESSIONSACTIVE               | Thresholds.                                                                                                                                          |                   |             |
-| CRITICALSESSIONSACTIVE              | Thresholds.                                                                                                                                          |                   |             |
-| WARNINGSESSIONSCREATED              | Thresholds.                                                                                                                                          |                   |             |
-| CRITICALSESSIONSCREATED             | Thresholds.                                                                                                                                          |                   |             |
-| WARNINGSESSIONSDISCONNECTED         | Thresholds.                                                                                                                                          |                   |             |
-| CRITICALSESSIONSDISCONNECTED        | Thresholds.                                                                                                                                          |                   |             |
-| WARNINGSESSIONSRECONNECTED          | Thresholds.                                                                                                                                          |                   |             |
-| CRITICALSESSIONSRECONNECTED         | Thresholds.                                                                                                                                          |                   |             |
-| WARNINGSESSIONSDISCONNECTEDCURRENT  | Thresholds.                                                                                                                                          |                   |             |
-| CRITICALSESSIONSDISCONNECTEDCURRENT | Thresholds.                                                                                                                                          |                   |             |
-| TIMEOUT                             | Timeout in seconds for the command                                                                                                   | 10                |             |
+| WARNINGSESSIONSACTIVE               | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSACTIVE              | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSCREATED              | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSCREATED             | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSDISCONNECTED         | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSDISCONNECTED        | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSRECONNECTED          | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSRECONNECTED         | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSDISCONNECTEDCURRENT  | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSDISCONNECTEDCURRENT | Thresholds                                                                                                                                           |                   |             |
+| TIMEOUT                             | Timeout in seconds for the command                                                                                                                   | 10                |             |
 | EXTRAOPTIONS                        | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                   |             |
 
 </TabItem>
@@ -369,24 +578,54 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro             | Description                                                                                                                                                                                                                                                                                    | Valeur par défaut | Obligatoire |
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING           | Thresholds                                                                                                                                                                                                                                                                                     | 80            |           |
-| CRITICAL          | Thresholds                                                                                                                                                                                                                                                                                     | 90            |           |
-| FILTERSTORAGETYPE | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat | .*            |           |
-| FILTERFS          | Case insensitive regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                               | .*            |           |
+| WARNING           | Thresholds                                                                                                                                                                                                                                                                                     | 80                |             |
+| CRITICAL          | Thresholds                                                                                                                                                                                                                                                                                     | 90                |             |
+| FILTERSTORAGETYPE | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat | .*                |             |
+| FILTERFS          | Case insensitive regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                               | .*                |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro                | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGSWAP          | Threshold for warning status on swap memory usage in bytes                                                                               |                   |             |
-| CRITICALSWAP         | Threshold for critical status on swap memory usage in bytes                                                                              |                   |             |
-| WARNINGSWAPFREE      | Threshold for warning status on free swap memory in bytes                                                                                |                   |             |
-| CRITICALSWAPFREE     | Threshold for critical status on free swap memory in bytes                                                                               |                   |             |
-| WARNINGSWAPPRCT      | Threshold for warning status on swap memory usage in percentage                                                                          |                   |             |
-| CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage                                                                         |                   |             |
-| WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage                                                                           |                   |             |
-| CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage                                                                          |                   |             |
+| Macro                | Description                                                      | Valeur par défaut | Obligatoire |
+|:---------------------|:-----------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGSWAP          | Threshold for warning status on swap memory usage in bytes       |                   |             |
+| CRITICALSWAP         | Threshold for critical status on swap memory usage in bytes      |                   |             |
+| WARNINGSWAPFREE      | Threshold for warning status on free swap memory in bytes        |                   |             |
+| CRITICALSWAPFREE     | Threshold for critical status on free swap memory in bytes       |                   |             |
+| WARNINGSWAPPRCT      | Threshold for warning status on swap memory usage in percentage  |                   |             |
+| CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage |                   |             |
+| WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage   |                   |             |
+| CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage  |                   |             |
+
+</TabItem>
+<TabItem value="Task-Global" label="Task-Global">
+
+| Macro          | Description                                                                                                               | Valeur par défaut                                                                               | Obligatoire |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|:-----------:|
+| FILTERTASK     | Filter expression that determines which tasks to check.                                                                   | `enabled == 1`                                                                                  |      X      |
+| WARNINGSTATUS  | Filter expression that marks a task WARNING.                                                                              | `exit_code != 0`                                                                                |             |
+| CRITICALSTATUS | Filter expression that marks a task CRITICAL.                                                                             | `exit_code < 0 \|\| missed_runs > 2`                                                            |             |
+| WARNING        | Minimum WARNING tasks before overall status is WARNING.                                                                   | `1`                                                                                             |             |
+| CRITICAL       | Minimum CRITICAL tasks before overall status is CRITICAL.                                                                 | `1`                                                                                             |             |
+| OUTPUTSYNTAX   | Format the not OK output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, etc. | `{status}: {ok_count} Ok - {warn_count} Warning - {crit_count} Critical tasks - {problem_list}` |             |
+| OKSYNTAX       | Format the OK output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, etc.     | `{status}: All tasks are ok - {ok_list}`                                                        |             |
+| DETAILSYNTAX   | Format for each task detail inside `{list}`. Place-holders: `{folder}`, `{name}`, `{exit_code}`, etc.                     | `{folder}/{name} exit code: {exit_code}`                                                        |             |
+| VERBOSE        | Add verbose output including detailed task information.                                                                   | `false`                                                                                         |             |
+
+</TabItem>
+<TabItem value="Task-Name" label="Task-Name">
+
+| Macro          | Description                                                                                                               | Valeur par défaut                                                                               | Obligatoire |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|:-----------:|
+| TASKNAME       | Name of the task to monitor. Omit the task's folder. Example: put `WinSAT` not ` \Microsoft\Windows\Maintenance\WinSAT`   |                                                                                                 |      X      |
+| WARNINGSTATUS  | Filter expression that marks a task WARNING.                                                                              | `exit_code != 0`                                                                                |             |
+| CRITICALSTATUS | Filter expression that marks a task CRITICAL.                                                                             | `exit_code < 0 \|\| missed_runs > 2`                                                            |             |
+| WARNING        | Minimum WARNING tasks before overall status is WARNING.                                                                   | `1`                                                                                             |             |
+| CRITICAL       | Minimum CRITICAL tasks before overall status is CRITICAL.                                                                 | `1`                                                                                             |             |
+| OUTPUTSYNTAX   | Format the not OK output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, etc. | `{status}: {ok_count} Ok - {warn_count} Warning - {crit_count} Critical tasks - {problem_list}` |             |
+| OKSYNTAX       | Format the OK output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, etc.     | `{status}: All tasks are ok - {ok_list}`                                                        |             |
+| DETAILSYNTAX   | Format for each task detail inside `{list}`. Place-holders: `{folder}`, `{name}`, `{exit_code}`, etc.                     | `{folder}/{name} exit code: {exit_code}`                                                        |             |
+| VERBOSE        | Add verbose output including detailed task information.                                                                   | `false`                                                                                         |             |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
@@ -395,16 +634,16 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
 | WARNINGPENDINGUPDATES  | Thresholds                                                                                                                               | 1                  |             |
 | CRITICALPENDINGUPDATES | Thresholds                                                                                                                               |                    |             |
-| TIMEOUT                | Set timeout time for command execution.                                                                                | 30                 |             |
+| TIMEOUT                | Set timeout time for command execution.                                                                                                  | 30                 |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --filter-mandatory |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro           | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state                                      | 3600              |             |
-| CRITICALUPTIME | Critical threshold                                                                                                                        |                   | 600         |
+| Macro          | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600              |             |
+| CRITICALUPTIME | Critical threshold                                                                                   | 600               |             |
 
 </TabItem>
 </Tabs>
@@ -451,36 +690,36 @@ Le plugin apporte les modes suivants :
 
 Les options génériques sont listées ci-dessous :
 
-| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
-| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                        |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)' |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 #### Options des modes
 
@@ -495,10 +734,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-subject                 | Filter certificate by subject (can be a regexp).                                                                                                            |
 | --filter-path                    | Filter certificate by path (can be a regexp).                                                                                                               |
 | --unit                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. |
-| --warning-certificates-detected  | Thresholds.                                                                                                                                                 |
-| --critical-certificates-detected | Thresholds.                                                                                                                                                 |
-| --warning-certificate-expires    | Thresholds.                                                                                                                                                 |
-| --critical-certificate-expires   | Thresholds.                                                                                                                                                 |
+| --warning-certificates-detected  | Thresholds                                                                                                                                                  |
+| --critical-certificates-detected | Thresholds                                                                                                                                                  |
+| --warning-certificate-expires    | Thresholds                                                                                                                                                  |
+| --critical-certificate-expires   | Thresholds                                                                                                                                                  |
 | --no-ps                          | Don't encode powershell. To be used with --command and 'type' command.                                                                                      |
 | --command                        | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                      |
 | --command-path                   | Command path (default: none).                                                                                                                               |
@@ -592,31 +831,31 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Option            | Description                                                                                                                                                                                                                                               |
-|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --timeout         | Set timeout time for command execution (Default: 50 sec)                                                                                                                                                                                                  |
-| --no-ps           | Don't encode powershell. To be used with --command and 'type' command.                                                                                                                                                                                    |
-| --command         | Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                                                                    |
-| --command-path    | Command path (Default: none).                                                                                                                                                                                                                             |
-| --command-options | Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                                                                                   |
-| --ps-display      | Display powershell script.                                                                                                                                                                                                                                |
-| --ps-exec-only    | Print powershell output.                                                                                                                                                                                                                                  |
+| Option            | Description                                                                                                                                                                                                                                                             |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --timeout         | Set timeout time for command execution (Default: 50 sec)                                                                                                                                                                                                                |
+| --no-ps           | Don't encode powershell. To be used with --command and 'type' command.                                                                                                                                                                                                  |
+| --command         | Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                                                                                  |
+| --command-path    | Command path (Default: none).                                                                                                                                                                                                                                           |
+| --command-options | Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                                                                                                 |
+| --ps-display      | Display powershell script.                                                                                                                                                                                                                                              |
+| --ps-exec-only    | Print powershell output.                                                                                                                                                                                                                                                |
 | --warning-status  | Define the conditions to match for the status to be WARNING (Default: '%\{RebootPending\} =~ /true/i'). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}. |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}.                           |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}.                             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Option                   | Description                                                                                                                                                                                                                                   |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --config                 | command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file                                                                                              |
-| --language               | Set the language used in config file (default: 'en').                                                                                                                                                                                         |
-| --command                | Command to get information (Default: 'qwinsta'). Can be changed if you have output in a file.                                                                                                                                                 |
-| --command-path           | Command path (Default: none).                                                                                                                                                                                                                 |
-| --command-options        | Command options (Default: '/COUNTER').                                                                                                                                                                                                        |
-| --timeout                | Timeout in seconds for the command (Default: 30).                                                                                                                                                                                             |
-| --filter-sessionname     | Filter session name (can be a regexp).                                                                                                                                                                                                        |
-| --warning-* --critical-* | Thresholds. Can be: 'sessions-created', 'sessions-disconnected', 'sessions-reconnected', 'sessions-active', 'sessions-disconnected-current'.                                                                                                  |
+| Option                   | Description                                                                                                                                      |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| --config                 | command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |
+| --language               | Set the language used in config file (default: 'en').                                                                                            |
+| --command                | Command to get information (Default: 'qwinsta'). Can be changed if you have output in a file.                                                    |
+| --command-path           | Command path (Default: none).                                                                                                                    |
+| --command-options        | Command options (Default: '/COUNTER').                                                                                                           |
+| --timeout                | Timeout in seconds for the command (Default: 30).                                                                                                |
+| --filter-sessionname     | Filter session name (can be a regexp).                                                                                                           |
+| --warning-* --critical-* | Thresholds Can be: 'sessions-created', 'sessions-disconnected', 'sessions-reconnected', 'sessions-active', 'sessions-disconnected-current'.      |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
@@ -628,8 +867,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning             | warning threshold                                                                                                                                                                                                                                                                              |
 | --critical            | critical threshold                                                                                                                                                                                                                                                                             |
 | --filter-storage-type | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat |
-| --filter-fs           | Regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                                                                   |
-| --exclude-fs          | Regex to exclude filesystem                                                                                                                                                                                                                                                                   |
+| --filter-fs           | Regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                                                |
+| --exclude-fs          | Regex to exclude filesystem                                                                                                                                                                                                                                                                    |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -666,19 +905,19 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Option                   | Description                                                                                                                              |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
-| --timeout                | Set timeout time for command execution (Default: 50 sec)                                                                                 |
-| --no-ps                  | Don't encode powershell. To be used with --command and 'type'command.                                                                    |
-| --command                | Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!   |
-| --command-path           | Command path (Default: none).                                                                                                            |
-| --command-options        | Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                  |
-| --ps-display             | Display powershell script.                                                                                                               |
-| --ps-exec-only           | Print powershell output.                                                                                                                 |
-| --filter-title           | Filter windows updates by title (can be a regexp).                                                                                       |
-| --exclude-title          | Exclude windows updates by title (regexp can be used).                                                                                   |
-| --display-updates        | Display updates in verbose output.                                                                                                       |
-| --warning-* --critical-* | Thresholds. Can be: 'pending-updates'.                                                                                                   |
+| Option                   | Description                                                                                                                            |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
+| --timeout                | Set timeout time for command execution (Default: 50 sec)                                                                               |
+| --no-ps                  | Don't encode powershell. To be used with --command and 'type'command.                                                                  |
+| --command                | Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!! |
+| --command-path           | Command path (Default: none).                                                                                                          |
+| --command-options        | Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                |
+| --ps-display             | Display powershell script.                                                                                                             |
+| --ps-exec-only           | Print powershell output.                                                                                                               |
+| --filter-title           | Filter windows updates by title (can be a regexp).                                                                                     |
+| --exclude-title          | Exclude windows updates by title (regexp can be used).                                                                                 |
+| --display-updates        | Display updates in verbose output.                                                                                                     |
+| --warning-* --critical-* | Thresholds Can be: 'pending-updates'.                                                                                                  |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

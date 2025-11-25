@@ -83,9 +83,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name | Description       | Unit  |
-|:------------|:------------------|:------|
-| fan status  | Status of the fan |       |
+| Metric name | Unit |
+|:------------|:-----|
+| fan status  | N/A  |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -189,7 +189,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

@@ -90,6 +90,8 @@ dnf update
 
 ### Step 3: Retrieve the databases
 
+>If you are using a remote database, ignore this step and move on to [Step 4](#step-4-synchronize-the-plugins)
+
 1. On the old server, create a dump of the databases:
 
    ```shell
@@ -188,6 +190,12 @@ apt install centreon-plugin-\*
 </Tabs>
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
+
+Use the following command to synchronize images and media between your old server and the new one.
+
+```shell
+rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img/
+```
 
 ### Step 5: Upgrade Centreon
 

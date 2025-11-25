@@ -19,12 +19,12 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-Avid-Isis-SNMP-custom" label="HW-Storage-Avid-Isis-SNMP-custom">
 
-| Alias       | Modèle de service                                  | Description            |
-|:------------|:---------------------------------------------------|:-----------------------|
-| Hardware    | Hardware-Storage-Avid-Isis-Hardware-SNMP-custom    | Contrôle du matériel  |
-| Performance | Hardware-Storage-Avid-Isis-Performance-SNMP-custom | Contrôle du matériel  |
-| Status      | Hardware-Storage-Avid-Isis-Status-SNMP-custom      | Contrôle du matériel  |
-| Usage       | Hardware-Storage-Avid-Isis-Usage-SNMP-custom       | Contrôle du matériel  |
+| Alias       | Modèle de service                                  | Description                                                                      |
+|:------------|:---------------------------------------------------|:---------------------------------------------------------------------------------|
+| Hardware    | Hardware-Storage-Avid-Isis-Hardware-SNMP-custom    | Contrôle du matériel                                                             |
+| Performance | Hardware-Storage-Avid-Isis-Performance-SNMP-custom | Contrôle des performances du client                                              |
+| Status      | Hardware-Storage-Avid-Isis-Status-SNMP-custom      | Contrôle de l'état du System Director et compte la redistribution des workspaces |
+| Usage       | Hardware-Storage-Avid-Isis-Usage-SNMP-custom       | Contrôle lu'tilisation du stockage                                               |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Avid-Isis-SNMP-custom** est utilisé.
 
@@ -37,7 +37,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                              |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Storage-Avid-Isis-SNMP-custom** host template |
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Storage-Avid-Isis-SNMP-custom**. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -48,15 +48,33 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-Coming soon
+| Nom                          | Unité |
+|:-----------------------------|:------|
+| hardware.alarm.status        | N/A   |
+| hardware.alarm.count         | count |
+| hardware.fan.status          | N/A   |
+| hardware.fan.count           | count |
+| hardware.pdrive.status       | N/A   |
+| hardware.pdrive.count        | count |
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.sim.status          | N/A   |
+| hardware.sim.count           | count |
+| hardware.slot.status         | N/A   |
+| hardware.slot.count          | count |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
+| hardware.temperature.celsius | C     |
+| hardware.vdrive.status       | N/A   |
+| hardware.vdrive.count        | count |
 
 </TabItem>
 <TabItem value="Performance" label="Performance">
 
-| Métrique         | Unité      |
+| Nom              | Unité      |
 |:-----------------|:-----------|
-| active_clients   | clients    |
-| open-files       | files      |
+| active_clients   | count      |
+| open-files       | count      |
 | processing-speed | messages/s |
 | read-throughput  | B/s        |
 | write-throughput | B/s        |
@@ -66,7 +84,7 @@ Coming soon
 </TabItem>
 <TabItem value="Status" label="Status">
 
-| Métrique             | Unité |
+| Nom                  | Unité |
 |:---------------------|:------|
 | status               | N/A   |
 | redistributing-count | N/A   |
@@ -76,7 +94,7 @@ Coming soon
 </TabItem>
 <TabItem value="Usage" label="Usage">
 
-| Métrique        | Unité |
+| Nom             | Unité |
 |:----------------|:------|
 | allocated       | B     |
 | workspace-count | N/A   |
@@ -92,7 +110,10 @@ Coming soon
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

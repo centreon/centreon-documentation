@@ -32,7 +32,7 @@ Les ressources sont contrôlées selon les paramètres suivants :
 3. Configurez la règle de notification :
 
    - Donnez un nom à la règle dans le champ **Name** en haut du panneau.
-   - Sélectionnez les groupes d'hôtes et/ou les groupes de services et/ou les vues métier (Édition Business seulement) pour lesquels vous voulez que des notifications soient envoyées. Pour chaque type de ressource, sélectionnez les évènements qui déclencheront l'envoi d'une notification.
+   - Sélectionnez les groupes d'hôtes et/ou les groupes de services et/ou les vues métier (si vous disposez du module BAM) pour lesquels vous voulez que des notifications soient envoyées. Pour chaque type de ressource, sélectionnez les évènements qui déclencheront l'envoi d'une notification.
    - Sélectionnez la [période temporelle](../monitoring/basic-objects/timeperiods.md) durant laquelle les notifications seront autorisées pour cette ressource.
      > Les exceptions dans les périodes temporelles sont ignorées pour les notifications. Les notifications seront envoyées même pendant les périodes exclues. 
    - Sélectionnez les utilisateurs (contacts) qui recevront une notification en cas d'évènement.
