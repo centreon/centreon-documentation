@@ -179,7 +179,7 @@ yum install centreon-nrpe3-plugin
 | Macro            | Description                                                                                          | Valeur par défaut     | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
 | NRPEPORT         | Port used to reach the NRPE server                                                                                                     | 5666                  |             |
-| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                     | check\_centreon\_nrpe |             |
+| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                     | check\_centreon\_nrpe3 |             |
 | NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                     | 55                    |             |
 | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                       |             |
 
@@ -248,7 +248,7 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
+/usr/lib64/nagios/plugins//check\_centreon\_nrpe3 -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
 	--filter-name="" \
 	--unknown-status="%\{state\} =~ /unknown/" \
 	--warning-status="not is\_preferred\_node()" \
@@ -278,7 +278,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
+/usr/lib64/nagios/plugins//check\_centreon\_nrpe3 -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
 	--filter-name="" \
 	--list-mode
 ```
@@ -388,7 +388,7 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
+/usr/lib64/nagios/plugins//check\_centreon\_nrpe3 -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
 	--filter-name="" \
 	--unknown-status="%\{state\} =~ /unknown/" \
 	--help
