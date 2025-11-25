@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Perle IDS SNMP** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:----------------|:------------------------------------------|:-----------------------------------------|
 | Alarms          | Net-Perle-Ids-Alarms-SNMP-custom          | Contrôle les alarmes                     |
 | Hardware-Global | Net-Perle-Ids-Hardware-Global-SNMP-custom | Contrôle le matériel                     |
-| System-Usage    | Net-Perle-Ids-System-Usage-SNMP-custom    | Contrôle l'utilisation cpu et la mémoire |
+| System-Usage    | Net-Perle-Ids-System-Usage-SNMP-custom    | Contrôle l'utilisation CPU et la mémoire |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Perle-Ids-SNMP-custom** est utilisé.
 
