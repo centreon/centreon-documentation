@@ -77,8 +77,8 @@ const cards = [
 ]
 
 const versionInfo = {
-  version: '24.10',
-  link: 'https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-10/',
+  version: '25.10',
+  link: 'https://www.centreon.com/centreon-announces-the-25-10-release-of-centreon-infra-monitoring-cornerstone-of-the-new-centreon-observability-platform/',
   target: '_blank'
 }
 

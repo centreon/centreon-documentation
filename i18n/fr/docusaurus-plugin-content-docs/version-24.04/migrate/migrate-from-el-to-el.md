@@ -89,6 +89,8 @@ dnf update
 
 ### Étape 3 : Récupérer les bases de données
 
+>Si vous utilisez une base de données distante, ignorez cette étape et passez directement à l'[étape 4](#étape-4--synchroniser-les-plugins).
+
 1. Sur l'ancien serveur, faitez un dump des bases de données :
 
    ```shell
