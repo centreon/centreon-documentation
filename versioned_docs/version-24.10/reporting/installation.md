@@ -669,7 +669,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -698,7 +698,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -727,7 +727,7 @@ dnf config-manager --set-enabled 'powertools'
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -756,7 +756,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -785,7 +785,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -814,7 +814,7 @@ dnf config-manager --set-enabled 'crb'
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server mariadb-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:

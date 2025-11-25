@@ -657,7 +657,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Puis lancer l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
@@ -686,7 +686,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 Puis lancer l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
@@ -715,7 +715,7 @@ dnf config-manager --set-enabled 'powertools'
 Puis lancez l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
@@ -744,7 +744,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 Puis lancer l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
@@ -773,7 +773,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 Puis lancez l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
@@ -802,7 +802,7 @@ dnf config-manager --set-enabled 'crb'
 Puis lancer l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server mariadb-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
