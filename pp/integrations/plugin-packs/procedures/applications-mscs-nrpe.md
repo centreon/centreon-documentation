@@ -197,10 +197,10 @@ yum install centreon-nrpe3-plugin
 
 | Macro          | Description                                                                                                                                                                             | Default value                                  | Mandatory   |
 |:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-----------:|
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{display\}                         | %\{state\} =~ /unknown/                        |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                         | %\{state\} =~ /unknown/                        |             |
 | FILTERNAME     | Filter interface name (can be a regexp)                                                                                                                                                 |                                                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /down\|partitioned\|unavailable/'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} =~ /down\|partitioned\|unavailable/ |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: none). You can use the following variables: %\{state\}, %\{display\}                                              |                                                |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{display\} | %\{state\} =~ /down\|partitioned\|unavailable/ |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                                              |                                                |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                      | --verbose                                      |             |
 
 </TabItem>
@@ -208,10 +208,10 @@ yum install centreon-nrpe3-plugin
 
 | Macro          | Description                                                                                                                                                            | Default value                  | Mandatory   |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{display\}        | %\{state\} =~ /unknown/        |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}        | %\{state\} =~ /unknown/        |             |
 | FILTERNAME     | Filter node name (can be a regexp)                                                                                                                                     |                                |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /pause\|joining/'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} =~ /pause\|joining/ |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /down/'). You can use the following variables: %\{state\}, %\{display\}          | %\{state\} =~ /down/           |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\} | %\{state\} =~ /pause\|joining/ |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{display\}          | %\{state\} =~ /down/           |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                     | --verbose                      |             |
 
 </TabItem>
@@ -219,10 +219,10 @@ yum install centreon-nrpe3-plugin
 
 | Macro          | Description                                                                                                                                                                                | Default value                   | Mandatory   |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{display\}                            | %\{state\} =~ /unknown/         |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                            | %\{state\} =~ /unknown/         |             |
 | FILTERNAME     | Filter resource name (can be a regexp)                                                                                                                                                     |                                 |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /failed\|offline/'). You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\} | %\{state\} =~ /failed\|offline/ |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: none). You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}                               |                                 |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\} | %\{state\} =~ /failed\|offline/ |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}                               |                                 |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose                       |             |
 
 </TabItem>
@@ -230,10 +230,10 @@ yum install centreon-nrpe3-plugin
 
 | Macro          | Description                                                                                                                                                                                | Default value                   | Mandatory   |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}          | %\{state\} =~ /unknown/         |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}          | %\{state\} =~ /unknown/         |             |
 | FILTERNAME     | Filter resource group name (can be a regexp)                                                                                                                                               |                                 |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{is\_preferred\_node\} == 0'). You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}    | not is\_preferred\_node()       |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /failed\|offline/'). You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\} | %\{state\} =~ /failed\|offline/ |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}    | %\{is\_preferred\_node\} == 0       |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\} | %\{state\} =~ /failed\|offline/ |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose                       |             |
 
 </TabItem>
