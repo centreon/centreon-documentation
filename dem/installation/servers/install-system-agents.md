@@ -143,19 +143,7 @@ To install the DEM agent:
 
 1. Create the repository configuration file **/etc/yum.repos.d/quanta.repo**. You can download the configuration file available here: [https://rpm.quanta.io/quanta-centos-repo.txt](https://rpm.quanta.io/quanta-centos-repo.txt)
 
-    <aside>
-    💡 To use the **BETA** version, simply replace the line:
-
-    ```
-    baseurl=http://rpm.quanta.io/centos/$releasever/main
-    ```
-
-    with the following:
-
-    ```
-    baseurl=http://rpm.quanta.io/centos/$releasever/beta
-    ```
-    </aside>
+   > To use the **BETA** version, simply replace the line `baseurl=http://rpm.quanta.io/centos/$releasever/main` with `baseurl=http://rpm.quanta.io/centos/$releasever/beta`.
 
 2. Install the **GPG** key for our repository:
 
@@ -197,33 +185,31 @@ You should see system data appear in DEM within a minute.
 
 ## Installation for Docker and Autoscaling Systems
 
-The use of the DEM agent is fully compatible with “containerized” infrastructures, but **it requires a slight variation in the installation process**.
+The use of the DEM agent is fully compatible with containerized infrastructures, but **it requires a slight variation in the installation process**.
 
 [Configuration of our agents for the cloud](cloud-configuration-of-agents.md)
 
 ### Explanation
 
-The *hostid* is an internal parameter that allows DEM to uniquely identify a server. Each server must have a unique *hostid*, which is automatically configured by the installation script (using the MAC address of the first network interface without “:” characters).
+The **hostid** is an internal parameter that allows DEM to uniquely identify a server. Each server must have a unique **hostid**, which is automatically configured by the installation script (using the MAC address of the first network interface without `:` characters).
 
-However, in the case of Docker containers, the configuration prevents the installation script from finding this value. In autoscaling systems (like AWS ASG or Azure Scale Set), the image copy also duplicates the *hostid*.
+However, in the case of Docker containers, the configuration prevents the installation script from finding this value. In autoscaling systems (like AWS ASG or Azure Scale Set), the image copy also duplicates the **hostid**.
 
 ### Workaround
 
-To have a unique *hostid*, you can configure it in the file /etc/quanta/agent.yml via a script at container or VM startup (*bootstrap script*). You can specify a unique identifier generated at runtime (e.g., using AWS metadata or Docker environment variables) or use a unique element like the UUID value from */proc/sys/kernel/random/uuid*.
+To have a unique **hostid**, you can configure it in the **/etc/quanta/agent.yml** file via a script at container or VM startup (**bootstrap script**). You can specify a unique identifier generated at runtime (e.g., using AWS metadata or Docker environment variables) or use a unique element like the UUID value from **/proc/sys/kernel/random/uuid**.
 
-## Installation on Other OS
+## Installation on Other OSs
 
-We do not provide packages for other OSs, but the source code is publicly available on GitHub and can be compiled:
-
-[https://github.com/quanta-computing/quanta-agent](https://github.com/quanta-computing/quanta-agent)
+We do not provide packages for other OSs, but [the source code is publicly available on GitHub and can be compiled](https://github.com/quanta-computing/quanta-agent).
 
 The agent is **only compatible with Linux**.
 
 # Modifying an Existing Installation
 
-If you want to modify the configuration of a DEM agent **already installed** on one of your servers, you will find its configuration in the file ***/etc/quanta/agent.yml***. It contains the main connection information, including the DEM token corresponding to the relevant site. Access to this file can be useful if you monitor multiple sites with the same DEM account and wish to specify the correct token to associate each server with its hosted site (e.g., for separate production and pre-production servers).
+If you want to modify the configuration of a DEM agent **already installed** on one of your servers, you will find its configuration in the **/etc/quanta/agent.yml** file. It contains the main connection information, including the DEM token corresponding to the relevant site. Access to this file can be useful if you monitor multiple sites with the same DEM account and wish to specify the correct token to associate each server with its hosted site (e.g., for separate production and pre-production servers).
 
-Here is an excerpt from the file ***/etc/quanta/agent.yml***:
+Here is an excerpt from the **/etc/quanta/agent.yml** file:
 
 ```jsx
 user: quanta-agent
@@ -248,6 +234,4 @@ quanta_token: [...] <- insert here the token corresponding to your site
 
 You can now install application modules to get metrics on your Apache, Nginx, MySQL, Varnish, Magento systems, etc.
 
-If in doubt, refer to the installation checklist:
-
-[DEM Installation Checklist](../installation-checklist.md)
+If in doubt, refer to the [installation checklist](../installation-checklist.md).
