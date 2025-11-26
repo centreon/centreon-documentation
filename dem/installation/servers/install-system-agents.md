@@ -85,7 +85,8 @@ You will be prompted for the token during installation, and system data should a
 
 To install the DEM agent:
 
-1. Add the following line to the file **/etc/apt/sources.list.d/quanta.list**  
+1. Add the following line to the **/etc/apt/sources.list.d/quanta.list** file.
+
 *For Jammy*
 
     ```bash
