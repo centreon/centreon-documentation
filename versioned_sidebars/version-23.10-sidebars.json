@@ -1226,6 +1226,10 @@
             },
             {
               "type": "doc",
+              "id": "integrations/data-analytics/sc-bigquery-events"
+            },
+            {
+              "type": "doc",
               "id": "integrations/event-management/sc-hp-omi"
             },
             {
