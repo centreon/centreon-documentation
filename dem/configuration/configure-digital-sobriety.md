@@ -12,6 +12,6 @@ If you have the Digital Sobriety option, you must provide DEM with two pieces of
 
 Based on this information, DEM will estimate the CO2 emitted per page.
 
-To fill in these details, go to *Configuration* > *Site*
+To fill in these details, go to **Configuration > Site**.
 
 ![image](../assets/configuration/config-digital-sobriety-1.png)

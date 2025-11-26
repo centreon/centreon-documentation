@@ -15,7 +15,7 @@ To understand the following steps, you can find the standard installation guide 
 
 And the installation guide for our PHP module (if you use that technology) here:
 
-[Install PHP / Magento / OroCommerce profiler](./install-php-magento-orocommerce-profiler.md)
+[Install the PHP / Magento / OroCommerce profiler](./install-php-magento-orocommerce-profiler.md)
 
 ## Cloud-specific considerations
 

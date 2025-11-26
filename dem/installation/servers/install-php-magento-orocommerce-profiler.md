@@ -3,19 +3,13 @@ id: install-php-magento-orocommerce-profiler
 title: Install the PHP / Magento / OroCommerce Profiler
 ---
 
-# Install the PHP / Magento / OroCommerce Profiler
-
 The DEM PHP module comes as a PHP extension that allows you to collect detailed information about the execution time of each part of your CMS.
 
-# Prerequisites
+## Prerequisites
 
-<aside>
-⚠️ The profiler requires the installation of the system agent. Refer to the dedicated page to install the agent.
+> The profiler requires the installation of the system agent. [Refer to the dedicated page to install the agent](./install-system-agents.md).
 
-[Install System Agents](./install-system-agents.md)
-</aside>
-
-# Compatibility
+## Compatibility
 
 | Distribution | OS Version | PHP Version | DEM PHP Module |
 |--------------|------------|-------------|-------------------|
@@ -27,11 +21,9 @@ The DEM PHP module comes as a PHP extension that allows you to collect detailed 
 | Ubuntu | Lunar (23.04) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
 | CentOS | 7 | 7.3/7.4 | 1.3.3 (beta repo) |
 
-# Installation
+## Installation
 
-<aside>
-💡 The PHP module must be installed on every server running your PHP application.
-</aside>
+> The PHP module must be installed on every server running your PHP application.
 
 ### Install the DEM PHP Module for Debian / Ubuntu
 
@@ -69,7 +61,7 @@ Depending on your PHP version, install the corresponding package. Here are a few
     apt install php82-quanta-mon
     ```
 
-Then, enable the extension with the command:
+Then, enable the extension with the following command:
 
 ```bash
 phpenmod quanta_mon
@@ -99,20 +91,20 @@ Depending on your PHP version, install the corresponding package, for example:
     yum install php74-quanta-mon
     ```
 
-Then, enable the extension with the command:
+Then, enable the extension with the following command:
 
 ```bash
 phpenmod quanta_mon
 ```
 
-### Install the PHP Module for Other OS
+### Install the PHP Module for Other OSs
 
-We do not officially support packages for other operating systems. However, you can compile the module yourself — the source code is available on GitHub:  
-[https://github.com/quanta-computing/quanta-php-module](https://github.com/quanta-computing/quanta-php-module)
+We do not officially support packages for other operating systems. However, you can compile the module yourself, as the source code is available on GitHub:  
+[https://github.com/quanta-computing/quanta-php-module](https://github.com/quanta-computing/quanta-php-module).
 
-# Configure Your Backoffice URL if You Use Magento
+## Configure Your Backoffice URL if You Use Magento
 
-If you use Magento and a custom URL is used to access the Magento backoffice (i.e., an URL that does **not** start with **"/admin/"**), you must modify the module configuration so that “Magento” type events are correctly reported in DEM.
+If you use Magento and a custom URL is used to access the Magento backoffice (i.e., a URL that does **not** start with **"/admin/"**), you must modify the module configuration so that Magento-type events are correctly reported in DEM.
 
 This file is usually located here for Debian/Ubuntu:
 
@@ -134,7 +126,7 @@ For example, if your backoffice URL is "http://admin.mysite.com/admin_123456/", 
 quanta_mon.admin_url="/admin_123456/"
 ```
 
-# Restarting the Web Server
+## Restarting the Web Server
 
 After installing the module, you must restart your web service so that the PHP extension is loaded and activated.
 
@@ -150,16 +142,12 @@ After installing the module, you must restart your web service so that the PHP e
     systemctl restart php8.2-fpm
     ```
 
-# Verifying Proper Operation
+## Checking That Everything Works
 
 Once everything is installed **and the web scenario has been created in DEM**, go to the Web Scenario menu, then click “+ details” in the legend of one of the pages requiring PHP execution (for example: a Cart page, which is usually never cached).
 
 You should then see an “Application” tab (otherwise this tab is grayed out) with information about the time spent in PHP.
 
-In the case of a Magento (v1 or 2) CMS or the OroCommerce platform, the color coding differs — it is orange for Magento and yellow for OroCommerce.
+In the case of a Magento (v1 or 2) CMS or the OroCommerce platform, the color coding differs: it is orange for Magento and yellow for OroCommerce.
 
-<aside>
-💡 Advanced metrics (Apache, MySQL, Redis, etc.) must be installed separately. Refer to the dedicated page:
-
-[Add Advanced Metrics](./add-advanced-metrics.md)
-</aside>
+> Advanced metrics (Apache, MySQL, Redis, etc.) must be installed separately. [Refer to the dedicated page](./add-advanced-metrics.md).

@@ -3,9 +3,6 @@ id: enable-disable-scenario-or-alert-via-api
 title: Automate enabling/disabling a scenario or an alert via API
 --- 
 
-
-# Automate enabling/disabling a scenario or an alert via API
-
 ## Preamble
 
 In some situations it can be useful to modify DEM's configuration automatically. Use cases are many, but the most common are:
@@ -15,7 +12,7 @@ In some situations it can be useful to modify DEM's configuration automatically.
 
 ## Example with a simple REST request
 
-In DEM, all features are accessible through the API, so you can send requests to DEM using tools such as curl or wget by specifying the site ID, the User Journey ID and the authentication parameters (*x-csrf-token* and *_qm3k_session*).
+In DEM, all features are accessible through the API, so you can send requests to DEM using tools such as curl or wget by specifying the site ID, the User Journey ID and the authentication parameters (**x-csrf-token** and **_qm3k_session**).
 
 Example REST request to disable a journey where the DEM UI edit panel URL is https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913:
 
@@ -122,7 +119,7 @@ To obtain these values, open Chrome DevTools > Network while loading a DEM UI pa
 
 For security, we strongly recommend creating a dedicated DEM user account for API usage.
 
-Example: mylogin+api@mydomain.com
+Example: `mylogin+api@mydomain.com`
 
 ## Example usage
 
