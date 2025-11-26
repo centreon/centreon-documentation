@@ -86,12 +86,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Nom                | Unité |
-|:-------------------|:------|
-| hardware.psu.count | count |
-| psu status         | N/A   |
-| hardware.fan.count | count |
-| fan status         | N/A   |
+| Nom                 | Unité |
+|:--------------------|:------|
+| hardware.psu.status | N/A   |
+| hardware.psu.count  | count |
+| hardware.fan.status | N/A   |
+| hardware.fan.count  | count |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

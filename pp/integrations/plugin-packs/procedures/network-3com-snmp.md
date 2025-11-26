@@ -85,12 +85,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Name               | Unit  |
-|:-------------------|:------|
-| hardware.psu.count | count |
-| psu status         | N/A   |
-| hardware.fan.count | count |
-| fan status         | N/A   |
+| Name                | Unit  |
+|:--------------------|:------|
+| hardware.psu.status | N/A   |
+| hardware.psu.count  | count |
+| hardware.fan.status | N/A   |
+| hardware.fan.count  | count |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -106,7 +106,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 | Name                                                 | Unit |
 |:-----------------------------------------------------|:-----|
-| status                                               | N/A  |
+| *interface_name*#status                              | N/A  |
 | *interface_name*#interface.traffic.in.bitspersecond  | b/s  |
 | *interface_name*#interface.traffic.out.bitspersecond | b/s  |
 

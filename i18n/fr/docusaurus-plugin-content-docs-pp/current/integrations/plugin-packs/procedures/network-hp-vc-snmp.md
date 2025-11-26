@@ -73,26 +73,27 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Nom                           | Unité |
-|:------------------------------|:------|
-| hardware.domain.count         | count |
-| domain status                 | N/A   |
-| hardware.enclosure.count      | count |
-| enclosure status              | N/A   |
-| hardware.module.count         | count |
-| module status                 | N/A   |
-| hardware.moduleport.count     | count |
-| moduleport status             | N/A   |
-| hardware.port.count           | count |
-| port status                   | N/A   |
-| hardware.physicalserver.count | count |
-| physicalserver status         | N/A   |
-| hardware.enet.count           | count |
-| enet status                   | N/A   |
-| hardware.fc.count             | count |
-| fc status                     | N/A   |
-| hardware.profile.count        | count |
-| profile status                | N/A   |
+| Nom                                   | Unité |
+|:--------------------------------------|:------|
+| hardware.domain.status                | N/A   |
+| hardware.domain.count                 | count |
+| hardware.enclosure.status             | N/A   |
+| hardware.enclosure.count              | count |
+| hardware.enet.status                  | N/A   |
+| hardware.enet.count                   | count |
+| hardware.fc.status                    | N/A   |
+| hardware.fc.count                     | count |
+| hardware.module.status                | N/A   |
+| hardware.module.count                 | count |
+| hardware.moduleport.loop.status       | N/A   |
+| hardware.moduleport.protection.status | N/A   |
+| hardware.moduleport.count             | count |
+| hardware.physicalserver.status        | N/A   |
+| hardware.physicalserver.count         | count |
+| hardware.port.status                  | N/A   |
+| hardware.port.count                   | count |
+| hardware.profile.status               | N/A   |
+| hardware.profile.count                | count |
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">

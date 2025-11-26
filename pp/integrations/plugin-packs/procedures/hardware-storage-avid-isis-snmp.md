@@ -53,32 +53,33 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-| Name                       | Unit  |
-|:---------------------------|:------|
-| hardware.alarm.count       | count |
-| alarm status               | N/A   |
-| hardware.fan.count         | count |
-| fan status                 | N/A   |
-| hardware.sim.count         | count |
-| sim status                 | N/A   |
-| hardware.slot.count        | count |
-| slot status                | N/A   |
-| hardware.psu.count         | count |
-| psu status                 | N/A   |
-| hardware.temperature.count | count |
-| temperature status         | N/A   |
-| hardware.pdrive.count      | count |
-| pdrive status              | N/A   |
-| hardware.vdrive.count      | count |
-| vdrive status              | N/A   |
+| Name                         | Unit  |
+|:-----------------------------|:------|
+| hardware.alarm.status        | N/A   |
+| hardware.alarm.count         | count |
+| hardware.fan.status          | N/A   |
+| hardware.fan.count           | count |
+| hardware.pdrive.status       | N/A   |
+| hardware.pdrive.count        | count |
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.sim.status          | N/A   |
+| hardware.sim.count           | count |
+| hardware.slot.status         | N/A   |
+| hardware.slot.count          | count |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
+| hardware.temperature.celsius | C     |
+| hardware.vdrive.status       | N/A   |
+| hardware.vdrive.count        | count |
 
 </TabItem>
 <TabItem value="Performance" label="Performance">
 
 | Name             | Unit       |
 |:-----------------|:-----------|
-| active-clients   | clients    |
-| open-files       | files      |
+| active_clients   | count      |
+| open-files       | count      |
 | processing-speed | messages/s |
 | read-throughput  | B/s        |
 | write-throughput | B/s        |
@@ -88,22 +89,22 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Status" label="Status">
 
-| Name                 | Unit |
-|:---------------------|:-----|
-| status               | N/A  |
-| redistributing-count | N/A  |
+| Name                 | Unit  |
+|:---------------------|:------|
+| status               | N/A   |
+| redistributing-count | N/A   |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Usage" label="Usage">
 
-| Name            | Unit |
-|:----------------|:-----|
-| usage           | B    |
-| workspace-count | N/A  |
-| folder-count    | N/A  |
-| file-count      | N/A  |
+| Name            | Unit  |
+|:----------------|:------|
+| allocated       | B     |
+| workspace-count | N/A   |
+| folder-count    | N/A   |
+| file-count      | N/A   |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
