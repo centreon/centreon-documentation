@@ -3,7 +3,7 @@ id: concepts
 title: MBI concepts
 ---
 
-MBI is an extension of Centreon with its own vocabulary and concepts. This section breaks down the key concepts to understanding Centreon MBI. Note that this section expects you to be familiar with the [regular Centreon vocabulary](https://docs-next-int.centreon.com/docs/resources/glossary/).
+MBI is an extension of Centreon with its own vocabulary and concepts. This section breaks down the key concepts to understanding Centreon MBI. Note that this section expects you to be familiar with the [regular Centreon vocabulary](../resources/glossary.md).
 
 ## Data retention
 
@@ -25,7 +25,7 @@ The hosts and services taken into account by MBI (and thus included in the calcu
 
 ## MBI ACL rules
 
-To be able to [give users access to generated reports in the Centreon interface and/or to jobs](share.md), you must use MBI ACL rules (**Administration > ACL > Centreon MBI > ACL rules**). MBI ACL rules work as an intermediary between regular [Centreon ACLs](https://docs-next-int.centreon.com/docs/administration/access-control-lists/) and [job groups](#job-groups) as these two cannot be linked directly.
+To be able to [give users access to generated reports in the Centreon interface and/or to jobs](share.md), you must use MBI ACL rules (**Administration > ACL > Centreon MBI > ACL rules**). MBI ACL rules work as an intermediary between regular [Centreon ACLs](../administration/access-control-lists.md) and [job groups](#job-groups) as these two cannot be linked directly.
 
 ## Metrics
 
@@ -52,7 +52,7 @@ Job groups determine [which non-admin users are allowed to see each generated re
 
 * You create job groups using the **Reporting > Monitoring Business Intelligence > Job groups** page.
 * For each job, you define which people will be able to see the report in the **Configuration** tab of the job (**Linked job groups** fields). A report will be visible to users that are linked to the selected job groups
-* Please note that the data included in the report depends on the [rights on resources](https://docs-next-int.centreon.com/docs/administration/access-control-lists/#access-filters-on-resources) of the user who creates the job. It is the responsibility of the user creating the job to make sure that the resources included in the report are authorized for the users with which they want to share the report.
+* Please note that the data included in the report depends on the [rights on resources](../administration/access-control-lists.md#access-filters-on-resources) of the user who creates the job. It is the responsibility of the user creating the job to make sure that the resources included in the report are authorized for the users with which they want to share the report.
 
    Example: if **user 1** has rights on the **Paris** and **London** hosts, the report will contain data for **Paris** and **London**. If the report is shared with **user 2** who doesn't have rights on **London**, **user 2** will still be able to see the data for **London**, as the report has been generated this way.
 
@@ -62,11 +62,11 @@ End-result of a job. The data shown and the layout of the report is determined b
 
 ## CBIS user
 
-Service user created automatically when the extension is installed. This user will generate reports. The CBIS user must be granted access to all resources using [the regular Centreon ACLs](https://docs-next-int.centreon.com/docs/administration/access-control-lists/) to function properly.
+Service user created automatically when the extension is installed. This user will generate reports. The CBIS user must be granted access to all resources using [the regular Centreon ACLs](../administration/access-control-lists.md) to function properly.
 
 ## Availability
 
-The amount of time a host has spent in an "available" [status](https://docs-next-int.centreon.com/docs/alerts-notifications/concepts/#host-status), in the selected time period. Only [hard statuses](https://docs-next-int.centreon.com/docs/alerts-notifications/concepts/#status-types) are taken into account when calculating availability.
+The amount of time a host has spent in an "available" [status](https://docs-next-int.centreon.com/docs/alerts-notifications/concepts/#host-status), in the selected time period. Only [hard statuses](../alerts-notifications/concepts.md#status-types) are taken into account when calculating availability.
 
 * For hosts: When calculating availability, only the time the host has spent in an UP or DOWN status is taken into account, not the time spent in an UNREACHABLE state or in downtime.
 * For services: When calculating availability, only the time the service has spent in an "OK" or "Warning" status is taken into account, not the time spent in an UNKNOWN state or in downtime.

@@ -5,10 +5,10 @@ title: Preparing data for report generation
 
 ## Making your resources available to MBI
 
-For host/service availability and performance reports, the resources you want to see appear in reports must be organized into [host groups](https://docs-next-int.centreon.com/docs/monitoring/groups/#creating-a-host-group), [host categories](https://docs-next-int.centreon.com/docs/monitoring/groups/#hosts-category) and [service categories](https://docs-next-int.centreon.com/docs/monitoring/groups/#services-category).
+For host/service availability and performance reports, the resources you want to see appear in reports must be organized into [host groups](../monitoring/groups.md#creating-a-host-group), [host categories](../monitoring/groups.md#hosts-category) and [service categories](../monitoring/groups.md#services-category).
 
-- Each host that you want to see in reports must belong to at least one [host group](https://docs-next-int.centreon.com/docs/monitoring/groups/#creating-a-host-group) and one [host category](https://docs-next-int.centreon.com/docs/monitoring/groups/#hosts-category).
-- Each service that you want to see in reports must belong to at least one [service category](https://docs-next-int.centreon.com/docs/monitoring/groups/#services-category).
+- Each host that you want to see in reports must belong to at least one [host group](../monitoring/groups.md#creating-a-host-group) and one [host category](../monitoring/groups.md#hosts-category).
+- Each service that you want to see in reports must belong to at least one [service category](../monitoring/groups.md#services-category).
 
 The best way to link hosts to host categories and services to service categories is to use the **Linked host template/Linked service template** fields in the category creation form. This will mean less maintenance, as this will ensure that all future hosts that inherit from the template will be added to the category automatically (and you don't have to add them one by one manually as you create them).
 
@@ -17,7 +17,7 @@ The best way to link hosts to host categories and services to service categories
 
 ## Creating the time periods you need
 
-Every [job](https://docs-next-int.centreon.com/docs/reporting/concepts/#jobs) uses a [time period](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/timeperiods/) as a parameter: 24x7, workhours, non-workhours, etc... Only the data contained in the selected time periods will be included in the report.
+Every [job](concepts.md#jobs) uses a [time period](../monitoring/basic-objects/timeperiods.md) as a parameter: 24x7, workhours, non-workhours, etc... Only the data contained in the selected time periods will be included in the report.
 
 We recommend you create all the custom time periods you need before you start configuring reports.
 
@@ -26,7 +26,7 @@ We recommend you create all the custom time periods you need before you start co
 Only [data compiled by the ETL](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated) can be used in reports.
 For perfomance reasons, it is recommended to limit the scope of data for MBI to what you want to see in reports as large amounts of data take more time to compile, and take up storage space.
 
-Ideally, this should have been done as part of the installation process: see [Defining which data will be used by MBI](https://docs-next-int.centreon.com/docs/reporting/installation/#defining-which-data-will-be-used-by-mbi). If you haven't already done so, go to **Reporting > Monitoring Business Intelligence > General options**, **ETL options** tab.
+Ideally, this should have been done as part of the installation process: see [Defining which data will be used by MBI](installation.md#defining-which-data-will-be-used-by-mbi). If you haven't already done so, go to **Reporting > Monitoring Business Intelligence > General options**, **ETL options** tab.
 
 By default, the ETL is configured to compute availability and performance for all of your data: all host groups, host categories and service categories. If you don't want to see some of these groups and categories in your reports, uncheck **All group perimeters** and select only the data you want.
 
@@ -38,4 +38,4 @@ Select the time periods and the service categories you want (disk, ping, memory,
 
 ## Making it possible to share reports
 
-Generated reports can be [shared locally (via the Centreon interface)](https://docs-next-int.centreon.com/docs/reporting/share.md), or [published by email or to a server](reports-publication-rule.md). Before you [create a job](generating-reports.md#step-1-create-a-new-job), make sure you ave created the job groups or the publication rules you need.
+Generated reports can be [shared locally (via the Centreon interface)](share.md), or [published by email or to a server](reports-publication-rule.md). Before you [create a job](generating-reports.md#step-1-create-a-new-job), make sure you ave created the job groups or the publication rules you need.
