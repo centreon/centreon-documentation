@@ -34,7 +34,7 @@ Le connecteur apporte les modèles de service suivants
 | Disk               | Net-Bluecoat-Disk-SNMP-custom               | Contrôle permettant de vérifier l'utilisation du disque sur un Bluecoat             |
 | Hardware           | Net-Bluecoat-Hardware-SNMP-custom           | Contrôle permettant de vérifier les indicateurs hardware sur un Bluecoat            |
 | Memory             | Net-Bluecoat-Memory-SNMP-custom             | Contrôle permettant de vérifier l'utilisation de la mémoire sur un Bluecoat         |
-| Server-Connections | Net-Bluecoat-Server-Connections-SNMP-custom | Contrôle permettant de vérifier le nombre de connexions serveurs sur un Bluecoat    |
+| Server-Connections | Net-Bluecoat-Server-Connections-SNMP-custom | Contrôle permettant de vérifier le nombre de connexions serveur sur un Bluecoat    |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Bluecoat-SNMP-custom** est utilisé.
 
