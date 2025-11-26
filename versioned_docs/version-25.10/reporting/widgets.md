@@ -9,7 +9,7 @@ title: MBI Widgets
 > - Hostgroup Availability History
 > - Metric Capacity planning
 
-MBI widgets are also used in Centreon [custom views](../alerts-notifications/custom-views/). This means you can use custom views to create real-time AND
+MBI widgets are also used in Centreon [custom views](../alerts-notifications/custom-views.md). This means you can use custom views to create real-time AND
 reporting statistics (e.g., for availability, applications, and
 performance).
 

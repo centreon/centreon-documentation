@@ -25,7 +25,7 @@ The hosts and services taken into account by MBI (and thus included in the calcu
 
 ## MBI ACL rules
 
-To be able to [give users access to generated reports in the Centreon interface and/or to jobs](share.md), you must use MBI ACL rules (**Administration > ACL > Centreon MBI > ACL rules**). MBI ACL rules work as an intermediary between regular [Centreon ACLs](../administration/access-control-lists/) and [job groups](#job-groups) as these two cannot be linked directly.
+To be able to [give users access to generated reports in the Centreon interface and/or to jobs](share.md), you must use MBI ACL rules (**Administration > ACL > Centreon MBI > ACL rules**). MBI ACL rules work as an intermediary between regular [Centreon ACLs](../administration/access-control-lists.md) and [job groups](#job-groups) as these two cannot be linked directly.
 
 ## Metrics
 
