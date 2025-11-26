@@ -59,9 +59,7 @@ To install the DEM agent:
 
     ### `BETA` Version
 
-    <aside>
-    💡 To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
-    </aside>
+> To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
 
 2. Download and add the **GPG** key for our repository:
 
