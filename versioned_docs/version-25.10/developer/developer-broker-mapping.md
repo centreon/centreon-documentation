@@ -1356,80 +1356,6 @@ message Metric {
 }
 ```
 
-### Rebuild
-
-Rebuild events are generated when a Storage endpoint detects that some
-graphs should be rebuilt. It first sends a rebuild start event (end `false`),
-then metric values (metric event with is\_for\_rebuild set to
-true) and finally a rebuild end event (end `true`).
-
-This message and its principle are only available in BBDO v2.
-With BBDO v3, we take advantage of the power of Protobuf. To rebuild graphs,
-we use the event [Storage::PbRebuildMessage](#storagepbrebuildmessage).
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### Storage::Rebuild
-
-| Category | element | ID     |
-| -------- | ------- | ------ |
-| 3        | 2       | 196610 |
-
-The content of this message is serialized as follows:
-
-| Property  | Type             | Description                                                                                                   | Version |
-| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
-| end       | boolean          | End flag. Set to true if rebuild is starting, false if it is ending.                                          |         |
-| id        | unsigned integer | ID of metric to rebuild if is\_index is false, or ID of index to rebuild (status graph) if is\_index is true. |         |
-| is\_index | boolean          | Index flag. Rebuild index (status) if true, rebuild metric if false.                                          |         |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Not available with Protobuf 3.
-
-Take a look at [Storage::PbRebuildMessage](#storagepbrebuildmessage) for a replacement.
-
-</TabItem>
-</Tabs>
-
-### Remove graph
-
-A Storage endpoint generates a **remove graph** event when some graphs
-must be deleted.
-
-This message and its principle are only available in BBDO v2.
-With BBDO v3, we take advantage of the power of Protobuf. To remove graphs,
-we use the event [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### Storage::RemoveGraph
-
-| Category | element | ID     |
-| -------- | ------- | ------ |
-| 3        | 3       | 196611 |
-
-The content of this message is serialized as follows:
-
-| Property  | Type             | Description                                                                                            |
-| --------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
-| id        | unsigned integer | Index ID (is\_index =`true`) or metric ID (is\_index =`false`) to remove.                              |
-| is\_index | boolean          | Index flag. If true, a index (status) graph will be deleted. If false, a metric graph will be deleted. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Not available with Protobuf 3.
-
-Take a look at [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage)
-for a replacement.
-
-</TabItem>
-</Tabs>
-
 ### Status
 
 This event is emitted by cbd when a **Service Status** or a **Host Status** event is received.
@@ -1584,37 +1510,35 @@ message RemoveGraphMessage {
 
 ## BBDO
 
-### Version response
+### Welcome
 
 This is the negotiation message used until BBDO v3.0.0. Each time a BBDO
 connection is established, this message is sent by the connector and by the
 acceptor to negotiate options.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
 
-#### BBDO::VersionResponse
+#### BBDO::PbWelcome
 
 | Category | element | ID     |
 | -------- | ------- | ------ |
-| 2        | 1       | 131073 |
+| 2        | 7       | 131079 |
 
-The content of this message is serialized as follows:
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
 
-| Property    | Type          | Description                                                                                                                |
-| ----------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| bbdo\_major | short integer | BBDO protocol major used by the peer sending this **version_response** packet. The sole current protocol version is 1.0.0. |
-| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this **version_response** packet.                                             |
-| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this **version_response** packet.                                             |
-| extensions  | string        | Space-separated string of extensions supported by the peer sending this **version_response** packet.                       |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-The event is the same as in BBDO v2. There is no Protobuf event.
-
-</TabItem>
-</Tabs>
+```text
+message Welcome {
+  Bbdo version = 1;
+  string extensions = 2;
+  uint64 poller_id = 3;
+  string poller_name = 4;
+  /* Broker name is more relevant than poller name because for example on the
+   * central, rrd broker, central broker and engine share the same poller name
+   * that is 'Central'. */
+  string broker_name = 5;
+  com.centreon.common.PeerType peer_type = 6;
+  bool extended_negotiation = 7;
+}
+```
 
 ### Ack
 
@@ -1747,38 +1671,6 @@ message KpiStatus {
     bool valid = 13;                        // True if the KPI is valid.
 }
 ```
-
-### Meta service status event
-
-This event was designed to send meta service's status changes.
-
-At the moment meta services are not managed by Centreon Broker, so this
-event is not used.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::MetaServiceStatus
-
-| Category | element | ID     |
-| -------- | ------- | ------ |
-| 6        | 3       | 393219 |
-
-The content of this message is serialized as follows:
-
-| Property          | Type             | Description                     |
-| ----------------- | ---------------- | ------------------------------- |
-| meta\_service\_id | unsigned integer | The id of the meta service.     |
-| value             | real             | The value of the meta service.  |
-| state\_changed    | boolean          | True if the state just changed. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-There is no Protobuf event.
-
-</TabItem>
-</Tabs>
 
 ### BA-event event
 
