@@ -139,7 +139,7 @@ Si les commandes **--partitions** et **--db-content** indiquent qu'il y a un pro
 | `mod_bi_*availability`                                             | Problème avec les **données de disponibilité agrégées**, pas avec les données brutes            | Après avoir résolu le problème, exécutez le script d'agrégation de disponibilité [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstruction-partielle) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
 | `mod_bi_metric*`                                                   | Problème avec les **données des métriques agrégées** (par exemple, performance), pas avec les données brutes. | Après avoir résolu le problème, exécutez le script d'agrégation des métriques. [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstruction-partielle) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
 
-Si vous rencontrez des problèmes, vérifiez que MBI est bien configuré selon notre [procédure de configuration post-installation](installation.md#étape-4--Configurez-letl-dans-linterface-de-centreon).
+Si vous rencontrez des problèmes, vérifiez que MBI est bien configuré selon notre [procédure de configuration post-installation](installation.md#étape-4--configurez-letl-dans-linterface-de-centreon).
 
 ## CBIS ne démarre pas
 
