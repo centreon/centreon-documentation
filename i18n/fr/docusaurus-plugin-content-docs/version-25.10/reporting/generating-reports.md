@@ -25,7 +25,7 @@ Dans la section **Configuration de la tâche planifiée** de l'onglet **Configur
 * Choisissez un nom pour la tâche. Celui-ci sera également le nom du rapport généré à la page **Rapports > Monitoring Business Intelligence > Report view**.
 * Sélectionnez la langue du rapport : vous pouvez générer des rapports en français ou en anglais (ignorez le bouton **Rafraîchir** à côté de la liste).
 * Sélectionnez le **Format de sortie** que vous voulez pour ce rapport : attention, tous les formats de sortie en sont pas supportés par tous les modèles de rapport. Consultez le [catalogue des modèles disponibles](available-reports/available-reports.md) pour confirmer les formats de sortie supportés par le rapport que vous avez choisi.
-* Sélectionnez le [**groupe de tâches**](concepts.md#groupes-de-tâches-planifiés) que vous voulez afin de [partager le rapport avec d'autres utilisateurs non-administrateurs](share.md) :
+* Sélectionnez le [**groupe de tâches**](concepts.md#groupes-de-tâches) que vous voulez afin de [partager le rapport avec d'autres utilisateurs non-administrateurs](share.md) :
    * Ils pourront modifier la tâche (s'ils ont le droit d'accéder à la page **Reporting > Monitoring Business Intelligence > Jobs**).
    * Ils pourront voir le rapport généré à la page **Reporting > Monitoring Business Intelligence > Report View** (s'ils ont les bons ACL pour accéder à cette page).
    * Attention, partager le rapport est différent de [publier le rapport pour d'autres utilisateurs](reports-publication-rule.md) : cette dernière action se fait depuis l'onglet **Publication**.

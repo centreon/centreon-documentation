@@ -21,4 +21,4 @@ Notez que les données incluses dans le rapport dépendent des ACL **de la perso
 
 ## Utiliser un groupe de tâches dans la définition d'une tâche
 
-Lorsque vous [créez une tâche](generate-reports.md) (à la page **Reporting > Monitoring Business Intelligence > Jobs**) vous pouvez lier un groupe de tâches à votre tâche pour appliquer les ACLs que vous avez défini. Cela se fait dans la section **Configuration de la tâche planifiée** de l'onglet **Configuration**.
+Lorsque vous [créez une tâche](generating-reports.md) (à la page **Reporting > Monitoring Business Intelligence > Jobs**) vous pouvez lier un groupe de tâches à votre tâche pour appliquer les ACLs que vous avez défini. Cela se fait dans la section **Configuration de la tâche planifiée** de l'onglet **Configuration**.

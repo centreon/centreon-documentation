@@ -26,7 +26,7 @@ Créez toutes les périodes personnalisées dont vous avez besoin avant de comme
 Seules les [données compilées par l'ETL](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées) peuvent être utilisées dans les rapports.
 Pour des raisons de performance, il est recommandé de limiter le périmètre de données pour MBI à ce que vous souhaitez voir dans les rapports, car de grandes quantités de données prennent plus de temps à traiter et occupent de l'espace de stockage.
 
-Idéalement, cela a été fait dans le cadre du processus d'installation : voir [Définir les données qui seront utilisées par MBI](installation.md#defining-which-data-will-be-used-by-mbi). Si vous ne l'avez pas encore fait, allez dans **Rapports > Monitoring Business Intelligence > General options**, onglet **Options ETL**.
+Idéalement, cela a été fait dans le cadre du processus d'installation : voir [Définir les données qui seront utilisées par MBI](installation.md#définir-les-données-qui-seront-utilisées-par-mbi). Si vous ne l'avez pas encore fait, allez dans **Rapports > Monitoring Business Intelligence > General options**, onglet **Options ETL**.
 
 Par défaut, l'ETL est configuré pour calculer la disponibilité et les performances de toutes vos données : tous les groupes d'hôtes, toutes les catégories d'hôtes et toutes les catégories de services. Si vous ne souhaitez pas voir certains de ces groupes et catégories dans vos rapports, décochez **Tous les périmètres de groupe** et sélectionnez uniquement les données que vous souhaitez.
 

@@ -7,7 +7,7 @@ Vous pouvez ici prévisualiser les modèles de rapport et obtenir des informatio
 
 | Catégorie de rapport | Type de données |
 | --- | --- |
-| Rapports de supervision des activités métier | Données [BAM](../service-mapping/introduction.md). |
+| Rapports de supervision des activités métier | Données [BAM](../../service-mapping/introduction.md). |
 | Rapports de disponibilité et d'évènements | Données de [disponibilité](../concepts.md#disponibilité) et d'[évènements](../concepts.md#évènement). |
 | Rapports de performances | Toutes les métriques. |
 | Rapports de stockage | Métriques **Disk**. |
