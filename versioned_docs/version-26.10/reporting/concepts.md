@@ -66,7 +66,7 @@ Service user created automatically when the extension is installed. This user wi
 
 ## Availability
 
-The amount of time a host has spent in an "available" [status](../alerts-notifications/concepts/#host-status), in the selected time period. Only [hard statuses](../alerts-notifications/concepts.md#status-types) are taken into account when calculating availability.
+The amount of time a host has spent in an "available" [status](../alerts-notifications/concepts.md#host-status), in the selected time period. Only [hard statuses](../alerts-notifications/concepts.md#status-types) are taken into account when calculating availability.
 
 * For hosts: When calculating availability, only the time the host has spent in an UP or DOWN status is taken into account, not the time spent in an UNREACHABLE state or in downtime.
 * For services: When calculating availability, only the time the service has spent in an "OK" or "Warning" status is taken into account, not the time spent in an UNKNOWN state or in downtime.

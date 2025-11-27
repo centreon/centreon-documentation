@@ -5,7 +5,7 @@ title: Préparer les données pour pouvoir générer des rapports
 
 ## Mettre vos ressources à la disposition de MBI
 
-Pour les rapports sur la disponibilité et les performances des hôtes/services, les ressources que vous souhaitez voir apparaître dans les rapports doivent être organisées en [groupes d'hôtes](../monitoring/groups.md#créer-un-groupes-dhôtes), [catégories d'hôtes](../monitoring/categories.md#catégories-dhôtes) et [catégories de services](../discovery/hosts-discovery.md#catégories-de-services).
+Pour les rapports sur la disponibilité et les performances des hôtes/services, les ressources que vous souhaitez voir apparaître dans les rapports doivent être organisées en [groupes d'hôtes](../monitoring/groups.md#créer-un-groupes-dhôtes), [catégories d'hôtes](../monitoring/categories.md#catégories-dhôtes) et [catégories de services](../monitoring/categories.md#catégories-de-services).
 
 - Chaque hôte que vous souhaitez voir apparaître dans les rapports doit appartenir à au moins un [groupe d'hôtes](../monitoring/groups.md#créer-un-groupes-dhôtes) et une [catégorie d'hôtes](../monitoring/categories.md#catégories-dhôtes).
 - Chaque service que vous souhaitez voir apparaître dans les rapports doit appartenir à au moins une [catégorie de services](../monitoring/categories.md#catégories-de-services).
