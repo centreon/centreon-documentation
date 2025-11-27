@@ -17,9 +17,40 @@ agent to check the health and performance of Microsoft Clusters.
 
 * Microsoft Server with the MSCS extension
 
-### Collected metrics
+### Collected metrics & status
 
-*Coming soon*
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+
+<Tabs groupId="sync">
+<TabItem value="Cluster-Network-Status" label="Cluster-Network-Status">
+
+| Name   | Unit  |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+<TabItem value="Cluster-Node-Status" label="Cluster-Node-Status">
+
+| Name   | Unit  |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+<TabItem value="Cluster-Resouce-Status" label="Cluster-Resouce-Status">
+
+| Name   | Unit  |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+<TabItem value="Cluster-Resoucegroup-Status" label="Cluster-Resoucegroup-Status">
+
+| Name   | Unit  |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 

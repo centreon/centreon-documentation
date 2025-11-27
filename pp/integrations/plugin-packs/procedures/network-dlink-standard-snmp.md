@@ -67,7 +67,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                                   | Unit  |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | cpu.utilization.5s.percentage                 | %     |
 | cpu.utilization.1m.percentage                 | %     |
@@ -79,12 +79,21 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Name                         | Unit  |
+|:-----------------------------|:------|
+| hardware.fan.status          | N/A   |
+| hardware.fan.count           | count |
+| hardware.fan.speed.rpm       | rpm   |
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
+| hardware.temperature.celsius | C     |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                                               | Unit  |
+| Name                                                      | Unit  |
 |:----------------------------------------------------------|:------|
 | *interface_name*#status                                   | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
@@ -97,7 +106,7 @@ Coming soon
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name                      | Unit  |
+| Name                             | Unit  |
 |:---------------------------------|:------|
 | *memory*#memory.usage.bytes      | B     |
 | *memory*#memory.free.bytes       | B     |
@@ -106,7 +115,7 @@ Coming soon
 </TabItem>
 <TabItem value="Stack" label="Stack">
 
-| Metric name                 | Unit  |
+| Name                        | Unit  |
 |:----------------------------|:------|
 | stack.members.total.count   | count |
 | *member*~member-status      | N/A   |
