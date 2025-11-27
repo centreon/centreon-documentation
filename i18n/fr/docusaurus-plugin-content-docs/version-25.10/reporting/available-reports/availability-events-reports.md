@@ -1,6 +1,6 @@
 ---
 id: availability-events-reports
-Title: Rapports disponibilité et événements
+title: Rapports disponibilité et événements
 ---
 
 ### Hostgroups-Incidents-1

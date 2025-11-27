@@ -110,7 +110,7 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 </TabItem>
 <TabItem value="SMTP" label="SMTP">
 
-> Before configuring the SMTP rule in the MBI interface, make sure that [Postfix is properly installed and configured](https://docs-next-int.centreon.com/docs/administration/postfix/) on your MBI server to allow local mail delivery.
+> Before configuring the SMTP rule in the MBI interface, make sure that [Postfix is properly installed and configured](..//administration/postfix.md) on your MBI server to allow local mail delivery.
 > 
 > By default, on MBI, Postfix is used as a mail relay without authentication. This means that:
 > - The SMTP configuration inside Centreon MBI does not require credentials or SSL.
@@ -132,10 +132,10 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 | Default E-mail body                      |                    | Default content in the body of the email.  If you leave this blank, the email will be empty.                                          |
 | Default E-mail footer                    |                    | Default signature/footer at the bottom of the email.  If you leave this blank, the email will have no signature.                      |
 | Maximum report size                      | 4 Mo               | Total maximum allowed size of all email attachments (in megabytes).                                                                   |
-| Centreon main server web protocol        | http               | Protocol used to access the Centreon interface (HTTP or [HTTPS](https://docs-next-int.centreon.com/docs/administration/secure-platform/)).     |
+| Centreon main server web protocol        | http               | Protocol used to access the Centreon interface (HTTP or [HTTPS](../administration/secure-platform.md)).     |
 | Centreon web URL extension               | /centreon          | Web path extension (it will be `/centreon` if you haven't customized it).                                                             |
 | Centreon main server web address         | central_ip         | IP or FQDN + port of the Centreon web interface.                                                                                      |
-| Contact Groups                           | cg-reports-mbi     | The [contact group(s)](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/contacts-groups/) that will receive the report. Bear in mind that if you send a copy of the report to these users, they will be able to see all of the data included in it - whether they have[ access rights on these resources](https://docs-next-int.centreon.com/docs/administration/access-control-lists.md#access-filters-on-resources) or not.         |
+| Contact Groups                           | cg-reports-mbi     | The [contact group(s)](../monitoring/basic-objects/contacts-groups.md) that will receive the report. Bear in mind that if you send a copy of the report to these users, they will be able to see all of the data included in it - whether they have[ access rights on these resources](../administration/access-control-lists.md#access-filters-on-resources) or not.         |
 
 </TabItem>
 </Tabs>
@@ -147,7 +147,7 @@ To make sure a copy of your report is published every time the job is executed, 
 * mark the rule as global (no extra configuration is necessary as all global rules are executed every time a job is run - bear in mind that global rules apply to all the jobs executed by the platform).
 * in the job you want, select the desired custom rule on the **Publication** tab of the **Reporting > Monitoring Business Intelligence > Jobs** page.
 
-Please note that the data included in the report depends on the [rights on resources](https://docs-next-int.centreon.com/docs/administration/access-control-lists/#access-filters-on-resources) of the user who creates the job. It is the responsibility of the user creating the job to make sure that the resources included in the report are authorized for the users with which they want to share the report.
+Please note that the data included in the report depends on the [rights on resources](../administration/access-control-lists.md#access-filters-on-resources) of the user who creates the job. It is the responsibility of the user creating the job to make sure that the resources included in the report are authorized for the users with which they want to share the report.
 
 ## How the Default publication rule works
 
