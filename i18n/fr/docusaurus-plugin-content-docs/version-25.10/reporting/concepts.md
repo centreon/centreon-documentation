@@ -52,7 +52,7 @@ Les groupes de tâches déterminent [quels utilisateurs non administrateurs sont
 
 * Créez des groupes de tâches à la page **Rapports > Monitoring Business Intelligence > Job groups**.
 * Pour chaque tâche, définissez les personnes qui pourront consulter le rapport dans l'onglet **Configuration** de la tâche (champ **Groupes de tâches planifiées**). Le rapport sera visible pour les utilisateurs liés aux groupes de tâches sélectionnés.
-* Veuillez noter que les données incluses dans le rapport dépendent des [droits sur les ressources](../administration/access-control-lists.md#access-filters-on-resources) de l'utilisateur qui crée la tâche. Il incombe à l'utilisateur qui crée la tâche de s'assurer que les ressources incluses dans le rapport sont autorisées pour les utilisateurs avec lesquels il souhaite partager le rapport.
+* Veuillez noter que les données incluses dans le rapport dépendent des [droits sur les ressources](../administration/access-control-lists.md#filtres-daccès-aux-ressources) de l'utilisateur qui crée la tâche. Il incombe à l'utilisateur qui crée la tâche de s'assurer que les ressources incluses dans le rapport sont autorisées pour les utilisateurs avec lesquels il souhaite partager le rapport.
 
    Exemple : si l'**utilisateur 1** dispose de droits sur les hôtes **Paris** et **Londres**, le rapport contiendra les données relatives à **Paris** et **Londres**. Si le rapport est partagé avec l'**utilisateur 2** qui n'a pas de droits sur **Londres**, l'**utilisateur 2** pourra tout de même voir les données pour **Londres**, car le rapport a été généré de cette manière.
 

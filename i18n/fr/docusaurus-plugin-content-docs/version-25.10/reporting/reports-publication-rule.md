@@ -135,7 +135,7 @@ Pour créer une règle de publication, allez à la page **Reporting > Monitoring
 | Protocole                                 | http                    | Protocole utilisé pour accéder à l'interface Centreon (HTTP ou [HTTPS](../administration/secure-platform.md)). |
 | L'extension de l'adresse web de Centreon  | /centreon               | Extension de chemin web (ce sera `/centreon` si vous ne l’avez pas personnalisée).                                                          |
 | Adresse du serveur Web principal Centreon | central_ip              | IP ou FQDN + port de l’interface web Centreon.                                                                                              |
-| Contact Groups                            | cg-reports-mbi          | Le(s) [groupe(s) de contacts](../monitoring/basic-objects/contacts-groups.md) qui recevront le rapport. Attention, si vous envoyez une copie du rapport à ces utilisateurs, ils pourront voir toutes les données que cleui-ci contient — qu'ils aient ou non [des droits d’accès sur ces ressources](../administration/access-control-lists.md#access-filters-on-resources).  |
+| Contact Groups                            | cg-reports-mbi          | Le(s) [groupe(s) de contacts](../monitoring/basic-objects/contacts-groups.md) qui recevront le rapport. Attention, si vous envoyez une copie du rapport à ces utilisateurs, ils pourront voir toutes les données que cleui-ci contient — qu'ils aient ou non [des droits d’accès sur ces ressources](../administration/access-control-lists.md#filtres-daccès-aux-ressources).  |
 
 
 </TabItem>

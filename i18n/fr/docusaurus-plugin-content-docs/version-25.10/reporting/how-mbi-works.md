@@ -47,7 +47,7 @@ Les rapports peuvent être générés immédiatement à la demande de l'utilisat
 > Dans les deux cas, toutes les agrégations doivent avoir été calculées. Cela signifie que si vous venez d'apporter des modifications aux catégories d'hôtes, aux groupes d'hôtes et aux catégories de services, les agrégations correspondantes n'auront pas encore été calculées. Vous devrez [reconstruire les données](rebuilding-data.md).
 
 * Un seul rapport est généré par format : pdf, xlsx, docx, etc.
-* Le périmètre des données dans le rapport est déterminé par l'onglet **Paramètres du rapport** de la tâche. N'oubliez pas que le rapport et toutes ses données seront partagés avec d'autres utilisateurs en fonction de ce que vous avez défini dans les [groupes de tâches](concepts.md#job-groups), indépendamment des ACL des autres utilisateurs sur les ressources.
+* Le périmètre des données dans le rapport est déterminé par l'onglet **Paramètres du rapport** de la tâche. N'oubliez pas que le rapport et toutes ses données seront partagés avec d'autres utilisateurs en fonction de ce que vous avez défini dans les [groupes de tâches](concepts.md#groupes-de-tâches), indépendamment des ACL des autres utilisateurs sur les ressources.
 * Les rapports générés sont copiés sur le serveur central, dans **/var/lib/centreon/centreon-bi-server/archives**. (Cette opération est effectuée en exécutant la [règle de publication](reports-publication-rule.md) SFTP globale appelée [**Default**](reports-publication-rule.md#fonctionnement-de-la-règle-de-publication-default).)
 * Toutes les autres [règles de publication**globales**](reports-publication-rule.md#règles-globales-et-règles-personnalisées) sont ensuite exécutées.
 

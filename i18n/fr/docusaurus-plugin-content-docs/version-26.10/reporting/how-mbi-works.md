@@ -32,7 +32,7 @@ Sur le serveur MBI, un cronjob lance l'ETL tous les jours à 4h30 du matin. Cela
 
 3. **/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl** : l'ETL calcule la [disponibilité](concepts.md#disponibilité) des ressources en fonction des données copiées depuis le serveur central et des dimensions calculées juste avant. La disponibilité de chaque ressource est calculée par jour et par mois, en tenant compte des [périodes temporelles](../monitoring/basic-objects/timeperiods.md) sélectionnées dans le champ **Sélectionner les plages de services pour le calcul des statistiques de disponibilité** de la page **General options**, dans l'onglet **Options de l'ETL**.
 
-4. **/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl** : l'ETL agrège toutes les métriques par heure/jour/mois, en tenant compte des [périodes de temps](../monitoring/basic-objects/timeperiods.md) sélectionnées dans le champ **Sélectionner les plages de services pour le calcul des statistiques de performance** de la page **General options**, dans l'onglet **Options de l'ETL**. Le script inclut le calcul des centiles, s'il est configuré.
+4. **/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl** : l'ETL agrège toutes les métriques par heure/jour/mois, en tenant compte des [périodes temporelles](../monitoring/basic-objects/timeperiods.md) sélectionnées dans le champ **Sélectionner les plages de services pour le calcul des statistiques de performance** de la page **General options**, dans l'onglet **Options de l'ETL**. Le script inclut le calcul des centiles, s'il est configuré.
 
 Une fois toutes les agrégations calculées, MBI est prêt à générer des rapports.
 

@@ -135,7 +135,7 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 | Centreon main server web protocol        | http               | Protocol used to access the Centreon interface (HTTP or [HTTPS](../administration/secure-platform.md)).     |
 | Centreon web URL extension               | /centreon          | Web path extension (it will be `/centreon` if you haven't customized it).                                                             |
 | Centreon main server web address         | central_ip         | IP or FQDN + port of the Centreon web interface.                                                                                      |
-| Contact Groups                           | cg-reports-mbi     | The [contact group(s)](../monitoring/basic-objects/contacts-groups.md) that will receive the report. Bear in mind that if you send a copy of the report to these users, they will be able to see all of the data included in it - whether they have[ access rights on these resources](https://docs-next-int.centreon.com/docs/administration/access-control-lists.md#access-filters-on-resources) or not.         |
+| Contact Groups                           | cg-reports-mbi     | The [contact group(s)](../monitoring/basic-objects/contacts-groups.md) that will receive the report. Bear in mind that if you send a copy of the report to these users, they will be able to see all of the data included in it - whether they have[ access rights on these resources](../administration/access-control-lists.md#access-filters-on-resources) or not.         |
 
 </TabItem>
 </Tabs>
