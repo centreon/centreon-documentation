@@ -5,10 +5,10 @@ title: Preparing data for report generation
 
 ## Making your resources available to MBI
 
-For host/service availability and performance reports, the resources you want to see appear in reports must be organized into [host groups](../monitoring/groups.md#creating-a-host-group), [host categories](../monitoring/groups.md#hosts-category) and [service categories](../monitoring/groups.md#services-category).
+For host/service availability and performance reports, the resources you want to see appear in reports must be organized into [host groups](../monitoring/groups.md#creating-a-host-group), [host categories](../monitoring/categories.md#hosts-category) and [service categories](../monitoring/categories.md#services-category).
 
-- Each host that you want to see in reports must belong to at least one [host group](../monitoring/groups.md#creating-a-host-group) and one [host category](../monitoring/groups.md#hosts-category).
-- Each service that you want to see in reports must belong to at least one [service category](../monitoring/groups.md#services-category).
+- Each host that you want to see in reports must belong to at least one [host group](../monitoring/groups.md#creating-a-host-group) and one [host category](../monitoring/categories.md#hosts-category).
+- Each service that you want to see in reports must belong to at least one [service category](../monitoring/categories.md#services-category).
 
 The best way to link hosts to host categories and services to service categories is to use the **Linked host template/Linked service template** fields in the category creation form. This will mean less maintenance, as this will ensure that all future hosts that inherit from the template will be added to the category automatically (and you don't have to add them one by one manually as you create them).
 
