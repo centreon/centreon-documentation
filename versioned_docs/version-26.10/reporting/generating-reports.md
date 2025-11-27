@@ -3,7 +3,7 @@ id: generating-reports
 title: Generating reports using jobs
 ---
 
-> MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [**Concepts** page](../concepts.md) before following MBI-related procedures.
+> MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [**Concepts** page](concepts.md) before following MBI-related procedures.
 
 Reports are created using jobs. A job is a report definition, that can include several output formats, and several publication modes.
 

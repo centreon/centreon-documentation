@@ -5,10 +5,10 @@ title: Préparer les données pour pouvoir générer des rapports
 
 ## Mettre vos ressources à la disposition de MBI
 
-Pour les rapports sur la disponibilité et les performances des hôtes/services, les ressources que vous souhaitez voir apparaître dans les rapports doivent être organisées en [groupes d'hôtes](../monitoring/groups.md#cr%C3%A9er-un-groupes-dh%C3%B4tes), [catégories d'hôtes](../monitoring/categories.md#cat%C3%A9gories-dh%C3%B4tes) et [catégories de services](../monitoring/categories.md#cat%C3%A9gories-de-services).
+Pour les rapports sur la disponibilité et les performances des hôtes/services, les ressources que vous souhaitez voir apparaître dans les rapports doivent être organisées en [groupes d'hôtes](../monitoring/groups.md#créer-un-groupes-dhôtes), [catégories d'hôtes](../monitoring/categories.md#catégories-dhôtes) et [catégories de services](../monitoring/categories.md#catégories-de-services).
 
-- Chaque hôte que vous souhaitez voir apparaître dans les rapports doit appartenir à au moins un [groupe d'hôtes](../monitoring/groups/#cr%C3%A9er-un-groupes-dh%C3%B4tes) et une [catégorie d'hôtes](../monitoring/categories.md#cat%C3%A9gories-dh%C3%B4tes).
-- Chaque service que vous souhaitez voir apparaître dans les rapports doit appartenir à au moins une [catégorie de services](../monitoring/categories.md#cat%C3%A9gories-de-services).
+- Chaque hôte que vous souhaitez voir apparaître dans les rapports doit appartenir à au moins un [groupe d'hôtes](../monitoring/groups.md#créer-un-groupes-dhôtes) et une [catégorie d'hôtes](../monitoring/categories.md#catégories-dhôtes).
+- Chaque service que vous souhaitez voir apparaître dans les rapports doit appartenir à au moins une [catégorie de services](../monitoring/categories.md#catégories-de-services).
 
 La meilleure façon de lier les hôtes aux catégories d'hôtes et les services aux catégories de services est d'utiliser les champs **Modèle d'hôte lié/Modèle de service lié** dans le formulaire de création de catégorie. Cela réduira la maintenance, car tous les futurs hôtes héritant du modèle seront automatiquement ajoutés à la catégorie (et vous n'aurez pas à les ajouter manuellement un par un au fur et à mesure que vous les créez).
 
