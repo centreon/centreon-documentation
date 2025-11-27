@@ -15,7 +15,7 @@ Bien que chaque phase soit indépendante des autres, une configuration incorrect
 
 1. Au fur et à mesure que les contrôles sont effectués, chaque résultat est enregistré dans la base de données centrale (dans la table **centreon_storage.logs** pour les statuts, dans **data_bin** pour les métriques).
 
-2. Sur le serveur central, un script (**eventReportBuilder**) est lancé par un cronjob tous les jours à 3h du matin : il convertit les résultats des contrôles en [évènements](concepts.md#évènement) qui seront utilisés pour calculer la disponibilité. L'heure à laquelle ce script est lancé est définie dans **/etc/cron.d/centreon**.
+2. Sur le serveur central, un script (**eventReportBuilder**) est lancé par un cronjob tous les jours à 3h du matin : il convertit les résultats des contrôles en [évènements](concepts.md#évènements) qui seront utilisés pour calculer la disponibilité. L'heure à laquelle ce script est lancé est définie dans **/etc/cron.d/centreon**.
 
 > La conversion des résultats des contrôles en évènements doit être totalement terminée **avant** [le lancement de l'ETL](#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), sinon les rapports seront vides. En cas de doute, vérifiez ce journal pour voir si la conversion est terminée : **/var/log/centreon/eventReportBuilder.log**.
 
@@ -23,7 +23,7 @@ Bien que chaque phase soit indépendante des autres, une configuration incorrect
 
 Sur le serveur MBI, un cronjob lance l'ETL tous les jours à 4h30 du matin. Cela permet à Gorgone d'exécuter 4 scripts en tenant compte des options définies dans la page **Reporting > Monitoring Business Intelligence > General options** :
 
-1. **/usr/share/centreon-bi/etl/importData.pl**: [Les évènements](concepts.md#évènement) et les métriques ainsi que la configuration (hôtes, catégories d'hôtes, ACL...) sont copiées depuis la base de données centrale vers la base de données MBI pour le jour précédent (de minuit à minuit).
+1. **/usr/share/centreon-bi/etl/importData.pl**: [Les évènements](concepts.md#évènements) et les métriques ainsi que la configuration (hôtes, catégories d'hôtes, ACL...) sont copiées depuis la base de données centrale vers la base de données MBI pour le jour précédent (de minuit à minuit).
    * Le script n'importera que les groupes d'hôtes, les catégories d'hôtes et les catégories de services que vous avez définis dans la page **Reporting > Monitoring Business Intelligence > General options**, sous l'onglet **Options de l'ETL**, dans la section **Sélection du périmètre du reporting**.
    * Dans tous les cas, toutes les métriques seront importées.
    * Tous les hôtes ou services qui n'appartiennent pas à au moins un groupe d'hôtes et une catégorie d'hôtes, ou une catégorie de services sont exclus.

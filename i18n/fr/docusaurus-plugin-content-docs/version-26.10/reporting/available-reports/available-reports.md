@@ -14,7 +14,7 @@ Vous pouvez ici prévisualiser les modèles de rapport et obtenir des informatio
 | Rapports de réseau | Métriques **Traffic**. |
 | Rapports de virtualisation | Métriques liées à la virtualisation. Par exemple, certains de ces rapports contiennent les métriques suivantes : **CPU-ESX, Memory-ESX, VMcount-ESX, Datastore-usage, Datastore-IOPS, Vm-Cpu-Global, Vm-Memory-Global, Vm-Datastore-Iops-Global, VM-Statistics**. |
 | Rapports sur la consommation électrique | Métriques indiquant le nombre de kWh utilisés et le prix par kWh. |
-| Rapports de profiling | Métriques tels que CPU, stockage, mémoire et [disponibilité](../concepts/#disponibilité). |
+| Rapports de profiling | Métriques tels que CPU, stockage, mémoire et [disponibilité](../concepts.md#disponibilité). |
 | Rapports d'inventaire et de configuration | Informations de débug : affiche les données de configuration (hôtes, groupes d'hôtes...) qui ont été importées dans MBI |
 | Rapports de diagnostic de la base de données | Informations de débug : affiche les données agrégées de performance et de disponibilité présentes dans la base de données MBI (agrégées par mois ou par jour).  |
 
