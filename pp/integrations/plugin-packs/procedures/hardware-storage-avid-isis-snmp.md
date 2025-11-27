@@ -305,7 +305,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All 8 components are ok [ 1/1 alarm, 1/1 fan, 1/1 sim, 1/1 slot, 1/1 psu, 1/1 temperature, 1/1 pdrive, 1/1 vdrive,]. | 'hardware.alarm.count'=19980;;;; 'hardware.alarm.count'=74871;;;; 'hardware.fan.count'=21989;;;; 'hardware.fan.count'=6604;;;; 'hardware.sim.count'=80949;;;; 'hardware.sim.count'=54475;;;; 'hardware.slot.count'=59296;;;; 'hardware.slot.count'=41354;;;; 'hardware.psu.count'=6211;;;; 'hardware.psu.count'=55037;;;; 'hardware.temperature.count'=54041;;;; 'hardware.temperature.count'=44504;;;; 'hardware.pdrive.count'=34585;;;; 'hardware.pdrive.count'=25747;;;; 'hardware.vdrive.count'=27982;;;; 'hardware.vdrive.count'=12860;;;; 
+OK: All 33 components are ok [ 2/2 alarm, 9/9 fan, 1/1 sim, 5/5 slot, 6/6 psu, 4/4 temperature, 4/4 pdrive, 2/2 vdrive,]. | 'hardware.alarm.count'=2;;;; 'hardware.fan.count'=9;;;; 'hardware.sim.count'=1;;;; 'hardware.slot.count'=5;;;; 'hardware.psu.count'=6;;;; 'hardware.temperature.count'=4;;;; 'hardware.pdrive.count'=4;;;; 'hardware.vdrive.count'=2;;;;
 ```
 
 ### Troubleshooting

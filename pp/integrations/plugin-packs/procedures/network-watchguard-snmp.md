@@ -429,7 +429,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=1322b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=61655b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=71512b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=88088b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=13b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=61b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=71b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=68b/s;80;90;; 
 ```
 
 ### Troubleshooting

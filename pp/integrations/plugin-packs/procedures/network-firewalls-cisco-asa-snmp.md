@@ -510,7 +510,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=82920b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=88201b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=76666b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=94640b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=29b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=20b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=76b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=46b/s;80;90;; 
 ```
 
 ### Troubleshooting

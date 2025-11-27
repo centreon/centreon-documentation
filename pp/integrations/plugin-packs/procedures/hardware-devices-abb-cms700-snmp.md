@@ -319,7 +319,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All sensors are ok | 'sensors1#sensor.current.mixte.ampere'=98283A;;;0; 'sensors2#sensor.current.mixte.ampere'=52989A;;;0; 'sensors1#sensor.current.alternative.ampere'=90667A;;;0; 'sensors2#sensor.current.alternative.ampere'=20687A;;;0; 'sensors1#sensor.current.direct.ampere'=89468A;;;0; 'sensors2#sensor.current.direct.ampere'=98085A;;;0; 'sensors1#sensor.power.active.watt'=30813W;;;0; 'sensors2#sensor.power.active.watt'=41933W;;;0; 'sensors1#sensor.energy.active.watthours'=95340Wh;;;0; 'sensors2#sensor.energy.active.watthours'=48386Wh;;;0; 
+OK: All sensors are ok | 'sensors1#sensor.current.mixte.ampere'=23A;;;0; 'sensors2#sensor.current.mixte.ampere'=9A;;;0; 'sensors1#sensor.current.alternative.ampere'=7A;;;0; 'sensors2#sensor.current.alternative.ampere'=7A;;;0; 'sensors1#sensor.current.direct.ampere'=8A;;;0; 'sensors2#sensor.current.direct.ampere'=5A;;;0; 'sensors1#sensor.power.active.watt'=813W;;;0; 'sensors2#sensor.power.active.watt'=933W;;;0; 'sensors1#sensor.energy.active.watthours'=340Wh;;;0; 'sensors2#sensor.energy.active.watthours'=386Wh;;;0; 
 ```
 
 ### Troubleshooting

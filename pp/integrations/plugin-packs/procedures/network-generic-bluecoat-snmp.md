@@ -350,7 +350,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All 2 components are ok [ 1/1 sensor, 1/1 disk,]. | 'hardware.sensor.count'=82860;;;; 'hardware.sensor.count'=32084;;;; 'hardware.disk.count'=83073;;;; 'hardware.disk.count'=9901;;;; 
+OK: All 2 components are ok [ 1/1 sensor, 1/1 disk,]. | 'hardware.sensor.count'=1;;;; 'hardware.disk.count'=1;;;;
 ```
 
 ### Troubleshooting

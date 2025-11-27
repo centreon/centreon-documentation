@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias  | Service Template                    | Service Description                                                                                                                                | Discovery |
 |:---------------|:------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|
 | Cpu            | Net-Ruckus-Icx-Cpu-SNMP-custom      | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |           |
-| Hardware       | Net-Ruckus-Icx-Hardware-SNMP-custom | Check the rate of the utilization of memory (RAM)                                                                                                  |           |
+| Hardware       | Net-Ruckus-Icx-Hardware-SNMP-custom | Check hardware                                                                                                                                     |           |
 | Memory         | Net-Ruckus-Icx-Memory-SNMP-custom   | Check the rate of the utilization of memory (RAM)                                                                                                  |           |
 | Traffic-Global | Net-Ruckus-Icx-Traffic-SNMP-custom  | Check interfaces                                                                                                                                   |     X     |
 
@@ -344,7 +344,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=1536b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=60989b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=95297b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=89196b/s;;;; 'interface_name1#interface.packets.in.discard.percentage'=44%;;;;100 'interface_name2#interface.packets.in.discard.percentage'=79%;;;;100 'interface_name1#interface.packets.in.error.percentage'=38%;;;;100 'interface_name2#interface.packets.in.error.percentage'=45%;;;;100 'interface_name1#interface.packets.out.discard.percentage'=38%;;;;100 'interface_name2#interface.packets.out.discard.percentage'=43%;;;;100 'interface_name1#interface.packets.out.error.percentage'=87%;;;;100 'interface_name2#interface.packets.out.error.percentage'=49%;;;;100 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=15b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=60b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=57b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=86b/s;;;; 'interface_name1#interface.packets.in.discard.percentage'=44%;;;;100 'interface_name2#interface.packets.in.discard.percentage'=79%;;;;100 'interface_name1#interface.packets.in.error.percentage'=38%;;;;100 'interface_name2#interface.packets.in.error.percentage'=45%;;;;100 'interface_name1#interface.packets.out.discard.percentage'=38%;;;;100 'interface_name2#interface.packets.out.discard.percentage'=43%;;;;100 'interface_name1#interface.packets.out.error.percentage'=87%;;;;100 'interface_name2#interface.packets.out.error.percentage'=49%;;;;100 
 ```
 
 ### Troubleshooting

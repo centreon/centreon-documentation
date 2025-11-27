@@ -36,11 +36,11 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                | Modèle de service                          | Description                                               | Découverte |
-|:---------------------|:-------------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Generic-Name | Net-Zyxel-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Global       | Net-Zyxel-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau |     X      |
-| Vpn-Status           | Net-Zyxel-Vpn-Status-SNMP-custom           | Contrôle le statut des vpns                               |            |
+| Alias                | Modèle de service                          | Description                                              | Découverte |
+|:---------------------|:-------------------------------------------|:---------------------------------------------------------|:----------:|
+| Traffic-Generic-Name | Net-Zyxel-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Global       | Net-Zyxel-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau |     X      |
+| Vpn-Status           | Net-Zyxel-Vpn-Status-SNMP-custom           | Contrôle le statut des vpns                              |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 

@@ -605,7 +605,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=42718b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=35010b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=69645b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=76583b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=42b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=35b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=69b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=76b/s;80;90;; 
 ```
 
 ### Troubleshooting

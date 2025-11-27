@@ -443,7 +443,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All virtual servers are ok | 'vservers1#vserver.health.percentage'=77219%;;;0;100 'vservers2#vserver.health.percentage'=87185%;;;0;100 'vservers1#vserver.traffic.in.bitspersecond'=22821b/s;;;0; 'vservers2#vserver.traffic.in.bitspersecond'=48836b/s;;;0; 'vservers1#vserver.traffic.out.bitspersecond'=84624b/s;;;0; 'vservers2#vserver.traffic.out.bitspersecond'=3553b/s;;;0; 'vservers1#vserver.connections.client.count'=41767;;;0; 'vservers2#vserver.connections.client.count'=49109;;;0; 'vservers1#vserver.connections.server.count'=26480;;;0; 'vservers2#vserver.connections.server.count'=43763;;;0; 
+OK: All virtual servers are ok | 'vservers1#vserver.health.percentage'=19%;;;0;100 'vservers2#vserver.health.percentage'=67%;;;0;100 'vservers1#vserver.traffic.in.bitspersecond'=221b/s;;;0; 'vservers2#vserver.traffic.in.bitspersecond'=836b/s;;;0; 'vservers1#vserver.traffic.out.bitspersecond'=624b/s;;;0; 'vservers2#vserver.traffic.out.bitspersecond'=553b/s;;;0; 'vservers1#vserver.connections.client.count'=467;;;0; 'vservers2#vserver.connections.client.count'=409;;;0; 'vservers1#vserver.connections.server.count'=280;;;0; 'vservers2#vserver.connections.server.count'=463;;;0; 
 ```
 
 ### Troubleshooting

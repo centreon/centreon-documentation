@@ -359,7 +359,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: frequence: 29680 Hz All output lines are ok | 'lines.output.frequence.hertz'=29680Hz;;;; 'oline1#line.output.load.percentage'=20434%;;;0;100 'oline2#line.output.load.percentage'=19023%;;;0;100 'oline1#line.output.current.ampere'=33481A;;;0; 'oline2#line.output.current.ampere'=21900A;;;0; 'oline1#line.output.voltage.volt'=34316V;;;; 'oline2#line.output.voltage.volt'=27245V;;;; 'oline1#line.output.power.watt'=40658W;;;; 'oline2#line.output.power.watt'=25814W;;;; 
+OK: frequence: 296 Hz All output lines are ok | 'lines.output.frequence.hertz'=296Hz;;;; 'oline1#line.output.load.percentage'=20%;;;0;100 'oline2#line.output.load.percentage'=19%;;;0;100 'oline1#line.output.current.ampere'=3A;;;0; 'oline2#line.output.current.ampere'=2A;;;0; 'oline1#line.output.voltage.volt'=16V;;;; 'oline2#line.output.voltage.volt'=45V;;;; 'oline1#line.output.power.watt'=658W;;;; 'oline2#line.output.power.watt'=814W;;;; 
 ```
 
 ### Troubleshooting

@@ -42,9 +42,9 @@ Le connecteur apporte les modèles de service suivants
 | Packet-Errors-Generic-Id   | Net-Redback-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau         |            |
 | Packet-Errors-Generic-Name | Net-Redback-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau         |            |
 | Packet-Errors-Global       | Net-Redback-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau |     X      |
-| Traffic-Generic-Id         | Net-Redback-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau                                  |            |
-| Traffic-Generic-Name       | Net-Redback-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                  |            |
-| Traffic-Global             | Net-Redback-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau de plusieurs interfaces réseau                          |     X      |
+| Traffic-Generic-Id         | Net-Redback-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau                                   |            |
+| Traffic-Generic-Name       | Net-Redback-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                   |            |
+| Traffic-Global             | Net-Redback-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau de plusieurs interfaces réseau                           |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -429,7 +429,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=18120b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=99373b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=96700b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=3378b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=18b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=73b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=70b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=33b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes

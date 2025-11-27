@@ -549,10 +549,10 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 </TabItem>
 <TabItem value="Hsrp" label="Hsrp">
 
-| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| ROLE         | If role is 'primary', an error if HSRPs are 'standby' states.  If role is 'secondary', an error if HSRPs are 'active' states.                    | primary           |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro        | Description                                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| ROLE         | If role is 'primary', an error is returned when HSRPs are in a 'standby' state. If role is 'secondary', an error is returned when HSRPs are in an 'active' state | primary           |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                 | --verbose         |             |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">

@@ -40,7 +40,7 @@ The connector brings the following service templates (sorted by the host templat
 | Packet-Errors-Generic-Id   | Net-Arista-Packet-Errors-Generic-Id-SNMP-custom   | Check packets on errors/discards of a network interface                                                                                   |
 | Packet-Errors-Generic-Name | Net-Arista-Packet-Errors-Generic-Name-SNMP-custom | Check packets on errors/discards of a network interface                                                                                   |
 | Packet-Errors-Global       | Net-Arista-Packet-Errors-Global-SNMP-custom       | Check packets on errors/discards of multiple network interfaces                                                                           |
-| Tcpcon-Generic             | Net-Arista-Tcpcon-Generic-SNMP-custom             | Check current tcp connections                                                                                                             |
+| Tcpcon-Generic             | Net-Arista-Tcpcon-Generic-SNMP-custom             | Check current TCP connections                                                                                                             |
 | Traffic-Generic-Id         | Net-Arista-Traffic-Generic-Id-SNMP-custom         | Check the bandwidth of the interface. For each checks the name of the interface will appear (« label » shortcut describing the interface) |
 | Traffic-Generic-Name       | Net-Arista-Traffic-Generic-Name-SNMP-custom       | Check the bandwidth of the interface. For each checks the name of the interface will appear (« label » shortcut describing the interface) |
 | Traffic-Global             | Net-Arista-Traffic-Global-SNMP-custom             | Check the bandwidth of interfaces. For each checks the name of the interface will appear (« label » shortcut describing the interface)    |
@@ -434,7 +434,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=70851b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=9151b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=15866b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=59363b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=51b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=51b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=66b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=63b/s;80;90;; 
 ```
 
 ### Troubleshooting

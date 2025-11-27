@@ -224,7 +224,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All 4 components are ok [ 1/1 fan, 1/1 temperature, 1/1 voltage, 1/1 misc,]. | 'hardware.fan.count'=3;;;; 'hardware.fan.count'=8;;;; 'hardware.temperature.count'=9;;;; 'hardware.temperature.count'=6;;;; 'hardware.voltage.count'=2;;;; 'hardware.voltage.count'=1;;;; 'hardware.misc.count'=8;;;; 'hardware.misc.count'=6;;;; 
+OK: All 22 components are ok [ 3/3 fan, 9/9 temperature, 2/2 voltage, 8/8 misc,]. | 'hardware.fan.count'=3;;;; 'hardware.temperature.count'=9;;;; 'hardware.voltage.count'=2;;;; 'hardware.misc.count'=8;;;;
 ```
 
 ### Diagnostic des erreurs communes

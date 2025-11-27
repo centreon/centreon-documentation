@@ -356,7 +356,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK:  users connected: 48421 % disk temperature: 42749 C cpu temperature: 1469 C All services are ok | 'system.users.connected.count'=90721;;;0;max_users 'system.users.connected.percentage'=48421%;;;0;100 'system.disk.temperature.celsius'=42749C;;;; 'system.cpu.temperature.celsius'=1469C;;;; 
+OK:  users connected: 77 % disk temperature: 93 C cpu temperature: 38 C All services are ok | 'system.users.connected.count'=24;;;0;max_users'system.users.connected.percentage'=77%;;;0;100'ha-status'=81;;;;'system.disk.temperature.celsius'=93C;;;;'system.cpu.temperature.celsius'=38C;;;;
 ```
 
 ### Troubleshooting

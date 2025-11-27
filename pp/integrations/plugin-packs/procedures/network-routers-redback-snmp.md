@@ -428,7 +428,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=18120b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=99373b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=96700b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=3378b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=18b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=73b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=70b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=33b/s;80;90;; 
 ```
 
 ### Troubleshooting

@@ -377,7 +377,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All 2 components are ok [ 1/1 switch, 1/1 sensor,]. | 'hardware.switch.count'=48150;;;; 'hardware.switch.count'=16305;;;; 'hardware.sensor.count'=24966;;;; 'hardware.sensor.count'=98404;;;; 
+OK: All 3 components are ok [ 1/1 switch, 2/2 sensor,]. | 'hardware.switch.count'=1;;;; 'hardware.sensor.count'=2;;;; 
 ```
 
 ### Troubleshooting

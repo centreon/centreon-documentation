@@ -266,7 +266,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All 3 components are ok [ 1/1 cpu, 1/1 psu, 1/1 fan,]. | 'hardware.cpu.count'=28125;;;; 'hardware.cpu.count'=3794;;;; 'hardware.psu.count'=59133;;;; 'hardware.psu.count'=10943;;;; 'hardware.fan.count'=82607;;;; 'hardware.fan.count'=88449;;;; 
+OK: All 12 components are ok [ 2/2 cpu, 3/3 psu, 7/7 fan,]. | 'hardware.cpu.count'=2;;;; 'hardware.psu.count'=3;;;; 'hardware.fan.count'=7;;;;
 ```
 
 ### Diagnostic des erreurs communes

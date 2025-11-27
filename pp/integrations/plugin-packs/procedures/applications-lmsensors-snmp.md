@@ -223,7 +223,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All 4 components are ok [ 1/1 fan, 1/1 temperature, 1/1 voltage, 1/1 misc,]. | 'hardware.fan.count'=34974;;;; 'hardware.fan.count'=8900;;;; 'hardware.temperature.count'=98113;;;; 'hardware.temperature.count'=98;;;; 'hardware.voltage.count'=94752;;;; 'hardware.voltage.count'=69741;;;; 'hardware.misc.count'=31718;;;; 'hardware.misc.count'=66602;;;; 
+OK: All 22 components are ok [ 3/3 fan, 9/9 temperature, 2/2 voltage, 8/8 misc,]. | 'hardware.fan.count'=3;;;; 'hardware.temperature.count'=9;;;; 'hardware.voltage.count'=2;;;; 'hardware.misc.count'=8;;;;
 ```
 
 ### Troubleshooting

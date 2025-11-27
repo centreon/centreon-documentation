@@ -34,8 +34,8 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                | Modèle de service                                           | Description                                               | Découverte |
-|:---------------------|:------------------------------------------------------------|:----------------------------------------------------------|:----------:|
+| Alias                | Modèle de service                                           | Description                                              | Découverte |
+|:---------------------|:------------------------------------------------------------|:---------------------------------------------------------|:----------:|
 | Traffic-Generic-Id   | HW-Storage-Dell-Compellent-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau         |            |
 | Traffic-Generic-Name | HW-Storage-Dell-Compellent-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau         |            |
 | Traffic-Global       | HW-Storage-Dell-Compellent-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau |     X      |
@@ -73,7 +73,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Nom           | Unité |
+| Nom                | Unité |
 |:-------------------|:------|
 | ctrl.status        | N/A   |
 | disk.status        | N/A   |
@@ -91,6 +91,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | cache.status       | N/A   |
 | server.status      | N/A   |
 | sc.status          | N/A   |
+
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 

@@ -312,7 +312,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All 1 components are ok [ 1/1 device,]. | 'hardware.device.count'=40987;;;; 'hardware.device.count'=60900;;;; 
+OK: All 1 components are ok [ 1/1 device,]. | 'hardware.device.count'=1;;;;
 ```
 
 ### Troubleshooting

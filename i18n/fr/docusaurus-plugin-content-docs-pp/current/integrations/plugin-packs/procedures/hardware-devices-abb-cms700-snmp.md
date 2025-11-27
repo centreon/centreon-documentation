@@ -320,7 +320,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All sensors are ok | 'sensors1#sensor.current.mixte.ampere'=98283A;;;0; 'sensors2#sensor.current.mixte.ampere'=9A;;;0; 'sensors1#sensor.current.alternative.ampere'=7A;;;0; 'sensors2#sensor.current.alternative.ampere'=7A;;;0; 'sensors1#sensor.current.direct.ampere'=8A;;;0; 'sensors2#sensor.current.direct.ampere'=5A;;;0; 'sensors1#sensor.power.active.watt'=813W;;;0; 'sensors2#sensor.power.active.watt'=933W;;;0; 'sensors1#sensor.energy.active.watthours'=340Wh;;;0; 'sensors2#sensor.energy.active.watthours'=386Wh;;;0; 
+OK: All sensors are ok | 'sensors1#sensor.current.mixte.ampere'=23A;;;0; 'sensors2#sensor.current.mixte.ampere'=9A;;;0; 'sensors1#sensor.current.alternative.ampere'=7A;;;0; 'sensors2#sensor.current.alternative.ampere'=7A;;;0; 'sensors1#sensor.current.direct.ampere'=8A;;;0; 'sensors2#sensor.current.direct.ampere'=5A;;;0; 'sensors1#sensor.power.active.watt'=813W;;;0; 'sensors2#sensor.power.active.watt'=933W;;;0; 'sensors1#sensor.energy.active.watthours'=340Wh;;;0; 'sensors2#sensor.energy.active.watthours'=386Wh;;;0; 
 ```
 
 ### Diagnostic des erreurs communes

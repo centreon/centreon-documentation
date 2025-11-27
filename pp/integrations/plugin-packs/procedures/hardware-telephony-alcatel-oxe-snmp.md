@@ -420,7 +420,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All trunks are ok | 'trunk1#trunk.channels.usage.count'=34369;;;; 'trunk2#trunk.channels.usage.count'=82289;;;; 'trunk1#trunk.channels.outofservice.count'=89105;;;0; 'trunk2#trunk.channels.outofservice.count'=74168;;;0; 
+OK: All trunks are ok | 'trunk1#trunk.channels.usage.count'=3;;;; 'trunk2#trunk.channels.usage.count'=8;;;; 'trunk1#trunk.channels.outofservice.count'=8;;;0; 'trunk2#trunk.channels.outofservice.count'=6;;;0;
 ```
 
 ### Troubleshooting

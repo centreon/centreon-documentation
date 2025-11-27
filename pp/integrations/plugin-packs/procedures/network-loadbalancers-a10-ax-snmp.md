@@ -391,7 +391,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All virtual servers are ok | 'vserver1#virtualserver.connections.current.count'=71415;;;0; 'vserver2#virtualserver.connections.current.count'=30962;;;0; 'vserver1#virtualserver.connections.total.count'=71405;;;0; 'vserver2#virtualserver.connections.total.count'=57898;;;0; 'vserver1#virtualserver.traffic.in.bitspersecond'=99970b/s;;;0; 'vserver2#virtualserver.traffic.in.bitspersecond'=49996b/s;;;0; 'vserver1#virtualserver.traffic.out.bitspersecond'=24989b/s;;;0; 'vserver2#virtualserver.traffic.out.bitspersecond'=42746b/s;;;0; 
+OK: All virtual servers are ok | 'vserver1#virtualserver.connections.current.count'=75;;;0; 'vserver2#virtualserver.connections.current.count'=30;;;0; 'vserver1#virtualserver.connections.total.count'=71;;;0; 'vserver2#virtualserver.connections.total.count'=98;;;0; 'vserver1#virtualserver.traffic.in.bitspersecond'=970b/s;;;0; 'vserver2#virtualserver.traffic.in.bitspersecond'=996b/s;;;0; 'vserver1#virtualserver.traffic.out.bitspersecond'=249b/s;;;0; 'vserver2#virtualserver.traffic.out.bitspersecond'=426b/s;;;0; 
 ```
 
 ### Troubleshooting

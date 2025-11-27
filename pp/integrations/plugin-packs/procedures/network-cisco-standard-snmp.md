@@ -550,10 +550,10 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 </TabItem>
 <TabItem value="Hsrp" label="Hsrp">
 
-| Macro        | Description                                                                                                                                      | Default value | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| ROLE         | If role is 'primary', an error if HSRPs are 'standby' states.  If role is 'secondary', an error if HSRPs are 'active' states.                    | primary       |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
+| Macro        | Description                                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| ROLE         | If role is 'primary', an error is returned when HSRPs are in a 'standby' state. If role is 'secondary', an error is returned when HSRPs are in an 'active' state | primary       |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -763,7 +763,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: 8707 (1m) 41623 (5m) 38742 (15m) All connection types are ok | 'calls.active.1m.average.count'=8707;;;0; 'calls.active.5m.average.count'=41623;;;0; 'calls.active.15m.average.count'=38742;;;0; 'ctype1#connection.calls.active.count'=741;;;0; 'ctype2#connection.calls.active.count'=14943;;;0; 
+OK: 47 (1m) 81 (5m) 35 (15m) All connection types are ok | 'calls.active.1m.average.count'=47;;;0;'calls.active.5m.average.count'=81;;;0;'calls.active.15m.average.count'=35;;;0;'ctype1#connection.calls.active.count'=741;;;0; 'ctype2#connection.calls.active.count'=14943;;;0; 
 ```
 
 ### Troubleshooting

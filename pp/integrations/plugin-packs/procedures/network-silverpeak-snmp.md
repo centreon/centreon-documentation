@@ -35,11 +35,11 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias        | Service Template                                | Service Description                   | Discovery |
-|:---------------------|:------------------------------------------------|:--------------------------------------|:---------:|
-| Traffic-Generic-Id   | Net-Silverpeak-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface |           |
-| Traffic-Generic-Name | Net-Silverpeak-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface |           |
-| Traffic-Global       | Net-Silverpeak-Traffic-Global-SNMP-custom       | Check traffic of an network interface |     X     |
+| Service Alias        | Service Template                                | Service Description                    | Discovery |
+|:---------------------|:------------------------------------------------|:---------------------------------------|:---------:|
+| Traffic-Generic-Id   | Net-Silverpeak-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface  |           |
+| Traffic-Generic-Name | Net-Silverpeak-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface  |           |
+| Traffic-Global       | Net-Silverpeak-Traffic-Global-SNMP-custom       | Check traffic of an network interfaces |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -333,7 +333,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=78038b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=8161b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=82612b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=32255b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=78b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=61b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=12b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=55b/s;80;90;; 
 ```
 
 ### Troubleshooting

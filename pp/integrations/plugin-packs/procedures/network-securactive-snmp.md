@@ -24,10 +24,10 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Net-Securactive-SNMP-custom" label="Net-Securactive-SNMP-custom">
 
-| Service Alias | Service Template                | Service Description                 | Discovery |
-|:--------------|:--------------------------------|:------------------------------------|:---------:|
-| Bca           | Net-Securactive-bca-SNMP-custom | Check Business Critical Application | X         |
-| Bcn           | Net-Securactive-bcn-SNMP-custom | Check Business Critical Network     | X         |
+| Service Alias | Service Template                | Service Description                        | Discovery |
+|:--------------|:--------------------------------|:-------------------------------------------|:---------:|
+| Bca           | Net-Securactive-bca-SNMP-custom | Check Business-Critical Applications (BCA) | X         |
+| Bcn           | Net-Securactive-bcn-SNMP-custom | Check Business-Critical Networks (BCN)     | X         |
 
 > The services listed above are created automatically when the **Net-Securactive-SNMP-custom** host template is used.
 

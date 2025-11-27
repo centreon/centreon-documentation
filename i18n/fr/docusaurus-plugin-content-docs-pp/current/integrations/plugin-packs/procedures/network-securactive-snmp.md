@@ -25,10 +25,10 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Net-Securactive-SNMP-custom" label="Net-Securactive-SNMP-custom">
 
-| Alias | Modèle de service               | Description                        | Découverte |
-|:------|:--------------------------------|:-----------------------------------|:----------:|
-| Bca   | Net-Securactive-bca-SNMP-custom | Contrôle des applications critique | X          |
-| Bcn   | Net-Securactive-bcn-SNMP-custom | Contrôle du réseaeu critique       | X          |
+| Alias | Modèle de service               | Description                                        | Découverte |
+|:------|:--------------------------------|:---------------------------------------------------|:----------:|
+| Bca   | Net-Securactive-bca-SNMP-custom | Contrôle des applications business critiques (BCA) | X          |
+| Bcn   | Net-Securactive-bcn-SNMP-custom | Contrôle les réseaux business critiques (BCN)      | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Securactive-SNMP-custom** est utilisé.
 

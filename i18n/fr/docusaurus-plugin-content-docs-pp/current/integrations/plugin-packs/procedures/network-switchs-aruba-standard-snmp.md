@@ -50,17 +50,17 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                      | Modèle de service                                         | Description                                                                | Découverte |
-|:---------------------------|:----------------------------------------------------------|:---------------------------------------------------------------------------|:----------:|
-| Hardware-Fan               | Net-Aruba-Standard-Hardware-Fan-SNMP-custom               | Contrôle les ventilateurs de l'équipement                                  |            |
-| Hardware-Module            | Net-Aruba-Standard-Hardware-Module-SNMP-custom            | Contrôle les modules de l'équipement                                       |            |
-| Hardware-Psu               | Net-Aruba-Standard-Hardware-Psu-SNMP-custom               | Contrôle les alimentations de l'équipement                                 |            |
-| Packet-Errors-Generic-Id   | Net-Aruba-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau |            |
-| Packet-Errors-Generic-Name | Net-Aruba-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau |            |
-| Packet-Errors-Global       | Net-Aruba-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau |     X      |
-| Traffic-Generic-Id         | Net-Aruba-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau                          |            |
-| Traffic-Generic-Name       | Net-Aruba-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                          |            |
-| Traffic-Global             | Net-Aruba-Standard-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau d'une interface réseau                          |     X      |
+| Alias                      | Modèle de service                                         | Description                                                                 | Découverte |
+|:---------------------------|:----------------------------------------------------------|:----------------------------------------------------------------------------|:----------:|
+| Hardware-Fan               | Net-Aruba-Standard-Hardware-Fan-SNMP-custom               | Contrôle les ventilateurs de l'équipement                                   |            |
+| Hardware-Module            | Net-Aruba-Standard-Hardware-Module-SNMP-custom            | Contrôle les modules de l'équipement                                        |            |
+| Hardware-Psu               | Net-Aruba-Standard-Hardware-Psu-SNMP-custom               | Contrôle les alimentations de l'équipement                                  |            |
+| Packet-Errors-Generic-Id   | Net-Aruba-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau |            |
+| Packet-Errors-Generic-Name | Net-Aruba-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau |            |
+| Packet-Errors-Global       | Net-Aruba-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau |     X      |
+| Traffic-Generic-Id         | Net-Aruba-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau                            |            |
+| Traffic-Generic-Name       | Net-Aruba-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                            |            |
+| Traffic-Global             | Net-Aruba-Standard-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau d'une interface réseau                            |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -606,7 +606,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=42718b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=35010b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=69645b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=76583b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=42b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=35b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=69b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=76b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes

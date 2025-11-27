@@ -310,7 +310,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=48101b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=71580b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=97580b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=87172b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=48b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=71b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=58b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=72b/s;80;90;; 
 ```
 
 ### Troubleshooting

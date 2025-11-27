@@ -36,16 +36,16 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                      | Modèle de service                                 | Description                                                                                            |
-|:---------------------------|:--------------------------------------------------|:-------------------------------------------------------------------------------------------------------|
-| Packet-Errors-Generic-Id   | Net-Arista-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                             |
-| Packet-Errors-Generic-Name | Net-Arista-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                             |
-| Packet-Errors-Global       | Net-Arista-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau                     |
-| Tcpcon-Generic             | Net-Arista-Tcpcon-Generic-SNMP-custom             | Contrôle permettant de vérifier les connexions tcp                                                     |
-| Traffic-Generic-Id         | Net-Arista-Traffic-Generic-Id-SNMP-custom         | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface (« |
-| Traffic-Generic-Name       | Net-Arista-Traffic-Generic-Name-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface (« |
-| Traffic-Global             | Net-Arista-Traffic-Global-SNMP-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface (« |
-| Uptime                     | Net-Arista-Uptime-SNMP-custom                     | Durée depuis laquelle l'équipement tourne sans interruption                                            |
+| Alias                      | Modèle de service                                 | Description                                                                                                                                   |
+|:---------------------------|:--------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+| Packet-Errors-Generic-Id   | Net-Arista-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                                                                   |
+| Packet-Errors-Generic-Name | Net-Arista-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                                                                   |
+| Packet-Errors-Global       | Net-Arista-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                           |
+| Tcpcon-Generic             | Net-Arista-Tcpcon-Generic-SNMP-custom             | Contrôle permettant de vérifier les connexions TCP                                                                                            |
+| Traffic-Generic-Id         | Net-Arista-Traffic-Generic-Id-SNMP-custom         | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface («label» raccourci décrivant l'interface) |
+| Traffic-Generic-Name       | Net-Arista-Traffic-Generic-Name-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface («label» raccourci décrivant l'interface) |
+| Traffic-Global             | Net-Arista-Traffic-Global-SNMP-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface («label» raccourci décrivant l'interface) |
+| Uptime                     | Net-Arista-Uptime-SNMP-custom                     | Durée depuis laquelle l'équipement tourne sans interruption                                                                                   |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -435,7 +435,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=70851b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=9151b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=15866b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=59363b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=51b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=51b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=66b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=63b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes

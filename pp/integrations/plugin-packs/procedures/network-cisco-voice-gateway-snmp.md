@@ -329,7 +329,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: 97247 (1m) 40393 (5m) 91629 (15m) All connection types are ok | 'calls.active.1m.average.count'=97247;;;0; 'calls.active.5m.average.count'=40393;;;0; 'calls.active.15m.average.count'=91629;;;0; 'ctype1#connection.calls.active.count'=83439;;;0; 'ctype2#connection.calls.active.count'=85227;;;0; 
+OK: 10 (1m) 12 (5m) 15 (15m) All connection types are ok | 'calls.active.1m.average.count'=10;;;0;'calls.active.5m.average.count'=12;;;0;'calls.active.15m.average.count'=15;;;0;'*ctype*#connection.calls.active.count'=;;;0;'ctype1#connection.calls.active.count'=83439;;;0; 'ctype2#connection.calls.active.count'=85227;;;0; 
 ```
 
 ### Troubleshooting

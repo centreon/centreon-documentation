@@ -229,7 +229,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: Input power : 57465 W Current : 34262 A Voltage : 43954 V | 'power'=57465W;;;0; 'current'=34262A;;;0; 'voltage'=43954V;;;0; 
+OK: Input power : 65 W Current : 6 A Voltage : 54 V | 'power'=65W;;;0; 'current'=6A;;;0; 'voltage'=54V;;;0; 
 ```
 
 ### Troubleshooting

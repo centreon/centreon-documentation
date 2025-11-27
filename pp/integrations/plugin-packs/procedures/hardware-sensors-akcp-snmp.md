@@ -225,7 +225,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All 5 components are ok [ 1/1 temperature, 1/1 humidity, 1/1 switch, 1/1 serial, 1/1 water,]. | 'hardware.temperature.count'=60705;;;; 'hardware.temperature.count'=50303;;;; 'hardware.humidity.count'=11754;;;; 'hardware.humidity.count'=56384;;;; 'hardware.switch.count'=56462;;;; 'hardware.switch.count'=84769;;;; 'hardware.serial.count'=81104;;;; 'hardware.serial.count'=27832;;;; 'hardware.water.count'=43293;;;; 'hardware.water.count'=89979;;;; 
+OK: All 2 components are ok [2/2 temperatures, 1/1 humidity, 2/2 switch, 3/3 serial, 1/1 water,]. | 'hardware.temperature.count'=5;;;; 'sensor2#hardware.sensor.temperature.celsius'=15C;;;; 'sensor1#hardware.sensor.temperature.celsius'=23C;;;; 'hardware.humidity.count'=1;;;; 'sensor1#hardware.sensor.humidity.percentage'=35%;;;0;100 'hardware.switch.count'=2;;;; 'hardware.serial.count'=3;;;; 'hardware.water.count'=1;;;;
 ```
 
 ### Troubleshooting

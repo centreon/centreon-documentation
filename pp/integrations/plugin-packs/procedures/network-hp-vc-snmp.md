@@ -312,7 +312,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=27532b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=57976b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=86326b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=3713b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=27b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=57b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=63b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=37b/s;80;90;; 
 ```
 
 ### Troubleshooting
