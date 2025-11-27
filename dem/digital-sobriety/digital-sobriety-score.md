@@ -3,8 +3,6 @@ id: digital-sobriety-score
 title: Digital Sobriety Score
 --- 
 
-# Digital Sobriety Score
-
 Specifications v1.1 (April 2023)
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-1.png)
@@ -72,8 +70,8 @@ This document describes the calculation algorithm updated in April 2023 (**versi
 
 The Digital Sobriety Score can be evaluated with two types of audits:
 
-1. the simple method
-2. the "full audit" method
+1. The simple method
+2. The "full audit" method.
 
 One major advantage of these two audit types is they adapt to different resource levels and precision requirements while producing fully comparable scores. The only real difference between the methods is the level of approximation used in the simple method.
 
@@ -86,15 +84,15 @@ Comparison of the two methods and their advantages:
 | Installation required | None | Requires installing a Real User Monitoring tag (Note: DEM’s RUM tag enables full audits while remaining GDPR-compatible) |
 | Cost | Free on quanta.green | Requires a DEM subscription or another tool capable of calculating the Digital Sobriety Score |
 | Time-series comparison | Yes, but at quarterly precision (quanta.green stores scores for 3 months). After 3 months, a new analysis shows evolution over time. | Yes, in real time and historized automatically over multiple years in DEM |
-| Certification | "Simple audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. | "Full audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. |
+| Certification | The "Simple audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. | The "Full audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. |
 
-Because the site carbon footprint calculation is exhaustive and representative of the site's traffic, it can be included in a company’s global carbon inventory to provide more accurate data for the digital portion.
+Because the site's carbon footprint calculation is thorough and reflects actual traffic, it can be included in a company's overall carbon inventory, giving more accurate data for the digital part.
 
-To enable comparisons between enterprise web applications of different sizes, the footprint is normalized by site traffic.
+To compare the environmental impact of web applications of different sizes, the site's footprint is shown relative to its traffic.
 
-The Digital Sobriety Score is a **summary of many evaluation criteria**; taken alone, it does not answer the question "what is my site's carbon footprint?" Its goal is to provide a broader rating than carbon footprint alone and to make web applications comparable regardless of their audience size (100 users or 100,000 users).
+The Digital Sobriety Score is a **summary of many evaluation criteria**. Taken alone, it does not answer the question "what is my site's carbon footprint?": its goal is to provide a broader rating than carbon footprint alone and to make web applications comparable regardless of their audience size (100 users or 100,000 users).
 
-Teams focused on CSR who still want an absolute carbon footprint of their site (to refine corporate carbon accounting with a precise CO2e measure corresponding to site activity) can obtain this via the absolute carbon footprint sub-indicator of the Digital Sobriety Score (see "Global carbon footprint of the site" below for details).
+Teams focused on CSR who still want an absolute carbon footprint of their site (to refine corporate carbon accounting with a precise CO<sub>2</sub>e measure corresponding to site activity) can obtain this via the absolute carbon footprint sub-indicator of the Digital Sobriety Score (see "Global carbon footprint of the site" below for details).
 
 ### Detailed algorithm for the Digital Sobriety Score (full audit method, version 1.1 - April 2023)
 
@@ -174,13 +172,11 @@ This method estimates a page’s carbon impact based on its weight and the carbo
 
 Thanks to this method, the same web page accessed in France, Ireland, or the USA will have different impacts due to differences in electricity generation. To account for a host country’s electricity mix, DEM relies on the [Ember Climate](https://ember-climate.org/insights/research/global-electricity-review-2022/) dataset (also used by [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity)).
 
-The resulting calculation, expressed in CO2e, also allows distinguishing contributions from different scopes (datacenter, network, and end-user devices).
+The resulting calculation, expressed in CO<sub>2</sub>e, also allows distinguishing contributions from different scopes (datacenter, network, and end-user devices).
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-7.png)
 
----
-
-**Average Carbon Footprint Per Click (Average CFPC)**
+### Average Carbon Footprint Per Click (Average CFPC)
 
 Average carbon footprint per click accounts for 50% of the Digital Sobriety Score. It represents the environmental footprint per page view or click-triggered context change in the web application.
 
@@ -188,9 +184,7 @@ Why measure clicks instead of only page views?
 
 We use "clicks" because Single Page Applications (SPAs) are increasingly common. In an SPA, a click may change the current view without triggering a full page navigation. Each interaction still has an ecological cost and should be included in the environmental assessment.
 
----
-
-Note: Version 1.1 of the Digital Sobriety Score focuses on carbon emissions, the most commonly used metric for corporate environmental management. Other impact criteria (water use, abiotic resource depletion, primary energy consumption) are also relevant and may be incorporated in future versions of the methodology.
+> Version 1.1 of the Digital Sobriety Score focuses on carbon emissions, the most commonly used metric for corporate environmental management. Other impact criteria (water use, abiotic resource depletion, primary energy consumption) are also relevant and may be incorporated in future versions of the methodology.
 
 To calculate Average CFPC, there are two cases:
 
@@ -260,7 +254,7 @@ Not included in the Digital Sobriety Score, the carbon footprint per euro of tur
 To compute CFPT, consider:
 
 - the site’s global carbon footprint (Global CF) for a period
-- the site’s revenue (€) for that same period
+- the site’s revenue (€) for that same period.
 
 Like Average CFPC, CFPT enables comparisons between sites of different scales, such as comparing different brand sites, competitors, or regionalized versions of the same site hosted in multiple countries.
 

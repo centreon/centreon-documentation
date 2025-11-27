@@ -15,9 +15,9 @@ User management is detailed here:
 
 [Manage users and rights](./manage-users-and-rights.md)
 
-## Configure CO2 estimation
+## Configure CO<sub>2</sub> estimation
 
-To estimate CO2, DEM needs a few details. Follow the guide on this page:
+To estimate CO<sub>2</sub>, DEM needs a few details. Follow the guide on this page:
 
 [Configure Digital Sobriety](./configure-digital-sobriety.md)
 

@@ -17,11 +17,11 @@ Pour respecter ces principes et fournir une mesure d’impact carbone la plus pr
     
     Mesure du score d’éco-conception dans DEM pour un parcours utilisateur donné.
     
-- La méthode [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/) pour l’estimation du coût en CO2eq émis par le téléchargement d’une page sur le réseau.
+- La méthode [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/) pour l’estimation du coût en CO<sub>2</sub>eq émis par le téléchargement d’une page sur le réseau.
     
     ![Image](../assets/digital-sobriety/carbon-footprint-2.png)
     
-    Mesure de l’impact carbone, en CO2eq, réalisé via des requêtes synthétiques pour un parcours utilisateur donné.
+    Mesure de l’impact carbone, en CO<sub>2</sub>eq, réalisé via des requêtes synthétiques pour un parcours utilisateur donné.
     
 - La base de donnée d’impact open source de Boavizta pour les calculs d’impact de fabrication et fin de vie des serveurs (mesure à paraitre dans DEM au Q2 2023).
 

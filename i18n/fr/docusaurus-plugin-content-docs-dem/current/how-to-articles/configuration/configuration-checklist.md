@@ -17,9 +17,9 @@ La procédure et la gestion des utilisateurs est détaillée sur cette page:
 
 [Gérez vos utilisateurs et leurs droits](./manage-users-and-rights.md)
 
-# Configurer l’évaluation du CO2 émis
+# Configurer l’évaluation du CO<sub>2</sub> émis
 
-Pour évaluer le CO2, DEM a besoin de quelques informations. Suivez le guide sur cette page: 
+Pour évaluer le CO<sub>2</sub>, DEM a besoin de quelques informations. Suivez le guide sur cette page: 
 
 [Configurer la Sobriété Numérique](./configure-digital-sobriety.md)
 

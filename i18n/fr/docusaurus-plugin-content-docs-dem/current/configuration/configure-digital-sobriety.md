@@ -10,7 +10,7 @@ Si vous disposez de l’option Sobriété Numérique, vous devez indiquer à DEM
 - Où se situent vos serveurs ?
 - S’agit-il d’un hébergement Cloud ?
 
-A partir de ces informations, DEM évaluera le CO2 émis par page.
+A partir de ces informations, DEM évaluera le CO<sub>2</sub> émis par page.
 
 Pour remplir ces informations, rendez vous dans *Configuration* > *Site*
 

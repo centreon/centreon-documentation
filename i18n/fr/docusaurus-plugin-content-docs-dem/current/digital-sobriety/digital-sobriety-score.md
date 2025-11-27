@@ -95,7 +95,7 @@ Afin de pouvoir permettre une comparaison dans les impacts environnementaux des 
 
 Le Score de Sobriété Numérique est **un résumé de nombreux critères d’évaluation**, par conséquent son score pris individuellement ne peut pas répondre à la question “quelle est l’empreinte carbone de mon site internet ?”. Sa vocation est d’offrir une notation à la fois plus large que la simple empreinte carbone, mais aussi de rendre toutes les applications web comparables entre elles, qu’elles soient utilisées par 100 personnes ou 100 000 personnes.
 
-Pour les équipes RSE souhaitant néanmoins obtenir une mesure de l’empreinte carbone de leur site, typiquement pour affiner leur bilan carbone d’entreprise avec une mesure précise en CO2eq correspondant à l’activité du site internet, elles pourront le faire via l’empreinte carbone exprimée “en absolue” et disponible dans un sous-indicateur du Score de Sobriété Numérique (voir “Empreinte carbone globale du site” pour plus bas pour plus de détails).
+Pour les équipes RSE souhaitant néanmoins obtenir une mesure de l’empreinte carbone de leur site, typiquement pour affiner leur bilan carbone d’entreprise avec une mesure précise en CO<sub>2</sub>eq correspondant à l’activité du site internet, elles pourront le faire via l’empreinte carbone exprimée “en absolue” et disponible dans un sous-indicateur du Score de Sobriété Numérique (voir “Empreinte carbone globale du site” pour plus bas pour plus de détails).
 
 ### Algor**ithme détaillé du Score de Sobriété Numérique via la méthode d’audit complet (version 1.1 - avril 2023)**
 
@@ -179,7 +179,7 @@ Cette méthode permet de mesurer l’impact carbone d’une page en fonction de 
 
 Grâce à cette méthode, une même page web consultée en France, en Irlande ou aux USA n’aura pas le même impact du fait de la grande disparité des sources d’énergies électriques. Pour prendre en compte le mix électrique du pays d’hébergement, DEM se base sur la base de données [Ember Climate](https://ember-climate.org/insights/research/global-electricity-review-2022/) (plus connue comme la source du site [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity)).
 
-Le résultat qui en découle du calcul, exprimé en CO2eq permet également de distinguer la part des différents périmètres (centre de données, réseau et terminaux des utilisateurs).
+Le résultat qui en découle du calcul, exprimé en CO<sub>2</sub>eq permet également de distinguer la part des différents périmètres (centre de données, réseau et terminaux des utilisateurs).
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-7.png)
 
