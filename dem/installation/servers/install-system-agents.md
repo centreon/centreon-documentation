@@ -5,18 +5,13 @@ title: Install System Agents
 
 # Install System Agents
 
-To add, modify, or delete a server in DEM, you must have “Admin” or “Owner” permissions on your Organization. Ask your administrator or DEM support to grant you this access ([support@quanta.io](mailto:support@quanta.io)).
+To add, modify, or delete a server in DEM, you must have “Admin” or “Owner” permissions on your Organization. Ask your administrator or DEM support to grant you the correct rights ([support@quanta.io](mailto:support@quanta.io)).
 
 At this time, it is not possible to link a server to multiple sites, whether within the same Organization or not.
 
-Sending information to the DEM application requires installing an agent on all servers you wish to monitor. To do so, you need to install the DEM agent.
+Sending information to the DEM application requires installing the DEM agent on all servers you wish to monitor.
 
-<aside>
-💡 System agents must be able to communicate with our infrastructure. Find our IP addresses on the dedicated page:
-
-[DEM IP Addresses](../dem-ip-addresses.md)
-
-</aside>
+> System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](../dem-ip-addresses.md).
 
 # Get the Token
 
@@ -28,15 +23,14 @@ See where to find the token in this video:
 
 # Proceed with Installation
 
-<aside>
-⚠️ If you are using Docker containers or autoscaling systems (AWS ASG, Azure Scale Set, or others), refer to the section *“Installation for Docker and Autoscaling Systems”* before installing on the OS.
-</aside>
+> If you are using Docker containers or autoscaling systems (AWS ASG, Azure Scale Set, or others), refer to the **Installation for Docker and Autoscaling Systems** section before installing on the OS.
 
 ## Installation for Debian
 
 To install the DEM agent:
 
-1. Add the following line to the file **/etc/apt/sources.list.d/quanta.list**  
+1. Add the following line to the **/etc/apt/sources.list.d/quanta.list** file.
+ 
 *For Buster (versions 10.*)*
 
     ```bash
@@ -55,7 +49,7 @@ To install the DEM agent:
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/debian bookworm main
     ```
 
-    If unsure of your version, you can read the file ***/etc/debian_version***.
+    If unsure of your version, you can read the **/etc/debian_version** file.
 
     ### `BETA` Version
 
@@ -107,9 +101,7 @@ To install the DEM agent:
 
     ### `BETA` Version
 
-    <aside>
-    💡 To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
-    </aside>
+> To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
 
 2. Download and add the **GPG** key for our repository:
 

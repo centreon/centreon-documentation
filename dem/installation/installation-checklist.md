@@ -11,7 +11,7 @@ This list covers the requirements to ensure proper operation of DEM's different 
 
 There is **nothing to install** because DEM connects to your application just like any regular user.
 
-However, depending on the security level on your site, you may need to allow our IPs so that your anti-bot system does not block our probes. If that's the case, you'll find the procedure here:
+However, depending on the security level on your site, you may need to allow our IP addresses so that your anti-bot system does not block our probes. If that's the case, you'll find the procedure here:
 
 [DEM IP addresses](./dem-ip-addresses.md)
 
@@ -41,11 +41,11 @@ After the agent is installed, you can install additional modules:
     
 - The profiler, compatible with any PHP application such as Magento or OroCommerce:
     
-    [Install PHP / Magento / OroCommerce profiler](./servers/install-php-magento-orocommerce-profiler.md)
+    [Install the PHP / Magento / OroCommerce profiler](./servers/install-php-magento-orocommerce-profiler.md)
     
 
 # Automatic events
 
-You can add events manually in the UI but also automatically via API. **This is especially useful when you deploy a new version of your site.** We recommend setting this up so changes are recorded in DEM.
+You can add events manually in the UI, or automatically via the API. **This is especially useful when you deploy a new version of your site.** We recommend setting this up so changes are recorded in DEM.
 
 [Automatically track production deployment events](./monitor-production-events.md)

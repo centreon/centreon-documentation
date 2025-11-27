@@ -11,9 +11,9 @@ The **System data** section provides metrics from the infrastructure hosting you
 
 Prerequisites:
 
-- a DEM license of type **OPS**, **Full**, or **Enterprise**.
-- a hosting platform that allows installing Linux packages — this excludes fully managed SaaS platforms like Salesforce or Shopify. For these kind of hosting solutions, the System section would not be as relevant as you don't have control on the underlying platform as it's the SaaS provider responsibility to keep their application running smoothly.
-- DEM system agents installed. They are distributed as Linux packages and require a few minutes of work from a system administrator to install.
+- an **OPS**, **Full**, or **Enterprise** DEM license
+- a hosting platform that allows installing Linux packages — this excludes fully managed SaaS platforms like Salesforce or Shopify. For this kind of hosting solution, the System section would not be as relevant, as you don't have control over the underlying platform, since it's the SaaS provider's responsibility to keep their application running smoothly.
+- DEM system agents installed. They are distributed as Linux packages and only require a few minutes of work from a system administrator to install.
 
 The **key benefits** provided by the System view are:
 

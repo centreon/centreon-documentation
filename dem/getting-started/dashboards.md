@@ -3,7 +3,6 @@ id: dashboards
 title: Dashboards
 ---
 
-# Dashboards
 
 Dashboards are a way to visualize DEM information at a glance.
 

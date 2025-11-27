@@ -7,9 +7,7 @@ title: Install Real User Monitoring
 
 # GDPR considerations
 
-<aside>
-🏆 Although DEM uses a cookie, **no consent is required.**
-</aside>
+Although DEM uses a cookie, **no consent is required.**
 
 The CNIL (French data protection authority) exempts certain cookies from requiring consent under these conditions:
 
@@ -17,7 +15,7 @@ The CNIL (French data protection authority) exempts certain cookies from requiri
 - they produce only anonymous statistics
 - they are not cross-referenced with other datasets
 - they are not transmitted to third parties
-- they do not enable tracking a user's browsing across other websites
+- they do not enable tracking a user's browsing across other websites.
 
 **DEM meets these conditions.**
 
@@ -25,8 +23,7 @@ You can find CNIL's recommendations on this page: https://www.cnil.fr/fr/cookies
 
 # Find the tag to insert on my site
 
-Real User Monitoring (RUM) requires installing a JavaScript tag. The tag is available in the application by following this path:
-Go to Configuration, then *Integrations*:
+Real User Monitoring (RUM) requires installing a JavaScript tag. The tag is available in the application. To retrieve it, go to **Configuration > Integrations**:
 
 ![image](../assets/installation/install-rum-1.png)
 
@@ -34,7 +31,9 @@ You will then find the tag on that screen with a button to copy it easily:
 
 ![image](../assets/installation/install-rum-2.png)
 
-This tag should be inserted into the site's HEAD section. The operation can be done manually by a developer, or alternatively **it can be added to a tag manager such as GTM by following the procedure below**:
+This tag should be inserted into the site's HEAD section. The operation can be done manually by a developer, or alternatively **it can be added to a tag manager such as GTM by following the procedure below**.
+
+## Using GTM to add a DEM tag to your pages
 
 **1 — Create a new tag**
 
@@ -56,4 +55,4 @@ After configuring the tag and its triggers, save it and use GTM's preview featur
 
 **5 — Publish the changes**
 
-Once you've verified everything works correctly, remember to publish the changes in GTM so the script is active on your live site.
+Once you've checked everything works correctly, remember to publish the changes in GTM so the script is active on your live site.

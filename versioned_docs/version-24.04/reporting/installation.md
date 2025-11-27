@@ -629,14 +629,14 @@ apt update
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
@@ -676,7 +676,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -705,7 +705,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -734,7 +734,7 @@ dnf config-manager --set-enabled 'powertools'
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -763,7 +763,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -792,7 +792,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -821,7 +821,7 @@ dnf config-manager --set-enabled 'crb'
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server mariadb-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 For an installation based on a blank distribution, install the GPG key:
