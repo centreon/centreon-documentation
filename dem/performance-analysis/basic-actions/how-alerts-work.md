@@ -3,19 +3,17 @@ id: how-alerts-work
 title: Understanding how alerts work in DEM
 ---
 
-# Understanding how alerts work in DEM
-
 ## Preamble
 
 DEM can alert you about many different events. If you haven't enabled alerts yet, see:
 
 [Receive and configure alerts](../../configuration/receive-and-configure-alerts.md)
 
-This article explains the types of alerts you may receive so you can understand and analyze them effectively.
+This article describes the types of alerts you may receive and helps you understand and analyze them.
 
 ## Scenario-related alerts
 
-*Available by email on all licenses. Slack, Chat, and SMS alerts may depend on your plan.*
+> Available by email on all licenses. Slack, Chat, and SMS alerts may depend on your plan.
 
 These alerts trigger when our probes detect an anomaly in one of your user journeys (scenarios). There are two main categories.
 
@@ -43,7 +41,7 @@ These alerts are also visible on your scenarios; red bars appear on charts when 
 
 These alerts are sent when our probes detect a variation in scenario execution time that exceeds the threshold you configured.
 
-Each minute, the scenario's current execution time is compared to a reference period according to your preference (daily, weekly, or monthly baselines).
+Every minute, the scenario's current execution time is compared with a reference period based on your chosen baseline (daily, weekly, or monthly).
 
 Examples:
 
@@ -53,11 +51,11 @@ Examples:
 
 You can also trigger an alert when a scenario exceeds a fixed duration you set.
 
-By default these alerts are sent when the deviation is observed at least 15 times within a 25-minute window, and are considered resolved once the deviation is not observed for at least 20 of the 25 minutes.
+By default, these alerts are sent when the deviation occurs at least 15 times within a 25-minute window. They are marked as resolved once the deviation stops for at least 20 out of those 25 minutes.
 
 ## Business data alerts
 
-*Available by default on Business and Full licenses; optional on other plans.*
+> Available by default on Business and Full licenses; optional on other plans.
 
 Scenarios help detect many site issues, but it's difficult to cover every possible anomaly with a scenario. Business alerting monitors the impact (for example drops in traffic or conversion) rather than a predefined list of causes.
 

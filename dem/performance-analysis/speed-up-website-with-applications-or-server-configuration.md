@@ -3,18 +3,16 @@ id: speed-up-website-with-applications-or-server-configuration
 title: Speed up your website with application or server configuration
 --- 
 
-# Speed up your website with application or server configuration
-
-**Breakdown of waiting time**
+## Breakdown of waiting time
 
 Waiting time corresponds to the time spent waiting for the server (it includes the time spent inside Magento). DEM breaks this down into two parts thanks to the profiling module installed by your integrator.
 
-- **Magento Time**: time taken by Magento to generate the page — Note: optimizing this is typically done with your agency or developer
-- **Other**: processing time outside the Magento application — Note: optimizing this is usually done with your hosting provider
+- **Magento Time**: time taken by Magento to generate the page. Optimizing this is typically done with your agency or developer.
+- **Other**: processing time outside the Magento application. Optimizing this is usually done with your hosting provider.
 
 If most of the time is spent in "Magento time", click "More details" again to analyze Magento's time per feature.
 
-**Magento code analysis**
+## Magento code analysis
 
 DEM breaks down page generation time within Magento into several steps.
 

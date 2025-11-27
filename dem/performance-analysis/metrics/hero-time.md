@@ -3,15 +3,13 @@ id: hero-time
 title: Hero Time
 --- 
 
-# Hero Time
-
 ## Concept
 
 Hero Time is a DEM-specific measurement. It doesn't exist elsewhere. It measures the time the DEM probe takes between the start and the end of a step.
 
 A step begins when an action is performed, such as clicking a link, filling a form, adding an item to the cart, etc. The step ends when all success verifications are met. These verifications can be, for example, the appearance of a popup, navigation to a new page, or a request to one of your servers. Hero Time measures the time between these two events.
 
-## Exemples
+## Examples
 
 ### Loading a web page
 
@@ -23,11 +21,11 @@ For a simple product (no need to choose size or color), the probe will simply cl
 
 In this case, the expected success verifications are multiple:
 
-- A request to /add-to-cart?id=my-item-id must be made and succeed
+- A request to **/add-to-cart?id=my-item-id** must be made and succeed
 - The popup must appear
-- The number in the cart must update
+- The number in the cart must update.
 
-The probe clicks "Add to cart." The request to /add-to-cart?id=my-item-id is initiated. Hero Time continues while the request is pending because the server hasn't responded yet.
+The probe clicks "Add to cart." The request to **/add-to-cart?id=my-item-id** is initiated. Hero Time continues while the request is pending because the server hasn't responded yet.
 
 When the server responds, the request is validated. The first verification is therefore satisfied, but Hero Time continues because the other verifications are still pending.
 

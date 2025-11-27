@@ -3,12 +3,7 @@ id: errors-and-unavailability-front-end
 title: Understanding errors & unavailability in DEM
 --- 
 
- # Understanding errors & unavailability in DEM
-
-<aside>
-💡 The HAR for all steps can be found under the incident screenshot to help your developers understand where the incident originated.
-
-</aside>
+> The HAR for all steps can be found under the incident screenshot to help your developers understand where the incident originated.
 
 ## How to view the incident screenshot?
 
@@ -20,7 +15,7 @@ You can view that screenshot by clicking the graph in the red area and selecting
 
 ![image](../assets/performance-analysis/errors-and-unavailability-1.png)
 
-A modal will open and show you the page returned during the incident.
+A window will open and show you the page returned during the incident.
 
 ![image](../assets/performance-analysis/errors-and-unavailability-2.png)
 
@@ -32,7 +27,7 @@ Our probes were not able to capture the screenshot. This commonly happens when t
 
 ### Expected string/element not found
 
-At each step of a scenario you can configure an expected string on the page to verify that the scenario opened the correct page.
+At each step of a scenario you can configure an expected string on the page to check that the scenario opened the correct page.
 
 The "Expected string not found" error occurs when the configured string cannot be found on the page.
 
@@ -46,7 +41,7 @@ Possible reasons:
 
 This means the user journey took longer than the allotted time. A scenario that runs every 3 minutes has a maximum of 3 minutes to complete the entire journey.
 
-There is therefore not necessarily an error in the actions — simply not enough time.
+So there isn't necessarily anything wrong with the actions — there just wasn't enough time.
 
 ### Step timeout
 
@@ -64,10 +59,10 @@ When a web page loads, it sends a status code to confirm it loaded correctly; mo
 
 If the page returns a different code (404 for not found or 503 service unavailable, for example), the scenario fails and the received code is displayed.
 
-It may be that the page simply no longer exists (for example a removed product) — in that case update the scenario to use a still-functioning page.
+It may be that the page simply no longer exists (for example a removed product) — in that case, update the scenario to use a still-functioning page.
 
 If it's an actual error and the page does not render correctly, further investigation is required.
 
 ### Unable to resolve host
 
-Relatively rare, this indicates that it was not possible to resolve the site's IP, which usually points to a DNS issue that failed to provide it.
+Relatively rare, this indicates that it was not possible to resolve the site's IP address, which usually points to a DNS issue that failed to provide it.

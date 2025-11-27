@@ -3,8 +3,6 @@ id: overview-of-metrics
 title: Overview of metrics
 --- 
 
-# Overview of metrics
-
 DEM presents several performance metrics; this page describes them **very briefly**. Click any metric to open a dedicated page with more details.
 
 ## [Hero Time](./hero-time.md)
@@ -15,7 +13,7 @@ Improving this metric means interactivity is better: clicks produce visible resu
 
 ## [TTFB (Time To First Byte)](./time-to-first-byte.md)
 
-When a user requests a page, there is some waiting before the response arrives: the request traverses the Internet, the server receives and processes it, generates the page, and the response traverses back. TTFB measures the waiting time before receiving the very first byte of the response.
+When a user requests a page, there is a wait before the response arrives: the request travels across the internet, the server receives and processes it, generates the page, and then the response travels back. TTFB measures the waiting time before receiving the very first byte of the response.
 
 During this time the page is blank. Improving TTFB makes the page show up faster and benefits all other performance metrics.
 
@@ -53,4 +51,4 @@ CLS is a Core Web Vitals metric monitored by Google. Improving it reduces frustr
 
 ## Performance score
 
-This performance score, from 1 to 100 (for full page load), represents the overall page performance across the metrics above.
+The performance score, from 1 to 100 (for full page load), represents the overall page performance across the metrics above.

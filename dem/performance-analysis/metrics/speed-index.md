@@ -3,8 +3,6 @@ id: speed-index
 title: Speed Index
 --- 
 
-# Speed Index
-
 ## What Speed Index measures
 
 Speed Index measures how quickly the page's visual content is displayed during load.
@@ -21,14 +19,14 @@ Anything you do to improve overall load speed will generally improve Speed Index
 
 [TTFB (Time To First Byte)](./time-to-first-byte.md)
 
-Reducing the wait for the first byte brings forward the moment when visual elements can appear.
+Reducing the wait for the first byte lets visual elements appear sooner.
 
 ### JavaScript and secondary loads
 
 Work on:
 
 - Reducing JavaScript execution time
-- Reducing the browser's work to render the page (DOM complexity, CSS classes, etc.)
+- Reducing the browser's work to render the page (DOM complexity, CSS classes, etc).
 
 ## Scoring
 

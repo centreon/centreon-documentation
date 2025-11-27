@@ -3,14 +3,9 @@ id: largest-contentful-paint
 title: LCP - Largest Contentful Paint (Web Vitals)
 --- 
 
-# LCP - Largest Contentful Paint (Web Vital)
+> The Largest Contentful Paint is documented on Google's Web Dev site: [https://web.dev/lcp/]. This page summarizes the core information.
 
-> The Largest Contentful Paint is documented on Google's Web Dev site: [https://web.dev/lcp/]. This page summarizes and localizes the core information.
-
-<aside>
-💡 Largest Contentful Paint (LCP) focuses on perceived loading speed for users because it marks when the page's main content has likely loaded. A fast LCP reassures the user that the page is usable.
-
-</aside>
+> Largest Contentful Paint (LCP) focuses on perceived loading speed for users because it marks when the page's main content has likely loaded. A fast LCP reassures the user that the page is usable.
 
 ## What is LCP?
 
@@ -20,7 +15,7 @@ Largest Contentful Paint (LCP) measures the render time of the largest image or 
 
 For a good user experience, sites should aim for an LCP below 2.5 seconds. To ensure this target is met for most users, check that 75% of your users (on both mobile and desktop) achieve this score. DEM's Real User Monitoring can help you verify this.
 
-![](https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/8ZW8LQsagLih1ZZoOmMR.svg)
+![image](https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/8ZW8LQsagLih1ZZoOmMR.svg)
 
 ## Which elements can be considered the largest content?
 
@@ -30,9 +25,9 @@ Elements considered include:
 - `<image>` inside an `<svg>` element
 - `<video>` via its poster image
 - An element with a background image loaded via [`url`](https://developer.mozilla.org/docs/Web/CSS/url()) (as opposed to CSS gradients)
-- Block-level elements containing text nodes or inline text
+- Block-level elements containing text nodes or inline text.
 
-Additional element types (e.g., `<svg>`, `<video>`) are considered in the evolving standard.
+Additional element types (e.g., `<svg>`, `<video>`) are considered in future evolutions of the standard.
 
 ## How is an element's size determined?
 
