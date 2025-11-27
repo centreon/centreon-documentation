@@ -17,7 +17,7 @@ La meilleure façon de lier les hôtes aux catégories d'hôtes et les services 
 
 ## Créer les périodes temporelles dont vous avez besoin
 
-Chaque [tâche](concepts/#tâches) utilise une [période](../monitoring/basic-objects/timeperiods.md) comme paramètre : **24x7**, **workhours**, **non-workhours**, etc. Seules les données contenues dans les périodes sélectionnées seront incluses dans le rapport.
+Chaque [tâche](concepts.md#tâches) utilise une [période](../monitoring/basic-objects/timeperiods.md) comme paramètre : **24x7**, **workhours**, **non-workhours**, etc. Seules les données contenues dans les périodes sélectionnées seront incluses dans le rapport.
 
 Créez toutes les périodes personnalisées dont vous avez besoin avant de commencer à configurer les rapports.
 
