@@ -3,7 +3,7 @@ id: concepts
 title: Concepts MBI
 ---
 
-MBI est une extension de Centreon avec son propre vocabulaire et ses propres concepts. Cette section présente les concepts clés pour comprendre Centreon MBI. Notez que cette section suppose que vous connaissiez déjà le [vocabulaire standard de Centreon](https://docs-next-int.centreon.com/fr/docs/resources/glossary/).
+MBI est une extension de Centreon avec son propre vocabulaire et ses propres concepts. Cette section présente les concepts clés pour comprendre Centreon MBI. Notez que cette section suppose que vous connaissiez déjà le [vocabulaire standard de Centreon](../resources/glossary.md).
 
 ## Rétention des données
 
@@ -25,7 +25,7 @@ Les hôtes et services pris en compte par MBI (et donc inclus dans le calcul des
 
 ## Règles d'ACL MBI
 
-Pour pouvoir [donner aux utilisateurs l'accès aux rapports générés dans l'interface Centreon et/ou aux tâches planifiées](share.md), vous devez utiliser les règles d'ACL MBI (**Administration > ACL > MBI Options > ACL rules**). Les règles d'ACL MBI servent d'intermédiaire entre les [ACL Centreon](https://docs-next-int.centreon.com/fr/docs/administration/access-control-lists/) classiques et les [groupes de tâches](#groupes-de-tâches), car ces deux éléments ne peuvent pas être liés directement.
+Pour pouvoir [donner aux utilisateurs l'accès aux rapports générés dans l'interface Centreon et/ou aux tâches planifiées](share.md), vous devez utiliser les règles d'ACL MBI (**Administration > ACL > MBI Options > ACL rules**). Les règles d'ACL MBI servent d'intermédiaire entre les [ACL Centreon](../administration/access-control-lists.md) classiques et les [groupes de tâches](#groupes-de-tâches), car ces deux éléments ne peuvent pas être liés directement.
 
 ## Métriques
 
@@ -52,7 +52,7 @@ Les groupes de tâches déterminent [quels utilisateurs non administrateurs sont
 
 * Créez des groupes de tâches à la page **Rapports > Monitoring Business Intelligence > Job groups**.
 * Pour chaque tâche, définissez les personnes qui pourront consulter le rapport dans l'onglet **Configuration** de la tâche (champ **Groupes de tâches planifiées**). Le rapport sera visible pour les utilisateurs liés aux groupes de tâches sélectionnés.
-* Veuillez noter que les données incluses dans le rapport dépendent des [droits sur les ressources](https://docs-next-int.centreon.com/docs/administration/access-control-lists/#access-filters-on-resources) de l'utilisateur qui crée la tâche. Il incombe à l'utilisateur qui crée la tâche de s'assurer que les ressources incluses dans le rapport sont autorisées pour les utilisateurs avec lesquels il souhaite partager le rapport.
+* Veuillez noter que les données incluses dans le rapport dépendent des [droits sur les ressources](../administration/access-control-lists.md#access-filters-on-resources) de l'utilisateur qui crée la tâche. Il incombe à l'utilisateur qui crée la tâche de s'assurer que les ressources incluses dans le rapport sont autorisées pour les utilisateurs avec lesquels il souhaite partager le rapport.
 
    Exemple : si l'**utilisateur 1** dispose de droits sur les hôtes **Paris** et **Londres**, le rapport contiendra les données relatives à **Paris** et **Londres**. Si le rapport est partagé avec l'**utilisateur 2** qui n'a pas de droits sur **Londres**, l'**utilisateur 2** pourra tout de même voir les données pour **Londres**, car le rapport a été généré de cette manière.
 
@@ -62,11 +62,11 @@ Résultat final d'une tâche. Les données contenues dans le rapport et sa mise 
 
 ## Utilisateur CBIS
 
-Utilisateur de service créé automatiquement lors de l'installation de MBI. Cet utilisateur générera des rapports. L'utilisateur CBIS doit disposer d'un accès à toutes les ressources à l'aide des [ACLs Centreon](https://docs-next-int.centreon.com/fr/docs/administration/access-control-lists/) pour fonctionner correctement.
+Utilisateur de service créé automatiquement lors de l'installation de MBI. Cet utilisateur générera des rapports. L'utilisateur CBIS doit disposer d'un accès à toutes les ressources à l'aide des [ACLs Centreon](../administration/access-control-lists.md) pour fonctionner correctement.
 
 ## Disponibilité
 
-Le temps passé par un hôte dans un [statut](https://docs-next-int.centreon.com/fr/docs/alerts-notifications/concepts/#statut-des-hôtes) "disponible" au cours de la période sélectionnée. Seuls les [états HARD](https://docs-next-int.centreon.com/fr/docs/alerts-notifications/concepts/#types-de-statuts) sont pris en compte dans le calcul de la disponibilité.
+Le temps passé par un hôte dans un [statut](../alerts-notifications/concepts.md#statut-des-hôtes) "disponible" au cours de la période sélectionnée. Seuls les [états HARD](../alerts-notifications/concepts.md#types-de-statuts) sont pris en compte dans le calcul de la disponibilité.
 
 * Pour les hôtes : lors du calcul de la disponibilité, seule la durée pendant laquelle l'hôte a été dans un état **Disponible** ou **Indisponible** est prise en compte, et non la durée pendant laquelle il a été dans un état **INJOIGNABLE** ou en maintenance.
 * Pour les services : lors du calcul de la disponibilité, seule la durée pendant laquelle le service a été dans un état **OK** ou **Alerte** est prise en compte, et non la durée pendant laquelle il a été dans un état **INCONNU** ou en maintenance.

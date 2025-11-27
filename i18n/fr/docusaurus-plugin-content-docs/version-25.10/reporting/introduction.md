@@ -8,7 +8,7 @@ title: Introduction à Centreon MBI
 Centreon Monitoring Business Intelligence (MBI) est une extension qui permet de générer des rapports sur les groupes d'hôtes, les catégories d'hôtes et les catégories de services. MBI nécessite que les utilisateurs [préparent leurs données](preparing-data.md) soigneusement afin que les rapports puissent être générés.
 Nous vous recommandons vivement de lire notre documentation afin d'éviter tout problème. Vous pouvez commencer par consulter notre page [concepts](concepts.md).
 
-> Centreon MBI est une **extension** de Centreon qui nécessite une [licence](https://docs-next-int.centreon.com/docs/administration/licenses/) valide.
+> Centreon MBI est une **extension** de Centreon qui nécessite une [licence](../administration/licenses.md) valide.
 > Pour en acheter une et récupérer les dépôts nécessaires, contactez
 > [Centreon](mailto:sales@centreon.com).
 
@@ -39,7 +39,7 @@ Les rapports peuvent afficher des données sur :
 
 Bien que les données [doivent être organisées en groupes et catégories](preparing-data.md#mettre-vos-ressources-à-la-disposition-de-mbi), certains rapports vous permettent de voir les détails des statuts et des métriques des hôtes et des services.
 
-MBI crée également des rapports sur la disponibilité en convertissant les contrôles en [évènements](concepts.md#évènements). Notez que MBI ne prend en compte que les [statuts HARD](https://docs-next-int.centreon.com/fr/docs/alerts-notifications/concepts/#types-de-statuts) lors du calcul de la disponibilité.
+MBI crée également des rapports sur la disponibilité en convertissant les contrôles en [évènements](concepts.md#évènements). Notez que MBI ne prend en compte que les [statuts HARD](concepts.md#types-de-statuts) lors du calcul de la disponibilité.
 
 Notez que les rapports ne contiennent que les données jusqu'à la veille. Les données de chaque jour sont [agrégées par l'ETL le lendemain](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées).
 
@@ -48,4 +48,4 @@ Notez que les rapports ne contiennent que les données jusqu'à la veille. Les d
 * MBI génère des rapports dans différents formats : PDF, CSV, XLSX, DOCX, PPTX, ODT, ODS, ODP.
 * Tous les rapports ne peuvent pas être exportés dans tous les formats : consultez notre [liste des rapports disponibles](available-reports/available-reports.md) pour en savoir plus sur les spécificités de chaque rapport.
 * Par défaut, ces rapports peuvent être téléchargés à partir de la page **Rapports > Monitoring Business Intelligence > Report view**, mais ils peuvent également être [configurés pour être envoyés à des personnes spécifiques lorsqu'ils sont générés](reports-publication-rule.md).
-* Les données des rapports peuvent également être affichées dans vos [vues personnalisées](https://docs-next-int.centreon.com/docs/alerts-notifications/custom-views/) Centreon à l'aide de [widgets](widgets.md) dédiés.
+* Les données des rapports peuvent également être affichées dans vos [vues personnalisées](../alerts-notifications/custom-views.md) Centreon à l'aide de [widgets](widgets.md) dédiés.

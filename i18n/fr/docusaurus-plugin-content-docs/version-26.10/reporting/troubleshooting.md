@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 > Il est fortement recommandé d'installer le [connecteur Centreon MBI](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi), qui permet de superviser le statut de votre serveur MBI.
 
-Avant d'aller plus loin, assurez-vous que MBI est à jour (faites une [mise à jour](https://docs-next-int.centreon.com/fr/docs/reporting/update/) ou une [montée de version](https://docs-next-int.centreon.com/fr/docs/reporting/upgrade/) si nécessaire).
+Avant d'aller plus loin, assurez-vous que MBI est à jour (faites une [mise à jour](update.md) ou une [montée de version](upgrade.md) si nécessaire).
 
 Pendant [sa phase de calcul quotidienne](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), l'ETL peut rencontrer divers problèmes :
 
@@ -139,7 +139,7 @@ Si les commandes **--partitions** et **--db-content** indiquent qu'il y a un pro
 | `mod_bi_*availability`                                             | Problème avec les **données de disponibilité agrégées**, pas avec les données brutes            | Après avoir résolu le problème, exécutez le script d'agrégation de disponibilité [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstruction-partielle) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
 | `mod_bi_metric*`                                                   | Problème avec les **données des métriques agrégées** (par exemple, performance), pas avec les données brutes. | Après avoir résolu le problème, exécutez le script d'agrégation des métriques. [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstruction-partielle) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
 
-Si vous rencontrez des problèmes, vérifiez que MBI est bien configuré selon notre [procédure de configuration post-installation](https://docs-next-int.centreon.com/fr/docs/reporting/installation/#étape-4--Configurez-l-etl-dans-linterface-de-centreon).
+Si vous rencontrez des problèmes, vérifiez que MBI est bien configuré selon notre [procédure de configuration post-installation](installation.md#étape-4--Configurez-l-etl-dans-linterface-de-centreon).
 
 ## CBIS ne démarre pas
 
