@@ -11,7 +11,7 @@ This section enables analysis of the site's business-related metrics. To access 
 
 Prerequisites:
 
-- a DEM license of type **Business**, **Full**, or **Enterprise**.
+- a **Business**, **Full**, or **Enterprise** DEM license.
 - synchronization of your DEM account with your Google Analytics account.
 
 The **key benefits** provided by the Business view are:

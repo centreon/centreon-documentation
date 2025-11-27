@@ -32,7 +32,7 @@ module.exports = {
         {
           collapsed: true,
           type: 'category',
-          label: 'Servers and middlewares',
+          label: 'Servers and middleware',
           link: {
             type: 'generated-index',
           },
