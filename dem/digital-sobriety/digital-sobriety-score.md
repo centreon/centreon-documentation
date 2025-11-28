@@ -92,7 +92,7 @@ To compare the environmental impact of web applications of different sizes, the 
 
 The Digital Sobriety Score is a **summary of many evaluation criteria**. Taken alone, it does not answer the question "what is my site's carbon footprint?": its goal is to provide a broader rating than carbon footprint alone and to make web applications comparable regardless of their audience size (100 users or 100,000 users).
 
-Teams focused on CSR who still want an absolute carbon footprint of their site (to refine corporate carbon accounting with a precise CO<sub>2</sub>e measure corresponding to site activity) can obtain this via the absolute carbon footprint sub-indicator of the Digital Sobriety Score (see "Global carbon footprint of the site" below for details).
+Teams focused on CSR who still want an absolute carbon footprint of their site (to refine corporate carbon accounting with a precise CO<sub>2</sub>eq measure corresponding to site activity) can obtain this via the absolute carbon footprint sub-indicator of the Digital Sobriety Score (see "Global carbon footprint of the site" below for details).
 
 ### Detailed algorithm for the Digital Sobriety Score (full audit method, version 1.1 - April 2023)
 
@@ -172,7 +172,7 @@ This method estimates a page’s carbon impact based on its weight and the carbo
 
 Thanks to this method, the same web page accessed in France, Ireland, or the USA will have different impacts due to differences in electricity generation. To account for a host country’s electricity mix, DEM relies on the [Ember Climate](https://ember-climate.org/insights/research/global-electricity-review-2022/) dataset (also used by [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity)).
 
-The resulting calculation, expressed in CO<sub>2</sub>e, also allows distinguishing contributions from different scopes (datacenter, network, and end-user devices).
+The resulting calculation, expressed in CO<sub>2</sub>eq, also allows distinguishing contributions from different scopes (datacenter, network, and end-user devices).
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-7.png)
 
