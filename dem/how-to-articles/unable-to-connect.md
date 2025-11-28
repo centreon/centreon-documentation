@@ -3,26 +3,21 @@ id: unable-to-connect
 title: Unable to connect
 --- 
 
-
-# Unable to connect
-
-## Preamble
-
 Having trouble signing in from our [homepage](https://app.quanta.io/welcome/login)?
 
-## Forgot your password
+## I forgot my password
 
 If you have forgotten your password, click "Forgot password?" on the [homepage](https://app.quanta.io/welcome/login), enter your email address, then choose "Recover your password".
 
 An email will be sent to you allowing you to set a new password that you can use afterwards.
 
-## Forgot which email you used
+## I forgot which email I used
 
-If you don’t remember the email address you use to sign in to DEM, ask an administrator in your organization to check it in the "Organization" view in DEM as follows:
+If you don't remember the email address you used to sign in to DEM, ask an administrator in your organization to check it in the "Organization" view in DEM as follows:
 
-- Go to the "Configuration" tab (top right of the screen)
+- Go to the **Configuration** tab (top right of the screen)
 - Select the relevant site
-- Open the *Organization* tab
+- Open the **Organization** tab.
 
 ## I don't have a DEM account
 
@@ -32,6 +27,6 @@ It is also possible you don't yet have an account. In that case, an administrato
 
 ## Contact us
 
-If you still experience difficulties after trying the steps above, please contact our support directly:
+If you are still experiencing difficulties after trying the steps above, please contact our support team directly:
 
 [Contact DEM support](../getting-started/contact-support.md)

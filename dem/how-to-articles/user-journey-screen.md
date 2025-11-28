@@ -3,8 +3,6 @@ id: user-journey-screen
 title: User Journey Screen
 ---
 
-# User Journey Screen
-
 On the "User Journey" page, you will find all the scenarios that have been created for your site.
 
 This first page is an overview of all your scenarios. It allows you to quickly and efficiently analyze your site's performance.

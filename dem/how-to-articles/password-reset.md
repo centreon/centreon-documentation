@@ -3,8 +3,6 @@ id: password-reset
 title: How do I reset my password?
 ---
 
-# How do I reset my password?
-
 If you have forgotten your password or want to change it, go to [https://app.quanta.io/](https://app.quanta.io/) and click on "Forgot password".
 
 ![Image](../assets/how-to-articles/password-reset-1.png)

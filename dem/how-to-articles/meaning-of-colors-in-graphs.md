@@ -32,7 +32,7 @@ Hovering over segments in this top bar highlights matching segments in the chart
 
 Red vertical bars that appear on your scenarios highlight errors that occurred during execution.
 
-To learn the error details, hover the red bar — DEM will indicate at which step the scenario stopped and why.
+To view the error details, hover over the red bar — DEM will show at which step the scenario stopped and why.
 
 Clicking the bar also often offers a screenshot of the page at the time of the error, which is useful to understand what happened.
 
@@ -43,6 +43,6 @@ You may also see gray bars on some DEM charts. These simply indicate that data c
 This typically happens for two main reasons:
 
 - you are viewing a period when the probe was not scheduled to run (e.g. scenario not yet created or temporarily disabled)
-- the site did not respond at all (for example during a server restart or if the server is so overloaded it cannot send data)
+- the site did not respond at all (for example during a server restart or if the server was so overloaded it could not send data)
 
 In general, gray bars appear when the infrastructure was unable to produce measurement data.
