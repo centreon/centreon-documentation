@@ -92,7 +92,7 @@ The configuration of SNMP on a Linux server is detailed in [the *Linux SNMP* Mon
 
 ### Network flows
 
-The Centreon Poller must be able to reach UDP/161 (SNMP) and TCP/22 (SSH) ports of the central nodes.
+The monitoring server must be able to reach the UDP/161 (SNMP) and TCP/5666 (NRPE) ports of the reporting server.
 
 ## Installing the monitoring connector
 
@@ -276,7 +276,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
 	--mode=time \
 	--hostname='10.0.0.1' \

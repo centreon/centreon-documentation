@@ -89,7 +89,7 @@ Pas de métriques pour ce service.
 
 ### Configuration SNMP de l'équipement
 
-La configuration de SNMP sur un serveur Linux est expliquée dans [la page de documentation du connecteur de supervision Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md#configuration-du-serveur-snmp).
+Le serveur de surveillance doit pouvoir atteindre les ports UDP/161 (SNMP) et TCP/5666 (NRPE) du serveur de rapport.
 
 ## Installer le connecteur de supervision
 
@@ -273,7 +273,7 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
 	--mode=time \
 	--hostname='10.0.0.1' \
