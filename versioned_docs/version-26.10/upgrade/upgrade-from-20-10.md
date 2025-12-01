@@ -168,19 +168,9 @@ rm /etc/yum.repos.d/centreon-business-20.10.repo
 ```
 
 </TabItem>
-
-<TabItem value="Debian" label="Debian">
-
-```shell
-rm /etc/apt/sources.list.d/centreon-business.list
-```
-
-</TabItem>
 </Tabs>
 
 3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
-
-4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
 
 5. Stop the Centreon Broker process:
 
@@ -208,14 +198,6 @@ dnf clean all --enablerepo=*
    
 ```shell
 dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Debian" label="Debian">
-   
-```shell
-apt clean all
-apt update
 ```
 
 </TabItem>
@@ -492,7 +474,7 @@ with the following:
 
 2. If you were using custom commands for a poller (on the **Configuration > Pollers > Pollers** page, in the **Monitoring Engine Information** section), be aware that a new validation regex is now applied (`[a-zA-Z0-9\-\_]+`): your custom commands may need to be adapted. On the central server:
    * To identify commands that must be adapted, run:
-     ````shell
+     ```shell
      sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
      ```
    * To adapt the commands automatically, run:

@@ -1,31 +1,24 @@
 ---
-id: upgrade-from-23-04
-title: Montée de version depuis Centreon 23.04
+id: upgrade-from-24-10
+title: Montée de version depuis Centreon 24.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon depuis la version 23.04 vers la version 25.10.
+Centreon depuis la version 24.10 vers la version 25.10.
 
-> La version 23.04 n'est plus supportée. La montée de version à partir de cette version n'a pas été testée par l'équipe d'assurance qualité de Centreon.
+> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
+>
+> Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon.
+>
+> De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
 
-> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
+> Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
 
-> Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
-> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
+> Si vous utilisiez MySQL 8.0, prévoyez de [passer à MySQL 8.4](upgrade-mysql.md) avant la fin du support de la version 8.0, prévue fin avril 2026.
 
 > Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 25.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
-
-> Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian 11, vous devez d'abord migrer en Debian 12 avant d'upgrader Centreon. Voir [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
-
-> Attention, si vous utilisiez les connecteurs suivants, à partir de la version 24.10 il est obligatoire de déclarer la configuration de tous ceux-ci [**à la page Configuration > Additional connector configurations**](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) avant de déployer la configuration du collecteur correspondant :
-> * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
-> * [VMware vCenter](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-generic/)
-> * [VMware VM](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vm/)
-> * [VMware vCenter v4](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-4/)
-> * [VMware vCenter v5](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-5/)
-> * [VMware vCenter v6](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-6/)
 
 ## Prérequis
 
@@ -37,8 +30,6 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
-Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
-
 ## Montée de version du serveur Centreon Central
 
 > Lorsque vous lancez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
@@ -48,7 +39,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
+1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
 2. Supprimez les fichiers des dépôts :
 
@@ -69,15 +60,15 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
+1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
 2. Supprimez les fichiers des dépôts :
 
    ```shell
-   rm /etc/yum.repos.d/centreon-23.04.repo
+   rm /etc/yum.repos.d/centreon-24.10.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
-   
+
 3. Installez le nouveau dépôt :
 
 ```shell
@@ -87,11 +78,11 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
+1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 2. Exécutez les commandes suivantes :
 
 ```shell
-rm -f /etc/apt/sources.list.d/centreon.list
+rm -f /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
@@ -110,67 +101,17 @@ apt update
 >
 > Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-### Montée de version de PHP
-
-Centreon 25.10 utilise PHP en version 8.2.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf config-manager --disable remi-modular remi-safe
-dnf module disable composer:2
-dnf module disable php:remi-8.1
-rm -rf /etc/yum.repos.d/remi*
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.2
-dnf distro-sync php\* --allowerasing
-su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
-systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.2
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-systemctl stop php8.1-fpm
-systemctl disable php8.1-fpm
-```
-
-</TabItem>
-</Tabs>
-
 ### Montée de version de la solution Centreon
 
 1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
 
-2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 23.04 :
+2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 24.10 :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-rm /etc/yum.repos.d/centreon-business-23.04.repo
+rm /etc/yum.repos.d/centreon-business-24.10.repo
 ```
 
 </TabItem>
@@ -178,7 +119,7 @@ rm /etc/yum.repos.d/centreon-business-23.04.repo
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-rm /etc/yum.repos.d/centreon-business-23.04.repo
+rm /etc/yum.repos.d/centreon-business-24.10.repo
 ```
 
 </TabItem>
@@ -314,7 +255,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
   Drop-In: /usr/lib/systemd/system/httpd.service.d
            └─php-fpm.conf
-   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+   Active: active (running) since Tue 2024-10-27 12:49:42 GMT; 2h 35min ago
      Docs: man:httpd.service(8)
  Main PID: 1483 (httpd)
    Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
@@ -377,7 +318,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
   Drop-In: /usr/lib/systemd/system/httpd.service.d
            └─php-fpm.conf
-   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+   Active: active (running) since Tue 2024-10-27 12:49:42 GMT; 2h 35min ago
      Docs: man:httpd.service(8)
  Main PID: 1483 (httpd)
    Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
@@ -421,7 +362,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 ```shell
 ● apache2.service - The Apache HTTP Server
     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor pres>
-     Active: active (running) since Tue 2022-08-09 05:01:36 UTC; 3h 56min ago
+     Active: active (running) since Tue 2024-08-09 05:01:36 UTC; 3h 56min ago
        Docs: https://httpd.apache.org/docs/2.4/
    Main PID: 518 (apache2)
       Tasks: 11 (limit: 2356)
@@ -514,7 +455,7 @@ Vous devez ensuite finaliser le processus de mise à jour :
 accéder à la page de connexion :
 
   ![image](../assets/upgrade/web_update_5.png)
-
+  
 </TabItem>
 <TabItem value="Avec une API dédiée" label="Avec une API dédiée">
 
@@ -527,7 +468,7 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 25.10
+   - version : 24.10
    - identifiant : Admin
    - mot de passe : xxxxx
 
@@ -581,7 +522,7 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
   systemctl restart cbd centengine gorgoned
   ```
 
-Ajoutez l'utilisateur **apache** au groupe **centreon-broker** et vice versa.
+Mettez à jour les permissions sur les fichiers de configurations de centreon-broker.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -627,7 +568,7 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
 2. Si vous utilisiez des commandes personnalisées pour un collecteur (sur la page **Configuration > Collecteurs > Collecteurs**, dans la section **Monitoring Engine Information**), sachez qu'une nouvelle expression régulière de validation est désormais appliquée (`[a-zA-Z0-9\-\_]+`) : vos commandes personnalisées devront peut-être être adaptées. Sur le serveur central :
    * Pour identifier les commandes qui doivent être adaptées, exécutez :
-     ```shell
+     ````shell
      sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
      ```
    * Pour adapter automatiquement les commandes, exécutez :
@@ -643,10 +584,6 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-## Mettre à jour MariaDB
-
-Suivez [cette procédure](upgrade-mariadb.md) pour monter de version MariaDB en 10.11.
 
 ## Montée de version des Remote Servers
 
