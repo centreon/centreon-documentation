@@ -3,12 +3,11 @@ id: dashboards
 title: Dashboards
 ---
 
-
 Dashboards are a way to visualize DEM information at a glance.
 
-# Use cases
+## Use cases
 
-## 1. Combine information from different sites or organizations
+### 1. Combine information from different sites or organizations
 
 In DEM, you can belong to multiple organizations, and each organization can include monitoring access for multiple web applications. In this context, dashboards let you display, on a single screen, any DEM cards to which you have access.
 
@@ -18,7 +17,7 @@ Example of cards from two sites in two different organizations:
 
 In this example, the two cards come from two different sites in two different organizations. With dashboards you can keep an eye on all your sites at once!
 
-## 2. Create a shared dashboard
+### 2. Create a shared dashboard
 
 Within your organization, different people will expect different information. For example, your marketing team will only care about traffic measurements and Core Web Vitals for SEO.
 
@@ -28,7 +27,7 @@ You can create dashboards and share them with your organization so everyone in y
 
 In your dashboard list, your private dashboards appear first. By clicking the lock icon you access sharing options to choose which organization to share it with.
 
-## 3. Aggregate data from different DEM screens
+### 3. Aggregate data from different DEM screens
 
 Suppose you want to focus on your site's shopping cart. It's useful to have up-to-date information on that page coming from RUM measurements and User Journeys.
 

@@ -3,8 +3,6 @@ id: real-user-monitoring
 title: Real User Monitoring (RUM)
 ---
 
-# Real User Monitoring (RUM)
-
 ![image](../assets/getting-started/rum-1.png)
 
 Called “RUM”🍹 among insiders, Real User Monitoring consists of observing and analyzing the experience perceived by real users, directly from their browsers, regardless which one they use.

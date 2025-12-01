@@ -3,8 +3,6 @@ id: install-system-agents
 title: Install System Agents
 ---
 
-# Install System Agents
-
 To add, modify, or delete a server in DEM, you must have “Admin” or “Owner” permissions on your Organization. Ask your administrator or DEM support to grant you the correct rights ([support@quanta.io](mailto:support@quanta.io)).
 
 At this time, it is not possible to link a server to multiple sites, whether within the same Organization or not.
@@ -13,7 +11,7 @@ Sending information to the DEM application requires installing the DEM agent on 
 
 > System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](../dem-ip-addresses.md).
 
-# Get the Token
+## Get the Token
 
 To install DEM System Agents, you will need your **auto-registration token**. It is available in *Configuration > System.*
 
@@ -21,11 +19,11 @@ See where to find the token in this video:
 
 [Find the token for system agents](https://www.loom.com/share/8e1958d64017451a8a0b7a63ab5c8185)
 
-# Proceed with Installation
+## Proceed with Installation
 
 > If you are using Docker containers or autoscaling systems (AWS ASG, Azure Scale Set, or others), refer to the **Installation for Docker and Autoscaling Systems** section before installing on the OS.
 
-## Installation for Debian
+### Installation for Debian
 
 To install the DEM agent:
 
@@ -75,7 +73,7 @@ To install the DEM agent:
 
 You will be prompted for the token during installation, and system data should appear in DEM within a minute.
 
-## Installation for Ubuntu
+### Installation for Ubuntu
 
 To install the DEM agent:
 
@@ -123,7 +121,7 @@ To install the DEM agent:
 
 You will be prompted for the token during installation, and system data should appear in DEM within a minute.
 
-## Installation for CentOS / RHEL
+### Installation for CentOS / RHEL
 
 **Supported Versions:**
 
@@ -174,29 +172,29 @@ To install the DEM agent:
 
 You should see system data appear in DEM within a minute.
 
-## Installation for Docker and Autoscaling Systems
+### Installation for Docker and Autoscaling Systems
 
 The use of the DEM agent is fully compatible with containerized infrastructures, but **it requires a slight variation in the installation process**.
 
 [Configuration of our agents for the cloud](cloud-configuration-of-agents.md)
 
-### Explanation
+#### Explanation
 
 The **hostid** is an internal parameter that allows DEM to uniquely identify a server. Each server must have a unique **hostid**, which is automatically configured by the installation script (using the MAC address of the first network interface without `:` characters).
 
 However, in the case of Docker containers, the configuration prevents the installation script from finding this value. In autoscaling systems (like AWS ASG or Azure Scale Set), the image copy also duplicates the **hostid**.
 
-### Workaround
+#### Workaround
 
 To have a unique **hostid**, you can configure it in the **/etc/quanta/agent.yml** file via a script at container or VM startup (**bootstrap script**). You can specify a unique identifier generated at runtime (e.g., using AWS metadata or Docker environment variables) or use a unique element like the UUID value from **/proc/sys/kernel/random/uuid**.
 
-## Installation on Other OSs
+### Installation on Other OSs
 
 We do not provide packages for other OSs, but [the source code is publicly available on GitHub and can be compiled](https://github.com/quanta-computing/quanta-agent).
 
 The agent is **only compatible with Linux**.
 
-# Modifying an Existing Installation
+## Modifying an Existing Installation
 
 If you want to modify the configuration of a DEM agent **already installed** on one of your servers, you will find its configuration in the **/etc/quanta/agent.yml** file. It contains the main connection information, including the DEM token corresponding to the relevant site. Access to this file can be useful if you monitor multiple sites with the same DEM account and wish to specify the correct token to associate each server with its hosted site (e.g., for separate production and pre-production servers).
 
@@ -221,7 +219,7 @@ quanta_token: [...] <- insert here the token corresponding to your site
 [...]
 ```
 
-# To Go Further
+## To Go Further
 
 You can now install application modules to get metrics on your Apache, Nginx, MySQL, Varnish, Magento systems, etc.
 

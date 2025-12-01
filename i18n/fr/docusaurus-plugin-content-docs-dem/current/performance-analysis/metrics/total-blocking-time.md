@@ -25,17 +25,6 @@ Le thread principal est considéré comme “bloqué” quand une tâche dure pl
 
 Le temps bloquant est le temps de la tâche au-delà de ces 50ms. Le TBT est la somme de tous les temps bloquants.
 
-Par exemple, considérons ce thread principal:
-
-![image](https://web-dev.imgix.net/image/admin/clHG8Yv239lXsGWD6Iu6.svg)
-
-Parmi les 5 tâches, 3 sont bloquantes: les 2 premières et la dernière.
-
-La première dure 250ms et génère donc 200ms de temps bloquant. La seconde dure 90ms, et génère 40ms de temps bloquant. La dernière dure 155ms et génère 105ms de temps bloquant.
-
-![image](https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xKxwKagiz8RliuOI2Xtc.svg)
-
-Le TBT est de 345ms (la somme des temps bloquants), alors que le thread principal a duré 560ms (la somme de tous les temps).
 
 | Bon | < à 300ms |
 | --- | --- |

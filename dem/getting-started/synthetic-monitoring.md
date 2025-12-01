@@ -3,8 +3,6 @@ id: synthetic-monitoring
 title: Synthetic Monitoring (or "User Journeys")
 ---
 
-# Synthetic Monitoring (or "User Journeys")
-
 ![image](../assets/getting-started/synthetic-monitoring-1.png)
 
 Synthetic Monitoring consists of regularly browsing a target site in order to:

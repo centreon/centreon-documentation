@@ -17,18 +17,6 @@ The main thread is considered "blocked" when a task runs longer than 50ms. If th
 
 The blocking time for a task is the portion of its duration beyond 50ms. TBT is the sum of all blocking times.
 
-For example, consider this main thread:
-
-![image](https://web-dev.imgix.net/image/admin/clHG8Yv239lXsGWD6Iu6.svg)
-
-Among five tasks, three are blocking: the first two and the last one.
-
-The first takes 250ms and therefore contributes 200ms of blocking time. The second takes 90ms and contributes 40ms. The last takes 155ms and contributes 105ms.
-
-![image](https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xKxwKagiz8RliuOI2Xtc.svg)
-
-TBT is 345ms (the sum of blocking times), while the main thread total duration is 560ms (the sum of all task durations).
-
 ## Scoring
 
 | Good | < 300ms |

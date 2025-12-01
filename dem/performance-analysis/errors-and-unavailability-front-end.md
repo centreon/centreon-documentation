@@ -19,7 +19,7 @@ A window will open and show you the page returned during the incident.
 
 ![image](../assets/performance-analysis/errors-and-unavailability-2.png)
 
-### Why don't I have a screenshot for one of my incidents?
+## Why don't I have a screenshot for one of my incidents?
 
 Our probes were not able to capture the screenshot. This commonly happens when the server returned no content (for example during the "Step timed out" error).
 

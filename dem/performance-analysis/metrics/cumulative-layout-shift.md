@@ -9,7 +9,7 @@ If you've ever read an article and the content suddenly jumps without any action
 
 CLS helps by measuring how frequently this happens for users on your site.
 
-# What is CLS?
+## What is CLS?
 
 CLS measures the sum of scores of unexpected layout shifts occurring during the page's lifecycle.
 

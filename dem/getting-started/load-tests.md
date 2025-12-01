@@ -3,8 +3,6 @@ id: load-tests
 title: Load Tests
 ---
 
-# Load Tests
-
 This section allows analysis of how the platform hosting your web application behaves under conditions of heavy traffic. To access it, open the main menu and select **Load Tests**.
 
 Performing a Load Test (often abbreviated “LT”) consists of launching a large number of web browsers in parallel directly from DEM and having them interact with a website to deliberately "stress" the platform and the web application.

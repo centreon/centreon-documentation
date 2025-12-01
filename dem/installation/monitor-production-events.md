@@ -3,7 +3,7 @@ id: monitor-production-events
 title: Track production deployment events
 ---
 
-# Automatically track production deployment events
+## Automatically track production deployment events
 
 You can automatically record your code deployments or system configuration changes in DEM:
 
@@ -11,7 +11,7 @@ You can automatically record your code deployments or system configuration chang
 
 These events can be created **automatically** via our API. The best practice is to integrate a call to our API in your deployment scripts and in your configuration management tooling where appropriate.
 
-## How the API works
+### How the API works
 
 Our API is triggered with a simple HTTP call to the URL "https://app.quanta.io/api/events/push". The parameters to provide are:
 
@@ -23,7 +23,7 @@ Our API is triggered with a simple HTTP call to the URL "https://app.quanta.io/a
     - *custom* (generic event)
 - *content*: **The message associated with the event.** This can be the application version or a description of the changes made. This field is free-form.
 
-## Authentication and token generation
+### Authentication and token generation
 
 You must also provide an API token to authenticate the request. This token can be generated from the "Integrations" section of your site settings in DEM. You can also add a custom icon.
 
@@ -34,7 +34,7 @@ This token should be provided:
 - Either in the HTTP header "Authorization" as `Authorization: Token <your_token>`
 - Or passed directly in the request by adding the parameter `?auth_token=<your_token>` at the end of the URL.
 
-## Usage examples
+### Usage examples
 
 Here's an example cURL request that adds a code deployment event with the message "version 42.0". Note the presence of the "Content-Type" header which is required for our API to accept the request:
 

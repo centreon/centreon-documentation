@@ -3,9 +3,7 @@ id: real-user-monitoring-installation
 title: Install Real User Monitoring
 ---
 
-# Install Real User Monitoring
-
-# GDPR considerations
+## GDPR considerations
 
 Although DEM uses a cookie, **no consent is required.**
 
@@ -21,7 +19,7 @@ The CNIL (French data protection authority) exempts certain cookies from requiri
 
 You can find CNIL's recommendations on this page: https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience
 
-# Find the tag to insert on my site
+## Find the tag to insert on my site
 
 Real User Monitoring (RUM) requires installing a JavaScript tag. The tag is available in the application. To retrieve it, go to **Configuration > Integrations**:
 
@@ -33,7 +31,7 @@ You will then find the tag on that screen with a button to copy it easily:
 
 This tag should be inserted into the site's HEAD section. The operation can be done manually by a developer, or alternatively **it can be added to a tag manager such as GTM by following the procedure below**.
 
-## Using GTM to add a DEM tag to your pages
+### Using GTM to add a DEM tag to your pages
 
 **1 — Create a new tag**
 

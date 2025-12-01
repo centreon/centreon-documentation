@@ -3,8 +3,6 @@ id: configure-digital-sobriety
 title: Configure Digital Sobriety
 ---
 
-# Configure Digital Sobriety
-
 If you have the Digital Sobriety option, you must provide DEM with two pieces of information:
 
 - Where are your servers located?

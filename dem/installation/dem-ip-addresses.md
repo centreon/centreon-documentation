@@ -3,8 +3,6 @@ id: dem-ip-addresses
 title: DEM IP addresses
 ---
 
-# DEM IP addresses
-
 ## Probe addresses
 
 Our probes can query your site on ports 80 (HTTP) and 443 (HTTPS) or use the ICMP protocol. For most publicly accessible sites no configuration is required; however, in some cases firewalls or bot protections like Imperva or reCaptcha may automatically block our visits.

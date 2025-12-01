@@ -26,7 +26,7 @@ If the site has no User Journey configured, this message will appear:
 
 You can click **Configure your user journey now!** to enter edit mode.
 
-## You already have at least one journey
+### You already have at least one journey
 
 If a journey exists, you will see a screen similar to this:
 
