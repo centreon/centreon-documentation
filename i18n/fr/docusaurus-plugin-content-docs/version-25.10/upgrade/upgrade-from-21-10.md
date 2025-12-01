@@ -138,19 +138,9 @@ rm /etc/yum.repos.d/centreon-business-21.10.repo
 ```
 
 </TabItem>
-
-<TabItem value="Debian" label="Debian">
-
-```shell
-rm /etc/apt/sources.list.d/centreon-business.list
-```
-
-</TabItem>
 </Tabs>
 
 3. Installez le dépôt business en 25.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
-
-4. Si votre système d'exploitation est Debian et que vous utilisez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
 
 5. Arrêtez le processus Centreon Broker :
 
@@ -178,14 +168,6 @@ dnf clean all --enablerepo=*
 
 ```shell
 dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Debian" label="Debian">
-
-```shell
-apt clean all
-apt update
 ```
 
 </TabItem>
