@@ -72,7 +72,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                  | Description                                                                         |
 |:---------------------------------|:------------------------------------------------------------------------------------|
 | Net-Juniper-Mseries-Storage-Name | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| Net-Juniper-Mseries-Traffic-Name | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
+| Net-Juniper-Mseries-Traffic-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
