@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias  | Modèle de service                          | Description        |
 |:-------|:-------------------------------------------|:-------------------|
-| System | Net-Ruckus-Zonedirector-System-SNMP-custom | Contrôle du system |
+| System | Net-Ruckus-Zonedirector-System-SNMP-custom | Contrôle du système |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Ruckus-Zonedirector-SNMP-custom** est utilisé.
 

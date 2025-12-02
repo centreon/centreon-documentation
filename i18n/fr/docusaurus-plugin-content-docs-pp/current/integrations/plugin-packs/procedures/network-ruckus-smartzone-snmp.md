@@ -28,9 +28,9 @@ Le connecteur apporte les modèles de service suivants
 | Alias  | Modèle de service                       | Description              |
 |:-------|:----------------------------------------|:-------------------------|
 | Cpu    | Net-Ruckus-Smartzone-Cpu-SNMP-custom    | Contrôle du CPU          |
-| Load   | Net-Ruckus-Smartzone-Load-SNMP-custom   | Contrôle du Load Average |
+| Load   | Net-Ruckus-Smartzone-Load-SNMP-custom   | Contrôle de la charge moyenne |
 | Memory | Net-Ruckus-Smartzone-Memory-SNMP-custom | Contrôle de la mémoire   |
-| System | Net-Ruckus-Smartzone-System-SNMP-custom | Contrôle du system       |
+| System | Net-Ruckus-Smartzone-System-SNMP-custom | Contrôle du système       |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Ruckus-Smartzone-SNMP-custom** est utilisé.
 
@@ -40,8 +40,8 @@ Le connecteur apporte les modèles de service suivants
 | Alias        | Modèle de service                             | Description                 | Découverte |
 |:-------------|:----------------------------------------------|:----------------------------|:----------:|
 | Access-Point | Net-Ruckus-Smartzone-Access-Point-SNMP-custom | Contrôle des points d'accès | X          |
-| Interfaces   | Net-Ruckus-Smartzone-Interfaces-SNMP-custom   | Contrôle les interfaces     | X          |
-| Storage      | Net-Ruckus-Smartzone-Storage-SNMP-custom      | Contrôle du Stockage        | X          |
+| Interfaces   | Net-Ruckus-Smartzone-Interfaces-SNMP-custom   | Contrôle des interfaces     | X          |
+| Storage      | Net-Ruckus-Smartzone-Storage-SNMP-custom      | Contrôle du stockage        | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -172,7 +172,7 @@ Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseaux
 
-Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP avec l'équipement.
+Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP avec l'équipement.
 
 ## Installer le connecteur de supervision
 

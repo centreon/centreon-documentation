@@ -27,11 +27,11 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias               | Modèle de service                             | Description                                                        |
 |:--------------------|:----------------------------------------------|:-------------------------------------------------------------------|
-| Dhcp-Usage          | Net-Efficientip-Dhcp-Usage-SNMP-custom        | Contrôle l'utilisation du service dhcp                             |
-| Dns-Answers         | Net-Efficientip-Dns-Answers-SNMP-custom       | Contrôle les statistiques de réponse du service dns                |
-| Dns-General         | Net-Efficientip-Dns-General-SNMP-custom       | Contrôle l'utilisation générale du service dns                     |
-| Dns-Transfer        | Net-Efficientip-Dns-Transfer-SNMP-custom      | Contrôle les statistiques des requêtes de transfert du service dns |
-| Dnssec-Validation   | Net-Efficientip-Dnssec-Validation-SNMP-custom | Contrôle les statistiques de validation DNSSEC du service dns      |
+| Dhcp-Usage          | Net-Efficientip-Dhcp-Usage-SNMP-custom        | Contrôle l'utilisation du service DHCP                             |
+| Dns-Answers         | Net-Efficientip-Dns-Answers-SNMP-custom       | Contrôle les statistiques de réponse du service DNS                |
+| Dns-General         | Net-Efficientip-Dns-General-SNMP-custom       | Contrôle l'utilisation générale du service DNS                     |
+| Dns-Transfer        | Net-Efficientip-Dns-Transfer-SNMP-custom      | Contrôle les statistiques des requêtes de transfert du service DNS |
+| Dnssec-Validation   | Net-Efficientip-Dnssec-Validation-SNMP-custom | Contrôle les statistiques de validation DNSSEC du service DNS      |
 | SOLID-Server-status | Net-Efficientip-Status-SNMP-custom            | Contrôle le rôle et le statut du SOLID server                      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Efficientip-SNMP-custom** est utilisé.
