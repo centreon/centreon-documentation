@@ -46,6 +46,7 @@ The CMA can be installed on and monitor the following OSs:
 * Windows Server 2016
 * Windows Server 2019
 * Windows Server 2022
+* Windows Server 2025
 
 </TabItem>
 </Tabs>
@@ -60,6 +61,8 @@ The CMA can be installed on and monitor the following OSs:
 ### Connection direction
 
 Depending on the case, either the agent or the poller initiates the connection.
+> Please note that the two connection modes described below only apply to establishing the connection.
+> Once the connection is established, the behavior of the agent (scheduling checks, reporting information) and the collector (alerts, configuration sending) are strictly identical, and the connection is bidirectional.
 
 * In the case of an **agent-initiated connection**, you simply configure the poller to listen on a specific port. A poller can receive data from n agents/hosts.
 * If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), you can use a **poller-initiated connection**. You need to declare in Centreon each host that will be monitored by this agent in the ****Configuration > Poller > Agent configurations** menu. The poller will receive data from n hosts via the agent.

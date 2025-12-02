@@ -105,7 +105,7 @@ Create the services associated with the host template.
 </TabItem>
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
-5. In the **Settings** section, select the poller that will connect to the agents.
+5. In the **Parameters** section, select the poller that will connect to the agents.
 6. In the **Monitored Hosts** section, select the host you created earlier. Its IP address will be displayed, and a default port will be entered. Change this information if necessary.
 7. Enter the paths to the certificate files. See the [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
 8. Select the authentication token you created earlier. You can also create a token from this screen.
@@ -647,6 +647,21 @@ apt-get update
 apt -y install centreon-plugin-operatingsystems-linux-local
 ```
 
+</TabItem>
+</Tabs>
+
+### Updating an existing configuration
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+Modify the **/etc/centreon-monitoring-agent/centagent.json** file and restart the agent.
+</TabItem>
+<TabItem value="Windows" label="Windows">
+Run **centreon-monitoring-agent-modify.exe** located in the CMA installation directory.
+This can also be done in silent mode
+```shell
+centreon-monitoring-agent-modify.exe /verysilent
+```
 </TabItem>
 </Tabs>
 

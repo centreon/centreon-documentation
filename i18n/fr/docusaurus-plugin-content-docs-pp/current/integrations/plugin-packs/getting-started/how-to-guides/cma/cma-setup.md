@@ -416,6 +416,9 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 Dans ce mode, aucune interface n'est lancée. Comme cet installer n'est pas un programme console, il rend immédiatement la main même s'il n'a pas encore fini. Vous devez attendre de voir apparaître dans la console le message indiquant qu'il a terminé. 
 Si vous voulez tester le succès de l'installation, vous devez récupérer l'exit status. Vous pouvez le lancer dans un powershell et attendre la fin du processus. L'exit status vaudra 0 si tout s'est bien passé.
 
+<Tabs groupId="sync">
+<TabItem value="avant 25.10" label="Avant 25.10">
+
 Pour le lancer en mode silencieux, vous devez mettre en premier argument /S.
 Vous pouvez afficher une liste des arguments avec la ligne de commande suivante :
 
@@ -428,6 +431,8 @@ Pour échapper le caractère **-** dans la valeur d'un argument, celui-ci doit �
 ```
 --% --hostname "Test-Hostname"
 ```
+
+
 
 
 Les différents arguments sont:
@@ -453,6 +458,51 @@ Les différents arguments sont:
 | --token                    | Jeton d'authentification.
 
 Si vous utilisez l'option **--install_plugins** et que le téléchargement échoue, l'installer va installer les plugins fournis par l'installer.
+
+</TabItem>
+<TabItem value="25.10" label="A partir de 25.10">
+
+Pour le lancer en mode silencieux, vous devez mettre en premier argument /VERYSILENT.
+Vous pouvez afficher une liste des arguments avec la ligne de commande suivante :
+
+```shell
+centreon-monitoring-agent.exe /VERYSILENT --help
+```
+
+Les différents arguments sont:
+
+| flag                       | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | obligatoire
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | 
+|/COMPONENTS| Composants à installer. "agent", "plugins" ou "agent,plugins"  |X |
+|/PLUGINSRC| Source d'installation des plugins Centreon. "auto" : via internet, "embedded" : version locale. Défaut : "auto" |X| 
+|/REVERSE| Connection initiée par le collecteur. "true" ou "false". Défaut : "false"||
+|/HOST                 | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon.                          | X |
+|/ENDPOINT                 | Dans le cas le plus courant (l'agent se connecte au collecteur), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le collecteur, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si vous activez l'option **--reverse** (le collecteur se connecte à l'agent), vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur. | X|
+|/LOGTYPE| "event-log" ou "file". Défaut : "event-log"|  |
+|/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Défaut : "error"| si /LOGTYPE=file |
+|/LOGLEVEL| Chemin du fichier de log | si /LOGTYPE=file |
+|/MAXFILESIZE| Taille maximale du fichier de log avant rotation, en Mo. Défaut : 10. Si /LOGTYPE=file | |
+|/MAXNUMBER| Nombre maximal de fichiers de log. Pour que la rotation des logs soit activée, ces deux paramètres sont nécessaires. Défaut : 3. Si /LOGTYPE=file | |
+|/ENCRYPTION| Mode de chiffrement. "no","full","insecure". Défaut : "no"|  |
+|/TOKEN| Jeton d'authentification | X |
+|/CERT| Chemin du fichier contenant la clé publique | si ENCRYPTION=full ou insecure, en mode poller-initiated connection |
+|/KEY| Chemin du fichier contenant la clé privée | si ENCRYPTION=full ou insecure, en mode poller-initiated connection |
+|/CA| Chemin du fichier contenant le certificat de confiance |  |
+|/COMMONNAME| Nom commun CA. Si ENCRYPTION=insecure |  |
+|/VERSION| Version de centagent.exe |  |                                                                                                                                                                                                                                                      
+                                                                                         
+Si **/PLUGINSRC=auto** et que le téléchargement échoue, l'installeur passera en mode embedded.
+
+Les erreurs d'exécution du mode silencieux, et l'output de /VERSION sont écrits dans ./installer_output.log.
+
+*Exemple de commande*
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /COMPONENTS=agent /HOST=agent1 /ENDPOINT=127.0.0.1:4317 /LOGTYPE=File /LOGLEVEL=Debug /LOGFILE="C:\Logs\agent.log" /MAXFILESIZE=20 /MAXNUMBER=5 /ENCRYPTION=true /CERT="C:\certs\agent.crt" /KEY="C:\certs\agent.key" /CA="C:\certs\ca.crt" /COMMONNAME=centreon /TOKEN=abc.def.ghi
+So
+```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
@@ -648,6 +698,26 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 </Tabs>
 
+### Mettre à jour une configuration existante 
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+Modifier le fichier **/etc/centreon-monitoring-agent/centagent.json**.
+Redémarrer l'agent.
+</TabItem>
+<TabItem value="Windows" label="Windows">
+Exécuter **centreon-monitoring-agent-modify.exe** situé dans le répertoire d'installation de CMA.
+
+Cela est également possible en mode silencieux :
+```shell
+centreon-monitoring-agent-modify.exe /verysilent
+```
+</TabItem>
+</Tabs>
+
 ## Étape 4 : Tester le fonctionnement de l'agent
 
 Voir [section dédiée](cma-troubleshooting.md).
+
+
+
