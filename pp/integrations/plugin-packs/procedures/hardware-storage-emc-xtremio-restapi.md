@@ -96,7 +96,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-An API username and password are required to monitor EMC Xtremio Rest API via the REST API.
+An API username and password are required to monitor EMC Xtremio via the REST API.
 
 ## Installing the monitoring connector
 

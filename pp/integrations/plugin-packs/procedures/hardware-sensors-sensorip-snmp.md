@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                               | Service Description                                                              |
 |:---------------|:-----------------------------------------------|:---------------------------------------------------------------------------------|
-| Sensors-Global | HW-Sensors-Sensorip-Sensors-Global-SNMP-custom | Check all sensors (global status, , temperatures, humidity, switch) of equipment |
+| Sensors-Global | HW-Sensors-Sensorip-Sensors-Global-SNMP-custom | Check all the sensors (global status, temperatures, humidity, switch) of the device |
 
 > The services listed above are created automatically when the **HW-Sensor-Sensorip-SNMP-custom** host template is used.
 
