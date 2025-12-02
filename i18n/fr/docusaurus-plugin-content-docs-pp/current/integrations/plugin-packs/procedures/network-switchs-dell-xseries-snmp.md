@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias      | Modèle de service                       | Description                       | Découverte |
 |:-----------|:----------------------------------------|:----------------------------------|:----------:|
 | Cpu        | Net-Dell-Xseries-Cpu-SNMP-custom        | Contrôle le CPU sur 5s, 1m et 5m  |            |
-| Hardware   | Net-Dell-Xseries-Hardware-SNMP-custom   | Contrôle les composants Hardware  |            |
+| Hardware   | Net-Dell-Xseries-Hardware-SNMP-custom   | Contrôle les composants hardware  |            |
 | Interfaces | Net-Dell-Xseries-Interfaces-SNMP-custom | Contrôle les interfaces           |     X      |
 | Uptime     | Net-Dell-Xseries-Uptime-SNMP-custom     | Contrôle l'uptime de l'équipement |            |
 

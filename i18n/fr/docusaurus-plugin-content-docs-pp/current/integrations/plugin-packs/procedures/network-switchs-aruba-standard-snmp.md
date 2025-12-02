@@ -75,7 +75,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle     | Description                                                |
 |:--------------------|:-----------------------------------------------------------|
-| Aruba Access Points | Discover Aruba Access Points throught the Aruba Controller |
+| Aruba Access Points | Découvre les points d'accès Aruba Access au travers du Controller Aruba |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
