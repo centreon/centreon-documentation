@@ -420,7 +420,7 @@ If you want to have an exit status, you can launch the installer in a powershell
 To run it in silent mode, you need to set /S as the first argument. You can display a list of arguments with the following command:
 
 ```shell
-centreon-monitoring-agent.exe /S --help
+centreon-monitoring-agent.exe /SILENT /HELP
 ```
 
 Available parameters are :
