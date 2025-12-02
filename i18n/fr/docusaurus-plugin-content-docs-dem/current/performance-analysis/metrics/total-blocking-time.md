@@ -3,8 +3,6 @@ id: total-blocking-time
 title: TTB - Total Blocking Time (Web Vital)
 --- 
 
-# TTB - Total Blocking Time (Web Vital)
-
 <aside>
 🌐 Le TBT est documenté [sur le site Web Dev de Google ici](https://web.dev/tbt/). Cette page traduit et résume cette documentation.
 
@@ -15,7 +13,7 @@ title: TTB - Total Blocking Time (Web Vital)
 
 </aside>
 
-# Qu’est ce que le TBT
+## Qu’est ce que le TBT
 
 Le Total Blocking Time ou temps total de blocage en français, est une métrique qui mesure le total des temps où le thread principal est bloqué suffisamment longtemps pour qu’une interaction de l’utilisateur de ne crée pas de réaction.
 

@@ -3,9 +3,7 @@ id: real-user-monitoring-installation
 title: Installer le Real User Monitoring
 --- 
 
-# Installer le Real User Monitoring
-
-# Considérations RGPD
+## Considérations RGPD
 
 <aside>
 🏆 Bien que DEM utilise un cookie, **aucun consentement n’est nécessaire.**
@@ -24,7 +22,7 @@ La CNIL exempte de consentement les cookies sous certaines conditions:
 
 Vous pouvez retrouver les recommandations de la CNIL [sur cette page](https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience).
 
-# Trouver le tag à insérer dans mon site
+## Trouver le tag à insérer dans mon site
 
 Le Real User Monitoring ou RUM, nécessite l’installation d’un tag javascript. Le tag est disponible dans l’application en suivant le chemin suivant:
 

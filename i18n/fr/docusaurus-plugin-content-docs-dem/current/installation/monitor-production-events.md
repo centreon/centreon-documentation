@@ -3,8 +3,6 @@ id: monitor-production-events
 title: Suivre les événements de mise en production
 --- 
 
-# Suivre automatiquement les événements de mise en production
-
 Vous pouvez renseigner automatiquement vos déploiements de code ou modifications de configuration système dans DEM :
 
 ![image](../assets/installation/monitor-prod-events-1.png)

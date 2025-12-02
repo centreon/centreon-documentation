@@ -3,8 +3,6 @@ id: hero-time
 title: Hero Time
 --- 
 
-# Hero Time
-
 ## Principe
 
 Le Hero Time est une mesure propre à DEM. Elle n’existe nul part ailleurs. Il s’agit du temps que la sonde DEM va mettre entre le début et la fin d’une étape.

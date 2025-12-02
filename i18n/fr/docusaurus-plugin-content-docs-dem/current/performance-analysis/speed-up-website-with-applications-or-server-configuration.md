@@ -3,8 +3,6 @@ id: speed-up-website-with-applications-or-server-configuration
 title: Accélérez votre site avec applicatifs ou configuration serveurs
 --- 
 
-# Accélérez votre site avec applicatifs ou configuration serveurs
-
 **Décomposition du waiting time**
 
 Le waiting time correspond au temps passé à attendre le serveur (contient le temps passé dans Magento). DEM le décompose ensuite en deux étapes grâce au module de profiling que vous avez fait installer par votre intégrateur.
@@ -22,7 +20,7 @@ DEM détaille le temps de génération de la page au sein de Magento en différe
 - Vous pouvez zommer sur deux étapes particulières : l'étape de "Chargement de Magento" et l'étape de "Rendu des blocs". Pour cela, cliquez sur les boutons « Plus de détails ».
 - Dans cet exemple nous allons zoomer au sein du Layout Rendering Time.
 
-## **Focus sur les blocs Magento**
+## Focus sur les blocs Magento
 
 DEM identifie automatiquement les blocs du code Magento représentant le plus de temps ou bien ayant représenté la plus grande variation.
 

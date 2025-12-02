@@ -7,7 +7,7 @@ Specifications v1.1 (April 2023)
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-1.png)
 
-## Context: the purpose of the Digital Sobriety Score
+## Context: The purpose of the Digital Sobriety Score
 
 At Centreon, we believe the ecological transition requires awareness and accountability from the digital sector regarding its environmental impact.
 

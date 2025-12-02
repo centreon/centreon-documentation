@@ -3,16 +3,14 @@ id: enable-disable-scenario-or-alert-via-api
 title: Automatiser l’activation/désactivation d’un scénario ou d’une alerte par API
 --- 
 
-# Automatiser l’activation/désactivation d’un scénario ou d’une alerte par API
-
-# Préambule
+## Préambule
 
 Dans certains cas, il peut être utile de modifier la configuration de DEM de façon automatisée. Les cas d’usage sont très nombreux, mais les plus fréquents vont être :
 
 - de désactiver ou réactiver le fonctionnement d’un scénario (typiquement pour le désactiver lors d’une mise en maintenance du site, afin d’exclure la plage de maintenance des statistiques d’indisponibilité)
 - de modifier une variable à l’intérieur de la configuration du scénario (par exemple pour changer le parcours suite à une mise en production d’une nouvelle version du site), ou bien pour modifier l’adresse email à utiliser dans un scénario de création de compte utilisateur.
 
-# Exemple avec une requête REST simple
+## Exemple avec une requête REST simple
 
 Dans DEM, l’ensemble des fonctionnalités sont accessibles par API, il est donc possible d’effectuer des requêtes vers DEM avec des outils comme “*curl*” ou “*wget*” en spécifiant l’ID du site, l’ID du Parcours Utilisateurs ainsi que les paramètres d’authentification (*x-csrf-token* et *_qm3k_session*).
 
@@ -29,7 +27,7 @@ curl "https://app.quanta.io/api/sites/29274/uj/journeys/2913" -X 'PUT' \
   --data-raw '{"user_journey":{id:"**29274**","enabled":**false**}}'
 ```
 
-# Mise en oeuvre en script Shell
+## Mise en oeuvre en script Shell
 
 Pour + de souplesse, nous proposons ici un exemple de script Shell qui permet d’effectuer ces différents types de modifications.
 
@@ -105,7 +103,7 @@ curl "$api_url" -X 'PUT' \
   --data-raw "$request_body"
 ```
 
-# Token d’authentification
+## Token d’authentification
 
 Ces requêtes ayant besoin des droits d’administration sur le site concerné dans DEM, il sera nécessaire d’utiliser des tokens d’authentification et de les spécifier en haut du script : 
 
@@ -123,7 +121,7 @@ Pour assurer une bonne sécurité des données du site dans DEM, il est fortemen
 
 Par exemple : monlogin+api@mondomaine.com
 
-# Exemple d’utilisation du script
+## Exemple d’utilisation du script
 
 Dans notre script d’exemple les 2 premiers chiffres à passer en paramètre correspondent à l’ID du site, et l’ID du Parcours Utilisateur. Ils sont tous les deux présents dans l’URL d’accès au scénario quand on accède à la configuration du scénario en question dans DEM :
 https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913
@@ -138,6 +136,6 @@ $ ./modif-uj.sh 29274 2913 --set-variable variable-to-change=50 --enable true
 $
 ```
 
-# Pour aller plus loin
+## Pour aller plus loin
 
 La même logique s’applique à l’ensemble des fonctionnalités de DEM, qui sont toutes accessibles par API. N’hésitez pas à observer le fonctionnement des requêtes et à reproduire une variante de ce même script selon vos besoins.

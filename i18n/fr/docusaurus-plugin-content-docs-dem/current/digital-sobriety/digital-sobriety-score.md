@@ -3,13 +3,11 @@ id: digital-sobriety-score
 title: Score de Sobriété Numérique
 --- 
 
-# Score de Sobriété Numérique
-
 Spécifications v1.1 (Avril 2023)
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-1.png)
 
-## Contexte : l**a raison d’être du Score de Sobriété Numérique**
+## Contexte : la raison d’être du Score de Sobriété Numérique
 
 Chez DEM, nous sommes convaincus que la transition écologique passe par une prise de conscience et une responsabilisation du secteur du numérique dans son impact environnemental.
 
@@ -25,7 +23,7 @@ Le Score de Sobriété Numérique est une notation générale qui permet de mesu
 
 Avec ce score unifié, DEM s’est donné pour mission de sensibiliser et d’accompagner l’ensemble des acteurs du numérique vers des choix plus responsables, en leur donnant les outils pour se comparer et améliorer progressivement l'impact environnemental de leurs applications actuelles et futures.
 
-## **Introduction à la méthodologie**
+## Introduction à la méthodologie
 
 Les quelques indicateurs existants dans le domaine de la mesure de l’empreinte environnementale du numérique sont pour la plupart assez complexes à lire sans faire partie des spécialistes du sujet et ils se limitent par ailleurs à quelques critères ce qui peine à faire progresser les acteurs sur l’ensemble des éléments qui constitue l’impact de leurs activités numériques.
 
@@ -58,7 +56,7 @@ Cette transparence permet à toutes les parties prenantes :
 - d’effectuer elles-même des mesures de Score de Sobriété Numérique, y compris dans des contextes où DEM ne pourrait pas avoir accès à leurs applications.
 - de pouvoir suggérer des améliorations afin de faire évoluer positivement la méthode de calcul au fil de l’évolution des travaux de recherche dans le domaine du GreenIT.
 
-## **Méthode de calcul**
+## Méthode de calcul
 
 Le calcul de l'empreinte environnementale du numérique est un domaine relativement nouveau et en constante évolution. De nouvelles informations sur les impacts de l’usage, de la fabrication et de la fin de vie du matériel numérique peuvent apparaître, par conséquent les algorithmes de calcul de ces impacts sont amenés à s’affiner chaque année.
 
@@ -68,7 +66,7 @@ Sans modification des méthodes de mesures, il est également probable (et souha
 
 Dans ce document, nous décrivons l’algorithme de calcul actualisé au mois d’Avril 2023 (**version 1.1**), qui est la première version publique.
 
-### **Comment est calculé le Score de Sobriété Numérique ?**
+### Comment est calculé le Score de Sobriété Numérique ?
 
 Tout d’abord, il est à noter que le **Score de Sobriété Numérique** peut être évalué via 2 types d’audits :
 
@@ -97,7 +95,7 @@ Le Score de Sobriété Numérique est **un résumé de nombreux critères d’é
 
 Pour les équipes RSE souhaitant néanmoins obtenir une mesure de l’empreinte carbone de leur site, typiquement pour affiner leur bilan carbone d’entreprise avec une mesure précise en CO<sub>2</sub>eq correspondant à l’activité du site internet, elles pourront le faire via l’empreinte carbone exprimée “en absolue” et disponible dans un sous-indicateur du Score de Sobriété Numérique (voir “Empreinte carbone globale du site” pour plus bas pour plus de détails).
 
-### Algor**ithme détaillé du Score de Sobriété Numérique via la méthode d’audit complet (version 1.1 - avril 2023)**
+### Algorithme détaillé du Score de Sobriété Numérique via la méthode d’audit complet (version 1.1 - avril 2023)
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
 
@@ -109,7 +107,7 @@ Le score global aura lui plutôt vocation à être suivi et partagé par les dir
 
 Pour expliquer le schéma ci-dessus, voici la liste exhaustive des indicateurs sous-jacents du Score de Sobriété Numérique :
 
-## **Le Score d'éco-conception (ou EDS pour “Eco-Design Score”)**
+## Le Score d'éco-conception (ou EDS pour “Eco-Design Score”)
 
 Ce score compte pour 50% sur le Score de Sobriété Numérique. Il est lui-même noté de 0 à 100 et peut se mesurer pour une page donnée en fonction de 5 sous-critères permettant d’évaluer si les principes de l’éco-conception ont été suivi :
 
@@ -158,7 +156,7 @@ Une fois l’ensemble des indicateurs mesuré, une pondération est effectuée e
 
 Pour obtenir la note correspondante à chaque sous-indicateur du score d'éco-conception, des tableaux de correspondance sont utilisés pour convertir les mesures en score (exemple : 28 points sur le score d’éco-conception pour 90ms dans la mesure du “Time To First Byte”). Ces tableaux de correspondance sont publiquement disponibles afin de permettre à chacun de calculer de bout en bout le Score de Sobriété Numérique. La source ayant permis l’établissement de ces tableaux de correspondance sont les base de données [HTTP Archive](https://httparchive.org/) et [Chrome UX report](https://developer.chrome.com/docs/crux/). et la méthode celle des quantiles de valeurs (par exemple : pour obtenir 30 points sur 30 sur la valeur “Time To First Byte”, le site doit se situer dans les 5% de l’ensemble du web ayant les valeurs les plus rapides sur cet indicateur).
 
-## **Le score d’éco-conception moyen (ou “Average EDS”, pour Average Eco-Design Score)**
+## Le score d’éco-conception moyen (ou “Average EDS”, pour Average Eco-Design Score)
 
 Pour calculer le score d’éco-conception moyen d’un site, il y a 2 cas de figure :
 
@@ -171,7 +169,7 @@ Pour calculer le score d’éco-conception moyen d’un site, il y a 2 cas de fi
     Dans ce cas, le score d’éco-conception moyen prendra en compte toutes les pages consultées du site et pondérées par leur importance sur le trafic global, ce qui donnera une mesure plus précise. Ainsi une page isolée générant peu de trafic et ayant un très mauvais score d’éco-conception ne viendra finalement presque pas impacter le score global. A l’inverse, si cette page se met à absorber beaucoup de trafic, alors son score d’éco-conception pondéré par sa représentation parmi le trafic utilisateur fera nettement baisser le score d’éco-conception moyen du site.
     
 
-## **L’empreinte carbone (ou “CF” pour Carbon Footprint)**
+## L’empreinte carbone (ou “CF” pour Carbon Footprint)
 
 Un indicateur de base pour mesurer l’empreinte environnementale d’une application est déjà de calculer l’empreinte carbone de l’accès à une page web ou bien d'un clic. Pour cette évaluation, DEM a implémenté un algorithme reconnu et transparent : [la méthode Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/).
 
@@ -212,7 +210,7 @@ Bien que dans le cas d’un audit complet, le trafic soit pris en compte page pa
 
 Pour donner un exemple, si l’on compare les mois de Novembre et Décembre et que le trafic sur Décembre a été nettement plus important du fait du calendrier des fêtes de fin d’année, l’empreinte carbone par clic tiendra compte de cette variation de trafic et permettra de continuer d’évaluer l’empreinte pour un clic “moyen” sur le site mois par mois. Cette vue permet donc aux équipes numérique responsable de garder un cap fiable sur les efforts réalisés sur l’éco-conception du site, sans que leur boussole ne soit perturbée par les activités marketing du site.
 
-## **Empreinte carbone globale du site (“Global CF” pour Carbon Footprint for Global website activity)**
+## Empreinte carbone globale du site (“Global CF” pour Carbon Footprint for Global website activity)
 
 Pour calculer l’empreinte carbone globale du site, il faut prendre en compte 2 critères principaux :
 
@@ -234,7 +232,7 @@ Il y a là aussi, 2 cas de figure :
 
 Dans les 2 cas, nous obtenons l’empreinte carbone globale de l’activité du site pour une période donnée.
 
-## **Le Score de Sobriété Numérique**
+## Le Score de Sobriété Numérique
 
 Enfin, la notation globale sur 100 du Score de Sobriété Numérique prend en compte les 2 sous-indicateurs principaux :
 
@@ -264,7 +262,7 @@ Le premier certificat généré pour un site donné peut être effectué en se b
 
 Le certificat émis à partir de la 2ème année pourra par ailleurs faire figurer la variation de la note versus l’année précédente.
 
-## Indicateur optionnel : l’**Empreinte Carbone par € de chiffre d’affaires (“CFPT” pour Carbon Footprint Per Turnover)**
+## Indicateur optionnel : l’Empreinte Carbone par € de chiffre d’affaires (“CFPT” pour Carbon Footprint Per Turnover)
 
 Non répercuté dans le Score de Sobriété Numérique, l’empreinte carbone par unité de chiffre d’affaire est un **calcul optionnel** de l’empreinte carbone du site Internet rapporté à 1 euro de chiffre d'affaires réalisé en ligne. Il peut être utile pour comparer l’impact environnemental de 2 sites e-commerce de tailles différentes.
 
@@ -277,7 +275,7 @@ De la même manière que l’empreinte carbone par clic permet de comparer l’e
 
 Avec cet indicateur, un groupe peut par exemple comparer les sites de ses différentes enseignes, de ses concurrents ou encore les versions régionalisées d’un même site hébergé dans plusieurs pays.
 
-## **Sources pour aller plus loin**
+## Sources pour aller plus loin
 
 Plus d’information concernant certains des calculs évoqués dans ce document :
 

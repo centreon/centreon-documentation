@@ -3,7 +3,7 @@ id: navigate-in-dem
 title: Navigate in DEM
 ---
 
-DEM lets you move across several dimensions: switching modules, changing the selected site, or modifying the time range being analyzed.
+Centreon DEM lets you move across several dimensions: switching modules, changing the selected site, or modifying the time range being analyzed.
 
 When you first log into DEM you land on the Overview page by default. If you then select [**User Journeys**](../../getting-started/synthetic-monitoring.md) from the menu, you'll notice this screen includes:
 

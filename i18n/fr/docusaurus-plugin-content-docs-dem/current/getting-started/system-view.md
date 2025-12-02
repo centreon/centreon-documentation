@@ -3,8 +3,6 @@ id: system-view
 title: La vue Système
 --- 
 
-# La vue Système
-
 La section **Données système** permet l’analyse de **la bonne santé de la plateforme** qui héberge votre application Web. Pour y accéder, rendez-vous dans le menu principal, puis **Les données système**.
 
 ![image](../assets/getting-started/system-view-1.png)

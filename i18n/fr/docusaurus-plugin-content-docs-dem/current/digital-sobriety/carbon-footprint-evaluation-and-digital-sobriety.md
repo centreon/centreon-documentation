@@ -3,8 +3,6 @@ id: carbon-footprint-evaluation-and-digital-sobriety
 title: Approche d’évaluation carbone et sobriété numérique dans DEM
 --- 
 
-# Approche d’évaluation carbone et sobriété numérique dans DEM
-
 Mesurer l’empreinte environnementale du numérique liée à l’activité d’un site Internet nécessite de prendre de nombreux paramètres en compte et de se tenir à jour sur les meilleurs méthodes de calculs car le domaine d’étude est récent et par conséquent l’état de l’art sur le sujet est en perpétuelle évolution.
 
 Bien que ce domaine évolue rapidement, DEM s’attache dès aujourd’hui à fournir des mesures actionnables permettant de respecter les principes du [GHG Protocol](https://www.greenly.earth/blog-fr/ghg-protocol-quest-ce-que-cest-comment-ca-marche) (Pertinence, Exhaustivité, Permanence, Transparence et Exactitude). Ces critères sont particulièrement importants à suivre afin de permettre aux entreprises qui le souhaite d’intégrer les données d’impact de leurs sites Internet dans leur bilan carbone global d’entreprise.
@@ -43,7 +41,7 @@ Pour en savoir + sur la décarbonation du numérique et sur les outils de mesure
 
 [https://www.youtube.com/watch?v=UELsTjTDMag](https://www.youtube.com/watch?v=UELsTjTDMag)
 
-# Les dimensions du calcul
+## Les dimensions du calcul
 
 Pour mesurer l’impact carbone global d’un site Internet, 2 grandes dimensions doivent être prise en compte, notamment :
 

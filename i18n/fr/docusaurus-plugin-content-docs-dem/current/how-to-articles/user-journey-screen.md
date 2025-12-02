@@ -3,8 +3,6 @@ id: user-journey-screen
 title: L’écran Parcours Utilisateurs
 --- 
 
-# L’écran Parcours Utilisateurs
-
 Sur la page "Parcours utilisateurs" vous retrouvez tous les scénarios qui ont été créés pour votre site.
 
 Cette première page est une vue d'ensemble de tous vos scénarios. Elle vous permet d'analyser de manière rapide et efficace la performance de votre site.

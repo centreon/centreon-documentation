@@ -3,9 +3,7 @@ id: faq
 title: FAQ
 --- 
 
-# Foire aux questions
-
-### **Quels sont les ports de firewall à ouvrir pour l'agent DEM ?**
+## Quels sont les ports de firewall à ouvrir pour l'agent DEM ?
 
 Il est nécessaire pour que l'agent fonctionne, d'autoriser en sortie les connections HTTPS [vers nos IPs](../installation/dem-ip-addresses.md).
 
@@ -13,13 +11,13 @@ Pour l'installation des paquets il faudra également autoriser votre serveur à 
 
 Vous pouvez également mettre en place un proxy HTTP si votre serveur n'à pas d'accès direct à Internet. Vous pouvez ajouter l'URL de votre proxy dans la configuration de l'agent (*/etc/quanta/agent.yml*) en ajoutant une ligne de la forme "proxy_url: http://user:password@1.2.3.4" sous la catégorie "server".
 
-### **Je ne vois pas les données remonter, où puis-je trouver des informations pour résoudre le problème ?**
+## Je ne vois pas les données remonter, où puis-je trouver des informations pour résoudre le problème ?
 
 L'agent utilise syslog pour générer des logs, vous les trouverez généralement dans le fichier */var/log/daemon.log* ou */var/log/syslog*. Si vous ne trouvez pas la source de l'erreur, nous vous invitons à nous contacter.
 
 Vous pouvez envoyer les logs dans un autre fichier en remplacant la variable **file** sous la section **logger** dans le fichier */etc/quanta/agent.yml* (pensez néanmoins à mettre en place un mécanisme de rotation de logs).
 
-**J'ai Varnish sur mon serveur et j'ai installé le module Varnish mais je ne vois pas de données remonter, comment résoudre cela ?**
+## J'ai Varnish sur mon serveur et j'ai installé le module Varnish mais je ne vois pas de données remonter, comment résoudre cela ?
 
 Il est probable que l'instance Varnish que vous utilisez ne soit pas l'instance par défaut (c'est à dire que vous utilisez le flag "-n &lt;nom&gt;" pour lancer Varnish ainsi que pour utiliser les différentes commandes d'administration).
 
@@ -29,7 +27,7 @@ Si c'est bien le cas, il vous suffit d'ajouter la configuration suivante dans le
 
 *instance: nom_de_votre_instance*
 
-### **J'ai plusieurs instances de Redis, Memcached ou Varnish, est-ce possible de toutes les monitorer ?**
+## J'ai plusieurs instances de Redis, Memcached ou Varnish, est-ce possible de toutes les monitorer ?
 
 Oui, c'est possible à partir de la version 1.1.0 de l'agent.
 
@@ -63,11 +61,11 @@ Ce type de configuration fonctionne de la même manière avec Memcached et Varni
 
 Pour varnish, le paramètre "instance" est également utilisé comme nom d'instance Varnish, il faut donc veiller à ce que cela corresponde (équivalent de l'argument "-n" en ligne de commande).
 
-### **Est-il possible de monitorer des services qui ne sont pas sur la même machine ?**
+## Est-il possible de monitorer des services qui ne sont pas sur la même machine ?
 
 Nous recommandons d'installer l'agent sur l'ensemble des serveurs de votre infrastructure, néanmoins si vous ne pouvez pas le faire sur certains de vos serveurs (base de données par exemple) et que vous souhaitez tout de même monitorer le service MySQL, vous pouvez changer le paramètre **host** dans la configuration de l'agent (*/etc/quanta/modules.d/&lt;service&gt;.yml*)
 
-### **Mon serveur est mutualisé entre plusieurs sites qui ont chacun un abonnement DEM, comment faire pour que les données soient visibles dans les 2 sites ?**
+## Mon serveur est mutualisé entre plusieurs sites qui ont chacun un abonnement DEM, comment faire pour que les données soient visibles dans les 2 sites ?
 
 Pour rattacher un serveur à plusieurs sites, vous pouvez renseigner dans le fichier de configuration */etc/quanta/agent.yml* plusieurs tokens (un pour chaque site) en les séparent par des virgules, cela donne par exemple "quanta_token: tokensite1,tokensite2".
 
@@ -78,25 +76,25 @@ Il y a quelques limitations à ce système si vos 2 sites utilisent également l
 - Les évènements Magento seront remontés sur les 2 sites, quelque soit le site qui les a généré.
 - Les informations qui remonteront dans la partie Magento de l'interface de configuration dans DEM seront celles de l'un ou l'autre site (et du coup ne seront pas forcément les bonnes).
 
-### **J'ai déjà installé le module Magento auparavant, comment se passe la mise à jour ?**
+## J'ai déjà installé le module Magento auparavant, comment se passe la mise à jour ?
 
 La mise à jour se fait de manière automatique, lorsque nous recevrons les premières métriques de la nouvelle extension PHP, nous arrêterons de requêter l'ancien module Magento. Lorsqu'un scénario utilise bien le nouveau module PHP, vous verrez un flag "nouveau module" dans la configuration de vos scénarios.
 
 Nous vous recommandons de désinstaller l'ancien module lorsque le nouveau est installé.
 
-### **Ai-je besoin de créer mon serveur dans DEM ?**
+## Ai-je besoin de créer mon serveur dans DEM ?
 
 Non, la création est automatique et se fait la première fois que nous recevons des données. Si votre serveur existait déjà dans DEM sa configuration sera mise à jour automatiquement.
 
 Vous devrez néanmoins supprimer le serveur dans DEM manuellement si vous le retirez de votre infrastructure.
 
-### **Je suis concerné par la sécurité de mon serveur, pouvez-vous m'expliquer un peu plus en détail comment l'agent DEM et le module PHP fonctionnent ?**
+## Je suis concerné par la sécurité de mon serveur, pouvez-vous m'expliquer un peu plus en détail comment l'agent DEM et le module PHP fonctionnent ?
 
 Nous nous sentons tout aussi concernés que vous de la sécurité des outils que nous vous proposons, voici une description technique de leur fonctionnement.
 
 Tout les paquets que nous fournissons sont signés avec une clef GPG qu'il vous faut installer dans votre système de paquets et qui permet de vérifier la provenance de ces paquets.
 
-*L'agent DEM:*
+### L'agent DEM
 
 L'agent DEM est un service qui tourne en tache de fond sur votre serveur (daemon) et qui effectue plusieurs opérations:
 
@@ -111,7 +109,7 @@ L'agent se lance en root pour sa phase d'initialisation (ouverture de sa socket,
 
 Les données récoltées par l'agent sont stockées en mémoire avant d'être envoyées à DEM mais ne jamais stockées ailleurs.
 
-*Le module PHP*:
+### Le module PHP
 
 Le module PHP est une extension PHP (sous forme de bibliothèque dynamique) qui sera donc chargée par PHP lors de l'execution de PHP sur votre serveur.
 

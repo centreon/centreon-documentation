@@ -3,9 +3,6 @@ id: meaning-of-colors-in-graphs
 title: Meaning of green/yellow/red and gray bars in graphs
 --- 
 
-
-# Meaning of green/yellow/red and gray bars in graphs
-
 ## Preamble
 
 While browsing DEM graphs you may sometimes see colored bars or shaded areas — red or gray — indicating incomplete data. What do they mean?

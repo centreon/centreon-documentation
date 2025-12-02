@@ -4,15 +4,15 @@
     "description": "The label for version current"
   },
   "sidebar.dem.category.Getting started with Centreon DEM": {
-    "message": "Démarrer avec DEM",
+    "message": "Démarrer avec Centreon DEM",
     "description": "The label for category Getting started in sidebar DEM"
   },
     "sidebar.dem.category.Installation": {
     "message": "Installation",
     "description": "The label for category Installation in sidebar DEM"
   },
-   "sidebar.dem.category.Servers and middlewares": {
-    "message": "Serveurs et middlewares",
+   "sidebar.dem.category.Servers and middleware": {
+    "message": "Serveurs et middleware",
     "description": "The label for category Servers and middlewares in sidebar DEM"
   },
   "sidebar.dem.category.Configuration": {

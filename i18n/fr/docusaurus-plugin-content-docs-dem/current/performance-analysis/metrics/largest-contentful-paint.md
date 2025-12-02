@@ -3,27 +3,24 @@ id: largest-contentful-paint
 title: LCP - Largest Contentful Paint (Web Vital)
 --- 
 
-# LCP - Largest Contentful Paint (Web Vital)
-
 > Le Largest Contentful Paint est documenté sur le site [Web Dev de Google](https://web.dev/lcp/). Cette page traduit en français et résume l’essentiel du contenu
-> 
 
 <aside>
 💡 Le Largest Contentful Paint (LCP, qui peut se traduire par impression du plus grand contenu) est une métrique importante, qui se concentre sur la perception de vitesse de chargement de l’utilisateur car elle marque le moment du chargement où le contenu principal de la page a probablement chargé. Un LCP rapide assure l’utilisateur que la page est utilisable.
 
 </aside>
 
-# Qu’est ce que le LCP ?
+## Qu’est ce que le LCP ?
 
 Le Largest Contentful Paint ou LCP ou impression du plus grand contenu est un métrique qui mesure le temps de rendu du plus grand texte ou de la plus grande image visible depuis le début du chargement de la page.
 
-# Qu’est ce qu’un bon score LCP ?
+## Qu’est ce qu’un bon score LCP ?
 
 Pour donner une bonne expérience, les sites internet devrait avoir un LCP inférieur à 2,5 secondes. Pour être certain que vous atteignez cet objectif pour la majorité de vos utilisateurs, vous pouvez vérifier que 75% de vos utilisateurs (sur mobile et sur ordinateur) ont ce score. Le Real User Monitoring de DEM permet de faire cela.
 
 ![](https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/8ZW8LQsagLih1ZZoOmMR.svg)
 
-# Quels éléments peuvent être considéré comme contenu le plus grand ?
+## Quels éléments peuvent être considéré comme contenu le plus grand ?
 
 Les types d’éléments considérés sont:
 
@@ -35,7 +32,7 @@ Les types d’éléments considérés sont:
 
 Des éléments additionnels (ex: `<svg>`, `<video>`) sont envisagés dans le standard à l’avenir.
 
-# Comment la taille d’un élément est déterminé ?
+## Comment la taille d’un élément est déterminée ?
 
 La taille de l'élément signalée plus gros contenu correspond généralement à la taille visible par l'utilisateur dans la fenêtre d'affichage. Si l'élément s'étend en dehors de la fenêtre d'affichage, ou si l'un des éléments est tronqué ou présente un débordement non visible, ces portions ne comptent pas pour la taille de l'élément.
 

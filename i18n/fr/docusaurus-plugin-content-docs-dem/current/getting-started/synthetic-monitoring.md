@@ -3,8 +3,6 @@ id: synthetic-monitoring
 title: Le Monitoring Synthétique (ou “Parcours Utilisateurs”)
 --- 
 
-# Le Monitoring Synthétique (ou “Parcours Utilisateurs”)
-
 ![image](../assets/getting-started/synthetic-monitoring-1.png)
 
 Le Monitoring Synthétique consiste à naviguer à fréquence régulière sur un site cible afin :

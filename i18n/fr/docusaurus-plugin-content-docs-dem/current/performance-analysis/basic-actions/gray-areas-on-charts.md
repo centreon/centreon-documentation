@@ -3,8 +3,6 @@ id: gray-areas-on-charts
 title: Que signifie une zone grise sur mon graphique ?
 --- 
 
-# Que signifie une zone grise sur mon graphique ?
-
 Une zone grise sur le graphique indique que DEM n’a pas pu récupérer de donnée durant cette période ou que les données étaient nulles ou inexistantes.
 
 Cela peut être le cas si :

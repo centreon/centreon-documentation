@@ -1,11 +1,9 @@
 ---
 id: manage-users-and-rights
-title: Gérez vos utilisateurs et leurs droits
+title: Gérer les utilisateurs et leurs droits
 ---
 
-# Gérez vos utilisateurs et leurs droits
-
-# Accéder au menu de configuration
+## Accéder au menu de configuration
 
 L’ensemble des manipulations présentées ici passe par le menu *Organisation*. Celui-ci est accessible dans le menu en haut à droite comme suit:
 
@@ -13,7 +11,7 @@ L’ensemble des manipulations présentées ici passe par le menu *Organisation*
 
 Raccourci vers le menu Organisation
 
-# Expiration automatique des mots de passe
+## Expiration automatique des mots de passe
 
 Dans une Organisation, vous pouvez définir une politique d’expiration des mots de passe.
 
@@ -21,14 +19,14 @@ Le premier bloc de l’écran propose d’activer l’expiration des mots de pas
 
 Les utilisateurs devront changer leur mot de passe après le nombre de jours que vous avez décidé. Si un utilisateur appartient à plusieurs organisations, ils devront changer leur mot de passe selon la période la plus courte définie dans toutes leurs organisations.
 
-# **Inviter un nouvel utilisateur à votre organisation**
+## **Inviter un nouvel utilisateur à votre organisation**
 
 <aside>
 ⚠️ Si personne de votre organisation n’est Administrateur ou Propriétaire, contactez le support DEM ou votre revendeur pour gérer votre organisation.
 
 </aside>
 
-## **Les permissions**
+### **Les permissions**
 
 DEM distingue 2 types de permissions pour les utilisateurs que vous invitez :
 
@@ -37,7 +35,7 @@ DEM distingue 2 types de permissions pour les utilisateurs que vous invitez :
 
 Les permissions sont partagées au niveau de tous les sites d'une même *Organisation*.
 
-## Ajouter un utilisateur
+### Ajouter un utilisateur
 
 Pour ajouter un nouvel utilisateur à votre organisation vous devez être *Administrateur* de l'*Organisation*.
 
@@ -47,13 +45,13 @@ Pour ajouter l'utilisateur, cliquez sur l’icône à côté du rôle auquel vo
 
 ![image](../assets/configuration/manage-users-and-rights-2.png)
 
-# **Changer les permissions d'un utilisateur**
+## **Changer les permissions d'un utilisateur**
 
 Pour changer les permissions d'un utilisateur dans votre organisation vous devez être *Administrateur* de l'*Organisation*.
 
 Pour changer les permissions d'un utilisateur il suffit de le déplacer (drag & drop) dans la colonne correspondant au profil que vous voulez lui attribuer.
 
-# **Retirer les permissions**
+## **Retirer les permissions**
 
 Pour retirer les permissions d'un utilisateur dans votre organisation vous devez être *Administrateur* de l'*Organisation*.
 

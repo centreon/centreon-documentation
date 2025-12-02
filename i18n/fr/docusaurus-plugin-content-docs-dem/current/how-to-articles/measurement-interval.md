@@ -3,23 +3,21 @@ id: measurement-interval
 title: Intervalle de mesure
 --- 
 
-# Intervalle de mesure
+## Définition
 
-# **Définition**
+L'intervalle de mesure d'un parcours utilisateur définit le temps entre chaque passage de la sonde DEM sur votre site.
 
-### L'intervalle de mesure d'un parcours utilisateur définit le temps entre chaque passage de la sonde DEM sur votre site.
+Par exemple : si votre intervalle de mesure est de 3 minutes, la sonde effectuera donc un passage complet du parcours toutes les 3 minutes.
 
-**Par exemple :** Si votre intervalle de mesure est de 3 minutes, la sonde effectuera donc un passage complet du parcours toutes les 3 minutes.
+Attention : cela signifie aussi que le temps total de l'exécution de votre parcours utilisateur ne doit pas dépasser cet intervalle de temps.
 
-**Attention :** cela signifie aussi que le temps total de l'exécution de votre parcours utilisateur ne doit pas dépasser cet intervalle de temps.
-
-# **Configuration**
+## Configuration
 
 L'intervalle de mesure d'un parcours utilisateur est configurable dans les paramètres avancés de chaque parcours.
 
 [Création d’un scénario (”Parcours Utilisateur”)](../configuration/user-journey/create-a-scenario.md)
 
-# **Implications**
+## Implications
 
 Modifier l'intervalle de mesure a plusieurs implications :
 

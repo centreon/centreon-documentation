@@ -3,15 +3,13 @@ id: using-charts
 title: Utiliser les graphiques
 --- 
 
-# Utiliser les graphiques
-
-# **Zoomer sur les graphs**
+## Zoomer sur les graphs
 
 Les graphs DEM sont interactifs. Zoomez facilement sur la période qui vous intéresse : en utilisant l’action « glisser/déplacer » de la gauche vers la droite sur le graphique (et inversement pour dézoomer).
 
 ![Image](../assets/how-to-articles/using-charts-1.png)
 
-# Isoler et cacher les statistiques dans un graphique
+## Isoler et cacher les statistiques dans un graphique
 
 Un graphique peut être composé de plusieurs statistiques qui se cumule. Par exemple, ici, on retrouve les détails des temps réseaux du chargement d’une page:
 

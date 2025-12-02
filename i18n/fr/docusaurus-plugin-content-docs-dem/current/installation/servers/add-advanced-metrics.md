@@ -3,8 +3,6 @@ id: add-advanced-metrics
 title: Ajouter les métriques avancées
 --- 
 
-# Ajouter les métriques avancées
-
 L'agent DEM dispose de modules (ou agents applicatifs), permettant de récupérer des données systèmes sur différents composants de votre infrastructure tels que vos services Apache, MySQL, Redis, Varnish, PostgreSQL, …
 
 <aside>
@@ -14,7 +12,7 @@ L'agent DEM dispose de modules (ou agents applicatifs), permettant de récupére
 
 </aside>
 
-### Apache
+## Apache
 
 1. Installez le package
 *Sur Debian*
@@ -46,7 +44,7 @@ L'agent DEM dispose de modules (ou agents applicatifs), permettant de récupére
 
 Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
-### MySQL
+## MySQL
 
 1. Installez le package
 *Sur Debian*
@@ -77,7 +75,7 @@ Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
-### PostgreSQL
+## PostgreSQL
 
 1. Installez le package
 *Sur Debian*
@@ -108,7 +106,7 @@ Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
-### Nginx
+## Nginx
 
 1. Installez le package
 *Sur Debian*
@@ -140,7 +138,7 @@ Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
-### Varnish
+## Varnish
 
 1. Installez le package
 *Sur Debian*
@@ -171,7 +169,7 @@ Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
-### Redis
+## Redis
 
 1. Installez le package
 *Sur Debian*
@@ -208,7 +206,7 @@ Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
-### Memcached
+## Memcached
 
 1. Installez le package
 *Sur Debian*

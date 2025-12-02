@@ -3,8 +3,6 @@ id: cumulative-layout-shift
 title: CLS - Cumulative Layout Shift (Web Vital)
 --- 
 
-# CLS - Cumulative Layout Shift (Web Vital)
-
 <aside>
 💡 Le Cumulative Layout Shift (CLS) (ou le décalage cumulatif de la disposition) est une métrique importante de l’expérience utilisateur. Elle mesure la stabilité visuelle en quantifiant à quel point les utilisateurs vont rencontrer des changements inattendus de la disposition de la page.
 
@@ -14,7 +12,7 @@ Si vous avez déjà lu un article dont tout le contenu se décale d’un coup sa
 
 Le CLS aide en mesurant à quelle fréquence cela se produit pour les utilisateurs sur votre site.
 
-# Qu’est ce que le CLS
+## Qu’est ce que le CLS
 
 Le CLS mesure la somme des scores des décalages inattendus pendant toute la durée de vie de la page.
 

@@ -3,15 +3,13 @@ id: receive-and-configure-alerts
 title: Recevoir et configurer les alertes
 ---
 
-# Recevoir et configurer les alertes
-
 Les alertes sont accessibles **dans toutes les licences par email**.
 
 Certaines licences permettent de recevoir des alertes **par SMS, par Slack, ou par webhooks** (Microsoft Teams, Google Chat, Mattermost...). Pour souscrire à cette option, contactez votre interlocuteur commercial ou le support: 
 
 [Contacter le support DEM](../getting-started/contact-support.md)
 
-# Configurer les moyens de communication
+## Configurer les moyens de communication
 
 Les notifications sont **personnelles**. Pour qu’un utilisateur reçoive les emails, les SMS ou Slack, il suffit de configurer dans sa page profil les informations.
 
@@ -28,7 +26,7 @@ Pour envoyer une notification dans un canal Teams, Google Chat, ou d’autres lo
 
 </aside>
 
-# Accéder à l’écran de configuration des alertes et rapports
+## Accéder à l’écran de configuration des alertes et rapports
 
 Vous pouvez accéder à l’écran de configuration en cliquant sur les trois petits points au-dessus d’un parcours utilisateur, puis sur *Alerting*.
 
@@ -40,9 +38,9 @@ Vous pouvez aussi accéder à l’écran de configuration soit en cliquant sur *
 
 Accès à l’alerting depuis la configuration
 
-# Mettre en place les alertes
+## Mettre en place les alertes
 
-## Planning d’alerting
+### Planning d’alerting
 
 Les utilisateurs peuvent définir les périodes pendant lesquelles ils ne reçoivent pas d’alertes.
 
@@ -52,23 +50,23 @@ Exemple de planning
 
 Egalement, chaque alerte peut être activée/désactivée sur des plages horaires pour ne pas notifier les personnes abonnées à cette alerte, quelque soit leur propre planning.
 
-## Configurer une alerte
+### Configurer une alerte
 
 Sélectionnez la façon dont vous souhaitez être alerté (SMS/Email/Slack). Voici quelques exemples de messages que vous pourrez recevoir :
 
-### Email
+#### Email
 
 ![image](../assets/configuration/receive-and-configure-alerts-5.png)
 
 Exemple d’alerte par email
 
-### SMS
+#### SMS
 
 ![image](../assets/configuration/receive-and-configure-alerts-6.png)
 
 Exemple d’alerte par SMS
 
-### Webhook
+#### Webhook
 
 En complément des alertes par e-mail ou SMS, DEM permet aux utilisateurs de recevoir leurs alertes via un **webhook**, offrant ainsi une plus grande flexibilité pour l'intégration avec d'autres outils et systèmes. Lorsqu'un incident est détecté sur une application web surveillée, DEM peut envoyer une requête **HTTP POST** à une URL spécifiée par l'utilisateur. Cette URL peut être protégée par un accès **htaccess**, et l'utilisateur peut également définir des **headers spécifiques** si nécessaire.
 La configuration de cette URL est disponible en cliquant sur le mot “Webhook” d’une alerte nouvellement créée ou pré-existante, puis en cliquant sur l’icone “**+**” (**Créer un webhook**) :
@@ -159,7 +157,7 @@ Explication des données envoyées :
 
 Grâce à cette fonctionnalité, les équipes techniques peuvent **automatiser le traitement des alertes** en les intégrant dans leurs systèmes internes (Slack, outils de monitoring, scripts personnalisés, etc.) ou externes (Zapier, Pagerduty, etc.).
 
-# Paramétrer les seuils d'alerte
+## Paramétrer les seuils d'alerte
 
 Une fois votre alerte créée, vous avez la possibilité de configurer différents seuils:
 
@@ -173,15 +171,15 @@ En fonction de votre type d'alerte, vous allez pouvoir contrôler différents 
 - **Alerte sur le statut du** **scénario:** sélectionnez au bout de combien d'erreurs (pages non accessible, chaîne de caractère manquante, timeout, sélecteur dynamique introuvable) vous souhaitez être averti. Par défaut le seuil d'alerte est à 3 échecs sur une période de 5 minutes et votre scénario est considéré comme "réparé" lorsque sur une période de 5 minutes nous n'avons eu aucune erreur.
 - **Alerte sur le temps du scénario:** sélectionnez votre limite de tolérance sur l'augmentation du temps du scénario, par défaut, si le temps total de votre scénario dépasse de 15 % le temps de la veille au moins 15 fois sur 25 passages de sonde, vous serez averti.
 
-# **Questions fréquentes**
+## Questions fréquentes
 
-## Suite à quel type d’erreur serai-je alerté ?
+### Suite à quel type d’erreur serai-je alerté ?
 
 Vous recevrez une alerte pour les anomalies de type : Code d’erreur, Site indisponible, Temps de chargement trop longs (+ de 20 sec), etc.
 
 Chaque erreur est représentée par des barres rouges dans DEM. Pour savoir exactement ce qui s’est passé, nous vous invitons à regarder le message d’alerte que vous avez reçu et dans lequel la raison de l’incident est explicitée.
 
-## Y-a-t’il des quotas dans les alertes ?
+### Y-a-t’il des quotas dans les alertes ?
 
 Il n’y a pas de quotas pour les emails, les webhooks et les notifications Slack mais il y en a pour les SMS. Le quota de SMS est fixé par site et recrédité tous les mois.
 

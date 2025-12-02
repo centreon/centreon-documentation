@@ -3,13 +3,11 @@ id: cloud-configuration-of-agents
 title: Configuration de nos agents pour le cloud
 --- 
 
-# Configuration de nos agents pour le cloud
-
 Avec l'avènement du cloud, des services managés, des IaaS et des PaaS, nos paquets ne se suffisent plus à eux même et chaque infrastructure utilise ses propres processus d'orchestration quant au déploiement de nouveaux serveurs (VM ou conteneurs).
 
 Si c'est votre cas alors cet article est fait pour vous, vous y découvrirez comment configurer nos agents à l'aide de vos orchestrateurs.
 
-# Procédure standard d'installation
+## Procédure standard d'installation
 
 Afin de bien comprendre la suite vous trouverez  le guide d'installation standard de notre agent est ici:
 
@@ -19,7 +17,7 @@ Afin de bien comprendre la suite vous trouverez  le guide d'installation standa
 
 [Installer le profiler PHP / Magento / OroCommerce](./install-php-magento-orocommerce-profiler.md)
 
-# Dynamisation pour le cloud
+## Dynamisation pour le cloud
 
 Dans le cas de déploiement automatique ou semi-automatique d'instances (VM ou conteneurs) certains champs de configurations devront être modifiés ou répliqués entre chaque instance nouvellement créées:
 
@@ -29,7 +27,7 @@ Dans le cas de déploiement automatique ou semi-automatique d'instances (VM ou c
     - Dans le cas d'auto-scaling vous pouvez avoir besoin de conserver un identifiant unique lorsque une instance est supprimée puis recréée plus tard. Par exemple si tous les soirs vers 19h vous ajoutez un quatrième front pour gérer la charge de début de soirée et le supprimez vers 21h vous voudrez surement éviter d'avoir tous les jours un nouveau graphique qui apparaisse dans vos données DEM (et vous retrouver avec une liste très rapidement trop longues de graphiques). Dans ce cas précis il vous faudra conserver un identifiant unique à chaque fois que vous supprimez et re-créez le front en question, ainsi les données apparaitrons toujours dans le même graphique.
 - **Hostname**: Toujours dans le même fichier "/etc/quanta/agent.yml", cette variable de configuration vous permet d'attribuer un label à votre instance, contrairement au hostid ce n'est pas un identifiant mais uniquement un nom afin de vous faciliter la lecture dans les graphiques, par exemple "VM prod 006 - Varnish - 3". Vous pouvez également le modifier depuis l'interface DEM.
 
-# Adaptation
+## Adaptation
 
 Certains fournisseurs de Cloud proposent des services managés, AWS propose RDS et ElastiCache par exemple pour les services de base de données et de gestion de cache espectivement. Ces services managés viennent généralement clés en main et ne vous permettent pas d'installer des packets sur leurs instances.
 

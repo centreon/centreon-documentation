@@ -3,9 +3,7 @@ id: user-journey-best-practices
 title: Bonnes pratiques des Parcours Utilisateurs
 --- 
 
-# Configuration avancée des Parcours Utilisateurs & bonnes pratiques (pro tips)
-
-# Gestion des iframes
+## Gestion des iframes
 
 Vu la façon dont DEM gère la possible présence d’iframes dans une page, un point important est à prendre en compte dans ce cas de figure précis. Si des iframes sont présentes et que nous souhaitons manipuler des sélecteurs CSS, il est nécessaire de choisir des selecteurs CSS qui sont soit à l'intérieur d'une iframe, soit à l'extérieur, mais **PAS** des selecteurs qui "traversent" les 2 contextes, ce qui ne fonctionnera pas. 
 
@@ -55,9 +53,9 @@ iframe #my-form
 
 ⚠️ **Quand on veut un élément qui est à l'intérieur d'une iframe, on doit faire comme si TOUT ce qu'il y a en dehors du CONTENU de l'iframe n'existait pas.**
 
-# Bonnes Pratiques
+## Bonnes Pratiques
 
-- Privilégier les sélecteurs CSS au texte
+### Privilégier les sélecteurs CSS au texte
     
     L'avantage des sélecteurs par texte est qu'il suffit de copier coller un texte de la page. L'inconvénient c'est que ce texte peut parfois être trouvé ailleurs dans la page même s'il n'est pas forcément visible et donc ne pas fonctionner comme attendu.
     
@@ -68,20 +66,20 @@ iframe #my-form
     Pour être certain que la chaîne spécifiée comme élément attendu dans DEM est bien celle qui est présente dans le code HTML, nous vous conseillons d’effectuer un “Clic-droit” puis “Inspecter dans le code HTML” pour copier/coller la chaine directement depuis le code HTML, ce qui évite toute erreur. Enfin, les espaces avant et après le texte sont également à éviter, il est préférable de les supprimer manuellement.
     
 
-- Spécifier un sélecteur CSS pour les formulaires
+### Spécifier un sélecteur CSS pour les formulaires
     
     Si vous ne spécifiez pas de sélecteur CSS sur un formulaire, la sonde essaiera de remplir les champs correspondants partout dans la page. De même sans sélecteur, l'envoi automatique soumettra le premier form trouvé.
     
     **Mettre un sélecteur CSS permet donc de garantir que les bons champs soient remplis et que le formulaire soit correctement envoyé.**
     
 
-- Nettoyer les classes utilitaires ou générées des sélecteurs CSS
+### Nettoyer les classes utilitaires ou générées des sélecteurs CSS
     
     Lorsque vous utilisez la fonction "Copy CSS selector" de Chrome, le sélecteur généré comporte généralement beaucoup de classes CSS (notation .nom-de-la-classe) dont la plupart peuvent être superflues. On pense notamment aux classes utilitaires (par exemple .alert-danger) ou aux classes générées par le framework (par exemple .menu-item-x823ds83sa9c). Ces classes n'apportent rien à la précision du sélecteur CSS, ce qui au mieux complique la maintenabilité (le moindre changement de classe utilitaire d'un élément causera une erreur "*Element not found*") et pourra même empêcher le sélecteur de fonctionner (dans le cas des classes générées aléatoirement à chaque chargement de la page).
     
     De la même manière, il peut être pertinent d'assouplir la notion "d'enfant" directement dans les sélecteurs CSS (décrite par le symbole ">") car l'insertion d'un élément entre les 2 demandera une modification du CSS sélecteur. Le retrait du symbole ">" conserve la notion de hiérarchie entre les éléments mais n'impose pas une relation "d'enfant" direct.
     
-- Éviter l'action "wait"
+### Éviter l'action "wait"
     
     L'action wait est le dernier recours lorsqu'il n'est pas possible d'ajouter une vérification sur l'action précédente.
     
@@ -94,38 +92,38 @@ iframe #my-form
     
     Pour éviter d'impacter les mesures, il est recommandé dans la mesure du possible d'isoler l'action wait dans une interaction à part et non mesurée (NB: les vérifications ne sont pas obligatoires pour les interactions non mesurées).
     
-- Éviter le random
+### Éviter le random
     
     Le random peut-être utile pour les tests de charge notamment mais peut aussi introduire des variations de performance qui rendront alors les mesures difficilement comparables.
     
     **Il est préférable de choisir une cible fixe ou bien de sélectionner systématiquement le premier élément.** Cela permet aussi de mettre des vérifications plus précises, spécifique à la page visitée.
     
 
-- Choisir intelligemment les éléments à vérifier
+### Choisir intelligemment les éléments à vérifier
     
     Les vérifications servent à mesurer le *Hero Time* — un indicateur clé de la perception de performance par l'utilisateur. Il est donc essentiel de sélectionner des éléments réellement représentatifs de l'expérience utilisateur, tout en évitant les vérifications redondantes qui alourdiraient inutilement la configuration.
     
     **Notre recommandation : identifier 2 à 3 éléments clés** (par exemple, la plus grande image ou *background-image*, un texte structurant comme le titre principal, et le *call-to-action* principal). Cela permet d’avoir une mesure pertinente et maintenable, sans surcharger le scénario avec des vérifications superflues.
     
 
-- Ajouter des vérifications sur les cibles des actions
+### Ajouter des vérifications sur les cibles des actions
     
     Lorsqu'une action cible un texte ou un sélecteur CSS, il est bénéfique d'ajouter une vérification sur cet élément **lors de l'action précédente** pour s'assurer que la cible soit bien apparue (et la cible est de-facto un élément important qui mérite d'être compté dans le Hero Time).
     
     **Exemple :** La 4e action de mon parcours est *Cliquer sur le bouton 'Ajouter au panier'.* J'ajoute donc une vérification dans ma 3e action de type *Le text "Ajouter au panier" a été inséré dans la page.*
     
 
-- Ajouter une vérification de navigation pour les interactions qui naviguent
+### Ajouter une vérification de navigation pour les interactions qui naviguent
     
     La vérification de navigation permet non seulement d'inclure le temps de la requête de navigation dans le Hero Time mais également:
     - D'en vérifier le code de retour
     - D'attendre (sans le compter dans le Hero Time) l'évènement de load de la page (ce qui permet aussi de récupérer un speedIndex)
     
-- Ajouter des vérifications sur les requêtes AJAX importantes
+### Ajouter des vérifications sur les requêtes AJAX importantes
     
     Cela permet d'une part de valider le code de retour de l'appel AJAX, mais aussi de s'assurer que le Hero Time est bien représentatif des éléments les plus importants de la page.
     
-- Nettoyer les vérification de requête des paramètres superflus
+### Nettoyer les vérification de requête des paramètres superflus
     
     Certaines requêtes incluent des paramètres qui peuvent varier :
     
@@ -136,7 +134,7 @@ iframe #my-form
     
     Exemple : si nous spécifions comme requête attendue “*/addToCart?qty=1”, alors toutes les requêtes finissant par “/addToCart” vont matcher si le paramètre qty=1 est présent, y compris si d’autres paramètres sont présents (avant ou après dans la chaine de l’URL).
     
-- Filtrer certains tags 3rd party (*mais pas trop*)
+### Filtrer certains tags 3rd party (*mais pas trop*)
     
     Les sites web ont souvent de nombreuses solutions tierces intégrées à leur page. Il est souvent de bon usage de “blacklister” les trackers de solutions d'analytics pour éviter de fausser les stats de l’équipe digital marketing.
     
@@ -144,9 +142,9 @@ iframe #my-form
     
     A garder en tête également que certains tags 3rd party sont nécessaires au bon fonctionnement de la page. Dans ce cas il sera donc important de ne pas les bloquer.
     
-    # Protips sur l’usage des sélecteurs CSS
+### Protips sur l’usage des sélecteurs CSS
     
-    ### Rendre vos sélecteurs CSS robustes et fiables
+#### Rendre vos sélecteurs CSS robustes et fiables
     
     Pour garantir la fiabilité des scénarios de monitoring, il est essentiel d’utiliser des sélecteurs CSS à la fois explicites et résilients aux évolutions du code HTML. Voici les bonnes pratiques à suivre :
     
@@ -174,7 +172,7 @@ iframe #my-form
     
     Un sélecteur CSS comme `section.product-detail div.buy-zone button.cta` offre un bon compromis entre spécificité et flexibilité. Il reste robuste même si un nouveau niveau de balise est inséré dans le HTML (ce qui casserait un sélecteur trop strict ou exact).
     
-    ### Exemple utiles de sélecteur CSS avancés
+#### Exemples utiles de sélecteur CSS avancés
     
     Voici ici quelques exemples de sélecteur CSS avancés qui peuvent se révéler très utiles dans certaines situations :
     
@@ -290,7 +288,7 @@ iframe #my-form
     
     Dans ce cas, DEM va cliquer sur le premier élément existant dans l'ordre de la gauche vers la droite. De cette façon, qu'il faille configurer le produit par sa couleur, sa taille ou son motif, DEM saura alors cliquer celui qui est existant sur la page, ce qui va dégriser le bouton d'ajout au panier. Ceci est un bon exemple de scénario adaptatif.
     
-    **Pour aller plus loin**
+## Pour aller plus loin
     
     Comme vous avez pu le voir par ces exemples, les sélecteurs CSS regorgent de fonctions, qui vont donner une immense flexibilité aux scénarios créés dans DEM.
     

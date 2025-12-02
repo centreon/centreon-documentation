@@ -3,8 +3,6 @@ id: configure-digital-sobriety
 title: Configurer la Sobriété Numérique
 --- 
 
-# Configurer la Sobriété Numérique
-
 Si vous disposez de l’option Sobriété Numérique, vous devez indiquer à DEM deux informations:
 
 - Où se situent vos serveurs ?

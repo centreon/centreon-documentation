@@ -3,9 +3,7 @@ id: how-alerts-work
 title: Comprendre le fonctionnement des alertes dans DEM
 --- 
 
-# Comprendre le fonctionnement des alertes dans DEM
-
-# Préambule
+## Préambule
 
 DEM peut vous alerter sur de nombreux sujets, si vous n'avez pas encore souscrit aux alertes, rendez-vous ici:
 
@@ -13,13 +11,13 @@ DEM peut vous alerter sur de nombreux sujets, si vous n'avez pas encore souscrit
 
 Cet article vise à être exhaustif sur les alertes que vous pouvez recevoir afin de bien les comprendre et vous permettre une meilleure analyse de ces dernières.
 
-# Alertes liées aux scénarios
+## Alertes liées aux scénarios
 
 *Disponible par email sur toutes les licences, néanmoins, les alertes Slack, Chat et SMS ne sont disponible sur les licences d’entrée de gamme.*
 
 Ces alertes se déclenchent lorsque nos sondes détectent une anomalie sur l'un de vos scénarios. On en distingue deux types :
 
-## Alertes sur le statut du scenario
+### Alertes sur le statut du scenario
 
 Ces alertes se produisent dès lors qu'un de vos scénarios suivi se trouve en erreur pendant plusieurs minutes, par défaut 3 échecs sur une période de 5 minutes.
 Une notification de résolution vous est ensuite envoyée une fois que le scénario fonctionne normalement pendant plusieurs minutes, par défaut 5 succès sur une période de 5 minutes. On considère alors que l'alerte est clôturée.
@@ -37,7 +35,7 @@ Voici une liste des alertes que nous pouvons vous envoyer:
 
 Ces alertes sont également visualisables sur vos scénarios, vous verrez apparaître des barres rouges sur vos graphiques.
 
-## Alertes sur le temps d'exécution du scénario
+### Alertes sur le temps d'exécution du scénario
 
 Ces alertes sont envoyées quand nos sondes identifient une variation du temps d'exécution du scénario supérieure au seuil que vous avez défini.
 
@@ -53,7 +51,7 @@ Il est également possible d'alerter une fois qu'un temps arbitraire que vous au
 
 Ces alertes vous sont envoyées par défaut quand nous constatons un écart au moins 15 fois sur une période de 25 minutes, et résolu une fois que cet écart n'est plus constaté pendant au moins 20 minutes sur 25.
 
-# Alertes liées à vos données business
+## Alertes liées à vos données business
 
 *Disponible par défaut sur les licences Business et Full, en option sur les autres.*
 
@@ -63,7 +61,7 @@ L'alerting business vous permet de déceler toute baisse anormale de votre trafi
 
 Les données étant récupérées depuis Google Analytics, celles-ci sont analysées avec un décalage de 4 heures par défaut (car les données fournies par Google Analytics s'affinent avec le temps)
 
-## Alertes sur le taux de conversion
+### Alertes sur le taux de conversion
 
 On regarde ici si la moyenne de votre taux de conversion moyen sur une période donnée, 2 heures par défaut, est plus basse par rapport à la même période où alors en comparaison de la moyenne sur les semaines précédentes ou les mois précédents.
 
@@ -71,6 +69,6 @@ Cette alerte se déclenche lorsque cette comparaison donne un écart de 30 % de
 
 Il est également possible de choisir une valeur fixe du taux de conversion au-dessous de laquelle vous souhaitez être alerté.
 
-## Alertes sur les pages vues
+### Alertes sur les pages vues
 
 C'est exactement le même principe que pour les alertes sur le taux de conversion, mais appliqué aux pages vues par minute.

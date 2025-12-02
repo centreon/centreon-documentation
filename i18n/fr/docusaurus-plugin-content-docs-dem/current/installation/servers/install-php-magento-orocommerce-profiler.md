@@ -3,11 +3,9 @@ id: install-php-magento-orocommerce-profiler
 title: Installer le profiler PHP / Magento / OroCommerce
 --- 
 
-# Installer le profiler PHP / Magento / OroCommerce
-
 Le module PHP DEM se présente sous la forme d'une extension PHP et vous permettra de remonter des informations concernant le temps d'exécution de chaque partie de votre CMS.
 
-# Pré-requis
+## Pré-requis
 
 <aside>
 ⚠️ Le profiler nécessite l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
@@ -16,7 +14,7 @@ Le module PHP DEM se présente sous la forme d'une extension PHP et vous permett
 
 </aside>
 
-# Compatibilité
+## Compatibilité
 
 | Distribution | Version OS | Version PHP | Module PHP DEM |
 |--------------|------------|-------------|-------------------|
@@ -28,7 +26,7 @@ Le module PHP DEM se présente sous la forme d'une extension PHP et vous permett
 | Ubuntu | Lunar (23.04) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
 | CentOS | 7 | 7.3/7.4 | 1.3.3 (beta repo) |
 
-# Installation
+## Installation
 
 <aside>
 💡 Le module PHP est à installer sur chaque serveur exécutant votre application PHP.
@@ -113,7 +111,7 @@ phpenmod quanta_mon
 
 Nous ne supportons pas officiellement de packages pour les autres OS. Néanmoins vous pouvez compiler vous-même le module, les sources sont disponibles sur Github: [https://github.com/quanta-computing/quanta-php-module](https://github.com/quanta-computing/quanta-php-module)
 
-# Configurez l'URL de votre backoffice si vous utilisez Magento
+## Configurez l'URL de votre backoffice si vous utilisez Magento
 
 Si vous utilisez Magento et qu'une URL customisée est utilisée pour accéder au backoffice Magento (c'est-à-dire une URL qui ne commence pas par **"/admin/"**)
 
@@ -139,7 +137,7 @@ Par exemple, si l'URL de votre backoffice est "http://admin.monsite.com/admin_12
 quanta_mon.admin_url="/admin_123456/"
 ```
 
-# Redémarrage du serveur web
+## Redémarrage du serveur web
 
 Après l'installation du module, il vous faudra redémarrer le service web pour que l'extension PHP soit chargée et activée.
 
@@ -156,7 +154,7 @@ Après l'installation du module, il vous faudra redémarrer le service web pour 
     ```
     
 
-# Vérification du bon fonctionnement
+## Vérification du bon fonctionnement
 
 Lorsque tout est installé, **et que le scénario de navigation web est créé dans DEM**, allez dans le menu Scénario Web, puis cliquez sur "+ détails" dans la légende sur l'une des pages nécessitant l'exécution de PHP (exemple : une page Panier qui n'est généralement jamais en cache).
 

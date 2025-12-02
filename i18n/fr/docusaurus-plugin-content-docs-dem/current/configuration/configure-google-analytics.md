@@ -3,35 +3,33 @@ id: configure-google-analytics
 title: Configurer Google Analytics avec DEM
 --- 
 
-# Configurer Google Analytics avec DEM
+## Questions fréquentes
 
-# Questions fréquentes
-
-## Pourquoi intégrer Google Analytics dans DEM ?
+### Pourquoi intégrer Google Analytics dans DEM ?
 
 L'intégration de ces données va permettre de corréler des données techniques (temps de réponse, charge serveur, etc) avec vos données Business (traffic, conversion, etc). Ces corrélations vous permettront de tirer des conclusions.
 
-## Les sondes DEM sont-elles comptabilisées dans GA?
+### Les sondes DEM sont-elles comptabilisées dans GA ?
 
 **Non**, DEM est un ninja pour Google Analytics ! En effet nous n'appelons pas le tag Google Analytics présent sur les pages de votre site.
 
 Ainsi vos statistiques ne seront pas affectées par nos sondes.
 
-## Pourquoi je n'ai pas de données Analytics qui remonte dans DEM ?
+### Pourquoi je n'ai pas de données Analytics qui remonte dans DEM ?
 
 Google Analytics a toujours un certain retard, pouvant aller jusqu'à plusieurs heures. Étant donné que nous récupérons les données via leur API, tant qu'elles ne sont pas visibles dans GA, nous ne pouvons les récupérer.
 
-## Pourquoi je n’ai pas de données Analytics en temps réel ?
+### Pourquoi je n’ai pas de données Analytics en temps réel ?
 
 Google Analytics a toujours un certain retard, pouvant aller jusqu'à plusieurs heures. Étant donné que nous récupérons les données via leur API, tant qu'elles ne sont pas visibles dans GA, nous ne pouvons les
 
-## J’ai désactivé par erreur le module Google Analytics de DEM. Est-il possible de récupérer de l’historique ?
+### J’ai désactivé par erreur le module Google Analytics de DEM. Est-il possible de récupérer de l’historique ?
 
 Pas de problème, nous récupérons toujours les 24 dernières heures de données. Attendez un peu et vous devriez les voir arriver.
 
 Si vous souhaitez récupérer plus de 24h de retard, n'hésitez pas à contacter le support via le bouton "Aide" en bas à droit de votre écran quand vous êtes dans l'app.
 
-# Lier Google Analytics à DEM
+## Lier Google Analytics à DEM
 
 Avec DEM, vous pouvez corréler le temps d’exécution de vos webscénarios avec le traffic mesuré par Google Analytics sur la même période et ainsi analyser les effets du traffic sur les temps de chargement du site.
 

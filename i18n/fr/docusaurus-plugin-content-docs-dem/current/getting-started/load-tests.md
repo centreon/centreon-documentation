@@ -3,8 +3,6 @@ id: load-tests
 title: Les tests de montée en charge
 --- 
 
-# Les tests de montée en charge
-
 Cette section permet l’analyse du comportement de la plateforme qui héberge votre application Web, **dans des conditions de trafic intense**. Pour y accéder, rendez-vous dans le menu principal, puis **Tests de charge**.
 
 Réaliser un Test de Montée en Charge (ou “TMC” pour les intimes) consiste à lancer, directement depuis DEM, un grand nombre de navigateurs web en parallèle et les faire interagir avec un site Internet afin de “stresser” volontairement la plateforme et l’application web.

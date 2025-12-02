@@ -3,8 +3,6 @@ id: install-system-agents
 title: Installer les agents systèmes
 --- 
 
-# Installer les agents systèmes
-
 Pour pouvoir ajouter/modifier/supprimer un serveur dans DEM vous avez besoin d’avoir les permissions « Admin » ou « Propriétaire » sur votre Organisation. Demandez à votre administrateur ou au support DEM de vous créer cet accès ([support@quanta.io](mailto:support@quanta.io)).
 
 A l’heure actuelle, il n’est pas possible de rattacher un serveur à plusieurs sites, qu’ils soient dans la même Organisation ou non.
@@ -18,7 +16,7 @@ La remontée d’information vers l’application DEM nécessite l’installatio
 
 </aside>
 
-# Obtenir le token
+## Obtenir le token
 
 Pour installer les Agents Systèmes DEM vous aurez besoin de votre **token** d'auto enregistrement. Il est disponible dans *Configuration > Système.*
 
@@ -28,14 +26,14 @@ Retrouvez l’emplacement du token en vidéo:
 
 Trouver le token pour les agents systèmes
 
-# Procéder à l’installation
+## Procéder à l’installation
 
 <aside>
 ⚠️ Si vous utilisez des conteneurs Docker, ou des systèmes d’autoscaling (AWS ASG, Azure Scale Set ou autres), reportez-vous à la section *“Installation pour Docker et systèmes d’autoscaling”* avant l’installation sur l’OS.
 
 </aside>
 
-## Installation pour Debian
+### Installation pour Debian
 
 Pour installer l'agent DEM :
 
@@ -88,7 +86,7 @@ Pour installer l'agent DEM :
 
 Le token vous sera demandé lors de l'installation, vous devriez voir apparaître des données systèmes dans DEM une minute plus tard.
 
-## Installation pour Ubuntu
+### Installation pour Ubuntu
 
 Pour installer l'agent DEM :
 
@@ -139,7 +137,7 @@ Pour installer l'agent DEM :
 
 Le token vous sera demandé lors de l'installation, vous devriez voir apparaître des données systèmes dans DEM une minute plus tard.
 
-## Installation pour CentOS / RHEL
+### Installation pour CentOS / RHEL
 
 **Versions supportées:**
 
@@ -204,23 +202,23 @@ Pour installer l'agent DEM :
 
 Vous devriez voir apparaître des données système dans DEM une minute plus tard.
 
-## Installation pour Docker et systèmes d’autoscaling
+### Installation pour Docker et systèmes d’autoscaling
 
 L'utilisation de l'agent DEM est tout à fait compatible avec les infrastructures “conteneurisées", néanmoins **elle nécessite une légère variante dans le processus d'installation**.
 
 [Configuration de nos agents pour le cloud](cloud-configuration-of-agents.md)
 
-### Explications
+#### Explications
 
 Le *hostid* est un paramètre interne permettant à DEM d'identifier de manière unique un serveur. Il est nécessaire d'utiliser un *hostid* différent pour chaque serveur. Il est configuré automatiquement par le script d'installation du paquet (en utilisant l'adresse MAC de la première interface réseau sans les ":")
 
 Or, dans le cas d'un conteneur Docker, la configuration ne permet pas au script d'installation de trouver cette valeur. Dans le cas des systèmes de scalabilité automatique (comme AWS ASG ou Azure Scale Set), la copie de l’image copie également le *hostid*.
 
-### Contournement
+#### Contournement
 
 Pour avoir un *hostid* unique, vous pouvez le configurer dans le fichier /etc/quanta/agent.yml via un script au démarrage du conteneur ou de la VM (*script de bootstrap*). Vous pouvez spécifier un identifiant unique de votre choix qui peut être généré à la volée au moment de la création du conteneur (par exemple, en utilisant les metadata exposées par AWS, ou des variables d’environnement dans Docker), ou bien un élément unique comme la valeur du UUID depuis */proc/sys/kernel/random/uuid*.
 
-## Installation sur d’autres OS
+### Installation sur d’autres OS
 
 Nous ne fournissons pas de packages pour les autres OS, les sources sont néanmoins disponibles publiquement sur Github et peuvent être compilés:
 
@@ -228,7 +226,7 @@ Nous ne fournissons pas de packages pour les autres OS, les sources sont néanmo
 
 L'agent n'est compatible **qu'avec Linux**.
 
-# Modifier une installation déjà effectuée
+## Modifier une installation déjà effectuée
 
 Si vous souhaitez modifier la configuration d’un agent DEM **déjà installé** sur l’un de vos serveurs, vous trouverez sa configuration dans le fichier ***/etc/quanta/agent.yml***. Il contient les informations principales de connexion, dont le token DEM correspondant au site concerné. L’accès à ce fichier peut se révéler utile si vous surveillez plusieurs sites avec un même compte DEM, auquel cas vous souhaiterez spécifier le bon token pour rattacher chaque serveur au  site qu’il héberge, par exemple pour un site de production et un site de préproduction ayant chacun leur(s) serveur(s) distinct(s).
 
@@ -253,7 +251,7 @@ quanta_token: [...] <- insérer ici le token correspondant à votre site
 [...]
 ```
 
-# Pour aller plus loin
+## Pour aller plus loin
 
 Vous pouvez désormais installer les modules applicatifs pour obtenir des métriques sur vos systèmes Apache, Nginx, MySQL, Varnish, Magento, etc… 
 

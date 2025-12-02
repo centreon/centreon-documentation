@@ -3,8 +3,6 @@ id: dem-ip-addresses
 title: Les adresses IP de DEM
 --- 
 
-# Les adresses IP de DEM
-
 ## Adresses des sondes
 
 Nos sondes peuvent interroger votre site sur les ports 80 (HTTP) et 443 (HTTPS) ou utiliser le protocole ICMP. Pour la plupart des sites ouverts au public aucun configuration ne sera nécessaire, néanmoins dans d’autres cas des pare-feux ou des protections contre les robots comme Imperva ou reCaptcha peuvent automatiquement bloquer nos visites.

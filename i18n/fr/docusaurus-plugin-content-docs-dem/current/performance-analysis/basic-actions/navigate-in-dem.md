@@ -3,8 +3,6 @@ id: navigate-in-dem
 title: Naviguer dans DEM
 --- 
 
-# Naviguer dans DEM
-
 Dans DEM il est possible de se déplacer dans plusieurs dimensions : en changeant de fonction, en changeant de site ou en modifiant la période de temps sélectionnée.
 
 En se loguant pour la 1ère fois dans DEM, on va se retrouver par défaut sur la Vue d’Ensemble. Puis, quand on sélectionne dans le menu “[*Parcours Utilisateurs*](../../getting-started/synthetic-monitoring.md)”, on remarque sur cet écran :

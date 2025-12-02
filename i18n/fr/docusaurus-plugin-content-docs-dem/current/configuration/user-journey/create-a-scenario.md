@@ -3,8 +3,6 @@ id: create-a-scenario
 title: Création d’un scénario (”Parcours Utilisateur”)
 --- 
 
-# Création d’un scénario (”Parcours Utilisateur”)
-
 <aside>
 ⚠️ Vous pouvez vérifier qu’il vous reste suffisamment d’étapes dans la page Organisation
 
@@ -23,11 +21,11 @@ Pour les modifier, consultez:
 
 </aside>
 
-# Entrer en mode création/édition de parcours
+## Entrer en mode création/édition de parcours
 
 Le mode édition de parcours vous permet de modifier vos parcours ou d’en créer de nouveau. Dans la barre du menu à gauche, cliquez sur ***Parcours Utilisateurs***. A ce stade, il y a 2 possibilités:
 
-## Vous n’avez pas encore de parcours
+### Vous n’avez pas encore de parcours
 
 Si le site n’a pas de Parcours Utilisateur configuré, alors ce message s’affiche :
 
@@ -35,7 +33,7 @@ Si le site n’a pas de Parcours Utilisateur configuré, alors ce message s’af
 
 Vous pouvez cliquer sur *“Configurez votre parcours utilisateur maintenant !”* pour entrer en mode édition.
 
-## Vous avez déjà au moins un parcours
+### Vous avez déjà au moins un parcours
 
 Si un parcours existe**,** vous verrez un écran semblable à celui-ci:
 
@@ -43,7 +41,7 @@ Si un parcours existe**,** vous verrez un écran semblable à celui-ci:
 
 Cliquez sur les 3 points et sur *Configurer* pour entrer en mode édition/création.
 
-# Créer un parcours
+## Créer un parcours
 
 En bas de la page d’édition, vous trouverez un bouton pour créer un nouveau parcours:
 
@@ -69,7 +67,7 @@ Indicateur de changements sauvegardés mais pas encore exécuté par la sonde
 
 Lorsque que la sonde passe, le contenu est mis à jour automatiquement. Vous verrez alors les captures d’écran.
 
-# Configurer des étapes
+## Configurer des étapes
 
 <aside>
 💡 **Une étape contient au moins une action** et s’arrête nécessairement en cas de navigation. **Vous pouvez configurer plusieurs actions dans une étape**, mais une étape ne peut pas contenir plusieurs navigations.
@@ -78,17 +76,17 @@ Par exemple, vous pouvez remplir un formulaire, ajouter au panier un produit pui
 
 </aside>
 
-## Configurer une action
+### Configurer une action
 
 Il existe 5 actions possibles:
 
-### Naviguer
+#### Naviguer
 
 Choisissez une URL vers laquelle naviguer. Cette action est équivalente à entrer une URL dans la barre d’adresse et y aller.
 
 L’URL doit faire partie du domaine autorisé pour votre licence DEM.
 
-### Cliquer
+#### Cliquer
 
 Pour choisir sur quoi cliquer vous avez 2 choix:
 
@@ -111,13 +109,13 @@ Par défaut, DEM cliquera sur la première occurence détectée. Vous pouvez cho
 - cliquer sur la deuxième, la troisième, etc
 - cliquer au hasard parmi toutes les occurrences
 
-### Survoler
+#### Survoler
 
 Survoler utilise exactement les mêmes conditions que Cliquer mais se limite à passer la souris sur le texte ou l’élément CSS choisi.
 
 Cette action est utile si des éléments ne se chargent pas tant que la souris n’a pas survolé une zone de l’écran.
 
-### Remplir un formulaire
+#### Remplir un formulaire
 
 La complétion d’un formulaire est possible dans DEM. La sonde s’appuie sur les standards HTML.
 
@@ -138,19 +136,19 @@ Par défaut, DEM envoie le formulaire une fois rempli. Mais vous pouvez modifier
 - Cliquer sur un texte: utile si l’envoi du formulaire se fait ailleurs dans la page
 - Cliquer sur un élément CSS: idem
 
-### Attendre
+#### Attendre
 
 Parfois, vous n’avez pas de solution plus simple que d’attendre qu’une action se passe. Par exemple, si les éléments s’affichent en fondu après 1s, alors attendre 1s vous permet d’avoir des captures d’écrans avec ces éléments affichés.
 
 C’est une solution de dernier recours qui ne devrait être que rarement utilisé.
 
-## Configurer une vérification
+### Configurer une vérification
 
 Lorsqu’une action est effectuée, vous pouvez ajouter des vérifications de succès.
 
 **La dernière action doit avoir au moins une vérification.**
 
-### Confirmer qu’une navigation a été effectuée
+#### Confirmer qu’une navigation a été effectuée
 
 <aside>
 💡 Cette vérification ne peut pas être retirée pour une action Naviguer.
@@ -164,7 +162,7 @@ La sonde va vérifier qu’un nouveau document HTML a été chargé correctement
 
 Aucune vérification du contenu n’est faite.
 
-### Trouver le texte
+#### Trouver le texte
 
 <aside>
 💡 Nous vous recommandons d’utiliser des sélecteurs CSS car moins sensible aux changements du site.
@@ -174,11 +172,11 @@ Si vous ne savez pas comment créer vos sélecteurs CSS, contactez votre agence 
 
 Cette vérification utilise la même logique que les actions Cliquer et Survoler. Si le texte que vous cherchez existe sur la page après l’action, alors la vérification est acceptée
 
-### Trouver l’élément CSS
+#### Trouver l’élément CSS
 
 Cette vérification cherche un élément par son sélecteur CSS. **S’il s’agit d’une image, la sonde vérifie également que l’image charge correctement.**
 
-### Faire une requête
+#### Faire une requête
 
 Cette vérification valide qu’une requête vers une adresse a été fait à un moment après l’action. La requête doit être un succès également, les redirections sont possibles.
 
@@ -196,11 +194,11 @@ Vous pouvez décider de retirer une étape sans la supprimer. La sonde ignorera 
 
 Retirer cette option permet d’exécuter cette étape sans la mesurer ou la montrer ailleurs dans l’interface. Un exemple de l’utilité de cette option serait de fermer un formulaire de demande d’avis qui se produit aléatoirement sur une partie de votre trafic. Parfois la sonde va le rencontrer et le fermera, les autres fois la sonde ignorera l’erreur provoquée par le fait de ne pas avoir rencontré le formulaire.
 
-### Timeout d’étape
+#### Timeout d’étape
 
 Vous pouvez définir que cette étape à un timeout différent, soit plus court, soit plus long que la configuration générale du parcours.
 
-# Configuration générale d’un parcours
+## Configuration générale d’un parcours
 
 Chaque étape a des actions, et l’ensemble de parcours a des options de configuration à définir. Pour accéder à ces configurations, en mode édition, cliquer sur les 3 petits points de votre parcours, puis *Avancé* pour accéder au menu.
 

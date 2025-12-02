@@ -1,9 +1,7 @@
 ---
 id: event-tracking
-title: Suivez et ajoutez les évènements de votre site dans DEM
+title: Suivre et ajouter les évènements de son site dans DEM
 --- 
-
-# Suivez et ajoutez les évènements de votre site dans DEM
 
 <aside>
 💡 Cette page décrit comment ajouter vos propres commentaires via l’interface, mais il est également possible de les ajouter automatiquement (par exemple à chaque mise à jour). Rendez-vous sur cette page pour utiliser notre API:
@@ -26,7 +24,7 @@ Enfin, si vous avez besoin d'ajouter des évènements qui ne correspondent à au
 
 En bref, les évènements vous permettront de mieux travailler avec vos différents partenaires et vous aideront à utiliser l'outil au maximum de ses possibilités.
 
-# **Visualisez les évènements qui ont lieu sur votre site**
+## Visualiser les évènements qui ont lieu sur votre site
 
 Les évènements de votre site s'affichent au dessus des graphes (voir image ci-dessus), quelqu'ils soient. Afin de faciliter la lisibilité, seuls les évènements potentiellement en lien avec le graphe sont affichés (par exemple les évènements de modification des étapes d'un scénario ne s'afficheront pas dans les graphes système).
 
@@ -34,6 +32,6 @@ L'icône qui est affichée représente le type d'évènement (ou l'icône liée 
 
 En passant votre souris sur un des évènements, vous verrez apparaître le nombre d'évènement de chaque type. En cliquant sur l'icône, vous aurez alors le détail de chacun des évènements (avec l'heure exacte, l'auteur et le message associé à chaque fois), comme dans l'image ci-dessous.
 
-# **Ajoutez des commentaires**
+## Ajouter des commentaires
 
 Pour ajouter un commentaire, il vous suffit de cliquer sur le graphe à l'endroit où vous voulez ajouter un commentaire, de cliquer sur *Laisser un commentaire,* d'entrer votre message, et de cliquer sur *Envoyer* pour terminer l'ajout.

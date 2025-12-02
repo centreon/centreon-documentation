@@ -1,9 +1,7 @@
 ---
 id: dem-probes-in-google-analytics
-title: Checklist d'installation
+title: Les sondes DEM sont-elles comptabilisées dans Google Analytics ?
 --- 
-
-# Les sondes DEM sont-elles comptabilisées dans Google Analytics ?
 
 Non, DEM n'est pas repéré par Google Analytics. En effet, nous ne requêtons pas le tag Google Analytics présent sur les pages de votre site.
 
