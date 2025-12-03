@@ -39,6 +39,7 @@ In the case of a Cloud platform, these connectors are already installed.
 2. Update the Centreon Monitoring Agent connector in the following way: in the **Used by command** field, type **Centreon-Monitoring-Agent** and then click **Select all**.
 
 ### Create an authentication token
+> Cloud: a token is present by default on your platform and can be used.
 
 1. Go to **Administration > Authentication tokens**.
 
@@ -46,7 +47,7 @@ In the case of a Cloud platform, these connectors are already installed.
 
    * You can select an expiration time. By default, tokens do not expire.
    * Keep the token generated for the agent configuration. If necessary, you can copy it to the clipboard at any time from the list of tokens.
-   * You can use just one token for all your collectors and agents, or manage several for more precise control.
+   * You can use just one token for all your pollers and agents, or manage several for more precise control.
 
 #### CMA authentication token behavior: deactivation/expiration/revocation
 
@@ -73,6 +74,8 @@ In the case of a Cloud platform, these connectors are already installed.
 <TabItem value="Linux" label="Linux">
 
 On the central server, [create the host](/docs/monitoring/basic-objects/hosts) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+
+> Depending on the desired connection direction, the host's “Address” field will have no impact (connection initiated by the agent) or will be retrieved when the host is selected in the agent configuration (connection initiated by the poller).
 
 Create the services associated with the host template.
 
@@ -119,6 +122,8 @@ Create the services associated with the host template.
 This configuration is deployed on the poller in the **/etc/centreon-engine/otl_server.json** file. Please note that this file should not be edited manually as it is overwritten each time the configuration is deployed.
 
 ## Step 2: Prepare the poller
+
+> Cloud: This step is not necessary if you want to use CMA with the Central poller.
 
 This step is performed on the poller.
 
@@ -303,6 +308,8 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
+> Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+
 ```json
 {
   "log_level":"info",
@@ -402,6 +409,8 @@ The CMA installer can be executed in 2 modes:
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
+> Cloud: when using the central poller, the value of **Poller endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+
    * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317. For example, 192.168.45.32:4317.
 
 </TabItem>
@@ -416,6 +425,11 @@ The CMA installer can be executed in 2 modes:
 
 In this mode, there is no interface. As this installer is not a console program, it returns immediately despite not having finished. You have to wait for a message telling you that all is finished.
 If you want to have an exit status, you can launch the installer in a powershell session and wait for the exit code. The exit code will be 0 if all is right.
+
+<Tabs groupId="sync">
+<TabItem value="before 25.10" label="Before 25.10">
+
+> Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 
 To run it in silent mode, you need to set /S as the first argument. You can display a list of arguments with the following command:
 
@@ -453,7 +467,60 @@ Available parameters are :
 | --token                    | Authentication token.
 If you use the **--install_plugins** option but the download of the plugins fails, the installer will install the plugins embedded in the installer.
 
+</TabItem>
+<TabItem value="25.10" label="From 25.10">
 
+To run it in silent mode, you must specify /VERYSILENT as the first argument.
+You can display a list of arguments with the following command line:
+
+```shell
+centreon-monitoring-agent.exe /VERYSILENT --help
+```
+> Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+
+Available parameters are : 
+
+| flag                       | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | mandatory
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | 
+|/COMPONENTS| Components to install. "agent", "plugins" or "agent,plugins"  |X |
+|/HOST                 | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                          | X |
+|/ENDPOINT                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode (/REVERSE=true), it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) , you must choose the interface (all interfaces: 0.0.0.0) and the port (usually 4317) on which the agent will accept connections from the poller. 
+| X|
+|/TOKEN| Authentication token | X |
+|/PLUGINSRC| Source of installation for Centreon plugins. "auto": via the internet, "embedded": local version. Default: "auto" || 
+|/REVERSE| Connection initiated by the poller. "true" or "false". Default: "false"| |
+|/ENCRYPTION| Encryption mode. "no", "full", "insecure". Default: "no"|  |
+|/CERT| Path to the file containing the public key | if ENCRYPTION=full or insecure, and /REVERSE=true |
+|/KEY| Path to the file containing the private key | if ENCRYPTION=full or insecure, and /REVERSE=true |
+|/CA| Path to the file containing the trusted certificate |  |
+|/COMMONNAME| CA common name. If ENCRYPTION=insecure |  |
+|/LOGTYPE| "event-log" or "file". Default: "event-log"|  |
+|/LOGFILE| Path to the log file | if /LOGTYPE=file |
+|/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Default: "error"| if /LOGTYPE=file |
+|/MAXFILESIZE| Maximum size of the log file before rotation, in MB. Default: 10. If /LOGTYPE=file | |
+|/MAXNUMBER| Maximum number of log files. Both of these parameters are required for log rotation to be enabled. Default: 3. If /LOGTYPE=file | |
+|/VERSION| Version of centagent.exe |  |                                                                                                                                                                                                                                                      
+                                                                                         
+If **/PLUGINSRC=auto** and the download fails, the installer will automatically switch to **embedded** mode.
+
+Silent mode execution errors and the output of /VERSION are written to ./installer_output.log.
+
+*Command examples*
+
+Minimal command (required parameters):
+
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /COMPONENTS=agent,plugins /HOST=host_1 /ENDPOINT=localhost:4317 /TOKEN=token_value
+```
+
+Command with optional parameters : 
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /REVERSE /COMPONENTS=agent /HOST=agent1 /ENDPOINT=127.0.0.1:4317 /LOGTYPE=File /LOGLEVEL=Debug /LOGFILE="C:\Logs\agent.log" /MAXFILESIZE=20 /MAXNUMBER=5 /ENCRYPTION=true /CERT="C:\certs\agent.crt" /KEY="C:\certs\agent.key" /CA="C:\certs\ca.crt" /COMMONNAME=centreon /TOKEN=token_value
+So
+```
+
+</TabItem>
+</Tabs>
 </TabItem>
 </Tabs>
 
@@ -660,7 +727,7 @@ Modify the **/etc/centreon-monitoring-agent/centagent.json** file and restart th
 Run **centreon-monitoring-agent-modify.exe** located in the CMA installation directory.
 This can also be done in silent mode
 ```shell
-centreon-monitoring-agent-modify.exe /verysilent
+centreon-monitoring-agent-modify.exe /VERYSILENT
 ```
 </TabItem>
 </Tabs>

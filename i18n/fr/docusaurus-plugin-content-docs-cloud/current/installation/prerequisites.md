@@ -74,6 +74,7 @@ Sur le réseau de chaque collecteur :
 - api.a.prod.mycentreon.com
 - broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
 - gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+- engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443
 
 Sur le réseau du navigateur de l'utilisateur :
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/*
