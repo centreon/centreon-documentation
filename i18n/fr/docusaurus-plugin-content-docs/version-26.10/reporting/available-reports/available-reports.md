@@ -5,6 +5,8 @@ title: Rapports disponibles
 
 Vous pouvez ici prévisualiser les modèles de rapport et obtenir des informations sur leurs paramètres et leurs prérequis. Les modèles de rapport sont regroupés par le type de données qu'ils contiennent.
 
+Pour un coup d'oeil à l'apparence de chaque rapport, consultez notre [livre de rapports](../../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf).
+
 | Catégorie de rapport | Type de données |
 | --- | --- |
 | Rapports de supervision des activités métier | Données [BAM](../../service-mapping/introduction.md). |

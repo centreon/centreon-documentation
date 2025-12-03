@@ -3,7 +3,9 @@ id: available-reports
 title: Available reports
 ---
 
-Here you can preview report designs and get information on their parameters and prerequisites. Report designs are grouped by the type of data they contain. For a better view of what each report design looks like, check out our [report book](../../assets/reporting/Centreon-MBI-Sample-Reports.pdf).
+Here you can preview report designs and get information on their parameters and prerequisites. Report designs are grouped by the type of data they contain. 
+
+For an overview of what each report design looks like, check out our [report book](../../assets/reporting/Centreon-MBI-Sample-Reports.pdf).
 
 | Report category | Type of data |
 | --- | --- |
