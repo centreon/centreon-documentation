@@ -133,7 +133,7 @@ services à fort potentiel :
 Après avoir sélectionné un service intéressant, cliquez sur le bouton **ADD** à
 gauche de la ligne. Vous arrivez sur le formulaire de création pré-rempli :
 
-![image](..assets/monitoring/anomaly/configure_analysis_02.png)
+![image](../assets/monitoring/anomaly/configure_analysis_02.png)
 
 Modifez le nom du service puis cliquez sur le bouton **Sauvegarder**.
 
