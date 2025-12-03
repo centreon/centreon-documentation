@@ -125,12 +125,12 @@ The list of existing services on your Centreon platform is displayed, as well as
 score in number of stars: from 5 stars to 0, 5 stars representing high potential
 services:
 
-![image](../../versioned_docs/version-23.10/assets/monitoring/anomaly/configure_analysis_01.png)
+![image](../assets/monitoring/anomaly/configure_analysis_01.png)
 
 After selecting a service of interest, click the **ADD** button to the left
 of the row. You arrive on the pre-filled creation form:
 
-![image](../../versioned_docs/version-23.10/assets/monitoring/anomaly/configure_analysis_02.png)
+![image](../assets/monitoring/anomaly/configure_analysis_02.png)
 
 Modify the name of the service and then click the **Save** button.
 

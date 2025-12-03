@@ -128,12 +128,12 @@ La liste des services existant de votre plateforme Centreon est affichée ainsi
 qu'un score en nombre d'étoiles : de 5 étoiles à 0, 5 étoiles représentant les
 services à fort potentiel :
 
-![image](../../../docusaurus-plugin-content-docs/version-23.10/assets/monitoring/anomaly/configure_analysis_01.png)
+![image](../assets/monitoring/anomaly/configure_analysis_01.png)
 
 Après avoir sélectionné un service intéressant, cliquez sur le bouton **ADD** à
 gauche de la ligne. Vous arrivez sur le formulaire de création pré-rempli :
 
-![image](../../../docusaurus-plugin-content-docs/version-23.10/assets/monitoring/anomaly/configure_analysis_02.png)
+![image](..assets/monitoring/anomaly/configure_analysis_02.png)
 
 Modifez le nom du service puis cliquez sur le bouton **Sauvegarder**.
 
