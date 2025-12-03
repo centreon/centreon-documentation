@@ -29,6 +29,10 @@ This widget provides visibility into:
 - SLA threshold monitoring
 - Downtime tracking
 
+### Objectives
+
+Provide an instant view of business activity availability over a given period to verify SLA compliance and quickly identify critical incidents.
+
 ### Parameters
 
 **Widget Properties:**
@@ -65,6 +69,10 @@ This widget provides visibility into:
 - Historical BA availability percentage trends
 - Performance metrics over time
 - Alert occurrences visualization
+
+### Objectives
+
+Analyze the historical evolution of business activity availability over time to identify performance trends and recurring problematic periods.
 
 ### Parameters
 
@@ -123,6 +131,10 @@ This widget provides visibility into:
 - Comparative availability across multiple host groups
 - Time-based availability patterns analysis
 - Hostcategories performance comparison
+
+### Objectives
+
+Compare the historical availability of multiple host groups to identify the most stable infrastructures and detect failure patterns by group or category.
 
 ### Parameters
 
@@ -220,6 +232,10 @@ This widget provides visibility into:
 - Future capacity predictions based on historical data
 - Threshold breach forecasting
 - Capacity planning timeline with estimated dates
+
+### Objectives
+
+Anticipate future capacity needs by analyzing metric consumption trends and predict threshold breach dates to plan infrastructure investments.
 
 ### Parameters
 
@@ -319,6 +335,10 @@ This widget provides visibility into:
 - Time to saturation predictions
 - Current saturation levels
 - Evolution trends compared to yesterday
+
+### Objectives
+
+Proactively identify storage resources at risk of saturation and predict their saturation date to prevent capacity incidents before they impact services.
 
 ### Parameters
 
