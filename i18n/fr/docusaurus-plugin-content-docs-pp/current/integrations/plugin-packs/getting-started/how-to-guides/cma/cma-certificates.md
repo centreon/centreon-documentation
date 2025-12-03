@@ -25,8 +25,10 @@ Les fichiers de certificat déposés sur le collecteur doivent être déposés d
 Ils doivent avoir les permissions suivantes :
 
 ```shell
-chmod 644 /etc/pki/agent*
+chmod 644 /etc/pki/agent.crt
+chmod 644 /etc/pki/agent.key
 ```
+> Attention, ne pas appliquer ces droits à l'ensemble du répertoire /etc/pki/ au risque de provoquer une panne globale du collecteur.
 
 Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans le répertoire de votre choix.
 
@@ -136,8 +138,10 @@ Les fichiers de certificat déposés sur le collecteur doivent être déposés d
 Ils doivent avoir les permissions suivantes :
 
 ```shell
-chmod 644 /etc/pki/agent*
+chmod 644 /etc/pki/agent.crt
+chmod 644 /etc/pki/agent.key
 ```
+> Attention, ne pas appliquer ces droits à l'ensemble du répertoire /etc/pki/ au risque de provoquer une panne globale du collecteur.
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">

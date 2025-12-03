@@ -25,8 +25,10 @@ Certificate files stored on the poller must be stored in **/etc/pki/**, either a
 They must have the following permissions:
 
 ```shell
-chmod 644 /etc/pki/agent*
+chmod 644 /etc/pki/agent.crt
+chmod 644 /etc/pki/agent.key
 ```
+> Caution: do not apply these permissions to the entire /etc/pki/ directory, as this may cause a global failure of the poller.
 
 Certificate files stored on the host can be stored in the directory of your choice.
 
@@ -136,8 +138,10 @@ Certificate files stored on the poller must be stored in **/etc/pki/**, either a
 They must have the following permissions:
 
 ```shell
-chmod 644 /etc/pki/agent*
+chmod 644 /etc/pki/agent.crt
+chmod 644 /etc/pki/agent.key
 ```
+> Caution: do not apply these permissions to the entire /etc/pki/ directory, as this may cause a global failure of the poller.
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">

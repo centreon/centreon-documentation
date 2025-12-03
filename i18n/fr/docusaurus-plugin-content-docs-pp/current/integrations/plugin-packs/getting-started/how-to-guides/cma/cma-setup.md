@@ -311,6 +311,7 @@ apt install centreon-monitoring-agent
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 > Cloud : dans le cas de l'utilisation du collecteur central, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+$\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://${CLOUD_ORG}.euwest1.centreon.cloud/
 
 ```json
 {
@@ -412,6 +413,8 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 > Cloud : dans le cas de l'utilisation du collecteur central, la valeur de **Poller endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+$\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://${CLOUD_ORG}.euwest1.centreon.cloud/
+
 
    * Dans le champ **Poller endpoint**, saisissez l'adresse IP ou le nom DNS du collecteur, suivi du port d'écoute CMA (4317 par défaut), sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317.
 </TabItem>
@@ -431,6 +434,7 @@ Si vous voulez tester le succès de l'installation, vous devez récupérer l'exi
 <TabItem value="avant 25.10" label="Avant 25.10">
 
 > Cloud : dans le cas de l'utilisation du collecteur central, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+$\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://${CLOUD_ORG}.euwest1.centreon.cloud/
 
 Pour le lancer en mode silencieux, vous devez mettre en premier argument /S.
 Vous pouvez afficher une liste des arguments avec la ligne de commande suivante :
@@ -482,6 +486,7 @@ Vous pouvez afficher une liste des arguments avec la ligne de commande suivante 
 centreon-monitoring-agent.exe /VERYSILENT --help
 ```
 > Cloud : dans le cas de l'utilisation du collecteur central, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+$\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://${CLOUD_ORG}.euwest1.centreon.cloud/
 
 Les différents arguments sont:
 
