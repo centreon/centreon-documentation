@@ -309,7 +309,7 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
 > Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://${CLOUD_ORG}.euwest1.centreon.cloud/
+$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 ```json
 {
@@ -411,7 +411,7 @@ The CMA installer can be executed in 2 modes:
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
 > Cloud: when using the central poller, the value of **Poller endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://${CLOUD_ORG}.euwest1.centreon.cloud/
+$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
    * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317. For example, 192.168.45.32:4317.
 
@@ -432,7 +432,7 @@ If you want to have an exit status, you can launch the installer in a powershell
 <TabItem value="before 25.10" label="Before 25.10">
 
 > Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://${CLOUD_ORG}.euwest1.centreon.cloud/
+$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 To run it in silent mode, you need to set /S as the first argument. You can display a list of arguments with the following command:
 
@@ -480,7 +480,7 @@ You can display a list of arguments with the following command line:
 centreon-monitoring-agent.exe /VERYSILENT --help
 ```
 > Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://${CLOUD_ORG}.euwest1.centreon.cloud/
+$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Available parameters are : 
 
