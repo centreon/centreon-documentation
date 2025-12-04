@@ -30,6 +30,7 @@ Release date: `November 25, 2025`
 
 - [Geoviews] It is now possible to define geo coordinates for Maps, and to display them in Geoviews.
 - [Library] Added the possibility to select a custom icon representing a Geoview.
+- [Server] Fixed issue preventing MAP Legacy from starting correctly.
 - [Server] Reduced JWT token lifetime default value to 1 day.
 
 </details>
@@ -272,7 +273,7 @@ Release date: `January 6, 2025`
 <details>
   <summary>Bug fixes</summary>
 
--	[Engine] Updated dependency.
+- [Engine] Updated dependency.
 - [Metric links, Gauge and Output widgets] Optimized metric selection.
 - [Metric links, Gauge and Output widgets] Ordered metrics alphabetically.
 - [Migration] Fixed an issue preventing identifiers from being generated during the migration process.
@@ -319,10 +320,10 @@ Release date: `December 2, 2024`
 <details>
   <summary>Bug fixes</summary>
 
--	[API] Fixed issue with the "centreon-map/api/beta/actuator/metrics" endpoint.
+- [API] Fixed issue with the "centreon-map/api/beta/actuator/metrics" endpoint.
 - [Legacy server] Fixed issue where ViewID couldn't be found when migrating from MAP Legacy.
 - [Legacy server] Fixed an issue preventing the states of resources (acknowledged, in downtime, etc.) from being up to date on maps.
--	[Server] Fixed boot failure that may occur when using service templates.
+- [Server] Fixed boot failure that may occur when using service templates.
 - [Server] Fixed Servicegroup status when configured using Service Templates or Hostgroup Services.
 - [Server] Improved the parsing of Broker events on creation and deletion of resources.
 
@@ -354,13 +355,13 @@ Release date: `October 7, 2024`
 <details>
   <summary>Bug fixes</summary>
 
--	[Dashboards] Fixed an issue that prevented different maps from being displayed in the same dashboard.
+- [Dashboards] Fixed an issue that prevented different maps from being displayed in the same dashboard.
 - [Diagnostic] Fixed the diagnostic results for the SELinux check.
 - [Editor] Removed the label from the Output widget as it was not used on the map.
 - [Migration] Fixed an issue that caused links to be positioned differently when migrating from MAP Legacy to MAP.
 - [Resource status] Fixed an issue where the status of BAs in maps was not aligned with their status in Resource status.
--	[Server] Fixed an issue that caused the migration from MAP Legacy to fail.
--	[Viewer] Fixed an issue that prevented disaknowledgments from being up-to-date.
+- [Server] Fixed an issue that caused the migration from MAP Legacy to fail.
+- [Viewer] Fixed an issue that prevented disaknowledgments from being up-to-date.
 
 </details>
 
@@ -378,8 +379,8 @@ Release date: `August 8, 2024`
 <details>
   <summary>Bug fixes</summary>
 
--	[ACL] Fixed an issue which caused user without creator role to be able to duplicate maps.
--	[BA] Fixed an issue causing the MAP server to crash at startup due to orphan KPIs.
+- [ACL] Fixed an issue which caused user without creator role to be able to duplicate maps.
+- [BA] Fixed an issue causing the MAP server to crash at startup due to orphan KPIs.
 - [Editor] Fixed an issue causing link labels not to be displayed in the editor.
 - [Map list] Fixed an issue that could prevent the map list from being displayed.
 - [Server] Fixed an issue causing an error when trying to save maps.
