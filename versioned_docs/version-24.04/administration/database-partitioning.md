@@ -25,7 +25,7 @@ One partition per day is created for the following tables:
 > - Foreign keys are not supported
 
 More details about MariaDB partitioning
-*[here](https://mariadb.com/kb/en/library/partitioning-overview/)*.
+*[here](https://mariadb.com/docs/server/server-usage/partitioning-tables/partitioning-overview)*.
 
 ## Prerequisites
 
