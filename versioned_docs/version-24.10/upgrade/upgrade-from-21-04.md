@@ -119,60 +119,6 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
-7. Clean the cache:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-```shell
-dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-   
-```shell
-dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Debian" label="Debian">
-   
-```shell
-apt clean all
-apt update
-```
-
-</TabItem>
-</Tabs>
-
-8. Then upgrade all the components with the following command:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
-</Tabs>
-
-> Accept new GPG keys from the repositories as needed.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Execute the following commands:
-
-```shell
-systemctl enable php-fpm
-systemctl restart php-fpm
-```
-
-</TabItem>
-</Tabs>
-
 ### Upgrade PHP
 
 Centreon 24.10 uses PHP in version 8.2.
@@ -219,6 +165,61 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
+Then, finish upgrading the Centreon solution.
+
+1. Clean the cache:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+   
+```shell
+apt clean all
+apt update
+```
+
+</TabItem>
+</Tabs>
+
+2. Then upgrade all the components with the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon\* php-pecl-gnupg
+```
+
+</TabItem>
+</Tabs>
+
+> Accept new GPG keys from the repositories as needed.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Execute the following commands:
+
+```shell
+systemctl enable php-fpm
+systemctl restart php-fpm
+```
+
+</TabItem>
+</Tabs>
 
 ### Update your customized Apache configuration
 

@@ -159,59 +159,6 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
-7. Clean the cache:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-```shell
-dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-   
-```shell
-dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Debian" label="Debian">
-   
-```shell
-apt clean all
-apt update
-```
-
-</TabItem>
-</Tabs>
-
-8. Then upgrade all the components with the following command:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-apt install --only-upgrade centreon\*
-```
-
-</TabItem>
-</Tabs>
-
 ### Upgrade PHP
 
 Centreon 24.10 uses PHP in version 8.2.
@@ -263,6 +210,61 @@ systemctl disable php8.1-fpm
 </Tabs>
 
 > Accept new GPG keys from the repositories as needed.
+
+Then, finish upgrading the Centreon solution.
+
+1. Clean the cache:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+   
+```shell
+apt clean all
+apt update
+```
+
+</TabItem>
+</Tabs>
+
+2. Then upgrade all the components with the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon\* php-pecl-gnupg
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon\* php-pecl-gnupg
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt install --only-upgrade centreon\*
+```
+
+</TabItem>
+</Tabs>
 
 ### Update your customized Apache configuration
 
