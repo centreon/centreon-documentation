@@ -272,7 +272,7 @@ const config = {
             id: 'logmanagement',
             path: 'logmanagement',
             routeBasePath: 'logmanagement',
-            sidebarPath: './logmanagement/sidebarslogmanagement.js',
+            sidebarPath: './logmanagement/sidebarsLogmanagement.js',
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
