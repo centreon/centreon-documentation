@@ -160,6 +160,7 @@ module.exports = {
         { type: 'doc', id: 'how-to-articles/password-reset' },
         { type: 'doc', id: 'how-to-articles/using-charts' },
         { type: 'doc', id: 'how-to-articles/user-journey-screen' },
+        { type: 'doc', id: 'how-to-articles/rum-blocked-by-csp' },
       ],
     },
   ],

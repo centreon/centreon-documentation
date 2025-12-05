@@ -11,7 +11,7 @@ Cette première page est une vue d'ensemble de tous vos scénarios. Elle vous pe
 
 Vous y trouverez d'abord, la **disponibilité** (uptime, downtime) ainsi que le nombre incidents par scénario sur la période que vous avez sélectionnée.
 
-Puis on y voit apparaître la **moyenne**, le **grade** (Vert, Jaune, Rouge) et la **variation** pour les 4 métriques de performance suivantes :
+Puis on y voit apparaître la **moyenne** et la **variation** pour les 4 métriques de performance suivantes :
 
 [Hero Time](../performance-analysis/metrics/hero-time.md)
 

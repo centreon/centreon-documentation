@@ -11,7 +11,7 @@ This first page is an overview of all your scenarios. It allows you to quickly a
 
 First, you will find the **availability** (uptime, downtime) as well as the number of incidents per scenario for the selected period.
 
-Then you will see the **average**, the **grade** (Green, Yellow, Red), and the **variation** for the following 4 performance metrics:
+Then you will see the **average** and the **variation** for the following 4 performance metrics:
 
 [Hero Time](../performance-analysis/metrics/hero-time.md)
 
