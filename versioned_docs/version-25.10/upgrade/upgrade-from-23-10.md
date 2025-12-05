@@ -106,56 +106,6 @@ apt update
 >
 > You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-### Upgrade PHP
-
-Centreon 25.10 uses PHP in version 8.2.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf config-manager --disable remi-modular remi-safe
-dnf module disable composer:2
-dnf module disable php:remi-8.1
-rm -rf /etc/yum.repos.d/remi*
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.2
-dnf distro-sync php\* --allowerasing
-su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
-systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.2
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-systemctl stop php8.1-fpm
-systemctl disable php8.1-fpm
-```
-
-</TabItem>
-</Tabs>
-
 ### Upgrade the Centreon solution
 
 1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
@@ -258,6 +208,56 @@ apt install --only-upgrade centreon
 </Tabs>
 
 > Accept new GPG keys from the repositories as needed.
+
+### Upgrade PHP
+
+Centreon 25.10 uses PHP in version 8.2.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf config-manager --disable remi-modular remi-safe
+dnf module disable composer:2
+dnf module disable php:remi-8.1
+rm -rf /etc/yum.repos.d/remi*
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.2
+dnf distro-sync php\* --allowerasing
+su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.2
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
+```
+
+</TabItem>
+</Tabs>
 
 ### Update your customized Apache configuration
 

@@ -100,52 +100,6 @@ dnf module enable -y mariadb:10.11
 </TabItem>
 </Tabs>
 
-### Montée de version de PHP
-
-Centreon 24.10 utilise PHP en version 8.2.
-
-<Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:8.2
-```
-
-</TabItem>
-</Tabs>
-
 ### Montée de version de la solution Centreon
 
 1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
@@ -247,6 +201,53 @@ systemctl restart php-fpm
 
 </TabItem>
 </Tabs>
+
+### Montée de version de PHP
+
+Centreon 24.10 utilise PHP en version 8.2.
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module install php:8.2
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module install php:8.2
+```
+
+</TabItem>
+</Tabs>
+
 
 ### Mettre à jour une configuration Apache personnalisée
 

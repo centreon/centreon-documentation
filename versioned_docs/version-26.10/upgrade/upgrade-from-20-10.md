@@ -100,52 +100,6 @@ dnf module enable -y mariadb:10.11
 </TabItem>
 </Tabs>
 
-### Upgrade PHP
-
-Centreon 25.10 uses PHP in version 8.2.
-
-<Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:8.2
-```
-
-</TabItem>
-</Tabs>
-
 ### Upgrade the Centreon solution
 
 1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
@@ -246,6 +200,53 @@ systemctl restart php-fpm
 
 </TabItem>
 </Tabs>
+
+### Upgrade PHP
+
+Centreon 25.10 uses PHP in version 8.2.
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module install php:8.2
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module install php:8.2
+```
+
+</TabItem>
+</Tabs>
+
 
 ### Update your customized Apache configuration
 
