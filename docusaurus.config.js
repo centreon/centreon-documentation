@@ -49,9 +49,19 @@ const dem = (() => {
   return true;
 })();
 
+const logmanagement = (() => {
+  if (archivedVersion) {
+    return false;
+  }
+  if (process.env.logmanagement !== undefined && process.env.logmanagement === '0') {
+    return false;
+  }
+  return true;
+})();
+
 const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
 
-if (versions.length == 0 && !pp && !cloud && !dem) {
+if (versions.length == 0 && !pp && !cloud && !dem && !logmanagement) {
   throw new Error('Nothing is selected for build');
 }
 
@@ -151,8 +161,8 @@ const config = {
       ({
         hashed: true,
         indexBlog: false,
-        docsRouteBasePath: ["docs", "cloud", "pp", "dem"],
-        docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem"],
+        docsRouteBasePath: ["docs", "cloud", "pp", "dem", "logmanagement"],
+        docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem", "logmanagement"],
         explicitSearchResultPath: true,
         // searchContextByPaths: [
         //   {
@@ -244,6 +254,25 @@ const config = {
             path: 'dem',
             routeBasePath: 'dem',
             sidebarPath: './dem/sidebarsDem.js',
+            breadcrumbs: true,
+            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+            editLocalizedFiles: true,
+            showLastUpdateTime: true,
+          },
+        ],
+      ];
+    }
+
+    if (logmanagement) {
+      plugins = [
+        ...plugins,
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'logmanagement',
+            path: 'logmanagement',
+            routeBasePath: 'logmanagement',
+            sidebarPath: './logmanagement/sidebarslogmanagement.js',
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
@@ -373,6 +402,19 @@ const config = {
               },
             ];
           }
+
+          if (logmanagement) {
+            items = [
+              ...items,
+              {
+                to: '/logmanagement/getting-started/welcome',
+                label: 'Centreon Log Management BETA',
+                position: 'left',
+                activeBaseRegex: '/logmanagement/',
+              },
+            ];
+          }
+
 
           return [
             ...items,
