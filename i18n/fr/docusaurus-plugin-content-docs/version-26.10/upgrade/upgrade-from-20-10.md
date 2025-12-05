@@ -94,7 +94,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
@@ -394,7 +394,8 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 3. Installez la version 10.11 :
 
     ```shell
-    dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
+    dnf module enable -y mariadb:10.11
+    dnf install mariadb-server-10.11\* mariadb-10.11\*
     ```
 
 4. Démarrer le service mariadb :

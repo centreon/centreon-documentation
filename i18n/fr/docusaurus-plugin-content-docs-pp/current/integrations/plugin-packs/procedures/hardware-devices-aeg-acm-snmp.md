@@ -1,13 +1,13 @@
 ---
 id: hardware-devices-aeg-acm-snmp
-title: AEG ACM
+title: AEG ACM SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **AEG ACM**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **AEG ACM SNMP** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **AEG ACM** apporte un modèle d'hôte :
+Le connecteur de supervision **AEG ACM SNMP**  apporte un modèle d'hôte :
 
 * **HW-Device-Aeg-Acm-SNMP-custom**
 
@@ -29,9 +29,9 @@ Le connecteur apporte les modèles de service suivants
 |:-----------------|:-----------------------------------------------|:----------------------------------------------------------|
 | Ac-Status        | HW-Device-Aeg-Acm-Ac-Status-SNMP-custom        | Contrôle de l'état de l'installation AC                   |
 | Alarm-Status     | HW-Device-Aeg-Acm-Alarm-Status-SNMP-custom     | Contrôle de l'état des alarmes                            |
-| Battery-Status   | HW-Device-Aeg-Acm-Battery-Status-SNMP-custom   | Contrôle de l'état des batteries                            |
+| Battery-Status   | HW-Device-Aeg-Acm-Battery-Status-SNMP-custom   | Contrôle de l'état des batteries                          |
 | Load-Status      | HW-Device-Aeg-Acm-Load-Status-SNMP-custom      | Contrôle des statistiques de l'installation de chargement |
-| Rectifier-Status | HW-Device-Aeg-Acm-Rectifier-Status-SNMP-custom | Contrôle de l'état des redresseurs                            |
+| Rectifier-Status | HW-Device-Aeg-Acm-Rectifier-Status-SNMP-custom | Contrôle de l'état des redresseurs                        |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Device-Aeg-Acm-SNMP-custom** est utilisé.
 
@@ -64,7 +64,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Alarm-Status" label="Alarm-Status">
 
-Coming soon
+| Nom             | Unité |
+|:----------------|:------|
+| simple.status   | N/A   |
+| simple.count    | count |
+| multiple.status | N/A   |
+| multiple.count  | count |
 
 </TabItem>
 <TabItem value="Battery-Status" label="Battery-Status">
@@ -114,7 +119,8 @@ Coming soon
 
 ### Configuration SNMP
 
-L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée.
 Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
@@ -164,7 +170,7 @@ yum install centreon-pack-hardware-devices-aeg-acm-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **AEG ACM**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **AEG ACM SNMP** 
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -220,8 +226,8 @@ yum install centreon-plugin-Hardware-Devices-Aeg-Acm-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -234,72 +240,72 @@ yum install centreon-plugin-Hardware-Devices-Aeg-Acm-Snmp
 <Tabs groupId="sync">
 <TabItem value="Ac-Status" label="Ac-Status">
 
-| Macro          | Description                                                                                                                                        | Valeur par défaut      | Obligatoire |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /true/i'). You can use the following variables: %\{status\} | %\{status\} =~ /true/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}                        |                        |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                        |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut      | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                   | %\{status\} =~ /true/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                    |                        |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                        |             |
 
 </TabItem>
 <TabItem value="Alarm-Status" label="Alarm-Status">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'alarm'                                          | .*                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'alarm'                                                                                                        | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Battery-Status" label="Battery-Status">
 
-| Macro                | Description                                                                                                                                                                                | Valeur par défaut                                              | Obligatoire |
-|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|:-----------:|
-| WARNINGAMPHOURMETER  | Threshold                                                                                                                                                                                  |                                                                |             |
-| CRITICALAMPHOURMETER | Threshold                                                                                                                                                                                  |                                                                |             |
-| WARNINGCURRENT       | Threshold                                                                                                                                                                                  |                                                                |             |
-| CRITICALCURRENT      | Threshold                                                                                                                                                                                  |                                                                |             |
-| WARNINGCURRENT1      | Threshold                                                                                                                                                                                  |                                                                |             |
-| CRITICALCURRENT1     | Threshold                                                                                                                                                                                  |                                                                |             |
-| WARNINGCURRENT2      | Threshold                                                                                                                                                                                  |                                                                |             |
-| CRITICALCURRENT2     | Threshold                                                                                                                                                                                  |                                                                |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /onBattery/i'). You can use the following variables: %\{status\}                                     | %\{status\} =~ /onBattery/i                                    |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /disconnected/i \|\| %\{status\} =~ /shutdown/i'). You can use the following variables: %\{status\} | %\{status\} =~ /disconnected/i \|\| %\{status\} =~ /shutdown/i |             |
-| WARNINGTEMPERATURE   | Threshold                                                                                                                                                                                  |                                                                |             |
-| CRITICALTEMPERATURE  | Threshold                                                                                                                                                                                  |                                                                |             |
-| WARNINGTEMPERATURE1  | Threshold                                                                                                                                                                                           |                                                                |             |
-| CRITICALTEMPERATURE1 | Threshold                                                                                                                                                                                           |                                                                |             |
-| WARNINGTEMPERATURE2  | Threshold                                                                                                                                                                                  |                                                                |             |
-| CRITICALTEMPERATURE2 | Threshold                                                                                                                                                                                  |                                                                |             |
-| WARNINGVOLTAGE       | Threshold                                                                                                                                                                                  |                                                                |             |
-| CRITICALVOLTAGE      | Threshold                                                                                                                                                                                  |                                                                |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                         |                                                                |             |
+| Macro                | Description                                                                                                                                      | Valeur par défaut                                              | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|:-----------:|
+| WARNINGAMPHOURMETER  | Threshold                                                                                                                                        |                                                                |             |
+| CRITICALAMPHOURMETER | Threshold                                                                                                                                        |                                                                |             |
+| WARNINGCURRENT       | Threshold                                                                                                                                        |                                                                |             |
+| CRITICALCURRENT      | Threshold                                                                                                                                        |                                                                |             |
+| WARNINGCURRENT1      | Threshold                                                                                                                                        |                                                                |             |
+| CRITICALCURRENT1     | Threshold                                                                                                                                        |                                                                |             |
+| WARNINGCURRENT2      | Threshold                                                                                                                                        |                                                                |             |
+| CRITICALCURRENT2     | Threshold                                                                                                                                        |                                                                |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                    | %\{status\} =~ /onBattery/i                                    |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                   | %\{status\} =~ /disconnected/i \|\| %\{status\} =~ /shutdown/i |             |
+| WARNINGTEMPERATURE   | Threshold                                                                                                                                        |                                                                |             |
+| CRITICALTEMPERATURE  | Threshold                                                                                                                                        |                                                                |             |
+| WARNINGTEMPERATURE1  | Threshold                                                                                                                                        |                                                                |             |
+| CRITICALTEMPERATURE1 | Threshold                                                                                                                                        |                                                                |             |
+| WARNINGTEMPERATURE2  | Threshold                                                                                                                                        |                                                                |             |
+| CRITICALTEMPERATURE2 | Threshold                                                                                                                                        |                                                                |             |
+| WARNINGVOLTAGE       | Threshold                                                                                                                                        |                                                                |             |
+| CRITICALVOLTAGE      | Threshold                                                                                                                                        |                                                                |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                                |             |
 
 </TabItem>
 <TabItem value="Load-Status" label="Load-Status">
 
-| Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCURRENT  | Threshold                                                                                          |                   |             |
-| CRITICALCURRENT | Threshold                                                                                          |                   |             |
-| WARNINGPOWER    | Threshold                                                                                          |                   |             |
-| CRITICALPOWER   | Threshold                                                                                          |                   |             |
-| WARNINGVOLTAGE  | Threshold                                                                                          |                   |             |
-| CRITICALVOLTAGE | Threshold                                                                                          |                   |             |
+| Macro           | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCURRENT  | Threshold                                                                                                                                        |                   |             |
+| CRITICALCURRENT | Threshold                                                                                                                                        |                   |             |
+| WARNINGPOWER    | Threshold                                                                                                                                        |                   |             |
+| CRITICALPOWER   | Threshold                                                                                                                                        |                   |             |
+| WARNINGVOLTAGE  | Threshold                                                                                                                                        |                   |             |
+| CRITICALVOLTAGE | Threshold                                                                                                                                        |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Rectifier-Status" label="Rectifier-Status">
 
-| Macro               | Description                                                                                                                                                    | Valeur par défaut                  | Obligatoire |
-|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-----------:|
-| WARNINGCURRENT      | Threshold                                                                                                                                                      |                                    |             |
-| CRITICALCURRENT     | Threshold                                                                                                                                                      |                                    |             |
-| WARNINGFAULTYCOUNT  | Threshold                                                                                                                                                      |                                    |             |
-| CRITICALFAULTYCOUNT | Threshold                                                                                                                                                      |                                    |             |
-| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok\|notInstalled/i'). You can use the following variables: %\{status\} | %\{status\} !~ /ok\|notInstalled/i |             |
-| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}                                    |                                    |             |
-| WARNINGVOLTAGE      | Threshold                                                                                                                                                      |                                    |             |
-| CRITICALVOLTAGE     | Threshold                                                                                                                                                      |                                    |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                             |                                    |             |
+| Macro               | Description                                                                                                                                      | Valeur par défaut                  | Obligatoire |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-----------:|
+| WARNINGCURRENT      | Threshold                                                                                                                                        |                                    |             |
+| CRITICALCURRENT     | Threshold                                                                                                                                        |                                    |             |
+| WARNINGFAULTYCOUNT  | Threshold                                                                                                                                        |                                    |             |
+| CRITICALFAULTYCOUNT | Threshold                                                                                                                                        |                                    |             |
+| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                   | %\{status\} !~ /ok\|notInstalled/i |             |
+| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                    |                                    |             |
+| WARNINGVOLTAGE      | Threshold                                                                                                                                        |                                    |             |
+| CRITICALVOLTAGE     | Threshold                                                                                                                                        |                                    |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                    |             |
 
 </TabItem>
 </Tabs>

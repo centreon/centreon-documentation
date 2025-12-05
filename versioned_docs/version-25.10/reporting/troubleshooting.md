@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 > It is strongly advised that you install the [Centreon MBI connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi) which allows you to monitor the status of your MBI server.
 
-Before going further, make sure that MBI is up to date ([update](https://docs-next-int.centreon.com/docs/reporting/update/) or [upgrade](https://docs-next-int.centreon.com/docs/reporting/upgrade/) it if needed).
+Before going further, make sure that MBI is up to date ([update](update.md) or [upgrade](upgrade.md) it if needed).
 
 During the [daily compute](./how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated), the ETL may encounter several problems:
 
@@ -139,7 +139,7 @@ If the **--partitions** and **--db-content** commands indicate that there is a p
 | `mod_bi_*availability`                                             | Issue with **aggregated availability data**, not raw data.            | After resolving the issue, run the availability aggregation script [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
 | `mod_bi_metric*`                                                   | Issue with **aggregated metrics data** (e.g., performance), not raw data. | After resolving the issue, run the metrics aggregation script [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
 
-If any issues occur, double check your MBI is configured according to our [post-installation configuration procedure](https://docs-next-int.centreon.com/docs/reporting/installation.md#step-4-configure-the-etl).
+If any issues occur, double check your MBI is configured according to our [post-installation configuration procedure](installation.md#step-4-configure-the-etl).
 
 ## CBIS does not start
 

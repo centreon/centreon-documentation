@@ -81,7 +81,7 @@ is defined as a Default or Extra reporting time period in the BA
 configuration or it will not appear in the report.*
 
 > In the **Time period** field, do not use time periods that
-include [exceptions](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/timeperiods/), as the exceptions will not not be taken into account.
+include [exceptions](../../monitoring/basic-objects/timeperiods.md), as the exceptions will not not be taken into account.
 
 #### Prerequisites
 
@@ -141,7 +141,7 @@ Parameters required for the report:
 defined as a Default or Extra reporting time period in the BA configuration.*
 
 > In the **Time period** field, do not use time periods that
-include [exceptions](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/timeperiods/), as the exceptions will not not be taken into account.
+include [exceptions](../../monitoring/basic-objects/timeperiods.md), as the exceptions will not not be taken into account.
 
 ### BV-BA-Availabilities-List
 
@@ -185,7 +185,7 @@ is defined as a Default or Extra reporting time period in the BA
 configuration or it will not appear in the report.*
 
 > In the **Time period** field, do not use time periods that
-include [exceptions](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/timeperiods/), as the exceptions will not not be taken into account.
+include [exceptions](../../monitoring/basic-objects/timeperiods.md), as the exceptions will not not be taken into account.
 
 #### Prerequisites
 
@@ -216,7 +216,7 @@ The report displays a list of events for a business activity during a given peri
 defined as a Default or Extra reporting time period in the BA configuration.*
 
 > In the **Time period** field, do not use time periods that
-include [exceptions](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/timeperiods/), as the exceptions will not not be taken into account.
+include [exceptions](../../monitoring/basic-objects/timeperiods.md), as the exceptions will not not be taken into account.
 
 ### BV-BA-Current-Health-VS-Past
 
@@ -254,7 +254,7 @@ defined as a Default or Extra reporting time period in the BA configuration or
 it will not appear in the report.*
 
 > In the **Time period** field, do not use time periods that
-include [exceptions](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/timeperiods/), as the exceptions will not not be taken into account.
+include [exceptions](../../monitoring/basic-objects/timeperiods.md), as the exceptions will not not be taken into account.
 
 #### Prerequisites
 
@@ -326,7 +326,7 @@ defined as a Default or Extra reporting time period in the BA configuration or
 it will not appear in the report.*
 
 > In the **Time period** field, do not use time periods that
-include [exceptions](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/timeperiods/), as the exceptions will not not be taken into account.
+include [exceptions](../../monitoring/basic-objects/timeperiods.md), as the exceptions will not not be taken into account.
 
 #### Prerequisites
 
