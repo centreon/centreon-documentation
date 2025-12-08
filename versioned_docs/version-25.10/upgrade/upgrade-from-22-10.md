@@ -49,6 +49,12 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 1. Update your Centreon 22.10 to the latest minor version.
 
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Remove the **centreon-22.10.repo** file:
 
    ```shell

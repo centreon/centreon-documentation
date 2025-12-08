@@ -39,7 +39,7 @@ servers:
 1. Update your Centreon 24.10 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el8/centreon-24.10-el9.repo
+   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

@@ -50,6 +50,12 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 1. Mettez à jour votre Centreon 22.04 jusqu'à la dernière version mineure.
 
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/22.04/el8/centreon-22.04-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Supprimez le fichier **centreon-22.04.repo** :
 
    ```shell
