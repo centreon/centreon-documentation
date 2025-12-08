@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                       | Modèle de service                        | Description                                                                    |
 |:----------------------------|:-----------------------------------------|:-------------------------------------------------------------------------------|
-| Cluster-Network-Status      | App-Mscs-Network-Status-CMA-custom       | Contrôle permettant de vérifier le statut réseaux du cluster                   |
+| Cluster-Network-Status      | App-Mscs-Network-Status-CMA-custom       | Contrôle permettant de vérifier le statut réseau du cluster                   |
 | Cluster-Node-Status         | App-Mscs-Node-Status-CMA-custom          | Contrôle permettant de vérifier le statut des noeuds du cluster                |
 | Cluster-Resouce-Status      | App-Mscs-Resource-Status-CMA-custom      | Contrôle permettant de vérifier le statut des ressources du cluster            |
 | Cluster-Resoucegroup-Status | App-Mscs-Resourcegroup-Status-CMA-custom | Contrôle permettant de vérifier le statut des groupes de ressources du cluster |
