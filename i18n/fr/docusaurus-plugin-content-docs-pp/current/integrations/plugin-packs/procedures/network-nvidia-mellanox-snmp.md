@@ -29,7 +29,6 @@ Le connecteur apporte les modèles de service suivants
 |:--------------|:---------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|:----------:|
 | Cpu           | Net-Nvidia-Mellanox-Cpu-SNMP-custom          | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU |            |
 | Sensors       | Net-Nvidia-Mellanox-Sensors-SNMP-custom      | Contrôle les sondes                                                                                                       |            |
-| Spanning-Tree | Net-Nvidia-Mellanox-SpanningTree-SNMP-custom | Contrôle l'état du protocole Spanning Tree sur les interfaces                                                             | X          |
 | Uptime        | Net-Nvidia-Mellanox-Uptime-SNMP-custom       | Durée depuis laquelle le serveur tourne sans interruption                                                                 |            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Nvidia-Mellanox-SNMP-custom** est utilisé.
@@ -42,6 +41,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias          | Modèle de service                              | Description                                        | Découverte |
 |:---------------|:-----------------------------------------------|:---------------------------------------------------|:----------:|
 | Interfaces     | Net-Nvidia-Mellanox-Interfaces-SNMP-custom     | Contrôle les interfaces                            | X          |
+| Spanning-Tree | Net-Nvidia-Mellanox-SpanningTree-SNMP-custom | Contrôle l'état du protocole Spanning Tree sur les interfaces                                                             | X          |
 | Tcpcon-Generic | Net-Nvidia-Mellanox-Tcpcon-Generic-SNMP-custom | Contrôle permettant de vérifier les connexions TCP |            |
 | Udpcon-Generic | Net-Nvidia-Mellanox-Udpcon-Generic-SNMP-custom | Contrôle permettant de vérifier les connexions UDP |            |
 

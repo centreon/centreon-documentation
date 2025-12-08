@@ -28,7 +28,6 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|:---------:|
 | Cpu           | Net-Nvidia-Mellanox-Cpu-SNMP-custom          | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPU |           |
 | Sensors       | Net-Nvidia-Mellanox-Sensors-SNMP-custom      | Check sensors                                                                                                 |           |
-| Spanning-Tree | Net-Nvidia-Mellanox-SpanningTree-SNMP-custom | Monitor the status of the Spanning Tree Protocol on network interfaces                                        | X         |
 | Uptime        | Net-Nvidia-Mellanox-Uptime-SNMP-custom       | Time since the server has been working and available                                                          |           |
 
 > The services listed above are created automatically when the **Net-Nvidia-Mellanox-SNMP-custom** host template is used.
@@ -41,6 +40,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias  | Service Template                               | Service Description           | Discovery |
 |:---------------|:-----------------------------------------------|:------------------------------|:---------:|
 | Interfaces     | Net-Nvidia-Mellanox-Interfaces-SNMP-custom     | Check interfaces              | X         |
+| Spanning-Tree | Net-Nvidia-Mellanox-SpanningTree-SNMP-custom | Monitor the status of the Spanning Tree Protocol on network interfaces                                        | X         |
 | Tcpcon-Generic | Net-Nvidia-Mellanox-Tcpcon-Generic-SNMP-custom | Check current TCP connections |           |
 | Udpcon-Generic | Net-Nvidia-Mellanox-Udpcon-Generic-SNMP-custom | Check current UDP connections |           |
 
