@@ -1,6 +1,6 @@
 ---
 id: network-cisco-waas-snmp
-title: Cisco Waas SNMP
+title: Cisco WaaS SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias        | Modèle de service              | Description                                                                                                         |
 |:-------------|:-------------------------------|:--------------------------------------------------------------------------------------------------------------------|
-| Sessions-Tfo | Net-Cisco-WaaS-Tfo-SNMP-custom | Contrôle permettant de vérifier le nombre de connexions TCP passthrough et optimisées par la technologie CiscoWaaS  |
+| Sessions-Tfo | Net-Cisco-WaaS-Tfo-SNMP-custom | Contrôle permettant de vérifier le nombre de connexions TCP passthrough et optimisées par la technologie Cisco WaaS  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-WaaS-SNMP-custom** est utilisé.
 
