@@ -2021,6 +2021,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-nvidia-mellanox-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-switchs-alcatel-omniswitch-6850'
         },
         {
