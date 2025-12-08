@@ -3,7 +3,7 @@ id: rum-blocked-by-csp
 title: Les données du RUM sont bloquées car le site utilise une politique CSP stricte
 ---
 
-Dans certains environnements web dotés d’une politique de sécurité renforcée (Content Security Policy), le tag Real User Monitoring (RUM) de Centreon DEM peut nécessiter une configuration supplémentaire. L’incident est rare, mais peut empêcher la remontée des données RUM tant que les domaines Quanta ne sont pas correctement autorisés.
+Dans certains environnements web dotés d’une politique de sécurité renforcée ([Content Security Policy](https://developer.mozilla.org/fr/docs/Web/HTTP/Guides/CSP)), le tag Real User Monitoring (RUM) de Centreon DEM peut nécessiter une configuration supplémentaire. L’incident est rare, mais peut empêcher la remontée des données RUM tant que les domaines Quanta ne sont pas correctement autorisés.
 
 ## Symptôme - Les données RUM ne remontent pas
 
