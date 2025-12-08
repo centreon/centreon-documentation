@@ -94,53 +94,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
-</Tabs>
-
-### Montée de version de PHP
-
-Centreon 24.10 utilise PHP en version 8.2.
-
-<Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:8.2
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
@@ -194,7 +148,55 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
-7. Videz le cache :
+### Montée de version de PHP
+
+Centreon 24.10 utilise PHP en version 8.2.
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module install php:8.2
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module install php:8.2
+```
+
+</TabItem>
+</Tabs>
+
+Puis, terminez la montée de version de la solution Centreon.
+
+1. Videz le cache :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -221,7 +223,7 @@ apt update
 </TabItem>
 </Tabs>
 
-8. Mettez à jour l'ensemble des composants :
+2. Mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -394,7 +396,8 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 3. Installez la version 10.11 :
 
     ```shell
-    dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
+    dnf module enable -y mariadb:10.11
+    dnf install mariadb-server-10.11\* mariadb-10.11\*
     ```
 
 4. Démarrer le service mariadb :
@@ -489,7 +492,7 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
 2. Si vous utilisiez des commandes personnalisées pour un collecteur (sur la page **Configuration > Collecteurs > Collecteurs**, dans la section **Monitoring Engine Information**), sachez qu'une nouvelle expression régulière de validation est désormais appliquée (`[a-zA-Z0-9\-\_]+`) : vos commandes personnalisées devront peut-être être adaptées. Sur le serveur central :
    * Pour identifier les commandes qui doivent être adaptées, exécutez :
-     ````shell
+     ```shell
      sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
      ```
    * Pour adapter automatiquement les commandes, exécutez :

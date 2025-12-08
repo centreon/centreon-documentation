@@ -112,6 +112,8 @@ de version au moins égale à 8 et disposant des privilèges suivants :
 - Collecter les données statistiques
 - Interroger les données statistiques
 
+Ces privilèges sont inclus dans le rôle prédéfini `vStatsUser`.
+
 NB: Ce connecteur n'a été testé qu'avec une authentification de type `Basic` (de la forme `user@vsphere.local`).
 
 ## Installer le connecteur de supervision
