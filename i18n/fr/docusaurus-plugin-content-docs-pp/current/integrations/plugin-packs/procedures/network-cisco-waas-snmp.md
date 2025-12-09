@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Cisco Waas SNMP** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco WaaS SNMP** apporte un modèle d'hôte :
 
 * **Net-Cisco-WaaS-SNMP-custom**
 
@@ -116,7 +116,7 @@ yum install centreon-pack-network-cisco-waas-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Waas SNMP**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco WaaS SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
