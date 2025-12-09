@@ -162,7 +162,7 @@ apt install nagios-nrpe-plugin
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
 | CEMPORT          | Compellent Entreprise Manager port                                                                                                                 | 3033                   |             |
 | NRPEPORT         | Port used to reach the NRPE server                                                                                                                 | 5666                   |             |
-| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                              | check\_centreon\_nrpe3 |             |
+| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                              | check\_nrpe |             |
 | NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                              | 50                     |             |
 | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                        |             |
 
@@ -221,7 +221,7 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib64/nagios/plugins/check_nrpe -H  -p 5666 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
+/usr/lib64/nagios/plugins/check_nrpe -H  -p 5666 -u -2 -P 8192 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
 	--cem-user="" \
 	--cem-password="" \
 	--cem-host="" \
