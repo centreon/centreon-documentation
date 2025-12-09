@@ -77,17 +77,16 @@ L’un des gros avantages de ces 2 types d’audit, c’est qu’il s’adapte a
 
 Comparatif entre les 2 méthodes et de leurs avantages :
 
-|  | Méthode simple
-(cf. site [quanta.green](http://quanta.green)) | Méthode “audit complet” |
+|  | Méthode simple (cf. site [quanta.green](http://quanta.green)) | Méthode “audit complet” |
 | --- | --- | --- |
 | Durée | 3 à 5 minutes | minimum de 7 jours pour que les données collectées soient suffisamment exhaustives |
 | Précision | Moyenne basée sur les 10 pages les plus fréquentées du site | Prise en compte de 100% des pages avec une pondération précise de la représentation de chaque page sur le trafic total du site |
 | Installation nécessaire | Aucune | Nécessite l’installation d’un tag de Real User Monitoring (NB : le tag de Real User Monitoring de DEM permet l’audit complet sans être soumis à la RGPD) |
 | Coût nécessaire | Gratuit sur le site quanta.green | Nécessite une souscription à DEM ou autre outil capable de calculer le Score de Sobriété Numérique |
 | Comparaison dans le temps | Oui, mais avec une précision trimestrielle (le site quanta.green garde en mémoire le score pour 3 mois). Au bout de 3 mois une nouvelle analyse permet d’obtenir l’évolution dans le temps. | Oui, en temps réel et de façon historisée automatiquement sur plusieurs années dans DEM |
-| Certification | Certification “audit simple”, contenant un visuel récapitulatif pouvant être apposé sur le site concerné pour décrire son impact environnemental. | Certification “audit complet” contenant un visuel récapitulatif pouvant être apposé sur le site concerné pour décrire son impact environnemental.
+| Certification | Certification “audit simple”, contenant un visuel récapitulatif pouvant être apposé sur le site concerné pour décrire son impact environnemental. | Certification “audit complet” contenant un visuel récapitulatif pouvant être apposé sur le site concerné pour décrire son impact environnemental. |
 
-Le calcul d’empreinte carbone du site étant exhaustif et représentatif de l’ensemble du trafic, il peut être repris dans un bilan carbone global d’entreprise pour apporter + de précision sur la partie numérique. |
+Le calcul d’empreinte carbone du site étant exhaustif et représentatif de l’ensemble du trafic, il peut être repris dans un bilan carbone global d’entreprise pour apporter + de précision sur la partie numérique.
 
 Afin de pouvoir permettre une comparaison dans les impacts environnementaux des applications web d’entreprise de différentes tailles, le choix a été fait de rapporter l’empreinte du site à son trafic.
 
