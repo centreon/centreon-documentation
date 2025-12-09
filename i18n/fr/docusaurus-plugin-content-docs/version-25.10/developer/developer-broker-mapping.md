@@ -1288,77 +1288,6 @@ message Metric {
 }
 ```
 
-### Rebuild
-
-Les évènements de reconstruction sont générés lorsqu’un point de terminaison Storage détecte qu’un graphique doit être reconstruit. Il envoie d’abord un évènement de début de reconstruction (end `false`),
-puis des valeurs métriques (évènement métrique avec is\_for\_rebuild défini sur True) et enfin un évènement de fin de reconstruction (end `true`).
-
-Ce message et son fonctionnement sont uniquement disponibles en BBDO v2.
-Avec BBDO v3, on profite de la puissance de Protobuf. Pour reconstruire les
-graphiques, on utilise l'événement [Storage::PbRebuildMessage](#storagepbrebuildmessage).
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### Storage::Rebuild
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 3         | 2       | 196610 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété | Type             | Description                                                                                                                        |
-| --------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| end       | booléen          | Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.                                        |
-| id        | entier non signé | ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True. |
-| is\_index | booléen          | Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.                              |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Non disponible avec Protobuf 3.
-
-Veuillez consulter [Storage::PbRebuildMessage](#storagepbrebuildmessage) pour l'alternative.
-
-</TabItem>
-</Tabs>
-
-### Remove graph
-
-Un point de terminaison Storage génère un évènement de suppression de graphique lorsqu’un graphique doit être supprimé.
-
-Ce message et son fonctionnement sont uniquement disponibles en BBDO v2.
-Avec BBDO v3, on profite de la puissance de Protobuf. Pour supprimer les
-graphiques, on utilise l'événement [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### Storage::RemoveGraph
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 3         | 3       | 196611 |
-
-Le contenu de ce message est sérialisé comme suit:
-
-| Propriété | Type             | Description                                                                                                               |
-| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| id        | entier non signé | ID de l’index (is\_index =`true`) ou ID de la métrique (is\_index =`false`) à supprimer.                                  |
-| is\_index | booléen          | Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Non disponible avec Protobuf 3.
-
-Veuillez consulter [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage)
-pour l'alternative.
-
-</TabItem>
-</Tabs>
-
 ### Status
 
 Cet événement est émis par Centreon Broker lorsqu'un événement de type **Service Status** ou **Host Status** est reçu.
@@ -1511,26 +1440,35 @@ message RemoveGraphMessage {
 
 ## BBDO
 
-### Version response
+### Welcome
 
 Voici le message de négociation utilisé jusqu'à la version BBDO v3.0.0.
 Chaque fois qu'une connexion BBDO est établie, chaque interlocuteur envoie
 ce message pour négocier les options à activer.
 
-#### BBDO::VersionResponse
+#### BBDO::PbWelcome
+
 
 | Catégorie | élément | ID     |
 | --------- | ------- | ------ |
-| 2         | 1       | 131073 |
+| 2         | 7       | 131079 |
 
-Le contenu de ce message est sérialisé comme suit :
+Voici la définition de cet évènement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
 
-| Propriété   | Type         | Description                                                                                                                                               |
-| ----------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bbdo\_major | entier court | La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version_response**. La seule version actuelle du protocole est la 1.0.0. |
-| bbdo\_minor | entier court | La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version_response**.                                                      |
-| bbdo\_patch | entier court | Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version_response**.                                                             |
-| extensions  | chaîne       | Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version_response**.                                     |
+```text
+message Welcome {
+  Bbdo version = 1;
+  string extensions = 2;
+  uint64 poller_id = 3;
+  string poller_name = 4;
+  /* Broker name is more relevant than poller name because for example on the
+   * central, rrd broker, central broker and engine share the same poller name
+   * that is 'Central'. */
+  string broker_name = 5;
+  com.centreon.common.PeerType peer_type = 6;
+  bool extended_negotiation = 7;
+}
+```
 
 ### Ack
 
@@ -1662,38 +1600,6 @@ message KpiStatus {
     bool valid = 13;                        // Vrai si le KPI est valide.
 }
 ```
-
-### Meta service status event
-
-Cet évènement a été créé pour envoyer les changements d'état d'un méta-service.
-
-Actuellement, les méta-services n'étant pas gérés par Centreon Broker, cet
-évènement n'est pas utilisé.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::MetaServiceStatus
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 3       | 393219 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété         | Type             | Description                      |
-| ----------------- | ---------------- | -------------------------------- |
-| meta\_service\_id | entier non signé | L’ID du méta-service.            |
-| value             | réel             | La valeur du méta-service.       |
-| state\_changed    | booléen          | True si l’état vient de changer. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Il n'y a pas d'évènement Protobuf.
-
-</TabItem>
-</Tabs>
 
 ### BA-event event
 
