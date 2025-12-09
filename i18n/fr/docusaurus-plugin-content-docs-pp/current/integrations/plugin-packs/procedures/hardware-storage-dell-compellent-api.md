@@ -123,41 +123,27 @@ depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de
 
 ### Plugin
 
-À partir de Centreon 22.04, il est possible de demander le déploiement automatique
-du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
-que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
-étape n'est pas requise.
-
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
-
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-nrpe3-plugin
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-nrpe3-plugin
+apt install nagios-nrpe-plugin
 ```
 
 </TabItem>
@@ -235,7 +221,7 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H  -p 5666 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
+/usr/lib64/nagios/plugins/check_nrpe -H  -p 5666 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
 	--cem-user="" \
 	--cem-password="" \
 	--cem-host="" \
