@@ -16,6 +16,7 @@ import TabItem from '@theme/TabItem';
 - [**Cato Networks API**](../procedures/network-security-cato-networks-api.md) - Initial release.
 - [**Microsoft Cluster Server CMA**](../procedures/applications-mscs-cma.md) - Initial release.
 - [**Nvidia (formerly Mellanox) SNMP**](../procedures/network-nvidia-mellanox-snmp.md) - Initial release.
+- [**OpenStack RESTAPI**](../procedures/cloud-openstack-restapi.md) - Initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
