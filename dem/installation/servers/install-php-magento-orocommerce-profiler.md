@@ -99,8 +99,7 @@ phpenmod quanta_mon
 
 ### Install the PHP Module for Other OSs
 
-We do not officially support packages for other operating systems. However, you can compile the module yourself, as the source code is available on GitHub:  
-[https://github.com/quanta-computing/quanta-php-module](https://github.com/quanta-computing/quanta-php-module).
+We do not officially support packages for other operating systems. However, you can compile the module yourself, as the source code is [available on GitHub](https://github.com/quanta-computing/quanta-php-module).
 
 ## Configure Your Backoffice URL if You Use Magento
 

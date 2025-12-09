@@ -3,7 +3,7 @@ id: errors-and-unavailability-front-end
 title: Comprendre les erreurs & indisponibilités dans DEM
 --- 
 
-Le HAR de toutes les étapes peut être trouvé sous le screenshot d’incident afin d’aider vos développeurs à comprendre d’où venait les incidents.
+>Le HAR de toutes les étapes peut être trouvé sous le screenshot d’incident afin d’aider vos développeurs à comprendre d’où venait les incidents.
 
 ## Comment visualiser la capture d’écran de l’incident ?
 

@@ -3,14 +3,10 @@ id: total-blocking-time
 title: TTB - Total Blocking Time (Web Vital)
 --- 
 
-Le TBT est documenté [sur le site Web Dev de Google ici](https://web.dev/tbt/). Cette page traduit et résume cette documentation.
+>Le TBT est documenté [sur le site Web Dev de Google ici](https://web.dev/tbt/). Cette page traduit et résume cette documentation.
 
 
-
-
-Total Blocking Time (TBT) ou temps total de blocage est une mesure synthétique importante pour mesurer le réactivité de la page lors du chargement. Il quantifie à quel point une page est non-interactive avant de devenir interactive de façon fiable.
-
-
+>Total Blocking Time (TBT) ou temps total de blocage est une mesure synthétique importante pour mesurer le réactivité de la page lors du chargement. Il quantifie à quel point une page est non-interactive avant de devenir interactive de façon fiable.
 
 ## Qu’est ce que le TBT
 

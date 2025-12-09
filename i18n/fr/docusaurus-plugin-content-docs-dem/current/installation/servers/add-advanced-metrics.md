@@ -3,14 +3,10 @@ id: add-advanced-metrics
 title: Ajouter les métriques avancées
 --- 
 
-L'agent DEM dispose de modules (ou agents applicatifs), permettant de récupérer des données systèmes sur différents composants de votre infrastructure tels que vos services Apache, MySQL, Redis, Varnish, PostgreSQL, …
+L'agent DEM dispose de modules (ou agents applicatifs), permettant de récupérer des données systèmes sur différents composants de votre infrastructure tels que vos services Apache, MySQL, Redis, Varnish, PostgreSQL, etc.
 
 
-Ces agents applicatifs sont à installer **après** l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
-
-[Installer les agents systèmes](./install-system-agents.md)
-
-
+Ces agents applicatifs sont à installer **après** l’installation de l’agent système. Référez-vous à la page dédiée pour [installer les agents systèmes](./install-system-agents.md).
 
 ## Apache
 
@@ -127,7 +123,7 @@ Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
     curl http://127.0.0.1/status
     ```
     
-3. Si ce n'est pas le cas, il faudra mettre en place la bonne configuration comme décris si-dessous:[*http://nginx.org/en/docs/http/ngx_http_stub_status_module.html*](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html)
+3. Si ce n'est pas le cas, il faudra mettre en place la bonne configuration comme décrit [ici](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html).
 4. Si vous souhaitez modifier l'URL utilisée par notre module, vous pouvez modifier le fichier: ***/etc/quanta/modules.d/nginx.yml***
 5. Redémarrez l'agent
     
@@ -232,9 +228,6 @@ Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
-
-Le profiler PHP est à installer à part. Référez-vous à la page dédiée:
-
-[Installer le profiler PHP / Magento / OroCommerce](./install-php-magento-orocommerce-profiler.md)
+>Le profileur PHP est à installer à part. Référez-vous à la page dédiée pour [installer le profiler PHP / Magento / OroCommerce](./install-php-magento-orocommerce-profiler.md).
 
 

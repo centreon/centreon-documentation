@@ -10,9 +10,7 @@ A l’heure actuelle, il n’est pas possible de rattacher un serveur à plusieu
 La remontée d’information vers l’application DEM nécessite l’installation d’un agent sur tous les serveurs que vous souhaitez surveiller. Pour ce faire, vous devez installer l’agent DEM.
 
 
-Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur la page dédiée :
-
-[Les adresses IP de QuDEManta](../dem-ip-addresses.md)
+>Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur [la page dédiée](../dem-ip-addresses.md)
 
 
 
@@ -219,9 +217,7 @@ Pour avoir un *hostid* unique, vous pouvez le configurer dans le fichier /etc/qu
 
 ### Installation sur d’autres OS
 
-Nous ne fournissons pas de packages pour les autres OS, les sources sont néanmoins disponibles publiquement sur Github et peuvent être compilés:
-
-[https://github.com/quanta-computing/quanta-agent](https://github.com/quanta-computing/quanta-agent)
+Nous ne fournissons pas de packages pour les autres OS, [les sources sont néanmoins disponibles publiquement sur Github et peuvent être compilés](https://github.com/quanta-computing/quanta-agent).
 
 L'agent n'est compatible **qu'avec Linux**.
 
@@ -254,6 +250,4 @@ quanta_token: [...] <- insérer ici le token correspondant à votre site
 
 Vous pouvez désormais installer les modules applicatifs pour obtenir des métriques sur vos systèmes Apache, Nginx, MySQL, Varnish, Magento, etc… 
 
-En cas de doute, vous pouvez vous reportez à la checklist d’installation :
-
-[Checklist d’installation de DEM](../installation-checklist.md)
+En cas de doute, vous pouvez vous reportez à [la checklist d’installation](../installation-checklist.md).

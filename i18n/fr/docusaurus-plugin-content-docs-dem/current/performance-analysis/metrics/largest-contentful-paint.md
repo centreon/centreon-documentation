@@ -6,7 +6,7 @@ title: LCP - Largest Contentful Paint (Web Vital)
 > Le Largest Contentful Paint est documenté sur le site [Web Dev de Google](https://web.dev/lcp/). Cette page traduit en français et résume l’essentiel du contenu
 
 
-Le Largest Contentful Paint (LCP, qui peut se traduire par impression du plus grand contenu) est une métrique importante, qui se concentre sur la perception de vitesse de chargement de l’utilisateur car elle marque le moment du chargement où le contenu principal de la page a probablement chargé. Un LCP rapide assure l’utilisateur que la page est utilisable.
+>Le Largest Contentful Paint (LCP, qui peut se traduire par impression du plus grand contenu) est une métrique importante, qui se concentre sur la perception de vitesse de chargement de l’utilisateur car elle marque le moment du chargement où le contenu principal de la page a probablement chargé. Un LCP rapide assure l’utilisateur que la page est utilisable.
 
 
 

@@ -34,9 +34,7 @@ Si vous souhaitez récupérer plus de 24h de retard, n'hésitez pas à contacter
 Avec DEM, vous pouvez corréler le temps d’exécution de vos webscénarios avec le traffic mesuré par Google Analytics sur la même période et ainsi analyser les effets du traffic sur les temps de chargement du site.
 
 
-Pour pouvoir ajouter/supprimer une liaison vous avez besoin d’avoir les permissions « Administrateur » ou « Propriétaire » sur votre Organisation dans DEM.
-
-
+>Pour pouvoir ajouter/supprimer une liaison vous avez besoin d’avoir les permissions « Administrateur » ou « Propriétaire » sur votre Organisation dans DEM.
 
 Nous avons un [tutoriel vidéo](https://youtu.be/vOVU7zv_GZg?list=PLgmedpAAxo-5XqQVueiuwFwhKs_DifUDb) qui démontre comment lier Quanta à votre compte google.
 

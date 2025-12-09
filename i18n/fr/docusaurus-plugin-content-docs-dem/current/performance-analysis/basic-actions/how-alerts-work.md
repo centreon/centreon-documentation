@@ -13,7 +13,7 @@ Cet article vise à être exhaustif sur les alertes que vous pouvez recevoir afi
 
 ## Alertes liées aux scénarios
 
-*Disponible par email sur toutes les licences, néanmoins, les alertes Slack, Chat et SMS ne sont disponible sur les licences d’entrée de gamme.*
+>Disponible par email sur toutes les licences, néanmoins, les alertes Slack, Chat et SMS ne sont disponible sur les licences d’entrée de gamme.
 
 Ces alertes se déclenchent lorsque nos sondes détectent une anomalie sur l'un de vos scénarios. On en distingue deux types :
 
@@ -53,7 +53,7 @@ Ces alertes vous sont envoyées par défaut quand nous constatons un écart au m
 
 ## Alertes liées à vos données business
 
-*Disponible par défaut sur les licences Business et Full, en option sur les autres.*
+>Disponible par défaut sur les licences Business et Full, en option sur les autres.
 
 Les scénarios peuvent souvent permettre d'identifier les problèmes de manière très réactives, mais il est difficile de mettre en place un scénario qui pourra prendre en compte toutes les anomalies possibles. C'est pourquoi nous vous proposons de surveiller les conséquences de ces éventuelles anomalies et non plus uniquement une liste finie de causes possibles.
 

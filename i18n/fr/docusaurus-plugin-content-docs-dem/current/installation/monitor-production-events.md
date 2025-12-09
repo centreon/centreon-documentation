@@ -47,7 +47,7 @@ curl -L -m 10 https://app.quanta.io/api/events/push?content=bonjour&type=custom&
 ```
 
 
-Dans les 2 commandes ci-dessus, l'option *-m* de cURL permet de positionner un timeout à 10 secondes afin de ne pas bloquer vos scripts en cas d'une indisponibilité éventuelle de notre API.
+>Dans les 2 commandes ci-dessus, l'option *-m* de cURL permet de positionner un timeout à 10 secondes afin de ne pas bloquer vos scripts en cas d'une indisponibilité éventuelle de notre API.
 
 
 

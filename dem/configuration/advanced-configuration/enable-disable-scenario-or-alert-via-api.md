@@ -123,8 +123,7 @@ Example: `mylogin+api@mydomain.com`
 
 ## Example usage
 
-In the sample script the first two arguments are the site ID and the User Journey ID. Both IDs appear in the journey edit URL in DEM:
-https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913
+In the sample script the first two arguments are the site ID and the User Journey ID. Both IDs appear in the journey edit URL [in DEM](https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913)
 
 Once you have these values, use the script like this:
 

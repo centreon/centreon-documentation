@@ -25,31 +25,31 @@ Here is an explanatory example. Imagine the HTML is structured like this:
 .main iframe
 ```
 
-✅  ⇒ returns the iframe
+⇒ returns the iframe
 
 ```css
 #my-form
 ```
 
-✅  ⇒ returns the first `my-form` (the one that's not inside the iframe)
+⇒ returns the first `my-form` (the one that's not inside the iframe)
 
 ```
 .main iframe .frame-content
 ```
 
-❌  ⇒ doesn't work, because `.frame-content` belongs to the iframe's document
+⇒ doesn't work, because `.frame-content` belongs to the iframe's document
 
 ```
 .frame-content #my-form
 ```
 
-✅  ⇒ returns the form that is inside the iframe this time
+⇒ returns the form that is inside the iframe this time
 
 ```
 iframe #my-form
 ```
 
-❌  ⇒ doesn't work because `#my-form` is already inside the iframe document.
+⇒ doesn't work because `#my-form` is already inside the iframe document.
 
 > **When you want an element that is inside an iframe, you must act as if EVERYTHING outside the iframe's CONTENT does not exist.**
 

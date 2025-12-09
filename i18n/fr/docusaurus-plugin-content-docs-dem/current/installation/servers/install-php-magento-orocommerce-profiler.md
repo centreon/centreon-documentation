@@ -8,9 +8,7 @@ Le module PHP DEM se présente sous la forme d'une extension PHP et vous permett
 ## Pré-requis
 
 
-Le profiler nécessite l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
-
-[Installer les agents systèmes](./install-system-agents.md)
+Le profiler nécessite l’installation de l’agent système. Référez-vous à la page dédiée pour [installer les agents systèmes](./install-system-agents.md).
 
 
 
@@ -29,7 +27,7 @@ Le profiler nécessite l’installation de l’agent système. Référez-vous à
 ## Installation
 
 
-Le module PHP est à installer sur chaque serveur exécutant votre application PHP.
+>Le module PHP est à installer sur chaque serveur exécutant votre application PHP.
 
 
 
@@ -109,7 +107,7 @@ phpenmod quanta_mon
 
 ### Installer le module PHP pour les autres OS
 
-Nous ne supportons pas officiellement de packages pour les autres OS. Néanmoins vous pouvez compiler vous-même le module, les sources sont disponibles sur Github: [https://github.com/quanta-computing/quanta-php-module](https://github.com/quanta-computing/quanta-php-module)
+Nous ne supportons pas officiellement de packages pour les autres OS. Néanmoins vous pouvez compiler vous-même le module, les sources sont [disponibles sur Github](https://github.com/quanta-computing/quanta-php-module).
 
 ## Configurez l'URL de votre backoffice si vous utilisez Magento
 
@@ -163,8 +161,6 @@ Vous devriez alors voir l'onglet "Application" (autrement cet onglet est grisé)
 Dans le cas d'utilisation d'un CMS Magento (v1 ou 2) ou de la plateforme OroCommerce, le code couleur est différent. Il est orange pour Magento et jaune pour OroCommerce
 
 
-Les métriques avancées (Apache, MySQL, Redis, etc…) sont à installer à part. Référez-vous à la page dédiée:
-
-[Ajouter les métriques avancées](./add-advanced-metrics.md)
+Les métriques avancées (Apache, MySQL, Redis, etc…) sont à installer à part. [Référez-vous à la page dédiée](./add-advanced-metrics.md)
 
 

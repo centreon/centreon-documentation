@@ -123,8 +123,7 @@ Par exemple : monlogin+api@mondomaine.com
 
 ## Exemple d’utilisation du script
 
-Dans notre script d’exemple les 2 premiers chiffres à passer en paramètre correspondent à l’ID du site, et l’ID du Parcours Utilisateur. Ils sont tous les deux présents dans l’URL d’accès au scénario quand on accède à la configuration du scénario en question dans DEM :
-https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913
+Dans notre script d’exemple les 2 premiers chiffres à passer en paramètre correspondent à l’ID du site, et l’ID du Parcours Utilisateur. Ils sont tous les deux présents dans l’URL d’accès au scénario quand on accède à la configuration du scénario en question [dans DEM](https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913)
 
 Une fois ces paramètres récupérés, on utilise le script de modification automatique comme ceci :
 

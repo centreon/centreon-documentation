@@ -123,7 +123,7 @@ You should see metrics appear in DEM within a few minutes.
     curl http://127.0.0.1/status
     ```
 
-3. If not, you will need to set up the correct configuration as described here: [http://nginx.org/en/docs/http/ngx_http_stub_status_module.html](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html).
+3. If not, you will need to set up the correct configuration as [described here](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html).
 4. If you want to modify the URL used by our module, you can edit the following file: **/etc/quanta/modules.d/nginx.yml**.
 5. Restart the agent:
 

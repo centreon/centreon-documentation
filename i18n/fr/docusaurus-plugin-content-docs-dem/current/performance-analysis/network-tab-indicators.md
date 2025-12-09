@@ -22,7 +22,7 @@ Dans les deux cas, il s’agit d’un test réseau. Ce qui change, c’est le pr
 
 Si vous voyez du rouge ponctuellement sur ce graphique, cela signifie que votre site est indisponible à cause d’un problème de réseau. Le temps de réponse du ping dépend à la fois de la bande passante et du chemin à parcourir entre la sonde DEM et l’endroit où est hébergé votre site. Dans un souci de clarté nous allons dissocier ce qui n’est pas grave, ce qui mérite votre attention et ce qui nécessite une intervention d’urgence.
 
-Il est a noter qu'à l'heure actuelle, toutes les mesures sont réalisées depuis notre infrastructure en Europe. Donc si votre site est hébergé sur un autre continent, il se peut que la latence soit plus élevée.
+>Il est a noter qu'à l'heure actuelle, toutes les mesures sont réalisées depuis notre infrastructure en Europe. Donc si votre site est hébergé sur un autre continent, il se peut que la latence soit plus élevée.
 
 ### Quand intervenir d’urgence ?
 

@@ -51,7 +51,7 @@ iframe #my-form
 
 ⇒ ne fonctionne pas car #my-form est déja dans le document de l'iframe.
 
-**Quand on veut un élément qui est à l'intérieur d'une iframe, on doit faire comme si TOUT ce qu'il y a en dehors du CONTENU de l'iframe n'existait pas.**
+>**Quand on veut un élément qui est à l'intérieur d'une iframe, on doit faire comme si TOUT ce qu'il y a en dehors du CONTENU de l'iframe n'existait pas.**
 
 ## Bonnes Pratiques
 
@@ -152,7 +152,7 @@ iframe #my-form
     
     Un sélecteur comme `div.modal-add-to-cart` est préférable à un générique `div.w-full`, car il est beaucoup plus spécifique à une fonctionnalité métier. Les classes purement stylistiques (souvent courtes, génériques ou issues de frameworks CSS) risquent d’être réutilisées ailleurs sur la page et de provoquer des collisions.
     
-    *Règle simple : plus un nom est lisible et fonctionnel, plus il est fiable.*
+    >*Règle simple : plus un nom est lisible et fonctionnel, plus il est fiable.*
     
     **2. Utilisez les identifiants (ID) quand ils sont disponibles**
     
@@ -245,7 +245,7 @@ iframe #my-form
     
     Il est possible de désigner des objets en fonction des paramètres spécifiques qui les composent. Cette chaine permettra de cliquer sur l'élément de ce type : &lt;button data-role="change-store"&gt;
     
-    Attention néanmoins, il est important de savoir que DEM ne vérifie pas systématiquement **les changements d'états des paramètres** des objets de la page après avoir récupéré le code HTML initial. En effet, un compromis a du être fait en matière de performance lors de l'exécution des scénarios, et il a été choisi de surveiller les changements suivants :
+    >Attention néanmoins, il est important de savoir que DEM ne vérifie pas systématiquement **les changements d'états des paramètres** des objets de la page après avoir récupéré le code HTML initial. En effet, un compromis a du être fait en matière de performance lors de l'exécution des scénarios, et il a été choisi de surveiller les changements suivants :
     
     - changement sur les classes (apparition, disparition)
     - changement sur les paramètres "disabled" ou "disable"
