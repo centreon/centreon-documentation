@@ -52,7 +52,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                         | Description                                      |
 |:----------------------------------------|:-------------------------------------------------|
-| Network-Security-Cato-Networks-Api-Site | Discover Cato Networks site using API            |
+| Network-Security-Cato-Networks-Api-Site | Découvre les sites Cato Networks via l'API            |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -98,7 +98,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Refer to the [Cato Networks GraphQL API documentation](https://api.catonetworks.com/documentation/) for an overview of the available functionality.
+Référez-vous à la documentation officielle [Cato Networks GraphQL API](https://api.catonetworks.com/documentation/) pour une vision globale des fonctionnalités disponibles.
 
 ## Installer le connecteur de supervision
 
