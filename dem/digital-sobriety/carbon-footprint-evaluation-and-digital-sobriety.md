@@ -26,14 +26,12 @@ Depending on the feature—whether it measures the carbon impact of a specific u
 Beyond using established methods, DEM contributes to refining calculation methods through ongoing collaboration with industry professionals, notably:
 
 - the ecosystem of [Planet'Tech Care](https://planet-techcare.green/) signatories (of which Centreon DEM is an active member)
-- the cross-company working group [Boavizta](https://www.boavizta.org/)
+- the cross-company working group [Boavizta](https://www.boavizta.org/en)
 - the association [La Fresque du Numérique](https://www.fresquedunumerique.org/).
 
 The goal of these collaborations is to advance the state of the art in digital impact measurement and cross-validate results with other professionals to ensure coherence (see GHG Protocol criteria: Relevance and Accuracy).
 
-For more on digital decarbonization and measurement tools, see the interview with Laurent Eskenazi (co-founder of Boavizta) and Guillaume Thibaux (co-founder of Centreon DEM) on BSmart TV:
-
-[https://www.youtube.com/watch?v=UELsTjTDMag](https://www.youtube.com/watch?v=UELsTjTDMag)
+For more on digital decarbonization and measurement tools, [see the interview](https://www.youtube.com/watch?v=UELsTjTDMag) with Laurent Eskenazi (co-founder of Boavizta) and Guillaume Thibaux (co-founder of Centreon DEM) on BSmart TV.
 
 ## Calculation dimensions
 
@@ -55,7 +53,7 @@ Here is the current functional scope of DEM:
 |  | Scope 1 | Scope 2 | Scope 3 |  |
 | --- | --- | --- | --- | --- |
 |  | Direct emissions from usage | Indirect emissions during usage | Upstream and downstream emissions |  |
-| Datacenter | YES | YES | YES (details to be published using [Boavizta.org](http://Boavizta.org) data in Q4 2023) |  |
+| Datacenter | YES | YES | YES (details to be published using [Boavizta.org](http://Boavizta.org/en) data in Q4 2023) |  |
 | Network | YES | YES | YES |  |
 | End-user devices | YES | YES | n/a |  |
 

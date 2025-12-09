@@ -20,9 +20,7 @@ Page profil
 Pour envoyer une notification dans un canal Teams, Google Chat, ou d’autres logiciels de messagerie, vous pourrez utiliser les webhooks dans les alertes.
 
 <aside>
-💡 Si vous souhaitez envoyer des notifications à un email d’équipe, vous pouvez créer un utilisateur utilisant cet email d’équipe. Référez-vous à la page dédiée:
-
-[Gérez vos utilisateurs et leurs droits](./manage-users-and-rights.md)
+>Si vous souhaitez envoyer des notifications à un email d’équipe, vous pouvez créer un utilisateur utilisant cet email d’équipe. Référez-vous à la page dédiée : [Gérez vos utilisateurs et leurs droits](./manage-users-and-rights.md)
 
 </aside>
 
@@ -36,8 +34,6 @@ Vous pouvez aussi accéder à l’écran de configuration soit en cliquant sur *
 
 ![image](../assets/configuration/receive-and-configure-alerts-3.png)
 
-Accès à l’alerting depuis la configuration
-
 ## Mettre en place les alertes
 
 ### Planning d’alerting
@@ -45,8 +41,6 @@ Accès à l’alerting depuis la configuration
 Les utilisateurs peuvent définir les périodes pendant lesquelles ils ne reçoivent pas d’alertes.
 
 ![image](../assets/configuration/receive-and-configure-alerts-4.png)
-
-Exemple de planning
 
 Egalement, chaque alerte peut être activée/désactivée sur des plages horaires pour ne pas notifier les personnes abonnées à cette alerte, quelque soit leur propre planning.
 
@@ -58,13 +52,9 @@ Sélectionnez la façon dont vous souhaitez être alerté (SMS/Email/Slack). Voi
 
 ![image](../assets/configuration/receive-and-configure-alerts-5.png)
 
-Exemple d’alerte par email
-
 #### SMS
 
 ![image](../assets/configuration/receive-and-configure-alerts-6.png)
-
-Exemple d’alerte par SMS
 
 #### Webhook
 

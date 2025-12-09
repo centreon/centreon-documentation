@@ -17,7 +17,7 @@ The CNIL (French data protection authority) exempts certain cookies from requiri
 
 **DEM meets these conditions.**
 
-You can find CNIL's recommendations on this page: https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience
+You can find CNIL's recommendations on [this page](https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience).
 
 ## Find the tag to insert on my site
 

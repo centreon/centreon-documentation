@@ -3,7 +3,7 @@ id: total-blocking-time
 title: TBT - Total Blocking Time (Web Vitals)
 --- 
 
-> TBT is documented on Google's Web Dev: [https://web.dev/tbt/]. This page summarizes that documentation.
+> TBT is documented on [Google's Web Dev](https://web.dev/tbt/). This page summarizes that documentation.
 
 > Total Blocking Time (TBT) is an aggregated metric measuring how non-interactive a page is during loading. It quantifies how long the main thread remains blocked before the page becomes reliably interactive.
 

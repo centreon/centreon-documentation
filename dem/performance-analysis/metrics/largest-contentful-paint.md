@@ -3,7 +3,7 @@ id: largest-contentful-paint
 title: LCP - Largest Contentful Paint (Web Vitals)
 --- 
 
-> The Largest Contentful Paint is documented on Google's Web Dev site: [https://web.dev/lcp/]. This page summarizes the core information.
+> The Largest Contentful Paint is documented on [Google's Web Dev site] (https://web.dev/lcp/). This page summarizes the core information.
 
 > Largest Contentful Paint (LCP) focuses on perceived loading speed for users because it marks when the page's main content has likely loaded. A fast LCP reassures the user that the page is usable.
 
@@ -15,7 +15,6 @@ Largest Contentful Paint (LCP) measures the render time of the largest image or 
 
 For a good user experience, sites should aim for an LCP below 2.5 seconds. To ensure this target is met for most users, check that 75% of your users (on both mobile and desktop) achieve this score. DEM's Real User Monitoring can help you verify this.
 
-![image](https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/8ZW8LQsagLih1ZZoOmMR.svg)
 
 ## Which elements can be considered the largest content?
 

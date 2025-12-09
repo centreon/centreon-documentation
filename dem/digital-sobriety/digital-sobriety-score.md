@@ -262,10 +262,10 @@ Like Average CFPC, CFPT enables comparisons between sites of different scales, s
 
 More information on calculations mentioned in this document:
 
-- Calculating Digital Emissions (Sustainable Web Design) [https://sustainablewebdesign.org/calculating-digital-emissions/](https://sustainablewebdesign.org/calculating-digital-emissions/)
-- Lean ICT - Pour une sobriété numérique (The Shift Project) [https://theshiftproject.org/wp-content/uploads/2018/05/2018-05-17_Rapport-interm%C3%A9diaire_Lean-ICT-Pour-une-sobri%C3%A9t%C3%A9-num%C3%A9rique.pdf](https://theshiftproject.org/wp-content/uploads/2018/05/2018-05-17_Rapport-interm%C3%A9diaire_Lean-ICT-Pour-une-sobri%C3%A9t%C3%A9-num%C3%A9rique.pdf)
+- Calculating Digital Emissions [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/)
+- Lean ICT - Pour une sobriété numérique ([The Shift Project](https://theshiftproject.org/wp-content/uploads/2018/05/2018-05-17_Rapport-interm%C3%A9diaire_Lean-ICT-Pour-une-sobri%C3%A9t%C3%A9-num%C3%A9rique.pdf))
 - **Calculate the Digital Sobriety Score for free (simple audit) on [quanta.green](http://quanta.green)**
-- Electricity carbon intensity: [https://app.electricitymaps.com/map](https://app.electricitymaps.com/map)
+- Electricity carbon intensity: [electricity maps](https://app.electricitymaps.com/map)
 
 ## License
 

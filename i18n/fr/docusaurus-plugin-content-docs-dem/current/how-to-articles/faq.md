@@ -9,7 +9,7 @@ Il est nécessaire pour que l'agent fonctionne, d'autoriser en sortie les connec
 
 Pour l'installation des paquets il faudra également autoriser votre serveur à se connecter en HTTP à apt.quanta.io
 
-Vous pouvez également mettre en place un proxy HTTP si votre serveur n'à pas d'accès direct à Internet. Vous pouvez ajouter l'URL de votre proxy dans la configuration de l'agent (*/etc/quanta/agent.yml*) en ajoutant une ligne de la forme "proxy_url: http://user:password@1.2.3.4" sous la catégorie "server".
+Vous pouvez également mettre en place un proxy HTTP si votre serveur n'à pas d'accès direct à Internet. Vous pouvez ajouter l'URL de votre proxy dans la configuration de l'agent (*/etc/quanta/agent.yml*) en ajoutant une ligne de la forme `proxy_url: http://user:password@1.2.3.4` sous la catégorie "server".
 
 ## Je ne vois pas les données remonter, où puis-je trouver des informations pour résoudre le problème ?
 

@@ -18,7 +18,6 @@ Le Largest Contentful Paint ou LCP ou impression du plus grand contenu est un m�
 
 Pour donner une bonne expérience, les sites internet devrait avoir un LCP inférieur à 2,5 secondes. Pour être certain que vous atteignez cet objectif pour la majorité de vos utilisateurs, vous pouvez vérifier que 75% de vos utilisateurs (sur mobile et sur ordinateur) ont ce score. Le Real User Monitoring de DEM permet de faire cela.
 
-![](https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/8ZW8LQsagLih1ZZoOmMR.svg)
 
 ## Quels éléments peuvent être considéré comme contenu le plus grand ?
 

@@ -181,7 +181,6 @@ Le résultat qui en découle du calcul, exprimé en CO<sub>2</sub>eq permet éga
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-7.png)
 
----
 
 **Empreinte Carbone Par Clic** (ou “Average CFPC” pour Average Carbon Footprint Per Clic)
 
@@ -191,9 +190,8 @@ Pourquoi mesurer des clics et non seulement des pages vues ?
 
 On parle ici de “clics” car les sites en “SPA” (Single Page Application) sont de plus en plus populaires et représentés sur le web. Or dans un contexte d’application “SPA”, un clic peut transformer la page en cours, mais sans nécessairement entraîner de navigation vers une nouvelle page. Pour autant, chacune de ces interactions a un coût écologique et doit être prise en compte dans l’évaluation environnementale.
 
----
 
-NB : Le calcul d’impact dans la version 1.1 du Score de Sobriété Numérique est basé sur les émissions carbone, qui sont utilisées dans la plupart des entreprises comme la boussole la plus importante du pilotage de la réduction d’impact environnemental du numérique. Néanmoins il est à noter que plusieurs autres critères d’impact comme les ressources en eau consommées, les ressources abiotiques consommées ou l’énergie primaire utilisée ont également un intérêt à être suivis. La méthodologie de calcul du Score de Sobriété Numérique est donc conçue pour être prête à accueillir d’autres critères environnementaux dans les versions suivantes.
+>La version 1.1 du Score de Sobriété Numérique est basée sur les émissions carbone, qui sont utilisées dans la plupart des entreprises comme la boussole la plus importante du pilotage de la réduction d’impact environnemental du numérique. Néanmoins il est à noter que plusieurs autres critères d’impact comme les ressources en eau consommées, les ressources abiotiques consommées ou l’énergie primaire utilisée ont également un intérêt à être suivis. La méthodologie de calcul du Score de Sobriété Numérique est donc conçue pour être prête à accueillir d’autres critères environnementaux dans les versions suivantes.
 
 Pour calculer l’empreinte carbone par clic (Average CFPC), il y a 2 cas de figure :
 
@@ -279,10 +277,10 @@ Avec cet indicateur, un groupe peut par exemple comparer les sites de ses diffé
 
 Plus d’information concernant certains des calculs évoqués dans ce document :
 
-- Calculating Digital Emissions (Sustainable Web Design) [https://sustainablewebdesign.org/calculating-digital-emissions/](https://sustainablewebdesign.org/calculating-digital-emissions/)
-- Lean ICT - Pour une sobriété numérique (The Shift Project) [https://theshiftproject.org/wp-content/uploads/2018/05/2018-05-17_Rapport-interm%C3%A9diaire_Lean-ICT-Pour-une-sobri%C3%A9t%C3%A9-num%C3%A9rique.pdf](https://theshiftproject.org/wp-content/uploads/2018/05/2018-05-17_Rapport-interm%C3%A9diaire_Lean-ICT-Pour-une-sobri%C3%A9t%C3%A9-num%C3%A9rique.pdf)
+- Calculating Digital Emissions [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/)
+- Lean ICT - Pour une sobriété numérique ([The Shift Project](https://theshiftproject.org/wp-content/uploads/2018/05/2018-05-17_Rapport-interm%C3%A9diaire_Lean-ICT-Pour-une-sobri%C3%A9t%C3%A9-num%C3%A9rique.pdf))
 - **Calculer le Score de Sobriété Numérique gratuitement (méthode audit simple) sur [quanta.green](http://quanta.green)**
-- Intensité carbone de l’électricité : [https://app.electricitymaps.com/map](https://app.electricitymaps.com/map)
+- Intensité carbone de l’électricité : [electricity maps](https://app.electricitymaps.com/map)
 
 ## Licence
 

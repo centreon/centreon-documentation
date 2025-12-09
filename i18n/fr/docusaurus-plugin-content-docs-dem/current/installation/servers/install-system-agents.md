@@ -24,7 +24,6 @@ Retrouvez l’emplacement du token en vidéo:
 
 [Trouver le token pour les agents systèmes](https://www.loom.com/share/8e1958d64017451a8a0b7a63ab5c8185)
 
-Trouver le token pour les agents systèmes
 
 ## Procéder à l’installation
 

@@ -35,7 +35,7 @@ With DEM you can correlate your web scenario execution times with traffic measur
 
 > To add/remove a link you must have "Administrator" or "Owner" permissions on your Organization in DEM.
 
-[https://youtu.be/vOVU7zv_GZg?list=PLgmedpAAxo-5XqQVueiuwFwhKs_DifUDb](https://youtu.be/vOVU7zv_GZg?list=PLgmedpAAxo-5XqQVueiuwFwhKs_DifUDb)
+We have a [tutorial video](https://www.youtube.com/watch?v=qmeXwypUmL4&list=PLgmedpAAxo-40d8PaBsaQS7Hkrm6mdxjs&index=3) that shows how to link your quanta to your google account.
 
 To link DEM with your Google Analytics account, go to the "Configuration" tab (gear icon at the top right), then select the site (click its name) for which you want to link the Google Analytics account.
 

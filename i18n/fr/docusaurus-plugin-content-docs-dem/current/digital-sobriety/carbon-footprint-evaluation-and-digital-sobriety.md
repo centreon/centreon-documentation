@@ -37,9 +37,7 @@ Enfin, au delà de l’utilisation de ces méthodes qui font aujourd’hui réf�
 
 L’objectif de ces échanges est de faire avancer l’état de l’art sur la mesure d’impact du numérique, et de confronter les résultats avec d’autres professionnels pour s’assurer de la bonne cohérence des mesures prises par chacune des parties (cf. critères de Pertinence et Exactitude imposées par le GHG Protocol).
 
-Pour en savoir + sur la décarbonation du numérique et sur les outils de mesure qui en découlent, vous pouvez également consulter cette interview de Laurent Eskenazi (cofondateur de Boavizta) et Guillaume Thibaux (cofondateur de DEM) pour BSmart TV :
-
-[https://www.youtube.com/watch?v=UELsTjTDMag](https://www.youtube.com/watch?v=UELsTjTDMag)
+Pour en savoir + sur la décarbonation du numérique et sur les outils de mesure qui en découlent, vous pouvez également [consulter cette interview](https://www.youtube.com/watch?v=UELsTjTDMag) de Laurent Eskenazi (cofondateur de Boavizta) et Guillaume Thibaux (cofondateur de DEM) pour BSmart TV.
 
 ## Les dimensions du calcul
 

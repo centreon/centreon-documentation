@@ -33,7 +33,7 @@ L'agent DEM dispose de modules (ou agents applicatifs), permettant de récupére
     curl http://127.0.0.1/server-status
     ```
     
-3. Si ce n'est pas le cas, il faudra mettre en place le module **mod_status** d'Apache: [*https://httpd.apache.org/docs/current/mod/mod_status.html*](https://httpd.apache.org/docs/current/mod/mod_status.html)
+3. Si ce n'est pas le cas, il faudra [mettre en place le module **mod_status** d'Apache](https://httpd.apache.org/docs/current/fr/mod/mod_status.html).
 4. Si vous souhaitez modifier l'URL utilisée par notre module, vous pouvez modifier le fichier: ***/etc/quanta/modules.d/apache.yml***
 5. Redémarrez l'agent
     

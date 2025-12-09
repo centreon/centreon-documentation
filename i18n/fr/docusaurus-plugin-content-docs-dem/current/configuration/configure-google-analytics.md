@@ -38,7 +38,7 @@ Avec DEM, vous pouvez corréler le temps d’exécution de vos webscénarios ave
 
 </aside>
 
-[https://youtu.be/vOVU7zv_GZg?list=PLgmedpAAxo-5XqQVueiuwFwhKs_DifUDb](https://youtu.be/vOVU7zv_GZg?list=PLgmedpAAxo-5XqQVueiuwFwhKs_DifUDb)
+Nous avons un [tutoriel vidéo](https://youtu.be/vOVU7zv_GZg?list=PLgmedpAAxo-5XqQVueiuwFwhKs_DifUDb) qui démontre comment lier Quanta à votre compte google.
 
 Pour lier DEM avec votre compte Google Analytics, rendez-vous dans l’onglet « Configuration » (icône qui ressemble à un engrenage en haut à droite de votre écran) sélectionnez le site (en cliquant sur son nom) pour lequel vous voulez lier votre compte Google Analytics.
 
