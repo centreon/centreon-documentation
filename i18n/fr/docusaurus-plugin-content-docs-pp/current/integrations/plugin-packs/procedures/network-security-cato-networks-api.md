@@ -52,7 +52,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                         | Description                                      |
 |:----------------------------------------|:-------------------------------------------------|
-| Network-Security-Cato-Networks-Api-Site | Découvre les sites Cato Networks via l'API            |
+| Network-Security-Cato-Networks-Api-Site | Découvre les sites Cato Networks via l'API et supervise leur connectivité |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
