@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Cato Networks API**](../procedures/network-security-cato-networks-api.md) - Initial release.
 - [**Microsoft Cluster Server CMA**](../procedures/applications-mscs-cma.md) - Initial release.
-- [**Nvidia (formerly Mellanox) SNMP**](../procedures/network-nvidia-mellanox-snmp.md) - Initial release.
+- [**Nvidia (formerly Mellanox) SNMP**](../procedures/network-nvidia-mellanox-snmp.md) - Initial release [PR 5753](https://github.com/centreon/centreon-plugins/pull/5753).
 - [**OpenStack RESTAPI**](../procedures/cloud-openstack-restapi.md) - Initial release.
 
 </TabItem>
@@ -40,7 +40,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Fix" label="Fix">
 
 - [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - Fixed typo in jobs mode.
-- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Added state to the requested fields in volume query.
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Added state to the requested fields in volume query [PR 5851](https://github.com/centreon/centreon-plugins/pull/5851).
 - [**Netbackup NSClient++ API**](../procedures/applications-netbackup-nsclient-05-restapi.md) - Removed exchange command.
 - [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed wrong tablespace size calculation in tablespace-usage mode.
 - [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
