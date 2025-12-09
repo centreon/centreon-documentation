@@ -46,9 +46,9 @@ Si vous souhaitez intégrer des évènements via un autre service qui ne permet 
 curl -L -m 10 https://app.quanta.io/api/events/push?content=bonjour&type=custom&auth_token=78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216
 ```
 
-<aside>
-💡 Dans les 2 commandes ci-dessus, l'option *-m* de cURL permet de positionner un timeout à 10 secondes afin de ne pas bloquer vos scripts en cas d'une indisponibilité éventuelle de notre API.
 
-</aside>
+Dans les 2 commandes ci-dessus, l'option *-m* de cURL permet de positionner un timeout à 10 secondes afin de ne pas bloquer vos scripts en cas d'une indisponibilité éventuelle de notre API.
+
+
 
 Notre API renverra un code HTTP 200 en cas de succès et un code 5xx ou 4xx en cas d'erreur. La réponse contiendra un contenu JSON avec le champ "error" en cas d'erreur ou "success" en cas de réussite.

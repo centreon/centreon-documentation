@@ -25,33 +25,33 @@ Voici un exemple explicatif, imaginons que le code HTML est architecturé comme 
 .main iframe
 ```
 
-✅  ⇒ renvoie bien l'iframe
+⇒ renvoie bien l'iframe
 
 ```css
 #my-form
 ```
 
-✅  ⇒ renvoie le 1er my-form (celui qui n'est pas dans l'iframe)
+⇒ renvoie le 1er my-form (celui qui n'est pas dans l'iframe)
 
 ```
 .main iframe .frame-content
 ```
 
-❌  ⇒ ne fonctionne pas, car `.frame-content` appartient au document de l'iframe
+⇒ ne fonctionne pas, car `.frame-content` appartient au document de l'iframe
 
 ```
 .frame-content #my-form
 ```
 
-✅  ⇒renvoie bien le form qui se trouve à l'intérieur de l'iframe cette fois-ci
+⇒renvoie bien le form qui se trouve à l'intérieur de l'iframe cette fois-ci
 
 ```
 iframe #my-form
 ```
 
-❌  ⇒ ne fonctionne pas car #my-form est déja dans le document de l'iframe.
+⇒ ne fonctionne pas car #my-form est déja dans le document de l'iframe.
 
-⚠️ **Quand on veut un élément qui est à l'intérieur d'une iframe, on doit faire comme si TOUT ce qu'il y a en dehors du CONTENU de l'iframe n'existait pas.**
+**Quand on veut un élément qui est à l'intérieur d'une iframe, on doit faire comme si TOUT ce qu'il y a en dehors du CONTENU de l'iframe n'existait pas.**
 
 ## Bonnes Pratiques
 
@@ -230,8 +230,7 @@ iframe #my-form
     
     **#product-addtocart-button:not([disabled="disabled"])**
     
-    Dans ce cas, le sélecteur CSS va "apparaitre" dans les cas où le paramètre "disabled" disparaitrait complètement OU BIEN si sa valeur devient n'importe quoi d'autre que "disabled". Dans le cas d'un passage à un état disabled="false", alors le chaine sera bien vérifiée et notre objectif de scénario rempli 👍
-    
+    Dans ce cas, le sélecteur CSS va "apparaitre" dans les cas où le paramètre "disabled" disparaitrait complètement OU BIEN si sa valeur devient n'importe quoi d'autre que "disabled". Dans le cas d'un passage à un état disabled="false", alors le chaine sera bien vérifiée et notre objectif de scénario rempli. 
     **a[href="https://www.xxxxx.com/"]**
     
     Ce sélecteur permet de dire : je veux l'élément cliquable ("a") dont l'URL de destination est "https://www.xxxxx.com/".
@@ -246,7 +245,7 @@ iframe #my-form
     
     Il est possible de désigner des objets en fonction des paramètres spécifiques qui les composent. Cette chaine permettra de cliquer sur l'élément de ce type : &lt;button data-role="change-store"&gt;
     
-    ⚠️ Attention néanmoins, il est important de savoir que DEM ne vérifie pas systématiquement **les changements d'états des paramètres** des objets de la page après avoir récupéré le code HTML initial. En effet, un compromis a du être fait en matière de performance lors de l'exécution des scénarios, et il a été choisi de surveiller les changements suivants :
+    Attention néanmoins, il est important de savoir que DEM ne vérifie pas systématiquement **les changements d'états des paramètres** des objets de la page après avoir récupéré le code HTML initial. En effet, un compromis a du être fait en matière de performance lors de l'exécution des scénarios, et il a été choisi de surveiller les changements suivants :
     
     - changement sur les classes (apparition, disparition)
     - changement sur les paramètres "disabled" ou "disable"

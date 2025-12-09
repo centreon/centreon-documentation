@@ -3,12 +3,12 @@ id: event-tracking
 title: Suivre et ajouter les évènements de son site dans DEM
 --- 
 
-<aside>
-💡 Cette page décrit comment ajouter vos propres commentaires via l’interface, mais il est également possible de les ajouter automatiquement (par exemple à chaque mise à jour). Rendez-vous sur cette page pour utiliser notre API:
+
+Cette page décrit comment ajouter vos propres commentaires via l’interface, mais il est également possible de les ajouter automatiquement (par exemple à chaque mise à jour). Rendez-vous sur cette page pour utiliser notre API:
 
 [Suivre automatiquement les événements de mise en production](../../installation/monitor-production-events.md)
 
-</aside>
+
 
 Vous avez la possibilité d'ajouter des évènements personnalisés dans DEM de manière à ajouter de l'information sur les différents graphes.
 

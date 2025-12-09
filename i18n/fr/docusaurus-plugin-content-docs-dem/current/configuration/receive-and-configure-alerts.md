@@ -19,10 +19,10 @@ Page profil
 
 Pour envoyer une notification dans un canal Teams, Google Chat, ou d’autres logiciels de messagerie, vous pourrez utiliser les webhooks dans les alertes.
 
-<aside>
+
 >Si vous souhaitez envoyer des notifications à un email d’équipe, vous pouvez créer un utilisateur utilisant cet email d’équipe. Référez-vous à la page dédiée : [Gérez vos utilisateurs et leurs droits](./manage-users-and-rights.md)
 
-</aside>
+
 
 ## Accéder à l’écran de configuration des alertes et rapports
 

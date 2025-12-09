@@ -5,10 +5,10 @@ title: Installer le Real User Monitoring
 
 ## Considérations RGPD
 
-<aside>
-🏆 Bien que DEM utilise un cookie, **aucun consentement n’est nécessaire.**
 
-</aside>
+Bien que DEM utilise un cookie, **aucun consentement n’est nécessaire.**
+
+
 
 La CNIL exempte de consentement les cookies sous certaines conditions:
 

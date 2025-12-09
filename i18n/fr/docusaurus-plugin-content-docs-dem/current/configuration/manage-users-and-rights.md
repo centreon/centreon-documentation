@@ -19,10 +19,10 @@ Les utilisateurs devront changer leur mot de passe après le nombre de jours que
 
 ## **Inviter un nouvel utilisateur à votre organisation**
 
-<aside>
+
 >Si personne de votre organisation n’est Administrateur ou Propriétaire, contactez le support DEM ou votre revendeur pour gérer votre organisation.
 
-</aside>
+
 
 ### **Les permissions**
 
@@ -55,7 +55,7 @@ Pour retirer les permissions d'un utilisateur dans votre organisation vous devez
 
 Pour retirer les permissions d'un utilisateur, il suffit de cliquer sur la croix à côté de son nom
 
-<aside>
+
 >Si vous souhaitez supprimer l'accès d'un utilisateur à plusieurs organisations, il faut le faire pour chacune d'entre elles. Si vous avez accès à beaucoup d'Organisations, n'hésitez pas à contacter le support DEM pour que nous vous assistions.
 
-</aside>
+

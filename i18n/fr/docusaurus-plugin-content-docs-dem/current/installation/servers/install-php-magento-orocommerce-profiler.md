@@ -7,12 +7,12 @@ Le module PHP DEM se présente sous la forme d'une extension PHP et vous permett
 
 ## Pré-requis
 
-<aside>
-⚠️ Le profiler nécessite l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
+
+Le profiler nécessite l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
 
 [Installer les agents systèmes](./install-system-agents.md)
 
-</aside>
+
 
 ## Compatibilité
 
@@ -28,10 +28,10 @@ Le module PHP DEM se présente sous la forme d'une extension PHP et vous permett
 
 ## Installation
 
-<aside>
-💡 Le module PHP est à installer sur chaque serveur exécutant votre application PHP.
 
-</aside>
+Le module PHP est à installer sur chaque serveur exécutant votre application PHP.
+
+
 
 ### Installer le module PHP DEM pour Debian / Ubuntu
 
@@ -162,9 +162,9 @@ Vous devriez alors voir l'onglet "Application" (autrement cet onglet est grisé)
 
 Dans le cas d'utilisation d'un CMS Magento (v1 ou 2) ou de la plateforme OroCommerce, le code couleur est différent. Il est orange pour Magento et jaune pour OroCommerce
 
-<aside>
-💡 Les métriques avancées (Apache, MySQL, Redis, etc…) sont à installer à part. Référez-vous à la page dédiée:
+
+Les métriques avancées (Apache, MySQL, Redis, etc…) sont à installer à part. Référez-vous à la page dédiée:
 
 [Ajouter les métriques avancées](./add-advanced-metrics.md)
 
-</aside>
+

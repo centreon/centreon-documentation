@@ -9,12 +9,12 @@ A l’heure actuelle, il n’est pas possible de rattacher un serveur à plusieu
 
 La remontée d’information vers l’application DEM nécessite l’installation d’un agent sur tous les serveurs que vous souhaitez surveiller. Pour ce faire, vous devez installer l’agent DEM.
 
-<aside>
-💡 Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur la page dédiée :
+
+Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur la page dédiée :
 
 [Les adresses IP de QuDEManta](../dem-ip-addresses.md)
 
-</aside>
+
 
 ## Obtenir le token
 
@@ -27,10 +27,10 @@ Retrouvez l’emplacement du token en vidéo:
 
 ## Procéder à l’installation
 
-<aside>
-⚠️ Si vous utilisez des conteneurs Docker, ou des systèmes d’autoscaling (AWS ASG, Azure Scale Set ou autres), reportez-vous à la section *“Installation pour Docker et systèmes d’autoscaling”* avant l’installation sur l’OS.
 
-</aside>
+Si vous utilisez des conteneurs Docker, ou des systèmes d’autoscaling (AWS ASG, Azure Scale Set ou autres), reportez-vous à la section *“Installation pour Docker et systèmes d’autoscaling”* avant l’installation sur l’OS.
+
+
 
 ### Installation pour Debian
 
@@ -59,10 +59,10 @@ Pour installer l'agent DEM :
     
     ### Version `BETA`
     
-    <aside>
-    💡 Pour utiliser la version **BETA** vous devrez simplement remplacer à la fin de la ligne `main`par `beta`.
     
-    </aside>
+    Pour utiliser la version **BETA** vous devrez simplement remplacer à la fin de la ligne `main`par `beta`.
+    
+    
     
 2. Téléchargez et ajoutez la clé **GPG** de notre dépôt:
     
@@ -110,10 +110,10 @@ Pour installer l'agent DEM :
     
     ### Version `BETA`
     
-    <aside>
-    💡 Pour utiliser la version **BETA** vous devrez simplement remplacer à la fin de la ligne `main`par `beta`.
     
-    </aside>
+    Pour utiliser la version **BETA** vous devrez simplement remplacer à la fin de la ligne `main`par `beta`.
+    
+    
     
 2. Téléchargez et ajoutez la clé **GPG** de notre dépôt:
     
@@ -147,8 +147,8 @@ Pour installer l'agent DEM :
 
 1. Créez le fichier de configuration du dépôt dans le fichier **/etc/yum.repos.d/quanta.repo**. Pour ce faire vous pouvez télécharger le fichier de configuration disponible ici: [https://rpm.quanta.io/quanta-centos-repo.txt](https://rpm.quanta.io/quanta-centos-repo.txt)
     
-    <aside>
-   💡 Pour utiliser la version **BETA** vous devrez simplement remplacer la ligne :
+    
+   Pour utiliser la version **BETA** vous devrez simplement remplacer la ligne :
     
     ```
     baseurl=http://rpm.quanta.io/centos/$releasever/main
@@ -160,7 +160,7 @@ Pour installer l'agent DEM :
     baseurl=http://rpm.quanta.io/centos/$releasever/beta
     ```
     
-    </aside>
+    
     
 2. Installez la clé **GPG** de notre dépôt:
     

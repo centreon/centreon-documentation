@@ -5,12 +5,12 @@ title: Ajouter les métriques avancées
 
 L'agent DEM dispose de modules (ou agents applicatifs), permettant de récupérer des données systèmes sur différents composants de votre infrastructure tels que vos services Apache, MySQL, Redis, Varnish, PostgreSQL, …
 
-<aside>
-⚠️ Ces agents applicatifs sont à installer **après** l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
+
+Ces agents applicatifs sont à installer **après** l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
 
 [Installer les agents systèmes](./install-system-agents.md)
 
-</aside>
+
 
 ## Apache
 
@@ -232,9 +232,9 @@ Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
 Vous devriez voir des métriques apparaître dans DEM sous quelques minutes.
 
-<aside>
-💡 Le profiler PHP est à installer à part. Référez-vous à la page dédiée:
+
+Le profiler PHP est à installer à part. Référez-vous à la page dédiée:
 
 [Installer le profiler PHP / Magento / OroCommerce](./install-php-magento-orocommerce-profiler.md)
 
-</aside>
+

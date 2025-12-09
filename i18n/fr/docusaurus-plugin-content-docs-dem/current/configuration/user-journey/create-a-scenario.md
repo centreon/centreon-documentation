@@ -3,15 +3,15 @@ id: create-a-scenario
 title: Création d’un scénario (”Parcours Utilisateur”)
 --- 
 
-<aside>
-⚠️ Vous pouvez vérifier qu’il vous reste suffisamment d’étapes dans la page Organisation
+
+Vous pouvez vérifier qu’il vous reste suffisamment d’étapes dans la page Organisation
 
 ![image](../../assets/configuration/user-journey/create-scenario-1.png)
 
-</aside>
 
-<aside>
-⚠️ Vous devez disposer des droits Propriétaire ou Administrateur pour modifier vos scénarios. Vous pouvez vérifier dans votre page Profil
+
+
+Vous devez disposer des droits Propriétaire ou Administrateur pour modifier vos scénarios. Vous pouvez vérifier dans votre page Profil
 
 ![image](../../assets/configuration/user-journey/create-scenario-2.png)
 
@@ -19,7 +19,7 @@ Pour les modifier, consultez:
 
 [Gérez vos utilisateurs et leurs droits](../manage-users-and-rights.md)
 
-</aside>
+
 
 ## Entrer en mode création/édition de parcours
 
@@ -69,12 +69,12 @@ Lorsque que la sonde passe, le contenu est mis à jour automatiquement. Vous ver
 
 ## Configurer des étapes
 
-<aside>
-💡 **Une étape contient au moins une action** et s’arrête nécessairement en cas de navigation. **Vous pouvez configurer plusieurs actions dans une étape**, mais une étape ne peut pas contenir plusieurs navigations.
+
+**Une étape contient au moins une action** et s’arrête nécessairement en cas de navigation. **Vous pouvez configurer plusieurs actions dans une étape**, mais une étape ne peut pas contenir plusieurs navigations.
 
 Par exemple, vous pouvez remplir un formulaire, ajouter au panier un produit puis cliquer pour naviguer vers le panier en une étape.
 
-</aside>
+
 
 ### Configurer une action
 
@@ -150,10 +150,10 @@ Lorsqu’une action est effectuée, vous pouvez ajouter des vérifications de su
 
 #### Confirmer qu’une navigation a été effectuée
 
-<aside>
-💡 Cette vérification ne peut pas être retirée pour une action Naviguer.
 
-</aside>
+Cette vérification ne peut pas être retirée pour une action Naviguer.
+
+
 
 La sonde va vérifier qu’un nouveau document HTML a été chargé correctement, c’est-à-dire:
 
@@ -164,11 +164,11 @@ Aucune vérification du contenu n’est faite.
 
 #### Trouver le texte
 
-<aside>
-💡 Nous vous recommandons d’utiliser des sélecteurs CSS car moins sensible aux changements du site.
+
+Nous vous recommandons d’utiliser des sélecteurs CSS car moins sensible aux changements du site.
 Si vous ne savez pas comment créer vos sélecteurs CSS, contactez votre agence ou le support DEM (support@quanta.io ou le point d’interrogation en bas à droite dans DEM) pour que nous vous configurions votre parcours.
 
-</aside>
+
 
 Cette vérification utilise la même logique que les actions Cliquer et Survoler. Si le texte que vous cherchez existe sur la page après l’action, alors la vérification est acceptée
 
@@ -213,10 +213,10 @@ Nous vous recommandons d’utiliser des noms bien distincts, et d’utiliser un 
 
 ### Profilage PHP
 
-<aside>
-💡 Par défaut, DEM l’active s’il reçoit des données PHP.
 
-</aside>
+Par défaut, DEM l’active s’il reçoit des données PHP.
+
+
 
 Permet d’activer / désactiver le profilage PHP sur ce parcours si vous avez l’agent système DEM et le module PHP installé sur vos serveurs.
 
@@ -226,10 +226,10 @@ Vous pouvez retrouver la procédure d’installation des agents sur cette page:
 
 ### Vérifier le certificat SSL
 
-<aside>
-💡 Activé par défaut.
 
-</aside>
+Activé par défaut.
+
+
 
 Permet d’activer / désactiver la vérification de conformité du certificat TLS/SSL.
 
@@ -251,10 +251,10 @@ Renseignez un nom d’utilisateur et un mot de passe pour activer cette option d
 
 **Activer le cache navigateur**
 
-<aside>
-💡 Par défaut, activé
 
-</aside>
+Par défaut, activé
+
+
 
 Les navigateurs “cachent” le contenu. Par exemple, le logo de votre site n’est pas chargé à chaque fois que l’utilisateur ouvre une nouvelle page de votre site. Le navigateur reconnait qu’il s’agit de la même image et l’affiche depuis la mémoire plutôt que de la télécharger.
 
@@ -262,10 +262,10 @@ Désactivez pour que la sonde télécharge tous les contenus à chaque interacti
 
 **User Agent**
 
-<aside>
-💡 Par défaut, la sonde s’identifie comme un navigateur Google Chrome
 
-</aside>
+Par défaut, la sonde s’identifie comme un navigateur Google Chrome
+
+
 
 Le User Agent est une information donnée par le navigateur à votre site pour indiquer quel navigateur il utilise afin de pouvoir adapter les contenus si besoin.
 
@@ -279,10 +279,10 @@ Choisissez une bande passante représentative de votre trafic. Choisissez 3G ou 
 
 Choisissez un type d’appareil comme un ordinateur, une tablette, ou un téléphone parmi la liste.
 
-<aside>
-💡 Modifier le type d’appareil ne modifie pas le navigateur ou le matériel utilisé mais simule la taille d’écran de l’appareil choisi
 
-</aside>
+Modifier le type d’appareil ne modifie pas le navigateur ou le matériel utilisé mais simule la taille d’écran de l’appareil choisi
+
+
 
 **Orientation**
 
@@ -300,24 +300,24 @@ Vous pouvez ajouter des headers HTTP personnalisés
 
 **Attendre le chargement complet**
 
-<aside>
-💡 Par défaut, activé
 
-</aside>
+Par défaut, activé
+
+
 
 Par défaut, la sonde attend l’évènement OnLoad avant de passer à l’étape suivante, même si les vérifications sont réussies. Vous pouvez désactiver ce comportement et forcer la sonde à avancer dès que les vérifications sont finies, même si la page n’est pas chargée.
 
 **Intervalle de mesure**
 
-<aside>
-💡 Si le parcours dure plus longtemps que l’intervalle de mesure, la sonde ne finira pas le parcours et reprendra au début.
 
-</aside>
+Si le parcours dure plus longtemps que l’intervalle de mesure, la sonde ne finira pas le parcours et reprendra au début.
 
-<aside>
-🌳 Un intervalle de mesure plus grand, c’est moins de données qui transitent sur le réseau et moins de travail pour vos serveurs.
 
-</aside>
+
+
+Un intervalle de mesure plus grand, c’est moins de données qui transitent sur le réseau et moins de travail pour vos serveurs.
+
+
 
 Choisissez tous les combien de temps la sonde doit passer sur le parcours
 
@@ -327,8 +327,8 @@ Si la sonde passe ce temps sur une étape, la considérer en échec. Un temps tr
 
 ### URLs en liste noire (exclure DEM des statistiques de mesure de trafic)
 
-<aside>
-💡 Par défaut, nous excluons les fournisseurs suivants:
+
+Par défaut, nous excluons les fournisseurs suivants:
 
 - DoubleClick
 - Hotjar
@@ -336,7 +336,7 @@ Si la sonde passe ce temps sur une étape, la considérer en échec. Un temps tr
 - Notre propre RUM
 - Google Ads
 - Google Maps
-</aside>
+
 
 Pour éviter que la sonde ne compte dans certains de vos outils, vous pouvez lui demander de ne pas envoyer de requête vers des domaines personnalisés.
 
