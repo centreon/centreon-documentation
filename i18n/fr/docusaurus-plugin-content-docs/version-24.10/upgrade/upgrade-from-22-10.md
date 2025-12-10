@@ -49,7 +49,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 1. Mettez à jour votre Centreon 22.10 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10-el8.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
