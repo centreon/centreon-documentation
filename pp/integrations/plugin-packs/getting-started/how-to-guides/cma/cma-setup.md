@@ -737,6 +737,8 @@ Run **centreon-monitoring-agent-modify.exe** located in the CMA installation dir
 This can also be done in silent mode
 ```shell
 centreon-monitoring-agent-modify.exe /VERYSILENT
+```
+
 </TabItem>
 </Tabs>
 
