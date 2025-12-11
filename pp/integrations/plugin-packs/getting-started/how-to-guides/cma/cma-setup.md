@@ -8,7 +8,7 @@ import PollerAgentConfiguration from '../_poller-agent-configuration.mdx';
 
 ## Step 1: Configure Centreon
 
-This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/24.10/).)
+This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/25.10/).)
 
 ### Install the Monitoring Connector you need (OnPrem version)
 
@@ -286,7 +286,6 @@ apt install centreon-monitoring-agent
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/ubuntu-standard-25.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-echo "deb https://packages.centreon.com/ubuntu-standard-25.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -525,7 +524,7 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /COMPONENTS=agent,plugins /HOST=ho
 
 Command with optional parameters : 
 ```shell
-centreon-monitoring-agent-xxx.exe /VERYSILENT /REVERSE /COMPONENTS=agent /HOST=agent1 /ENDPOINT=127.0.0.1:4317 /LOGTYPE=File /LOGLEVEL=Debug /LOGFILE="C:\Logs\agent.log" /MAXFILESIZE=20 /MAXNUMBER=5 /ENCRYPTION=true /CERT="C:\certs\agent.crt" /KEY="C:\certs\agent.key" /CA="C:\certs\ca.crt" /COMMONNAME=centreon /TOKEN=token_value
+centreon-monitoring-agent-xxx.exe /VERYSILENT /REVERSE /COMPONENTS=agent /HOST=agent1 /ENDPOINT=127.0.0.1:4317 /LOGTYPE=File /LOGLEVEL=Debug /LOGFILE="C:\Logs\agent.log" /MAXFILESIZE=20 /MAXNUMBER=5 /ENCRYPTION=full /CERT="C:\certs\agent.crt" /KEY="C:\certs\agent.key" /CA="C:\certs\ca.crt" /COMMONNAME=centreon /TOKEN=token_value
 So
 ```
 
@@ -725,23 +724,7 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 ```
 
 </TabItem>
-<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
 
-```bash
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
-
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-apt-get update
-```
-
-2. Install the plugin:
-
-```bash
-apt -y install centreon-plugin-operatingsystems-linux-local
-```
-
-</TabItem>
 <TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
 
 ```bash
