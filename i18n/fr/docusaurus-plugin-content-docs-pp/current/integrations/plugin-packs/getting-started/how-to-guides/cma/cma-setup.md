@@ -739,6 +739,10 @@ Exécuter **centreon-monitoring-agent-modify.exe** situé dans le répertoire d'
 Cela est également possible en mode silencieux :
 ```shell
 centreon-monitoring-agent-modify.exe /VERYSILENT
+```
+
+</TabItem>
+</Tabs>
 
 ## Étape 4 : Tester le fonctionnement de l'agent
 
