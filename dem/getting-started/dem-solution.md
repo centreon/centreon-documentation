@@ -3,7 +3,7 @@ id: dem-solution
 title: The Centreon DEM Solution
 ---
 
-**Centreon DEM (formely Quanta) is a Digital Experience Monitoring platform designed to combine web performance and digital sustainability.** It enables tech, product, and business teams to collaborate efficiently to deliver fast and reliable digital experiences while saving hardware resources.
+**Centreon DEM (formerly Quanta) is a Digital Experience Monitoring platform designed to combine web performance and digital sustainability.** It enables tech, product, and business teams to collaborate efficiently to deliver fast and reliable digital experiences while saving hardware resources.
 
 The solution combines several complementary components:
 
