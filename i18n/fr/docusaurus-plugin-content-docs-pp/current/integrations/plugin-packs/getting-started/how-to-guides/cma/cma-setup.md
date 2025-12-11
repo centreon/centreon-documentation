@@ -739,6 +739,42 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 ```
 
 </TabItem>
+
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
+
+```bash
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt-get update
+```
+
+2. Installez le plugin :
+
+```bash
+apt -y install centreon-plugin-operatingsystems-linux-local
+```
+
+</TabItem>
+
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
+
+```bash
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt-get update
+```
+
+2. Installez le plugin :
+
+```bash
+apt -y install centreon-plugin-operatingsystems-linux-local
+```
+
+</TabItem>
 </Tabs>
 
 ### Mettre à jour une configuration existante 
