@@ -100,6 +100,44 @@ dnf module enable -y mariadb:10.11
 </TabItem>
 </Tabs>
 
+### Upgrade the Centreon solution
+
+1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
+
+2. If you have installed Business extensions, delete the configuration of the 20.10 repository: 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-20.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-20.10.repo
+```
+
+</TabItem>
+</Tabs>
+
+3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+
+5. Stop the Centreon Broker process:
+
+```shell
+systemctl stop cbd
+```
+
+6. Delete existing retention files:
+
+```shell
+rm /var/lib/centreon-broker/* -f
+```
+
 ### Upgrade PHP
 
 Centreon 25.10 uses PHP in version 8.2.
@@ -146,43 +184,7 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
-### Upgrade the Centreon solution
-
-1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
-
-2. If you have installed Business extensions, delete the configuration of the 20.10 repository: 
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-20.10.repo
-```
-
-</TabItem>
-
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-20.10.repo
-```
-
-</TabItem>
-</Tabs>
-
-3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
-
-5. Stop the Centreon Broker process:
-
-```shell
-systemctl stop cbd
-```
-
-6. Delete existing retention files:
-
-```shell
-rm /var/lib/centreon-broker/* -f
-```
+Then, finish upgrading the Centreon solution
 
 7. Clean the cache:
 
@@ -213,21 +215,16 @@ dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
-</Tabs>
+<TabItem value="Debian 12" label="Debian 12">
 
-> Accept new GPG keys from the repositories as needed.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Execute the following commands:
 ```shell
-systemctl enable php-fpm
-systemctl restart php-fpm
+apt install --only-upgrade centreon
 ```
 
 </TabItem>
 </Tabs>
+
+> Accept new GPG keys from the repositories as needed.
 
 ### Update your customized Apache configuration
 
