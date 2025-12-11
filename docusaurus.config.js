@@ -367,7 +367,7 @@ const config = {
               ...items,
               {
                 to: '/dem/getting-started/welcome',
-                label: 'Quanta by Centreon',
+                label: 'Centreon DEM',
                 position: 'left',
                 activeBaseRegex: '/dem/',
               },
