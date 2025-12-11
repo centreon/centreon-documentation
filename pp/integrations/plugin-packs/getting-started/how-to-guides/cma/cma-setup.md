@@ -139,6 +139,7 @@ Run the following commands:
 ```bash
 firewall-cmd --zone=public --add-port=4317/tcp --permanent
 ```
+
 ```bash
 firewall-cmd --reload 
 ```
@@ -421,6 +422,7 @@ The CMA installer can be executed in 2 modes:
 <TabItem value="Poller connects to agent" label="Poller connects to agent">
 
    * **Listening interface** can keep the default value (0.0.0.0:4317) and will be the interface through which the agent accepts incoming connections from the poller. (0.0.0.0) means 'all interfaces'. You can restrict this value for security reasons.
+
 </TabItem>
 </Tabs>
 
@@ -735,6 +737,7 @@ Modify the **/etc/centreon-monitoring-agent/centagent.json** file and restart th
 
 Run **centreon-monitoring-agent-modify.exe** located in the CMA installation directory.
 This can also be done in silent mode
+
 ```shell
 centreon-monitoring-agent-modify.exe /VERYSILENT
 ```
