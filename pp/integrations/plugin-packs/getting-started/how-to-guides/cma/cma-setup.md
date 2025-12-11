@@ -39,7 +39,9 @@ In the case of a Cloud platform, these connectors are already installed.
 2. Update the Centreon Monitoring Agent connector in the following way: in the **Used by command** field, type **Centreon-Monitoring-Agent** and then click **Select all**.
 
 ### Create an authentication token
-> Cloud: a token is present by default on your platform and can be used.
+
+This step only applies to OnPrem platforms. For Centreon Cloud, a default token is provided on the **Administration > Authentication token** page.
+
 
 1. Go to **Administration > Authentication tokens**.
 
@@ -123,7 +125,7 @@ This configuration is deployed on the poller in the **/etc/centreon-engine/otl_s
 
 ## Step 2: Prepare the poller
 
-> Cloud: This step is not necessary if you want to use CMA with the Central poller.
+> Cloud: This step is not necessary if you want to use CMA with the **Central** poller.
 
 This step is performed on the poller.
 
@@ -308,8 +310,8 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
-> Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
+> Cloud: when using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 ```json
 {
@@ -410,8 +412,8 @@ The CMA installer can be executed in 2 modes:
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
-> Cloud: when using the central poller, the value of **Poller endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
+> Cloud: when using the **Central** poller, the value of **Poller endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
    * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317. For example, 192.168.45.32:4317.
 
@@ -431,8 +433,8 @@ If you want to have an exit status, you can launch the installer in a powershell
 <Tabs groupId="sync">
 <TabItem value="before 25.10" label="Before 25.10">
 
-> Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
+> Cloud: when using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 To run it in silent mode, you need to set /S as the first argument. You can display a list of arguments with the following command:
 
@@ -440,7 +442,7 @@ To run it in silent mode, you need to set /S as the first argument. You can disp
 centreon-monitoring-agent.exe /S --help
 ```
 
-To escape the **-** character in an argument value, it must be preceded by **--%**.
+To escape the **-** character in an argument value, it must be preceded by **--%**. Example:
 
 ```
 --% --hostname "Test-Hostname"
@@ -473,14 +475,14 @@ If you use the **--install_plugins** option but the download of the plugins fail
 </TabItem>
 <TabItem value="25.10" label="From 25.10">
 
-To run it in silent mode, you must specify /VERYSILENT as the first argument.
+To run it in silent mode, you must specify **/VERYSILENT** as the first argument.
 You can display a list of arguments with the following command line:
 
 ```shell
 centreon-monitoring-agent.exe /VERYSILENT --help
 ```
 > Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-$\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Available parameters are : 
 
@@ -725,14 +727,16 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
+
 Modify the **/etc/centreon-monitoring-agent/centagent.json** file and restart the agent.
+
 </TabItem>
 <TabItem value="Windows" label="Windows">
+
 Run **centreon-monitoring-agent-modify.exe** located in the CMA installation directory.
 This can also be done in silent mode
 ```shell
 centreon-monitoring-agent-modify.exe /VERYSILENT
-```
 </TabItem>
 </Tabs>
 

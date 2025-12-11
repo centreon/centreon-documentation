@@ -40,7 +40,7 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 ### Créez un jeton d'authentification
 
-> Cloud : un jeton est présent par défaut sur votre plateforme, et peut être utilisé.
+Cette étape ne s'applique que pour les plateformes OnPrem. Pour Centreon Cloud, un jeton est fourni par défaut à la page **Administration > Jetons d'authentification**.
 
 1. Allez à la page **Administration > Jetons d'authentification**.
 
@@ -76,7 +76,7 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
 
-> Selon le sens de connexion souhaité, le champ "Adresse" de l'hôte n'aura pas d'impact (connexion initiée par l'agent) ou sera récupérée lors de la sélection de l’hôte dans la configuration d'agent (connexion initiée par le collecteur).
+> Selon le sens de connexion souhaité, le champ "Adresse" de l'hôte n'aura pas d'impact (connexion initiée par l'agent) ou sera récupéré lors de la sélection de l’hôte dans la configuration d'agent (connexion initiée par le collecteur).
 
 Créez les services associés au modèle d'hôte.
 
@@ -124,7 +124,7 @@ Cette configuration est déployée sur le collecteur dans le fichier **/etc/cent
 
 ## Étape 2 : Préparez le collecteur
 
-> Cloud : Cette étape n'est pas nécessaire si vous souhaitez utiliser CMA avec le collecteur Central.
+> Cloud : Cette étape n'est pas nécessaire si vous souhaitez utiliser CMA avec le collecteur **Central**.
 
 Cette étape s'effectue sur le collecteur.
 
@@ -310,7 +310,7 @@ apt install centreon-monitoring-agent
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
-> Cloud : dans le cas de l'utilisation du collecteur central, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> Cloud : si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 $\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 ```json
@@ -412,7 +412,7 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
-> Cloud : dans le cas de l'utilisation du collecteur central, la valeur de **Poller endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> Cloud : si vous utilisez le collecteur **Central**, la valeur de **Poller endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 $\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 
@@ -433,7 +433,7 @@ Si vous voulez tester le succès de l'installation, vous devez récupérer l'exi
 <Tabs groupId="sync">
 <TabItem value="avant 25.10" label="Avant 25.10">
 
-> Cloud : dans le cas de l'utilisation du collecteur central, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> Cloud : si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 $\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Pour le lancer en mode silencieux, vous devez mettre en premier argument /S.
@@ -443,7 +443,7 @@ Vous pouvez afficher une liste des arguments avec la ligne de commande suivante 
 centreon-monitoring-agent.exe /S --help
 ```
 
-Pour échapper le caractère **-** dans la valeur d'un argument, celui-ci doit être précédé par **--%**
+Pour échapper le caractère **-** dans la valeur d'un argument, celui-ci doit être précédé par **--%**. Exemple :
 
 ```
 --% --hostname "Test-Hostname"
@@ -479,14 +479,14 @@ Si vous utilisez l'option **--install_plugins** et que le téléchargement écho
 </TabItem>
 <TabItem value="25.10" label="A partir de 25.10">
 
-Pour le lancer en mode silencieux, vous devez mettre en premier argument /VERYSILENT.
+Pour le lancer en mode silencieux, vous devez mettre en premier argument **/VERYSILENT**.
 Vous pouvez afficher une liste des arguments avec la ligne de commande suivante :
 
 ```shell
 centreon-monitoring-agent.exe /VERYSILENT --help
 ```
-> Cloud : dans le cas de l'utilisation du collecteur central, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-$\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
+> Cloud : si vous utilisez le collecteur central, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Les différents arguments sont:
 
@@ -727,18 +727,18 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
+
 Modifier le fichier **/etc/centreon-monitoring-agent/centagent.json**.
 Redémarrer l'agent.
+
 </TabItem>
 <TabItem value="Windows" label="Windows">
+
 Exécuter **centreon-monitoring-agent-modify.exe** situé dans le répertoire d'installation de CMA.
 
 Cela est également possible en mode silencieux :
 ```shell
 centreon-monitoring-agent-modify.exe /VERYSILENT
-```
-</TabItem>
-</Tabs>
 
 ## Étape 4 : Tester le fonctionnement de l'agent
 
