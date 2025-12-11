@@ -88,7 +88,7 @@ Make sure that the output contains **ETL OK - Database is up to date** OR that t
 - hoststatevents
 - servicestateevents
 
-If there are problems in the output, read [**Locating missing data or partitions**](https://docs-next-int.centreon.com/docs/reporting/troubleshooting/#locating-missing-data-or-partitions-using-the---partitions-and---db-content-commands).
+If there are problems in the output, read [**Locating missing data or partitions**](troubleshooting.md#locating-missing-data-or-partitions-using-the---partitions-and---db-content-commands).
 
 Once you have confirmed that your data is OK, run the following commands to update and rebuild your reporting data:
 
@@ -310,7 +310,7 @@ Centreon MBI uses a Perl-based script to orchestrate its ETL (Extract, Transform
 /usr/share/centreon-bi/bin/centreonBIETL (-c|-d|-r) 
 ```
 
-This script supports several execution options to perform tasks such as creating [dimensions](https://docs-next-int.centreon.com/docs/reporting/concepts/#dimension), copying and aggregating the previous day's data, or rebuilding the whole MBI database.
+This script supports several execution options to perform tasks such as creating [dimensions](concepts.md#dimension), copying and aggregating the previous day's data, or rebuilding the whole MBI database.
 
 This section focuses specifically on the `-r` (rebuild) option and its usage.
 
