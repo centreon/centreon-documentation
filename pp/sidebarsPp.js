@@ -2021,10 +2021,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-alcatel-omniswitch-6850'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-oneaccess-snmp'
         },
         {
@@ -2748,10 +2744,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-nimble-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-oracle-zfs-snmp'
         },
         {
           type: 'doc',

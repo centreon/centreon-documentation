@@ -68,7 +68,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | cpu.utilization.5s.percentage                 | %     |
 | cpu.utilization.1m.percentage                 | %     |
@@ -80,12 +80,21 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Nom                          | Unité |
+|:-----------------------------|:------|
+| hardware.fan.status          | N/A   |
+| hardware.fan.count           | count |
+| hardware.fan.speed.rpm       | rpm   |
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
+| hardware.temperature.celsius | C     |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Métrique                                                  | Unité |
+| Nom                                                       | Unité |
 |:----------------------------------------------------------|:------|
 | *interface_name*#status                                   | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
@@ -98,7 +107,7 @@ Coming soon
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique                         | Unité |
+| Nom                              | Unité |
 |:---------------------------------|:------|
 | *memory*#memory.usage.bytes      | B     |
 | *memory*#memory.free.bytes       | B     |
@@ -107,7 +116,7 @@ Coming soon
 </TabItem>
 <TabItem value="Stack" label="Stack">
 
-| Métrique                    | Unité |
+| Nom                         | Unité |
 |:----------------------------|:------|
 | stack.members.total.count   | count |
 | *member*~member-status      | N/A   |
