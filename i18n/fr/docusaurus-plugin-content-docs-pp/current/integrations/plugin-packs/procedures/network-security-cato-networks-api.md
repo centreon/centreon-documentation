@@ -98,7 +98,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Référez-vous à la documentation officielle [Cato Networks GraphQL API](https://api.catonetworks.com/documentation/) pour une vision globale des fonctionnalités disponibles.
+Reportez-vous à la documentation officielle [Cato Networks](https://support.catonetworks.com/hc/en-us/sections/13992429993501-Welcome-to-the-Cato-Service) afin de configurer l'accès à l'API GraphQL.
 
 ## Installer le connecteur de supervision
 

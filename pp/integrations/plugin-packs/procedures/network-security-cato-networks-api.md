@@ -97,7 +97,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Refer to the [Cato Networks GraphQL API documentation](https://api.catonetworks.com/documentation/) for an overview of the available functionality.
+Refer to the [Cato Networks documentation](https://support.catonetworks.com/hc/en-us/sections/13992429993501-Welcome-to-the-Cato-Service) for more information on how to set up access to the GraphQL API.
 
 ## Installing the monitoring connector
 
