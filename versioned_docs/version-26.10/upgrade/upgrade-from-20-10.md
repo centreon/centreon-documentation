@@ -94,53 +94,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
-</Tabs>
-
-### Upgrade PHP
-
-Centreon 25.10 uses PHP in version 8.2.
-
-<Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module install php:8.2
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
@@ -194,6 +148,54 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
+### Upgrade PHP
+
+Centreon 25.10 uses PHP in version 8.2.
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module install php:8.2
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module install php:8.2
+```
+
+</TabItem>
+</Tabs>
+
+Then, finish upgrading the Centreon solution
+
 7. Clean the cache:
 
 <Tabs groupId="sync">
@@ -231,21 +233,16 @@ dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
-</Tabs>
+<TabItem value="Debian 12" label="Debian 12">
 
-> Accept new GPG keys from the repositories as needed.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Execute the following commands:
 ```shell
-systemctl enable php-fpm
-systemctl restart php-fpm
+apt install --only-upgrade centreon
 ```
 
 </TabItem>
 </Tabs>
+
+> Accept new GPG keys from the repositories as needed.
 
 ### Update your customized Apache configuration
 
@@ -399,7 +396,8 @@ You must uninstall and then reinstall MariaDB to upgrade between major versions 
 3. Install the 10.11 version:
 
     ```shell
-    dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
+    dnf module enable -y mariadb:10.11
+    dnf install mariadb-server-10.11\* mariadb-10.11\*
     ```
 
 4. Start the MariaDB service:
