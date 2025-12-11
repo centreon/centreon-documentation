@@ -211,9 +211,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-This connector allows you to monitor the operation of the various OpenStack services using REST API.
+Ce connecteur vous permet de surveiller le fonctionnement des différents services OpenStack à l’aide de l’API REST.
 
-Please refer to https://docs.openstack.org/api-quick-start/ and https://docs.openstack.org/2024.2/api/ for more information on how to set up access to the OpenStack REST API.
+Veuillez vous référer à la [documentation OpenStack](https://docs.openstack.org/api-quick-start/) pour avoir plus d’informations sur la configuration de l’accès à l’API REST d’OpenStack.
 
 ## Installer le connecteur de supervision
 

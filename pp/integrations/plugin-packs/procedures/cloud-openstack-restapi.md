@@ -211,7 +211,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 This connector allows you to monitor the operation of the various OpenStack services using REST API.
 
-Please refer to https://docs.openstack.org/api-quick-start/ and https://docs.openstack.org/2024.2/api/ for more information on how to set up access to the OpenStack REST API.
+Please refer to the [OpenStack documentation](https://docs.openstack.org/api-quick-start/) for more information on how to set up access to the OpenStack REST API.
 
 ## Installing the monitoring connector
 
