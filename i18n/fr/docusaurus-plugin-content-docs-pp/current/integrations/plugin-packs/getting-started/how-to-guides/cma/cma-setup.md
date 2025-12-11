@@ -523,7 +523,7 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /COMPONENTS=agent,plugins /HOST=ho
 
 Commande avec paramètres optionnels : 
 ```shell
-centreon-monitoring-agent-xxx.exe /VERYSILENT /REVERSE /COMPONENTS=agent /HOST=agent1 /ENDPOINT=127.0.0.1:4317 /LOGTYPE=File /LOGLEVEL=Debug /LOGFILE="C:\Logs\agent.log" /MAXFILESIZE=20 /MAXNUMBER=5 /ENCRYPTION=true /CERT="C:\certs\agent.crt" /KEY="C:\certs\agent.key" /CA="C:\certs\ca.crt" /COMMONNAME=centreon /TOKEN=token_value
+centreon-monitoring-agent-xxx.exe /VERYSILENT /REVERSE /COMPONENTS=agent /HOST=agent1 /ENDPOINT=127.0.0.1:4317 /LOGTYPE=File /LOGLEVEL=Debug /LOGFILE="C:\Logs\agent.log" /MAXFILESIZE=20 /MAXNUMBER=5 /ENCRYPTION=full /CERT="C:\certs\agent.crt" /KEY="C:\certs\agent.key" /CA="C:\certs\ca.crt" /COMMONNAME=centreon /TOKEN=token_value
 So
 ```
 
