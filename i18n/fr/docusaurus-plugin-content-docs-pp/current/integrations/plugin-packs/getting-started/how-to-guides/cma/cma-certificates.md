@@ -32,7 +32,7 @@ chmod 644 /etc/pki/agent.key
 
 Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans le répertoire de votre choix.
 
-Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats.
+Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats (conexion initiée par l'agent).
 Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration faite sur l'hôte (colonne "Configuration de l'hôte" du tableau ci-dessous).
 
 ### Synthèse des configurations possibles
