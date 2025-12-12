@@ -32,7 +32,7 @@ chmod 644 /etc/pki/agent.key
 
 Certificate files stored on the host can be stored in the directory of your choice.
 
-These files can also be saved directly in the certificate store.
+These files can also be saved directly in the certificate store (agent-inititated connection).
 In this case, it is not necessary to enter them in the configuration made on the host (**Host configuration** column in the table below).
 
 ### Summary of possible configurations
