@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Cato Networks API**](../procedures/network-security-cato-networks-api.md) - Initial release.
+- [**Cato Networks API**](../procedures/network-security-cato-networks-api.md) - Initial release, based on a [The Watch idea](https://thewatch.centreon.com/ideas/create-a-new-cato-network-connector-4025). 
 - [**Microsoft Cluster Server CMA**](../procedures/applications-mscs-cma.md) - Initial release.
 - [**Nvidia (formerly Mellanox) SNMP**](../procedures/network-nvidia-mellanox-snmp.md) - Initial release [PR 5753](https://github.com/centreon/centreon-plugins/pull/5753).
 - [**OpenStack RESTAPI**](../procedures/cloud-openstack-restapi.md) - Initial release.
