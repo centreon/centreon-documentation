@@ -81,11 +81,11 @@ const cards = [
     ]
   },
   {
-    title: "Centreon Digital Experience Monitoring",
+    title: "Centreon DEM",
     href: "dem/getting-started/welcome/",
     links: [
       {
-        label: "Getting started with Centreon DEM",
+        label: "Getting started with Centreon Digital Experience Monitoring",
         href: "dem/getting-started/welcome/"
       },{
         label: "Synthetic Monitoring (STM)",
