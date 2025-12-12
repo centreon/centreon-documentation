@@ -84,13 +84,13 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                              | Description                                      |
 |:---------------------------------------------|:-------------------------------------------------|
-| Cloud-Openstack-RestAPI-Project-Hypervisor   | Discover and monitor the hypervisors of a project     |
-| Cloud-Openstack-RestAPI-Project-Instance     | Discover and monitor the instances of a project       |
-| Cloud-Openstack-RestAPI-Project-Loadbalancer | Discover and monitor the load balancers of a project  |
-| Cloud-Openstack-RestAPI-Project-Network      | Discover and monitor the networks of a project        |
-| Cloud-Openstack-RestAPI-Project-Port         | Discover and monitor the ports of a project           |
-| Cloud-Openstack-RestAPI-Project-Volume       | Discover and monitor the volumes of a project         |
-| Cloud-Openstack-RestAPI-Service              | Discover services and monitor their system usage      |
+| Cloud-Openstack-RestAPI-Project-Hypervisor   | Découvre et supervise les hyperviseurs d'un projet     |
+| Cloud-Openstack-RestAPI-Project-Instance     | Découvre et supervise les instances d'un projet      |
+| Cloud-Openstack-RestAPI-Project-Loadbalancer | Découvre et supervise les load balancers d'un projet  |
+| Cloud-Openstack-RestAPI-Project-Network      | Découvre et supervise les réseaux d'un projet       |
+| Cloud-Openstack-RestAPI-Project-Port         | Découvre et supervise les ports d'un projet         |
+| Cloud-Openstack-RestAPI-Project-Volume       | Découvre et supervise les volumes d'un projet        |
+| Cloud-Openstack-RestAPI-Service              | Découvre les services et supervise leur utilisation système     |
 
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
