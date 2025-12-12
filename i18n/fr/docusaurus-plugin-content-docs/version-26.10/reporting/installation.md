@@ -48,6 +48,7 @@ entre le serveur BI dédié, le serveur Centreon et les bases de données :
 | **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
 |-----------------|--------------------------|--------------------------------------|----------|--------------|
 | ETL/CBIS        | Serveur de reporting     | Serveur de bases de données Centreon | 3306     | TCP          |
+| ETL             | Localhost                | Localhost                            | 8085     | TCP          |
 | SSH             | Serveur de reporting     | Serveur Centreon                     | 22       | TCP          |
 | CBIS            | Serveur de reporting     | Serveur Centreon                     | 80       | HTTP*        |
 | CBIS            | Centreon                 | Serveur de reporting                 | 1234     | TCP          |
