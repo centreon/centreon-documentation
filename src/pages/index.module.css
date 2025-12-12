@@ -58,9 +58,9 @@
   gap: 16px;
 }
 
-@media(min-width:768px) {
+@media(min-width:991px) {
   .headingCards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
