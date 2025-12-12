@@ -74,9 +74,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle    | Description                                           |
 |:-------------------|:------------------------------------------------------|
-| OpenStack Host     | Discover hosts by requesting OpenStack using REST API |
-| OpenStack Project  | Discover OpenStack projects using REST API            |
-| OpenStack Services | Discover OpenStack services using REST API            |
+| OpenStack Host     | Découvre les hôtes en requêtant OpenStack via REST API |
+| OpenStack Project  | Discover les projects en requêtant OpenStack via REST API |
+| OpenStack Services | Discover les services en requêtant OpenStack via REST API |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
