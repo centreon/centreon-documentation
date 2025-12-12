@@ -54,7 +54,7 @@ const cards = [
         href: "docs/reporting/introduction/"
       },{
         label: "Release notes",
-        href: "docs/releases/centreon-os/"
+        href: "docs/category/release-notes-by-component/"
       },
     ]
   },
