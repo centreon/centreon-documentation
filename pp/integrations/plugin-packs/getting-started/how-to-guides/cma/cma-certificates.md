@@ -25,12 +25,14 @@ Certificate files stored on the poller must be stored in **/etc/pki/**, either a
 They must have the following permissions:
 
 ```shell
-chmod 644 /etc/pki/agent*
+chmod 644 /etc/pki/agent.crt
+chmod 644 /etc/pki/agent.key
 ```
+> Caution: do not apply these permissions to the entire /etc/pki/ directory, as this may cause a global failure of the poller.
 
 Certificate files stored on the host can be stored in the directory of your choice.
 
-These files can also be saved directly in the certificate store.
+These files can also be saved directly in the certificate store (agent-inititated connection).
 In this case, it is not necessary to enter them in the configuration made on the host (**Host configuration** column in the table below).
 
 ### Summary of possible configurations
@@ -41,7 +43,7 @@ In this case, it is not necessary to enter them in the configuration made on the
 When connecting to the poller, the agent verifies that the IP/DNS entered in the **Poller endpoint** parameter of the agent configuration strictly matches the information in the certificate (SAN or CN).
 If this is not the case, the connection is not allowed.
 
-| Use case      															  | File(s) on the poller | File(s) on the host (if not loaded in the certificate store) | Poller configuration (interface) | Host configuration   |
+| Use case      															  | File(s) on the poller | File(s) on the host (if not loaded in the certificate store) | Poller configuration (interface) | Host machine configuration   |
 | -----------      															  | -----------                  | -----------           |-----------							   | -----------				|
 | Certificate signed by a CA           	 | Public certificate and private key files                        | CA file                       | In the **OTLP receiver** section:<ul><li>**Public certificate**: path to the public certificate (example: '/etc'/pki'/certificate.crt)</li><li>**Private key**: path to the private key (example: '/etc'/pki'/certificate.key)</li><li>**CA**: empty</li></ul> | <ul><li>**Poller endpoint**: IP/DNS of the poller</li><li>**Private key file/private_key**: empty</li><li>**Certificate file**: empty</li><li>**Trusted CA's certificate file/ca_certificate**: path to the CA</li><li>**Certificate Common Name/ca_name**: empty</li></ul>	|
 | Self-signed certificate         	 | Public certificate and private key files                         | Public certificate file                       | In the **OTLP receiver** section:<ul><li>**Public certificate**: path to the public certificate (example: '/etc'/pki'/certificate.crt)</li><li>**Private key**: path to the private key (example: '/etc'/pki'/certificate.key)</li><li>**CA**: empty, except when a double handshake is needed</li></ul> | <ul><li>**Poller endpoint**: IP/DNS of the poller</li><li>**Private Key file/private_key**: empty</li><li>**Certificate file/public_certificate**: empty</li><li>**Trusted CA's certificate file/ca_certificate**: path to the public certificate</li><li>**Certificate Common Name/ca_name**: empty</li></ul> |
@@ -55,7 +57,7 @@ If this is not the case, the connection is not allowed.
 When connecting to the agent, the poller checks that the IP/DNS entered for the host (in the agent configuration) strictly matches the information in the certificate (SAN or CN).
 If this is not the case, the connection to this host is not allowed.
 
-| Use case      															  | File(s) on the poller | File(s) on the host | Poller configuration (interface) | Host configuration  |
+| Use case      															  | File(s) on the poller | File(s) on the host | Poller configuration (interface) | Host machine configuration  |
 | -----------      															  | -----------                  | -----------           |-----------								       | -----------							|
 | Certificate signed by a CA            	 | CA file                   | Public certificate and private key files                      | In the **Host configurations** section: <ul><li>**CA:** path to the CA</li><li>**CA common name (CN):** empty</li></ul>	 | <ul><li>**Private Key file/private_key**: path to the private key</li><li>**Certificate file/public_cert**: path to the public certificate</li><li>**Trusted CA's certificate file/ca_certificate**: empty</li><li>**Certificate Common Name/ca_name**: empty</li></ul>	|
 | Self-signed certificate  	 | Public certificate file                       | Public certificate and private key files    | In the **Host configurations** section:<ul><li>**CA**: path to the public certificate</li><li>**CA Common Name (CN)**: empty</li></ul> | <ul><li>**Private Key file/private_key**: path to the private key</li><li>**Certificate file/public_cert**: path to the public certificate</li><li>**Trusted CA's certificate file/ca_certificate**: empty</li><li>**Certificate Common Name/ca_name**: empty</li></ul>	|
@@ -115,7 +117,8 @@ In the **Host Configurations** section, the **Common Name CA (CN)** field will c
 
 ### How to generate a self-signed certificate (optional)
 
-If you do not have a certificate, you can generate a self-signed one. To generate a self-signed certificate that is valid for one year, run the following command on your poller or host:
+If you do not have a certificate, you can generate a self-signed one, which can be used by all your collectors and agents. 
+To generate a self-signed certificate that is valid for one year, run the following command on your poller or host:
 
 ```shell
 openssl req -new -subj '/CN={server_hostname}' \
@@ -135,8 +138,10 @@ Certificate files stored on the poller must be stored in **/etc/pki/**, either a
 They must have the following permissions:
 
 ```shell
-chmod 644 /etc/pki/agent*
+chmod 644 /etc/pki/agent.crt
+chmod 644 /etc/pki/agent.key
 ```
+> Caution: do not apply these permissions to the entire /etc/pki/ directory, as this may cause a global failure of the poller.
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">

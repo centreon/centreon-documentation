@@ -154,6 +154,7 @@ const config = {
         docsRouteBasePath: ["docs", "cloud", "pp", "dem"],
         docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem"],
         explicitSearchResultPath: true,
+        useAllContextsWithNoSearchContext: true,
         // searchContextByPaths: [
         //   {
         //     label: {
@@ -367,7 +368,7 @@ const config = {
               ...items,
               {
                 to: '/dem/getting-started/welcome',
-                label: 'Quanta by Centreon',
+                label: 'Centreon DEM',
                 position: 'left',
                 activeBaseRegex: '/dem/',
               },
