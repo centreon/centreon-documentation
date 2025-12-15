@@ -73,7 +73,8 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 2. Exécutez les commandes suivantes :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+rm -f /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -541,7 +542,7 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
 2. Si vous utilisiez des commandes personnalisées pour un collecteur (sur la page **Configuration > Collecteurs > Collecteurs**, dans la section **Monitoring Engine Information**), sachez qu'une nouvelle expression régulière de validation est désormais appliquée (`[a-zA-Z0-9\-\_]+`) : vos commandes personnalisées devront peut-être être adaptées. Sur le serveur central :
    * Pour identifier les commandes qui doivent être adaptées, exécutez :
-     ````shell
+     ```shell
      sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
      ```
    * Pour adapter automatiquement les commandes, exécutez :
