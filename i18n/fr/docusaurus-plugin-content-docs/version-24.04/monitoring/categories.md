@@ -28,7 +28,7 @@ Rendez-vous dans le menu **Configuration > Hôtes > Catégories** et cliquez sur
 * La liste **Hôtes liés** permet d’ajouter des hôtes à la catégorie.
 * Si un modèle d’hôte est ajouté à **Lié au modèle d'hôte** alors tous les hôtes qui héritent de ce modèle appartiennent
   à cette catégorie.
-* La case **Type de criticité** peut être cochée pour assigner un niveau de criticité à l'hôte. Le niveau de criticité est un chiffre allant de 1 à 127.
+* La case **Type de criticité** peut être cochée pour assigner un niveau de criticité à l'hôte. Le niveau de criticité est un chiffre allant de 1 à 127. Le niveau de criticité le plus élevé est 1.
 * Les champs **Niveau** et **Icône** définissent respectivement un niveau de criticité et une icône associée.
 * Les champs **Statut** et **Commentaires** permettent d’activer ou de désactiver la catégorie d’hôte et de commenter celle-ci.
 
@@ -41,7 +41,7 @@ Rendez-vous dans le menu **Configuration > Services > Catégories** et cliquez s
 * Les champs **Nom** et **Description** définissent le nom et la description de la catégorie de service.
 * Si un modèle de service appartient à **Service Template Descriptions** alors tous les services appartenant à ce modèle
   de services font partie de cette catégorie.
-* La case **Type de criticité** peut être cochée pour assigner un niveau de criticité au service. Le niveau de criticité est un chiffre allant de 1 à 127..
+* La case **Type de criticité** peut être cochée pour assigner un niveau de criticité au service. Le niveau de criticité est un chiffre allant de 1 à 127. Le niveau de criticité le plus élevé est 1.
 * Les champs **Niveau** et **Icône** définissent respectivement un niveau de criticité et une icône associée.
 * Le champ **Statut** permet d’activer ou de désactiver la catégorie de services.
 
