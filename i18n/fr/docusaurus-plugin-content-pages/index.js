@@ -95,7 +95,7 @@ const cards = [
         href: "dem/getting-started/real-user-monitoring/"
       },{
         label: "Sobriété numérique",
-        href: "dem/digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety/"
+        href: "dem/category/digital-sobriety/"
       },
     ]
   }
