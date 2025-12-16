@@ -56,7 +56,7 @@ Le connecteur apporte les modèles de service suivants
 | Snapmirrorlag          | HW-Storage-NetApp-Ontap-Snapmirrorlag-SNMP-custom          | Contrôle l'état d'un ou plusieurs snapmirror ainsi que son lag |            |
 | Snapshot-Age-Global    | HW-Storage-NetApp-Ontap-Snapshot-Age-Global-SNMP-custom    | Contrôle l'ancienneté des snapshots de volumes                 |            |
 | Snapshot-Age-Name      | HW-Storage-NetApp-Ontap-Snapshot-Age-Name-SNMP-custom      | Contrôle l'ancienneté des snapshots de volumes                 |            |
-| Temperature            | HW-Storage-NetApp-Ontap-Temperature-SNMP-custom            | Contrôle la température du materiel                            |            |
+| Temperature            | HW-Storage-NetApp-Ontap-Temperature-SNMP-custom            | Contrôle la température du matériel                            |            |
 | Volume-Options-Generic | HW-Storage-NetApp-Ontap-Volume-Options-Generic-SNMP-custom | Contrôle des options des volumes                               |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
