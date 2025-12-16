@@ -6,7 +6,7 @@ title: Giving access to jobs and reports in Centreon
 * Administrators can see and edit all jobs (created by all users on the platform), and can see all generated reports.
 * By default, non-admin users can see no jobs and no generated reports. If you want to make it possible for a user to download a report from the Centreon interface and/or to edit jobs, you need first to [link a job group to an MBI ACL rule](#preparing-acls), then [link the job group to the job you want to share](#using-a-job-group-in-a-job-definition).
 
-A much simpler option is to send the generated report to this user by email or copy the report to a server they can access, using a [publication rule](https://docs-next-int.centreon.com/docs/reporting/reports-publication-rule/).
+A much simpler option is to send the generated report to this user by email or copy the report to a server they can access, using a [publication rule](reports-publication-rule.md).
 
 Please note that the data included in the report depends on the ACLs **of the person creating the job**. It is the responsibility of the person creating the job to make sure that the resources included in the report are authorized for the users with which they want to share the report.
 

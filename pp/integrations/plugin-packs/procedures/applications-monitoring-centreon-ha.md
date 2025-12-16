@@ -266,28 +266,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-pacemaker-ssh centreon-pack-operatingsystems-linux-snmp
+dnf install centreon-plugin-Applications-Pacemaker-Ssh centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-pacemaker-ssh centreon-pack-operatingsystems-linux-snmp
+dnf install centreon-plugin-Applications-Pacemaker-Ssh centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-applications-pacemaker-ssh centreon-pack-operatingsystems-linux-snmp
+apt install centreon-plugin-applications-pacemaker-ssh centreon-plugin-operatingsystems-linux-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-pacemaker-ssh centreon-pack-operatingsystems-linux-snmp
+yum install centreon-plugin-Applications-Pacemaker-Ssh centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
 </TabItem>

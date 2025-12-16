@@ -52,6 +52,9 @@ const cards = [
       },{
         label: "Reporting",
         href: "docs/reporting/introduction/"
+      },{
+        label: "Release notes",
+        href: "docs/category/release-notes-by-component/"
       },
     ]
   },
@@ -71,6 +74,29 @@ const cards = [
       },{
         label: "Graphical views",
         href: "cloud/graph-views/introduction-map/"
+      },{
+        label: "Release notes",
+        href: "cloud/releases/cloud-release-notes/"
+      },
+    ]
+  },
+  {
+    title: "Centreon DEM",
+    href: "dem/getting-started/welcome/",
+    links: [
+      {
+        label: "Getting started with Centreon Digital Experience Monitoring",
+        href: "dem/getting-started/welcome/"
+      },{
+        label: "Synthetic Monitoring (STM)",
+        href: "dem/getting-started/synthetic-monitoring/"
+      },
+      {
+        label: "Real User Monitoring (RUM)",
+        href: "dem/getting-started/real-user-monitoring/"
+      },{
+        label: "Digital sobriety",
+        href: "dem/category/digital-sobriety/"
       },
     ]
   }
