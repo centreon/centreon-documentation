@@ -114,8 +114,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-In order to monitor Quanta, you must have [a valid API token](/dem/installation/monitor-production-events#authentication-and-token-generation), and [have user journeys configured in Quanta](/dem/configuration/user-journey/create-a-scenario).
-Data from Real User Monitoring will only be accessible if you have completed [the integration of Quanta's RUM TAG](/dem/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
+In order to monitor Centreon DEM, you must have [a valid API token](/dem/installation/monitor-production-events#authentication-and-token-generation), and [have user journeys configured in Centreon DEM](/dem/configuration/user-journey/create-a-scenario).
+Data from Real User Monitoring will only be accessible if you have completed [the integration of Centreon DEM's RUM TAG](/dem/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
 
 ## Installing the monitoring connector
 
