@@ -47,7 +47,7 @@ Le connecteur apporte les modèles de service suivants
 | Cluster-Nodes          | HW-Storage-NetApp-Ontap-Cluster-Nodes-SNMP-custom          | Contrôle les noeuds du cluster                                 |     X      |
 | Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Contrôle l'état des ventilateurs                               |            |
 | File-System-Global     | HW-Storage-NetApp-Ontap-File-System-Global-SNMP-custom     | Contrôle l'utilisation des disques                             |     X      |
-| Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Contrôle le nombre de sessions ndmp                            |            |
+| Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Contrôle le nombre de sessions NDMP                           |            |
 | Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         | Contrôle le statut du failover                                 |            |
 | Plexes                 | HW-Storage-NetApp-Ontap-Plexes-SNMP-custom                 | Contrôle les plex                                              |     X      |
 | Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    | Contrôle le statut de l'alimentation électrique                |            |

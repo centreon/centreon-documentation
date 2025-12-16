@@ -44,7 +44,7 @@ The connector brings the following service templates (sorted by the host templat
 |:-----------------------|:-----------------------------------------------------------|:--------------------------------------------------------------------------------------|:---------:|
 | Aggregates             | HW-Storage-NetApp-Ontap-Aggregates-SNMP-custom             | Check state of one or several aggregates                                              |           |
 | Cluster-Nodes          | HW-Storage-NetApp-Ontap-Cluster-Nodes-SNMP-custom          | Check cluster nodes                                                                   |     X     |
-| Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Check if fans are failed                                                              |           |
+| Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Check if fans have failed                                                              |           |
 | File-System-Global     | HW-Storage-NetApp-Ontap-File-System-Global-SNMP-custom     | Check filesystem usage                                                                |     X     |
 | Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Check current total of open NDMP sessions                                           |           |
 | Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         | Check status of clustered failover partner                                            |           |
