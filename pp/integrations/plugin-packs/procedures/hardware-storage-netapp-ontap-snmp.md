@@ -24,16 +24,16 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-NetApp-Ontap-SNMP-custom" label="HW-Storage-NetApp-Ontap-SNMP-custom">
 
-| Service Alias | Service Template                                  | Service Description                                                       |
-|:--------------|:--------------------------------------------------|:--------------------------------------------------------------------------|
-| Cache-Age     | HW-Storage-NetApp-Ontap-Cache-Age-SNMP-custom     | Check age in minutes of the oldest read-only blocks in the buffer cache.  |
-| Cp-Statistics | HW-Storage-NetApp-Ontap-Cp-Statistics-SNMP-custom | Check consistency point metrics.                                          |
-| Cpu-Load      | HW-Storage-NetApp-Ontap-Cpu-Load-SNMP-custom      | Check CPU usage.                                                          |
-| Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Check the current number of disk broken                                   |
-| Global-status | HW-Storage-NetApp-Ontap-Global-status-SNMP-custom | Check the overall status of the  appliance                                |
-| Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Check current status of the NVRAM batteries                               |
-| Shelf         | HW-Storage-NetApp-Ontap-Shelf-SNMP-custom         |                                                                           |
-| Uptime        | HW-Storage-NetApp-Ontap-Uptime-SNMP-custom        | Time since the server has been working and available                      |
+| Service Alias | Service Template                                  | Service Description                                                      |
+|:--------------|:--------------------------------------------------|:-------------------------------------------------------------------------|
+| Cache-Age     | HW-Storage-NetApp-Ontap-Cache-Age-SNMP-custom     | Check age in minutes of the oldest read-only blocks in the buffer cache. |
+| Cp-Statistics | HW-Storage-NetApp-Ontap-Cp-Statistics-SNMP-custom | Check consistency point metrics.                                         |
+| Cpu-Load      | HW-Storage-NetApp-Ontap-Cpu-Load-SNMP-custom      | Check CPU usage.                                                         |
+| Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Check the current number of disk broken                                  |
+| Global-status | HW-Storage-NetApp-Ontap-Global-status-SNMP-custom | Check the overall status of the  appliance                               |
+| Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Check current status of the NVRAM batteries                              |
+| Shelf         | HW-Storage-NetApp-Ontap-Shelf-SNMP-custom         | Check Shelves hardware                                                   |
+| Uptime        | HW-Storage-NetApp-Ontap-Uptime-SNMP-custom        | Time since the server has been working and available                     |
 
 > The services listed above are created automatically when the **HW-Storage-NetApp-Ontap-SNMP-custom** host template is used.
 

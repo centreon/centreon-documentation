@@ -711,7 +711,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-Pas de métrique pour ce service.
+OK: All volumes are ok | 'failed'=0;;;0;
 ```
 
 ### Diagnostic des erreurs communes
