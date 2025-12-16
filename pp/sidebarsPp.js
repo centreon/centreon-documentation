@@ -2035,10 +2035,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-alcatel-omniswitch-6850'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-oneaccess-snmp'
         },
         {
