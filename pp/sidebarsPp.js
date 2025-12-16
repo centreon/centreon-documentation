@@ -1571,6 +1571,14 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-security-cato-networks-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-athonet-epc-snmp'
         },
         {
