@@ -787,6 +787,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-dem-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-map-jmx'
         },
         {
@@ -1575,14 +1579,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-security-cato-networks-api'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-athonet-epc-snmp'
         },
         {
@@ -1628,6 +1624,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cambium-epmp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-security-cato-networks-api'
         },
         {
           type: 'doc',
