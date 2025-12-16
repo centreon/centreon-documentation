@@ -154,6 +154,7 @@ const config = {
         docsRouteBasePath: ["docs", "cloud", "pp", "dem"],
         docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem"],
         explicitSearchResultPath: true,
+        useAllContextsWithNoSearchContext: true,
         // searchContextByPaths: [
         //   {
         //     label: {

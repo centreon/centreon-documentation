@@ -77,6 +77,9 @@ export default function DocBreadcrumbs() {
   } else if (docSection === 'cloud') {
     homePath = '/cloud/getting-started/welcome';
     homeLabel = 'Centreon Cloud';
+  } else if (docSection === 'dem') {
+    homePath = '/dem/getting-started/welcome';
+    homeLabel = 'Centreon DEM';
   }
 
   breadcrumbs.unshift({

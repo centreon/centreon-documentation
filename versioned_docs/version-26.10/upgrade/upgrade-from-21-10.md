@@ -164,7 +164,43 @@ systemctl restart php-fpm
 </TabItem>
 </Tabs>
 
-Then, finish upgrading the Centreon solution
+### Upgrade the Centreon solution
+
+1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
+
+2. If you have installed Business extensions, delete the configuration of the 21.10 repository: 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-21.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-21.10.repo
+```
+
+</TabItem>
+</Tabs>
+
+3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+
+5. Stop the Centreon Broker process:
+
+```shell
+systemctl stop cbd
+```
+
+6. Delete existing retention files:
+
+```shell
+rm /var/lib/centreon-broker/* -f
+```
 
 1. Clean the cache:
 
@@ -180,14 +216,6 @@ dnf clean all --enablerepo=*
    
 ```shell
 dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Debian" label="Debian">
-   
-```shell
-apt clean all
-apt update
 ```
 
 </TabItem>
@@ -343,7 +371,7 @@ with the following:
 
 2. If you were using custom commands for a poller (on the **Configuration > Pollers > Pollers** page, in the **Monitoring Engine Information** section), be aware that a new validation regex is now applied (`[a-zA-Z0-9\-\_]+`): your custom commands may need to be adapted. On the central server:
    * To identify commands that must be adapted, run:
-     ````shell
+     ```shell
      sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
      ```
    * To adapt the commands automatically, run:
