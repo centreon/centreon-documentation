@@ -29,9 +29,9 @@ The connector brings the following service templates (sorted by the host templat
 | Cache-Age     | HW-Storage-NetApp-Ontap-Cache-Age-SNMP-custom     | Check age in minutes of the oldest read-only blocks in the buffer cache. |
 | Cp-Statistics | HW-Storage-NetApp-Ontap-Cp-Statistics-SNMP-custom | Check consistency point metrics.                                         |
 | Cpu-Load      | HW-Storage-NetApp-Ontap-Cpu-Load-SNMP-custom      | Check CPU usage.                                                         |
-| Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Check the current number of disk broken                                  |
+| Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Check the current number of malfunctioning disks                                 |
 | Global-status | HW-Storage-NetApp-Ontap-Global-status-SNMP-custom | Check the overall status of the  appliance                               |
-| Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Check current status of the NVRAM batteries                              |
+| Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Check the current status of the NVRAM batteries                              |
 | Shelf         | HW-Storage-NetApp-Ontap-Shelf-SNMP-custom         | Check Shelves hardware                                                   |
 | Uptime        | HW-Storage-NetApp-Ontap-Uptime-SNMP-custom        | Time since the server has been working and available                     |
 
@@ -46,15 +46,15 @@ The connector brings the following service templates (sorted by the host templat
 | Cluster-Nodes          | HW-Storage-NetApp-Ontap-Cluster-Nodes-SNMP-custom          | Check cluster nodes                                                                   |     X     |
 | Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Check if fans are failed                                                              |           |
 | File-System-Global     | HW-Storage-NetApp-Ontap-File-System-Global-SNMP-custom     | Check filesystem usage                                                                |     X     |
-| Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Check current total of ndmp sessions opened                                           |           |
+| Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Check current total of open NDMP sessions                                           |           |
 | Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         | Check status of clustered failover partner                                            |           |
 | Plexes                 | HW-Storage-NetApp-Ontap-Plexes-SNMP-custom                 | Check plexes                                                                          |     X     |
 | Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    | Check if power supplies have failed                                                   |           |
 | Quotas                 | HW-Storage-NetApp-Ontap-Quotas-SNMP-custom                 | Check quotas                                                                          |           |
-| Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Check cifs and nfs calls per seconds.                                                 |           |
+| Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Check CIFS and NFS calls per second                                                 |           |
 | Snapmirrorlag          | HW-Storage-NetApp-Ontap-Snapmirrorlag-SNMP-custom          | Check snapmirrors status and lag                                                      |           |
-| Snapshot-Age-Global    | HW-Storage-NetApp-Ontap-Snapshot-Age-Global-SNMP-custom    | Check snapshot age of volumes                                                         |           |
-| Snapshot-Age-Name      | HW-Storage-NetApp-Ontap-Snapshot-Age-Name-SNMP-custom      | Check snapshot age of volumes                                                         |           |
+| Snapshot-Age-Global    | HW-Storage-NetApp-Ontap-Snapshot-Age-Global-SNMP-custom    | Check the age of volume snapshots                                                          |           |
+| Snapshot-Age-Name      | HW-Storage-NetApp-Ontap-Snapshot-Age-Name-SNMP-custom      | Check the age of volume snapshots                                                          |           |
 | Temperature            | HW-Storage-NetApp-Ontap-Temperature-SNMP-custom            | Check if hardware is currently operating outside of its recommended temperature range |           |
 | Volume-Options-Generic | HW-Storage-NetApp-Ontap-Volume-Options-Generic-SNMP-custom | Check options from volumes                                                            |           |
 
