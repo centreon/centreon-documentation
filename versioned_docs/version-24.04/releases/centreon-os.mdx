@@ -23,6 +23,54 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 24.04.19
+
+Release date: `December 15, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added "missing configuration" change logs for host categories configuration.
+- [Authentication] Password change attempts (both successful and unsuccessful) are now logged in a dedicated log file.
+- [Authentication] When editing a contact, users authenticated by an IdP no longer see the password editing fields.
+- [Configuration] The "Deploy Service" action from the hosts list now triggers a "Conf Changed" flag for the related poller in the pollers list.
+- [Configuration] Adapted partitioning to properly work with Amazon Aurora RDS again. Impacted user's next partitioning will take longer than usual as the database catches up with missing partitions.
+- [Configuration] Removed obsolete gorgone error message from configuration generation log.
+- [Custom Views] Optimized performance when retrieving ACLs in widgets.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed an issue where users could lose their DN during an LDAP connection.
+- [Configuration] Fixed an issue in Dashboards that caused no service categories to be displayed after filtering by host category.
+- [Core] Fixed an issue where log level wasn't taken into account in token removal script.
+- [Core] Fixed an issue with API routes.
+- [Configuration] Fixed an issue preventing users from disabling a meta-service.
+- [Dashboards] Fixed an issue preventing resource table widgets from being updated properly.
+- [Host groups] Fixed an issue occurring while checking for illegal characters on host group name.
+- [Packaging] Updated permissions of token purge log file.
+- [Translation] Fixed an issue where the menu language was automatically set to FR when the "Detection by browser" option was selected.
+- [Translations] Fixed an issue where translations were not displayed correctly.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Enhanced security on password DOM storage in login page.
+- [Security] Fixed an RCE on poller reload page.
+- [Security] Secured backup script to prevent command injections.
+- [Vulnerability] Fixed an issue on Broken Access Control in Administration Parameters Endpoint.
+- [Vulnerability] Fixed IDOR vulnerability on Custom Views.
+- [Vulnerability] Fixed XSS vulnerability in the ACL Menus Access page.
+- [Vulnerability] Fixed XSS vulnerability in Configuration > Hosts > hostgroups.
+- [Vulnerability] Fixed XSS vulnerability in the Recurrent Downtimes page.
+- [Vulnerability] Fixed XSS vulnerability in the Hosts Configuration page.
+
+</details>
+
 ### 24.04.18
 
 Release date: `September 24, 2025`
@@ -1054,6 +1102,12 @@ Release date: `April 30, 2024`
 
 ## Centreon High Availability
 
+### 24.04.2
+
+Release date: `December 15, 2025`
+
+- No changes for this module in this version.
+
 ### 24.04.1
 
 Release date: `August 6, 2025`
@@ -1077,6 +1131,24 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon DSM
+
+### 24.04.8
+
+Release date: `December 15, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue with dsmd daemon being stuck on start.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed XSS vulnerability in the Extensions Dynamic Services Configure page.
+
+</details>
 
 ### 24.04.7
 
@@ -1176,6 +1248,34 @@ Release date: `April 30, 2024`
 
 ## Centreon Open Tickets
 
+### 24.04.5
+
+Release date: `December 15, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [GLPI] Fixed group retrieval when using versions 9.5 and above.
+- [Custom Views] Optimized performance when retrieving ACLs in widgets.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue preventing tickets from being closed when the corresponding resource had its status changed since the opening of the ticket.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Open Tickets] Fixed an issue that exposed the password when using EasyVista.
+- [Vulnerability] Fixed SQL injection in the notification rules.
+- [Vulnerability] Fixed XSS vulnerability in notification rules.
+
+</details>
+
 ### 24.04.4
 
 Release date: `March 10, 2025`
@@ -1239,6 +1339,12 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon AWIE
+
+### 24.04.2
+
+Release date: `December 15, 2025`
+
+- No changes for this module in this version.
 
 ### 24.04.1
 
