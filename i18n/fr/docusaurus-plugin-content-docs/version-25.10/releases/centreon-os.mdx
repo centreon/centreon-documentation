@@ -22,6 +22,82 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 25.10.2
+
+Release date: `December 17, 2025`
+ 
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] When a user is authenticated using an IdP, the password fields no longer appear when editing a contact.	
+- [Dashboards] Status Grid widget: new filter on state of resources (unhandled, acknowledged, in downtime, flapping) has been added.
+- [Packaging] Increase php memory limit in centreon php configuration.
+- [Resource Status] Graphs containing more than 20 metrics are no longer displayed, for performance and readability reasons.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACL] Fixed issue when cumulating ACLs for a same user.
+- [API] Fixed an issue where using Rest APIv1 changes the token expiration date.
+- [API] Fixed commands when requesting services in real time, using MySQL 8.
+- [API] Fixed wrong filtering on realtime service categories listing endpoint.
+- [APIv2] Fixed a 500 error when expiration_date = NULL in security_token.
+- [Anomaly Detection] Fixed an issue on broker configuration generation with proxy parameters.
+- [Authentication] Allowed to access Centreon UI through a reverse proxy/load balancer.
+- [Configuration] Fixed an issue on Hosts configuration where the host name configuration name restriction not align with export configuration.
+- [Authentication] Fixed an issue where a user could lose their DN during an LDAP connection.
+- [Authentication] Fixed issue on LDAP authentication.
+- [Authentication tokens] Fixed an issue when canceling action in confirmation modal.
+- [BA monitoring page] Fixed issue when using dark mode.
+- [CEIP] Added data-testid on enable button for both direction.
+-	[CLAPI] Fixed an issu where the APPLYTPL command can take a long time to take effect.
+- [Core] Fixed an issue with API routes.
+- [Configuration] Fixed an error when changing host template order in host form.
+- [Configuration] Fixed an issue in Agent configuration where engine was not listening if No TLS was activated (poller-initiated).
+- [Configuration] Fixed an issue when searching Host in Agent configuration (Poller-initiated connection).
+- [Configuration] Fixed an issue where Host category was not displayed in listing when not linked to Host.
+- [Configuration] Fixed an issue of page content mix-up when navigating between Host Groups and Additional configuration pages.
+- [Configuration] Fixed an issue on bad display of escalation name with special character.
+- [Configuration] Fixed an issue on remote servers, where max auto_increment was reached after many exports.
+- [Configuration] Fixed an issue when switching CMA agent modes without filling all required fields.
+- [Configuration] Fixed an issue where Host templates cannot be used in Host categories by non-admininistrators.
+- [Configuration] Fixed an issue where Host severities were no longer written in `resources` table.
+- [Configuration] Fixed an issue where inherited macros could not be overrided on Host/Host template.
+- [Configuration] Fixed an undefined array key from acl users which were spamming php log.
+- [Custom Views - Host-Monitoring] Fixed an issue where only the current page was exported instead of all data
+- [Dashboards] Fixed an issue preventing to get dashboards filtered by creator by API.
+- [Dashboards] Fixed an issue where host status icons were displayed incorrectly in the group monitoring widget.
+- [Dashboards] Resource Table widget - Fixed host name positioning issue.
+- [Dashboards] Single Metric widget - Fixed the real-time retrieval of metric value.
+- [Gorgone] Clarified Apache logs when gorgone connexion failed in discovery.
+- [Hosts] Fixed an error where ACL Resource Groups field loses its value and displays a number instead of a string when a form error occurs.
+- [Licenses] Fixed an error message concerning the creation of a dynamic property in a class when downloading licences.
+- [Log] Fixed an issue where Error impCompanyPortal appears on /var/log/centreon/centreon-web.log.
+- [Medias] Fixed issue preventing pagination from being displayed properly.
+- [Monitoring] Fixed an issue on Summary by host group.
+- [Open Tickets] Forced BBDO 3.0.1 instead of 3.1 on pollers, to prevent a blocking issue.
+- [Performance Graphs] Fixed issue when exporting data in CSV.
+- [Resource Status] Prevent services related to a deleted host to appear in menu filter.
+- [Translation] Added missing French translations.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Authentication] Password change attempts are now logged in a dedicated log file.
+- [Security] Enhanced security on password DOM storage in login page.
+- [Vulnerability]	Fixed an issue on Broken Access Control in Administration Parameters Endpoint.
+- [Vulnerability] Fixed IDOR on Custom Views.
+- [Vulnerability] Fixed XSS in the ACL Menus Access page.
+- [Vulnerability] Fixed XSS in the Hosts Configuration page.
+- [Vulnerability] Fixed XSS in the Recurrent Downtimes page.
+- [Vulnerability] Fixed XSS vulnerability on export configuration page.
+
+</details>
+
 ### 25.10.1
 
 Release date: `November 10, 2025`
@@ -142,6 +218,26 @@ Release date: `November 4, 2025`
 
 ## Centreon Collect
 
+### 25.10.1
+
+Release date: `December 17, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] CMA is now taking account retry_interval and max_attempts.
+- [CMA] Freshness check are now taken into account.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed issue on RRD error messages.
+- [Engine] Fixed an issue where parameters are not correctly inherited from templates.
+
+</details>
+
 ### 25.10.0
 
 Release date: `November 4, 2025`
@@ -188,6 +284,21 @@ Release date: `November 4, 2025`
 
 ## Centreon Monitoring Agent
 
+### 25.10.1
+
+Release date: `December 17, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- CMA is now taking account retry_interval and max_attempts.
+
+</details>
+
+### 25.10.0
+
+Release date: `November 4, 2025`
+
 <details open>
   <summary>Enhancements</summary>
 
@@ -202,6 +313,18 @@ Release date: `November 4, 2025`
 </details>
 
 ## Centreon Gorgone
+
+### 25.10.2
+
+Release date: `December 17, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed Gorgone whitelist to allow NRPE service discovery.
+- [Packaging] Fixed a issue that cause an upgrade failure due to centreon-perl-libs split into centreon-perl-libs and centreon-perl-libs-common.
+
+</details>
 
 ### 25.10.1
 
@@ -227,6 +350,17 @@ Release date: `November 4, 2025`
 
 ## Centreon AWIE
 
+### 25.10.1
+
+Release date: `December 17, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Extensions] Fixed an issue on documentation links for extensions which were dont using versioning.
+
+</details>
+
 ### 25.10.0
 
 Release date: `November 4, 2025`
@@ -239,6 +373,27 @@ Release date: `November 4, 2025`
 </details>
 
 ## Centreon DSM
+
+### 25.10.1
+
+Release date: `December 17, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue on dsmd daemon stuck on start.
+- [Translation] Added missing French translations.
+
+</details>
+
+### 25.10.0
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed XSS in the Extensions Dynamic Services Configure page.
+
+</details>
 
 ### 25.10.0
 
@@ -260,6 +415,26 @@ Release date: `November 4, 2025`
 
 ## Centreon Open Tickets
 
+### 25.10.1
+
+Release date: `December 17, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [GLPI] Fixed group retrieval when using versions 9.5 and above.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Open Tickets] Fixed an issue that exposed the password when using EasyVista.
+- [Open Tickets] Fixed issue preventing ticket from being closed when the corresponding resource had its status changed since the opening of the ticket.
+- [Translation] Added missing French translations.
+
+</details>
+
 ### 25.10.0
 
 Release date: `November 4, 2025`
@@ -278,3 +453,11 @@ Release date: `November 4, 2025`
 - [Vulnerability] Fixed XSS vulnerability in the **Configuration > Notification > Rules** page.
 
 </details>
+
+## Centreon High Availability
+
+### 25.10.1
+
+Release date: `December 17, 2025`
+
+- No changes for this module in this version.
