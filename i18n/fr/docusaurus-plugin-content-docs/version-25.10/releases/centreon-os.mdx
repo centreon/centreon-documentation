@@ -46,9 +46,9 @@ Release date: `December 17, 2025`
 - [APIv2] Fixed a 500 error when expiration_date = NULL in security_token.
 - [Anomaly Detection] Fixed an issue on broker configuration generation with proxy parameters.
 - [Authentication] Allowed to access Centreon UI through a reverse proxy/load balancer.
-- [Configuration] Fixed an issue where host names could be saved with special characters but would then block cause "export configuration" to fail.
+- [Configuration] Fixed an issue where host names could be saved with special characters but would then cause "export configuration" to fail.
 - [Authentication] Fixed an issue where users could lose their DN during an LDAP connection.
-- [Authentication] Fixed issue with LDAP authentication crashing right after a success message.
+- [Authentication] Fixed an issue with LDAP authentication crashing right after a success message.
 - [Authentication tokens] Fixed an issue when clicking "cancel" in the change confirmation modal that caused the token's status to be displayed as changed.
 - [BA monitoring page] Fixed an issue that caused certain areas of the page to remain in light mode while dark mode was selected.
 - [CEIP] Added data-testid on enable button for both direction.
@@ -78,7 +78,7 @@ Release date: `December 17, 2025`
 - [Medias] Fixed an issue preventing pagination from being displayed properly.
 - [Monitoring] Fixed an issue on Host Group Summary redirecting users to Resource Status.
 - [Open Tickets] Forced BBDO 3.0.1 instead of 3.1 on pollers to prevent a blocking issue.
-- [Performance Graphs] Fixed issue when exporting data in CSV that resulted in an empty file.
+- [Performance Graphs] Fixed an issue when exporting data in CSV that resulted in an empty file.
 - [Resource Status] Prevent services related to a deleted host to appear in menu filter.
 - [Translation] Added missing French translations.
 
@@ -430,7 +430,7 @@ Release date: `December 17, 2025`
   <summary>Bug fixes</summary>
 
 - [Open Tickets] Fixed an issue that exposed passwords when using EasyVista.
-- [Open Tickets] Fixed issue preventing ticket from being closed when the corresponding resource had its status changed since the opening of the ticket.
+- [Open Tickets] Fixed an issue preventing tickets from being closed when the corresponding resource had its status changed since the opening of the ticket.
 - [Translation] Added missing French translations.
 
 </details>
