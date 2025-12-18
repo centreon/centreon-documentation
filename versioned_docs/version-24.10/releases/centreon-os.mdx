@@ -33,10 +33,10 @@ Release date: `December 18, 2025`
 - [API Tokens] Added a welcome page when no token exists in the token configuration page.
 - [Authentication] Password change attempts are now logged in a dedicated log file.
 - [Authentication] When a user is authenticated using an IdP, the password fields no longer appear when editing a contact.
-- [Configuration] "Deploy Service" on host now indicate "Conf Changed*" in Pollers list.
-- [Configuration] Partitioning will work again with Amazon RDS Aurora but will be very costly the first time in terms of time, CPU, if not done for a while.
+- [Configuration] The "Deploy Service" action from the hosts list now triggers a "Conf Changed" flag for the related poller in the pollers list.
+- [Configuration] Adapted partitioning to properly work with Amazon Aurora RDS again. Impacted user's next partitioning will take longer than usual as the database catches up with missing partitions.
 - [Configuration] Removed obsolete gorgone error message from configuration generation log.
-- [Resource Status] Graphs containing more than 20 metrics are no longer displayed, for performance and readability reasons.
+- [Resource Status] For performance and readability reasons, graphs containing more than 20 metrics are no longer displayed.
 - [UI] Changed wording from "IP Address" to "Address" for pollers.
 
 </details>
@@ -44,46 +44,46 @@ Release date: `December 18, 2025`
 <details>
   <summary>Bug fixes</summary>
 
-- [ACL] Fixed issue when cumulating ACLs for a same user.
-- [API] Fixed an issue where using Rest APIv1 changes the token expiration date.
-- [API] Fixed commands when requesting services in real time, using MySQL 8.
-- [API] Fixed wrong filtering on realtime service categories listing endpoint
-- [APIv2] Fixed a 500 error when expiration_date = NULL in security_token.
+- [ACL] Fixed an issue for users cumulating multiple ACLs that caused the ACL with the highest ID to override other ones.
+- [API] Fixed an issue where using Rest APIv1 would change the token expiration date.
+	- [API] Fixed an issue that caused commands to return an SQL error when requesting services in real time using MySQL 8.
+	- [API] Fixed an issue with filtering on realtime service categories listing API endpoint.
+	- [APIv2] Fixed a 500 error when using expiration_date = NULL in security_token.
 - [Anomaly Detection] Fixed an issue on broker configuration generation with proxy parameters.
 - [Authentication] Allowed to access Centreon UI through a reverse proxy/load balancer.
 - [Authentication] Fixed issue on LDAP authentication.
 - [Authentication] Fixed an issue where a user could lose their DN during an LDAP connection.
-- [Authentication tokens] Fixed an issue when canceling action in confirmation modal.
+- [Authentication tokens] Fixed an issue when clicking "cancel" in the change confirmation modal that caused the token's status to be displayed as changed.
 - [CLAPI] Fixed an issue where HTML entities were not correctly decoded when exporting.
-- [CLAPI] Fixed an issue where the APPLYTPL command can take a long time to take effect.
-- [Configuration] Fixed an error when changing host template order in host form.
-- [Configuration] Fixed an issue in Agent configuration where engine was not listening if No TLS was activated (poller-initiated).
-- [Configuration] Fixed an issue on Agent configuration where results of filters were not as expected if no matching data.
-- [Configuration] Fixed an issue on Hosts configuration where the host name configuration name restriction not align with export configuration.
-- [Configuration] Fixed an issue on remote servers, where max auto_increment was reached after many exports.
-- [Configuration] Fixed an issue preventing user from disabling a meta-service.
-- [Configuration] Fixed an issue when searching Host in Agent configuration (Poller-initiated connection).
-- [Configuration] Fixed an issue where configuration files were not generated when poller was disabled in the listing and re-enabled through the form.
-- [configuration] Fixed an issue where configuration wasn't exported for hosts without alias, declared in agent confguration.	
+- [CLAPI] Fixed an issue where the APPLYTPL command woul take a long time to take effect.
+- [Configuration] Fixed an error when changing the host template order in the host configuration form.
+- [Configuration] Fixed an issue in Agent configuration where engine was not listening if "No TLS" was activated (poller-initiated).
+- [Configuration] Fixed an issue on Agent configuration where results of filters were not as expected if there was no matching data.
+- [Configuration] Fixed an issue where host names could be saved with special characters but would then block cause "export configuration" to fail.
+- [Configuration] Fixed an issue on remote servers, where max auto_increment was reached after many exports causing imports to fail.
+- [Configuration] Fixed an issue preventing users from disabling a meta-service.
+- [Configuration] Fixed an issue in Agent configuration (Poller-initiated connection) that prevented users from searching for the host.
+- [Configuration] Fixed an issue where configuration files were not generated when the poller was disabled in the listing and re-enabled through the form.
+- [configuration] Fixed an issue where configuration wasn't exported for hosts without alias and declared in agent configuration.	
 - [Configuration] Fixed an issue where inputs/outputs were missing when duplicating a Broker config.
-- [Configuration] Fixed an issue where Host category was not displayed in listing when not linked to Host.
+- [Configuration] Fixed an issue where Host categories were not displayed in the listing when not linked to Host.
 -	[Configuration] Fixed incorrect error message in configuration export.
-- [Core] Fixed an issue where log level wasn't taken into account in token removal script.
+- [Core] Fixed an issue where the log level wasn't being taken into account in the token removal script.
 - [Custom Views - Host-Monitoring] Fixed an issue where only the current page was exported instead of all data.
-- [Dashboards] Fixed an issue preventing to get dashboards filtered by creator by API.
+- [Dashboards] Fixed an issue preventing to get dashboards filtered.
 - [Dashboards] Fixed an issue where host status icons were displayed incorrectly in the group monitoring widget.
-- [Dashboards] Single Metric widget - Fixed the real-time retrieval of metric value.
-- [Downtimes] Fixed issue with meta-service names not being properly displayed.
+- [Dashboards] Single Metric widget - Fixed the real-time retrieval of metric values.
+- [Downtimes] Fixed an issue with meta-service names not being properly displayed.
 - [Host groups] Fixed an issue while checking for illegal characters on host group name.
 - [Licences] Fixed an error message concerning the creation of a dynamic property in a class when downloading licences.
-- [LDAP Import] Fixed an issue where LDAP user with a UID containing a special character was imported multiple times.
-- [Log] Fixed an issue where Error impCompanyPortal appears on /var/log/centreon/centreon-web.log.
-- [Monitoring] Fixed an issue on Summary by host group.
+- [LDAP Import] Fixed an issue where a LDAP user with a UID containing a special character would be imported multiple times.
+- [Log] Fixed an issue where "Error impCompanyPortal" would appear on /var/log/centreon/centreon-web.log.
+- [Monitoring] Fixed an issue on Host Group Summary redirecting users to Resource Status.
 - [Packaging] Updated permissions of token purge log file
-- [Performance Graphs] Fixed issue when exporting data in CSV.
+- [Performance Graphs] Fixed an issue when exporting data in CSV that resulted in an empty file.
 - [Resource Status] Fixed error when displaying metrics of a meta service.
-- [Resource Status] Prevented services related to a deleted host to appear in menu filter.
-- [Translation] Fixed an issue where menu language was left by default in FR when "Detection by browser" option was selected.
+- [Resource Status] Services related to a deleted host will no longer appear in menu filter.
+- [Translation] Fixed an issue where menu language was set to FR when the "Detection by browser" language option was selected.
 - [Translations] Fixed an issue preventing translations from being displayed.
 
 </details>
@@ -92,14 +92,14 @@ Release date: `December 18, 2025`
   <summary>Security fixes</summary>
 
 - [Security] Enhanced security on password DOM storage in login page.
-- [Security] Fixed an RCE on poller reload page.
-- [Security] Securized backup script to prevent command injections.
+- [Security] Fixed an RCE vulnerability on poller reload page.
+- [Security] Secured backup script to prevent command injections.
 - [Vulnerability] Fixed an issue on Broken Access Control in Administration Parameters Endpoint.
-- [Vulnerability] Fixed IDOR on Custom Views.
+- [Vulnerability] Fixed IDOR vulnerability on Custom Views.
 - [Vulnerability] Fixed XSS vulnerability in Configuration > Hosts > hostgroups.
-- [Vulnerability] Fixed XSS in the ACL Menus Access page.
-- [Vulnerability] Fixed XSS in the Hosts Configuration page.
-- [Vulnerability] Fixed XSS in the Recurrent Downtimes page.
+- [Vulnerability] Fixed vulnerability XSS in the ACL Menus Access page.
+- [Vulnerability] Fixed XSS vulnerability in the Hosts Configuration page.
+- [Vulnerability] Fixed XSS vulnerability in the Recurrent Downtimes page.
 
 </details>
 
@@ -1162,14 +1162,14 @@ Release date: `December 18, 2025`
 <details>
   <summary>Bug fixes</summary>
 
-- [DSM] Fixed an issue on dsmd daemon stuck on start
+- [DSM] Fixed an issue with dsmd daemon bieng stuck on start
 
 </details>
 
 <details>
   <summary>Security fixes</summary>
 
-- [Vulnerability] Fixed XSS in the Extensions Dynamic Services Configure page.
+- [Vulnerability] Fixed XSS vulnerability in the Extensions Dynamic Services Configure page.
 
 </details>
 
@@ -1241,16 +1241,16 @@ Release date: `December 18, 2025`
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed issue preventing ticket from being closed when the corresponding resource had its status changed since the opening of the ticket.
+- Fixed an issue preventing ticket a from being closed when the corresponding resource had its status changed since the opening of the ticket.
 
 </details>
 
 <details>
   <summary>Security fixes</summary>
 
-- [Open Tickets] Fixed an issue that exposed the password when using EasyVista.
-- [Vulnerability] Fixed SQL injection in the Notification > Rules page.
-- [Vulnerability] Fixed XSS vulnerability in Configuration > Notification > Rules.
+- [Open Tickets] Fixed an issue that exposed the passwords when using EasyVista.
+	- [Vulnerability] Fixed SQL injection in the notification rules.
+	- [Vulnerability] Fixed XSS vulnerability in configuration notification rules.
 
 </details>
 
