@@ -34,8 +34,7 @@ Release date: `December 18, 2025`
 - [Authentication] Password change attempts are now logged in a dedicated log file.
 - [Authentication] When a user is authenticated using an IdP, the password fields no longer appear when editing a contact.
 - [Configuration] The "Deploy Service" action from the hosts list now triggers a "Conf Changed" flag for the related poller in the pollers list.
-- [Configuration] Adapted partitioning to properly work with Amazon Aurora RDS again. Impacted user's next partitioning will take longer than usual as the database catches up with missing partitions.
-- [Configuration] Removed obsolete gorgone error message from configuration generation log.
+- [Configuration] Fixed an issue with database partitioning on Amazon Aurora RDS. The next update may take a bit longer for some users while the system catches up.
 - [Resource Status] For performance and readability reasons, graphs containing more than 20 metrics are no longer displayed.
 - [UI] Changed wording from "IP Address" to "Address" for pollers.
 
