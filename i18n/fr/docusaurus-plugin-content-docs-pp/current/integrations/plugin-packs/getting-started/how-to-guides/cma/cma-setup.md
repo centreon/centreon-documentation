@@ -237,30 +237,60 @@ Installez le dépôt Centreon puis l'agent à l'aide des commandes suivantes :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
+<Tabs groupId="sync">
+<TabItem value="24.10" label="24.10">
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-25.10.repo
 dnf install  centreon-monitoring-agent
 ```
-
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
+<TabItem value="25.10" label="25.10">
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf install  centreon-monitoring-agent
+```
+</TabItem>
+</Tabs>
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<Tabs groupId="sync">
+<TabItem value="24.10" label="24.10">
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-25.10.repo
 dnf install  compat-openssl11 centreon-monitoring-agent
 ```
-
+</TabItem>
+<TabItem value="25.10" label="25.10">
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf install  compat-openssl11 centreon-monitoring-agent
+```
+</TabItem>
+</Tabs>
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
+<Tabs groupId="sync">
+<TabItem value="24.10" label="24.10">
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/apt-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
+</TabItem>
+<TabItem value="25.10" label="25.10">
+```shell
+apt-get update
+apt-get -y install lsb-release gpg wget
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+</TabItem>
+</Tabs>
 
 Ensuite, importez la clé du dépôt :
 
@@ -280,12 +310,23 @@ apt install centreon-monitoring-agent
 
 1. Exécutez les commandes suivantes :
 
+<Tabs groupId="sync">
+<TabItem value="24.10" label="24.10">
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/ubuntu-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list```
+</TabItem>
+<TabItem value="25.10" label="25.10">
+```shell
+apt-get update
+apt-get -y install lsb-release gpg wget
+echo "deb https://packages.centreon.com/ubuntu-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
+</TabItem>
+</Tabs>
 
 2. Importez la clé du dépôt :
 
