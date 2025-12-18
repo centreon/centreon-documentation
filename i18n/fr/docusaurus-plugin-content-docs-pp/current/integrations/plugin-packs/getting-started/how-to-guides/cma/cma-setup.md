@@ -273,6 +273,9 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 </Tabs>
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+1. Exécutez les commandes suivantes :
+
 <Tabs groupId="sync">
 <TabItem value="24.10" label="24.10">
 ```shell
@@ -292,13 +295,13 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 </TabItem>
 </Tabs>
 
-Ensuite, importez la clé du dépôt :
+2. Importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
-Ensuite, installez l'agent :
+3. Installez l'agent :
 
 ```shell
 apt-get update
@@ -316,7 +319,8 @@ apt install centreon-monitoring-agent
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/ubuntu-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list```
+echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
 </TabItem>
 <TabItem value="25.10" label="25.10">
 ```shell
