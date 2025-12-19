@@ -67,7 +67,7 @@ In some cases, you may want to set up a distributed architecture, even for fewer
 Distributed architecture:
 
 * 1 central server
-* 1 poller for every 500 hosts
+* 1 [poller](#poller-sizing) for every 500 hosts
 
 ### Central server
 
@@ -96,47 +96,13 @@ This is how your central server should be partitioned:
 > At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
 > if you wish to use **snapshot LVM** as a backup method.
 
-### Pollers
-
-* To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
-
-| Element                     | Value     |
-| ----------------------------| --------- |
-| CPU  (logical core at 3 GHz) | 2 vCPU    |
-| RAM                         | 2 GB      |
-| HDD                         | 40 GB     |
-
-* To handle production environments (up to 7000 services with checks every 5 minutes):
-
-| Element                     | Value     |
-| ----------------------------| --------- |
-| CPU  (logical core at 3 GHz) | 4 vCPU    |
-| RAM                         | 4 GB      |
-| HDD                         | 40 GB     |
-
-This is how the pollers should be partitioned:
-
-| Volume group (LVM) | File system                | Description | Size                                                     |
-|-| ----------------------------|-------------|----------------------------------------------------------|
-| | /boot | boot images | 1 GB |
-|  vg_root | /                          | system root            | 20 GB                                |
-| vg_root | swap                       | swap | 4 GB                               |
-| vg_root | /var/log                   | contains all log files | 10 GB                                |
-| vg_data | /var/lib/centreon-engine   |  | 5 GB                               |
-
-> Your system must use LVM to manage the file system.
-
-> The number of
-> vCPU depends of the complexity of the checks. If you use connectors or perform a large number of system/third-party
-> binary calls, you should add more vCPU.
-
 </TabItem>
 <TabItem value="Up to 2,500 hosts" label="Up to 2,500 hosts">
 
 Distributed architecture:
 
 * 1 central server
-* 1 poller for every 500 hosts
+* 1 [poller](#poller-sizing) for every 500 hosts
 
 ### Central server
 
@@ -165,40 +131,6 @@ This is how your central server should be partitioned:
 > At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
 > if you wish to use **snapshot LVM** as a backup method.
 
-### Pollers
-
-* To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
-
-| Element                     | Value     |
-| ----------------------------| --------- |
-| CPU  (logical core at 3 GHz) | 2 vCPU    |
-| RAM                         | 2 GB      |
-| HDD                         | 40 GB     |
-
-* To handle production environments (up to 7000 services with checks every 5 minutes):
-
-| Element                     | Value     |
-| ----------------------------| --------- |
-| CPU  (logical core at 3 GHz) | 4 vCPU    |
-| RAM                         | 4 GB      |
-| HDD                         | 40 GB     |
-
-This is how the pollers should be partitioned:
-
-| Volume group (LVM) | File system                | Description | Size                                                     |
-|-| ----------------------------|-------------|----------------------------------------------------------|
-| | /boot | boot images | 1 GB |
-|  vg_root | /                          | system root            | 20 GB                                |
-| vg_root | swap                       | swap | 4 GB                               |
-| vg_root | /var/log                   | contains all log files | 10 GB                                |
-| vg_data | /var/lib/centreon-engine   |  | 5 GB                               |
-
-> Your system must use LVM to manage the file system.
-
-> The number of
-> vCPU depends of the complexity of the checks. If you use connectors or perform a large number of system/third-party
-> binary calls, you should add more vCPU.
-
 </TabItem>
 <TabItem value="Up to 5,000 hosts" label="Up to 5,000 hosts">
 
@@ -206,7 +138,7 @@ Distributed architecture:
 
 * 1 central server without a database
 * 1 database server
-* 1 poller for every 500 hosts
+* 1 [poller](#poller-sizing) for every 500 hosts
 
 ### Central server
 
@@ -252,40 +184,6 @@ This is how the database server should be partitioned:
 > At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
 > if you wish to use **snapshot LVM** as a backup method.
 
-### Pollers
-
-* To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
-
-| Element                     | Value     |
-| ----------------------------| --------- |
-| CPU  (logical core at 3 GHz) | 2 vCPU    |
-| RAM                         | 2 GB      |
-| HDD                         | 40 GB     |
-
-* To handle production environments (up to 7000 services with checks every 5 minutes):
-
-| Element                     | Value     |
-| ----------------------------| --------- |
-| CPU  (logical core at 3 GHz) | 4 vCPU    |
-| RAM                         | 4 GB      |
-| HDD                         | 40 GB     |
-
-This is how the pollers should be partitioned:
-
-| Volume group (LVM) | File system                | Description | Size                                                     |
-|-| ----------------------------|-------------|----------------------------------------------------------|
-| | /boot | boot images | 1 GB |
-|  vg_root | /                          | system root            | 20 GB                                |
-| vg_root | swap                       | swap | 4 GB                               |
-| vg_root | /var/log                   | contains all log files | 10 GB                                |
-| vg_data | /var/lib/centreon-engine   |  | 5 GB                               |
-
-> Your system must use LVM to manage the file system.
-
-> The number of
-> vCPU depends of the complexity of the checks. If you use connectors or perform a large number of system/third-party
-> binary calls, you should add more vCPU.
-
 </TabItem>
 <TabItem value="Up to 10,000 hosts" label="Up to 10,000 hosts">
 
@@ -293,7 +191,7 @@ Distributed architecture:
 
 * 1 central server without a database
 * 1 database server
-* 1 poller for every 500 hosts
+* 1 [poller](#poller-sizing) for every 500 hosts
 
 ### Central server
 
@@ -338,7 +236,15 @@ This is how the database server should be partitioned:
 > At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
 > if you wish to use **snapshot LVM** as a backup method.
 
-### Pollers
+</TabItem>
+<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+
+For very large amounts of data, contact your sales representative.
+
+</TabItem>
+</Tabs>
+
+## Poller sizing
 
 * To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
 
@@ -371,14 +277,6 @@ This is how the pollers should be partitioned:
 > The number of
 > vCPU depends of the complexity of the checks. If you use connectors or perform a large number of system/third-party
 > binary calls, you should add more vCPU.
-
-</TabItem>
-<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
-
-For very large amounts of data, contact your sales representative.
-
-</TabItem>
-</Tabs>
 
 ## Network flows
 
