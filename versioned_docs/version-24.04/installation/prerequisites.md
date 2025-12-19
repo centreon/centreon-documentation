@@ -69,7 +69,7 @@ Distributed architecture:
 * 1 central server
 * 1 poller for every 500 hosts
 
-**Central server**
+### Central server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -96,7 +96,7 @@ This is how your central server should be partitioned:
 > At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
 > if you wish to use **snapshot LVM** as a backup method.
 
-**Pollers**
+### Pollers
 
 * To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
 
@@ -138,7 +138,7 @@ Distributed architecture:
 * 1 central server
 * 1 poller for every 500 hosts
 
-**Central server**
+### Central server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -165,7 +165,7 @@ This is how your central server should be partitioned:
 > At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
 > if you wish to use **snapshot LVM** as a backup method.
 
-**Pollers**
+### Pollers
 
 * To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
 
@@ -208,7 +208,7 @@ Distributed architecture:
 * 1 database server
 * 1 poller for every 500 hosts
 
-**Central server**
+### Central server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -228,7 +228,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-engine | | 5 GB |
 | vg_data | /var/cache/centreon/backup | backup directory | 10 GB <br/>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul>   |
 
-**Database server**
+### Database server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -252,7 +252,7 @@ This is how the database server should be partitioned:
 > At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
 > if you wish to use **snapshot LVM** as a backup method.
 
-**Pollers**
+### Pollers
 
 * To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
 
@@ -295,7 +295,7 @@ Distributed architecture:
 * 1 database server
 * 1 poller for every 500 hosts
 
-**Central server**
+### Central server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -315,7 +315,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-engine | | 5 GB |
 | vg_data | /var/cache/centreon/backup | backup directory | 10 GB <br/>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul> |
 
-**Database server**
+### Database server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -338,7 +338,7 @@ This is how the database server should be partitioned:
 > At least 1 GB of non-allocated free space must be available for the **volume group** containing **/var/lib/mysql**,
 > if you wish to use **snapshot LVM** as a backup method.
 
-**Pollers**
+### Pollers
 
 * To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
 
