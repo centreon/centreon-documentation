@@ -139,10 +139,6 @@ The following is an exhaustive list of macros by resource type, each type of res
 | \$LONGHOSTOUTPUT\$                   | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 |
 | \$HOSTPERFDATA\$                     | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 |
 | \$HOSTCHECKCOMMAND\$                 | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTACKAUTHOR\$ [(8)](#notes)      | No             | No                     | No                | Yes                 | No                     | No                  |
-| \$HOSTACKAUTHORNAME\$ [(8)](#notes)  | No             | No                     | No                | Yes                 | No                     | No                  |
-| \$HOSTACKAUTHORALIAS\$ [(8)](#notes) | No             | No                     | No                | Yes                 | No                     | No                  |
-| \$HOSTACKCOMMENT\$ [(8)](#notes)     | No             | No                     | No                | Yes                 | No                     | No                  |
 | \$HOSTACTIONURL\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
 | \$HOSTNOTESURL\$                     | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
 | \$HOSTNOTES\$                        | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
@@ -186,10 +182,6 @@ The following is an exhaustive list of macros by resource type, each type of res
 - **\$LONGHOSTOUTPUT\$**: The full text output (aside from the first line) from the last host check.
 - **\$HOSTPERFDATA\$**: This macro contains any performance data that may have been returned by the last host check.
 - **\$HOSTCHECKCOMMAND\$**: This macro contains the name of the command (along with any arguments passed to it) used to perform the host check.
-- **\$HOSTACKAUTHOR\$** [(8)](#notes): A string containing the name of the user who acknowledged the host problem. This macro is only valid in notifications where the \$NOTIFICATIONTYPE\$ macro is set to "ACKNOWLEDGEMENT".
-- **\$HOSTACKAUTHORNAME\$** [(8)](#notes): A string containing the short name of the contact (if applicable) who acknowledged the host problem. This macro is only valid in notifications where the \$NOTIFICATIONTYPE\$ macro is set to "ACKNOWLEDGEMENT".
-- **\$HOSTACKAUTHORALIAS\$** [(8)](#notes): A string containing the alias of the contact (if applicable) who acknowledged the host problem. This macro is only valid in notifications where the \$NOTIFICATIONTYPE\$ macro is set to "ACKNOWLEDGEMENT".
-- **\$HOSTACKCOMMENT\$** [(8)](#notes): 8	A string containing the acknowledgement comment that was entered by the user who acknowledged the host problem. This macro is only valid in notifications where the \$NOTIFICATIONTYPE\$ macro is set to "ACKNOWLEDGEMENT".
 - **\$HOSTACTIONURL\$**: Action URL for the host. This macro may contain other macros (e.g. \$HOSTNAME\$), which can be useful when you want to pass the host name to a web page.
 - **\$HOSTNOTESURL\$**: Notes URL for the host. This macro may contain other macros (e.g. \$HOSTNAME\$), which can be useful when you want to pass the host name to a web page.
 - **\$HOSTNOTES\$**: Notes for the host. This macro may contain other macros (e.g. \$HOSTNAME\$), which can be useful when you want to host-specific status information, etc. in the description.
