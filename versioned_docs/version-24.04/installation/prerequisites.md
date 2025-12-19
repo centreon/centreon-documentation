@@ -5,7 +5,7 @@ title: Prerequisites
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This topic gives you broad guidelines to determine the size of your platform.
+This topic gives you broad guidelines to determine the size of your platform. See also the prerequisites sections for [MAP](../graph-views/map-web-install.md#prerequisites) and [MBI](../reporting/installation.md#prerequisites).
 
 ## Architecture
 
@@ -43,6 +43,8 @@ Standalone central server:
 | ----------------------------| --------- |
 | CPU                         | 4 vCPU    |
 | RAM                         | 4 GB      |
+
+> If you prefer, you can also monitor your 500 hosts using a [poller](#poller-sizing) attached to a central.
 
 This is how your central server should be partitioned:
 
