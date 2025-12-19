@@ -8,6 +8,56 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
+### Décembre
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Cato Networks API**](../procedures/network-security-cato-networks-api.md) - Initial release, based on a [The Watch idea](https://thewatch.centreon.com/ideas/create-a-new-cato-network-connector-4025). 
+- [**Microsoft Cluster Server CMA**](../procedures/applications-mscs-cma.md) - Initial release.
+- [**Nvidia (formerly Mellanox) SNMP**](../procedures/network-nvidia-mellanox-snmp.md) - Initial release [PR 5753](https://github.com/centreon/centreon-plugins/pull/5753).
+- [**OpenStack RESTAPI**](../procedures/cloud-openstack-restapi.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - New LTE service template.
+- [**Active Directory CMA**](../procedures/infrastructure-active-directory-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Base Pack**](../procedures/base-generic.md) - New **Generic-Passive-CMA-Service** service template with `is_volatile` set to 0 to avoid multiple notifications.
+- [**Hyper-V 2012 CMA**](../procedures/virtualization-hyperv-2012-cma.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Microsoft WSUS CMA**](../procedures/applications-wsus-cma.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Cisco Waas SNMP**](../procedures/network-cisco-waas-snmp.md) - Fixed errors related to thresholds.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - Fixed typo in jobs mode.
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Added state to the requested fields in volume query [PR 5851](https://github.com/centreon/centreon-plugins/pull/5851).
+- [**Netbackup NSClient++ API**](../procedures/applications-netbackup-nsclient-05-restapi.md) - Removed exchange command.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed wrong tablespace size calculation in tablespace-usage mode.
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**D-Link DGS 3100**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed wrong output unit in locks-wait mode.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+
+</TabItem>
+</Tabs>
+
 ### Novembre
 
 <Tabs groupId="sync">

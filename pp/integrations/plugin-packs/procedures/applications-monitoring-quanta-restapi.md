@@ -122,8 +122,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-In order to monitor Quanta, you must have [a valid API token](https://quantaio.notion.site/Automatically-track-events-0ba555d180e145b4bc2e116327fe8a2d#:~:text=Authentication%20and%20token%20generation), and [have user journeys configured in Quanta](https://quantaio.notion.site/Creation-of-a-scenario-or-User-Journey-bdd229fbe6d14ac885e9a3e91a8d57f1).
-Data from Real User Monitoring will only be accessible if you have completed [the integration of Quanta's RUM TAG](https://quantaio.notion.site/Installer-le-Real-User-Monitoring-fa29c4e7154540579d91d32719616546).
+In order to monitor Quanta, you must have [a valid API token](/dem/installation/monitor-production-events#authentication-and-token-generation), and [have user journeys configured in Quanta](/dem/configuration/user-journey/create-a-scenario).
+Data from Real User Monitoring will only be accessible if you have completed [the integration of Quanta's RUM TAG](/dem/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
 
 ## Installing the monitoring connector
 

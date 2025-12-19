@@ -1,13 +1,13 @@
 ---
-id: applications-netbackup-nsclient-05-restapi
-title: Netbackup NSClient++ API
+id: applications-mscs-cma
+title: Microsoft Cluster Server CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Netbackup NSClient++ API** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft Cluster Server CMA** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,25 +15,24 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Netbackup NSClient++ API** apporte un modèle d'hôte :
+Le connecteur de supervision **Microsoft Cluster Server CMA** apporte un modèle d'hôte :
 
-* **App-Netbackup-NSClient-05-Restapi-custom**
+* **App-Mscs-CMA-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="App-Netbackup-NSClient-05-Restapi-custom" label="App-Netbackup-NSClient-05-Restapi-custom">
+<TabItem value="App-Mscs-CMA-custom" label="App-Mscs-CMA-custom">
 
-| Alias          | Modèle de service                                      | Description                                                           |
-|:---------------|:-------------------------------------------------------|:----------------------------------------------------------------------|
-| Dedup-Status   | App-Netbackup-Dedup-Status-NSClient05-Restapi-custom   | Contrôle permettant de vérifier l'état de la déduplication            |
-| Drive-Cleaning | App-Netbackup-Drive-Cleaning-NSClient05-Restapi-custom | Contrôle permettant de vérifier si les lecteurs doivent être nettoyés |
-| Drive-Status   | App-Netbackup-Drive-Status-NSClient05-Restapi-custom   | Contrôle permettant de vérifier l'état de des lecteurs                |
-| Job-Status     | App-Netbackup-Job-Status-NSClient05-Restapi-custom     | Contrôle permettant de vérifier l'état de des jobs de sauvegarde      |
-| Tape-Usage     | App-Netbackup-Tape-Usage-NSClient05-Restapi-custom     | Contrôle permettant de vérifier l'utilisation des bandes              |
+| Alias                       | Modèle de service                        | Description                                                                    |
+|:----------------------------|:-----------------------------------------|:-------------------------------------------------------------------------------|
+| Cluster-Network-Status      | App-Mscs-Network-Status-CMA-custom       | Contrôle permettant de vérifier le statut réseau du cluster                   |
+| Cluster-Node-Status         | App-Mscs-Node-Status-CMA-custom          | Contrôle permettant de vérifier le statut des noeuds du cluster                |
+| Cluster-Resouce-Status      | App-Mscs-Resource-Status-CMA-custom      | Contrôle permettant de vérifier le statut des ressources du cluster            |
+| Cluster-Resoucegroup-Status | App-Mscs-Resourcegroup-Status-CMA-custom | Contrôle permettant de vérifier le statut des groupes de ressources du cluster |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Netbackup-NSClient-05-Restapi-custom** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Mscs-CMA-custom** est utilisé.
 
 </TabItem>
 </Tabs>
@@ -43,26 +42,7 @@ Le connecteur apporte les modèles de service suivants
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Dedup-Status" label="Dedup-Status">
-
-| Nom                                               | Unité |
-|:--------------------------------------------------|:------|
-| status                                            | N/A   |
-| *volume*#disk_pool.deduplication.usage.percentage | %     |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
-</TabItem>
-<TabItem value="Drive-Cleaning" label="Drive-Cleaning">
-
-| Nom                  | Unité |
-|:---------------------|:------|
-| drives.unclean.count | count |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
-</TabItem>
-<TabItem value="Drive-Status" label="Drive-Status">
+<TabItem value="Cluster-Network-Status" label="Cluster-Network-Status">
 
 | Nom    | Unité |
 |:-------|:------|
@@ -71,23 +51,29 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
-<TabItem value="Job-Status" label="Job-Status">
+<TabItem value="Cluster-Node-Status" label="Cluster-Node-Status">
 
-| Nom              | Unité |
-|:-----------------|:------|
-| jobs.total.count | count |
-| status           | N/A   |
-| long             | N/A   |
-| frozen           | N/A   |
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
-<TabItem value="Tape-Usage" label="Tape-Usage">
+<TabItem value="Cluster-Resouce-Status" label="Cluster-Resouce-Status">
 
-| Nom   | Unité |
-|:------|:------|
-| usage | N/A   |
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Cluster-Resoucegroup-Status" label="Cluster-Resoucegroup-Status">
+
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -96,10 +82,31 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-### Centreon NSClient++
+### Flux réseau
 
-Pour superviser une ressource via NSClient++ API, installez la version Centreon de l'agent NSClient++.
-Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur Web / RestAPI** est correcte.
+Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
+
+| Source         | Destination | Protocole | Port | Objet                                                                       |
+|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
+| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
+
+### Prérequis système sur le collecteur
+
+> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
+> minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
+
+### Configuration de Centreon Engine
+
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
+
+### Prérequis système sur l'hôte à superviser
+
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur [cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte).
+
+#### Installation de Centreon Monitoring Agent
+
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
+[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte).
 
 ## Installer le connecteur de supervision
 
@@ -117,70 +124,39 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-netbackup-nsclient-05-restapi
+dnf install centreon-pack-applications-mscs-cma
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-netbackup-nsclient-05-restapi
+dnf install centreon-pack-applications-mscs-cma
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-applications-netbackup-nsclient-05-restapi
+apt install centreon-pack-applications-mscs-cma
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-netbackup-nsclient-05-restapi
+yum install centreon-pack-applications-mscs-cma
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Netbackup NSClient++ API**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Microsoft Cluster Server CMA**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
-Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```bash
-dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```bash
-apt install centreon-plugin-operatingsystems-windows-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Operatingsystems-Windows-Restapi
-```
-
-</TabItem>
-</Tabs>
+Ce connecteur de supervision s'appuie sur une intégration prise en charge par Centreon Engine et ne requiert pas de plugin.
 
 ## Utiliser le connecteur de supervision
 
@@ -188,15 +164,13 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **App-Netbackup-NSClient-05-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+3. Appliquez le modèle d'hôte **App-Mscs-CMA-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                     | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NSCPRESTAPILEGACYPASSWORD | Specify password for old authentification system                                                                                                   | PASSWORD          |             |
-| NSCPRESTAPIPROTO          | Specify https if needed                                                                                                                            | https             |             |
-| NSCPRESTAPIPORT           | Port used                                                                                                                                          | 8443              |             |
-| NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro                | Description                                             | Valeur par défaut                 | Obligatoire |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:-----------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X      |
+| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -206,62 +180,52 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Dedup-Status" label="Dedup-Status">
+<TabItem value="Cluster-Network-Status" label="Cluster-Network-Status">
 
-| Macro          | Description                                                                                                                                      | Valeur par défaut        | Obligatoire |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}                     | not %\{status\} =~ /up/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}                      |                          |             |
-| WARNINGUSAGE   | Set warning threshold in percent                                                                                                                 |                          |             |
-| CRITICALUSAGE  | Set critical threshold in percent                                                                                                                |                          |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                |             |
-
-</TabItem>
-<TabItem value="Drive-Cleaning" label="Drive-Cleaning">
-
-| Macro            | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCLEANING  | Threshold                                                                                                                                        | 1                 |             |
-| CRITICALCLEANING | Threshold                                                                                                                                        | 2                 |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut                              | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-----------:|
+| TIMEOUT        | Timeout time for command execution                                                                                                               | 120                                            |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                       | %\{state\} =~ /unknown/                        |             |
+| FILTERNAME     | Filter interface name (can be a regexp)                                                                                                          |                                                |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{display\}                      | %\{state\} =~ /down\|partitioned\|unavailable/ |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                       | none                                           |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                      |             |
 
 </TabItem>
-<TabItem value="Drive-Status" label="Drive-Status">
+<TabItem value="Cluster-Node-Status" label="Cluster-Node-Status">
 
-| Macro          | Description                                                                                                                                      | Valeur par défaut        | Obligatoire |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}                     | not %\{status\} =~ /up/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}                      |                          |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                |             |
-
-</TabItem>
-<TabItem value="Job-Status" label="Job-Status">
-
-| Macro            | Description                                                                                                                                                                         | Valeur par défaut                             | Obligatoire |
-|:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| FILTERPOLICYNAME | Filter job policy name (can be a regexp)                                                                                                                                            | .*                                            |             |
-| FILTERENDTIME    | Filter job with end time greater than current time less value in seconds                                                                                                            | 86400                                         |             |
-| OKSTATUS         | Define the conditions to match for the status to be OK You can use the following variables: %\{display\}, %\{status\}                                                               | %\{status\} == 0                              |             |
-| FILTERSTARTTIME  | Filter job with start time greater than current time less value in seconds                                                                                                          |                                               |             |
-| FILTERCOUNTERS   | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                           |                                               |             |
-| CRITICALFROZEN   | Set critical threshold for frozen jobs. You can use the following variables:  %\{display\}, %\{status\}, %\{elapsed\}, %\{type\}, %\{kb\}, %\{parentid\}, %\{schedule\}, %\{jobid\} | %\{state\} =~ /active\|queue/ && %\{kb\} == 0 |             |
-| WARNINGFROZEN    | Set warning threshold for frozen jobs You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{type\}, %\{kb\}, %\{parentid\}, %\{schedule\}, %\{jobid\}    | none                                          |             |
-| WARNINGLONG      | Set warning threshold for long jobs You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{type\}                                                         | none                                          |             |
-| CRITICALLONG     | Set critical threshold for long jobs. You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{type\}                                                       | none                                          |             |
-| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING You can use the following variables: %\{display\}, %\{status\}, %\{type\}                                               | %\{status\} == 1                              |             |
-| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}, %\{type\}                                             | %\{status\} \> 1                              |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                    | --verbose                                     |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut              | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| TIMEOUT        | Timeout time for command execution                                                                                                               | 120                            |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                       | %\{state\} =~ /unknown/        |             |
+| FILTERNAME     | Filter node name (can be a regexp)                                                                                                               |                                |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                       | %\{state\} =~ /pause\|joining/ |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{display\}                      | %\{state\} =~ /down/           |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                      |             |
 
 </TabItem>
-<TabItem value="Tape-Usage" label="Tape-Usage">
+<TabItem value="Cluster-Resouce-Status" label="Cluster-Resouce-Status">
 
-| Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERSCRATCH | Filter tape scratch                                                                                                                              | scratch           |             |
-| UNITS         | Units of thresholds ('%', 'absolute')                                                                                                            | %                 |             |
-| WARNINGUSAGE  | Threshold                                                                                                                                        | 80                |             |
-| CRITICALUSAGE | Threshold                                                                                                                                        | 90                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut               | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
+| TIMEOUT        | Timeout time for command execution                                                                                                               | 120                             |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                       | %\{state\} =~ /unknown/         |             |
+| FILTERNAME     | Filter resource name (can be a regexp)                                                                                                           |                                 |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}    | %\{state\} =~ /failed\|offline/ |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}     | none                            |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                       |             |
+
+</TabItem>
+<TabItem value="Cluster-Resoucegroup-Status" label="Cluster-Resoucegroup-Status">
+
+| Macro          | Description                                                                                                                                      | Valeur par défaut               | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
+| TIMEOUT        | Timeout time for command execution                                                                                                               | 120                             |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}     | %\{state\} =~ /unknown/         |             |
+| FILTERNAME     | Filter resource group name (can be a regexp)                                                                                                     |                                 |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}     | %\{is\_preferred\_node\} == 0   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}    | %\{state\} =~ /failed\|offline/ |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                       |             |
 
 </TabItem>
 </Tabs>
@@ -270,39 +234,33 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser une ressource en utilisant une commande
+Vous pouvez tester que le plugin parvient bien à superviser votre serveur Windows en utilisant une commande
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin \
-	--mode=query \
-	--hostname='10.0.0.1' \
-	--port='8443' \
-	--proto='https' \
-	--legacy-password='PASSWORD'  \
-	--command=check_centreon_plugins \
-	--arg='apps::backup::netbackup::local::plugin' \
-	--arg='drive-status' \
-	--arg='  \
-	--warning-status="" \
-	--critical-status="not %\{status\} =~ /up/i" \
-	--verbose'
+C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
+	--plugin=apps::microsoft::mscs::local::plugin \
+	--mode=resourcegroup-status \
+	--timeout="120" \
+	--filter-name="" \
+	--unknown-status="%\{state\} =~ /unknown/" \
+	--warning-status="%\{is\_preferred\_node\} == 0" \
+	--critical-status="%\{state\} =~ /failed|offline/" \
+	--verbose
 ```
+
+> NB : Cette commande ne peut pas s'exécuter sur les collecteurs, il faut la lancer directement sur le serveur Windows.
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All drive status are ok 
+OK: All resource groups are ok 
 ```
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
-des plugins basés sur HTTP/API.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles
 
@@ -315,21 +273,21 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin \
+C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
+	--plugin=apps::microsoft::mscs::local::plugin \
 	--list-mode
 ```
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                     | Modèle de service associé                              |
-|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|
-| dedup-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/netbackup/local/mode/dedupstatus.pm)]     | App-Netbackup-Dedup-Status-NSClient05-Restapi-custom   |
-| drive-cleaning [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/netbackup/local/mode/drivecleaning.pm)] | App-Netbackup-Drive-Cleaning-NSClient05-Restapi-custom |
-| drive-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/netbackup/local/mode/drivestatus.pm)]     | App-Netbackup-Drive-Status-NSClient05-Restapi-custom   |
-| job-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/netbackup/local/mode/jobstatus.pm)]         | App-Netbackup-Job-Status-NSClient05-Restapi-custom     |
-| list-policies [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/netbackup/local/mode/listpolicies.pm)]   | Non utilisé dans ce connecteur de supervision          |
-| tape-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/netbackup/local/mode/tapeusage.pm)]         | App-Netbackup-Tape-Usage-NSClient05-Restapi-custom     |
+| Mode                                                                                                                                               | Modèle de service associé                     |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| list-nodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/mscs/local/mode/listnodes.pm)]                     | Non utilisé dans ce connecteur de supervision |
+| list-resources [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/mscs/local/mode/listresources.pm)]             | Non utilisé dans ce connecteur de supervision |
+| network-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/mscs/local/mode/networkstatus.pm)]             | App-Mscs-Network-Status-CMA-custom            |
+| node-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/mscs/local/mode/nodestatus.pm)]                   | App-Mscs-Node-Status-CMA-custom               |
+| resource-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/mscs/local/mode/resourcestatus.pm)]           | App-Mscs-Resource-Status-CMA-custom           |
+| resourcegroup-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/mscs/local/mode/resourcegroupstatus.pm)] | App-Mscs-Resourcegroup-Status-CMA-custom      |
 
 ### Options disponibles
 
@@ -344,9 +302,6 @@ Les options génériques sont listées ci-dessous :
 | --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -376,87 +331,50 @@ Les options génériques sont listées ci-dessous :
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  \<output\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-counters                          | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --ssh-backend                              | Define the backend you want to use. It can be: `sshcli` (default), `plink` and `libssh`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --ssh-username                             | Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --ssh-password                             | Define the password associated with the user name. Cannot be used with the `sshcli` backend. Warning: using a password is not recommended. Use `--ssh-priv-key` instead.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --ssh-port                                 | Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --ssh-priv-key                             | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --hostname                                 | Hostname to query in ssh.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --timeout                                  | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --command                                  | Command to get information. Used it you have output in a file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --command-path                             | Command path.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --command-options                          | Command options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --sudo                                     | sudo command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 #### Options des modes
 
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Dedup-Status" label="Dedup-Status">
+<TabItem value="Cluster-Network-Status" label="Cluster-Network-Status">
 
-| Option            | Description                                                                                                                                                    |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --exec-only       | Print command output                                                                                                                                           |
-| --filter-name     | Filter pool name (can be a regexp).                                                                                                                            |
-| --warning-usage   | Set warning threshold in percent.                                                                                                                              |
-| --critical-usage  | Set critical threshold in percent.                                                                                                                             |
-| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}                                    |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /up/i'). You can use the following variables: %\{display\}, %\{status\} |
+| Option            | Description                                                                                                                                                                             |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name     | Filter interface name (can be a regexp).                                                                                                                                                |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{display\}                         |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: none). You can use the following variables: %\{state\}, %\{display\}                                              |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /down\|partitioned\|unavailable/'). You can use the following variables: %\{state\}, %\{display\} |
 
 </TabItem>
-<TabItem value="Drive-Cleaning" label="Drive-Cleaning">
+<TabItem value="Cluster-Node-Status" label="Cluster-Node-Status">
 
-| Option        | Description                             |
-|:--------------|:----------------------------------------|
-| --exec-only   | Print command output                    |
-| --filter-name | Filter drive name (can be a regexp).    |
-| --warning-*   | Warning threshold. Can be: 'cleaning'.  |
-| --critical-*  | Critical threshold. Can be: 'cleaning'. |
-
-</TabItem>
-<TabItem value="Drive-Status" label="Drive-Status">
-
-| Option            | Description                                                                                                                                                    |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --exec-only       | Print command output                                                                                                                                           |
-| --filter-name     | Filter drive name (can be a regexp).                                                                                                                           |
-| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}                                    |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /up/i'). You can use the following variables: %\{display\}, %\{status\} |
+| Option            | Description                                                                                                                                                            |
+|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name     | Filter node name (can be a regexp).                                                                                                                                    |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{display\}        |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /pause\|joining/'). You can use the following variables: %\{state\}, %\{display\} |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /down/'). You can use the following variables: %\{state\}, %\{display\}          |
 
 </TabItem>
-<TabItem value="Job-Status" label="Job-Status">
+<TabItem value="Cluster-Resouce-Status" label="Cluster-Resouce-Status">
 
-| Option               | Description                                                                                                                                                                                                                                    |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --exec-only          | Print command output                                                                                                                                                                                                                           |
-| --filter-policy-name | Filter job policy name (can be a regexp).                                                                                                                                                                                                      |
-| --filter-client-name | Filter jobs by client name (can be a regexp).                                                                                                                                                                                                  |
-| --filter-server-name | Filter jobs by server name (can be a regexp).                                                                                                                                                                                                  |
-| --filter-type        | Filter job type (can be a regexp).                                                                                                                                                                                                             |
-| --filter-start-time  | Filter job with start time greater than current time less value in seconds.                                                                                                                                                                    |
-| --filter-end-time    | Filter job with end time greater than current time less value in seconds (default: 86400).                                                                                                                                                     |
-| --ok-status          | Define the conditions to match for the status to be OK (default: '%\{status\} == 0') You can use the following variables: %\{display\}, %\{status\}                                                                                            |
-| --warning-status     | Define the conditions to match for the status to be WARNING (default: '%\{status\} == 1') You can use the following variables: %\{display\}, %\{status\}, %\{type\}                                                                            |
-| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} \> 1'). You can use the following variables: %\{display\}, %\{status\}, %\{type\}                                                                          |
-| --warning-long       | Set warning threshold for long jobs (default: none) You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{type\}                                                                                                    |
-| --critical-long      | Set critical threshold for long jobs (default: none). You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{type\}                                                                                                  |
-| --warning-frozen     | Set warning threshold for frozen jobs (default: none) You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{type\}, %\{kb\}, %\{parentid\}, %\{schedule\}, %\{jobid\}                                               |
-| --critical-frozen    | Set critical threshold for frozen jobs (default: '%\{state\} =~ /active\|queue/ && %\{kb\} == 0'). You can use the following variables:  %\{display\}, %\{status\}, %\{elapsed\}, %\{type\}, %\{kb\}, %\{parentid\}, %\{schedule\}, %\{jobid\} |
-| --warning-total      | Set warning threshold for total jobs.                                                                                                                                                                                                          |
-| --critical-total     | Set critical threshold for total jobs.                                                                                                                                                                                                         |
+| Option            | Description                                                                                                                                                                                |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name     | Filter resource name (can be a regexp).                                                                                                                                                    |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{display\}                            |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: none). You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}                               |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /failed\|offline/'). You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\} |
 
 </TabItem>
-<TabItem value="Tape-Usage" label="Tape-Usage">
+<TabItem value="Cluster-Resoucegroup-Status" label="Cluster-Resoucegroup-Status">
 
-| Option           | Description                                           |
-|:-----------------|:------------------------------------------------------|
-| --exec-only      | Print command output                                  |
-| --filter-scratch | Filter tape scratch (default: 'scratch').             |
-| --units          | Units of thresholds (default: '%') ('%', 'absolute'). |
-| --free           | Thresholds are on free tape left.                     |
-| --warning-*      | Warning threshold. Can be: 'usage'.                   |
-| --critical-*     | Critical threshold. Can be: 'usage'.                  |
+| Option            | Description                                                                                                                                                                                |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name     | Filter resource group name (can be a regexp).                                                                                                                                              |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}          |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{is\_preferred\_node\} == 0'). You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\}    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /failed\|offline/'). You can use the following variables: %\{state\}, %\{display\}, %\{owner\_node\} |
 
 </TabItem>
 </Tabs>
@@ -465,8 +383,8 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin \
-	--mode=query \
+C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
+	--plugin=apps::microsoft::mscs::local::plugin \
+	--mode=resourcegroup-status \
 	--help
 ```
