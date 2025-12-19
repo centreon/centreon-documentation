@@ -19,10 +19,10 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Cloud-Microsoft-Office365-Sharepoint-Api-custom" label="Cloud-Microsoft-Office365-Sharepoint-Api-custom">
 
-| Alias          | Modèle de service                                              | Description                           |
-|:---------------|:---------------------------------------------------------------|:--------------------------------------|
-| Site-Usage     | Cloud-Microsoft-Office365-Sharepoint-Site-Usage-Api-custom     | Contrôle l'usage des sites SharePoint |
-| Users-Activity | Cloud-Microsoft-Office365-Sharepoint-Users-Activity-Api-custom | Contrôle l'activité des utilisateurs  |
+| Alias                     | Modèle de service                                              | Description                           |
+|:--------------------------|:---------------------------------------------------------------|:--------------------------------------|
+| Site-Usage-Sharepoint     | Cloud-Microsoft-Office365-Sharepoint-Site-Usage-Api-custom     | Contrôle l'usage des sites SharePoint |
+| Users-Activity-Sharepoint | Cloud-Microsoft-Office365-Sharepoint-Users-Activity-Api-custom | Contrôle l'activité des utilisateurs  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Microsoft-Office365-Sharepoint-Api-custom** est utilisé.
 
@@ -34,7 +34,7 @@ Le connecteur apporte les modèles de service suivants
 Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage" label="Site-Usage">
+<TabItem value="Site-Usage-Sharepoint" label="Site-Usage-Sharepoint">
 
 | Métrique                                     | Unité |
 |:---------------------------------------------|:------|
@@ -55,7 +55,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Sharepoint" label="Users-Activity-Sharepoint">
 
 | Métrique                                               | Unité |
 |:-------------------------------------------------------|:------|
@@ -222,7 +222,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage" label="Site-Usage">
+<TabItem value="Site-Usage-Sharepoint" label="Site-Usage-Sharepoint">
 
 | Macro                          | Description                                                                                                                                      | Valeur par défaut          | Obligatoire |
 |:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
@@ -259,7 +259,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 | EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                            |             |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Sharepoint" label="Users-Activity-Sharepoint">
 
 | Macro                              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -447,7 +447,7 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Site-Usage" label="Site-Usage">
+<TabItem value="Site-Usage-Sharepoint" label="Site-Usage-Sharepoint">
 
 | Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                                      |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -458,7 +458,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --units                  | Unit of thresholds (default: '%') ('%', 'count').                                                                                                                                                                                                                                                                                                                                                                |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Sharepoint" label="Users-Activity-Sharepoint">
 
 | Option            | Description                                                                                                                                                                                                                                                                                                                                                                                                   |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

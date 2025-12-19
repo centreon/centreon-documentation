@@ -3,6 +3,71 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## November 6th, 2025
+
+### Centreon IT Edition
+
+**Centreon Dashboards**
+
+It is now easier to keep your dashboards up to date, as regular expressions are supported in the dataset configuration section of the **Resource Table**, **Group Monitoring** and **Status Grid** widgets.
+
+**User interface**
+
+A few adjustments have been made to the Centreon Monitoring Agent configuration interface. 
+
+**Collect**
+
+**Note:** Updating your poller (as described [here](../installation/poller-update-upgrade.md)) and the Centreon Monitoring Agent will unlock the following features.
+
+Thanks to the new version of the Centreon Monitoring Agent, you will be able to use autosigned certificates as CMA now allows insecure TLS connection mode. Security has still be reenforced by making usage of Centreon authentication tokens mandatory.
+
+On top of that, new native Files check for Windows have been implemented, and it is now possible to trigger on-demand forced check performed by CMA.
+
+### Centreon Pro Edition
+
+**MAP**
+
+* This release introduces image folders in Resource Access Management: folder-level access control is now available for images in MAP. Administrators can organize images into folders and manage access permissions in one place.
+* It is now possible to use the MAP API. As for the Centreon web API, use an authentication token to get started and begin automating your MAP usage.
+* Besides, you can now customize geographic view tiles in the dashboard homepage by adding a custom image to the tile.
+
+## September 25th, 2025
+
+### Centreon IT Edition
+
+**Centreon Monitoring Agent**
+
+The Centreon Monitoring Agent is now generally available and fully supported by our teams.
+As such, we have implemented the following features and enhancements:
+
+- Authenticated communication thanks to token management.
+- Dedicated whitelist for CMA commands. Only whitelisted commands can be executed by the CMA agent.
+- Native **Files** and **Task scheduler** check for Windows & Linux.
+- Central poller configuration: you can now use the central poller to collect data from your agents.
+- The agent configuration now requires a valid authentication token for TLS connection.
+- To avoid disrupting configurations already in place at the time of the update, a default token has been generated and applied to existing configurations and hosts.
+  * This token must be copied (from the **Administration > Authentication tokens** page) and applied to the agent configuration, on the host.
+- An issue has also been fixed regarding host mapping in **Poller-initiated connection** mode, and may need a check if you are using the same IP addresses for multiple hosts:
+  * In **Agent configuration**, please ensure each host is correctly mapped in the **Select host** field, which must display the host's name
+  * Deploy the configuration and restart Engine, as well as the agent on the host.
+
+**Metaservices**
+
+It is now possible to use Centreon metaservices. 
+A metaservice is a virtual service providing the aggregation of metrics from different services via a mathematical operation. 
+Metaservices are managed in the same way as a service, i.e. they have thresholds, a notification process, they generate a performance graph, etc.
+
+
+**Miscellaneous**
+
+Centreon uses service accounts for technical purposes. Those are now correctly hidden in all user interfaces, and only real users are listed.
+
+Flapping detection is now enabled, as well as the possibility to disable service checks when a host is down.
+
+Two new options have been added to the script which handles poller installation and update:
+- the **--reset** option allows you to reinstall the poller from scratch.
+- the **--private-repo** option allows you to specify a repository from where Centreon packages are fetched in case you cannot use the default ones.
+
 ## July 29th, 2025
 
 ### Centreon IT Edition

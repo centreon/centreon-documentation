@@ -51,16 +51,18 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 2. Remove the repository files:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-24.04.repo
-   rm /etc/yum.repos.d/centreon.repo
+   cd /etc/yum.repos.d/
+   rm -rf centreon*
    ```
 
 3. Install the new repository:
 
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
-```
+   ```shell
+   dnf install -y dnf-plugins-core
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+   systemctl stop cbd
+   dnf clean all --enablerepo=*
+   ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -108,49 +110,6 @@ apt update
 > If you have a Business edition, do the same with the Business repository.
 >
 > You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
-
-### Upgrade PHP
-
-Centreon 24.10 uses PHP in version 8.2.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.2
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.2
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-systemctl stop php8.1-fpm
-systemctl disable php8.1-fpm
-```
-
-</TabItem>
-</Tabs>
 
 ### Upgrade the Centreon solution
 
@@ -200,7 +159,61 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
-7. Clean the cache:
+### Upgrade PHP
+
+Centreon 24.10 uses PHP in version 8.2.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf config-manager --disable remi-modular remi-safe
+dnf module disable composer:2
+dnf module disable php:remi-8.1
+rm -rf /etc/yum.repos.d/remi*
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.2
+dnf distro-sync php\* --allowerasing
+su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.2
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
+```
+
+</TabItem>
+</Tabs>
+
+> Accept new GPG keys from the repositories as needed.
+
+Then, finish upgrading the Centreon solution.
+
+1. Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -227,7 +240,7 @@ apt update
 </TabItem>
 </Tabs>
 
-8. Then upgrade all the components with the following command:
+2. Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -252,8 +265,6 @@ apt install --only-upgrade centreon\*
 
 </TabItem>
 </Tabs>
-
-> Accept new GPG keys from the repositories as needed.
 
 ### Update your customized Apache configuration
 
@@ -617,9 +628,20 @@ with the following:
 
    Then you can upgrade all other commercial extensions.
 
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. If you were using custom commands for a poller (on the **Configuration > Pollers > Pollers** page, in the **Monitoring Engine Information** section), be aware that a new validation regex is now applied (`[a-zA-Z0-9\-\_]+`): your custom commands may need to be adapted. On the central server:
+   * To identify commands that must be adapted, run:
+     ```shell
+     sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
+     ```
+   * To adapt the commands automatically, run:
+     ```shell
+     sudo -u apache php /usr/share/centreon/bin/console w:m:c
+     ```
+     (You can also adapt them manually.)
 
-3. Restart the processes:
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Restart the processes:
 
     ``` shell
     systemctl restart cbd centengine centreontrapd gorgoned

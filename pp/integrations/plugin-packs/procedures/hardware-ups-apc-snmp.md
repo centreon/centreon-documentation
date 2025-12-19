@@ -332,7 +332,7 @@ yum install centreon-plugin-Hardware-Ups-Apc-Snmp
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | NTPHOSTNAME    | Set the ntp hostname (if not set, localtime is used)                                                                                   |               |           |
 | NTPPORT        | Set the ntp port (default: 123)                                                                                                        |               |           |
-| TIMEZONE       | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'                        |               |           |
+| TIMEZONE       | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London'                                   |               |           |
 | WARNINGOFFSET  | Time offset warning threshold (in seconds)                                                                                             |               |           |
 | CRITICALOFFSET | Time offset critical Threshold (in seconds)                                                                                            |               |           |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
@@ -556,15 +556,15 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Time" label="Time">
 
-| Option            | Description                                                                                                                   |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
-| --oid             |   Override default OID.                                                                                                       |
-| --warning-offset  |   Time offset warning threshold (in seconds).                                                                                 |
-| --critical-offset |   Time offset critical Threshold (in seconds).                                                                                |
-| --ntp-hostname    |   Set the ntp hostname (if not set, localtime is used).                                                                       |
-| --ntp-port        |   Set the ntp port (default: 123).                                                                                            |
-| --timezone        |   Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.            |
+| Option            | Description                                                                                                               |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --oid             | Override default OID.                                                                                                     |
+| --warning-offset  | Time offset warning threshold (in seconds).                                                                               |
+| --critical-offset | Time offset critical Threshold (in seconds).                                                                              |
+| --ntp-hostname    | Set the ntp hostname (if not set, localtime is used).                                                                     |
+| --ntp-port        | Set the ntp port (default: 123).                                                                                          |
+| --timezone        | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London'.                     |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

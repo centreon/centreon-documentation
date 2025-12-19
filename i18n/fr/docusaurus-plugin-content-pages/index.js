@@ -52,6 +52,9 @@ const cards = [
       },{
         label: "Reporting",
         href: "docs/reporting/introduction/"
+      },{
+        label: "Notes de release",
+        href: "docs/category/release-notes-by-component/"
       },
     ]
   },
@@ -71,14 +74,36 @@ const cards = [
       },{
         label: "Vues graphiques",
         href: "cloud/graph-views/introduction-map/"
+      },{
+        label: "Notes de release",
+        href: "cloud/releases/cloud-release-notes/"
+      },
+    ]
+  },  {
+    title: "Centreon DEM",
+    href: "dem/getting-started/welcome/",
+    links: [
+      {
+        label: "Démarrer avec Centreon Digital Experience Monitoring",
+        href: "dem/getting-started/welcome/"
+      },{
+        label: "Le Monitoring Synthétique (STM)",
+        href: "dem/getting-started/synthetic-monitoring/"
+      },
+      {
+        label: "Le Real User Monitoring (RUM)",
+        href: "dem/getting-started/real-user-monitoring/"
+      },{
+        label: "Sobriété numérique",
+        href: "dem/category/digital-sobriety/"
       },
     ]
   }
 ]
 
 const versionInfo = {
-  version: '24.10',
-  link: 'https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-10/',
+  version: '25.10',
+  link: 'https://www.centreon.com/fr/centreon-annonce-la-version-25-10-de-centreon-infra-monitoring-pierre-angulaire-de-la-nouvelle-centreon-observability-platform/',
   target: '_blank'
  }
 

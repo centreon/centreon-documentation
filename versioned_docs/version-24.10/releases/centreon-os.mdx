@@ -23,11 +23,165 @@ Read more about version 24.10 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 24.10.15
+
+Release date: `December 18, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API Tokens] Added a welcome page when no token exists in the token configuration page.
+- [Authentication] Password change attempts are now logged in a dedicated log file.
+- [Authentication] When a user is authenticated using an IdP, the password fields no longer appear when editing a contact.
+- [Configuration] The "Deploy Service" action from the hosts list now triggers a "Conf Changed" flag for the related poller in the pollers list.
+- [Configuration] Adapted partitioning to properly work with Amazon Aurora RDS again. Impacted user's next partitioning will take longer than usual as the database catches up with missing partitions.
+- [Configuration] Removed obsolete gorgone error message from configuration generation log.
+- [Resource Status] For performance and readability reasons, graphs containing more than 20 metrics are no longer displayed.
+- [UI] Changed wording from "IP Address" to "Address" for pollers.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACL] Fixed an issue for users cumulating multiple ACLs that caused the ACL with the highest ID to override other ones.
+- [API] Fixed an issue where using Rest APIv1 would change the token expiration date.
+	- [API] Fixed an issue that caused commands to return an SQL error when requesting services in real time using MySQL 8.
+	- [API] Fixed an issue with filtering on realtime service categories listing API endpoint.
+	- [APIv2] Fixed a 500 error when using expiration_date = NULL in security_token.
+- [Anomaly Detection] Fixed an issue on broker configuration generation with proxy parameters.
+- [Authentication] Allowed to access Centreon UI through a reverse proxy/load balancer.
+- [Authentication] Fixed issue on LDAP authentication.
+- [Authentication] Fixed an issue where a user could lose their DN during an LDAP connection.
+- [Authentication tokens] Fixed an issue when clicking "cancel" in the change confirmation modal that caused the token's status to be displayed as changed.
+- [CLAPI] Fixed an issue where HTML entities were not correctly decoded when exporting.
+- [CLAPI] Fixed an issue where the APPLYTPL command woul take a long time to take effect.
+- [Configuration] Fixed an error when changing the host template order in the host configuration form.
+- [Configuration] Fixed an issue in Agent configuration where engine was not listening if "No TLS" was activated (poller-initiated).
+- [Configuration] Fixed an issue on Agent configuration where results of filters were not as expected if there was no matching data.
+- [Configuration] Fixed an issue where host names could be saved with special characters but would then block cause "export configuration" to fail.
+- [Configuration] Fixed an issue on remote servers, where max auto_increment was reached after many exports causing imports to fail.
+- [Configuration] Fixed an issue preventing users from disabling a meta-service.
+- [Configuration] Fixed an issue in Agent configuration (Poller-initiated connection) that prevented users from searching for the host.
+- [Configuration] Fixed an issue where configuration files were not generated when the poller was disabled in the listing and re-enabled through the form.
+- [configuration] Fixed an issue where configuration wasn't exported for hosts without alias and declared in agent configuration.	
+- [Configuration] Fixed an issue where inputs/outputs were missing when duplicating a Broker config.
+- [Configuration] Fixed an issue where Host categories were not displayed in the listing when not linked to Host.
+-	[Configuration] Fixed incorrect error message in configuration export.
+- [Core] Fixed an issue where the log level wasn't being taken into account in the token removal script.
+- [Custom Views - Host-Monitoring] Fixed an issue where only the current page was exported instead of all data.
+- [Dashboards] Fixed an issue preventing to get dashboards filtered.
+- [Dashboards] Fixed an issue where host status icons were displayed incorrectly in the group monitoring widget.
+- [Dashboards] Single Metric widget - Fixed the real-time retrieval of metric values.
+- [Downtimes] Fixed an issue with meta-service names not being properly displayed.
+- [Host groups] Fixed an issue while checking for illegal characters on host group name.
+- [Licences] Fixed an error message concerning the creation of a dynamic property in a class when downloading licences.
+- [LDAP Import] Fixed an issue where a LDAP user with a UID containing a special character would be imported multiple times.
+- [Log] Fixed an issue where "Error impCompanyPortal" would appear on /var/log/centreon/centreon-web.log.
+- [Monitoring] Fixed an issue on Host Group Summary redirecting users to Resource Status.
+- [Packaging] Updated permissions of token purge log file
+- [Performance Graphs] Fixed an issue when exporting data in CSV that resulted in an empty file.
+- [Resource Status] Fixed error when displaying metrics of a meta service.
+- [Resource Status] Services related to a deleted host will no longer appear in menu filter.
+- [Translation] Fixed an issue where menu language was set to FR when the "Detection by browser" language option was selected.
+- [Translations] Fixed an issue preventing translations from being displayed.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Enhanced security on password DOM storage in login page.
+- [Security] Fixed an RCE vulnerability on poller reload page.
+- [Security] Secured backup script to prevent command injections.
+- [Vulnerability] Fixed an issue on Broken Access Control in Administration Parameters Endpoint.
+- [Vulnerability] Fixed IDOR vulnerability on Custom Views.
+- [Vulnerability] Fixed XSS vulnerability in Configuration > Hosts > hostgroups.
+- [Vulnerability] Fixed vulnerability XSS in the ACL Menus Access page.
+- [Vulnerability] Fixed XSS vulnerability in the Hosts Configuration page.
+- [Vulnerability] Fixed XSS vulnerability in the Recurrent Downtimes page.
+
+</details>
+
+### 24.10.14
+
+Release date: `November 4, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Core] Fixed an issue with API routes.
+
+</details>
+
+### 24.10.13
+
+Release date: `October 7, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Enhanced agent configuration endpoints documentation.
+- [Configuration] ACC: vCenter/ESC names are now unique.
+- [configuration] Cleaned up labels in agent configuration screens.
+- [Custom Views] "Global Health" and "Top 10" widgets: improved display and fixed issue with MySQL8.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- A default token has been generated and applied to existing agent configurations.
+- Added missing French translations for help messages.
+- [Administration] Fixed an error occurring when a CMA token was copied.
+- [API v1] Fixed an issue with the creation of services by CLAPI with a non-administrator user.
+- [API v1] Creating hosts and host groups with an empty name is now forbidden.
+- [Authentication] Fixed an issue that prevented users logged in via OIDC from logging out of the interface.
+- [Authentication] LDAP users with no email can now authenticate to Centreon using LDAP auto import.
+- [CLAPI] Spaces in host names are now replaced by an underscore, making CLAPI's behavior consistent with that of the interface.
+- [Configuration] Fixed a circular dependency issue affecting service template inheritance (interface + API).
+- [Configuration] Fixed an issue with Additional Configurations where configuration were lost if the name of the vCenter contained only numbers.
+- [Configuration] Fixed an issue where non explicit error messages were displayed when saving host configuration when geographic coordinates were too long.
+- [Configuration]  Fixed an issue where host aliases were not handling quotes in inputs properly.
+- [Configuration] Fixed an issue where the "configuration changed" flag was not updated when changing extended info using CLAPI.
+- [Configuration] Increased contact_pager property to allow for longer tokens (e.g. Microsoft Teams tokens)
+- [Configuration] The creation of metaservices no longer fails for users with several ACL rules on resources.
+- [Custom Views] Host Monitoring: fixed the export functionality for all resources.
+- [Dashboards] Metrics Graph widget: fixed a display issue occurring when changing the graph display type.
+- [Dashboards] Fixed some issues with contact search when sharing a dashboard or a playlist.
+- [Dashboards] Fixed a saving issue occurring when leaving dashboards for a legacy page.
+- [Dashboards] Reduced the minimum size for MAP and Resource table widgets.
+- [Dashboards] Status Grid: fixed link to Resource Status page.
+- [Event Logs] Fixed pagination that was not working properly.
+- Fixed an issue where the service deployment endpoint was adding the command line to the service.
+- Fixed an issue where exported tokens were ignored by Engine.
+- [LDAP] User & Group filters now work correctly when editing an LDAP configuration.
+- [Packaging] Removed obsolete dependencies for database-related Centreon packages.
+- [Resource Status] Fixed an issue on the notification tab where the same user was displayed multiple times.
+- [Resource Status] Fixed the notification tab to display the contact defined on the service template rather than on the host.
+- [Resource Status] Deleted resources no longer appear in search results.
+- [Resource Status] The pipe “|” character is now handled correctly in the command section of a resource.
+- [Resource Status] View by host: fixed an issue preventing resources from being displayed when filtering on a resource that had no metrics.
+- [Update] Fixed an issue on modules routes which were no longer up to date.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] The current password is now required when modifying a user password.
+- [Vulnerability] Fixed insecure direct object reference allowing private widget retrieval.
+- [Vulnerability] Fixed multiple XSS vulnerabilities.
+- [Vulnerability] Securized poller configuration commands to avoid RCE vulnerability.
+- [Vulnerability] Upgraded select2 dependency.
+
+</details>
+
 ### 24.10.12
 
 Release date: `August 28, 2025`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - A default token has been generated and applied to existing agent configurations.
@@ -39,7 +193,7 @@ Release date: `August 28, 2025`
 
 Release date: `August 21, 2025`
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] The current password is now required when modifying a user's password.
@@ -50,7 +204,7 @@ Release date: `August 21, 2025`
 
 Release date: `August 11, 2025`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [UI] Fixed missing French translations in menus
@@ -88,7 +242,7 @@ Release date: `August 6, 2025`
 
 </details>
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [Administration] Fixed an issue on user groups and templates that occurred when importing non-admin users from LDAP.
@@ -110,7 +264,7 @@ Release date: `August 6, 2025`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Vulnerability] Fixed vulnerabilities on several pages.
@@ -510,6 +664,49 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.14
+
+Release date: `December 18, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Configuration] Added insecure TLS connection mode to Agent configuration.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed issue on RRD error messages.
+- [Engine]Fixed a crash after disabling a resource in downtime with notification to contacts.
+- [Packaging] Fixed log permissions on collect log directories.
+
+</details>
+
+### 24.10.13
+
+Release date: `October 8, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Engine] Added TLS insecure connection mode for CMA.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a segfault on Broker that was occurring when Engine stopped or was restarted, when Engine's version was older than 24.04.
+- [CORE] Fixed compatibility of Engine with older versions of the Linux kernel.
+- [Engine] Fixed a segmentation fault in Engine that could occur if checks were still running when a shutdown was requested.
+- [Engine] Engine no longer crashes when a host is deleted while downtime notifications are processed.
+- The "Name" attribute is now managed in CMA tokens.
+- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a Broker update.
+
+</details>
+
 ### 24.10.12
 
 Release date: `September 9, 2025`
@@ -737,11 +934,35 @@ Release date: `October 31, 2024`
 
 ## Centreon Monitoring Agent
 
+### 24.10.12
+
+Release date: `December 18, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] CMA installer and CLI wording have been harmonized to fit with new UI labels.
+
+</details>
+
+### 24.10.11
+
+Release date: `October 8, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Added a native Files check for Windows & Linux.	
+- [CMA] Added TLS insecure connection mode for CMA.
+- [CMA] CMA installer and CLI wording have been harmonized to fit with new UI labels.
+
+</details>
+
 ### 24.10.10
 
 Release date: `September 9, 2025`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - Fixed an issue where no output was returned from Centreon plugins and custom plugins.
@@ -820,6 +1041,38 @@ Release date: `October 18, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.10.9
+
+Release date: `December 18, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed Gorgone whitelist to allow NRPE service discovery.
+
+</details>
+
+### 24.10.8
+
+Release date: `October 8, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed centreontrapd configuration file permissions that were applied when exporting poller configuration.
+- [Gorgone] Fixed a bug in MBI where hostnames with semicolons would break database insertion.
+- [MBI]  Fixed an issue where the ETL would never finish executing if some service templates were referencing themselves.
+- [Gorgone] Gorgone now raises an error if the ETL configuration file doesn't exist.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to restrict discovery commands that were too permissive.
+
+</details>
 
 ### 24.10.7
 
@@ -914,6 +1167,12 @@ Release date: `October 31, 2024`
 
 ## Centreon High Availability
 
+### 24.10.2
+
+Release date: `December 18, 2025`
+
+- No changes for this module in this version.
+
 ### 24.10.1
 
 Release date: `August 6, 2025`
@@ -937,6 +1196,36 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon DSM
+
+### 24.10.4
+
+Release date: `December 18, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue with dsmd daemon bieng stuck on start
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed XSS vulnerability in the Extensions Dynamic Services Configure page.
+
+</details>
+
+### 24.10.3
+
+Release date: `October 7, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] SQL files are now correctly packaged for centreon-dsm.
+- [Packaging] Updated permissions for DSM purge and cron files.
+
+</details>
 
 ### 24.10.2
 
@@ -979,6 +1268,44 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Open Tickets
+
+### 24.10.5
+
+Release date: `December 18, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [GLPI] Fixed group retrieval when using versions 9.5 and above.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue preventing ticket a from being closed when the corresponding resource had its status changed since the opening of the ticket.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Open Tickets] Fixed an issue that exposed the passwords when using EasyVista.
+	- [Vulnerability] Fixed SQL injection in the notification rules.
+	- [Vulnerability] Fixed XSS vulnerability in configuration notification rules.
+
+</details>
+
+### 24.10.4
+
+Release date: `October 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
 
 ### 24.10.3
 
@@ -1025,6 +1352,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon AWIE
+
+### 24.10.2
+
+Release date: `December 18, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Extensions] Fixed an issue on documentation links for extensions which weren't using versioning.
+
+</details>
 
 ### 24.10.1
 

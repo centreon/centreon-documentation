@@ -5,8 +5,6 @@ title: Introduction to CMA
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Note to Centreon Cloud users: The Centreon Monitoring Agent is still in its beta phase for Centreon Cloud. To get support, visit [our dedicated group on The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
-
 ## Introduction
 
 The Centreon Monitoring Agent (CMA) is a piece of software installed on the host it monitors: it collects metrics and computes statuses, and sends them to Centreon. The agent can be used with Centreon Cloud, or with Centreon OnPrem from version 24.10.
@@ -48,6 +46,7 @@ The CMA can be installed on and monitor the following OSs:
 * Windows Server 2016
 * Windows Server 2019
 * Windows Server 2022
+* Windows Server 2025
 
 </TabItem>
 </Tabs>
@@ -62,6 +61,8 @@ The CMA can be installed on and monitor the following OSs:
 ### Connection direction
 
 Depending on the case, either the agent or the poller initiates the connection.
+> Please note that the two connection modes described below only apply to establishing the connection.
+> Once the connection is established, the behavior of the agent (scheduling checks, reporting information) and the collector (alerts, configuration sending) is strictly identical in both cases, and the connection is bidirectional.
 
 * In the case of an **agent-initiated connection**, you simply configure the poller to listen on a specific port. A poller can receive data from n agents/hosts.
 * If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), you can use a **poller-initiated connection**. You need to declare in Centreon each host that will be monitored by this agent in the ****Configuration > Poller > Agent configurations** menu. The poller will receive data from n hosts via the agent.
