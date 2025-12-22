@@ -32,7 +32,7 @@ Release date: `December 18, 2025`
 
 - [API Tokens] Added a welcome page when no token exists in the token configuration page.
 - [Authentication] Password change attempts are now logged in a dedicated log file.
-- [Authentication] When a user is authenticated using an IdP, the password fields no longer appear when editing a contact.
+- [Authentication] When editing a contact, users authenticated by an IdP no longer see the password editing fields.
 - [Configuration] The "Deploy Service" action from the hosts list now triggers a "Conf Changed" flag for the related poller in the pollers list.
 - [Configuration] Fixed an issue with database partitioning on Amazon Aurora RDS. The next update may take a bit longer for some users while the system catches up.
 - [Resource Status] For performance and readability reasons, graphs containing more than 20 metrics are no longer displayed.
@@ -51,7 +51,7 @@ Release date: `December 18, 2025`
 - [Anomaly Detection] Fixed an issue on broker configuration generation with proxy parameters.
 - [Authentication] Allowed to access Centreon UI through a reverse proxy/load balancer.
 - [Authentication] Fixed an issue on LDAP authentication.
-- [Authentication] Fixed an issue where a user could lose their DN during an LDAP connection.
+- [Authentication] Fixed an issue where users could lose their DN during an LDAP connection.
 - [Authentication tokens] Fixed an issue when clicking "cancel" in the change confirmation modal that caused the token's status to be displayed as changed.
 - [CLAPI] Fixed an issue where HTML entities were not correctly decoded when exporting.
 - [CLAPI] Fixed an issue where the APPLYTPL command woul take a long time to take effect.
