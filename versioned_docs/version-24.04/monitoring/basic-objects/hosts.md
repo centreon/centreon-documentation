@@ -15,7 +15,7 @@ To create a host manually:
 
 * **Name**: host name used by the Monitoring Engine. Cannot contain `~!$%^&|'"<>?,()=*{}` and spaces will be automatically replaced with _. You may use the `h.name:` syntax in the **Search bar** of the **Resource status** to look up a host.
 * **Alias**: another name for the host. Spaces and characters unauthorized in the name are allowed here. You may use the `h.alias:` syntax in the **Search bar** of the **Resource status** to look up a host.
-* **Address**: IP address or DNS name of the host. The **Resolve** button tests the domain name by questioning the DNS server configured on the central server. If given a DNS name, the **Resolve** button will also replace the text with the matching IP address. You may use the `h.address:` syntax in the **Search bar** of the **Resource status** to look up a host. Note that for security reasons, parameters formated as `<protocol>://<ip-address>` are not usable
+* **Address**: IP address or DNS name of the host. The **Resolve** button tests the domain name by questioning the DNS server configured on the central server. If given a DNS name, the **Resolve** button will also replace the text with the matching IP address. You may use the `h.address:` syntax in the **Search bar** of the **Resource status** to look up a host.
 * **SNMP Community & Version**: name of the community that you have defined for the equipment and its version. If the version is 1 or 2c, enter the community's name in the first field. If the version is 3, leave the first field empty and fill in the [`snmpextraoptions`](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping) custom macro that will automatically appear in the **Host check options** section.
 * **Monitoring server**: which Centreon server (central, poller or remote) will monitor this host.
 * **Timezone**: location of the host. Note that the timezone defined here is what determines when checks will be carried out on this host, not the timezone of the server monitoring it.
@@ -51,7 +51,7 @@ If multiple templates modify the same field, the properties of the template plac
 * **Check Command**: command used to check the availability of the host. Useful if you did not apply any [templates](../templates.md) to the host or if you want to overwrite the command included in it..
 * **Args**: arguments given to the check command (each argument starts with ”!”).
 
-* **Custom macros**: is automatically populated as you add templates, but you can also add your own [custom macros](../macros/#custom-macros). Note that for security reasons, parameters formated as `<protocol>://<ip-address>` are not usable.
+* **Custom macros**: is automatically populated as you add templates, but you can also add your own [custom macros](../macros/#custom-macros).
 
 
    * **Name** and **Value** define the name and value of the macro.
