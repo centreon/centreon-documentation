@@ -62,9 +62,7 @@ const config = {
   },
 
   future: {
-    v4: {
-      removeLegacyPostBuildHeadAttribute: true,
-    },
+    v4: true,
     experimental_faster: true,
   },
 
@@ -341,7 +339,7 @@ const config = {
             {
               type: 'doc',
               docId: defaultPageId,
-              position: 'left',
+              position: 'right',
               label: 'Centreon OnPrem',
             },
           ];
@@ -352,7 +350,7 @@ const config = {
               {
                 to: '/cloud/getting-started/welcome',
                 label: 'Centreon Cloud',
-                position: 'left',
+                position: 'right',
                 activeBaseRegex: '/cloud/',
               },
             ];
@@ -364,7 +362,7 @@ const config = {
               {
                 to: '/pp/integrations/plugin-packs/getting-started/introduction',
                 label: 'Monitoring Connectors',
-                position: 'left',
+                position: 'right',
                 activeBaseRegex: '/pp/',
               },
             ];
@@ -376,14 +374,13 @@ const config = {
               {
                 to: '/dem/getting-started/welcome',
                 label: 'Centreon DEM',
-                position: 'left',
+                position: 'right',
                 activeBaseRegex: '/dem/',
               },
             ];
           }
 
           return [
-            ...items,
             {
               type: 'search',
               position: 'right',
@@ -419,6 +416,7 @@ const config = {
               type: 'localeDropdown',
               position: 'right',
             },
+            ...items,
           ];
         })(),
       },
