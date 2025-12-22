@@ -19,8 +19,6 @@ module.exports = {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/plugin-customization'
             },
-
-
             {
               type: 'category',
               label: 'Centreon Monitoring Agent',
@@ -181,6 +179,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-quanta-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-ceph-restapi'
         },
         {
@@ -234,10 +236,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-ericsson-enm-api'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-exchange-nsclient-restapi'
         },
         {
           type: 'doc',
@@ -393,6 +391,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-mscs-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-mscs-nrpe'
         },
         {
@@ -417,7 +419,15 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-exchange-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-nsclient-restapi'
         },
         {
           type: 'doc',
@@ -549,6 +559,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-prometheus-alertmanager-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-api'
         },
         {
@@ -558,10 +572,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-quadstor-nrpe'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-monitoring-quanta-restapi'
         },
         {
           type: 'doc',
@@ -697,11 +707,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi'
+          id: 'integrations/plugin-packs/procedures/applications-veeam-nrpe'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-veeam-nrpe'
+          id: 'integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi'
         },
         {
           type: 'doc',
@@ -1167,11 +1177,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-exchange'
+          id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-onedrive'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-onedrive'
+          id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-exchange'
         },
         {
           type: 'doc',
@@ -1184,6 +1194,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-teams'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-openstack-restapi'
         },
         {
           type: 'doc',
@@ -1300,10 +1314,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-video-appeartv-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
         },
         {
           type: 'doc',
@@ -1562,6 +1572,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-aruba-aoscx-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-security-cato-networks-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
         },
         {
           type: 'doc',
@@ -1881,6 +1899,14 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-node-exporter-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-huawei-snmp'
         },
         {
@@ -2005,7 +2031,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-alcatel-omniswitch-6850'
+          id: 'integrations/plugin-packs/procedures/network-nvidia-mellanox-snmp'
         },
         {
           type: 'doc',
@@ -2732,10 +2758,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-nimble-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-storage-oracle-zfs-snmp'
         },
         {
           type: 'doc',

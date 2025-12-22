@@ -1,13 +1,13 @@
 ---
 id: applications-monitoring-quanta-restapi
-title: Quanta Rest API
+title: Centreon DEM (formerly Quanta) Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Quanta Rest API**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Centreon DEM (formerly Quanta) Rest API**
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Quanta Rest API** apporte un modèle d'hôte :
+Le connecteur de supervision **Centreon DEM (formerly Quanta) Rest API** apporte un modèle d'hôte :
 
 * **App-Monitoring-Quanta-Restapi-custom**
 
@@ -123,9 +123,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de superviser Quanta, vous devez disposer [d'un jeton d'API valide](https://quantaio.notion.site/Suivre-automatiquement-les-v-nements-de-mise-en-production-f8560b2885dc4386a150b967388f8a4b#:~:text=Authentification%20et%20g%C3%A9n%C3%A9ration%20de%20token), et [avoir des parcours utilisateur configurés dans Quanta](https://quantaio.notion.site/Cr-ation-d-un-sc-nario-Parcours-Utilisateur-dcdc4e44b9af44fd892dd834e2d0a452).
+Afin de superviser Quanta, vous devez disposer [d'un jeton d'API valide](/dem/installation/monitor-production-events#authentification-et-génération-de-token), et [avoir des parcours utilisateur configurés dans Quanta](/dem/configuration/user-journey/create-a-scenario).
 
-Les données issues du Real User Monitoring ne seront accessibles que si vous avez réalisé [l'intégration du TAG RUM de Quanta](https://quantaio.notion.site/Installer-le-Real-User-Monitoring-fa29c4e7154540579d91d32719616546).
+Les données issues du Real User Monitoring ne seront accessibles que si vous avez réalisé [l'intégration du TAG RUM de Quanta](/dem/installation/real-user-monitoring-installation#trouver-le-tag-à-insérer-dans-mon-site).
 
 ## Installer le connecteur de supervision
 
@@ -168,7 +168,7 @@ yum install centreon-pack-applications-monitoring-quanta-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Quanta Rest API**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Centreon DEM (formerly Quanta) Rest API**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin

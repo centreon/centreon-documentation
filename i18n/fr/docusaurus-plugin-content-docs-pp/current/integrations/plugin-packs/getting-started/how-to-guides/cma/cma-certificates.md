@@ -25,12 +25,14 @@ Les fichiers de certificat déposés sur le collecteur doivent être déposés d
 Ils doivent avoir les permissions suivantes :
 
 ```shell
-chmod 644 /etc/pki/agent*
+chmod 644 /etc/pki/agent.crt
+chmod 644 /etc/pki/agent.key
 ```
+> Attention, ne pas appliquer ces droits à l'ensemble du répertoire /etc/pki/ au risque de provoquer une panne globale du collecteur.
 
 Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans le répertoire de votre choix.
 
-Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats.
+Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats (connexion initiée par l'agent).
 Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration faite sur l'hôte (colonne "Configuration de l'hôte" du tableau ci-dessous).
 
 ### Synthèse des configurations possibles
@@ -41,7 +43,7 @@ Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration fa
 L'agent vérifie, lors de la connexion au collecteur, que l'IP/DNS renseignée dans le paramètre **Poller endpoint** de la configuration de l'agent correspond strictement aux informations du certificat (SAN ou CN).
 Si ce n'est pas le cas, la connexion est refusée.
 
-| Cas d'usage      															  | Fichier(s) sur le collecteur | Fichier(s) sur l'hôte (si non chargés dans le magasin de certificats) | Configuration du Collecteur (interface) | Configuration de l'hôte    |
+| Cas d'usage      															  | Fichier(s) sur le collecteur | Fichier(s) sur l'hôte (si non chargés dans le magasin de certificats) | Configuration du Collecteur (interface) | Configuration de la machine hôte    |
 | -----------      															  | -----------                  | -----------           |-----------							   | -----------				|
 | Certificat signé par CA           	 | Fichiers de certificat public et clé privée                         | Fichier de CA                       |	Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : chemin du certificat public (ex : '/etc'/pki'/certificate.crt)</li><li>**Clé privée** : chemin de la clé privée (ex : '/etc'/pki'/certificate.key)</li><li>**CA** : vide</li></ul> | <ul><li>**Poller endpoint** : IP/DNS du Collecteur</li><li>**Private Key file/private_key**: vide</li><li>**Certificate file** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : chemin du CA</li></ul>	|
 | Certificat autosigné         	 | Fichiers de certificat public et clé privée                         | Fichier de certificat public                       |	Dans la section **Récepteur OTLP** :<ul><li>**Certificat public** : chemin du certificat public (ex : '/etc'/pki'/certificate.crt)</li><li>**Clé privée** : chemin de la clé privée (ex : '/etc'/pki'/certificate.key)</li><li>**CA** : vide, sauf besoin d'un double handshake</li></ul> | <ul><li>**Poller endpoint** : IP/DNS du Collecteur</li><li>**Private Key file/private_key** : vide</li><li>**Certificate file/public_cert** : vide</li><li>**Trusted CA's certificate file/ca_certificate** : chemin du certificat public</li></ul>	|
@@ -55,7 +57,7 @@ Si ce n'est pas le cas, la connexion est refusée.
 Le collecteur vérifie, lors de la connexion à l'agent, que l'IP/DNS renseignée pour l'hôte (dans la configuration d'agent) correspond strictement aux informations du certificat (SAN ou CN).
 Si ce n'est pas le cas, la connexion vers cet hôte est refusée.
 
-| Cas d'usage      															  | Fichier(s) sur le Collecteur | Fichier(s) sur l'hôte | Configuration du Collecteur (interface) | Configuration de l'hôte    |
+| Cas d'usage      															  | Fichier(s) sur le Collecteur | Fichier(s) sur l'hôte | Configuration du Collecteur (interface) | Configuration de la machine hôte    |
 | -----------      															  | -----------                  | -----------           |-----------								       | -----------							|
 | Certificat signé par CA           	 | Fichier de CA                   | Fichiers de certificat public et clé privée                         | Dans la section **Configurations d'hôte** :<ul><li>**CA** : chemin du CA</li></ul>	 | <ul><li>**Private Key file/private_key** : chemin de la clé privée</li><li>**Certificate file/public_cert** : chemin du certificat public</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li></ul>	|
 | Certificat autosigné           	 | Fichier de certificat public                       | Fichiers de certificat public et clé privée                         | Dans la section **Configurations d'hôte** :<ul><li>**CA** : chemin du certificat public</li></ul>	 | <ul><li>**Private Key file/private_key** : chemin de la clé privée</li><li>**Certificate file/public_cert** : chemin du certificat public</li><li>**Trusted CA's certificate file/ca_certificate** : vide</li></ul>	|
@@ -115,7 +117,7 @@ Dans la section **Configurations d'hôte**, le champ **Nom commun CA (CN)** cont
 
 ## Comment générer un certificat autosigné (facultatif)
 
-Si vous ne possédez pas de certificat, il est possible de générer un certificat autosigné.
+Si vous ne possédez pas de certificat, il est possible de générer un certificat autosigné, qui pourra être utilisé par l'ensemble de vos collecteurs et agents.
 Pour générer un certificat autosigné valide un an, exécutez la commande suivante sur votre collecteur ou votre hôte :
 
 ```shell
@@ -131,6 +133,15 @@ openssl req -new -subj '/CN={server_hostname}' \
 Dans le mode de chiffrement TLS, le DNS/IP du serveur utilisé par le client doit obligatoirement correspondre à une entrée CN ou SAN (altName) du certificat (\{server_hostname\}).
 La ligne -subj '/CN=\{server_hostname\}' \ est facultative si des SAN sont définis.
 Dans le mode de chiffrement TLS non sécurisé, le DNS/IP du serveur peut être différent des informations du certificat. Il faudra alors renseigner la valeur à utiliser dans "Nom commun CA", au sein de la configuration du client.
+
+Les fichiers de certificat déposés sur le collecteur doivent être déposés dans **/etc/pki/**, à la racine ou dans un sous-repertoire.
+Ils doivent avoir les permissions suivantes :
+
+```shell
+chmod 644 /etc/pki/agent.crt
+chmod 644 /etc/pki/agent.key
+```
+> Attention, ne pas appliquer ces droits à l'ensemble du répertoire /etc/pki/ au risque de provoquer une panne globale du collecteur.
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">

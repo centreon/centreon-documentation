@@ -74,6 +74,7 @@ On the network of each poller:
 - api.a.prod.mycentreon.com
 - broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
 - gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+- engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443
 
 On the network of the user's browser:
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/*

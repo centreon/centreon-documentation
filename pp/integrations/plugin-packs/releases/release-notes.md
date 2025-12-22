@@ -8,12 +8,123 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
+### December
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Cato Networks API**](../procedures/network-security-cato-networks-api.md) - Initial release, based on a [The Watch idea](https://thewatch.centreon.com/ideas/create-a-new-cato-network-connector-4025). 
+- [**Microsoft Cluster Server CMA**](../procedures/applications-mscs-cma.md) - Initial release.
+- [**Nvidia (formerly Mellanox) SNMP**](../procedures/network-nvidia-mellanox-snmp.md) - Initial release [PR 5753](https://github.com/centreon/centreon-plugins/pull/5753).
+- [**OpenStack RESTAPI**](../procedures/cloud-openstack-restapi.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - New LTE service template.
+- [**Active Directory CMA**](../procedures/infrastructure-active-directory-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Base Pack**](../procedures/base-generic.md) - New **Generic-Passive-CMA-Service** service template with `is_volatile` set to 0 to avoid multiple notifications.
+- [**Hyper-V 2012 CMA**](../procedures/virtualization-hyperv-2012-cma.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Microsoft WSUS CMA**](../procedures/applications-wsus-cma.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Cisco Waas SNMP**](../procedures/network-cisco-waas-snmp.md) - Fixed errors related to thresholds.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - Fixed typo in jobs mode.
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Added state to the requested fields in volume query [PR 5851](https://github.com/centreon/centreon-plugins/pull/5851).
+- [**Netbackup NSClient++ API**](../procedures/applications-netbackup-nsclient-05-restapi.md) - Removed exchange command.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed wrong tablespace size calculation in tablespace-usage mode.
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**D-Link DGS 3100**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed wrong output unit in locks-wait mode.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+
+</TabItem>
+</Tabs>
+
+### November
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**HPE Athonet w/ Prometheus API**](../procedures/network-hpe-athonet-node-exporter-api.md) - Initial release of HPE Athonet w/ Prometheus API.
+- [**HPE Athonet Alertmanager w/ Prometheus API**](../procedures/network-hpe-athonet-alertmanager-api.md) - Initial release of HPE Athonet Alertmanager w/ Prometheus API.
+- [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - Initial release of Microsoft Exchange CMA.
+- [**Prometheus Alertmanager API**](../procedures/cloud-prometheus-alertmanager-api.md) - Initial release of Prometheus Alertmanager API. 
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**APC PDU SNMP**](../procedures/hardware-pdu-apc-snmp.md) - Added **NTP** and **uptime** service templates.
+- [**Active Directory WSMAN**](../procedures/applications-active-directory-wsman.md) - Added DE language support, based on community contribution [PR 5780](https://github.com/centreon/centreon-plugins/pull/5780).
+- [**Dell Compellent SNMP**](../procedures/hardware-storage-dell-compellent-snmp.md) - Added SNMP in title to be more explicit.
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added **ap-usage** service template.
+- [**Google Stackdriver**](../procedures/cloud-gcp-management-stackdriver.md) - Enhanced compatibility with DISTRIBUTION type values in **getmetrics** mode.
+- [**Node Exporter w/ Prometheus API**](../procedures/cloud-prometheus-node-exporter-api.md) - Added **uptime** mode, **storage** mode and its discovery and **interfaces** mode and its discovery.
+- [**Office365 Exchange**](../procedures/cloud-microsoft-office365-exchange.md) - Change service template aliases to avoid service deployment issues.
+- [**Office365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Change service template aliases to avoid service deployment issues.
+- [**Office365 SharePoint**](../procedures/cloud-microsoft-office365-sharepoint.md) - Change service template aliases to avoid service deployment issues.
+- [**Office365 Skype**](../procedures/cloud-microsoft-office365-skype.md) - Change service template aliases to avoid service deployment issues.
+- [**Office365 Teams**](../procedures/cloud-microsoft-office365-teams.md) - Change service template aliases to avoid service deployment issues.
+- [**Redis Database**](../procedures/applications-databases-redis.md) - Added authentication with username for custommode perlmod, from community contribution [PR 5255](https://github.com/centreon/centreon-plugins/pull/5255).
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Improved execution time in **job-status** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Improved execution time in **job-status** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Improved execution time in **job-status** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Improved execution time in **job-status** mode.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - Fixed localized time calculation using the ` timezone` option.
+- [**Azure ServiceBus**](../procedures/cloud-azure-integration-servicebus.md) - Fixed an issue in metric configuration in **namespaces** mode.
+- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Handle empty table returns.
+- [**Comet P8000 Sensor SNMP**](../procedures/hardware-sensors-comet-p8000-snmp.md) - Removed 'geist' from connector name.
+- [**Dell Compellent Nsclient NRPE**](../procedures/hardware-storage-dell-compellent-api.md) - Made NSClient and NRPE usage more explicit.
+- [**Dell iDRAC SNMP**](../procedures/hardware-servers-dell-idrac-snmp.md) - Fixed ready status for `pdisk.state` in **hardware** mode.
+- [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md) - Fixed `format-custom` option.
+- [**Emerson PDU SNMP**](../procedures/hardware-pdu-emerson-snmp.md) - Fixed **Receptacles** command.
+- [**Fortinet Fortigate RestAPI**](../procedures/network-fortinet-fortigate-restapi.md) - Take in charge other encodages than UTF8 in returned content.
+- [**Google Stackdriver**](../procedures/cloud-gcp-management-stackdriver.md) - Fixed the minimum aggregation calculation.
+- [**HP MSA2000 SNMP**](../procedures/hardware-storage-hp-msa2000-snmp.md) - Fixed **hardware** mode missing in plugin packaging.
+- [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - Fixed missing fan state in short output.
+- [**Huawei WLC SNMP**](../procedures/network-huawei-wlc-snmp.md) - Fixed missing fan state in short output.
+- [**Lenovo S Series SNMP**](../procedures/hardware-storage-lenovo-sseries-snmp.md) - Fixed **hardware** mode missing in plugin packaging.
+- [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Fixed typo for custom perfdata in **databases** mode.
+- [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - Fixed typo for custom perfdata in **databases** mode.
+- [**Panzura SNMP**](../procedures/hardware-storage-panzura-snmp.md) - Fixed **Disk-Usage-Cloud-Global** command.
+- [**Podman REST API**](../procedures/applications-podman-restapi.md) - **Container-Usage** now returns UNKNOWN when container is not found.
+- [**TrendMicro Iwsva SNMP**](../procedures/applications-trendmicro-iwsva-snmp.md) - Fixed plugin option value in commands.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Fixed **Clusters** and **Datastores** discovery macros.
+
+</TabItem>
+</Tabs>
+
 ### October
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Microsoft WSUS CMA**](../procedures/applications-wsus-cma.md) - Initial release WSUS Microsoft CMA.
+- [**Microsoft WSUS CMA**](../procedures/applications-wsus-cma.md) - Initial release of WSUS Microsoft CMA.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">

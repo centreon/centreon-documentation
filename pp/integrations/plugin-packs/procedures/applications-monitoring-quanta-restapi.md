@@ -1,13 +1,13 @@
 ---
 id: applications-monitoring-quanta-restapi
-title: Quanta Rest API
+title: Centreon DEM (formerly Quanta) Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Quanta Rest API** connector through the
+The following monitoring connectors will be installed when you install the **Centreon DEM (formerly Quanta) Rest API** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Qua
 
 ### Templates
 
-The Monitoring Connector **Quanta Rest API** brings a host template:
+The Monitoring Connector **Centreon DEM (formerly Quanta) Rest API** brings a host template:
 
 * **App-Monitoring-Quanta-Restapi-custom**
 
@@ -122,8 +122,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-In order to monitor Quanta, you must have [a valid API token](https://quantaio.notion.site/Automatically-track-events-0ba555d180e145b4bc2e116327fe8a2d#:~:text=Authentication%20and%20token%20generation), and [have user journeys configured in Quanta](https://quantaio.notion.site/Creation-of-a-scenario-or-User-Journey-bdd229fbe6d14ac885e9a3e91a8d57f1).
-Data from Real User Monitoring will only be accessible if you have completed [the integration of Quanta's RUM TAG](https://quantaio.notion.site/Installer-le-Real-User-Monitoring-fa29c4e7154540579d91d32719616546).
+In order to monitor Quanta, you must have [a valid API token](/dem/installation/monitor-production-events#authentication-and-token-generation), and [have user journeys configured in Quanta](/dem/configuration/user-journey/create-a-scenario).
+Data from Real User Monitoring will only be accessible if you have completed [the integration of Quanta's RUM TAG](/dem/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
 
 ## Installing the monitoring connector
 
@@ -166,7 +166,7 @@ yum install centreon-pack-applications-monitoring-quanta-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Quanta Rest API** connector through
+2. Whatever the license type (*online* or *offline*), install the **Centreon DEM (formerly Quanta) Rest API** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin

@@ -126,7 +126,7 @@ const config = {
               (accumulator, currentValue) => {
                 accumulator[currentValue] = {
                   label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
-                  banner: currentValue.match(/^(22\.10|23\.04)$/) ? 'unmaintained' : 'none',
+                  banner: currentValue === '23.10' ? 'unmaintained' : 'none'
                 }
 
                 return accumulator;
@@ -161,6 +161,7 @@ const config = {
         docsRouteBasePath: ["docs", "cloud", "pp", "dem"],
         docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem"],
         explicitSearchResultPath: true,
+        useAllContextsWithNoSearchContext: true,
         // searchContextByPaths: [
         //   {
         //     label: {
@@ -374,7 +375,7 @@ const config = {
               ...items,
               {
                 to: '/dem/getting-started/welcome',
-                label: 'Quanta by Centreon',
+                label: 'Centreon DEM',
                 position: 'left',
                 activeBaseRegex: '/dem/',
               },
@@ -459,3 +460,4 @@ const config = {
 };
 
 export default config;
+
