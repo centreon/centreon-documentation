@@ -29,11 +29,11 @@ Release date: `December 22, 2025`
   <summary>Bug fixes</summary>
 
 - [Geoviews] The service state (acknowledged, in downtime, etc.) is now clearly indicated.
-- [MAP Editor] Fixed an issue preventing to set white in light theme and black in dark theme as color for text, background and border. This fix is not retroactive.
+- [MAP Editor] Fixed an issue that prevented setting white (for the light mode) and black ( for the dark mode) as the color for text, background, and border colors. This fix is not retroactive.
 - [Translation] Added missing French translations.
 - Upgraded clear_cache.php to use the "--no-warmup" flag.
-- [Viewer] Fixed the issue with label height being cropped while zooming on geometric resources.
-- [Viewer] Fixed position and colors in the Link legend.
+- [Viewer] Fixed an issue with the label height being cropped while zooming on geometric resources.
+- [Viewer] Fixed an issue that caused the Link legend widget to always appear on the top left instead of where users placed it as well as its start and end colors to be swapped.
 - [Viewer] When hovering over a metric link, in and out metrics are now specifically displayed in the graphic.
 
 </details>
@@ -97,7 +97,7 @@ Release date: `December 22, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- 	[BA diagram] Label width has been increased, to display longer names.
+- 	[BA diagram] Label width has been increased to display longer names.
 An ellipsis has also been added to indicate that a label is too long to be fully displayed.
 
 </details>
@@ -105,13 +105,13 @@ An ellipsis has also been added to indicate that a label is too long to be fully
 <details>
   <summary>Bug fixes</summary>
 
-- [BA monitoring]	Fixed the display of KPI listing when Business Activity belonged to several Business Views.
-- [BA monitoring page] Fixed issue when using dark mode.
+- [BA monitoring] Fixed an issue that caused some KPIs to be displayed multiple times in the KPI listing if the Business Activity belonged to several Business Views.
+- [BA monitoring page] Fixed an issue with dark mode where objects were not displayed properly and would impact the Resource status page.
 - [Dashboards] The Status Grid widget in condensed BV view now indicates the status of all BAs.
 - [Indicators] You can now set the impact to 0% when making changes to many items at once.
 - [Installation] BAM broker outputs are now deleted at uninstallation.
 - [Translation] Added missing French translations.
-- Upgraded clear_cache.php to use the "--no-warmup" flag.
+- [Modules] Upgraded clear_cache.php to use the "--no-warmup" flag.
 
 </details>
 
