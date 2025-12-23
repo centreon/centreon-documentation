@@ -1,20 +1,89 @@
 import React, {type ReactNode} from 'react';
-import NavbarItem, {type Props as NavbarItemConfig} from '@theme/NavbarItem';
+import {type Props as NavbarItemConfig} from '@theme/NavbarItem';
 import DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem';
-import IconMenu from '@theme/Icon/Menu';
 
 import styles from './styles.module.css';
 
-export default function DocsDropDownNavbarItems({items, ...props}: {items: NavbarItemConfig[]}): ReactNode {
-    return (
-      <DropdownNavbarItem
-        className={styles.docsDropdown}
-        label={
-          <IconMenu className={styles.iconMenu} />
-        }
-        items={items}
-        position="right"
-        {...props}
-      />
-    );
+export default function DocsDropdownNavbarItem({items, ...props}: {items: NavbarItemConfig[]}): ReactNode {
+
+  const sections = [];
+  for (const item of items) {
+    if (item.type === 'doc') {
+      sections.push({
+        ...item,
+        label: 'IT infrastructure monitoring',
+        initials: 'IM',
+        color: '#00003d'
+      });
+    } else if ('to' in item && item.to && item.to.includes('log')) {
+      sections.push({
+        ...item,
+        label: 'Log management',
+        initials: 'LM',
+        color:  '#611485ff'
+      });
+    } else if ('to' in item && item.to && item.to.includes('dem')) {
+      sections.push({
+        ...item,
+        label: 'Digital experience monitoring',
+        initials: 'DM',
+        color:  '#259788ff'
+      });
+    }
+  }
+
+  const itemsWithIcons = sections.map(({ initials, color, ...item}) => {
+    return {
+      ...item,
+      label: (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div
+            style={{
+              width: '48px',
+              height: '48px',
+              borderRadius: '12px',
+              backgroundColor: color,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'white',
+              fontSize: '20px',
+              fontWeight: 'bold',
+            }}
+          >
+            {initials}
+          </div>
+          <span>{item.label}</span>
+        </div>
+      ),
+    };
+  });
+
+  return (
+    <DropdownNavbarItem
+      className={styles.docsDropdown}
+      label={
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        style={{ margin: '0 auto', display: 'block' }}
+      >
+        <circle cx="5" cy="5" r="2" />
+        <circle cx="12" cy="5" r="2" />
+        <circle cx="19" cy="5" r="2" />
+        <circle cx="5" cy="12" r="2" />
+        <circle cx="12" cy="12" r="2" />
+        <circle cx="19" cy="12" r="2" />
+        <circle cx="5" cy="19" r="2" />
+        <circle cx="12" cy="19" r="2" />
+        <circle cx="19" cy="19" r="2" />
+      </svg>
+      }
+      items={itemsWithIcons}
+      position="right"
+      {...props}
+    />
+  );
 }

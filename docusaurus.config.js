@@ -339,7 +339,7 @@ const config = {
             {
               type: 'doc',
               docId: defaultPageId,
-              position: 'right',
+              position: 'left',
               label: 'Centreon OnPrem',
             },
           ];
@@ -350,7 +350,7 @@ const config = {
               {
                 to: '/cloud/getting-started/welcome',
                 label: 'Centreon Cloud',
-                position: 'right',
+                position: 'left',
                 activeBaseRegex: '/cloud/',
               },
             ];
@@ -362,7 +362,7 @@ const config = {
               {
                 to: '/pp/integrations/plugin-packs/getting-started/introduction',
                 label: 'Monitoring Connectors',
-                position: 'right',
+                position: 'left',
                 activeBaseRegex: '/pp/',
               },
             ];
@@ -374,7 +374,7 @@ const config = {
               {
                 to: '/dem/getting-started/welcome',
                 label: 'Centreon DEM',
-                position: 'right',
+                position: 'left',
                 activeBaseRegex: '/dem/',
               },
             ];
