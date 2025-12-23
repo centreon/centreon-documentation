@@ -16,7 +16,7 @@ import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 
-import DocsDropDownNavbarItems from './DocsDropDownNavbarItems';
+import DocsDropdownNavbarItem from '../../NavbarItem/DocsDropdownNavbarItem';
 
 import styles from './styles.module.css';
 
@@ -43,23 +43,14 @@ function NavbarItems({items}: {items: NavbarItemConfig[]}): ReactNode {
   return (
     <>
       {others.map((item, i) => (
-        <ErrorCauseBoundary
-          key={i}
-          onError={(error) =>
-            new Error(
-              `A theme navbar item failed to render.
-Please double-check the following navbar item (themeConfig.navbar.items) of your Docusaurus config:
-${JSON.stringify(item, null, 2)}`,
-              {cause: error},
-            )
-          }>
-          <NavbarItem {...item} />
-        </ErrorCauseBoundary>
+        <NavbarItem {...item} key={i} />
       ))}
-      {position === 'right' &&
-        <NavbarColorModeToggle className={styles.colorModeToggle} />
-      }
-      <DocsDropDownNavbarItems items={docs} />
+      {position === 'right' && (
+        <>
+          <NavbarColorModeToggle className={styles.colorModeToggle} />
+          <DocsDropdownNavbarItem items={docs} />
+        </>
+      )}
     </>
   );
 }
