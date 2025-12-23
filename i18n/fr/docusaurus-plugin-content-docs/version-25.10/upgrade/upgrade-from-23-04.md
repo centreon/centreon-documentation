@@ -50,21 +50,6 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
 
-   ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el8/centreon-23.04-el8.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el8/centreon-23.04-el8.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el8/centreon-business-23.04-el8.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
 2. Supprimez les fichiers des dépôts :
 
    ```shell
@@ -85,21 +70,6 @@ Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de l
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
-
-   ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el9/centreon-23.04-el9.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el9/centreon-23.04-el9.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el9/centreon-business-23.04-el9.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
 
 2. Supprimez les fichiers des dépôts :
 
