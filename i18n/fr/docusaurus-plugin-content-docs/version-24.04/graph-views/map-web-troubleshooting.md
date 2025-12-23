@@ -124,7 +124,6 @@ Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4.
 1. Pour augmenter le niveau des logs, éditez le fichier **/etc/centreon-map/map-log.xml** en passant les entrées suivantes en INFO :
 
   ```shell
-  <logger name="com.centreon.studio" level="INFO" />
   <logger name="org.springframework" level="INFO" />
   <logger name="org.springframework.web" level="INFO" />
   <logger name="org.apache" level="INFO" />

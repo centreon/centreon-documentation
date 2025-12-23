@@ -98,10 +98,6 @@ The following is an exhaustive list of macros by resource type, each type of res
 | \$LONGHOSTOUTPUT\$                   | Yes            | Yes [(1)](#notes) | Yes                    | Yes                 |
 | \$HOSTPERFDATA\$                     | Yes            | Yes [(1)](#notes) | Yes                    | Yes                 |
 | \$HOSTCHECKCOMMAND\$                 | Yes            | Yes               | Yes                    | Yes                 |
-| \$HOSTACKAUTHOR\$ [(8)](#notes)      | No             | No                | No                     | No                  |
-| \$HOSTACKAUTHORNAME\$ [(8)](#notes)  | No             | No                | No                     | No                  |
-| \$HOSTACKAUTHORALIAS\$ [(8)](#notes) | No             | No                | No                     | No                  |
-| \$HOSTACKCOMMENT\$ [(8)](#notes)     | No             | No                | No                     | No                  |
 | \$HOSTACTIONURL\$                    | Yes            | Yes               | Yes                    | Yes                 |
 | \$HOSTNOTESURL\$                     | Yes            | Yes               | Yes                    | Yes                 |
 | \$HOSTNOTES\$                        | Yes            | Yes               | Yes                    | Yes                 |
@@ -146,10 +142,6 @@ The following is an exhaustive list of macros by resource type, each type of res
 - **\$LONGHOSTOUTPUT\\$** : Texte complet (à l'exception de la première ligne) du dernier résultat de vérification de l'hôte.  
 - **\$HOSTPERFDATA\\$** : Données de performance éventuellement retournées par la dernière vérification de l'hôte.  
 - **\$HOSTCHECKCOMMAND\\$** : Nom de la commande (et ses arguments éventuels) utilisée pour vérifier l'hôte.  
-- **\$HOSTACKAUTHOR\\$** [(8)](#notes) : Nom de l'utilisateur ayant accusé réception du problème de l'hôte. Valide uniquement dans les notifications où la macro \$NOTIFICATIONTYPE\$ vaut "ACKNOWLEDGEMENT".  
-- **\$HOSTACKAUTHORNAME\\$** [(8)](#notes) : Nom court du contact (si applicable) ayant accusé réception du problème. Valide uniquement pour les notifications d'accusé de réception.  
-- **\$HOSTACKAUTHORALIAS\\$** [(8)](#notes) : Alias du contact (si applicable) ayant accusé réception du problème. Valide uniquement pour les notifications d'accusé de réception.  
-- **\$HOSTACKCOMMENT\\$** [(8)](#notes) : Commentaire d'accusé de réception saisi par l'utilisateur ayant reconnu le problème. Valide uniquement pour les notifications d'accusé de réception.  
 - **\$HOSTACTIONURL\\$** : URL d'action pour l'hôte. Peut contenir d'autres macros (ex. : \$HOSTNAME\$), utile pour passer le nom de l'hôte à une page web.  
 - **\$HOSTNOTESURL\\$** : URL des notes pour l'hôte. Peut contenir d'autres macros comme \$HOSTNAME\$, utile pour passer le nom de l'hôte à une page web.   
 - **\$HOSTNOTES\\$** : Notes associées à l'hôte. Peut inclure d'autres macros pour afficher des informations spécifiques.  
