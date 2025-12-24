@@ -274,7 +274,14 @@ vgdisplay vg_data | grep -i free*
 >```
 
 Be sure to optimize MariaDB/MySQL on your reporting server.
-You will need at least 12 GB of RAM in order to use the [next file](../assets/reporting/installation/centreon.cnf).
+You will need at least 12 GB of RAM in order to use the [next file](../assets/reporting/installation/centreon.cnf). You must uncomment the lines 2 and 3 by removing the "#" like so:
+
+```shell
+datadir=/var/lib/mysql
+tmpdir = /var/lib/mysql/tmp
+```
+
+>If you wish to use a datadir different from `/var/lib/mysql/`, edit the datadir and tmpdir variables into the centreon.cnf file.
 
 Make sure you have a **tmp** folder in **/var/lib/mysql**.
 
