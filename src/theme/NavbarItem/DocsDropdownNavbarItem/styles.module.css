@@ -7,6 +7,10 @@ Hide color mode toggle in small viewports
   }
 }
 
+.docsDropdown + ul {
+  width: 15rem;
+}
+
 .docsDropdown:after {
   display: none;
 }
