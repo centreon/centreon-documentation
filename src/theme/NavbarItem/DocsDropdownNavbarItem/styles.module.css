@@ -7,13 +7,15 @@ Hide color mode toggle in small viewports
   }
 }
 
-.iconMenu {
-  vertical-align: text-bottom;
-  margin-right: 5px;
-}
-
 .docsDropdown:after {
   display: none;
+}
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: normal;
 }
 
 .itemIcon {

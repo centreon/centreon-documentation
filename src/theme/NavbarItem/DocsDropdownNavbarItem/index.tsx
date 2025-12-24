@@ -38,7 +38,7 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
     return {
       ...item,
       label: (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '200px', whiteSpace: 'normal' }}>
+        <div className={styles.itemContainer}>
           <div
             className={styles.itemIcon}
             style={{ backgroundColor: color }}
