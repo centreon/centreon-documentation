@@ -279,6 +279,9 @@ d'au moins 12GB de mémoire vive afin d'utiliser le
 ```shell
 datadir=/var/lib/mysql
 tmpdir = /var/lib/mysql/tmp
+```
+
+>Si vous souhaitez utiliser un datadir autre que `/var/lib/mysql/`, éditez les variables datadir et tmpdir du fichier.
 
 Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
 
