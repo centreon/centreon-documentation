@@ -5,7 +5,6 @@ import DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem';
 import styles from './styles.module.css';
 
 export default function DocsDropdownNavbarItem({items, ...props}: {items: NavbarItemConfig[]}): ReactNode {
-
   const sections = [];
   for (const item of items) {
     if (item.type === 'doc') {
@@ -13,7 +12,10 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
         ...item,
         label: 'IT infrastructure monitoring',
         initials: 'IM',
-        color: '#00003d'
+        color: '#0c00ff',
+        activeBaseRegex: 'cloud|pp|docs/',
+        type: undefined,
+        to: `/docs/${item.docId}`,
       });
     } else if ('to' in item && item.to && item.to.includes('log')) {
       sections.push({
@@ -36,20 +38,10 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
     return {
       ...item,
       label: (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '200px', whiteSpace: 'normal' }}>
           <div
-            style={{
-              width: '48px',
-              height: '48px',
-              borderRadius: '12px',
-              backgroundColor: color,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontSize: '20px',
-              fontWeight: 'bold',
-            }}
+            className={styles.itemIcon}
+            style={{ backgroundColor: color }}
           >
             {initials}
           </div>
@@ -63,23 +55,23 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
     <DropdownNavbarItem
       className={styles.docsDropdown}
       label={
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        style={{ margin: '0 auto', display: 'block' }}
-      >
-        <circle cx="5" cy="5" r="2" />
-        <circle cx="12" cy="5" r="2" />
-        <circle cx="19" cy="5" r="2" />
-        <circle cx="5" cy="12" r="2" />
-        <circle cx="12" cy="12" r="2" />
-        <circle cx="19" cy="12" r="2" />
-        <circle cx="5" cy="19" r="2" />
-        <circle cx="12" cy="19" r="2" />
-        <circle cx="19" cy="19" r="2" />
-      </svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style={{ margin: '0 auto', display: 'block' }}
+        >
+          <circle cx="5" cy="5" r="2" />
+          <circle cx="12" cy="5" r="2" />
+          <circle cx="19" cy="5" r="2" />
+          <circle cx="5" cy="12" r="2" />
+          <circle cx="12" cy="12" r="2" />
+          <circle cx="19" cy="12" r="2" />
+          <circle cx="5" cy="19" r="2" />
+          <circle cx="12" cy="19" r="2" />
+          <circle cx="19" cy="19" r="2" />
+        </svg>
       }
       items={itemsWithIcons}
       position="right"

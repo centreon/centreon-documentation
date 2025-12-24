@@ -88,7 +88,7 @@ export default function NavbarContent(): ReactNode {
     if (pluginId === 'log') {
       return 'to' in item && item.to && item.to.includes('log');
     }
-    return true;
+    return false;
   });
 
   const searchBarItem = items.find((item) => item.type === 'search');

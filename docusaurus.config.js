@@ -107,7 +107,7 @@ const config = {
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
-          showLastUpdateTime: false,
+          showLastUpdateTime: true,
           includeCurrentVersion: false,
           onlyIncludeVersions: versions,
           versions: (() => {
@@ -341,6 +341,7 @@ const config = {
               docId: defaultPageId,
               position: 'left',
               label: 'Centreon OnPrem',
+              to: ''
             },
           ];
 
