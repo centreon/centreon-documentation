@@ -215,7 +215,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: false,
+            showLastUpdateTime: true,
           },
         ],
       ];
@@ -340,8 +340,7 @@ const config = {
               type: 'doc',
               docId: defaultPageId,
               position: 'left',
-              label: 'Centreon OnPrem',
-              to: ''
+              label: 'Centreon OnPrem'
             },
           ];
 
