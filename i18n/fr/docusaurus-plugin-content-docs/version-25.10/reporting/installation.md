@@ -274,7 +274,12 @@ vgdisplay vg_data | grep -i free*
 
 Veillez à optimiser MariaDB/MySQL sur votre serveur de reporting. Vous aurez besoin
 d'au moins 12GB de mémoire vive afin d'utiliser le
-[fichier suivant](../assets/reporting/installation/centreon.cnf).
+[fichier suivant](../assets/reporting/installation/centreon.cnf). Vous devez décommenter les lignes 2 et 3 du fichier en retirant les "#" ainsi :
+```shell
+datadir=/var/lib/mysql
+tmpdir = /var/lib/mysql/tmp
+```
+>Si vous souhaitez utiliser un datadir autre que `/var/lib/mysql/`, éditez les variables datadir et tmpdir du fichier.
 
 Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
 
