@@ -3,6 +3,8 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import availableVersions from './versions.json';
 import archivedVersions from './archivedVersions.json';
 
+const isDev = process.env.BRANCH_NAME !== 'staging';
+
 const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
 
 const versions = (() => {
@@ -107,7 +109,7 @@ const config = {
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
-          showLastUpdateTime: true,
+          showLastUpdateTime: !isDev,
           includeCurrentVersion: false,
           onlyIncludeVersions: versions,
           versions: (() => {
@@ -215,7 +217,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: true,
+            showLastUpdateTime: !isDev,
           },
         ],
       ];
@@ -234,7 +236,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: true,
+            showLastUpdateTime: !isDev,
           },
         ],
       ];
@@ -253,7 +255,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: true,
+            showLastUpdateTime: !isDev,
           },
         ],
       ];

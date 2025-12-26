@@ -217,6 +217,7 @@ jobs:
       - name: Build documentation
         run: pnpm build
         env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
           DEM: ${{ matrix.dem }}
