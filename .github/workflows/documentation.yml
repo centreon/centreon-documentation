@@ -222,16 +222,20 @@ jobs:
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
-      - name: Clear previous docusaurus build from cache
+      - name: Clear previous docusaurus build & rspack cache from github cache
+        env:
+          CACHE_KEY_SUFFIX: "-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}"
         run: |
-          curl \
-            -X DELETE \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+          for key in "docusaurus-build-$CACHE_KEY_SUFFIX" "docusaurus-rspack-$CACHE_KEY_SUFFIX"; do
+            curl \
+              -X DELETE \
+              -H "Accept: application/vnd.github.v3+json" \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=$key
+          done
         shell: bash
 
-      - name: Store docusaurus build cache in cache
+      - name: Store docusaurus build in cache
         uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
