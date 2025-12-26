@@ -203,16 +203,14 @@ jobs:
         run: pnpm install --frozen-lockfile
         shell: bash
 
-      - name: Restore docusaurus build from cache
+      - name: Restore rspack cache
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
             ./node_modules/.cache
-            .docusaurus
-            build
-          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+          key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
           restore-keys: |
-            docusaurus-build-${{ matrix.environment }}-staging
+            docusaurus-rspack-${{ matrix.environment }}-staging
 
       - name: Build documentation
         run: pnpm build
@@ -237,10 +235,15 @@ jobs:
         uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
-            ./node_modules/.cache
-            .docusaurus
             build
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+
+      - name: Store rspack cache
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: |
+            ./node_modules/.cache
+          key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
@@ -262,8 +265,6 @@ jobs:
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
-            ./node_modules/.cache
-            .docusaurus
             build
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
@@ -347,8 +348,6 @@ jobs:
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
-            ./node_modules/.cache
-            .docusaurus
             build
           key: docusaurus-build-staging-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
@@ -385,8 +384,6 @@ jobs:
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
-            ./node_modules/.cache
-            .docusaurus
             build
           key: docusaurus-build-next-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
