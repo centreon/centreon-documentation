@@ -243,6 +243,8 @@ jobs:
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
       - name: Store rspack cache
+        # only store cache for staging branch builds because it is too big (~1.2GB)
+        if: github.ref_name == 'staging' && github.event_name != 'pull_request'
         uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
