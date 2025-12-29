@@ -124,6 +124,7 @@ considerations.
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
+- When creating the CentreonBI user, you must execute the following command: `adduser centreonBI --force-badname`
 
 #### Users and groups
 

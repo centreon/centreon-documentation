@@ -122,6 +122,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
+- Lors de la création de l'utilisateur CentreonBI, éxecutez la commande suivante : `adduser centreonBI --force-badname`
 
 #### Utilisateurs et groupes
 
