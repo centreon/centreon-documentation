@@ -608,6 +608,10 @@ with the following:
 
 3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
+>Starting with version 25.10, string interpolation is no longer allowed in provider-related commands. This is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via the `no_shell_interpretation: true` parameter.
+>If you use custom commands relying on string interpolation, you must update them to remain compatible.
+>If you previously customized `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm`, your version has been saved as `41-autodiscovery.yaml.rpmnew` in the same directory and must be manually merged to include this parameter.
+
 4. Restart the processes:
 
     ``` shell
