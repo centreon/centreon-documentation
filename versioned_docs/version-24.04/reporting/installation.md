@@ -43,15 +43,15 @@ The diagram below highlights the main components of Centreon MBI:
 The table below shows the different types of flows, by default,
 between the dedicated BI server, the Centreon server and the databases:
 
-| **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
-|-----------------|--------------------------|--------------------------------------|----------|--------------|
-| ETL/CBIS        | Reporting server         | Centreon database server             | 3306     | TCP          |
-| SSH             | Reporting server         |  Centreon Server                     | 22       | TCP          |
-| CBIS            | Reporting server         | Centreon Server                      | 80       | HTTP*        |
-| CBIS            | Centreon                 | Reporting server                     | 1234     | TCP          |
-| Widgets         | Centreon central server  | Reporting server                     | 3306     | TCP          |
+| **Application** | **Source**               | **Destination**                      | **Port**     | **Protocol**       | **Purpose**                                         |
+|-----------------|--------------------------|--------------------------------------|--------------|--------------------|-----------------------------------------------------|
+| ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Retrieve configuration and other data from Centreon |
+| SSH             | Reporting server         |  Centreon Server                     | 22           | TCP                | Send generated reports to Central server            |
+| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentication & data retrieval                     |
+| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Central contact CBIS to generate jobs               |
+| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Retrieve aggregated data to display on widgets      |
 
-*Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use the Centreon API to generate graphs.*
+*Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use the Centreon API to generate graphs.
 
 ### Information about the packages
 
