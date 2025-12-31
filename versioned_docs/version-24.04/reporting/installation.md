@@ -51,7 +51,7 @@ between the dedicated BI server, the Centreon server and the databases:
 | CBIS            | Centreon                 | Reporting server                     | 1234     | TCP          |
 | Widgets         | Centreon central server  | Reporting server                     | 3306     | TCP          |
 
-*Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use the Centreon API to generate graphs*.
+*Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use the Centreon API to generate graphs.*
 
 ### Information about the packages
 
