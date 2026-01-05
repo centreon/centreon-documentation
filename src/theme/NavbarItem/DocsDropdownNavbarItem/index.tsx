@@ -10,7 +10,7 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
     if (item.type === 'doc') {
       sections.push({
         ...item,
-        label: 'IT infrastructure monitoring',
+        label: 'IT Infrastructure Monitoring',
         initials: 'IM',
         color: '#0c00ff',
         activeBaseRegex: 'cloud|pp|docs/',
@@ -27,7 +27,7 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
     } else if ('to' in item && item.to && item.to.includes('dem')) {
       sections.push({
         ...item,
-        label: 'Digital experience monitoring',
+        label: 'Digital Experience Monitoring',
         initials: 'DM',
         color:  '#259788ff'
       });
