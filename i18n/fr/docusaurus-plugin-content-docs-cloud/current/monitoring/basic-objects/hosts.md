@@ -16,7 +16,7 @@ Pour créer un hôte manuellement :
 * Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces. L'utilisation d'un nom contenant `/` peut également avoir un impact technique sur les requêtes SQL, l'interface web ou d'autres problèmes de compatibilité avec des outils tiers. Nous recommandons de n'utiliser que `_-.` pour les noms d'hôtes.
 * Le champ **Alias** indique l’alias de l’hôte.
 * Le champ **Adresse** définit l'adresse IP ou le nom DNS de l’hôte. Le bouton **Résoudre** permet de résoudre le nom de
-  domaine en interrogeant le serveur DNS configuré sur la plateforme SaaS. Notez que pour des raisons de sécurité, les paramètres au format `<protocol>://<ip-address>` ne sont pas acceptés.
+  domaine en interrogeant le serveur DNS configuré sur la plateforme SaaS. Notez que pour des raisons de sécurité, les adresses au format `<protocol>://<ip-address>` ne sont pas acceptés.
 * Le champ **Modèles** permet d’associer un ou plusieurs modèles d’hôtes à cet objet.
 
    En cas de conflits de paramètres présents sur plusieurs modèles, le modèle d’hôte au-dessus écrase les propriétés
