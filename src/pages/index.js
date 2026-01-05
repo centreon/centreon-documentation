@@ -206,7 +206,7 @@ function OpensourceBlock() {
   return(
     <div className={clsx(styles.socialBlock)}>
       <span className={clsx(styles.badge)}>AN OPEN SOURCE CORE</span>
-      <p>Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon has become the number 1 in open source monitoring in Europe.</p>
+      <p>Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon Infra Monitoring has become the number 1 in open source monitoring in Europe.</p>
       <Button href={links.contribute} target="_blank" label="Contribute to the Open Source project"/>
     </div>
   )
