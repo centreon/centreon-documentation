@@ -205,7 +205,7 @@ function OpensourceBlock() {
   return(
     <div className={clsx(styles.socialBlock)}>
       <span className={clsx(styles.badge)}>UN CŒUR OPEN SOURCE</span>
-      <p>Plébiscité par des centaines de milliers de professionnels de l’IT à travers le monde avec 6 000 téléchargements mensuels, Centreon est devenu le numéro 1 de la supervision open source en Europe.</p>
+      <p>Plébiscité par des centaines de milliers de professionnels de l’IT à travers le monde avec 6 000 téléchargements mensuels, Centreon Infra Monitoring est devenu le numéro 1 de la supervision open source en Europe.</p>
       <Button href={links.contribute} target="_blank" label="Contribuer au projet Open Source"/>
     </div>
   )
