@@ -22,6 +22,18 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.10.16
+
+Release date: `December 31, 2025`
+
+<details>
+
+<summary>Security fixes</summary>
+
+- [Security] Fixed an issue with CLAPI Import.
+
+</details>
+
 ### 24.10.15
 
 Release date: `December 18, 2025`
@@ -33,7 +45,7 @@ Release date: `December 18, 2025`
 - [Authentication] Password change attempts (both successful and unsuccessful) are now logged in a dedicated log file.
 - [Authentication] When editing a contact, users authenticated by an IdP no longer see the password editing fields.
 - [Configuration] The "Deploy Service" action from the hosts list now triggers a "Conf Changed" flag for the related poller in the pollers list.
-- [Configuration] Adapted partitioning to properly work with Amazon Aurora RDS again. Impacted user's next partitioning will take longer than usual as the database catches up with missing partitions.
+- [Configuration] Fixed an issue with database partitioning on Amazon Aurora RDS. The next update may take a bit longer for some users while the system catches up.
 - [Configuration] Removed obsolete gorgone error message from configuration generation log.
 - [Resource Status]  For performance and readability reasons, graphs containing more than 20 metrics are no longer displayed.
 - [UI] Changed wording from "IP Address" to "Address" for pollers.
@@ -50,15 +62,15 @@ Release date: `December 18, 2025`
 - [APIv2] Fixed a 500 error when using expiration_date = NULL in security_token.
 - [Anomaly Detection] Fixed an issue on broker configuration generation with proxy parameters.
 - [Authentication] Allowed to access Centreon UI through a reverse proxy/load balancer.
-- [Authentication] Fixed issue on LDAP authentication.
-- [Authentication] Fixed an issue where a user could lose their DN during an LDAP connection.
+- [Authentication] Fixed an issue on LDAP authentication.
+- [Authentication] Fixed an issue where users could lose their DN during an LDAP connection.
 - [Authentication tokens] Fixed an issue when clicking "cancel" in the change confirmation modal that caused the token's status to be displayed as changed.
 - [CLAPI] Fixed an issue where HTML entities were not correctly decoded when exporting.
 - [CLAPI] Fixed an issue where the APPLYTPL command would take a long time to take effect.
 - [Configuration] Fixed an error when changing the host template order in the host configuration form.
 - [Configuration] Fixed an issue in Agent configuration where engine was not listening if "No TLS" was activated (poller-initiated).
 - [Configuration] Fixed an issue on Agent configuration where results of filters were not as expected if there was no matching data.
-- [Configuration] Fixed an issue where host names could be saved with special characters but would then block cause "export configuration" to fail.
+- [Configuration] Fixed an issue where host names could be saved with special characters but would then cause "export configuration" to fail.
 - [Configuration] Fixed an issue on remote servers, where max auto_increment was reached after many exports causing imports to fail.
 - [Configuration] Fixed an issue preventing users from disabling a meta-service.
 - [Configuration] Fixed an issue in Agent configuration (Poller-initiated connection) that prevented users from searching for the host..
@@ -428,7 +440,7 @@ Release date: `February 12, 2025`
 - [Cron] The script that deletes expired tokens is now run with the apache user to avoid invalid permissions on the web log file.
 - [Dashboards] Selecting multiple resources of the same type now works correctly.
 - [Discovery] Fixed incorrect rights on centreon_vmware.json, that triggered an error when executing host discovery jobs.
-- [Install] Fixed issue with SQL schema missing when upgrading version.
+- [Install] Fixed an issue with SQL schema missing when upgrading version.
 - [Metrics Graph widget] Legends are now displayed correctly when a lot of metrics are selected.
 - [Poller/Agent configuration] Fixed an issue where the listing page was replaced by the default page when searching for an unknown value.
 - [Public Playlists] Fixed an issue preventing public playlists to be displayed on some browsers.
@@ -1353,6 +1365,19 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon AWIE
+
+### 24.10.3
+
+Release date: `December 31, 2025`
+
+<details>
+
+<summary>Security fixes</summary>
+
+- [Security]Fixed an issue with AWIE Export Module.
+- [Security] Fixed an issue with CLAPI Import.
+
+</details>
 
 ### 24.10.2
 

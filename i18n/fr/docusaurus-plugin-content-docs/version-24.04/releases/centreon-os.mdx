@@ -22,6 +22,18 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.04.20
+
+Release date: `December 31, 2025`
+
+<details>
+
+<summary>Security fixes</summary>
+
+- [Security] Fixed an issue with CLAPI Import.
+
+</details>
+
 ### 24.04.19
 
 Release date: `December 15, 2025`
@@ -33,7 +45,7 @@ Release date: `December 15, 2025`
 - [Authentication] Password change attempts (both successful and unsuccessful) are now logged in a dedicated log file.
 - [Authentication] When editing a contact, users authenticated by an IdP no longer see the password editing fields.
 - [Configuration] The "Deploy Service" action from the hosts list now triggers a "Conf Changed" flag for the related poller in the pollers list.
-- [Configuration] Adapted partitioning to properly work with Amazon Aurora RDS again. Impacted user's next partitioning will take longer than usual as the database catches up with missing partitions.
+- [Configuration] Fixed an issue with database partitioning on Amazon Aurora RDS. The next update may take a bit longer for some users while the system catches up.
 - [Configuration] Removed obsolete gorgone error message from configuration generation log.
 - [Custom Views] Optimized performance when retrieving ACLs in widgets.
 
@@ -698,7 +710,12 @@ Many features have been added in this version.
 
 Release date: `December 15, 2025`
 
-No changes for this module in this version.
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed some issues on RRD error messages.
+
+</details>
 
 ### 24.04.15
 
@@ -1343,6 +1360,19 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon AWIE
+
+### 24.04.3
+
+Release date: `December 31, 2025`
+
+<details>
+
+<summary>Security fixes</summary>
+
+- [Security] Fixed an issue with AWIE Export Module.
+- [Security] Fixed an issue with CLAPI Import.
+
+</details>
 
 ### 24.04.2
 
