@@ -39,7 +39,7 @@ servers:
 1. Update your Centreon 24.10 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -47,8 +47,8 @@ servers:
 If you use Centreon Business Edition, use this command instead:
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el8/centreon-business-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-business-24.10-el8.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -75,7 +75,7 @@ If you use Centreon Business Edition, use this command instead:
 1. Update your Centreon 24.10 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -83,8 +83,8 @@ If you use Centreon Business Edition, use this command instead:
 If you use Centreon Business Edition, use this command instead:
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el9/centreon-business-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-business-24.10-el9.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

@@ -42,7 +42,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -50,8 +50,8 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el8/centreon-business-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-business-24.10-el8.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -78,7 +78,7 @@ Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de l
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -86,8 +86,8 @@ Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de l
 Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.10/el9/centreon-business-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-business-24.10-el9.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
