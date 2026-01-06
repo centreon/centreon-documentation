@@ -174,7 +174,7 @@ function HeadingBlock() {
     <div className={clsx(styles.headingContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <h1>Welcome to Centreon documentation!</h1>
-        <p>Use the top-right icon to switch between product documentations at any time.<p>
+        <p>Use the top-right icon to switch between product documentations at any time.</p>
         <HeadingCards cards={cards}/>
       </div>
     </div>
