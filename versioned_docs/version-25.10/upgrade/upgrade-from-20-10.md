@@ -100,6 +100,44 @@ dnf module enable -y mariadb:10.11
 </TabItem>
 </Tabs>
 
+### Upgrade the Centreon solution
+
+1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
+
+2. If you have installed Business extensions, delete the configuration of the 20.10 repository: 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-20.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-20.10.repo
+```
+
+</TabItem>
+</Tabs>
+
+3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+
+5. Stop the Centreon Broker process:
+
+```shell
+systemctl stop cbd
+```
+
+6. Delete existing retention files:
+
+```shell
+rm /var/lib/centreon-broker/* -f
+```
+
 ### Upgrade PHP
 
 Centreon 25.10 uses PHP in version 8.2.
@@ -146,55 +184,9 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
-### Upgrade the Centreon solution
+Then, finish upgrading the Centreon solution.
 
-1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
-
-2. If you have installed Business extensions, delete the configuration of the 20.10 repository: 
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-20.10.repo
-```
-
-</TabItem>
-
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-20.10.repo
-```
-
-</TabItem>
-
-<TabItem value="Debian" label="Debian">
-
-```shell
-rm /etc/apt/sources.list.d/centreon-business.list
-```
-
-</TabItem>
-</Tabs>
-
-3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
-
-4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
-
-5. Stop the Centreon Broker process:
-
-```shell
-systemctl stop cbd
-```
-
-6. Delete existing retention files:
-
-```shell
-rm /var/lib/centreon-broker/* -f
-```
-
-7. Clean the cache:
+1. Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -211,17 +203,9 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
-   
-```shell
-apt clean all
-apt update
-```
-
-</TabItem>
 </Tabs>
 
-8. Then upgrade all the components with the following command:
+2. Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

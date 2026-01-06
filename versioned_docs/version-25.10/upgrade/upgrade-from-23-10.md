@@ -46,6 +46,21 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 1. Update your Centreon 23.10 to the latest minor version.
 
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
+If you use Centreon Business Edition, use this command instead:
+
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10-el8.repo
+   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-business-23.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Remove the repository files:
 
    ```shell
@@ -66,6 +81,21 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Update your Centreon 23.10 to the latest minor version.
+
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
+If you use Centreon Business Edition, use this command instead:
+
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
+   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-business-23.10-el9.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
 
 2. Remove the repository files:
 
@@ -88,6 +118,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 2. Run the following commands:
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
@@ -105,6 +136,54 @@ apt update
 > If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
 >
 > You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+### Upgrade the Centreon solution
+
+1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
+
+2. If you have installed Business extensions, delete the configuration of the 23.10 repository: 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-23.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-23.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Debian" label="Debian">
+
+```shell
+rm /etc/apt/sources.list.d/centreon-business.list
+```
+
+</TabItem>
+</Tabs>
+
+3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+
+4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+
+5. Stop the Centreon Broker process:
+
+```shell
+systemctl stop cbd
+```
+
+6. Delete existing retention files:
+
+```shell
+rm /var/lib/centreon-broker/* -f
+```
 
 ### Upgrade PHP
 
@@ -156,55 +235,9 @@ systemctl disable php8.1-fpm
 </TabItem>
 </Tabs>
 
-### Upgrade the Centreon solution
+Then, finish upgrading the Centreon solution.
 
-1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
-
-2. If you have installed Business extensions, delete the configuration of the 23.10 repository: 
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-23.10.repo
-```
-
-</TabItem>
-
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-23.10.repo
-```
-
-</TabItem>
-
-<TabItem value="Debian" label="Debian">
-
-```shell
-rm /etc/apt/sources.list.d/centreon-business.list
-```
-
-</TabItem>
-</Tabs>
-
-3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
-
-4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
-
-5. Stop the Centreon Broker process:
-
-```shell
-systemctl stop cbd
-```
-
-6. Delete existing retention files:
-
-```shell
-rm /var/lib/centreon-broker/* -f
-```
-
-7. Clean the cache:
+1. Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -231,7 +264,7 @@ apt update
 </TabItem>
 </Tabs>
 
-8. Then upgrade all the components with the following command:
+2. Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

@@ -38,6 +38,21 @@ servers:
 
 1. Update your Centreon 24.10 to the latest minor version.
 
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
+If you use Centreon Business Edition, use this command instead:
+
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-business-24.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Remove the repository files:
 
    ```shell
@@ -58,6 +73,21 @@ servers:
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Update your Centreon 24.10 to the latest minor version.
+
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
+If you use Centreon Business Edition, use this command instead:
+
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-business-24.10-el9.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
 
 2. Remove the repository files:
 
@@ -81,7 +111,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 2. Run the following commands:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+rm -f /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -566,7 +597,7 @@ with the following:
 
 2. If you were using custom commands for a poller (on the **Configuration > Pollers > Pollers** page, in the **Monitoring Engine Information** section), be aware that a new validation regex is now applied (`[a-zA-Z0-9\-\_]+`): your custom commands may need to be adapted. On the central server:
    * To identify commands that must be adapted, run:
-     ````shell
+     ```shell
      sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
      ```
    * To adapt the commands automatically, run:
@@ -600,7 +631,7 @@ Run the following command:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-24.10.repo
 ```
 
 </TabItem>
@@ -608,14 +639,14 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-24.10.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 apt update
 ```
 

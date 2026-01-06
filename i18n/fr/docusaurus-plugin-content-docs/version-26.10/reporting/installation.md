@@ -631,22 +631,6 @@ apt update
 
 2. Installez le dépôt Business. Vous pouvez trouver son adresse sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-3. Assurez-vous qu'une version de Java 17 (ou 18) est installée.
-   
-   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-   
-   ```shell
-   java -version
-   ```
-   
-   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
-   
-   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-   
-   ```shell
-   sudo update-alternatives --config java
-   ```
-
 #### Installer le dépôt de base de données
 
 <DatabaseRepository />
@@ -851,6 +835,22 @@ apt install centreon-bi-reporting-server
 
 </TabItem>
 </Tabs>
+
+Assurez-vous qu'une version de Java 17 (ou 18) est installée.
+   
+   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+   
+   ```shell
+   java -version
+   ```
+   
+   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+   
+   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
 
 #### Activer les services
 
@@ -1195,7 +1195,7 @@ suivantes :
 | Une base de données MariaDB dédiée au reporting a été mise en place.                                                                     | Oui. Vous devez avoir un serveur de reporting dédié.                                                                                                                                                                                                                                                                                               |
 | Espace de stockage des fichiers temporaires sur le serveur de reporting *                                                                | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés                                                                                                                                                                                                                                                            |
 | Type de statistiques à traiter                                                                                                           | Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité.  Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance. Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.                  |
-| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Activé uniquement si votre configuration MariaDB et la mémoire physique allouée au serveur de reporting le permet.                                                                                                                                                                                                                                 |
+| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Crée des tables temporaires en utilisant de la RAM plutôt que de les créer sur disque. Non recommandé si vous disposez de bases de données avec moins de 64Go de RAM.                                                                                                                                                                  |
 | **Sélection du périmètre du reporting**                                                                                                  |                                                                                                                                                                                                                                                                                                                                                    |
 | Groupes d'hôtes                                                                                                                          | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                          |
 | Catégories d'hôtes                                                                                                                       | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                       |

@@ -164,6 +164,7 @@ const config = {
         docsRouteBasePath: ["docs", "cloud", "pp", "dem", "logmanagement"],
         docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem", "logmanagement"],
         explicitSearchResultPath: true,
+        useAllContextsWithNoSearchContext: true,
         // searchContextByPaths: [
         //   {
         //     label: {
@@ -396,7 +397,7 @@ const config = {
               ...items,
               {
                 to: '/dem/getting-started/welcome',
-                label: 'Quanta by Centreon',
+                label: 'Centreon DEM',
                 position: 'left',
                 activeBaseRegex: '/dem/',
               },
@@ -488,7 +489,7 @@ const config = {
           alt: 'Centreon Open Source Logo',
           src: 'img/logo_centreon.png',
         },
-        copyright: `Copyright © 2005 - 2025 Centreon`,
+        copyright: `Copyright © 2005 - 2026 Centreon`,
       },
     }),
 };
