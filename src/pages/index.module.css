@@ -50,7 +50,11 @@
 .headingContainer h1 {
   font-family: var(--ifm-font-family-heading);
   font-size: 42px;
-  margin-bottom: 42px;
+  margin-bottom: 12px;
+}
+
+.headingContainer p {
+  font-weight:bold;
 }
 
 .headingCards {
