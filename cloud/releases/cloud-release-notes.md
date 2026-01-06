@@ -12,7 +12,6 @@ title: Centreon Cloud release notes
 This release brings significant improvements to the Centreon Monitoring Agent (CMA) to align its behavior with standard monitoring logic and to offer more flexibility in deployment:
 
 * CMA now supports retry_interval and max_attempts parameters, allowing for more granular control over alerting. Additionally, freshness checks are now fully supported, ensuring data consistency even in case of communication silence.
-* It is now possible to configure both connection directions (Poller-initiated and Agent-initiated) within the same configuration. The user interface has been redesigned to make this dual-mode setup intuitive.
 * The Windows installer has been enhanced to support multiple CMA instances on a single host, catering to complex infrastructure requirements.
 * To simplify the configuration process, the “CA common name” field is now only displayed when Insecure TLS mode is selected.
 
