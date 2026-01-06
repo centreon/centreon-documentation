@@ -457,7 +457,7 @@ const config = {
           alt: 'Centreon Open Source Logo',
           src: 'img/logo_centreon.png',
         },
-        copyright: `Copyright © 2005 - 2025 Centreon`,
+        copyright: `Copyright © 2005 - 2026 Centreon`,
       },
     }),
 };
