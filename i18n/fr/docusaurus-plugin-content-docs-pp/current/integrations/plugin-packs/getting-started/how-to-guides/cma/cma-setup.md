@@ -538,6 +538,7 @@ Les différents arguments sont:
 | flag                       | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | obligatoire
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | 
 |/COMPONENTS| Composants à installer. "agent", "plugins" ou "agent,plugins"  |X |
+|/AGENTINSTANCE| Le nom d'instance de l'Agent (nom du service). Si non renseigné, un nom par défaut est généré (CentreonMonitoringAgent) |  |
 |/HOST                 | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon.                          | X |
 |/ENDPOINT                 | Dans le cas le plus courant (l'agent se connecte au collecteur), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le collecteur, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si **/REVERSE=true**, vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur. | X|
 |/TOKEN| Jeton d'authentification | X |
@@ -805,6 +806,252 @@ centreon-monitoring-agent-modify.exe /VERYSILENT
 
 </TabItem>
 </Tabs>
+
+### Configurer plusieurs instances d'Agent sur le même hôte
+
+#### Principe général
+
+Il est possible de configurer plusieurs services CMA sur un hôte, par exemple pour communiquer vers différents collecteurs/plateformes Centreon (test/production), supervisant le même hôte.
+
+Une instance correspond à : 
+* un service
+* sa configuration
+
+Le nom de l'instance doit être unique sur un même hôte.
+
+Chaque instance possède sa propre configuration, et l'exécute de manière indépendante des autres instances.
+
+#### Configuration
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+La configuration de chaque instance est présente dans un fichier json dédié, sur l'hôte.
+Le nom du fichier doit être unique.
+
+```shell
+/etc/centreon-monitoring-agent/centagent1.json
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+La configuration de chaque instance est présente dans une clé de registre dédiée, dont le nom est unique.
+
+```shell
+Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
+```
+
+</TabItem>
+</Tabs>
+
+#### Déployer une instance nommée
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+**Créer et éditer le fichier de configuration**
+
+Un fichier est créé au premier déploiement de CMA.
+
+> Copier ce fichier
+
+```shell
+cp  /etc/centreon-monitoring-agent/centagent.json /etc/centreon-monitoring-agent/centagent1.json
+```
+
+> Si nécessaire, modifier la configuration de la nouvelle instance dans le fichier créé.
+
+**Donner au fichier les droits adéquats**
+
+```shell
+chmod 0644 /etc/centreon-monitoring-agent/centagent1.json
+chown centreon-monitoring-agent:centreon-monitoring-agent /etc/centreon-monitoring-agent/centagent1.json
+```
+
+**Créer et éditer le service**
+
+Un service est créé au premier déploiement de CMA.
+
+> Copier ce service
+
+```shell
+cp /lib/systemd/system/centagent.service /lib/systemd/system/centagent1.service
+```
+
+Modifier le chemin présent dans **ExecStart** pour pointer vers le nouveau fichier json
+
+```shell
+...
+[Service]
+ExecStart=/usr/bin/centagent /etc/centreon-monitoring-agent/centagent1.json
+ExecReload=/bin/kill -HUP $MAINPID
+...
+```
+
+**Donner au service les droits adéquats**
+
+```shell
+chmod 0644 /lib/systemd/system/centagent1.service
+chown centreon-monitoring-agent:centreon-monitoring-agent /lib/systemd/system/centagent1.service
+```
+
+**Enregistrer le nouveau service**
+
+```shell
+systemctl daemon-reload
+systemctl unmask centagent1
+systemctl preset centagent1
+systemctl enable centagent1
+systemctl restart centagent1
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+
+<Tabs groupId="sync">
+<TabItem value="Mode interactif" label="Mode interactif">
+
+A l’exécution de l’installeur, le champ **Agent instance** propose un nom d’instance par défaut (unique) qui peut être modifié.
+Il sera utilisé comme nom de service et de clé de registre.
+
+</TabItem>
+<TabItem value="Mode silencieux" label="Mode silencieux (console)">
+A chaque exécution, une nouvelle instance est créée, avec nom incrémental “CentreonMonitoringAgent1”, “CentreonMonitoringAgent2”
+Si l’on veut nommer le service créé (le nom doit être unique), on ajoute  /AGENTINSTANCE
+Ce nom sera utilisé comme nom de service et de clé de registre.
+
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /AGENTINSTANCE="ServiceName"  /COMPONENTS=agent,plugins /HOST=host_1 /ENDPOINT=localhost:4317 /TOKEN=token_value 
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+</Tabs>
+
+#### Modifier une instance nommée
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+* Réaliser les modifications souhaitées dans le fichier json correspondant à l'instance.
+* Redémarrer le service correspondant
+
+```shell
+systemctl restart centagent1
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+
+<Tabs groupId="sync">
+<TabItem value="Mode interactif" label="Mode interactif">
+
+Exécuter **centreon-monitoring-agent-modify.exe** situé dans le répertoire d'installation de CMA.
+Le champ **Agent instance** propose par défaut la première instance trouvée, et peut être modifié.
+Toutes les modifications faites ensuite concerneront l’instance sélectionnée.
+
+</TabItem>
+<TabItem value="Mode silencieux" label="Mode silencieux (console)">
+
+Exécuter **centreon-monitoring-agent-modify.exe** en mode silencieux.
+
+> Dans ce contexte, le paramètre /AGENTINSTANCE est obligatoire.
+
+```shell
+centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE="ServiceName"
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+</Tabs>
+
+#### Désinstaller une instance nommée
+
+Voir "Désinstaller l'agent" (TODO LIEN)
+
+### Mettre à jour une configuration existante
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+Dupliquer et renommer le fichier **/etc/centreon-monitoring-agent/centagent.json**.
+Redémarrer l'agent.
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+Exécuter **centreon-monitoring-agent-modify.exe** situé dans le répertoire d'installation de CMA.
+
+Cela est également possible en mode silencieux :
+```shell
+centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE "ServiceName"
+```
+</TabItem>
+</Tabs>
+
+
+### Désinstaller l'agent
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+Désinstaller une instance : 
+
+```shell
+systemctl stop centagent1
+rm /lib/systemd/system/centagent1.service
+rm /etc/centreon-monitoring-agent/centagent1.json
+systemctl daemon-reload
+```
+
+Désinstaller CMA (toutes les instances et groupes utilisateurs)
+
+```shell
+systemctl stop centagent centagent1
+rm /lib/systemd/system/centagent.service /lib/systemd/system/centagent1.service
+rm /etc/centreon-monitoring-agent/centagent.json /etc/centreon-monitoring-agent/centagent.json
+systemctl daemon-reload
+deluser centreon-monitoring-agent
+delgroup centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+
+<Tabs groupId="sync">
+<TabItem value="Mode interactif" label="Mode interactif">
+
+Exécuter **unins000.exe** situé dans le répertoire d'installation de CMA.
+La liste des instances est présentée avec les plugins et il est possible de sélectionner les éléments à désinstaller.
+
+</TabItem>
+<TabItem value="Mode silencieux" label="Mode silencieux (console)">
+
+Exécuter **unins000.exe** en mode silencieux, et spécifier l'une des trois options possibles.
+
+* /FULL  --> toutes les instances sont désinstallées, ainsi que les plugins
+* /PLUGINS --> les plugins sont désinstallés
+* /AGENTINSTANCE=SERVICENAME1,SERVICENAME2 --> la/les instances spécifiée(s) est/sont désinstallée(s)
+
+```shell
+unins000.exe /VERYSILENT /FULL
+unins000.exe /VERYSILENT /PLUGINS
+unins000.exe /VERYSILENT /AGENTINSTANCE=SERVICENAME1,SERVICENAME2
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+</Tabs>
+
+
+
 
 ## Étape 4 : Tester le fonctionnement de l'agent
 
