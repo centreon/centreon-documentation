@@ -77,7 +77,7 @@
 }
 
 .headingCardHeader {
-  font-size: 25px;
+  font-size: 30px;
   font-family: var(--ifm-font-family-heading);
   background-color: var(--ifm-background-color-invert);
   color: var(--ifm-background-color);
