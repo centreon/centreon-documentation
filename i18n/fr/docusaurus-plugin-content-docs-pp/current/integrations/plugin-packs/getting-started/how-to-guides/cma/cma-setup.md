@@ -538,7 +538,7 @@ Les différents arguments sont:
 | flag                       | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | obligatoire
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | 
 |/COMPONENTS| Composants à installer. "agent", "plugins" ou "agent,plugins"  |X |
-|/AGENTINSTANCE| Le nom d'instance de l'Agent (nom du service). Si non renseigné, un nom par défaut est généré (CentreonMonitoringAgent) |  |
+|/AGENTINSTANCE| Le nom d'instance de l'agent (nom du service). Si non renseigné, un nom par défaut est généré (CentreonMonitoringAgent) |  |
 |/HOST                 | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon.                          | X |
 |/ENDPOINT                 | Dans le cas le plus courant (l'agent se connecte au collecteur), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le collecteur, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si **/REVERSE=true**, vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur. | X|
 |/TOKEN| Jeton d'authentification | X |
@@ -807,7 +807,7 @@ centreon-monitoring-agent-modify.exe /VERYSILENT
 </TabItem>
 </Tabs>
 
-### Configurer plusieurs instances d'Agent sur le même hôte
+### Configurer plusieurs instances d'agent sur le même hôte
 
 #### Principe général
 
@@ -854,13 +854,13 @@ Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
 
 Un fichier est créé au premier déploiement de CMA.
 
-> Copier ce fichier
+1. Copier ce fichier
 
 ```shell
 cp  /etc/centreon-monitoring-agent/centagent.json /etc/centreon-monitoring-agent/centagent1.json
 ```
 
-> Si nécessaire, modifier la configuration de la nouvelle instance dans le fichier créé.
+2. Si nécessaire, modifier la configuration de la nouvelle instance dans le fichier créé.
 
 **Donner au fichier les droits adéquats**
 
@@ -873,7 +873,7 @@ chown centreon-monitoring-agent:centreon-monitoring-agent /etc/centreon-monitori
 
 Un service est créé au premier déploiement de CMA.
 
-> Copier ce service
+3. Copier ce service
 
 ```shell
 cp /lib/systemd/system/centagent.service /lib/systemd/system/centagent1.service
@@ -979,8 +979,12 @@ Voir "Désinstaller l'agent" (TODO LIEN)
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-Dupliquer et renommer le fichier **/etc/centreon-monitoring-agent/centagent.json**.
-Redémarrer l'agent.
+1. Dupliquer et renommer le fichier **/etc/centreon-monitoring-agent/centagent.json**
+2. Redémarrer l'agent
+
+```shell
+systemctl restart centagent
+```
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
