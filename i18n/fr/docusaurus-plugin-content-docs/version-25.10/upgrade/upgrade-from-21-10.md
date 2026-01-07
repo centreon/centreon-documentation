@@ -136,6 +136,11 @@ dnf module reset php
 ```shell
 dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
@@ -157,6 +162,11 @@ dnf module reset php
 ```shell
 dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
