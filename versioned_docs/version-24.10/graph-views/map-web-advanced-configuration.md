@@ -8,6 +8,8 @@ import TabItem from '@theme/TabItem';
 This chapter describes advanced procedures for configuring your Centreon MAP
 system.
 
+> Please note that the endpoints specified on this page have been updated following the deprecation of the beta version. From 24.10, `beta` is replaced with `latest` in the paths.
+
 ## Monitoring your Centreon MAP server after installation
 
 Centreon provides a [Monitoring Connector and a plugin](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator) to monitor your Centreon MAP server.
@@ -27,7 +29,7 @@ To monitor centreon-map JVM, please use following macro values:
 | Name                    | Value                           |
 | :---------------------- | :------------------------------ |
 | ACTUATORCUSTOMMODE      | ```centreonmap```               |
-| ACTUATORAPIURLPATH      | ```/centreon-map/api/beta```    |
+| ACTUATORAPIURLPATH      | ```/centreon-map/api/latest```    |
 | ACTUATORAPIUSERNAME     | Api username must be set        |
 | ACTUATORAPIPASSWORD     | Api password must be set        |
 
@@ -43,14 +45,14 @@ whether or not the server is up:
 <TabItem value="HTTP" label="HTTP">
 
 ```shell
-http://<MAP_IP>:8080/centreon-map/api/beta/actuator/health.
+http://<MAP_IP>:8080/centreon-map/api/latest/actuator/health.
 ```
 
 </TabItem>
 <TabItem value="HTTPS" label="HTTPS">
 
 ```shell
-https://<MAP_IP>:8443/centreon-map/api/beta/actuator/health.
+https://<MAP_IP>:8443/centreon-map/api/latest/actuator/health.
 ```
 
 </TabItem>
@@ -101,5 +103,5 @@ Test that your server is up and accessible on the new port you defined by
 entering the following URL in your web browser:
 
 ```shell
-http://<MAP_IP>:<NEW_PORT>/centreon-map/api/beta/actuator/health
+http://<MAP_IP>:<NEW_PORT>/centreon-map/api/latest/actuator/health
 ```
