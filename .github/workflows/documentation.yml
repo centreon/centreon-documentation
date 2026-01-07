@@ -224,7 +224,7 @@ jobs:
 
       - name: Clear previous docusaurus build & rspack cache from github cache
         env:
-          CACHE_KEY_SUFFIX: "-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}"
+          CACHE_KEY_SUFFIX: "${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}"
         run: |
           for key in "docusaurus-build-$CACHE_KEY_SUFFIX" "docusaurus-rspack-$CACHE_KEY_SUFFIX"; do
             curl \
