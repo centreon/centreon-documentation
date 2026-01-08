@@ -3,7 +3,7 @@ id: cloud-release-notes
 title: Centreon Cloud - notes de release
 ---
 
-## January 6th, 2026
+## January 8th, 2026
 
 ### Centreon IT Edition
 
