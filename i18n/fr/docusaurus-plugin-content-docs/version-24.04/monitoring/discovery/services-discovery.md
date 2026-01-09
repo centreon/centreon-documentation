@@ -336,7 +336,7 @@ options :
 | filter\_pollers | tableau | Permet d’exécuter les règles de découverte pour les ressources appartenant au ou aux collecteurs         |
 | dry\_run        | booléen | Exécute la découverte sans changement dans la confugration (utiliser à des fin de test)                 |
 
-Sélectionnez **Activate** dans les options générales de votre règle de découverte afin de pouvoir faire la découverte via l'API.
+Sélectionnez **Activate** dans les options générales de votre règle de découverte afin de pouvoir lancer la découverte via l'API.
 
 ### Exemples
 
