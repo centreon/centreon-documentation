@@ -40,9 +40,9 @@ Le connecteur apporte le modèle de service suivant
 
 #### Découverte de services
 
-| Nom de la règle                  | Description                                      |
-|:---------------------------------|:-------------------------------------------------|
-| App-Apache-Cxf-Jmx-Services-Name | Discover services and monitor their system usage |
+| Nom de la règle                  | Description                                                  |
+|:---------------------------------|:-------------------------------------------------------------|
+| App-Apache-Cxf-Jmx-Services-Name | Découvre les services et supervise leur utilisation système  |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -68,7 +68,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Ce connecteur permet la supervision d'[Apache CXF](https://cxf.apache.org/docs/index.html) version 3.3.4 et supérieur.
+Ce connecteur permet la supervision d'[Apache CXF](https://cxf.apache.org/docs/index.html) version 3.3.4 et supérieures.
 
 ## Installer le connecteur de supervision
 
