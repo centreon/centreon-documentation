@@ -113,7 +113,7 @@ Puis compléter la règle :
     seront mis à jour si une propriété change (valeur de macros
     personnalisées, etc.).
   - **Activate** : Activer ou désactiver la règle (la règle sera ignorée par le
-    processus de découverte si elle est désactivée). Sélectionnez **Activate** afin de pouvoir faire une découverte via l'API.
+    processus de découverte si elle est désactivée). Sélectionnez **Activate** afin de pouvoir lancer une découverte via l'API.
 
 Cliquer sur **Save** pour sauvegarder la règle de découverte.
 
@@ -336,7 +336,7 @@ options :
 | filter\_pollers | tableau | Permet d’exécuter les règles de découverte pour les ressources appartenant au ou aux collecteurs         |
 | dry\_run        | booléen | Exécute la découverte sans changement dans la confugration (utiliser à des fin de test)                 |
 
-Sélectionnez **Activate** dans les options générales de votre règle de découverte afin de pouvoir faire la découverte via l'API.
+Sélectionnez **Activate** dans les options générales de votre règle de découverte afin de pouvoir lancer la découverte via l'API.
 
 ### Exemples
 
