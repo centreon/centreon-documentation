@@ -47,7 +47,7 @@ des composants par le système d'exploitation.
 > Pour activer ces règles, suivez cette procédure. En cas de
 > problème, il est possible de désactiver SELinux globalement et de nous envoyer
 > vos commentaires afin d'améliorer nos règles sur
-> [Github](https://github.com/centreon/centreon).
+> [GitHub](https://github.com/centreon/centreon).
 
 ### Présentation de SELinux
 
