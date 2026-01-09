@@ -46,7 +46,7 @@ components by the operating system.
 
 > To activate these rules, follow this procedure. If you detect a problem,
 > you can disable SELinux globally and send us your feedback in
-> order to improve our rules on [GitHub](https://github.com/centreon/centreon).
+> order to improve our rules on our community platform [The Watch](https://thewatch.centreon.com/).
 
 ### SELinux Overview
 
