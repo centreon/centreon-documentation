@@ -113,7 +113,7 @@ Puis compléter la règle :
     seront mis à jour si une propriété change (valeur de macros
     personnalisées, etc.).
   - **Activate** : Activer ou désactiver la règle (la règle sera ignorée par le
-    processus de découverte si elle est désactivée). Sélectionnez **Activate** afin de pouvoir faire une découverte via l'API.
+    processus de découverte si elle est désactivée). Sélectionnez **Activate** afin de pouvoir lancer une découverte via l'API.
 
 Cliquer sur **Save** pour sauvegarder la règle de découverte.
 
