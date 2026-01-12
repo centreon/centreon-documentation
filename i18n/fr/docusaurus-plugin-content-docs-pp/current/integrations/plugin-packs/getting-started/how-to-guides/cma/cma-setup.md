@@ -847,6 +847,8 @@ Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
 
 #### Déployer une instance nommée
 
+> Faire fonctionner plusieurs instances configurées avec le même couple <endpoint ; host> causera des doublons de métriques dans la base de données, pour cet hôte. Il est obligatoire de modifier les valeurs de endpoint et/ou host lors du déploiement d'une nouvelle instance.
+
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
@@ -863,7 +865,7 @@ chmod 0644 /etc/centreon-monitoring-agent/centagent1.json
 chown centreon-monitoring-agent:centreon-monitoring-agent /etc/centreon-monitoring-agent/centagent1.json
 ```
 
-3. Si nécessaire, modifier la configuration de la nouvelle instance dans le fichier créé (par exemple, pour changer le niveau de log ou le chemin des certificats).
+3. Modifier impérativement la valeur de "endpoint" et, si nécessaire, le reste de la configuration de la nouvelle instance dans le fichier créé (par exemple, pour changer le niveau de log ou le chemin des certificats).
 
 4. Faites une copie du service créé au premier déploiement de CMA.
 
