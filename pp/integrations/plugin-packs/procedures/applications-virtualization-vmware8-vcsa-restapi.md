@@ -149,13 +149,6 @@ apt install centreon-pack-applications-virtualization-vmware8-vcsa-restapi
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-virtualization-vmware8-vcsa-restapi
-```
-
-</TabItem>
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **VMware8 VCSA REST API** connector through
@@ -193,13 +186,6 @@ dnf install centreon-plugin-Virtualization-Vmware8-Vcsa-Restapi
 
 ```bash
 apt install centreon-plugin-virtualization-vmware8-vcsa-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Virtualization-Vmware8-Vcsa-Restapi
 ```
 
 </TabItem>
