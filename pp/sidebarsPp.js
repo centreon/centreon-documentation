@@ -1575,14 +1575,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-security-cato-networks-api'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-athonet-epc-snmp'
         },
         {
@@ -1628,6 +1620,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cambium-epmp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-security-cato-networks-api'
         },
         {
           type: 'doc',
@@ -3044,6 +3040,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vcenter-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vcsa-restapi'
         },
         {
           type: 'doc',
