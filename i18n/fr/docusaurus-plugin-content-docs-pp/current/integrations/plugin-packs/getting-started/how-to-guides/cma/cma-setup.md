@@ -847,7 +847,7 @@ Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
 
 #### Déployer une instance nommée
 
-> Faire fonctionner plusieurs instances configurées avec le même couple <endpoint ; host> causera des doublons de métriques dans la base de données, pour cet hôte. Il est obligatoire de modifier les valeurs de endpoint et/ou host lors du déploiement d'une nouvelle instance.
+> Faire fonctionner plusieurs instances configurées avec le même couple \<endpoint ; host\> causera des doublons de métriques dans la base de données, pour cet hôte. Il est obligatoire de modifier les valeurs de endpoint et/ou host lors du déploiement d'une nouvelle instance.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">

@@ -848,7 +848,7 @@ Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
 
 #### Deploying a named instance
 
-> Running multiple instances configured with the same <endpoint; host> pair will cause duplicate metrics in the database for that host. It is mandatory to change the endpoint and/or host values when deploying a new instance.
+> Running multiple instances configured with the same \<endpoint; host\> pair will cause duplicate metrics in the database for that host. It is mandatory to change the endpoint and/or host values when deploying a new instance.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
