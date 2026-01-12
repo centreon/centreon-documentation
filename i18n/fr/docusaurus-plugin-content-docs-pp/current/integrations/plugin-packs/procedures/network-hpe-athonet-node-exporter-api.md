@@ -38,23 +38,23 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias      | Modèle de service                                   | Description                                                    | Découverte |
-|:-----------|:----------------------------------------------------|:---------------------------------------------------------------|:----------:|
-| Chf        | Net-HPE-Athonet-Node-Exporter-Chf-Api-custom        | Contrôle la fonction *charging* d'Athonet                      |            |
-| Dra        | Net-HPE-Athonet-Node-Exporter-Dra-Api-custom        | Contrôle la fonction *diameter routing agent* d'Athonet        |            |
-| Eir        | Net-HPE-Athonet-Node-Exporter-Eir-Api-custom        | Contrôle la fonction equipment identity register d'Athonet     |            |
-| Interfaces | Net-HPE-Athonet-Node-Exporter-Interfaces-Api-custom | Contrôle l'état des interfaces                                 | X          |
-| Mme        | Net-HPE-Athonet-Node-Exporter-Mme-Api-custom        | Contrôle la fonction *mobility management entity* d'Athonet    |            |
-| Nrf        | Net-HPE-Athonet-Node-Exporter-Nrf-Api-custom        | Contrôle la fonction *network repository* d'Athonet            |            |
-| Pcf        | Net-HPE-Athonet-Node-Exporter-Pcf-Api-custom        | Contrôle la fonction *policy control* d'Athonet                |            |
-| Sgwc       | Net-HPE-Athonet-Node-Exporter-Sgwc-Api-custom       | Contrôle la fonction *serving gateway control plane* d'Athonet |            |
-| Smf        | Net-HPE-Athonet-Node-Exporter-Smf-Api-custom        | Contrôle la fonction *session management* d'Athonet            |            |
-| Smsf       | Net-HPE-Athonet-Node-Exporter-Smsf-Api-custom       | Contrôle la fonction *short message service* d'Athonet         |            |
-| Storage    | Net-HPE-Athonet-Node-Exporter-Storage-Api-custom    | Contrôle l'utilisation du stockage                             | X          |
-| Udm        | Net-HPE-Athonet-Node-Exporter-Udm-Api-custom        | Contrôle la fonction *unified data management* d'Athonet       |            |
-| Udr        | Net-HPE-Athonet-Node-Exporter-Udr-Api-custom        | Contrôle la fonction *unified data repository* d'Athonet       |            |
-| Upf        | Net-HPE-Athonet-Node-Exporter-Upf-Api-custom        | Contrôle la fonction *user plane* d'Athonet                    |            |
-| Uptime     | Net-HPE-Athonet-Node-Exporter-Uptime-Api-custom     | Durée depuis laquelle le serveur tourne sans interruption      |            |
+| Alias      | Modèle de service                                   | Description                                                        | Découverte |
+|:-----------|:----------------------------------------------------|:-------------------------------------------------------------------|:----------:|
+| Chf        | Net-HPE-Athonet-Node-Exporter-Chf-Api-custom        | Contrôle la fonction **charging** d'Athonet                        |            |
+| Dra        | Net-HPE-Athonet-Node-Exporter-Dra-Api-custom        | Contrôle la fonction **diameter routing agent** d'Athonet          |            |
+| Eir        | Net-HPE-Athonet-Node-Exporter-Eir-Api-custom        | Contrôle la fonction **equipment identity register** d'Athonet     |            |
+| Interfaces | Net-HPE-Athonet-Node-Exporter-Interfaces-Api-custom | Contrôle l'état des interfaces                                     | X          |
+| Mme        | Net-HPE-Athonet-Node-Exporter-Mme-Api-custom        | Contrôle la fonction **mobility management entity** d'Athonet      |            |
+| Nrf        | Net-HPE-Athonet-Node-Exporter-Nrf-Api-custom        | Contrôle la fonction **network repository** d'Athonet              |            |
+| Pcf        | Net-HPE-Athonet-Node-Exporter-Pcf-Api-custom        | Contrôle la fonction **policy control** d'Athonet                  |            |
+| Sgwc       | Net-HPE-Athonet-Node-Exporter-Sgwc-Api-custom       | Contrôle la fonction **serving gateway control plane** d'Athonet   |            |
+| Smf        | Net-HPE-Athonet-Node-Exporter-Smf-Api-custom        | Contrôle la fonction **session management** d'Athonet              |            |
+| Smsf       | Net-HPE-Athonet-Node-Exporter-Smsf-Api-custom       | Contrôle la fonction **short message service** d'Athonet           |            |
+| Storage    | Net-HPE-Athonet-Node-Exporter-Storage-Api-custom    | Contrôle l'utilisation du stockage                                 | X          |
+| Udm        | Net-HPE-Athonet-Node-Exporter-Udm-Api-custom        | Contrôle la fonction **unified data management** d'Athonet         |            |
+| Udr        | Net-HPE-Athonet-Node-Exporter-Udr-Api-custom        | Contrôle la fonction **unified data repository** d'Athonet         |            |
+| Upf        | Net-HPE-Athonet-Node-Exporter-Upf-Api-custom        | Contrôle la fonction **user plane** d'Athonet                      |            |
+| Uptime     | Net-HPE-Athonet-Node-Exporter-Uptime-Api-custom     | Durée depuis laquelle le serveur tourne sans interruption          |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
