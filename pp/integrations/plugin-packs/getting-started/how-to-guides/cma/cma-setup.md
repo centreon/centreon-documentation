@@ -848,6 +848,8 @@ Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
 
 #### Deploying a named instance
 
+> Running multiple instances configured with the same <endpoint; host> pair will cause duplicate metrics in the database for that host. It is mandatory to change the endpoint and/or host values when deploying a new instance.
+
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
@@ -864,7 +866,7 @@ chmod 0644 /etc/centreon-monitoring-agent/centagent1.json
 chown centreon-monitoring-agent:centreon-monitoring-agent /etc/centreon-monitoring-agent/centagent1.json
 ```
 
-3. If necessary, modify the configuration of the new instance in the created file (for example, to change the log level or the path to the certificates).
+3. Make sure you modify the value of 'endpoint' and, if necessary, the rest of the configuration for the new instance in the created file (for example, to change the log level or the certificate path).
 
 4. Make a copy of the service created during the first CMA deployment.
 
