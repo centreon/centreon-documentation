@@ -44,11 +44,10 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 Centreon a récemment développé des règles SELinux afin de renforcer le contrôle
 des composants par le système d'exploitation.
 
-> Ces règles sont actuellement en **mode bêta** et peuvent être activées. Vous
-> pouvez les activer en suivant cette procédure. Lors de la détection d'un
+> Pour activer ces règles, suivez cette procédure. En cas de
 > problème, il est possible de désactiver SELinux globalement et de nous envoyer
 > vos commentaires afin d'améliorer nos règles sur
-> [Github](https://github.com/centreon/centreon).
+> notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).
 
 ### Présentation de SELinux
 
