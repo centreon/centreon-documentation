@@ -37,23 +37,23 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                                    | Service Description                                      | Discovery |
-|:--------------|:----------------------------------------------------|:---------------------------------------------------------|:---------:|
-| Chf           | Net-HPE-Athonet-Node-Exporter-Chf-Api-custom        | Monitor Athonet's charging function                      |           |
-| Dra           | Net-HPE-Athonet-Node-Exporter-Dra-Api-custom        | Monitor Athonet's diameter routing agent                 |           |
-| Eir           | Net-HPE-Athonet-Node-Exporter-Eir-Api-custom        | Monitor Athonet's equipment identity register            |           |
-| Interfaces    | Net-HPE-Athonet-Node-Exporter-Interfaces-Api-custom | Monitors the status of the interfaces                    | X         |
-| Mme           | Net-HPE-Athonet-Node-Exporter-Mme-Api-custom        | Monitor Athonet's mobility management entity function    |           |
-| Nrf           | Net-HPE-Athonet-Node-Exporter-Nrf-Api-custom        | Monitor Athonet's network repository function            |           |
-| Pcf           | Net-HPE-Athonet-Node-Exporter-Pcf-Api-custom        | Monitor Athonet's policy control function                |           |
-| Sgwc          | Net-HPE-Athonet-Node-Exporter-Sgwc-Api-custom       | Monitor Athonet's serving gateway control plane function |           |
-| Smf           | Net-HPE-Athonet-Node-Exporter-Smf-Api-custom        | Monitor Athonet's session management function            |           |
-| Smsf          | Net-HPE-Athonet-Node-Exporter-Smsf-Api-custom       | Monitor Athonet's short message service function         |           |
-| Storage       | Net-HPE-Athonet-Node-Exporter-Storage-Api-custom    | Monitors the storage usage                               | X         |
-| Udm           | Net-HPE-Athonet-Node-Exporter-Udm-Api-custom        | Monitor Athonet's unified data management function       |           |
-| Udr           | Net-HPE-Athonet-Node-Exporter-Udr-Api-custom        | Monitor Athonet's unified data repository function       |           |
-| Upf           | Net-HPE-Athonet-Node-Exporter-Upf-Api-custom        | Monitor Athonet's user plane function                    |           |
-| Uptime        | Net-HPE-Athonet-Node-Exporter-Uptime-Api-custom     | Time since the server has been working and available     |           |
+| Service Alias | Service Template                                    | Service Description                                                   | Discovery |
+|:--------------|:----------------------------------------------------|:----------------------------------------------------------------------|:---------:|
+| Chf           | Net-HPE-Athonet-Node-Exporter-Chf-Api-custom        | Monitor Athonet's **charging** function                               |           |
+| Dra           | Net-HPE-Athonet-Node-Exporter-Dra-Api-custom        | Monitor Athonet's **diameter routing agent** function                 |           |
+| Eir           | Net-HPE-Athonet-Node-Exporter-Eir-Api-custom        | Monitor Athonet's **equipment identity register** function            |           |
+| Interfaces    | Net-HPE-Athonet-Node-Exporter-Interfaces-Api-custom | Monitors the status of the interfaces                                 | X         |
+| Mme           | Net-HPE-Athonet-Node-Exporter-Mme-Api-custom        | Monitor Athonet's **mobility management entity** function             |           |
+| Nrf           | Net-HPE-Athonet-Node-Exporter-Nrf-Api-custom        | Monitor Athonet's **network repository** function                     |           |
+| Pcf           | Net-HPE-Athonet-Node-Exporter-Pcf-Api-custom        | Monitor Athonet's **policy control** function                         |           |
+| Sgwc          | Net-HPE-Athonet-Node-Exporter-Sgwc-Api-custom       | Monitor Athonet's **serving gateway control plane** function          |           |
+| Smf           | Net-HPE-Athonet-Node-Exporter-Smf-Api-custom        | Monitor Athonet's **session management** function                     |           |
+| Smsf          | Net-HPE-Athonet-Node-Exporter-Smsf-Api-custom       | Monitor Athonet's **short message service** function                  |           |
+| Storage       | Net-HPE-Athonet-Node-Exporter-Storage-Api-custom    | Monitors the storage usage                                            | X         |
+| Udm           | Net-HPE-Athonet-Node-Exporter-Udm-Api-custom        | Monitor Athonet's **unified data management** function                |           |
+| Udr           | Net-HPE-Athonet-Node-Exporter-Udr-Api-custom        | Monitor Athonet's **unified data repository** function                |           |
+| Upf           | Net-HPE-Athonet-Node-Exporter-Upf-Api-custom        | Monitor Athonet's **user plane** function                             |           |
+| Uptime        | Net-HPE-Athonet-Node-Exporter-Uptime-Api-custom     | Time since the server has been working and available                  |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
