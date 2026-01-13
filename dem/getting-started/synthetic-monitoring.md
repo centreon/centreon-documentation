@@ -3,9 +3,11 @@ id: synthetic-monitoring
 title: Synthetic Monitoring (or "User Journeys")
 ---
 
+Synthetic Monitoring consists of regularly browsing a target site and measuring various web performance indicators.
+
 ![image](../assets/getting-started/synthetic-monitoring-1.png)
 
-Synthetic Monitoring consists of regularly browsing a target site in order to:
+The application allows you to:
 
 - **Monitor the proper functioning of a typical journey** and calculate its **availability rate** (e.g., "it was possible to browse and purchase on the ecommerce site 99.5% of the time this month")
 - **Alert site managers in real time** in case of site malfunction, by sending emails, SMS, or other notifications with a detailed incident report containing both a screenshot of the encountered error and a precise recording of the page load in the browser.
