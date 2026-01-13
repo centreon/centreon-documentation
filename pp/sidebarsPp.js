@@ -3055,6 +3055,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vcsa-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vm-restapi'
         }
       ]
