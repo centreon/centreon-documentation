@@ -42,7 +42,7 @@ Les utilisateurs ayant le rôle **Administrator** peuvent :
   <TabItem value="HTTP" label="HTTP">
   
   ```
-  http://serverURL:8081/_centreon/centreon-map/api/beta/
+  http://serverURL:8081/_centreon/centreon-map/api/latest/
   ```
   
   </TabItem>
@@ -50,7 +50,7 @@ Les utilisateurs ayant le rôle **Administrator** peuvent :
   <TabItem value="HTTPS" label="HTTPS">
   
   ```
-  https://serverURL:9443/_centreon/centreon-map/api/beta/
+  https://serverURL:9443/_centreon/centreon-map/api/latest/
   ```
   
   </TabItem>

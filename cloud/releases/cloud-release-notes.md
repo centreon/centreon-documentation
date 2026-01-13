@@ -3,6 +3,37 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## January 8th, 2026
+
+### Centreon IT Edition
+
+**Centreon Monitoring Agent**
+
+This release brings significant improvements to the Centreon Monitoring Agent (CMA) to align its behavior with standard monitoring logic and to offer more flexibility in deployment:
+
+* CMA now supports the **retry_interval** and **max_attempts** parameters, allowing for more granular control over alerting. Additionally, freshness checks are now fully supported, ensuring data consistency even in case of communication silence.
+* The Windows installer has been enhanced to support multiple CMA instances on a single host, catering to complex infrastructure requirements.
+* To simplify the configuration process, the “CA common name” field is now only displayed when **Insecure TLS** mode is selected.
+
+**Centreon Dashboards**
+
+* A new filtering layer has been added to the **Status Grid** widget. You can now filter resources based on their specific state: unhandled, acknowledged, in downtime, or flapping. This allows for a much more focused view of critical events.
+
+**Configuration**
+
+* When using the **Deploy Service** action on a host, the **Pollers** list will now correctly display the **Conf Changed** status, ensuring administrators know exactly when a configuration update is required.
+
+### Centreon Pro Edition
+
+**Business Activities**
+
+* We have improved the readability of Business Activity diagrams. Label width has been increased to accommodate longer names, and an ellipsis is displayed to gracefully handle very long strings.
+
+**MAP**
+
+* Enhancements have been made to geographic views. It is now possible to define specific geo-coordinates directly for maps and display them accurately within your geographic views, bridging the gap between logical topology and physical location.
+
+
 ## November 6th, 2025
 
 ### Centreon IT Edition

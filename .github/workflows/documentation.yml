@@ -185,11 +185,11 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
-          fetch-depth: 0
+          fetch-depth: 2147483647 # full history of a single branch: https://git-scm.com/docs/shallow
 
       - uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
         with:
-          version: 9
+          version: 10
           run_install: false
 
       - name: Set up Node
@@ -203,41 +203,53 @@ jobs:
         run: pnpm install --frozen-lockfile
         shell: bash
 
-      - name: Restore docusaurus build from cache
+      - name: Restore rspack cache
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
-            .docusaurus
-            build
-          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+            ./node_modules/.cache
+          key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
           restore-keys: |
-            docusaurus-build-${{ matrix.environment }}-staging
+            docusaurus-rspack-${{ matrix.environment }}-staging
 
       - name: Build documentation
         run: pnpm build
         env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
           DEM: ${{ matrix.dem }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
-      - name: Clear previous docker image from cache
+      - name: Clear previous docusaurus build & rspack cache from github cache
+        env:
+          CACHE_KEY_SUFFIX: "${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}"
         run: |
-          curl \
-            -X DELETE \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+          for key in "docusaurus-build-$CACHE_KEY_SUFFIX" "docusaurus-rspack-$CACHE_KEY_SUFFIX"; do
+            curl \
+              -X DELETE \
+              -H "Accept: application/vnd.github.v3+json" \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=$key
+          done
         shell: bash
 
-      - name: Store docusaurus build cache in cache
+      - name: Store docusaurus build in cache
         uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
-            .docusaurus
             build
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+
+      - name: Store rspack cache
+        # only store cache for staging branch builds because it is too big (~1.2GB)
+        if: github.ref_name == 'staging' && github.event_name != 'pull_request'
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: |
+            ./node_modules/.cache
+          key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
@@ -259,7 +271,6 @@ jobs:
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
-            .docusaurus
             build
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
@@ -343,7 +354,6 @@ jobs:
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
-            .docusaurus
             build
           key: docusaurus-build-staging-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
@@ -380,7 +390,6 @@ jobs:
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
-            .docusaurus
             build
           key: docusaurus-build-next-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true

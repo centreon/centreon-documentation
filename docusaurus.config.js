@@ -3,6 +3,11 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import availableVersions from './versions.json';
 import archivedVersions from './archivedVersions.json';
 
+const isDev = process.env.BRANCH_NAME !== 'staging';
+if (isDev) {
+  console.log('Building documentation in development mode, last update time of each page will not be shown.');
+}
+
 const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
 
 const versions = (() => {
@@ -72,6 +77,7 @@ const config = {
   },
 
   future: {
+    v4: true,
     experimental_faster: true,
   },
 
@@ -80,7 +86,11 @@ const config = {
   url: 'https://docs.centreon.com',
   baseUrl,
   onBrokenLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
-  onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
+    }
+  },
   onBrokenAnchors: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
@@ -112,7 +122,7 @@ const config = {
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
-          showLastUpdateTime: true,
+          showLastUpdateTime: !isDev,
           includeCurrentVersion: false,
           onlyIncludeVersions: versions,
           versions: (() => {
@@ -220,7 +230,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: true,
+            showLastUpdateTime: !isDev,
           },
         ],
       ];
@@ -239,7 +249,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: true,
+            showLastUpdateTime: !isDev,
           },
         ],
       ];
@@ -258,7 +268,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: true,
+            showLastUpdateTime: !isDev,
           },
         ],
       ];
@@ -364,7 +374,7 @@ const config = {
               type: 'doc',
               docId: defaultPageId,
               position: 'left',
-              label: 'Centreon OnPrem',
+              label: 'Centreon OnPrem'
             },
           ];
 
@@ -418,7 +428,6 @@ const config = {
 
 
           return [
-            ...items,
             {
               type: 'search',
               position: 'right',
@@ -454,6 +463,7 @@ const config = {
               type: 'localeDropdown',
               position: 'right',
             },
+            ...items,
           ];
         })(),
       },
