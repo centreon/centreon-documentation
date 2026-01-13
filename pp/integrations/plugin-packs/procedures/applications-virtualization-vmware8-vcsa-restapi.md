@@ -53,8 +53,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                                      | Description                                                   |
 |:-----------------------------------------------|:--------------------------------------------------------------|
-| Virt-VMWare8-VCSA-SNMP-Restapi-Interfaces-Name | Discover services and monitor their system usage              |
-| Virt-VMWare8-VCSA-SNMP-Restapi-Services-Id     | Discover network interfaces and monitor bandwidth utilization |
+| Virt-VMWare8-VCSA-SNMP-Restapi-Interfaces-Name | Discover network interfaces and monitor their status and bandwidth utilization |
+| Virt-VMWare8-VCSA-SNMP-Restapi-Services-Id     | Discover services and monitor their status |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).

@@ -54,8 +54,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                                | Description                                                                                       |
 |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|
-| Virt-VMWare8-VCSA-SNMP-Restapi-Interfaces-Name | Discover services and monitor their system usage                                                  |
-| Virt-VMWare8-VCSA-SNMP-Restapi-Services-Id     | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
+| Virt-VMWare8-VCSA-SNMP-Restapi-Interfaces-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation                                                  |
+| Virt-VMWare8-VCSA-SNMP-Restapi-Services-Id     | Découvre les services en utilisant leur ID et supervise leur statut |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
