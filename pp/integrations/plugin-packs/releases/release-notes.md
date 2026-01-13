@@ -6,6 +6,53 @@ title: Release Notes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## 2026
+
+### January
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Apache CXF**](../procedures/applications-apache-cxf-jmx.md) - Initial release.
+- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - Initial release.
+- [**Microsoft SCCM CMA**](../procedures/applications-sccm-cma.md) - Initial release.
+- [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Arista Switch SNMP**](../procedures/network-switchs-arista-snmp.md) - Added _bgp_ service template.
+- [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - Added completion time to _ipsla_ mode.
+- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Added client name to the output prefix of the _jobs_ mode.
+- [**HPE Athonet w/ Prometheus API**](../procedures/network-hpe-athonet-node-exporter-api.md) - Added the common system checks from Promethus node exporter.
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - Handle the pagination brought by version 7.5.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Added an option to _connected-users_ mode to filter by database name.
+- [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - Added the _snapmirrorlag_ service template.
+- [**Nutanix**](../procedures/virtualization-nutanix-snmp.md) - Added support of Nutanix 6.10 (fixes 'No disk found' error in _disk-usage_ service template).
+- [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Deprecated, replaced by [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md).
+- [**VMware VCSA Rest API**](../procedures/applications-vmware-vcsa-restapi.md) - Deprecated, replaced by [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md).
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Dell Compellent Nsclient NRPE**](../procedures/hardware-storage-dell-compellent-api.md) - The pack has been renamed and the default NRPECLIENT macro changed to use the official Nagios NRPE4 client.
+- [**Microsoft Cluster Server NSClient++ NRPE**](../procedures/applications-mscs-nrpe.md) - Changed the default NRPECLIENT macro to use the official Nagios NRPE4 client and fixed the default client options.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**D-Link DGS 3100 SNMP**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode.
+- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode.
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode.
+- [**HP MSA2000 SNMP**](../procedures/hardware-storage-hp-msa2000-snmp.md) - Fixed this [github issue](https://github.com/centreon/centreon-plugins/issues/5899) also talked about [here](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode.
+- [**Lenovo S Series SNMP**](../procedures/hardware-storage-lenovo-sseries-snmp.md) - Fixed this [github issue](https://github.com/centreon/centreon-plugins/issues/5899) also talked about [here](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Forced the version of a dependency to fix a segmentation fault issue. 
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode.
+
+</TabItem>
+</Tabs>
+
 ## 2025
 
 ### December
