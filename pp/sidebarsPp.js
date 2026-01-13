@@ -147,6 +147,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-apache-cxf-jmx'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-webservers-apache-serverstatus'
         },
         {
@@ -448,6 +452,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-sccm-nsclient'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-sccm-cma'
         },
         {
           type: 'doc',
@@ -1572,6 +1580,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-aruba-aoscx-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
         },
         {
           type: 'doc',
