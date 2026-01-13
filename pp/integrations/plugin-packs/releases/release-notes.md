@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 - [**Apache CXF**](../procedures/applications-apache-cxf-jmx.md) - Initial release.
 - [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - Initial release.
 - [**Microsoft SCCM CMA**](../procedures/applications-sccm-cma.md) - Initial release.
-- [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md) - Initial release.
+- [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md) - Initial release [Issue 5551](https://github.com/centreon/centreon-plugins/issues/5551).
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
@@ -26,7 +26,7 @@ import TabItem from '@theme/TabItem';
 - [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Added client name to the output prefix of the _jobs_ mode.
 - [**HPE Athonet w/ Prometheus API**](../procedures/network-hpe-athonet-node-exporter-api.md) - Added the common system checks from Promethus node exporter.
 - [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - Handle the pagination brought by version 7.5.
-- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Added an option to _connected-users_ mode to filter by database name.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Added an option to _connected-users_ mode to filter by database name [PR 5195](https://github.com/centreon/centreon-plugins/pull/5195).
 - [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - Added the _snapmirrorlag_ service template.
 - [**Nutanix**](../procedures/virtualization-nutanix-snmp.md) - Added support of Nutanix 6.10 (fixes 'No disk found' error in _disk-usage_ service template).
 - [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Deprecated, replaced by [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md).
@@ -41,14 +41,14 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**D-Link DGS 3100 SNMP**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode.
-- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode.
-- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode.
-- [**HP MSA2000 SNMP**](../procedures/hardware-storage-hp-msa2000-snmp.md) - Fixed this [github issue](https://github.com/centreon/centreon-plugins/issues/5899) also talked about [here](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
-- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode.
-- [**Lenovo S Series SNMP**](../procedures/hardware-storage-lenovo-sseries-snmp.md) - Fixed this [github issue](https://github.com/centreon/centreon-plugins/issues/5899) also talked about [here](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
+- [**D-Link DGS 3100 SNMP**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode [Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903).
+- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode [Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903).
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode [Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903).
+- [**HP MSA2000 SNMP**](../procedures/hardware-storage-hp-msa2000-snmp.md) - Fixed github [Issue 5899](https://github.com/centreon/centreon-plugins/issues/5899) also talked about on [TheWatch](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode [Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903).
+- [**Lenovo S Series SNMP**](../procedures/hardware-storage-lenovo-sseries-snmp.md) - Fixed github [Issue 5899](https://github.com/centreon/centreon-plugins/issues/5899) also talked about on [TheWatch](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
 - [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Forced the version of a dependency to fix a segmentation fault issue. 
-- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode [Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903).
 
 </TabItem>
 </Tabs>
