@@ -52,8 +52,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                                                   | Description                                            |
 |:------------------------------------------------------------|:-------------------------------------------------------|
-| App-Monitoring-Centreon-DEM-Restapi-Userjourneys-Incidents  | Discover user journeys of a site to monitor incidents  |
-| App-Monitoring-Centreon-DEM-Restapi-Userjourneys-Statistics | Discover user journeys on a site to monitor statistics |
+| App-Monitoring-Centreon-DEM-Restapi-Userjourneys-Incidents  | Discover user journeys of a site and monitor incidents  |
+| App-Monitoring-Centreon-DEM-Restapi-Userjourneys-Statistics | Discover user journeys on a site and monitor statistics |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -115,7 +115,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 ## Prerequisites
 
 In order to monitor Centreon DEM, you must have [a valid API token](/dem/installation/monitor-production-events#authentication-and-token-generation), and [have user journeys configured in Centreon DEM](/dem/configuration/user-journey/create-a-scenario).
-Data from Real User Monitoring will only be accessible if you have completed [the integration of Centreon DEM's RUM TAG](/dem/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
+Data from Real User Monitoring will only be accessible if you have completed [the integration of Centreon DEM's RUM tag](/dem/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
 
 ## Installing the monitoring connector
 

@@ -37,7 +37,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                   | Modèle de service                                                 | Description                                         | Découverte |
 |:------------------------|:------------------------------------------------------------------|:----------------------------------------------------|:----------:|
-| User Journey Incidents  | App-Monitoring-Centreon-DEM-Userjourney-Incidents-Restapi-custom  | Contrôle les incidents d'une journée utilisateur    | X          |
+| User Journey Incidents  | App-Monitoring-Centreon-DEM-Userjourney-Incidents-Restapi-custom  | Contrôle les incidents d'un parcours utilisateur    | X          |
 | User Journey Statistics | App-Monitoring-Centreon-DEM-Userjourney-Statistics-Restapi-custom | Contrôle les statistiques d'un parcours utilisateur | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -53,7 +53,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                                             | Description                                                                       |
 |:------------------------------------------------------------|:----------------------------------------------------------------------------------|
-| App-Monitoring-Centreon-DEM-Restapi-Userjourneys-Incidents  | Découvrir les parcours utilisateurs d'un site pour en superviser les incidents    |
+| App-Monitoring-Centreon-DEM-Restapi-Userjourneys-Incidents  | Découvrir les parcours utilisateur d'un site pour en superviser les incidents    |
 | App-Monitoring-Centreon-DEM-Restapi-Userjourneys-Statistics | Découvrir les parcours utilisateur d'un site pour en superviser les statistiques  |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -117,7 +117,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Afin de superviser Centreon DEM, vous devez disposer [d'un jeton d'API valide](/dem/installation/monitor-production-events#authentification-et-génération-de-token), et [avoir des parcours utilisateur configurés dans Centreon DEM](/dem/configuration/user-journey/create-a-scenario).
 
-Les données issues du Real User Monitoring ne seront accessibles que si vous avez réalisé [l'intégration du TAG RUM de Centreon DEM](/dem/installation/real-user-monitoring-installation#trouver-le-tag-à-insérer-dans-mon-site).
+Les données issues du Real User Monitoring ne seront accessibles que si vous avez réalisé [l'intégration du tag RUM de Centreon DEM](/dem/installation/real-user-monitoring-installation#trouver-le-tag-à-insérer-dans-mon-site).
 
 ## Installer le connecteur de supervision
 
