@@ -40,6 +40,8 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 ## Upgrade the Centreon Central server
 
+Version 25.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
 ### Install the new repositories
