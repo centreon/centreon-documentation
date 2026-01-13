@@ -212,5 +212,6 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 | Single metric          | Displays the value of a single metric as a text, a gauge or a bar chart.   |
 | Status chart     | Displays the distribution of current statuses on selected resources, as a chart.      |
 | Status grid     | Displays the current status of selected resources, as a grid.      |
+| Storage near saturation     | Displays a list of storage with saturation foreseen, current usage, days until saturation, and evolution of usage since the past day.      |
 | Top/bottom              | Displays the top or bottom x hosts, for a selected metric.   |
 | Web page           | Displays a web page.   |
