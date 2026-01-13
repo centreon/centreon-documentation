@@ -451,6 +451,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-sccm-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-wsus-cma'
         },
         {
@@ -1575,10 +1579,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-security-cato-networks-api'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
         },
         {
@@ -1628,6 +1628,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cambium-epmp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-security-cato-networks-api'
         },
         {
           type: 'doc',
