@@ -615,7 +615,29 @@ with the following:
 
 ## Upgrade the Remote Servers
 
-This procedure is the same as for upgrading a Centreon Central server.
+This procedure is the same as for upgrading a Centreon Central server with the addition of needing to retrieve the decryption key at the end.
+
+### Retrieving the decryption key
+
+Run the following script with the central server IP address to enable the poller to receive and process encrypted data: 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Example:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> You must use the default **admin** account as the **\<API_ACCOUNT\>**.
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
+```
 
 > At the end of the update, the configuration should be deployed from the Central server.
 
@@ -629,15 +651,20 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 ```
+
+cd /etc/yum.repos.d/
+rm -rf centreon*
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y dnf-plugins-core
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 ```
 
@@ -645,6 +672,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon*
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee /etc/apt/sources.list.d/centreon.list
 apt update
 ```
@@ -716,11 +744,15 @@ systemctl restart centreon
 ```
 ### Retrieving the decryption key
 
-Run the following script to enable the poller to receive and process encrypted data: 
+Run the following script with the correct IP address to enable the poller to receive and process encrypted data: 
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
 ```
+
+The IP address to use depends on the following conditions:
+- When updating pollers linked directly to the central server should use the central server IP.
+- When updating pollers linked to a remote server should use the remote server IP. However, in this instance, you must first confirm the remote server has the correct key by checking that the value of `app_secret` in the `engine-context.json` file is the same as the central server’s. If it isn’t, relaunch the script with the right IP to correct the .json file.
 
 Example:
 
