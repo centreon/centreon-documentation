@@ -8,7 +8,6 @@ title: MBI Widgets
 > - Business Activity Availability History
 > - Hostgroup Availability History
 > - Metric Capacity planning
-> - Storage near saturation
 
 MBI widgets are also used in Centreon [custom views](../alerts-notifications/custom-views.md). This means you can use custom views to create real-time AND
 reporting statistics (e.g., for availability, applications, and

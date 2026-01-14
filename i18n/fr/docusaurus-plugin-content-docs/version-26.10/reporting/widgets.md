@@ -8,7 +8,6 @@ title: Widgets MBI
 > - Historique de la disponibilité d’une Activité Métier
 > - Historique de la disponibilité des groupes d’hôtes
 > - Metric capacity planning
-> - Stockage jusqu’à saturation
 
 Les widgets de Centreon MBI s'utilisent également dans les [vues personnalisées](../getting-started/create-custom-view.md) de Centreon. Il vous est de ce fait possible de créer des
 vues combinant des données temps réel ET des données agrégées
