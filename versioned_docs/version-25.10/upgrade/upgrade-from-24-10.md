@@ -619,7 +619,7 @@ This procedure is the same as for upgrading a Centreon Central server with the a
 
 ### Retrieving the decryption key
 
-Run the following script with the central server IP address to enable the poller to receive and process encrypted data: 
+Run the following script with the central server IP address to enable the remote server to receive and process encrypted data: 
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
@@ -655,9 +655,6 @@ dnf install -y dnf-plugins-core && \
 rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 ```
-
-cd /etc/yum.repos.d/
-rm -rf centreon*
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -744,15 +741,15 @@ systemctl restart centreon
 ```
 ### Retrieving the decryption key
 
-Run the following script with the correct IP address to enable the poller to receive and process encrypted data: 
+Run the following script with the correct IP address to enable the poller to receive and process encrypted data.
+
+The IP address to use depends on the following conditions:
+- When updating pollers linked directly to the central server, use the central server IP.
+- When updating pollers linked to a remote server, use the remote server IP. However, in this instance, you must first confirm the remote server has the correct key by checking that the value of `app_secret` in the `/etc/centreon-engine/engine-context.json` file is the same as the central server's. If this is not the case, relaunch the script with the right IP to correct the .json file.
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
 ```
-
-The IP address to use depends on the following conditions:
-- When updating pollers linked directly to the central server should use the central server IP.
-- When updating pollers linked to a remote server should use the remote server IP. However, in this instance, you must first confirm the remote server has the correct key by checking that the value of `app_secret` in the `engine-context.json` file is the same as the central server’s. If it isn’t, relaunch the script with the right IP to correct the .json file.
 
 Example:
 
