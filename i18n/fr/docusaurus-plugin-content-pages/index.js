@@ -173,6 +173,7 @@ function HeadingBlock() {
     <div className={clsx(styles.headingContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <h1>Bienvenue dans la Documentation Centreon !</h1>
+        <p>Utilisez l’icône en haut à droite pour changer de documentation produit à tout moment.</p>
         <HeadingCards cards={cards}/>
       </div>
     </div>
