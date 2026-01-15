@@ -127,43 +127,27 @@ the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
-Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
-When this feature is enabled, you can skip the installation part below.
-
-You still have to manually install the plugin on the poller(s) when:
-- Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
-
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
-
 Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-nrpe3-plugin
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-nrpe3-plugin
+apt install nagios-nrpe-plugin
 ```
 
 </TabItem>
@@ -181,7 +165,7 @@ yum install centreon-nrpe3-plugin
 | Macro            | Description                                                                                          | Default value         | Mandatory   |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
 | NRPEPORT         | Port used to reach the NRPE server                                                                                                     | 5666                  |             |
-| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                     | check\_centreon\_nrpe3 |             |
+| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                     | check\_nrpe |             |
 | NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                     | 55                    |             |
 | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
 
@@ -248,7 +232,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe3 -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
+/usr/lib64/nagios/plugins/check_nrpe -H 10.0.0.1 -p 5666 -u -2 -P 8192 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
 	--filter-name="" \
 	--unknown-status="%\{state\} =~ /unknown/" \
 	--warning-status="not is\_preferred\_node()" \
@@ -278,7 +262,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe3 -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
+/usr/lib64/nagios/plugins/check_nrpe -H 10.0.0.1 -p 5666 -u -2 -P 8192 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
 	--filter-name="" \
 	--list-mode
 ```
@@ -388,7 +372,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe3 -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
+/usr/lib64/nagios/plugins/check_nrpe -H 10.0.0.1 -p 5666 -u -2 -P 8192 -t 55  -c check_centreon_plugins -a 'apps::microsoft::mscs::local::plugin' 'resourcegroup-status'  ' \
 	--filter-name="" \
 	--unknown-status="%\{state\} =~ /unknown/" \
 	--help
