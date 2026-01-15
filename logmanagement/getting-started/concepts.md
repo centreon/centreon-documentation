@@ -38,9 +38,9 @@ OpenTelemetry logs aren't just text: they're data you can analyze. And CLM lets 
 
 ## What does a log entry in OpenTelemetry format look like?
 
-A log entry in OpenTelemetry format always has a timestamp and a [service](../resources/glossary.md#service) name (for the service that created the log). Usually, it also shows the log's [severity](../resources/glossary.md#severity): DEBUG, INFO, WARN, ERROR, or FATAL. All the other information in the log depends on [how you have configured your OpenTelemetry Collector](../collector/collector.md).
+A log entry in OpenTelemetry format always has a timestamp and a [service](../resources/glossary.md#service) name (for the service that created the log). Usually, it also shows the log's [severity](../resources/glossary.md#severity): <span style={{color:'#1ebeb3'}}>**DEBUG**</span>, <span style={{color:'#1588d1'}}>**INFO**</span>, WARN (<span style={{color:'#ffca34'}}>**WARNING**</span> in CLM), <span style={{color:'#fd9b27'}}>**ERROR**</span>, or <span style={{color:'#ff4a4a'}}>**FATAL**</span>. All the other information in the log depends on [how you have configured your OpenTelemetry Collector](../collector/collector.md).
 
-Here is an example of a raw log entry in OpenTelemetry format sent by the Windows Event Viewer:
+Here is an example of a raw log entry sent by the Windows Event Viewer, collected by an OpenTelemetry cllector, then converted to CLM's internal syntax:
 
 ```json
 {
@@ -72,9 +72,9 @@ Here is an example of a raw log entry in OpenTelemetry format sent by the Window
 }
 ```
 
-* Log attributes describe what the log is about (message details, error code, etc.)
+* Log **attributes** describe what the log is about (message details, error code, etc.)
 
-* Resource attributes show the context of the log, i.e. what produced this log. Here are some examples of common resource attributes for logs:
+* **Resource attributes** show the context of the log, i.e. what produced this log. Here are some examples of common resource attributes for logs:
 
   * service.name – the name of the service emitting the log
   * service.version – version of the service
@@ -83,4 +83,4 @@ Here is an example of a raw log entry in OpenTelemetry format sent by the Window
   * k8s.container.name – Kubernetes container name
   * deployment.environment – environment like prod or staging
 
-In CLM, you can filter your data by using these attributes in [queries](../query-syntax.md).
+In CLM, you can filter your data by using these attributes in [queries](../query-syntax.md), in [**Log Explorer**](../explore-analyze.md#using-the-log-explorer) or [dashboards](../dashboards.md).

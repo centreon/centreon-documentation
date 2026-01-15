@@ -13,7 +13,7 @@ On the [**Alert events** page](alerts.md#viewing-all-alerts), [alert events](./r
 
 Create [dashboards](dashboards.md) to view and explore your data visually. Dashboards display both current information and historical data, allowing you to examine trends and understand changes over time.
 
-## Using the log explorer
+## Using the log Explorer
 
 The **Log Explorer** page allows you to search and filter logs so you can investigate issues and perform root-cause analysis.
 
