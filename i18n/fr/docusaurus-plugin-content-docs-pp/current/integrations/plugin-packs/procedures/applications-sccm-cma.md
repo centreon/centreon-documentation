@@ -1,281 +1,243 @@
 ---
-id: hardware-storage-dell-compellent-api
-title: Dell Compellent Nsclient NRPE
+id: applications-sccm-cma
+title: Microsoft SCCM CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Connector dependencies
+## Dépendances du connecteur de supervision
 
-The following monitoring connectors will be installed when you install the **Dell Compellent Nsclient NRPE** connector through the
-**Configuration > Connectors > Monitoring Connectors** menu:
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft SCCM CMA** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
-## Pack assets
+## Contenu du pack
 
-### Templates
+### Modèles
 
-The Monitoring Connector **Dell Compellent Nsclient NRPE** brings a host template:
+Le connecteur de supervision **Microsoft SCCM CMA** apporte un modèle d'hôte :
 
-* **HW-Storage-Dell-Compellent-NRPE-custom**
+* **App-Sccm-CMA-custom**
 
-The connector brings the following service templates (sorted by the host template they are attached to):
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="HW-Storage-Dell-Compellent-NRPE-custom" label="HW-Storage-Dell-Compellent-NRPE-custom">
+<TabItem value="App-Sccm-CMA-custom" label="App-Sccm-CMA-custom">
 
-| Service Alias | Service Template                                    | Service Description |
-|:--------------|:----------------------------------------------------|:--------------------|
-| Hba-Usage     | HW-Storage-Dell-Compellent-Hba-Usage-NRPE-custom    | Check hba usage    |
-| Volume-Usage  | HW-Storage-Dell-Compellent-Volume-Usage-NRPE-custom | Check volume usage |
+| Alias                       | Modèle de service                               | Description                                 |
+|:----------------------------|:------------------------------------------------|:--------------------------------------------|
+| Database-Replication-Status | App-Sccm-Database-Replication-Status-CMA-custom | Contrôle l'état de la réplication des bases |
+| Site-Status                 | App-Sccm-Site-Status-CMA-custom                 | Contrôle l'état des sites                   |
 
-> The services listed above are created automatically when the **HW-Storage-Dell-Compellent-NRPE-custom** host template is used.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Sccm-CMA-custom** est utilisé.
 
 </TabItem>
 </Tabs>
 
-### Collected metrics & status
+### Métriques & statuts collectés
 
-Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Hba-Usage" label="Hba-Usage">
+<TabItem value="Database-Replication-Status" label="Database-Replication-Status">
 
-| Name                | Unit |
-|:--------------------|:-----|
-| *hba*#read-iops     | iops |
-| *hba*#read-usage    | b/s  |
-| *hba*#read-latency  | ms   |
-| *hba*#write-iops    | iops |
-| *hba*#write-usage   | b/s  |
-| *hba*#write-latency | ms   |
+| Nom         | Unité |
+|:------------|:------|
+| link-status | N/A   |
+| site-status | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
-<TabItem value="Volume-Usage" label="Volume-Usage">
+<TabItem value="Site-Status" label="Site-Status">
 
-| Name                     | Unit |
-|:-------------------------|:-----|
-| *sc*#sc-total            | B    |
-| *volume*#volume-usage    | B    |
-| *volume*#volume-overhead | B    |
-| *volume*#volume-replay   | B    |
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Prérequis
 
-### Centreon NSClient++
+### Flux réseau
 
-To monitor a resource through NSClient++ API, install the Centreon
-packaged version of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
-and make sure that the **NRPE** configuration is correct.
+Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 
-## Installing the monitoring connector
+| Source         | Destination | Protocole | Port | Objet                                                                       |
+|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
+| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
+
+### Prérequis système sur le collecteur
+
+> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
+> minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
+
+### Configuration de Centreon Engine
+
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
+
+### Prérequis système sur l'hôte à superviser
+
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur [cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte).
+
+#### Installation de Centreon Monitoring Agent
+
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
+[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte).
+
+## Installer le connecteur de supervision
 
 ### Pack
 
-The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
-1. If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the connector displayed within the
-**Configuration > Connectors > Monitoring Connectors** menu.
-If the platform uses an *offline* license, install the package on the **central server**
-with the command corresponding to the operating system's package manager:
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-hardware-storage-dell-compellent-api
+dnf install centreon-pack-applications-sccm-cma
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-hardware-storage-dell-compellent-api
+dnf install centreon-pack-applications-sccm-cma
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-hardware-storage-dell-compellent-api
+apt install centreon-pack-applications-sccm-cma
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-hardware-storage-dell-compellent-api
+yum install centreon-pack-applications-sccm-cma
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Dell Compellent Nsclient NRPE** connector through
-the **Configuration > Connectors > Monitoring Connectors** menu.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Microsoft SCCM CMA**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
-Use the commands below according to your operating system's package manager:
+Ce connecteur de supervision s'appuie sur une intégration prise en charge par Centreon Engine et ne requiert pas de plugin.
+
+## Utiliser le connecteur de supervision
+
+### Utiliser un modèle d'hôte issu du connecteur
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Sccm-CMA-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+
+| Macro                | Description                                             | Valeur par défaut                 | Obligatoire |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:-----------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X      |
+| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Database-Replication-Status" label="Database-Replication-Status">
 
-```bash
-dnf install nagios-plugins-nrpe
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install nagios-plugins-nrpe
-```
+| Macro              | Description                                                                                                                                                               | Valeur par défaut       | Obligatoire |
+|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
+| CRITICALLINKSTATUS | Set critical threshold for current synchronisation status. You can use the following variables: %\{status\}                                                               | %\{status\} ne "Active" |             |
+| WARNINGLINKSTATUS  | Set warning threshold for current synchronisation status You can use the following variables: %\{status\}                                                                 |                         |             |
+| CRITICALSITESTATUS | Set critical threshold for current synchronisation status. You can use the following variables: %\{status\}, %\{type\}, %\{site\_to\_site\_state\}, %\{last\_sync\_time\} | %\{status\} ne "ACTIVE" |             |
+| WARNINGSITESTATUS  | Set warning threshold for current synchronisation status You can use the following variables: %\{status\}, %\{type\}, %\{site\_to\_site\_state\}, %\{last\_sync\_time\}   |                         |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                          | --verbose               |             |
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Site-Status" label="Site-Status">
 
-```bash
-apt install nagios-nrpe-plugin
-```
- 
-</TabItem>
-</Tabs>
-
-## Using the monitoring connector
-
-### Using a host template provided by the connector
-
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **HW-Storage-Dell-Compellent-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory.
-
-| Macro            | Description                                                                                                                              | Default value          | Mandatory |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
-| CEMPORT          | Compellent Entreprise Manager port                                                                                                       | 3033                   |           |
-| NRPEPORT         | Port used to reach the NRPE server                                                                                                       | 5666                   |           |
-| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                    | check\_nrpe |           |
-| NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                    | 50                     |           |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                        |           |
-
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
-
-### Using a service template provided by the connector
-
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
-2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
-
-<Tabs groupId="sync">
-<TabItem value="Hba-Usage" label="Hba-Usage">
-
-| Macro                | Description                                                                                                                                      | Default value | Mandatory |
-|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGREADIOPS      | Threshold                                                                                                                                        |               |           |
-| CRITICALREADIOPS     | Threshold                                                                                                                                        |               |           |
-| WARNINGREADLATENCY   | Threshold                                                                                                                                        |               |           |
-| CRITICALREADLATENCY  | Threshold                                                                                                                                        |               |           |
-| WARNINGREADUSAGE     | Threshold                                                                                                                                        |               |           |
-| CRITICALREADUSAGE    | Threshold                                                                                                                                        |               |           |
-| WARNINGWRITEIOPS     | Threshold                                                                                                                                        |               |           |
-| CRITICALWRITEIOPS    | Threshold                                                                                                                                        |               |           |
-| WARNINGWRITELATENCY  | Threshold                                                                                                                                        |               |           |
-| CRITICALWRITELATENCY | Threshold                                                                                                                                        |               |           |
-| WARNINGWRITEUSAGE    | Threshold                                                                                                                                        |               |           |
-| CRITICALWRITEUSAGE   | Threshold                                                                                                                                        |               |           |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
-
-</TabItem>
-<TabItem value="Volume-Usage" label="Volume-Usage">
-
-| Macro                  | Description                                                                                                                                      | Default value | Mandatory |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGSCTOTAL         | Threshold                                                                                                                                        |               |           |
-| CRITICALSCTOTAL        | Threshold                                                                                                                                        |               |           |
-| WARNINGVOLUMEOVERHEAD  | Threshold                                                                                                                                        |               |           |
-| CRITICALVOLUMEOVERHEAD | Threshold                                                                                                                                        |               |           |
-| WARNINGVOLUMEREPLAY    | Threshold                                                                                                                                        |               |           |
-| CRITICALVOLUMEREPLAY   | Threshold                                                                                                                                        |               |           |
-| WARNINGVOLUMEUSAGE     | Threshold                                                                                                                                        |               |           |
-| CRITICALVOLUMEUSAGE    | Threshold                                                                                                                                        |               |           |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
+| Macro          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGSTATUS  | Set warning threshold for current synchronisation status. You can use the following variables: %\{status\}, %\{mode\}, %\{type\}, %\{name\}      |                   |             |
+| CRITICALSTATUS | Set critical threshold for current synchronisation status. You can use the following variables: %\{status\}, %\{mode\}, %\{type\}, %\{name\}     |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
-is able to monitor a resource using a command like this one (replace the sample values by yours):
+Vous pouvez tester que le plugin parvient bien à superviser votre serveur Windows en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib64/nagios/plugins/check_nrpe -H  -p 5666 -u -2 -P 8192 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
-	--cem-user="" \
-	--cem-password="" \
-	--cem-host="" \
-	--cem-port="3033" \
-	--sdk-path-dll="" \
-	--ps-sc-filter="" \
-	--warning-sc-total="" \
-	--critical-sc-total=""  \
-	--warning-volume-usage="" \
-	--critical-volume-usage=""  \
-	--warning-volume-overhead="" \
-	--critical-volume-overhead=""  \
-	--warning-volume-replay="" \
-	--critical-volume-replay="" \
-	--verbose'
+C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
+	--plugin=apps::microsoft::sccm::local::plugin \
+	--mode=site-status \
+	--warning-status="" \
+	--critical-status="" \
+	--verbose
 ```
 
-The expected command output is shown below:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All storage centers are ok All volumes are ok | 'sc1#sc-total'=68894B;;;; 'sc2#sc-total'=6954B;;;; 'volume1#volume-usage'=47231B;;;; 'volume2#volume-usage'=64360B;;;; 'volume1#volume-overhead'=79614B;;;0; 'volume2#volume-overhead'=32910B;;;0; 'volume1#volume-replay'=75004B;;;0; 'volume2#volume-replay'=69855B;;;0; 
+OK: All sites status are ok 
 ```
 
-### Troubleshooting
+### Diagnostic des erreurs communes
 
-Please find the troubleshooting documentation for the API-based plugins in
-this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
-### Available modes
+### Modes disponibles
 
-In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
-In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
-connector in your terminal.
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H  -p 5666 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
-	--cem-user="" \
+C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
+	--plugin=apps::microsoft::sccm::local::plugin \
 	--list-mode
 ```
 
-The plugin brings the following modes:
+Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                   | Linked service template                             |
-|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
-| hba-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/dell/compellent/local/mode/hbausage.pm)]       | HW-Storage-Dell-Compellent-Hba-Usage-NRPE-custom    |
-| volume-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/dell/compellent/local/mode/volumeusage.pm)] | HW-Storage-Dell-Compellent-Volume-Usage-NRPE-custom |
+| Mode                                                                                                                                                            | Modèle de service associé                       |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
+| database-replication-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/sccm/local/mode/databasereplicationstatus.pm)] | App-Sccm-Database-Replication-Status-CMA-custom |
+| site-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/sccm/local/mode/sitestatus.pm)]                                | App-Sccm-Site-Status-CMA-custom                 |
 
-### Available options
+### Options disponibles
 
-#### Generic options
+#### Options génériques
 
-All generic options are listed here:
+Les options génériques sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |:-------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -290,10 +252,10 @@ All generic options are listed here:
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --change-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --extend-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --extend-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  um wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back |
 | --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -314,69 +276,51 @@ All generic options are listed here:
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  \<output\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-counters                          | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-#### Modes options
+#### Options des modes
 
-All available options for each service template are listed below:
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Hba-Usage" label="Hba-Usage">
+<TabItem value="Database-Replication-Status" label="Database-Replication-Status">
 
-| Option            | Description                                                                                                                            |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
-| --cem-host        | Compellent Entreprise Manager hostname .                                                                                               |
-| --cem-user        | Compellent Entreprise Manager username .                                                                                               |
-| --cem-password    | Compellent Entreprise Manager password .                                                                                               |
-| --cem-port        | Compellent Entreprise Manager port (default: 3033).                                                                                    |
-| --sdk-path-dll    | Path to 'DellStorage.ApiCommandSet.dll' .                                                                                              |
-| --timeout         | Set timeout time for command execution (default: 50 sec)                                                                               |
-| --no-ps           | Don't encode powershell. To be used with --command and 'type' command.                                                                 |
-| --command         | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!! |
-| --command-path    | Command path (default: none).                                                                                                          |
-| --command-options | Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                |
-| --ps-display      | Display powershell script.                                                                                                             |
-| --ps-exec-only    | Print powershell output.                                                                                                               |
-| --ps-sc-filter    | Filter Storage Center (only wilcard '*' can be used. In Powershell).                                                                   |
-| --start-time      | Begin time for counters sampling. If not set, 30 minutes before the end-time option or current time Format: 2016-05-25T10:30:00        |
-| --end-time        | End time for counters sampling. If not set, the current execution time. Format: 2016-05-25T15:30:00                                    |
-| --timezone        | Timezone of time options. Default is 'GMT'.                                                                                            |
-| --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='^read-iops$'                                              |
-| --warning-*       | Warning threshold. Can be: 'read-iops', 'read-usage', 'read-latency',  'write-iops', 'write-usage', 'write-latency'.                   |
-| --critical-*      | Critical threshold. Can be: 'read-iops', 'read-usage', 'read-latency',  'write-iops', 'write-usage', 'write-latency'.                  |
+| Option                 | Description                                                                                                                                                                              |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --timeout              | Set timeout time for command execution (default: 30 sec)                                                                                                                                 |
+| --no-ps                | Don't encode powershell. To be used with --command and 'type' command.                                                                                                                   |
+| --command              | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option.                                                     |
+| --command-path         | Command path (default: none).                                                                                                                                                            |
+| --command-options      | Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                  |
+| --ps-display           | Display powershell script.                                                                                                                                                               |
+| --ps-exec-only         | Print powershell output.                                                                                                                                                                 |
+| --warning-link-status  | Set warning threshold for current synchronisation status (default: '') You can use the following variables: %\{status\}.                                                                 |
+| --critical-link-status | Set critical threshold for current synchronisation status (default: ''). You can use the following variables: %\{status\}.                                                               |
+| --warning-site-status  | Set warning threshold for current synchronisation status (default: '') You can use the following variables: %\{status\}, %\{type\}, %\{site\_to\_site\_state\}, %\{last\_sync\_time\}.   |
+| --critical-site-status | Set critical threshold for current synchronisation status (default: ''). You can use the following variables: %\{status\}, %\{type\}, %\{site\_to\_site\_state\}, %\{last\_sync\_time\}. |
 
 </TabItem>
-<TabItem value="Volume-Usage" label="Volume-Usage">
+<TabItem value="Site-Status" label="Site-Status">
 
-| Option            | Description                                                                                                                            |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
-| --cem-host        | Compellent Entreprise Manager hostname .                                                                                               |
-| --cem-user        | Compellent Entreprise Manager username .                                                                                               |
-| --cem-password    | Compellent Entreprise Manager password .                                                                                               |
-| --cem-port        | Compellent Entreprise Manager port (default: 3033).                                                                                    |
-| --sdk-path-dll    | Path to 'DellStorage.ApiCommandSet.dll' .                                                                                              |
-| --timeout         | Set timeout time for command execution (default: 50 sec)                                                                               |
-| --no-ps           | Don't encode powershell. To be used with --command and 'type' command.                                                                 |
-| --command         | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!! |
-| --command-path    | Command path (default: none).                                                                                                          |
-| --command-options | Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                |
-| --ps-display      | Display powershell script.                                                                                                             |
-| --ps-exec-only    | Print powershell output.                                                                                                               |
-| --ps-sc-filter    | Filter Storage Center (only wilcard '*' can be used. In Powershell).                                                                   |
-| --ps-sc-volume    | Filter Volume Name to display.                                                                                                         |
-| --units           | Units of thresholds (default: '%') ('%', 'B').                                                                                         |
-| --free            | Thresholds are on free space left.                                                                                                     |
-| --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='^sc-total$'                                               |
-| --warning-*       | Warning threshold. Can be: 'sc-total', 'volume-usage', 'volume-overhead', 'volume-replay'.                                             |
-| --critical-*      | Critical threshold. Can be: 'sc-total', 'volume-usage', 'volume-overhead', 'volume-replay'.                                            |
+| Option            | Description                                                                                                                                                 |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --timeout         | Set timeout time for command execution (default: 30 sec)                                                                                                    |
+| --no-ps           | Don't encode powershell. To be used with --command and 'type' command.                                                                                      |
+| --command         | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option.                        |
+| --command-path    | Command path (default: none).                                                                                                                               |
+| --command-options | Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                     |
+| --ps-display      | Display powershell script.                                                                                                                                  |
+| --ps-exec-only    | Print powershell output.                                                                                                                                    |
+| --warning-status  | Set warning threshold for current synchronisation status (default: ''). You can use the following variables: %\{status\}, %\{mode\}, %\{type\}, %\{name\}.  |
+| --critical-status | Set critical threshold for current synchronisation status (default: ''). You can use the following variables: %\{status\}, %\{mode\}, %\{type\}, %\{name\}. |
 
 </TabItem>
 </Tabs>
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H  -p 5666 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
-	--cem-user="" \
-	--cem-password="" \
+C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
+	--plugin=apps::microsoft::sccm::local::plugin \
+	--mode=site-status \
 	--help
 ```
