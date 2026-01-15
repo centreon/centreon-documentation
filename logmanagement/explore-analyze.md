@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Using the Alert events page
 
-On the [**Alert events** page](alerts.md#viewing-all-alerts), [alert events](./resources/glossary.md#alert-event) show what's happening in real time and allow you to react quickly to incidents. (To get alert events, you need to create [alert rules](alerts.md) first.)
+On the [**Alert events** page](alerts.md#viewing-all-alerts), [alert events](./resources/glossary.md#alert-eventalert-status) show what's happening in real time and allow you to react quickly to incidents. (To get alert events, you need to create [alert rules](alerts.md) first.)
 
 ## Using dashboards
 

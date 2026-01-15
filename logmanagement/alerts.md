@@ -13,7 +13,7 @@ For example, an INFO log entry might simply record that a user tried to log in. 
 
 To detect issues like this, you need to create alert rules.
 
-An alert rule evaluates specific criteria and generates [alert events](./resources/glossary.md#alert-event), each with an [alert status](#alert-statuses). For example, an alert rule might be described like this in words:
+An alert rule evaluates specific criteria and generates [alert events](./resources/glossary.md#alert-eventalert-status), each with an [alert status](#alert-statuses). For example, an alert rule might be described like this in words:
 "If this query returns more than 50 results in the last 5 minutes, an alert event with the CRITICAL status should be recorded."
 
 * aggregation type: count
@@ -37,7 +37,12 @@ Possible alert statuses are:
 1. Go to **Alerts & notifications > Alert rules**.
 2. Click **Add**.
 3. In the window that appears, enter a name and a description for your alert rule, then define the criteria you want.
-
+   * **Alert type**: 
+      * **Count** means that the query will return the number of log entries that match the query.
+      * **Ratio** means that you divide the results of a query by the results of another query.
+   * **Frequency**: this field defines both the frequency of the check and the time period covered by it. For instance, if you select **Every 5 minutes**, a check will be performed every 5 minutes on the data of the last 5 minutes.
+   * **Query**: use the correct [query syntax](query-syntax.md).
+   * **Conditions**: define which [alert status the alert event should have](#alert-statuses).
 4. Save your alert rule. The window is closed and your alert rule appears in the list of alert rules. The rule starts being evaluated and producing alert events.
 
 ## Viewing all alert events
