@@ -12,14 +12,14 @@ An OpenTelemetry Collector has three main components that are executed one after
 
 * **Receivers** ingest data. They accept logs in various formats and from various sources (e.g., OTLP, syslog, etc).
 * **Processors** let you filter, transform, or enrich data before it leaves the collector.
-* **Exporters** send the logs in OpenTelemetry format to Centreon Log Management. The corresponding exporter is configured using the general config.yaml file of the collector.
+* **Exporters** send the logs in OpenTelemetry format to Centreon Log Management. The corresponding exporter is configured using the general **config.yaml** file of the collector.
 
-attributs custom
-resource attributes
+<!-- attributs custom
+resource attributes -->
 
-## Comment collecter des logs dans l'outil Centreon Log Management?
+## How can I send logs to Centreon Log Management?
 
-### Prérequis
+### Prerequisites
 
 * token ou Clé API??
 * URL de l'endpoint nécessaire à la connexion d’OpenTelemetry Collector à notre plateforme de Log Management.
@@ -95,16 +95,31 @@ OTELCOL_OPTIONS="--config=/etc/otelcol-contrib/config.yaml --config=/etc/otelcol
 Get-WmiObject win32_service -filter "Name='otelcol-contrib'" | Invoke-WmiMethod -Name Change -ArgumentList @($null,$null,$null,$null,$null, '"C:\Program Files\OpenTelemetry Collector\otelcol-contrib.exe" --config "C:\Program Files\OpenTelemetry Collector\config.yaml" --config "C:\Program Files\OpenTelemetry Collector\conf.d\windows-event-log.yaml"')
 ```
 
-5. Redémarrez le service OpenTelemetry Collector.
-   * Linux : systemctl restart otelcol-contrib.service
-   * Windows :
-               net stop otelcol-contrib
-               net start otelcol-contrib
+5. Restart the OpenTelemetry Collector service.
 
-comment je sais que ma conf est correcte? que ça marche bien?
+   * Linux : 
+      ```shell
+      systemctl restart otelcol-contrib.service
+      ```
+
+   * Windows :
+      ```shell
+      net stop otelcol-contrib
+      net start otelcol-contrib
+      ```
+
+## Troubleshooting
+
+Check the status of your collector on the host you want to monitor:
+
+ ```shell
 journalctl -u otelcol-contrib.service
-vérifiez que l'utilisateur **otelcol-contrib** a le droit de lire les fichiers nécessaires suivant le type de receiver.
-exemple : 
+```
+
+If you do not receive expected logs in CLM, check that the **otelcol-contrib** user has sufficient rights to read the required files, according to the type of receiver. Example:
+
+```shell
 ls -l /var/log/messages
 id otelcol-contrib
 usermod -aG root otelcol-contrib
+```
