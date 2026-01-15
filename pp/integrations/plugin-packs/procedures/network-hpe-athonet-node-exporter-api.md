@@ -463,7 +463,7 @@ apt install centreon-plugin-network-hp-athonet-node-exporter-api
 | CRITICAL\_CPU\_USAGE  | Threshold                                                                                                                                        |                   |             |
 | WARNING\_NODE\_USAGE  | Threshold                                                                                                                                        | 80                |             |
 | CRITICAL\_NODE\_USAGE | Threshold                                                                                                                                        | 90                |             |
-| EXTRA\_OPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| EXTRA\_OPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Cpu-Detailed" label="Cpu-Detailed">
