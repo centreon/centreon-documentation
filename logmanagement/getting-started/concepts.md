@@ -21,7 +21,7 @@ Here are the main features of Centreon Log Management:
 
 3. CLM allows you to [analyze these logs in real time](../explore-analyze.md), using automatically generated summaries, filters, [Lucene queries](../lucene-queries.md), or [dashboards](../dashboards.md). This helps you detect detect anomalies, errors, security incidents, or unexpected behavior: see [**Use cases**](use_cases.md) for detailed examples.
 
-4. CLM sends notifications in the event of alerts, or critical thresholds being exceeded.
+4. CLM creates [alert events](../resources/glossary.md#alert-event) in case problems occur or critical thresholds are exceeded, according to [alert rules](../alerts.md) you have defined.
 
 5. CLM allows you to store logs securely over long periods of time (for compliance, security, or historical analysis).
 
@@ -29,12 +29,12 @@ Here are the main features of Centreon Log Management:
 
 Logs are a type of [telemetry](../resources/glossary.md#telemetry) data. Centreon Log Management can read logs in the OpenTelemetry format. OpenTelemetry is a protocol for sending this kind of data.
 
-OpenTelemetry data is structured (often in JSON), standardized (with the same fields and format everywhere), and provides rich context about events, such as the service, environment, version, and custom attributes.
+OpenTelemetry data is structured (often in JSON or in Protobuf), standardized based on [semantic conventions](https://opentelemetry.io/docs/concepts/semantic-conventions/) (with the same fields and format everywhere), and provides rich context about events, such as the service, environment, version, and custom attributes.
 
 OpenTelemetry logs aren't just text: they're data you can analyze. And CLM lets you [define dynamic alerts on them](../alerts.md).
 
-* You can send OpenTelemetry data directly to Centreon Log Management.
-* If a device doesn't support OpenTelemetry, [use an OpenTelemetry Collector to convert the data](../collector/collector.md). The collector can run as an agent on the device or in gateway mode to receive, enrich, translate and forward logs to Centreon Log Management.
+* You can send logs in OpenTelemetry format directly to Centreon Log Management.
+* If a device produces logs in a format other than OpenTelemetry, [use an OpenTelemetry Collector to convert the data](../collector/collector.md). The collector can run as an agent on the device or in gateway mode to receive, enrich, translate and forward logs to Centreon Log Management.
 
 ## What does a log entry in OpenTelemetry format look like?
 

@@ -54,7 +54,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'lucene-queries'
+          id: 'query-syntax'
         },
         {
           type: 'doc',

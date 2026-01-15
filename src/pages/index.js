@@ -31,52 +31,18 @@ const links = {
 
 const cards = [
   {
-    title: "Centreon OnPrem",
+    title: "Centreon Infra Monitoring",
     href: "docs/getting-started/welcome/",
     links: [
       {
-        label: "Getting started with Centreon OnPrem",
+        label: "Infra Monitoring OnPrem",
         href: "docs/getting-started/welcome"
       },{
-        label: "Installation",
-        href: "docs/installation/introduction"
+        label: "Infra Monitoring Cloud",
+        href: "cloud/getting-started/welcome"
       },{
-        label: "Setting up the monitoring",
-        href: "docs/category/setting-up-the-monitoring/"
-      },{
-        label: "Service mapping",
-        href: "docs/service-mapping/introduction/"
-      },{
-        label: "Graphical views",
-        href: "docs/graph-views/introduction-map/"
-      },{
-        label: "Reporting",
-        href: "docs/reporting/introduction/"
-      },{
-        label: "Release notes",
-        href: "docs/category/release-notes-by-component/"
-      },
-    ]
-  },
-  {
-    title: "Centreon Cloud",
-    href: "cloud/getting-started/welcome",
-    links: [
-      {
-        label: "Getting started with Centreon Cloud",
-        href: "cloud/getting-started/welcome/"
-      },{
-        label: "Installing a poller",
-        href: "cloud/installation/prerequisites/"
-      },{
-        label: "Service mapping",
-        href: "cloud/service-mapping/introduction/"
-      },{
-        label: "Graphical views",
-        href: "cloud/graph-views/introduction-map/"
-      },{
-        label: "Release notes",
-        href: "cloud/releases/cloud-release-notes/"
+        label: "Monitoring Connectors",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
       },
     ]
   },
@@ -97,6 +63,26 @@ const cards = [
       },{
         label: "Digital sobriety",
         href: "dem/category/digital-sobriety/"
+      },
+    ]
+  },
+  {
+    title: "Centreon Log Management BETA",
+    href: "logmanagement/getting-started/welcome/",
+    links: [
+      {
+        label: "Signing up for the BETA program",
+        href: "logmanagement/getting-started/beta/"
+      },{
+        label: "CLM basics",
+        href: "logmanagement/getting-started/concepts/"
+      },
+      {
+        label: "Configuring an OpenTelemetry collector",
+        href: "logmanagement/collector/"
+      },{
+        label: "Exploring and analyzing logs",
+        href: "logmanagement/explore-analyze/"
       },
     ]
   }
@@ -126,9 +112,8 @@ function BannerBlock() {
     <div className={clsx(styles.bannerContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <div className={clsx(styles.bannerWrapper)}>
-          {<span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span>}
-          <p>New software version available</p>
-          <Button href={versionInfo.link} target={versionInfo.target} label="Learn more" dark="true"/>
+          {<span className={clsx(styles.badge)}>CENTREON Infra Monitoring {versionInfo.version}</span>}
+          <Button href={versionInfo.link} target={versionInfo.target} label="New software version available" dark="true"/>
         </div>
       </div>
     </div>
@@ -208,7 +193,7 @@ function OpensourceBlock() {
   return(
     <div className={clsx(styles.socialBlock)}>
       <span className={clsx(styles.badge)}>AN OPEN SOURCE CORE</span>
-      <p>Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon has become the number 1 in open source monitoring in Europe.</p>
+      <p>Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon Infra Monitoring has become the number 1 in open source monitoring in Europe.</p>
       <Button href={links.contribute} target="_blank" label="Contribute to the Open Source project"/>
     </div>
   )
