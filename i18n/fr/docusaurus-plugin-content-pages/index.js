@@ -56,6 +56,10 @@ const cards = [
         label: "Notes de release",
         href: "docs/category/release-notes-by-component/"
       },
+      {
+        label: "Connecteurs de supervision",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
+      },
     ]
   },
   {
@@ -77,6 +81,10 @@ const cards = [
       },{
         label: "Notes de release",
         href: "cloud/releases/cloud-release-notes/"
+      },
+      {
+        label: "Connecteurs de supervision",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
       },
     ]
   },  {
