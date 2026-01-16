@@ -14,7 +14,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'observability'
+          id: 'getting-started/observability'
         },
         {
           type: 'doc',
@@ -22,7 +22,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'getting-started/use_cases'
+          id: 'getting-started/use-cases'
         }
        ]
     },
@@ -73,6 +73,24 @@ module.exports = {
         {
           type: 'doc',
           id: 'alert-events'
+        }
+       ]
+    },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Administration",
+          "link": {
+            "type": "generated-index",
+          },
+          items: [
+        {
+          type: 'doc',
+          id: 'administration/storage-usage'
+        },
+        {
+          type: 'doc',
+          id: 'administration/tokens'
         }
        ]
     },

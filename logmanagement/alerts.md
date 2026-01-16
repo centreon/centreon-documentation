@@ -34,6 +34,8 @@ Possible alert statuses are:
 
 ## Defining an alert rule
 
+> For the beta program, you can create up to 20 alert rules.
+
 1. Go to **Alerts & notifications > Alert rules**.
 2. Click **Add**.
 3. In the window that appears, enter a name and a description for your alert rule, then define the criteria you want.
@@ -50,3 +52,7 @@ Possible alert statuses are:
 Go to **Alerts & notifications > Alert events**. Use the search bar and its filter button to find alert events.
 
 ![image](./assets/alert_events.png)
+
+You can expand each alert event to display more information about it. Hover over the graph to display the start and end dates.
+
+![image](./assets/alert_events_detail.png)

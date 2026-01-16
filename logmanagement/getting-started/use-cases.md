@@ -1,5 +1,5 @@
 ---
-id: use_cases
+id: use-cases
 title: Use cases
 ---
 

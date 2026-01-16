@@ -7,9 +7,12 @@ import TabItem from '@theme/TabItem';
 
 <!-- > Refer to the [Lucene official documentation](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) for a full description of the syntax. -->
 
-Use queries in the [**Log explorer** page](explore-analyze.md), in [alert rules](alerts.md) or in [dashboards](dashboards.md) to filter your data and query OpenTelemetry attributes. The attributes you will be able to query will be the ones [retrieved by your OpenTelemetry Collector, as you configured it](./collector/collector.md). See [What does a log entry in OpenTelemetry format look like?](./getting-started/concepts.md#what-does-a-log-entry-in-opentelemetry-format-look-like) for an overview of the main attributes.
+Use queries in the [**Log Explorer** page](explore-analyze.md), in [alert rules](alerts.md) or in [dashboards](dashboards.md) to filter your data and query OpenTelemetry attributes. The attributes you will be able to query will be the ones [retrieved by your OpenTelemetry Collector, as you configured it](./collector/collector.md). See [What does a log entry in OpenTelemetry format look like?](./getting-started/concepts.md#what-does-a-log-entry-in-opentelemetry-format-look-like) for an overview of the main attributes.
 
-In the **Log explorer** page, do not include time parameters in your queries: time periods are defined using the list in the top right corner.
+In the **Log Explorer** page:
+
+* Type your query, then press **CTRL** + **Enter** to launch the search. <!--autocomplete-->
+* Do not include time parameters in your queries: time periods are defined using the list in the top right corner.
 
 ## Examples of simple queries
 
@@ -25,7 +28,7 @@ Select all logs for the **syslog** service, with a [severity number](resources/g
 service_name:syslog AND severity_number:[20 TO *]
 ```
 
-Select all FATAL logs for the **syslog** service, coming from hosts in a specified IP range. Use the ***** wildcard.
+Select all FATAL logs for the **syslog** service, coming from hosts in a specified IP range. Use the `*` wildcard.
 
 ```text
 service_name:syslog AND severity_number:[20 TO *] AND host.ip:192.168.1.*
