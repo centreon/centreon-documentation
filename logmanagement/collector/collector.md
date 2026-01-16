@@ -103,7 +103,7 @@ https://opentelemetry.io/docs/collector/installation/#windows
 
    > The indentation of the parameters in your YAML file must be identical to that in the example.
 
-### Step 3: Configure log sources
+### Step 3: Configure each log source for your host
 
 Configure a log source for each desired service (syslog, apache, etc.) in the form of a YAML file.
 
