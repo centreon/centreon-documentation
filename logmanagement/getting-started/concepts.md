@@ -19,7 +19,7 @@ Here are the main features of Centreon Log Management:
 
 1. CLM [collects](../collector/collector.md) and centralizes logs from various sources (servers, applications, databases, network devices, etc.).
 
-3. CLM allows you to [analyze these logs in real time](../explore-analyze.md), using filters, [queries](../query-syntax.md), or [dashboards](../dashboards.md). This helps you detect detect anomalies, errors, security incidents, or unexpected behavior: see [**Use cases**](use_cases.md) for detailed examples.
+3. CLM allows you to [analyze these logs in real time](../explore-analyze.md), using filters, [queries](../query-syntax.md), or [dashboards](../dashboards.md). This helps you detect detect anomalies, errors, security incidents, or unexpected behavior: see [**Use cases**](use-cases.md) for detailed examples.
 
 4. CLM creates [alert events](../resources/glossary.md#alert-eventalert-status) in case problems occur or critical thresholds are exceeded, according to [alert rules](../alerts.md) you have defined.
 
