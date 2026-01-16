@@ -34,7 +34,7 @@ Remove the debuginfo packages before the procedure unless you have a particular 
   ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 12" label="Debian 11 & 12">
 
   ```shell
  apt remove $(dpkg -l | awk '/^ii/ && $2 ~ /^centreon.*debuginfo/ { print $2 }')
