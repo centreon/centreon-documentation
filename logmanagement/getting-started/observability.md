@@ -21,7 +21,7 @@ Observability meets two main types of needs:
 
 * Monitoring detects problems that can be anticipated, as it relies on metrics declared in the tool and alerts based on thresholds defined through prior analysis. It answers the following question: "Is the system working as expected?"
 * On the other hand, observability allows you to discover and address unexpected problems, even in dynamic environments. In CLM, it means analyzing detailed and contextualized logs. This allows you to investigate unknown problems in a complex system (microservices, events, queues, etc.).
-* Once unknown issues have been diagnosed using CLM, you can integrate their detection into your monitoring tool.
+* Once unknown issues have been diagnosed using CLM, you can integrate their detection into your monitoring tool (or directly in CLM).
 
 Example:
 

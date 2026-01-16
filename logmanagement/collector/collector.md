@@ -166,7 +166,7 @@ Get-WmiObject win32_service -filter "Name='otelcol-contrib'" | Invoke-WmiMethod 
 
 ## Troubleshooting
 
-Check the status of your collector on the host you want to monitor:
+Check the status of your collector on the host you want to receive logs from:
 
  ```shell
 journalctl -u otelcol-contrib.service
