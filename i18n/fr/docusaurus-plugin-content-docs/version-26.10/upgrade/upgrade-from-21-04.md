@@ -93,27 +93,17 @@ rm /etc/yum.repos.d/centreon-business-21.04.repo
 ```
 
 </TabItem>
-
-<TabItem value="Debian" label="Debian">
-
-```shell
-rm /etc/apt/sources.list.d/centreon-business.list
-```
-
-</TabItem>
 </Tabs>
 
 3. Installez le dépôt business en 25.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
-4. Si votre système d'exploitation est Debian et que vous utilisez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
-
-5. Arrêtez le processus Centreon Broker :
+4. Arrêtez le processus Centreon Broker :
 
 ```shell
 systemctl stop cbd
 ```
 
-6. Supprimez les fichiers de rétention présents :
+5. Supprimez les fichiers de rétention présents :
 
 ```shell
 rm /var/lib/centreon-broker/* -f
@@ -136,18 +126,11 @@ Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant l
 pour confirmer :
 
 ```shell
-dnf config-manager --disable remi-modular remi-safe
-dnf module disable composer:2
-dnf module disable php:remi-8.1
-rm -rf /etc/yum.repos.d/remi*
 dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.2
-dnf distro-sync php\* --allowerasing
-su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
-systemctl restart php-fpm
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -172,43 +155,9 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
-### Montée de version de la solution Centreon
+Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
-1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
-
-2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 21.04 :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-21.04.repo
-```
-
-</TabItem>
-
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-21.04.repo
-```
-
-</TabItem>
-</Tabs>
-
-3. Installez le dépôt business en 25.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
-
-5. Arrêtez le processus Centreon Broker :
-
-```shell
-systemctl stop cbd
-```
-
-6. Supprimez les fichiers de rétention présents :
-
-```shell
-rm /var/lib/centreon-broker/* -f
-```
+Puis, finissez la montée de version de la solution Centreon.
 
 1. Videz le cache :
 
