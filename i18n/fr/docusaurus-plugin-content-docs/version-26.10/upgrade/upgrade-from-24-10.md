@@ -180,6 +180,8 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
+Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
 7. Videz le cache :
 
 <Tabs groupId="sync">

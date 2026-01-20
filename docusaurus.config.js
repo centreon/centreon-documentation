@@ -3,11 +3,6 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import availableVersions from './versions.json';
 import archivedVersions from './archivedVersions.json';
 
-const isDev = process.env.BRANCH_NAME !== 'staging';
-if (isDev) {
-  console.log('Building documentation in development mode, last update time of each page will not be shown.');
-}
-
 const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
 
 const versions = (() => {
@@ -58,7 +53,7 @@ const logmanagement = (() => {
   if (archivedVersion) {
     return false;
   }
-  if (process.env.logmanagement !== undefined && process.env.logmanagement === '0') {
+  if (process.env.LOGMANAGEMENT !== undefined && process.env.LOGMANAGEMENT === '0') {
     return false;
   }
   return true;
@@ -122,7 +117,7 @@ const config = {
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
-          showLastUpdateTime: !isDev,
+          showLastUpdateTime: true,
           includeCurrentVersion: false,
           onlyIncludeVersions: versions,
           versions: (() => {
@@ -230,7 +225,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: !isDev,
+            showLastUpdateTime: true,
           },
         ],
       ];
@@ -249,7 +244,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: !isDev,
+            showLastUpdateTime: true,
           },
         ],
       ];
@@ -268,7 +263,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: !isDev,
+            showLastUpdateTime: true,
           },
         ],
       ];
