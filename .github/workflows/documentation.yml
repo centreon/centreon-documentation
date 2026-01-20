@@ -164,6 +164,7 @@ jobs:
             core.exportVariable('build_pp', '1');
             core.exportVariable('build_cloud', '1');
             core.exportVariable('build_dem', '1');
+            core.exportVariable('build_logmanagement', '1');
 
       - name: Manage versions to build
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
