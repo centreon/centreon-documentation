@@ -24,7 +24,7 @@ resource attributes -->
 ### Prerequisites
 
 * Generate [a token to authenticate the host to your Log Management instance](../administration/tokens.md).
-* Obtain from Centreon the URL of the endpoint required to connect an OpenTelemetry Collector to your Log Management instance.
+* The endpoint required to connect an OpenTelemetry Collector to your Log Management instance: `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
 
 ### Step 1: Install OpenTelemetry Collector on your host
 
@@ -70,7 +70,7 @@ https://opentelemetry.io/docs/collector/installation/#windows
 
 2. In this file, enter the global log collection settings specific to this device. These will apply to all log sources for this device.
 
-   * In **endpoint**, enter the address of your CLM instance as provided by Centreon. The address will look like this: `https://your.organization.com/v1/ingress/otlp`.
+   * In **endpoint**, enter `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
    * in **X-Api-Key**, enter the [token required to authenticate to your CLM instance](../administration/tokens.md).
 
    Example:
@@ -80,7 +80,7 @@ https://opentelemetry.io/docs/collector/installation/#windows
    # SPDX-License-Identifier: Apache-2.0
    exporters:
      otlphttp/centreon:
-       endpoint: "https://your.organization.com/v1/ingress/otlp"
+       endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp"
        headers:
          "X-Api-Key": "<%TOKEN%>"
      debug:
