@@ -53,7 +53,7 @@ const logmanagement = (() => {
   if (archivedVersion) {
     return false;
   }
-  if (process.env.logmanagement !== undefined && process.env.logmanagement === '0') {
+  if (process.env.LOGMANAGEMENT !== undefined && process.env.LOGMANAGEMENT === '0') {
     return false;
   }
   return true;
