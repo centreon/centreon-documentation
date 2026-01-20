@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 This procedure is intended to be used to perform minor updates of Centreon when Engine/Broker compatibility between the old version and the new version is assured. No service downtime is necessary in this case; only a short outage of the login interface.
 
-> If you use Open Ticket providers with custom configurations, make a backup of these before updating Centreon.
+> If you use Open Ticket providers with custom configurations, [make a backup of these](../alerts-notifications/ticketing-install/#creating-a-backup-of-your-custom-open-ticket-provider-configurations) before updating Centreon.
 
 ## Suspend cluster resource management
 
