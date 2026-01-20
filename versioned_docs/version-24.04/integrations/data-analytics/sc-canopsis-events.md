@@ -66,10 +66,10 @@ apt install centreon-stream-connector-canopsis
 ## Configuring Canopsis
 
 You will need to configure your Canopsis instance to receive data from Centreon. Refer to the 
-[Canopsis user guide](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/)
+[Canopsis user guide](https://doc.canopsis.net/latest/)
 , in particular check if creation, reading and deletion rights are activated. See the following documentations: 
-* [rights administration](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) 
-* [planification administration](https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) (in case of downtimes). 
+* [rights administration](https://doc.canopsis.net/latest/guide-utilisation/menu-administration/droits/) 
+* [planification administration](https://doc.canopsis.net/latest/guide-utilisation/menu-administration/planification/) (in case of downtimes). 
 For the user associated to the **Authentication key** you must modify the rights matrix on the Canopsis **Administration > Rights** page, **API** tab. 
 You need to check at least the box listed in this table:
 
