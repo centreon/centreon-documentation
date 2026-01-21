@@ -62,8 +62,20 @@ const config = {
   },
 
   future: {
-    v4: true,
-    experimental_faster: true,
+    v4: {
+      removeLegacyPostBuildHeadAttribute: false,
+      useCssCascadeLayers: true,
+    },
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: false,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: false,
+      mdxCrossCompilerCache: true,
+    },
   },
 
   title: 'Centreon Documentation',
