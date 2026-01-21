@@ -67,14 +67,14 @@ const config = {
       useCssCascadeLayers: true,
     },
     experimental_faster: {
-      swcJsLoader: true,
-      swcJsMinimizer: true,
-      swcHtmlMinimizer: true,
+      swcJsLoader: false,
+      swcJsMinimizer: false,
+      swcHtmlMinimizer: false,
       lightningCssMinimizer: false,
       rspackBundler: true,
       rspackPersistentCache: true,
       ssgWorkerThreads: false,
-      mdxCrossCompilerCache: true,
+      mdxCrossCompilerCache: false,
     },
   },
 
