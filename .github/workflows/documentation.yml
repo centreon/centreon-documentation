@@ -215,6 +215,7 @@ jobs:
       - name: Build documentation
         run: pnpm build
         env:
+          NODE_OPTIONS: --max_old_space_size=16000
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
