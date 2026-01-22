@@ -691,7 +691,6 @@ cp ca_demo.crt /etc/pki/tls/certs/
 ```shell
 curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
 apt update
-apt install libapache2-mod-security2
 a2enmod ssl
 a2enmod security2
 systemctl restart apache2
