@@ -1552,7 +1552,7 @@ systemctl restart apache2
 
 **mod_security** est un module de sécurité pour Apache qui agit comme un pare-feu d'applications web (WAF).
 
-1. Installez mod_security :
+1. Installez **mod_security** :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
