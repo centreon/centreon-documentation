@@ -1551,6 +1551,7 @@ systemctl restart apache2
 </Tabs>
 
 ## Activer mod_security
+
 **mod_security** est un module de sécurité pour Apache qui agit comme un pare-feu d'applications web (WAF).
 
 1. Installez **mod_security** :
