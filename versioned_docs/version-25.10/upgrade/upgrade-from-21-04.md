@@ -155,6 +155,8 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
+Then, ensure the `memory-limit` parameter in `/etc/php.d50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually.
+
 Then, finish upgrading the Centreon solution.
 
 1. Clean the cache:

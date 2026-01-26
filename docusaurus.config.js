@@ -3,11 +3,6 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import availableVersions from './versions.json';
 import archivedVersions from './archivedVersions.json';
 
-const isDev = process.env.BRANCH_NAME !== 'staging';
-if (isDev) {
-  console.log('Building documentation in development mode, last update time of each page will not be shown.');
-}
-
 const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
 
 const versions = (() => {
@@ -67,8 +62,20 @@ const config = {
   },
 
   future: {
-    v4: true,
-    experimental_faster: true,
+    v4: {
+      removeLegacyPostBuildHeadAttribute: false,
+      useCssCascadeLayers: true,
+    },
+    experimental_faster: {
+      swcJsLoader: false,
+      swcJsMinimizer: false,
+      swcHtmlMinimizer: false,
+      lightningCssMinimizer: false,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: false,
+      mdxCrossCompilerCache: false,
+    },
   },
 
   title: 'Centreon Documentation',
@@ -112,7 +119,7 @@ const config = {
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
-          showLastUpdateTime: !isDev,
+          showLastUpdateTime: true,
           includeCurrentVersion: false,
           onlyIncludeVersions: versions,
           versions: (() => {
@@ -220,7 +227,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: !isDev,
+            showLastUpdateTime: true,
           },
         ],
       ];
@@ -239,7 +246,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: !isDev,
+            showLastUpdateTime: true,
           },
         ],
       ];
@@ -258,7 +265,7 @@ const config = {
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
-            showLastUpdateTime: !isDev,
+            showLastUpdateTime: true,
           },
         ],
       ];

@@ -40,6 +40,8 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 ## Upgrade the Centreon Central server
 
+Version 25.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
 ### Install the new repositories
@@ -129,7 +131,7 @@ rm /etc/yum.repos.d/centreon-business-22.04.repo
 
 </TabItem>
 
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 rm /etc/apt/sources.list.d/centreon-business.list
@@ -175,6 +177,11 @@ dnf module reset php
 ```shell
 dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Ensure the `memory-limit` parameter in `/etc/php.d50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually.
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
@@ -193,12 +200,16 @@ dnf module reset php
 dnf module install php:8.2
 ```
 
+Ensure the `memory-limit` parameter in `/etc/php.d50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually.
+
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 systemctl stop php8.0-fpm
 ```
+
+Ensure the `memory-limit` parameter in `/etc/php.d50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually.
 
 </TabItem>
 </Tabs>
@@ -222,7 +233,7 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
    
 ```shell
 apt clean all

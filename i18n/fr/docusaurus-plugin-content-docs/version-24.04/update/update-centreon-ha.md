@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 La procédure suivante est à utiliser lors de l'application d'une mise à jour mineure sur un cluster Centreon HA installé par Centreon Professional Services, dans le cas où il n'y a pas de rupture de compatibilité Engine/broker entre l'ancienne et la nouvelle version. Celle-ci peut se faire sans interrompre la supervision, mais en rendant l'interface indisponible pendant un court instant.
 
+> Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket) avant de mettre à jour Centreon.
+
 ## Suspendre la gestion des ressources du cluster
 
 Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de suspendre toutes les ressources Centreon, ainsi que la base de données.

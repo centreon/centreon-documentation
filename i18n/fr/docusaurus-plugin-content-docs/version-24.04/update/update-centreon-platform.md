@@ -35,7 +35,7 @@ Eliminez les paquets debuginfo avant de poursuivre à moins d'en avoir un besoin
   ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
   ```shell
  apt remove $(dpkg -l | awk '/^ii/ && $2 ~ /^centreon.*debuginfo/ { print $2 }')

@@ -89,27 +89,17 @@ rm /etc/yum.repos.d/centreon-business-21.10.repo
 ```
 
 </TabItem>
-
-<TabItem value="Debian" label="Debian">
-
-```shell
-rm /etc/apt/sources.list.d/centreon-business.list
-```
-
-</TabItem>
 </Tabs>
 
 3. Installez le dépôt business en 25.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
-4. Si votre système d'exploitation est Debian et que vous utilisez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
-
-5. Arrêtez le processus Centreon Broker :
+4. Arrêtez le processus Centreon Broker :
 
 ```shell
 systemctl stop cbd
 ```
 
-6. Supprimez les fichiers de rétention présents :
+5. Supprimez les fichiers de rétention présents :
 
 ```shell
 rm /var/lib/centreon-broker/* -f
@@ -136,6 +126,11 @@ dnf module reset php
 ```shell
 dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
@@ -157,6 +152,11 @@ dnf module reset php
 ```shell
 dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
