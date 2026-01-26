@@ -58,14 +58,6 @@ Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian
    dnf update
    ```
 
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/22.04/el8/centreon-22.04-el8.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/22.04/el8/centreon-business-22.04-el8.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
 
 2. Supprimez le fichier **centreon-22.04.repo** :
 

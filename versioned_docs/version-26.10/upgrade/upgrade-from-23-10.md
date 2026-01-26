@@ -52,15 +52,6 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
    dnf update
    ```
 
-If you use Centreon Business Edition, use this command instead:
-
-   ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10-el8.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-business-23.10-el8.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
 2. Remove the repository files:
 
    ```shell
@@ -84,15 +75,6 @@ If you use Centreon Business Edition, use this command instead:
 
    ```shell
    dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
-If you use Centreon Business Edition, use this command instead:
-
-   ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-business-23.10-el9.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
