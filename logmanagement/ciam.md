@@ -7,7 +7,7 @@ title: Using Centreon CIAM
 
 Centreon CIAM (Customer Identity and Access Management) is a module that:
 
-- allows you to access all your Centreon applications
+- allows you to access all your Centreon applications.
 - allows your administrator to manage your organizations, manage all Centreon user accounts and user groups for an organization, and manage the way users will log in to Centreon Log Management.
 
 An organization covers a scope of resources you want to receive logs from. For instance, you may want to have an organization called Europe and an organization called Asia. Organizations are independent from each other. According to your needs, you may have one or several organizations. Each organization has its own applications, including its own Centreon Log Management instance.
@@ -34,3 +34,9 @@ Your administrator has invited you to Centreon CIAM; you have received an email 
 1. In the email, click **Accept invitation**.
 2. Enter your password, and then click **Continue**. The Centreon CIAM site opens.
 3. In the top right corner of the screen, click the profile icon, and then click **Edit profile**. You can then fill in your details.
+
+## Accessing CLM
+
+To open CLM, log in to the CIAM. In the **Applications** page, click the tile you want:
+
+![image](./assets/ciam.png)
