@@ -26,6 +26,20 @@ module.exports = {
         }
        ]
     },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Managing users",
+          "link": {
+            "type": "generated-index",
+          },
+          items: [
+        {
+          type: 'doc',
+          id: 'ciam'
+        }
+       ]
+    },
     {
           "collapsed": true,
           "type": "category",
