@@ -16,7 +16,7 @@ To detect issues like this, you need to create alert rules.
 An alert rule evaluates specific criteria and generates [alert events](./resources/glossary.md#alert-eventalert-status), each with an [alert status](#alert-statuses). For example, an alert rule might be described like this in words:
 "If this query returns more than 50 results in the last 5 minutes, an alert event with the CRITICAL status should be recorded."
 
-* aggregation type: count
+* alert type: count
 * frequency: 5 minutes
 * alert conditions: if > 50, then alert status = CRITICAL
 

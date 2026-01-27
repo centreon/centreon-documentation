@@ -1,30 +1,30 @@
 ---
 id: alert-events
-title: Defining alert rules
+title: Définir des règles d'alerte
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## From logs to alert events
+## Des logs aux évènements d'alerte
 
-Logs have a [severity](./resources/glossary.md#severity) (i.e., a log level) that indicates how serious an event is. However, severity only tells you about the nature of a single log. On its own, this is not enough. Logs often need to be analyzed together.
+Les logs ont un [niveau de sévérité](./resources/glossary.md#severity) (c'est-à-dire un niveau de log) qui indique la sévérité d'un évènement. Cependant, le niveau de sévérité ne vous renseigne que sur la nature d'un seul log. Un seul log ne suffit pas. Les logs doivent souvent être analysés ensemble.
 
-For example, an INFO log entry might simply record that a user tried to log in. But if you see 300 login attempts (and therefore 300 INFO entries) within 10 seconds, that suggests a problem.
+Par exemple, une entrée de log INFO peut simplement enregistrer qu'un utilisateur a tenté de se connecter. Mais si vous constatez 300 tentatives de connexion (et donc 300 entrées INFO) en 10 secondes, cela suggère un problème.
 
-To detect issues like this, you need to create alert rules.
+Pour détecter ce type de problème, vous devez créer des règles d'alerte.
 
-An alert rule evaluates specific criteria and generates [alert events](./resources/glossary.md#alert-eventalert-status), each with an [alert status](#alert-statuses). For example, an alert rule might be described like this in words:
-"If this query returns more than 50 results in the last 5 minutes, an alert event with the CRITICAL status should be recorded."
+Une règle d'alerte évalue des critères spécifiques et génère des [évènements d'alerte](./resources/glossary.md#évènement-dalertestatut-dalerte), chacun avec un [statut d'alerte](#statuts-dalerte). Par exemple, une règle d'alerte peut être décrite comme suit :
+"Si cette requête renvoie plus de 50 résultats au cours des 5 dernières minutes, un évènement d'alerte avec le statut CRITIQUE doit être enregistré."
 
-* aggregation type: count
-* frequency: 5 minutes
-* alert conditions: if > 50, then alert status = CRITICAL
+* type d'alerte : count
+* fréquence : 5 minutes
+* conditions d'alerte : si > 50, alors statut d'alerte = CRITICAL
 
 ![image](./assets/alert_rule.png)
 
-### Alert statuses
+### Statuts d'alerte
 
-Possible alert statuses are:
+Les différents statuts d'alerte possibles sont les suivants :
 
 * <span style={{color:'#ff4a4a'}}>**CRITICAL**</span>
 * <span style={{color:'#fd9b27'}}>**ERROR**</span>
@@ -32,27 +32,27 @@ Possible alert statuses are:
 * <span style={{color:'#88b917'}}>**OK**</span>
 * <span style={{color:'#bcbdc0'}}>**UNKNOWN**</span>
 
-## Defining an alert rule
+## Définir une règle d'alerte
 
-> For the beta program, you can create up to 20 alert rules.
+> Pour le programme BETA, vous pouvez créer jusqu'à 20 règles d'alerte.
 
-1. Go to **Alerts & notifications > Alert rules**.
-2. Click **Add**.
-3. In the window that appears, enter a name and a description for your alert rule, then define the criteria you want.
+1. Allez à la page **Alerts & notifications > Alert rules**.
+2. Cliquez sur **Add**.
+3. Dans la fenêtre qui s'affiche, entrez un nom et une description pour votre règle d'alerte, puis définissez les critères souhaités.
    * **Alert type**: 
-      * **Count** means that the query will return the number of log entries that match the query.
-      * **Ratio** means that you divide the results of a query by the results of another query.
-   * **Frequency**: this field defines both the frequency of the check and the time period covered by it. For instance, if you select **Every 5 minutes**, a check will be performed every 5 minutes on the data of the last 5 minutes.
-   * **Query**: use the correct [query syntax](query-syntax.md).
-   * **Conditions**: define which [alert status the alert event should have](#alert-statuses).
-4. Save your alert rule. The window is closed and your alert rule appears in the list of alert rules. The rule starts being evaluated and producing alert events.
+      * **Count** signifie que la requête renverra le nombre d'entrées de log correspondant à la requête.
+      * **Ratio** signifie que vous divisez les résultats d'une requête par les résultats d'une autre requête.
+   * **Frequency**: ce champ définit à la fois la fréquence des contrôles et la période couverte par chaque contrôle. Par exemple, si vous sélectionnez **Every 5 minutes**, un contrôle sera effectué toutes les 5 minutes sur les données des 5 dernières minutes.
+   * **Query**: utilisez la [syntaxe de requête](query-syntax.md) correcte.
+   * **Conditions**: définit quel [statut d'alerte l'évènement d'alerte doit avoir](#statuts-dalerte).
+4. Enregistrez votre règle d'alerte. La fenêtre se ferme et votre règle d'alerte apparaît dans la liste des règles d'alerte. La règle commence à être évaluée et à générer des évènements d'alerte.
 
-## Viewing all alert events
+## Affichage de tous les évènements d'alerte
 
-Go to **Alerts & notifications > Alert events**. Use the search bar and its filter button to find alert events.
+Allez à la page **Alerts & notifications > Alert events**. Utilisez la barre de recherche et son bouton de filtre pour trouver les évènements d'alerte désirés.
 
 ![image](./assets/alert_events.png)
 
-You can expand each alert event to display more information about it. Hover over the graph to display the start and end dates.
+Vous pouvez développer chaque évènement d'alerte pour afficher plus d'informations à son sujet. Passez la souris sur le graphique pour afficher les dates de début et de fin.
 
 ![image](./assets/alert_events_detail.png)
