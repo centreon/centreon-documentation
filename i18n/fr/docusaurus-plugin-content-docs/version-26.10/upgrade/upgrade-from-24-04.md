@@ -59,15 +59,6 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
    dnf update
    ```
 
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el8/centreon-24.04-el8.repo
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el8/centreon-business-24.04-el8.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
 2. Supprimez les fichiers des dépôts :
 
    ```shell
@@ -91,15 +82,6 @@ Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de l
 
    ```shell
    dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el9/centreon-24.04-el9.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el9/centreon-24.04-el9.repo
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el9/centreon-business-24.04-el9.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -212,6 +194,12 @@ dnf module reset php
 ```shell
 dnf module enable php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
@@ -230,6 +218,8 @@ dnf module reset php
 dnf module enable php:8.2
 ```
 
+Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
@@ -237,6 +227,8 @@ dnf module enable php:8.2
 systemctl stop php8.1-fpm
 systemctl disable php8.1-fpm
 ```
+
+Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 </TabItem>
 </Tabs>

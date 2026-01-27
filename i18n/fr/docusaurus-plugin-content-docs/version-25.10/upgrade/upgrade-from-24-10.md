@@ -47,15 +47,6 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
    dnf update
    ```
 
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-business-24.10-el8.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
 2. Supprimez les fichiers des dépôts :
 
    ```shell
@@ -79,15 +70,6 @@ Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de l
 
    ```shell
    dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-business-24.10-el9.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -178,6 +160,8 @@ systemctl stop cbd
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
+
+Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 7. Videz le cache :
 

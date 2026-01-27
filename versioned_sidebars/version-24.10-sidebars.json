@@ -1104,6 +1104,10 @@
             {
               "type": "doc",
               "id": "upgrade/upgrade-mariadb"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-mysql"
             }
           ]
         },
