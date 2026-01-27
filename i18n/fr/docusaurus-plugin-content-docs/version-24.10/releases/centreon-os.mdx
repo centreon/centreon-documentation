@@ -30,8 +30,8 @@ Release date: `January 27, 2026`
   <summary>Enhancements</summary>
 
 - [Custom Views] Optimized performance when retrieving ACLs in widgets.
-- [Dashboards] Resource Table widget - Added link to the detail of a ticket on the provider side.
-- [Packaging] Increase php memory limit in centreon php configuration.
+- [Dashboards] Resource Table widget - Added a link to access the OpenTicket on the provider side.
+- [Packaging] Increased php memory limit in centreon php configuration.
 - [Performance Graphs] The limit on the number of metrics displayed per chart has been raised to 20. We also fixed an issue with the unnecessary display of legends when this limit is exceeded.
 
 </details>
@@ -39,17 +39,17 @@ Release date: `January 27, 2026`
 <details>
 <summary>Bug fixes</summary>
 
-- [Administration] Fixed a LDAP issue where user DN was never updated.
-- [Configuration] Fixed an error when duplicating a rrd broker config and outputs were missing.
-- [Dashboards][Metrics Graph] Improved the vertical scale display.
+- [Administration] Fixed an LDAP issue where the user's DN was never updated.
+- [Configuration] Fixed an error when duplicating the configuration of an RRD broker that resulted in missing outputs.
+- [Dashboards] Metrics Graph - Improved the vertical scale display.
 - [Dashboards] Resource Table widget - Fixed host name positioning issue.
 - [Dashboards] The list of contacts is now displayed correctly when sharing a dashboard or a playlist.
-- [Monitoring] Fixed "hostgroups summary" monitoring page.
-- [Performance Graphs] Fixed issue preventing user from selecting multiple graphs when language selected isn't "en_US".
-- [Playlists] Fixed issue preventing host problems from being displayed.
-- [Resource Status] Fixed issue preventing services from being displayed when filtering on their parent host severity.
-- [Unattended] Fixed an issue in the ITEE installation that could be incomplete when installing a platform with the unattended.sh script.
-- [Users] Fixed issue preventing user from being created when using an autologin key.
+- [Monitoring] Fixed an issue with the "hostgroups summary" monitoring page.
+- [Performance Graphs] Fixed an issue preventing users from selecting multiple graphs when the language selected isn't "en_US".
+- [Playlists] Fixed an issue preventing host problems from being displayed.
+- [Resource Status] Fixed an issue preventing services from being displayed when filtering on their parent host severity.
+- [Unattended] Fixed an issue that resulted in incomplete ITEE installations when installing a platform with the unattended.sh script.
+- [Users] Fixed an issue preventing users from being created when using an autologin key.
 
 </details>
 
@@ -1349,7 +1349,7 @@ Release date: `January 27, 2026`
 <summary>Bug fixes</summary>
 
 - [Custom Views] Open Ticket - Fixed filter on host categories.
-- [Dashboards] Resource Table widget - Fixed issue preventing custom providers from being used for ticket management.
+- [Dashboards] Resource Table widget - Fixed an issue preventing custom providers from being used for ticket management.
 
 </details>
 
