@@ -59,15 +59,6 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
    dnf update
    ```
 
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el8/centreon-24.04-el8.repo
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el8/centreon-business-24.04-el8.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
 2. Supprimez les fichiers des dépôts :
 
    ```shell
