@@ -171,7 +171,7 @@ dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
 ```
 
-Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 ```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
@@ -192,7 +192,7 @@ dnf module reset php
 dnf module install php:8.2
 ```
 
-Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
