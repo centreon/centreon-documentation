@@ -31,9 +31,9 @@ Release date: `January 27, 2026`
   <summary>Enhancements</summary>
 
 - [Custom Views] Optimized performance when retrieving ACLs in widgets.
-- [Dashboards] Resource Table widget - Added alink to access OpenTicket on the provider side.
-- [Packaging] Increased php memory limit in centreon php configuration.
-- [Performance Graphs] The limit on the number of metrics displayed per chart has been raised to 20. We also fixed an issue with the unnecessary display of legends when this limit is exceeded.
+- [Dashboards] Resource Table widget - Added a link to access OpenTicket on the provider side.
+- [Packaging] Increased php memory limit in the centreon php configuration.
+- [Performance Graphs] The limit on the number of metrics displayed per chart has been raised to 20. Also fixed an issue with unnecessary legends being displayed when this limit is exceeded.
 
 </details>
 
@@ -41,15 +41,15 @@ Release date: `January 27, 2026`
 <summary>Bug fixes</summary>
 
 - [Administration] Fixed an LDAP issue where the user's DN was never updated.
-- [Configuration] Fixed an error when duplicating the configuration of an RRD broker that resulted in missing outputs.
+- [Configuration] Fixed an issue when duplicating the configuration of an RRD broker that resulted in missing outputs.
 - [Dashboards] Metrics Graph - Improved the vertical scale display.
-- [Dashboards] Resource Table widget - Fixed host name positioning issue.
+- [Dashboards] Resource Table widget - Fixed an issue with the host name positioning.
 - [Dashboards] The list of contacts is now displayed correctly when sharing a dashboard or a playlist.
 - [Monitoring] Fixed an issue with the "hostgroups summary" monitoring page.
-- [Performance Graphs] Fixed an issue preventing users from selecting multiple graphs when the language selected isn't "en_US".
+- [Performance Graphs] Fixed an issue preventing users from selecting multiple graphs when the paltform's language isn't "en_US".
 - [Playlists] Fixed an issue preventing host problems from being displayed.
-- [Resource Status] Fixed an issue preventing services from being displayed when filtering on their parent host severity.
-- [Unattended] Fixed an issue that resulted in incomplete ITEE installations when installing a platform with the unattended.sh script.
+- [Resource Status] Fixed an issue preventing services from being displayed when filtering by the severity of their parent host.
+- [Unattended] Fixed an issue that resulted in incomplete ITEE installations when using the unattended.sh script.
 - [Users] Fixed an issue preventing users from being created when using an autologin key.
 
 </details>
@@ -57,10 +57,10 @@ Release date: `January 27, 2026`
 <details>
 <summary>Security fixes</summary>
 
-- [Security] fixed a vulnerability in Administration > Parameters > Images.
-- [Security] Fixed a vulnerability in LDAP configuration.
-- [Security] fixed a vulnerability in Monitoring > Performance > Virtual Metrics.
-- [Security] fixed a vulnerability in Notification > Hostgroups.	
+- [Security] fixed a vulnerability with the Images parameters.
+- [Security] Fixed a vulnerability with LDAP configuration.
+- [Security] fixed a vulnerability with the Visual Metrics page.
+- [Security] fixed a vulnerability with Hostgroups notifications.	
 
 </details>
 
@@ -1346,7 +1346,7 @@ Release date: `January 27, 2026`
 <details>
 <summary>Bug fixes</summary>
 
-- [Custom Views] Open Ticket - Fixed filter on host categories.
+- [Custom Views] Open Ticket - Fixed an issue when filtering on host categories.
 - [Dashboards] Resource Table widget - Fixed an issue preventing custom providers from being used for ticket management.
 
 </details>
@@ -1354,7 +1354,7 @@ Release date: `January 27, 2026`
 <details>
 <summary>Security fixes</summary>
 
-- [BREAKING CHANGE] [Open Tickets] The ability to define a custom command linked to a rule has been removed, due to low adoption and security concerns.
+- [BREAKING CHANGE] [Open Tickets] Due to security concerns, users can no longer define custom commands linked to a rule.
 
 </details>
 
