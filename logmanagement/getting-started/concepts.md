@@ -9,7 +9,7 @@ CLM handles logs. Logs contain detailed information about events, errors, and th
 
 ## What does a log entry look like in CLM?
 
-All logs received by CLM are listed on the **Log Explorer** page, where you can filter them. In CLM, each log entry has a [severity (i.e., a log level)](../resources/glossary.md#severity), indicated by a colored line.
+All logs received by CLM are listed on the **Log explorer** page, where you can filter them. In CLM, each log entry has a [severity (i.e., a log level)](../resources/glossary.md#severity), indicated by a colored line.
 
 ![image](../assets/log_explorer.png)
 
@@ -38,7 +38,7 @@ OpenTelemetry logs aren't just text: they're data you can analyze. And CLM lets 
 
 ## What does a log entry in OpenTelemetry format look like?
 
-A log entry in OpenTelemetry format always has a timestamp and a [service](../resources/glossary.md#service) name (for the service that created the log). Usually, it also shows the log's [severity](../resources/glossary.md#severity): <span style={{color:'#1ebeb3'}}>**DEBUG**</span>, <span style={{color:'#1588d1'}}>**INFO**</span>, WARN (<span style={{color:'#ffca34'}}>**WARNING**</span> in CLM), <span style={{color:'#fd9b27'}}>**ERROR**</span>, or <span style={{color:'#ff4a4a'}}>**FATAL**</span>. All the other information in the log depends on [how you have configured your OpenTelemetry Collector](../collector/collector.md).
+A log entry in OpenTelemetry format always has a timestamp and a [service](../resources/glossary.md#service) name (for the service that produced the log). Usually, it also shows the log's [severity](../resources/glossary.md#severity): <span style={{color:'#1ebeb3'}}>**DEBUG**</span>, <span style={{color:'#1588d1'}}>**INFO**</span>, WARN (<span style={{color:'#ffca34'}}>**WARNING**</span> in CLM), <span style={{color:'#fd9b27'}}>**ERROR**</span>, or <span style={{color:'#ff4a4a'}}>**FATAL**</span>. All the other information in the log depends on [how you have configured your OpenTelemetry Collector](../collector/collector.md).
 
 Here is an example of a raw log entry sent by the Windows Event Viewer, collected by an OpenTelemetry cllector, then converted to CLM's internal syntax:
 
@@ -55,7 +55,7 @@ Here is an example of a raw log entry sent by the Windows Event Viewer, collecte
   },
   "observed_timestamp_nanos": 1763648218788360200,
   "resource_attributes": {
-    "event.provider.guid": "{A23B33B0-C8C9-472C-A5F9-F2BDFEA0X309}",
+    "event.provider.guid": "{XXXXXXXX-C8C9-472C-A5F9-F2BDFEA0X309}",
     "event.provider.name": "Microsoft-Windows-Security-SPP",
     "host.name": "MyLaptop",
     "os.name": "Microsoft Windows 10 Pro",
@@ -81,6 +81,6 @@ Here is an example of a raw log entry sent by the Windows Event Viewer, collecte
   * host.name – hostname or machine name
   * cloud.region – cloud region (e.g., us-east-1)
   * k8s.container.name – Kubernetes container name
-  * deployment.environment – environment like prod or staging
+  * deployment.environment – environment like prod or staging.
 
-In CLM, you can filter your data by using these attributes in [queries](../query-syntax.md), in [**Log Explorer**](../explore-analyze.md#using-the-log-explorer-page) or [dashboards](../dashboards.md).
+In CLM, you can filter your data by using these attributes in [queries](../query-syntax.md), in [**Log explorer**](../explore-analyze.md#using-the-log-explorer-page) or [dashboards](../dashboards.md).

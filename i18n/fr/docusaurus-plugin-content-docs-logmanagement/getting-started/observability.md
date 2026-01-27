@@ -13,21 +13,21 @@ L'observabilité, c'est la capacité à comprendre ce qui se passe dans un syst�
 
 L'observabilité répond à deux grands types de besoins :
 
-* La réaction : pour les équipes opérationnelles, l'observabilité est un outil de réaction rapide. Elle permet de détecter un symptôme, comprendre ce qui se passe réellement, et réaliser une analyse de cause racine (root cause analysis) pour corriger le problème. L'objectif est de réduire l'impact des incidents et de restaurer le service le plus vite possible.
-* La prise de décision : pour un manager, l'observabilité sert à disposer d'une vision globale et fiable de l'état du système. Grâce aux tableaux de bord, il peut suivre les tendances, évaluer la performance, anticiper les risques et prendre des décisions éclairées pour améliorer les services ou optimiser les ressources.
+* **La réaction** : pour les équipes opérationnelles, l'observabilité est un outil de réaction rapide. Elle permet de détecter un symptôme, comprendre ce qui se passe réellement, et réaliser une analyse de cause racine (root cause analysis) pour corriger le problème. L'objectif est de réduire l'impact des incidents et de restaurer le service le plus vite possible.
+* **La prise de décision** : pour un manager, l'observabilité sert à disposer d'une vision globale et fiable de l'état du système. Grâce aux tableaux de bord, il peut suivre les tendances, évaluer la performance, anticiper les risques et prendre des décisions éclairées pour améliorer les services ou optimiser les ressources.
 
 ## En quoi l'observabilité est-elle complémentaire de la supervision?
 <!--* La supervision dit "il y a un problème", l'observabilité permet de trouver d'où celui-ci vient et pourquoi il est apparu.-->
 
 * La supervision détecte les problèmes qu'on peut anticiper, car elle repose sur des métriques déclarées dans l'outil et des alertes basées sur des seuils définis grâce à une analyse préalable. Elle répond à la question : "Est-ce que le système fonctionne comme prévu ?".
 * À l'inverse, l'observabilité permet de découvrir et prendre en charge des problèmes imprévus, même dans des environnements dynamiques. Dans CLM, elle consiste en l'analyse de logs détaillés et contextualisés. Elle permet d'investiguer des problèmes inconnus, dans un système complexe (microservices, events, queues…).
-* Une fois les problèmes inconnus diagnostiqués via CLM, vous pouvez intégrer leur détection dans votre outil de supervision.
+* Une fois les problèmes inconnus diagnostiqués via CLM, vous pouvez intégrer leur détection dans votre outil de supervision (ou directement dans CLM).
 
 Exemple :
 
 1. Je constate un incident dans Centreon Infra Monitoring, mon outil de supervision, mais celui-ci ne me permet pas d'en trouver la cause.
 2. Dans CLM, je cherche la root cause du problème, en explorant le contexte du log concerné.
-3. Une fois que j'ai compris la cause du problème, je peux créer une alerte dans mon outil de supervision afin de le détecter dans le futur.
+3. Une fois que j'ai compris la cause du problème, je peux créer une alerte dans mon outil de supervision (ou une [règle d'alerte](alerts.md) dans CLM) afin de le détecter dans le futur.
 
 <!--### Exemple 1 — Supervision classique d'un serveur
 
