@@ -84,11 +84,12 @@ mysql Ver 8.0.x for Linux on x86_64
       ALTER USER '<USERNAME>'@'<HOST>' IDENTIFIED WITH caching_sha2_password BY '<PASSWORD>';
       ```
 
-    3. Add the following unique keys:
+    3. Execute the following queries:
 
        ```shell
        ALTER TABLE `centreon`.`traps` ADD UNIQUE (`traps_id`);
        ALTER TABLE `centreon`.`topology` ADD UNIQUE (`topology_page`);
+       ALTER TABLE `centreon`.`cb_list_values` DROP CONSTRAINT IF EXISTS `fk_cb_list_values_1`;
        ```
     
     4. If you are using [MBI](../reporting/introduction.md), in the central database:
