@@ -15,6 +15,7 @@ La page **Log explorer** page vous permet de rechercher et de filtrer les logs a
 
 * Utilisez la liste **Time period** en haut à droite de la page pour sélectionner la plage de logs à afficher.
 * Utilisez la barre de recherche pour filtrer vos logs à l'aide de [requêtes](query-syntax.md). Vous pouvez enrichir votre recherche avec du contexte supplémentaire (attributs) afin d'affiner les résultats et d'identifier la cause profonde des problèmes.
+* Développez les logs pour afficher les détails de leurs attributs.
 * Naviguez dans vos données à l'aide de la chronologie : cliquez et faites glisser votre souris sur le graphique pour sélectionner une nouvelle plage de temps.
 <!--filters-->
 

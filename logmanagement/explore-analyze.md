@@ -15,6 +15,7 @@ The **log explorer** page allows you to search and filter logs so you can invest
 
 * Use the **Time period** list at the top right of the page to select the range of logs to display.
 * Use the search bar to filter your logs using [queries](query-syntax.md). You can enrich your search with additional context (attributes) to refine the results and identify the root cause of problems.
+* Expand logs to see the details of their attributes.
 * Navigate your data using the timeline: click and drag your mouse over the graph to select a new time range.
 <!--filters-->
 

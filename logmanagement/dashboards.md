@@ -62,7 +62,7 @@ Select the settings you want in the left part of the screen.
 In the right part of the screen, define the data you want to display. The graph can display several data series.  Each series is defined by a dataset. A dataset has the following parameters:
 
 * **Name**: this will be the name of the data series in the legend of the graph.
-* **Datasource**: **Centreon Log Management** means the graph will use [data sent to Centreon Log Management by your OpenTelemetry collectors](./collector/collector.md).
+<!-- * **Datasource**: **Centreon Log Management** means the graph will use [data sent to Centreon Log Management by your OpenTelemetry collectors](./collector/collector.md). -->
 * **Query**: use the correct [query syntax](query-syntax.md).
 * **Alert type**:
 
