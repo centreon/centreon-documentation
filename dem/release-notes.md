@@ -8,7 +8,7 @@ title: DEM - release notes
 
 Features
 
-- [User journeys] A new action "Run a script" that allows the execution of a JavaScript in the browser has been added. For more details, consult our page ()[]
+- [User journeys] A new user journey action "Run a script" that allows the execution of a JavaScript in the browser has been added. For more details, consult our [user journey page](configuration/user-journey/create-a-scenario.md#run-a-script)
 
 Dashboards
 

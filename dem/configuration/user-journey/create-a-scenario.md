@@ -61,7 +61,7 @@ When the probe runs, the content is updated automatically. You will then see the
 
 ### Configure an action
 
-There are 5 possible actions:
+There are 6 possible actions:
 
 #### Navigate
 
@@ -124,6 +124,14 @@ By default, DEM submits the form once filled. But you can modify this behavior. 
 Sometimes there is no better solution than to wait for an action to happen. For example, if elements fade in after 1s, then waiting 1s lets you capture screenshots with those elements visible.
 
 This should be a last-resort option and used rarely.
+
+#### Run a script
+
+If all other actions fail, you can use this option to run a JavaScript in the browser to force an action, avoid using a script to simply replace other actions unless necessary. Note that the script guarantees the execution of an action but not its result, you should add a verification after each script:
+- DOM: (visible element, class changed)
+- Network: expected request (URL, HTTP status...)
+
+Keep your scripts short, simple and with precise specifications.
 
 ### Configure a verification
 
