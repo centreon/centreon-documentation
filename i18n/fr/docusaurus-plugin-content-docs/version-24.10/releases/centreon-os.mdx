@@ -22,6 +22,47 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.10.18
+
+Release date: `January 27, 2026`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Custom Views] Optimized performance when retrieving ACLs in widgets.
+- [Dashboards] Resource Table widget - Added a link to access the OpenTicket on the provider side.
+- [Packaging] Increased php memory limit in centreon php configuration.
+- [Performance Graphs] The limit on the number of metrics displayed per chart has been raised to 20. We also fixed an issue with the unnecessary display of legends when this limit is exceeded.
+
+</details>
+
+<details>
+<summary>Bug fixes</summary>
+
+- [Administration] Fixed an LDAP issue where the user's DN was never updated.
+- [Configuration] Fixed an error when duplicating the configuration of an RRD broker that resulted in missing outputs.
+- [Dashboards] Metrics Graph - Improved the vertical scale display.
+- [Dashboards] Resource Table widget - Fixed host name positioning issue.
+- [Dashboards] The list of contacts is now displayed correctly when sharing a dashboard or a playlist.
+- [Monitoring] Fixed an issue with the "hostgroups summary" monitoring page.
+- [Performance Graphs] Fixed an issue preventing users from selecting multiple graphs when the language selected isn't "en_US".
+- [Playlists] Fixed an issue preventing host problems from being displayed.
+- [Resource Status] Fixed an issue preventing services from being displayed when filtering on their parent host severity.
+- [Unattended] Fixed an issue that resulted in incomplete ITEE installations when installing a platform with the unattended.sh script.
+- [Users] Fixed an issue preventing users from being created when using an autologin key.
+
+</details>
+
+<details>
+<summary>Security fixes</summary>
+
+- [Security] fixed a vulnerability in Administration > Parameters > Images.
+- [Security] Fixed a vulnerability in LDAP configuration.
+- [Security] fixed a vulnerability in Monitoring > Performance > Virtual Metrics.
+- [Security] fixed a vulnerability in Notification > Hostgroups.	
+
+</details>
+
 ### 24.10.17
 
 Release date: `January 15, 2026`
@@ -695,6 +736,20 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.15
+
+Release date: `January 27, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue with Broker that resulted in the message "could not delete membership of service to service group".
+- [Config] Updated logrotate configuration to match packaging permissions.
+- [CMA] Fixed an issue where output of some CMA checks was truncated.
+- [Packaging] Added logrotate dependency for Debian.
+
+</details>
+
 ### 24.10.14
 
 Release date: `December 18, 2025`
@@ -965,6 +1020,18 @@ Release date: `October 31, 2024`
 
 ## Centreon Monitoring Agent
 
+### 24.10.13
+
+Release date: `January 27, 2026`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] Provided a RHEL 10 package for CMA.
+- [Packaging] Provided a Debian 13 package for CMA.
+
+</details>
+
 ### 24.10.12
 
 Release date: `December 18, 2025`
@@ -1072,6 +1139,18 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.10.10
+
+Release date: `January 27, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Config] Updated logrotate configuration to match packaging permissions.
+- [Packaging] Added logrotate dependency for Debian.
+
+</details>
 
 ### 24.10.9
 
@@ -1300,6 +1379,25 @@ Release date: `October 31, 2024`
 
 ## Centreon Open Tickets
 
+### 24.10.7
+
+Release date: `January 27, 2026`
+
+<details>
+<summary>Bug fixes</summary>
+
+- [Custom Views] Open Ticket - Fixed filter on host categories.
+- [Dashboards] Resource Table widget - Fixed an issue preventing custom providers from being used for ticket management.
+
+</details>
+
+<details>
+<summary>Security fixes</summary>
+
+- [BREAKING CHANGE] [Open Tickets] The ability to define a custom command linked to a rule has been removed, due to low adoption and security concerns.
+
+</details>
+
 ### 24.10.6
 
 Release date: `January 15, 2026`
@@ -1389,6 +1487,18 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon AWIE
+
+### 24.10.4
+
+Release date: `January 26, 2026`
+
+<details>
+
+<summary>Bug fixes</summary>
+
+- [AWIE] Fixed an issue with the configuration import/export page that resulted in the "Uncaught ReferenceError: submitForm is not defined" message.
+
+</details>
 
 ### 24.10.3
 

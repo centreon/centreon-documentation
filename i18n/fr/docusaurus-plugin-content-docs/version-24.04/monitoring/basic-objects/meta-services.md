@@ -34,7 +34,7 @@ données disponibles sont :
 * Le type **ABSOLUTE** est pour les compteurs qui se réinitialisent à la lecture. Il est utilisé pour les compteurs
   rapides qui ont tendance à déborder.
 
-> Plus d’informations sur le site de *[RRDTools](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en)*.
+> Plus d’informations sur le site de *[RRDTools](https://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html)*.
 
 ## Configuration
 
