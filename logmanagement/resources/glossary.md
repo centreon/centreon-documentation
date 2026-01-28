@@ -41,12 +41,13 @@ A label for a set of services. Example: **e-commerce site.** -->
 
 Across most tools and platforms, logs are presented using log levels like INFO or ERROR — the format end users are most familiar with. In OpenTelemetry, this information is managed using two attributes: [SeverityNumber](https://opentelemetry.io/docs/specs/otel/logs/data-model/#field-severitynumber) (the severity's ID) and SeverityText (the severity's label). One **SeverityText** value corresponds to several **SeverityNumbers**.
 
-In CLM, you will only ever see logs with a <span style={{color:"#1ebeb3"}}>**DEBUG**</span>, <span style={{color:"#1588d1"}}>**INFO**</span>, <span style={{color:"#ffca34"}} >**WARNING**</span>, <span style={{color:"#fd9b27"}}>**ERROR**</span>, or <span style={{color:"#ff4a4a"}}>**FATAL**</span> severity. This is because data is imported based on the **SeverityNumber** attribute. The values stored in the **SeverityText** attribute returned by the host are replaced by those defined by the OpenTelemetry standard (with the exception of WARN, which becomes WARNING). This prevents duplicates or inconsistent entries in the severity level list.
+In CLM, you will only ever see logs with a <span style={{color:"#4a8c6f"}}>**TRACE**</span>, <span style={{color:"#1ebeb3"}}>**DEBUG**</span>, <span style={{color:"#1588d1"}}>**INFO**</span>, <span style={{color:"#ffca34"}} >**WARNING**</span>, <span style={{color:"#fd9b27"}}>**ERROR**</span>, or <span style={{color:"#ff4a4a"}}>**FATAL**</span> severity. This is because data is imported based on the **SeverityNumber** attribute. The values stored in the **SeverityText** attribute returned by the host are replaced by those defined by the OpenTelemetry standard (with the exception of WARN, which becomes WARNING). This prevents duplicates or inconsistent entries in the severity level list.
 
 Here is the range of severity numbers that CLM takes into account (the descriptions are those of the OpenTelemetry documentation):
 
 | SeverityNumber range | Name | Description |
 | --- | --- |--- |
+| 1-4| <span style={{color:'#4a8c6f'}}>**TRACE**</span>	| A fine-grained debugging event. |
 | 5-8	| <span style={{color:'#1ebeb3'}}>**DEBUG**</span>	| A debugging event. |
 | 9-12	| <span style={{color:'#1588d1'}}>**INFO**</span>	| An informational event. Indicates that an event happened. |
 | 13-16	| <span style={{color:'#ffca34'}}>**WARNING**</span>	| A warning event. Not an error but is likely more important than an informational event. |
