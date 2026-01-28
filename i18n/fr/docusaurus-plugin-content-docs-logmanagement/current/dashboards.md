@@ -5,9 +5,9 @@ title: Dashboards
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Dashboards are built using widgets. They allow you to display [text](#generic-text), and [charts](#metrics-graph) that present the number of logs received according to specific parameters.
+Les tableaux de bord sont créés à l'aide de widgets. Ils vous permettent d'afficher du [texte](#generic-text) et des [graphiques](#metrics-graph) qui présentent le nombre de logs reçus en fonction de paramètres spécifiques.
 
-## Creating a dashboard
+## Créer un tableau de bord
 
 1. To create a dashboard, in the **Dashboards** page, click **Add**.
 2. In the window that opens, enter a name (mandatory) and a description (optional), then click **Create**. A blank dashboard appears.
@@ -17,7 +17,7 @@ Dashboards are built using widgets. They allow you to display [text](#generic-te
 3. [Add widgets](#adding-a-widget-to-a-dashboard) to your dashboard.
 4. Save each widget as you create or edit it, then save the dashboard itself. The dashboard appears in the list of dashboards.
 
-## Adding a widget to a dashboard
+## Ajouter un widget à un tableau de bord
 
 1. If you are not already in your dashboard, [edit it](#editing-a-dashboard).
 2. In the dashboard, click **Add a widget**: the screen displays the widget creation screen.
@@ -25,18 +25,18 @@ Dashboards are built using widgets. They allow you to display [text](#generic-te
 3. [Use the available settings to configure your widget](#available-widgets).
 4. When you have finished configuring your widget, click **Save** in the bottom right corner. This only saves the widget: make sure you also save your dashboard before you do anything else.
 
-## Editing a dashboard
+## Éditer un tableau de bord
 
 On the **Dashboards** page, click the name of the dashboard you want to edit. The dashboard opens; click **Edit dashboard** in the top-right corner to enter edit mode.
 
 Edit each widget you want, saving your changes to each widget. Then save the dashboard itself.
 
-## Editing a widget
+## Éditer un widget
 
 When editing a dashboard, click the 3 dots in the top rigt corner of a widget to enter edit mode.
 Once you have edited your widget, save it, then save th edashboard itself.
 
-## Available widgets
+## Widgets disponibles
 
 ## Generic text
 

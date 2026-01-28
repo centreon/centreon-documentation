@@ -36,11 +36,9 @@ Les logs OpenTelemetry ne sont pas seulement du texte : ce sont des données que
 * Vous pouvez envoyer des logs au format OpenTelemetry directement à Centreon Log Management.
 * Si un dispositif produit des logs dans un format autre que OpenTelemetry, [utilisez un collecteur OpenTelemetry pour convertir les données](../collector/collector.md). Le collecteur peut fonctionner comme un agent sur l'hôte ou en mode passerelle pour recevoir, enrichir, traduire et transférer les logs vers Centreon Log Management.
 
-## What does a log entry in OpenTelemetry format look like?
+## À quoi ressemble une entrée de log au format OpenTelemetry ?
 
-## À quoi ressemble une entrée de journal au format OpenTelemetry ?
-
-Une entrée de log au format OpenTelemetry comporte toujours un timestamp et un nom de [service](../resources/glossary.md#service) (pour le service qui a produit le log). En général, elle indique également la [sévérité](../resources/glossary.md#sévérité) du journal : <span style={{color:“#1ebeb3”}}>**DEBUG**</span>, <span style={{color:“#1588d1”}}>**INFO**</span>, WARN (<span style={{color:“#ffca34”}} >**WARNING**</span> dans CLM), <span style={{color:“#fd9b27”}}>**ERROR**</span> ou <span style={{color:“#ff4a4a”}}>**FATAL**</span>. Toutes les autres informations contenues dans le log dépendent de [la manière dont vous avez configuré votre collecteur OpenTelemetry](../collector/collector.md).
+Une entrée de log au format OpenTelemetry comporte toujours un timestamp et un nom de [service](../resources/glossary.md#service) (pour le service qui a produit le log). En général, elle indique également la [sévérité](../resources/glossary.md#sévérité) du journal : <span style={{color:"#1ebeb3"}}>**DEBUG**</span>, <span style={{color:"#1588d1"}}>**INFO**</span>, WARN (<span style={{color:"#ffca34"}} >**WARNING**</span> dans CLM), <span style={{color:"#fd9b27"}}>**ERROR**</span> ou <span style={{color:"#ff4a4a"}}>**FATAL**</span>. Toutes les autres informations contenues dans le log dépendent de [la manière dont vous avez configuré votre collecteur OpenTelemetry](../collector/collector.md).
 
 Voici un exemple d'entrée de log brute envoyée par l'Observateur d'évènements Windows, collectée par un collecteur OpenTelemetry, puis convertie en syntaxe interne CLM :
 
