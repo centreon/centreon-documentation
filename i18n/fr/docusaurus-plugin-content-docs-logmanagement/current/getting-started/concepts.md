@@ -9,7 +9,7 @@ CLM gère des logs. Les logs contiennent des informations détaillées sur les �
 
 ## À quoi ressemble une entrée de log dans CLM ?
 
-Tous les logs reçus par CLM sont listés à la page **Log explorer**, où vous pouvez les filtrer. Dans CLM, chaque entrée de log a une [sévérité (c'est-à-dire un niveau de log)](../resources/glossary.md#severity), indiqué par une ligne colorée.
+Tous les logs reçus par CLM sont listés à la page **Log explorer**, où vous pouvez les filtrer. Dans CLM, chaque entrée de log a une [sévérité (c'est-à-dire un niveau de log)](../resources/glossary.md#sévérité), indiqué par une ligne colorée.
 
 ![image](../assets/log_explorer.png)
 
@@ -21,7 +21,7 @@ Voici les principales fonctionnalités de Centreon Log Management :
 
 3. CLM vous permet d'[analyser ces logs en temps réel](../explore-analyze.md), à l'aide de filtres, de [requêtes](../query-syntax.md) ou de [tableaux de bord](../dashboards.md). Cela vous aide à détecter les anomalies, les erreurs, les incidents de sécurité ou les comportements inattendus : consultez les [**cas d'utilisation**](use-cases.md) pour des exemples détaillés.
 
-4. CLM crée des [évènements d'alerte](../resources/glossary.md#alert-eventalert-status) (alert events) en cas de problème ou de dépassement des seuils critiques, conformément aux [règles d'alerte](../alerts.md) (alert rules) que vous avez définies.
+4. CLM crée des [évènements d'alerte](../resources/glossary.md#évènement-dalertestatut-dalerte) (alert events) en cas de problème ou de dépassement des seuils critiques, conformément aux [règles d'alerte](../alerts.md) (alert rules) que vous avez définies.
 
 5. CLM vous permet de stocker les logs en toute sécurité pendant de longues périodes (à des fins de conformité, de sécurité ou d'analyse historique).
 

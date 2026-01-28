@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Des logs aux évènements d'alerte
 
-Les logs ont un [niveau de sévérité](./resources/glossary.md#severity) (c'est-à-dire un niveau de log) qui indique la sévérité d'un évènement. Cependant, le niveau de sévérité ne vous renseigne que sur la nature d'un seul log. Un seul log ne suffit pas. Les logs doivent souvent être analysés ensemble.
+Les logs ont un [niveau de sévérité](./resources/glossary.md#sévérité) (c'est-à-dire un niveau de log) qui indique la sévérité d'un évènement. Cependant, le niveau de sévérité ne vous renseigne que sur la nature d'un seul log. Un seul log ne suffit pas. Les logs doivent souvent être analysés ensemble.
 
 Par exemple, une entrée de log INFO peut simplement enregistrer qu'un utilisateur a tenté de se connecter. Mais si vous constatez 300 tentatives de connexion (et donc 300 entrées INFO) en 10 secondes, cela suggère un problème.
 
@@ -47,7 +47,7 @@ Les différents statuts d'alerte possibles sont les suivants :
    * **Conditions**: définit quel [statut d'alerte l'évènement d'alerte doit avoir](#statuts-dalerte).
 4. Enregistrez votre règle d'alerte. La fenêtre se ferme et votre règle d'alerte apparaît dans la liste des règles d'alerte. La règle commence à être évaluée et à générer des évènements d'alerte.
 
-## Affichage de tous les évènements d'alerte
+## Afficher tous les évènements d'alerte
 
 Allez à la page **Alerts & notifications > Alert events**. Utilisez la barre de recherche et son bouton de filtre pour trouver les évènements d'alerte désirés.
 

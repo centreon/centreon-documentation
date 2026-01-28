@@ -1,26 +1,26 @@
 ---
 id: explore-analyze
-title: Exploring and analyzing logs
+title: Explorer et analyser les logs
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-According to your [use case](./getting-started/use-cases.md), you’ll either filter the log explorer for high-severity logs or rely on alert events for more complex situations.
+Selon votre [cas d'usage](./getting-started/use-cases.md), vous pouvez soit filtrer Log explorer pour afficher les journaux à haut niveau de sévérité, soit vous baser sur les évènements d'alerte (alert events) pour les situations plus complexes.
 
-> To see logs in CLM, you first need to [configure an OpenTelemetry collector on each host you want to receive logs from](./collector/collector.md).
+> Pour afficher des logs dans CLM, vous devez d'abord [configurer un collecteur OpenTelemetry sur chaque hôte dont vous souhaitez recevoir les logs](./collector/collector.md).
 
-## Using the Log explorer page
+## Utiliser la page Log explorer
 
-The **log explorer** page allows you to search and filter logs so you can investigate issues and perform root-cause analysis.
+La page **Log explorer** page vous permet de rechercher et de filtrer les logs afin que vous puissiez investiguer les problèmes et effectuer une analyse de leurs causes profondes.
 
-* Use the **Time period** list at the top right of the page to select the range of logs to display.
-* Use the search bar to filter your logs using [queries](query-syntax.md). You can enrich your search with additional context (attributes) to refine the results and identify the root cause of problems.
-* Navigate your data using the timeline: click and drag your mouse over the graph to select a new time range.
+* Utilisez la liste **Time period** en haut à droite de la page pour sélectionner la plage de logs à afficher.
+* Utilisez la barre de recherche pour filtrer vos logs à l'aide de [requêtes](query-syntax.md). Vous pouvez enrichir votre recherche avec du contexte supplémentaire (attributs) afin d'affiner les résultats et d'identifier la cause profonde des problèmes.
+* Naviguez dans vos données à l'aide de la chronologie : cliquez et faites glisser votre souris sur le graphique pour sélectionner une nouvelle plage de temps.
 <!--filters-->
 
-## Using the Alert events page
+## Utiliser la page Alert events
 
-On the [**Alert events** page](alerts.md#viewing-all-alert-events), [alert events](./resources/glossary.md#alert-eventalert-status) show what's happening in real time and allow you to react quickly to incidents. (To get alert events, you need to create [alert rules](alerts.md) first.)
+Sur la page [**Alert events**](alerts.md#afficher-tous-les-évènements-dalerte), les [évènements d'alerte](./resources/glossary.md#évènement-dalertestatut-dalerte) indiquent ce qui se passe en temps réel et vous permettent de réagir rapidement aux incidents. (Pour obtenir des évènements d'alerte, vous devez d'abord créer des [règles d'alerte](alerts.md).)
 
 <!-- ### Generating a summary of your logs
 
@@ -32,6 +32,6 @@ Log summaries are a list of the main events detected for a period:
 - Unusual system behavior
 - Important updates or configuration changes -->
 
-## Using dashboards
+## Utiliser des tableaux de bord
 
-Create [dashboards](dashboards.md) to view and explore your data visually. Dashboards display both current information and historical data, allowing you to examine trends and understand changes over time.
+Créez des [tableaux de bord](dashboards.md) pour visualiser et explorer vos données. Les tableaux de bord affichent à la fois les informations actuelles et les données historiques, ce qui vous permet d'examiner les tendances et de comprendre les changements au fil du temps.

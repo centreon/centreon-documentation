@@ -7,40 +7,40 @@ import TabItem from '@theme/TabItem';
 
 <!-- > Refer to the [Lucene official documentation](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) for a full description of the syntax. -->
 
-Use queries in the [**Log Explorer** page](explore-analyze.md), in [alert rules](alerts.md) or in [dashboards](dashboards.md) to filter your data and query OpenTelemetry attributes. The attributes you will be able to query will be the ones [retrieved by your OpenTelemetry Collector, as you configured it](./collector/collector.md). See [What does a log entry in OpenTelemetry format look like?](./getting-started/concepts.md#what-does-a-log-entry-in-opentelemetry-format-look-like) for an overview of the main attributes.
+Utilisez les requêtes dans la page [**Log explorer**](explore-analyze.md), dans les [règles d'alerte](alerts.md) ou dans les [tableaux de bord](dashboards.md) pour filtrer vos données et interroger les attributs OpenTelemetry. Les attributs que vous pourrez interroger seront ceux [récupérés par votre collecteur OpenTelemetry, tel que vous l'avez configuré](./collector/collector.md). Consultez [À quoi ressemble une entrée de journal au format OpenTelemetry ?](./getting-started/concepts.md#à-quoi-ressemble-une-entrée-de-log-au-format-opentelemetry-) pour obtenir un aperçu des principaux attributs.
 
-In the **Log Explorer** page:
+Dans la page **Log explorer** :
 
-* Type your query, then press **CTRL** + **Enter** to launch the search. <!--autocomplete-->
-* Do not include time parameters in your queries: time periods are defined using the list in the top right corner.
+* Saisissez votre requête, puis appuyez sur **CTRL** + **Entrée** pour lancer la recherche. <!--autocomplete-->
+* N'incluez pas de paramètres temporels dans vos requêtes : la période de temps est définie à l'aide de la liste située dans le coin supérieur droit.
 
-## Examples of simple queries
+## Exemples de requêtes simples
 
-Select all logs with **syslog** as a [service name](resources/glossary.md#service).
+Sélectionnez tous les logs dont le [nom du service](resources/glossary.md#service) est **syslog**.
 
 ```text
 service_name:syslog
 ```
 
-Select all logs for the **syslog** service, with a [severity number](resources/glossary.md#severity) strictly above 20, i.e. logs with the FATAL severity. Use the boolean operator **AND**.
+Sélectionnez tous les logs du service **syslog** dont le [numéro de sévérité](resources/glossary.md#sévérité) est strictement supérieur à 20, c'est-à-dire les logs dont la sévérité est FATAL. Utilisez l'opérateur booléen **AND**.
 
 ```text
 service_name:syslog AND severity_number:[20 TO *]
 ```
 
-Select all FATAL logs for the **syslog** service, coming from hosts in a specified IP range. Use the `*` wildcard.
+Sélectionnez tous les logs FATAL pour le service **syslog** provenant d'hôtes situés dans une plage d'IPs spécifiée. Utilisez le caractère générique `*`.
 
 ```text
 service_name:syslog AND severity_number:[20 TO *] AND host.ip:192.168.1.*
 ```
 
-Select all FATAL logs  for the **syslog** service, coming from hosts in a specified IP range, except 192.168.1.10. Combine the **AND** and **NOT** boolean operators.
+Sélectionnez tous les logs FATAL pour le service **syslog**, provenant d'hôtes situés dans une plage d'IPs spécifiée, à l'exception de 192.168.1.10. Combinez les opérateurs booléens **AND** et **NOT**.
 
 ```text
 service_name:syslog AND severity_number:[20 TO *] AND host.ip:192.168.1.* AND NOT host.ip:"192.168.1.10"
 ```
 
-In these logs, find logs whose message body includes the word "failed". The syntax is case-sensitive.
+Dans ces logs, recherchez ceux dont le corps du message contient le mot "failed". La syntaxe est sensible à la casse.
 
 ```text
 service_name:syslog AND severity_number:[20 TO *] AND host.ip:192.168.1.* AND NOT host.ip:"192.168.1.10" AND body.message:*failed*

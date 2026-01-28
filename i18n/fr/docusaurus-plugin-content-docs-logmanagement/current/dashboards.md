@@ -9,64 +9,64 @@ Les tableaux de bord sont créés à l'aide de widgets. Ils vous permettent d'af
 
 ## Créer un tableau de bord
 
-1. To create a dashboard, in the **Dashboards** page, click **Add**.
-2. In the window that opens, enter a name (mandatory) and a description (optional), then click **Create**. A blank dashboard appears.
+1. Pour créer un tableau de bord, dans la page **Dashboards**, cliquez sur **Add**.
+2. Dans la fenêtre qui s'ouvre, entrez un nom (obligatoire) et une description (facultative), puis cliquez sur **Create**. Un tableau de bord vierge apparaît.
 
-   ![image](./assets/dashboard_blank.png)
+![image](./assets/dashboard_blank.png)
 
-3. [Add widgets](#adding-a-widget-to-a-dashboard) to your dashboard.
-4. Save each widget as you create or edit it, then save the dashboard itself. The dashboard appears in the list of dashboards.
+3. [Ajoutez des widgets](#ajouter-un-widget-à-un-tableau-de-bord) à votre tableau de bord.
+4. Enregistrez chaque widget au fur et à mesure que vous le créez ou le modifiez, puis enregistrez le tableau de bord lui-même. Le tableau de bord apparaît dans la liste des tableaux de bord.
 
 ## Ajouter un widget à un tableau de bord
 
-1. If you are not already in your dashboard, [edit it](#editing-a-dashboard).
-2. In the dashboard, click **Add a widget**: the screen displays the widget creation screen.
-2. Select a widget type: the rest of the screen is updated to display the settings for this type of widget.
-3. [Use the available settings to configure your widget](#available-widgets).
-4. When you have finished configuring your widget, click **Save** in the bottom right corner. This only saves the widget: make sure you also save your dashboard before you do anything else.
+1. Si vous n'êtes pas déjà dans votre tableau de bord, [éditez-le](#éditer-un-tableau-de-bord).
+2. Dans le tableau de bord, cliquez sur **Add a widget** : l'écran affiche l'écran de création de widget.
+2. Sélectionnez un type de widget : le reste de l'écran est mis à jour pour afficher les paramètres de ce type de widget.
+3. [Utilisez les paramètres disponibles pour configurer votre widget](#widgets-disponibles).
+4. Lorsque vous avez terminé de configurer votre widget, cliquez sur **Enregistrer** dans le coin inférieur droit. Cela enregistre uniquement le widget : veillez à également enregistrer votre tableau de bord avant de faire quoi que ce soit d'autre.
 
 ## Éditer un tableau de bord
 
-On the **Dashboards** page, click the name of the dashboard you want to edit. The dashboard opens; click **Edit dashboard** in the top-right corner to enter edit mode.
+À la page **Dashboards**, cliquez sur le nom du tableau de bord que vous souhaitez modifier. Le tableau de bord s'ouvre. Cliquez sur **Edit dashboard** dans le coin supérieur droit pour passer en mode édition.
 
-Edit each widget you want, saving your changes to each widget. Then save the dashboard itself.
+Modifiez chaque widget souhaité, en enregistrant vos modifications pour chaque widget. Enregistrez ensuite le tableau de bord lui-même.
 
 ## Éditer un widget
 
-When editing a dashboard, click the 3 dots in the top rigt corner of a widget to enter edit mode.
-Once you have edited your widget, save it, then save th edashboard itself.
+Lorsque vous modifiez un tableau de bord, cliquez sur les trois points situés dans le coin supérieur droit d'un widget pour passer en mode édition.
+Une fois que vous avez modifié votre widget, enregistrez-le, puis enregistrez le tableau de bord lui-même.
 
 ## Widgets disponibles
 
 ## Generic text
 
-Use this widget to insert titles, information or links into your dashboards. Use the toolbar to format the description.
+Utilisez ce widget pour insérer des titres, des informations ou des liens dans vos tableaux de bord. Utilisez la barre d'outils pour mettre en forme la description.
 
 ![image](./assets/widget_generic_text.png)
 
 ### Metrics graph
 
-Here, "metrics" means the number of log entries that match a specific query, or the ratio obtained by dividing a query by another query. The resulting number of logs can be broken down according to another parameter. In the example below, each bar represents the number of INFO and ERROR logs for a service for a given period.
+Ici, "metrics" désigne le nombre d'entrées de logs correspondant à une requête spécifique, ou le rapport obtenu en divisant une requête par une autre requête. Le nombre de logs obtenu peut être ventilé en fonction d'un autre paramètre. Dans l'exemple ci-dessous, chaque barre représente le nombre de logs INFO et ERROR pour un service pendant une période donnée.
 
 ![image](./assets/widget_metrics_chart.png)
 
-Select the settings you want in the left part of the screen.
+Sélectionnez les paramètres souhaités dans la partie gauche de l'écran.
 
-* The type of widget (here, **Metrics graph**).
-* A title and a description. These will be displayed in the widget at all times.
-* Configure the aspect of the graph using the **Display settings** section.
-* The time period you want the graph to cover.
+* Le type de widget (ici, **Metrics graph**).
+* Un titre et une description. Ceux-ci seront affichés en permanence dans le widget.
+* Configurez l'aspect du graphique à l'aide de la section **Display settings**.
+* La période que vous souhaitez voir couverte par le graphique.
 
 #### Dataset selection
 
-In the right part of the screen, define the data you want to display. The graph can display several data series.  Each series is defined by a dataset. A dataset has the following parameters:
+Dans la partie droite de l'écran, définissez les données que vous souhaitez afficher. Le graphique peut afficher plusieurs séries de données.  Chaque série est définie par un "dataset" (jeu de données). Un dataset possède les paramètres suivants :
 
-* **Name**: this will be the name of the data series in the legend of the graph.
-* **Datasource**: **Centreon Log Management** means the graph will use [data sent to Centreon Log Management by your OpenTelemetry collectors](./collector/collector.md).
-* **Query**: use the correct [query syntax](query-syntax.md).
-* **Alert type**:
+* **Name** : ce sera le nom de la série de données dans la légende du graphique.
+* **Datasource** : **Centreon Log Management** signifie que le graphique utilisera [les données envoyées à Centreon Log Management par vos collecteurs OpenTelemetry](./collector/collector.md).
+* **Query** : utilisez la [syntaxe de requête](query-syntax.md) correcte.
+* **Alert type** :
 
-  * **Count** means that the query will return the number of log entries that match the query.
-  * **Ratio** means that you divide the results of a query by the results of another query.
+   * **Count** signifie que la requête renverra le nombre d'entrées de log correspondant à la requête.
+   * **Ratio** signifie que le nombre de résultats d'une requête sera divisé par le nombre de résultats d'une autre requête.
   
-If you display the graph in **Line** mode, each dataset will produce a curve. If you display the chart as a **Bar** chart, each dataset will produce a bar. Inside each bar, the data will be stacked according to the **Group by** parameter.
+Si vous affichez le graphique en mode **Line**, chaque dataset produira une courbe. Si vous affichez le graphique en mode **Bar**, chaque dataset produira une barre. À l'intérieur de chaque barre, les données seront empilées selon le paramètre **Group by**.
