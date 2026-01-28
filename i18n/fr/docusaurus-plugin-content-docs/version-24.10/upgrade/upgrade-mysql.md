@@ -83,22 +83,23 @@ mysql Ver 8.0.x for Linux on x86_64
       ALTER USER '<USERNAME>'@'<HOST>' IDENTIFIED WITH caching_sha2_password BY '<PASSWORD>';
       ```
 
-    3. Ajoutez les clés uniques suivantes :
+    3. Exécutez les requêtes suivantes :
 
        ```shell
        ALTER TABLE `centreon`.`traps` ADD UNIQUE (`traps_id`);
        ALTER TABLE `centreon`.`topology` ADD UNIQUE (`topology_page`);
+       ALTER TABLE `centreon`.`cb_list_values` DROP CONSTRAINT IF EXISTS `fk_cb_list_values_1`;
        ```
-    
+
     4. Si vous utilisez [MBI](../reporting/introduction.md), dans la base de données du central :
-    
+
        * Donnez des droits trigger à l'utilisateur **centreon** :
 
          ```shell
          GRANT TRIGGER ON centreon.* TO `centreon`@'%';
          GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
          ```
-    
+
        * Exécutez les requêtes suivantes :
 
          ```shell
