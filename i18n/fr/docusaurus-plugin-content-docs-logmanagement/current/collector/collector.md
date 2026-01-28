@@ -35,12 +35,12 @@ Utilisez les paquets **otelcol-contrib** pour installer OpenTelemetry Collector 
 <Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
-https://opentelemetry.io/docs/collector/installation/#linux
+wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.139.0/otelcol-contrib_0.139.0_linux_amd64.rpm
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-https://opentelemetry.io/docs/collector/installation/#windows
+https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.144.0/otelcol_0.144.0_windows_x64.msi
 
 </TabItem>
 </Tabs>
