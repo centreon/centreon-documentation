@@ -786,27 +786,6 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 </Tabs>
 
-### Mettre à jour une configuration existante 
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-Modifier le fichier **/etc/centreon-monitoring-agent/centagent.json**.
-Redémarrer l'agent.
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-Exécuter **centreon-monitoring-agent-modify.exe** situé dans le répertoire d'installation de CMA.
-
-Cela est également possible en mode silencieux :
-```shell
-centreon-monitoring-agent-modify.exe /VERYSILENT
-```
-
-</TabItem>
-</Tabs>
-
 ### Configurer plusieurs instances d'agent sur le même hôte
 
 #### Principe général

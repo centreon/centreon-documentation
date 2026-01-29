@@ -12,7 +12,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  dependency-scan:
+    uses: centreon/security-tools/.github/workflows/dependency-analysis.yml@main
+
   get-versions:
+    needs: [dependency-scan]
     runs-on: ubuntu-24.04
 
     name: Get versions
@@ -165,7 +169,7 @@ jobs:
 
   build:
     if: ${{ needs.get-versions.outputs.build_environments != '[]' }}
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-24.04
     needs: [get-versions]
 
     strategy:
@@ -215,6 +219,7 @@ jobs:
       - name: Build documentation
         run: pnpm build
         env:
+          NODE_OPTIONS: --max_old_space_size=16000
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}

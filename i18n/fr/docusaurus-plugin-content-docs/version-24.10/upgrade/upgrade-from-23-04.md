@@ -39,7 +39,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 ## Montée de version du serveur Centreon Central
 
-> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+> Lorsque vous lancez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
 ### Installation du nouveau dépôt Centreon
 
@@ -50,15 +50,6 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
    ```shell
    dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el8/centreon-23.04-el8.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el8/centreon-23.04-el8.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el8/centreon-business-23.04-el8.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -86,15 +77,6 @@ Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de l
 
    ```shell
    dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el9/centreon-23.04-el9.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
-
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el9/centreon-23.04-el9.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el9/centreon-business-23.04-el9.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
