@@ -29,57 +29,56 @@ Release date: `January 29, 2026`
 <details open>
   <summary>Enhancements</summary>
 
-- [Administration] Token expiration date is now displayed with hh:mm.
-- [Authentication] SAML IDP form - Added a new field to handle the requested authentication context.
-- [CMA] Handle freshness by default for deployed CMA related Monitoring Connector.
-- [Configuration] Additional configuration - enhanced password-type fields management.
+- [Administration] Token expiration date now also displays with hh:mm.
+- [Authentication] SAML IDP form - Added a new field for handling the "requestedAuthnContext" value and renamed the existing “Requested authentication context“ field to “Comparison rule for the requested authentication context” to avoid confusion.
+- [CMA] CMA-related resources created or updated by a monitoring connector now have freshness checks enabled by default.
+- [Configuration] Additional configuration - the characters in the username field are no longer masked by asterisks
 - [Configuration] Agent configuration now allows any certificate path.
-- [Configuration] Agent configuraiton - CMA Token is now mandatory in No TLS.
-- [Configuration] Agent configuration - listening port has been added as a parameter in agent-initiated connection.
-- [Configuration] Cert format is now accepted for certificates in agent configuration.
-- [Configuration] Freshness is activated by default on all CMA-related services, hosts and templates.
-- [Custom Views] Optimized performance when retrieving ACLs in widgets.
-- [Dashboards] Resource Table widget - Added link to the detail of a ticket on the provider side.
-- [Performance Graphs] The limit on the number of metrics displayed per chart has been raised to 20. We also fixed an issue with the unnecessary display of legends when this limit is exceeded.
+- [Configuration] Agent configuraiton - CMA Token is now mandatory in No TLS mode.
+- [Configuration] Agent configuration - "Listening port" has been added as a parameter for agent-initiated connection.
+- [Configuration] The format ".cert" is now accepted for certificates in agent configuration.
+- [Custom Views] Optimized the performance when retrieving ACLs in widgets.
+- [Dashboards] Resource Table widget - Added a link to see the details of a ticket on the provider side.
+- [Performance Graphs] The limit of metrics displayed per chart has been raised to 20. Also fixed an issue with the unnecessary display of legends when this limit is exceeded.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [Administration] Fixed a LDAP issue where user DN was never updated.
-- [CLAPI] Fixed an issue where CLAPI returns sometimes a non needed empty return code message.
-- [CMA] Handle freshness by default for deployed CMA related Monitoring Connector.
-- [Configuration] Added a validation error in tempate.
+- [Administration] Fixed an LDAP issue that caused the user DN to never update.
+- [CLAPI] Fixed an issue where CLAPI would sometimes return an  empty code message.
+- [CMA] CMA-related resources created or updated by a monitoring connector now have freshness checks enabled by default.
+- [Configuration] Added an error-check in the template creation form.
 - [Configuration] Agent configuration now allows any certificate path.
 - [Configuration] Cacheert format is now accepted for certificates in agent configuration.
-- [Configuration] Cleaned up and fixed macro management in host/HT legacy forms.
-- [Configuration] Fixed an issue where inputs/outputs were missing when duplicating a Broker config.
+- [Configuration] Cleaned up and fixed macro management in for the legacy host/host template forms.
+- [Configuration] Fixed an error when duplicating the configuration of an RRD broker that resulted in missing outputs.
 - [Configuration] Freshness is activated by default on all CMA-related services, hosts and templates.
-- [Dashboards] The list of contacts is now displayed correctly when sharing a dashboard or a playlist.
+- [Dashboards] The list of contacts is now properly displayed when sharing a dashboard or a playlist.
 - [Graphs] Graphs now adjust properly to data range.
-- [Hosts] Fixed an issue by not allowing to create circular parent/child hosts relationship.
-- [Install/upgrade script] is_encryption_ready is now a tinyint instead of an enum.
-- [Monitoring] Fixed "hostgroups summary" monitoring page.
-- [Performance Graphs] Fixed an issue preventing user from selecting multiple graphs when language selected isn't "en_US".
-- [Performance Graphs] Fixed an issue that prevented the filters from working together sequentially (in a funnel).
-- [Playlists] Fixed issue preventing host problems from being displayed.
-- [Resource Status] Fixed issue preventing services from being displayed when filtering on their parent host severity.
-- [Unattended] Fixed an issue in the ITEE installation that could be incomplete when installing a platform with the unattended.sh script.
-- [Users] Fixed issue preventing user from being created when using an autologin key.
+- [Hosts] It is no longer possible to create a circular parent/child relationship between hosts.
+- [Install/upgrade script] "is_encryption_ready" in "isntances.centreon_storage is now a tinyint instead of an enum.
+- [Monitoring] Fixed  an issue with the hostgroups summary monitoring page.
+- [Performance Graphs] Fixed an issue preventing users from selecting multiple graphs when the language selected isn't "en_US".
+- [Performance Graphs] Fixed an issue that prevented the filters from working together.
+- [Playlists] Fixed an issue preventing host problems from being displayed.
+- [Resource Status] Fixed an issue preventing services from being displayed when filtering by their parent host severity.
+- [Unattended] Fixed an issue that resulted in incomplete ITEE installations when installing a platform with the unattended.sh script.
+- [Users] Fixed an issue preventing user from being created when using an autologin key.
 
 </details>
 
 <details>
   <summary>Security fixes</summary>
 
-- [Security] Fixed a vulnerability in Administration > Parameters > Images.
+- [Security] Fixed a vulnerability in images parameters.
 - [Security] Fixed a vulnerability in LDAP configuration.
-- [Security] Fixed a vulnerability in Monitoring > Performance > Virtual Metrics.
-- [Security] Fixed a vulnerability in Notification > Hostgroups.
-- [Security] Fixed broken object level authorization in Users configuration endpoint (/centreon/api/latest/configuration/users).
-- [Security] Fixed an issue where writeEngineSecrets.sh cannot be used with --insecure option.
-- [Security] Token changes are logged in a dedicated file with a dedicated logger and channel.
+- [Security] Fixed a vulnerability in virtual metrics.
+- [Security] Fixed a vulnerability in hostgroup notifications.
+- [Security] Fixed a broken object level authorization in users configuration endpoint
+- [Security] Fixed an issue where writeEngineSecrets.sh could not be used with the --insecure option.
+- [Security] Token changes are now logged in a dedicated file with a dedicated logger and channel.
 - [Vulnerability] Administrators are now the only ones able to edit autologin keys of other users.
 
 </details>
@@ -564,7 +563,7 @@ Release date: `January 29, 2026`
 <details>
   <summary>Security fixes</summary>
 
-- [BREAKING CHANGE] [Open Tickets] The ability to define a custom command linked to a rule has been removed, due to low adoption and security concerns.
+- [BREAKING CHANGE] [Open Tickets] Due to security concerns, it is no longer possible to define a custom command linked to a removed rule.
 - [Open Ticket] For enhanced security, two new configuration parameters have been introduced: 'SSL Verify Peer' and 'Certificate Authority Info'.
 
 </details>
