@@ -83,4 +83,4 @@ Voici un exemple d'entrée de log brute envoyée par l'Observateur d'évènement
   * k8s.container.name : nom du conteneur Kubernetes.
   * deployment.environment : environnement tel que prod ou staging.
 
-Dans CLM, vous pouvez filtrer vos données en utilisant ces attributs dans les [requêtes](../query-syntax.md), dans [**Log explorer**](../explore-analyze.md#using-the-log-explorer-page) ou dans les [tableaux de bord](../dashboards.md).
+Dans CLM, vous pouvez filtrer vos données en utilisant ces attributs dans les [requêtes](../query-syntax.md), dans [**Log explorer**](../explore-analyze.md#utiliser-la-page-log-explorer) ou dans les [tableaux de bord](../dashboards.md).
