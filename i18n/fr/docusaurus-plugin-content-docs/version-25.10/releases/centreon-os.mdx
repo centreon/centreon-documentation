@@ -22,6 +22,68 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 25.10.6
+
+Release date: `January 29, 2026`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Administration] Token expiration date is now displayed with hh:mm.
+- [Authentication] SAML IDP form - Added a new field to handle the requested authentication context.
+- [CMA] Handle freshness by default for deployed CMA related Monitoring Connector.
+- [Configuration] Additional configuration - enhanced password-type fields management.
+- [Configuration] Agent configuration now allows any certificate path.
+- [Configuration] Agent configuraiton - CMA Token is now mandatory in No TLS.
+- [Configuration] Agent configuration - listening port has been added as a parameter in agent-initiated connection.
+- [Configuration] Cert format is now accepted for certificates in agent configuration.
+- [Configuration] Freshness is activated by default on all CMA-related services, hosts and templates.
+- [Custom Views] Optimized performance when retrieving ACLs in widgets.
+- [Dashboards] Resource Table widget - Added link to the detail of a ticket on the provider side.
+- [Performance Graphs] The limit on the number of metrics displayed per chart has been raised to 20. We also fixed an issue with the unnecessary display of legends when this limit is exceeded.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] Fixed a LDAP issue where user DN was never updated.
+- [CLAPI] Fixed an issue where CLAPI returns sometimes a non needed empty return code message.
+- [CMA] Handle freshness by default for deployed CMA related Monitoring Connector.
+- [Configuration] Added a validation error in tempate.
+- [Configuration] Agent configuration now allows any certificate path.
+- [Configuration] Cacheert format is now accepted for certificates in agent configuration.
+- [Configuration] Cleaned up and fixed macro management in host/HT legacy forms.
+- [Configuration] Fixed an issue where inputs/outputs were missing when duplicating a Broker config.
+- [Configuration] Freshness is activated by default on all CMA-related services, hosts and templates.
+- [Dashboards] The list of contacts is now displayed correctly when sharing a dashboard or a playlist.
+- [Graphs] Graphs now adjust properly to data range.
+- [Hosts] Fixed an issue by not allowing to create circular parent/child hosts relationship.
+- [Install/upgrade script] is_encryption_ready is now a tinyint instead of an enum.
+- [Monitoring] Fixed "hostgroups summary" monitoring page.
+- [Performance Graphs] Fixed an issue preventing user from selecting multiple graphs when language selected isn't "en_US".
+- [Performance Graphs] Fixed an issue that prevented the filters from working together sequentially (in a funnel).
+- [Playlists] Fixed issue preventing host problems from being displayed.
+- [Resource Status] Fixed issue preventing services from being displayed when filtering on their parent host severity.
+- [Unattended] Fixed an issue in the ITEE installation that could be incomplete when installing a platform with the unattended.sh script.
+- [Users] Fixed issue preventing user from being created when using an autologin key.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed a vulnerability in Administration > Parameters > Images.
+- [Security] Fixed a vulnerability in LDAP configuration.
+- [Security] Fixed a vulnerability in Monitoring > Performance > Virtual Metrics.
+- [Security] Fixed a vulnerability in Notification > Hostgroups.
+- [Security] Fixed broken object level authorization in Users configuration endpoint (/centreon/api/latest/configuration/users).
+- [Security] Fixed an issue where writeEngineSecrets.sh cannot be used with --insecure option.
+- [Security] Token changes are logged in a dedicated file with a dedicated logger and channel.
+- [Vulnerability] Administrators are now the only ones able to edit autologin keys of other users.
+
+</details>
+
 ### 25.10.5
 
 Release date: `January 15, 2026`
@@ -397,6 +459,12 @@ Release date: `November 4, 2025`
 
 ## Centreon AWIE
 
+### 25.10.3
+
+Release date: `January 29, 2026`
+
+- No changes for this module in this version.
+
 ### 25.10.2
 
 Release date: `December 31, 2025`
@@ -473,6 +541,33 @@ Release date: `November 4, 2025`
 </details>
 
 ## Centreon Open Tickets
+
+### 25.10.2
+
+Release date: `January 29, 2026`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Custom Views] Optimized performance when retrieving ACLs in widgets.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Custom Views] Open Ticket - Fixed filter on host categories.
+- [Dashboards] Resource Table widget - Fixed issue preventing custom providers from being used for ticket management.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [BREAKING CHANGE] [Open Tickets] The ability to define a custom command linked to a rule has been removed, due to low adoption and security concerns.
+- [Open Ticket] For enhanced security, two new configuration parameters have been introduced: 'SSL Verify Peer' and 'Certificate Authority Info'.
+
+</details>
 
 ### 25.10.1
 
