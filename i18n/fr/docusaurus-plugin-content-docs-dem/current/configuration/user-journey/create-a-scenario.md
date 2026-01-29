@@ -143,11 +143,11 @@ C’est une solution de dernier recours qui ne devrait être que rarement utilis
 
 #### Exécuter un script
 
-Si toutes les autres actions échouent, vous pouvez utiliser cette option pour exécuter du JavaScript dans le navigateur afin de forcer une action. Evitez d'uliser un script simplement pour remplacer une autre actions si ce n'est pas nécessaire. 
+Si toutes les autres actions échouent, vous pouvez utiliser cette option pour exécuter du JavaScript dans le navigateur afin de déclencher une action. Évitez d'utiliser un script simplement pour remplacer une autre action si ce n'est pas nécessaire. 
 
 Notez que le script garantit l'exécution d'une action mais pas son résultat, ajoutez un vérification après chaque script :
 - DOM: (élément visible, classe changée)
-- Network: expected request (URL, statut HTTP...)
+- Network: requête attendue (URL, statut HTTP...)
 
 Faites des scripts courts, simples et avec des spécifications précises.
 
