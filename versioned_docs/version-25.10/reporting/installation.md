@@ -327,7 +327,7 @@ show global variables like 'log_bin_trust_function_creators';
 | log_bin_trust_function_creators | ON   |
 ```
 
-If the variable is not turned on, set it manually 
+If the variable is not turned on, set it manually:
 
 ```shell
 mysql> SET GLOBAL log_bin_trust_function_creators = 1;

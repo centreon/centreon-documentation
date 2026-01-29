@@ -287,12 +287,20 @@ Si vous utilisez MySQL :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
+Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
+
+```shell
+log_bin_trust_function_creators=1
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
+Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
+
+```shell
+log_bin_trust_function_creators=1
+```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
@@ -308,6 +316,22 @@ log_bin_trust_function_creators=1
 </Tabs>
 
 2. Redémarrez MySQL.
+
+3. Vérifiez que la base de données que la variable suivante est appliquée :
+
+```shell
+show global variables like 'log_bin_trust_function_creators';
++---------------------------------+-------+
+| Variable_name                   | Value |
++---------------------------------+-------+
+| log_bin_trust_function_creators | ON   |
+```
+
+Si la variable n'est pas appliquée, activez-la manuellement : 
+
+```shell
+mysql> SET GLOBAL log_bin_trust_function_creators = 1;
+```
 
 Utilisateurs et groupes :
 
