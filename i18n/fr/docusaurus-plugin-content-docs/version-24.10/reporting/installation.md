@@ -339,8 +339,10 @@ apt install centreon-bi-server
 
 Vous devez ensuite donner des droits à l'utilisateur centreon dans la base de données du central :
 
+```shell
 GRANT TRIGGER ON centreon.* TO `centreon`@'%';
 GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
+```
 
 ### Activer l'extension
 
