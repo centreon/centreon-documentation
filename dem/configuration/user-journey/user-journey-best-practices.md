@@ -98,7 +98,7 @@ iframe #my-form
 
 ### The "Run a script " action
 
-    Usage of a script is recommended only when you could not get results using one of the other available actions in the user journey configuration. Note that the script only ensures an action is triggered, it does not guarantee the result. Because of this, you must add at least one verification after each script.
+Using a script is recommended only when none of the other available actions in the user journey configuration work. Note that a script only ensures an action is triggered; it does not guarantee the result. For this reason, you must add at least one verification after each script.
 
     Avoid using a script to replace a verification, to hide an instability in the website.
 
