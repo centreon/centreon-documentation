@@ -324,6 +324,30 @@ Release date: `November 4, 2025`
 
 ## Centreon Collect
 
+### 25.10.2
+
+Release date: `January 29, 2026`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Agent configuraiton - CMA Token is now mandatory in No TLS mode.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue that resulted in an error log when removing a service from a service group.
+- [Configuration] Fixed an issue that caused Engine to crash when trying to send a notification without contact address.
+- [Configuration] Fixed an issue where some outputs wer truncated for CMA checks.
+- [Configuration] Updated logrotate configuration to match packaging permissions.
+- [Engine] Fixed an issue that allowed external command executions to segfault.
+- [Engine] Fixed an issue where host severities were not removed from the `resources` table after deletion.
+- [Resource status] Fixed an issue with commands not being displayed for CMA Windows services.
+
+</details>
+
 ### 25.10.1
 
 Release date: `December 17, 2025`
@@ -390,6 +414,21 @@ Release date: `November 4, 2025`
 
 ## Centreon Monitoring Agent
 
+### 25.10.2
+
+Release date: `January 29, 2026`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Added a native check to allow the exection of custom scripts.
+- [CMA] Native checks - Windows - Services - added a filter for startup/service type and delayed services.
+- [CMA] Token is now mandatory in No TLS mode.
+- [CMA] Windows installer can now handle multiple instances of CMA on the same host.
+- [Packaging] Added a RHEL 10 package for CMA.
+
+</details>
+
 ### 25.10.1
 
 Release date: `December 17, 2025`
@@ -419,6 +458,17 @@ Release date: `November 4, 2025`
 </details>
 
 ## Centreon Gorgone
+
+### 25.10.3
+
+Release date: `January 29, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CONFIG] Updated the logrotate configuration to match packaging permissions.
+
+</details>
 
 ### 25.10.2
 
