@@ -145,7 +145,7 @@ C’est une solution de dernier recours qui ne devrait être que rarement utilis
 
 Si toutes les autres actions échouent, vous pouvez utiliser cette option pour exécuter du JavaScript dans le navigateur afin de déclencher une action. Évitez d'utiliser un script simplement pour remplacer une autre action si ce n'est pas nécessaire. 
 
-Notez que le script garantit l'exécution d'une action mais pas son résultat, ajoutez un vérification après chaque script :
+Notez que le script garantit l'exécution d'une action mais pas son résultat. Ajoutez une vérification après chaque script :
 - DOM: (élément visible, classe changée)
 - Network: requête attendue (URL, statut HTTP...)
 
