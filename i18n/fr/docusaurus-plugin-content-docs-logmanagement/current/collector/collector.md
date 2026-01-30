@@ -148,7 +148,7 @@ Configurez une source de logs pour chaque service souhaité (syslog, apache, etc
    </TabItem>
    <TabItem value="Windows" label="Windows">
 
-   Dans votre terminal, exécutez la commande suivante (adaptez-la avec vos noms de fichiers réels):
+   Dans un terminal PowerShell, exécutez la commande suivante (adaptez-la avec vos noms de fichiers réels):
 
    ```shell
    Get-WmiObject win32_service -filter "Name='otelcol-contrib'" | Invoke-WmiMethod -Name Change -ArgumentList @($null,$null,$null,$null,$null, '"C:\Program Files\OpenTelemetry Collector\otelcol-contrib.exe" --config "C:\Program Files\OpenTelemetry Collector\config.yaml" --config "C:\Program Files\OpenTelemetry Collector\conf.d\windows-event-log.yaml"')
