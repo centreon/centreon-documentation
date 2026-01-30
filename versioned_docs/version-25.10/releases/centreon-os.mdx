@@ -273,20 +273,20 @@ Release date: `January 29, 2026`
 <details open>
   <summary>Enhancements</summary>
 
-- [CMA] Token is now mandatory in No TLS.
+- [CMA] Agent configuraiton - CMA Token is now mandatory in No TLS mode.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [Broker] Fixed an issue on deleting membership of service to service group.
-- [Configuration] Fixed an issue where Engine crashes when notifications are enabled without contact address.
-- [Configuration] Fixed an issue where output was truncated for some CMA checks.
-- [Configuration] Update logrotate configuration to match packaging permissions.
-- [Engine] Fixed an issue where the external command execution can segfault.
+- [Broker] Fixed an issue that resulted in an error log when removing a service from a service group.
+- [Configuration] Fixed an issue that caused Engine to crash when trying to send a notification without contact address.
+- [Configuration] Fixed an issue where some outputs wer truncated for CMA checks.
+- [Configuration] Updated logrotate configuration to match packaging permissions.
+- [Engine] Fixed an issue that allowed external command executions to segfault.
 - [Engine] Fixed an issue where host severities were not removed from the `resources` table after deletion.
-- [Resource status] Fixed an issue where commands were not displayed for CMA Windows services.
+- [Resource status] Fixed an issue with commands not being displayed for CMA Windows services.
 
 </details>
 
@@ -363,11 +363,11 @@ Release date: `January 29, 2026`
 <details open>
   <summary>Enhancements</summary>
 
-- [CMA] Added generic native check for custom scripts.
-- [CMA] Native checks - Windows - Services - added filter for startup/service type and delayed services.
-- [CMA] Token is now mandatory in No TLS.
-- [CMA] Windows installer can now handle multiple instances on the same Host.
-- [Packaging] Provided a RHEL 10 package for CMA.
+- [CMA] Added a native check to allow the exection of custom scripts.
+- [CMA] Native checks - Windows - Services - added a filter for startup/service type and delayed services.
+- [CMA] Token is now mandatory in No TLS mode.
+- [CMA] Windows installer can now handle multiple instances of CMA on the same host.
+- [Packaging] Added a RHEL 10 package for CMA.
 
 </details>
 
@@ -408,7 +408,7 @@ Release date: `January 29, 2026`
 <details>
   <summary>Bug fixes</summary>
 
-- [CONFIG] Update logrotate configuration to match packaging permissions.
+- [CONFIG] Updated the logrotate configuration to match packaging permissions.
 
 </details>
 
