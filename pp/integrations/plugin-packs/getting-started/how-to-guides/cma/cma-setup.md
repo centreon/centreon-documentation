@@ -40,13 +40,16 @@ In the case of a Cloud platform, these connectors are already installed.
 
 ### Create an authentication token
 
+This step only applies to OnPrem platforms. For Centreon Cloud, a default token is provided on the **Administration > Authentication token** page.
+
+
 1. Go to **Administration > Authentication tokens**.
 
 2. Create a token with the **Centreon Monitoring Agent** type.
 
    * You can select an expiration time. By default, tokens do not expire.
    * Keep the token generated for the agent configuration. If necessary, you can copy it to the clipboard at any time from the list of tokens.
-   * You can use just one token for all your collectors and agents, or manage several for more precise control.
+   * You can use just one token for all your pollers and agents, or manage several for more precise control.
 
 #### CMA authentication token behavior: deactivation/expiration/revocation
 
@@ -73,6 +76,8 @@ In the case of a Cloud platform, these connectors are already installed.
 <TabItem value="Linux" label="Linux">
 
 On the central server, [create the host](/docs/monitoring/basic-objects/hosts) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+
+> Depending on the desired connection direction, the host's “Address” field will have no impact (connection initiated by the agent) or will be retrieved when the host is selected in the agent configuration (connection initiated by the poller).
 
 Create the services associated with the host template.
 
@@ -105,7 +110,7 @@ Create the services associated with the host template.
 </TabItem>
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
-5. In the **Settings** section, select the poller that will connect to the agents.
+5. In the **Parameters** section, select the poller that will connect to the agents.
 6. In the **Monitored Hosts** section, select the host you created earlier. Its IP address will be displayed, and a default port will be entered. Change this information if necessary.
 7. Enter the paths to the certificate files. See the [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
 8. Select the authentication token you created earlier. You can also create a token from this screen.
@@ -120,6 +125,8 @@ This configuration is deployed on the poller in the **/etc/centreon-engine/otl_s
 
 ## Step 2: Prepare the poller
 
+> Cloud: This step is not necessary if you want to use CMA with the **Central** poller.
+
 This step is performed on the poller.
 
 ### Configure the firewall
@@ -132,6 +139,7 @@ Run the following commands:
 ```bash
 firewall-cmd --zone=public --add-port=4317/tcp --permanent
 ```
+
 ```bash
 firewall-cmd --reload 
 ```
@@ -230,38 +238,71 @@ Install the Centreon repository and agent using the following commands:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
+<Tabs groupId="sync">
+<TabItem value="24.10" label="24.10">
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-25.10.repo
 dnf install  centreon-monitoring-agent
 ```
-
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
+<TabItem value="25.10" label="25.10">
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf install  centreon-monitoring-agent
+```
+</TabItem>
+</Tabs>
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<Tabs groupId="sync">
+<TabItem value="24.10" label="24.10">
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-25.10.repo
 dnf install  compat-openssl11 centreon-monitoring-agent
 ```
-
+</TabItem>
+<TabItem value="25.10" label="25.10">
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf install  compat-openssl11 centreon-monitoring-agent
+```
+</TabItem>
+</Tabs>
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
+1. Execute the following commands:
+
+<Tabs groupId="sync">
+<TabItem value="24.10" label="24.10">
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/apt-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
+</TabItem>
+<TabItem value="25.10" label="25.10">
+```shell
+apt-get update
+apt-get -y install lsb-release gpg wget
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+</TabItem>
+</Tabs>
 
-Then, import the repository key :
+2. Import the repository key:
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
-Then, install agent :
+3. Install the agent :
 
 ```shell
 apt-get update
@@ -273,12 +314,24 @@ apt install centreon-monitoring-agent
 
 1. Execute the following commands:
 
+<Tabs groupId="sync">
+<TabItem value="24.10" label="24.10">
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/ubuntu-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
+</TabItem>
+<TabItem value="25.10" label="25.10">
+```shell
+apt-get update
+apt-get -y install lsb-release gpg wget
+echo "deb https://packages.centreon.com/ubuntu-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+</TabItem>
+</Tabs>
 
 2. Import the repository key:
 
@@ -302,6 +355,9 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
+
+> Cloud: when using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 ```json
 {
@@ -402,12 +458,16 @@ The CMA installer can be executed in 2 modes:
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
+> Cloud: when using the **Central** poller, the value of **Poller endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
+
    * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317. For example, 192.168.45.32:4317.
 
 </TabItem>
 <TabItem value="Poller connects to agent" label="Poller connects to agent">
 
    * **Listening interface** can keep the default value (0.0.0.0:4317) and will be the interface through which the agent accepts incoming connections from the poller. (0.0.0.0) means 'all interfaces'. You can restrict this value for security reasons.
+
 </TabItem>
 </Tabs>
 
@@ -417,10 +477,22 @@ The CMA installer can be executed in 2 modes:
 In this mode, there is no interface. As this installer is not a console program, it returns immediately despite not having finished. You have to wait for a message telling you that all is finished.
 If you want to have an exit status, you can launch the installer in a powershell session and wait for the exit code. The exit code will be 0 if all is right.
 
+<Tabs groupId="sync">
+<TabItem value="before 25.10" label="Before 25.10">
+
+> Cloud: when using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
+
 To run it in silent mode, you need to set /S as the first argument. You can display a list of arguments with the following command:
 
 ```shell
 centreon-monitoring-agent.exe /S --help
+```
+
+To escape the **-** character in an argument value, it must be preceded by **--%**. Example:
+
+```
+--% --hostname "Test-Hostname"
 ```
 
 Available parameters are :
@@ -447,7 +519,62 @@ Available parameters are :
 | --token                    | Authentication token.
 If you use the **--install_plugins** option but the download of the plugins fails, the installer will install the plugins embedded in the installer.
 
+</TabItem>
+<TabItem value="25.10" label="From 25.10">
 
+To run it in silent mode, you must specify **/VERYSILENT** as the first argument.
+You can display a list of arguments with the following command line:
+
+```shell
+centreon-monitoring-agent.exe /VERYSILENT /HELP
+```
+> Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
+
+Available parameters are : 
+
+| flag                       | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | mandatory
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | 
+|/COMPONENTS| Components to install. "agent", "plugins" or "agent,plugins"  |X |
+|/AGENTINSTANCE| Agent instance name (service name). If omitted, the installer auto-generates a name (e.g., CentreonMonitoringAgent) |  |
+|/HOST                 | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                          | X |
+|/ENDPOINT                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode (/REVERSE=true), it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) , you must choose the interface (all interfaces: 0.0.0.0) and the port (usually 4317) on which the agent will accept connections from the poller. 
+| X|
+|/TOKEN| Authentication token | X |
+|/PLUGINSRC| Source of installation for Centreon plugins. "auto": via the internet, "embedded": local version. Default: "auto" || 
+|/REVERSE| Connection initiated by the poller. "true" or "false". Default: "false"| |
+|/ENCRYPTION| Encryption mode. "no", "full", "insecure". Default: "no"|  |
+|/CERT| Path to the file containing the public key | if ENCRYPTION=full or insecure, and /REVERSE=true |
+|/KEY| Path to the file containing the private key | if ENCRYPTION=full or insecure, and /REVERSE=true |
+|/CA| Path to the file containing the trusted certificate |  |
+|/COMMONNAME| CA common name. If ENCRYPTION=insecure |  |
+|/LOGTYPE| "event-log" or "file". Default: "event-log"|  |
+|/LOGFILE| Path to the log file | if /LOGTYPE=file |
+|/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Default: "error"| if /LOGTYPE=file |
+|/MAXFILESIZE| Maximum size of the log file before rotation, in MB. Default: 10. If /LOGTYPE=file | |
+|/MAXNUMBER| Maximum number of log files. Both of these parameters are required for log rotation to be enabled. Default: 3. If /LOGTYPE=file | |
+|/VERSION| Version of centagent.exe |  |                                                                                                                                                                                                                                                      
+                                                                                         
+If **/PLUGINSRC=auto** and the download fails, the installer will automatically switch to **embedded** mode.
+
+Silent mode execution errors and the output of /VERSION are written to ./installer_output.log.
+
+*Command examples*
+
+Minimal command (required parameters):
+
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /COMPONENTS=agent,plugins /HOST=host_1 /ENDPOINT=localhost:4317 /TOKEN=token_value
+```
+
+Command with optional parameters : 
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /REVERSE /COMPONENTS=agent /HOST=agent1 /ENDPOINT=127.0.0.1:4317 /LOGTYPE=File /LOGLEVEL=Debug /LOGFILE="C:\Logs\agent.log" /MAXFILESIZE=20 /MAXNUMBER=5 /ENCRYPTION=full /CERT="C:\certs\agent.crt" /KEY="C:\certs\agent.key" /CA="C:\certs\ca.crt" /COMMONNAME=centreon /TOKEN=token_value
+So
+```
+
+</TabItem>
+</Tabs>
 </TabItem>
 </Tabs>
 
@@ -641,6 +768,267 @@ apt-get update
 apt -y install centreon-plugin-operatingsystems-linux-local
 ```
 
+</TabItem>
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
+
+```bash
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt-get update
+```
+
+2. Install the plugin:
+
+```bash
+apt -y install centreon-plugin-operatingsystems-linux-local
+```
+
+</TabItem>
+</Tabs>
+
+### Configuring multiple agent instances on the same host
+
+#### General principle
+
+You can configure multiple CMA services on a host, for example to communicate with different Centreon pollers/platforms (test/production) monitoring the same host.
+
+An instance consists of:
+* a service
+* its configuration
+
+The name of the instance must be unique on the same host.
+
+Each instance has its own configuration and executes it independently of other instances.
+
+#### Configuration
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+The configuration for each instance is stored in a dedicated JSON file on the host.
+The file name must be unique.
+
+```shell
+/etc/centreon-monitoring-agent/centagent1.json
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+The configuration of each instance is stored in a dedicated registry key with a unique name.
+
+```shell
+Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
+```
+
+</TabItem>
+</Tabs>
+
+#### Deploying a named instance
+
+> Running multiple instances configured with the same \<endpoint; host\> pair will cause duplicate metrics in the database for that host. It is mandatory to change the endpoint and/or host values when deploying a new instance.
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+1. Make a copy of the configuration file created during the initial deployment of CMA.
+
+```shell
+cp  /etc/centreon-monitoring-agent/centagent.json /etc/centreon-monitoring-agent/centagent1.json
+```
+
+2. Give the file the appropriate permissions:
+
+```shell
+chmod 0644 /etc/centreon-monitoring-agent/centagent1.json
+chown centreon-monitoring-agent:centreon-monitoring-agent /etc/centreon-monitoring-agent/centagent1.json
+```
+
+3. Make sure you modify the value of 'endpoint' and, if necessary, the rest of the configuration for the new instance in the created file (for example, to change the log level or the certificate path).
+
+4. Make a copy of the service created during the first CMA deployment.
+
+```shell
+cp /lib/systemd/system/centagent.service /lib/systemd/system/centagent1.service
+```
+
+5. In this new file, modify the path in **ExecStart** to point to the new json file.
+
+```shell
+...
+[Service]
+ExecStart=/usr/bin/centagent /etc/centreon-monitoring-agent/centagent1.json
+ExecReload=/bin/kill -HUP $MAINPID
+...
+```
+
+6. Give the service the appropriate rights:
+
+```shell
+chmod 0644 /lib/systemd/system/centagent1.service
+chown centreon-monitoring-agent:centreon-monitoring-agent /lib/systemd/system/centagent1.service
+```
+
+7. Register the new service:
+
+```shell
+systemctl daemon-reload
+systemctl unmask centagent1
+systemctl preset centagent1
+systemctl enable centagent1
+systemctl restart centagent1
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+<Tabs groupId="sync">
+<TabItem value="Interactive mode" label="Interactive mode">
+
+When the installer is run, the **Agent instance** field suggests a default (unique) instance name that can be modified.
+It will be used as the service name and registry key.
+
+</TabItem>
+<TabItem value="Silent mode" label="Silent mode (console)">
+
+Each time the service is run, a new instance is created with an incremental name such as ‘CentreonMonitoringAgent1’, ‘CentreonMonitoringAgent2’.
+If you want to give the service a different name (the name must be unique), use the **/AGENTINSTANCE** parameter. This name will be used as the service name and registry key.
+
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /AGENTINSTANCE="ServiceName"  /COMPONENTS=agent,plugins /HOST=host_1 /ENDPOINT=localhost:4317 /TOKEN=token_value 
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+</Tabs>
+
+#### Editing a named instance
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+1. Make the desired changes in the JSON file for the instance.
+2. Restart the corresponding service.
+
+```shell
+systemctl restart centagent1
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+<Tabs groupId="sync">
+<TabItem value="Interactive mode" label="Interactive mode">
+
+Run **centreon-monitoring-agent-modify.exe**, located in the CMA installation directory.
+The **Agent instance** field defaults to the first instance found and can be modified.
+Any subsequent changes will apply to the selected instance.
+
+</TabItem>
+<TabItem value="Silent mode" label="Silent mode (console)">
+
+Run **centreon-monitoring-agent-modify.exe** in silent mode.
+
+> In this context, the **/AGENTINSTANCE** parameter is mandatory.
+
+```shell
+centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE="ServiceName"
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+</Tabs>
+
+#### Uninstalling a named instance
+
+See [**Uninstalling the agent**](#uninstalling-the-agent).
+
+### Updating an existing configuration
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+1. Edit the following file: **/etc/centreon-monitoring-agent/centagent.json**.
+2. Restart the agent.
+
+```shell
+systemctl restart centagent
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+Run **centreon-monitoring-agent-modify.exe**, located in the CMA installation directory.
+
+This is also possible in silent mode:
+
+```shell
+centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE "ServiceName"
+```
+
+</TabItem>
+</Tabs>
+
+### Uninstalling the agent
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+* To uninstall an instance, run the following commands, adapting the name of the service and configuration file: 
+
+```shell
+systemctl stop centagent1
+rm /lib/systemd/system/centagent1.service
+rm /etc/centreon-monitoring-agent/centagent1.json
+systemctl daemon-reload
+```
+
+* To completely uninstall CMA (all instances and user groups), run the following commands (**for each instance**, if multiple instances are deployed):
+
+```shell
+systemctl stop centagent centagent
+rm /lib/systemd/system/centagent.service /lib/systemd/system/centagent.service
+rm /etc/centreon-monitoring-agent/centagent.json /etc/centreon-monitoring-agent/centagent.json
+```
+
+Then run the following commands:
+
+```shell
+systemctl daemon-reload
+deluser centreon-monitoring-agent
+delgroup centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+<Tabs groupId="sync">
+<TabItem value="Interactive mode" label="Interactive mode">
+
+Run **unins000.exe**, located in the CMA installation directory.
+The list of instances is displayed with the plugins, and you can select the items to uninstall.
+
+</TabItem>
+<TabItem value="Silent mode" label="Silent mode (console)">
+
+Run **unins000.exe** in silent mode, and specify one of the three possible options.
+
+* /FULL: all instances are uninstalled, as well as plugins
+* /PLUGINS: plugins are uninstalled
+* /AGENTINSTANCE=SERVICENAME1,SERVICENAME2: the specified instance(s) is/are uninstalled.
+
+```shell
+unins000.exe /VERYSILENT /FULL
+unins000.exe /VERYSILENT /PLUGINS
+unins000.exe /VERYSILENT /AGENTINSTANCE=SERVICENAME1,SERVICENAME2
+```
+
+</TabItem>
+</Tabs>
 </TabItem>
 </Tabs>
 

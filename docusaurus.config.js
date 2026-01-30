@@ -62,7 +62,20 @@ const config = {
   },
 
   future: {
-    experimental_faster: true,
+    v4: {
+      removeLegacyPostBuildHeadAttribute: false,
+      useCssCascadeLayers: true,
+    },
+    experimental_faster: {
+      swcJsLoader: false,
+      swcJsMinimizer: false,
+      swcHtmlMinimizer: false,
+      lightningCssMinimizer: false,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: false,
+      mdxCrossCompilerCache: false,
+    },
   },
 
   title: 'Centreon Documentation',
@@ -70,7 +83,11 @@ const config = {
   url: 'https://docs.centreon.com',
   baseUrl,
   onBrokenLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
-  onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
+    }
+  },
   onBrokenAnchors: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
@@ -154,6 +171,7 @@ const config = {
         docsRouteBasePath: ["docs", "cloud", "pp", "dem"],
         docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem"],
         explicitSearchResultPath: true,
+        useAllContextsWithNoSearchContext: true,
         // searchContextByPaths: [
         //   {
         //     label: {
@@ -334,7 +352,7 @@ const config = {
               type: 'doc',
               docId: defaultPageId,
               position: 'left',
-              label: 'Centreon OnPrem',
+              label: 'Centreon OnPrem'
             },
           ];
 
@@ -367,7 +385,7 @@ const config = {
               ...items,
               {
                 to: '/dem/getting-started/welcome',
-                label: 'Quanta by Centreon',
+                label: 'Centreon DEM',
                 position: 'left',
                 activeBaseRegex: '/dem/',
               },
@@ -375,7 +393,6 @@ const config = {
           }
 
           return [
-            ...items,
             {
               type: 'search',
               position: 'right',
@@ -411,6 +428,7 @@ const config = {
               type: 'localeDropdown',
               position: 'right',
             },
+            ...items,
           ];
         })(),
       },
@@ -446,7 +464,7 @@ const config = {
           alt: 'Centreon Open Source Logo',
           src: 'img/logo_centreon.png',
         },
-        copyright: `Copyright © 2005 - 2025 Centreon`,
+        copyright: `Copyright © 2005 - 2026 Centreon`,
       },
     }),
 };

@@ -67,6 +67,44 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 >
 > Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
+### Montée de version de la solution Centreon
+
+1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
+
+2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 21.10 :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-21.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-21.10.repo
+```
+
+</TabItem>
+</Tabs>
+
+3. Installez le dépôt business en 25.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
+
+4. Arrêtez le processus Centreon Broker :
+
+```shell
+systemctl stop cbd
+```
+
+5. Supprimez les fichiers de rétention présents :
+
+```shell
+rm /var/lib/centreon-broker/* -f
+```
+
 ### Montée de version de PHP
 
 Centreon 25.10 utilise PHP en version 8.2.
@@ -88,6 +126,11 @@ dnf module reset php
 ```shell
 dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
@@ -109,6 +152,11 @@ dnf module reset php
 ```shell
 dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
@@ -138,19 +186,9 @@ rm /etc/yum.repos.d/centreon-business-21.10.repo
 ```
 
 </TabItem>
-
-<TabItem value="Debian" label="Debian">
-
-```shell
-rm /etc/apt/sources.list.d/centreon-business.list
-```
-
-</TabItem>
 </Tabs>
 
 3. Installez le dépôt business en 25.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
-
-4. Si votre système d'exploitation est Debian et que vous utilisez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
 
 5. Arrêtez le processus Centreon Broker :
 
@@ -164,7 +202,7 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
-7. Videz le cache :
+1. Videz le cache :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -181,17 +219,9 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
-
-```shell
-apt clean all
-apt update
-```
-
-</TabItem>
 </Tabs>
 
-8. Mettez à jour l'ensemble des composants :
+2. Mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

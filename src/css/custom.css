@@ -66,6 +66,7 @@ html:root {
   --ifm-blockquote-padding-vertical: 16px;
   --ifm-blockquote-padding-horizontal: 32px;
   --ifm-global-radius: 5px;
+  --ifm-product-dropdown-background-color: #f7eefe;
 }
 
 html[data-theme='dark']:root {
@@ -92,6 +93,7 @@ html[data-theme='dark']:root {
 
   --ifm-blockquote-border-color: rgba(34, 19, 226, 1);
   --ifm-blockquote-background-color: rgba(34, 19, 226, 0.5);
+  --ifm-product-dropdown-background-color: #120950;
 }
 
 blockquote {

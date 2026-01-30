@@ -47,6 +47,13 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 1. Update your Centreon 22.10 to the latest minor version.
 
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
+
 2. Remove the **centreon-22.10.repo** file:
 
    ```shell
@@ -89,6 +96,54 @@ apt update
 > If you have a Business edition, do the same with the Business repository.
 >
 > You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+### Upgrade the Centreon solution
+
+1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
+
+2. If you have installed Business extensions, delete the configuration of the 22.10 repository: 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-22.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-22.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Debian" label="Debian">
+
+```shell
+rm /etc/apt/sources.list.d/centreon-business.list
+```
+
+</TabItem>
+</Tabs>
+
+3. Install the 24.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+
+4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+
+5. Stop the Centreon Broker process:
+
+```shell
+systemctl stop cbd
+```
+
+6. Delete existing retention files:
+
+```shell
+rm /var/lib/centreon-broker/* -f
+```
 
 ### Upgrade PHP
 
@@ -140,55 +195,9 @@ systemctl disable php8.1-fpm
 </TabItem>
 </Tabs>
 
-### Upgrade the Centreon solution
+Then, finish upgrading the Centreon solution.
 
-1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
-
-2. If you have installed Business extensions, delete the configuration of the 22.10 repository: 
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-22.10.repo
-```
-
-</TabItem>
-
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-22.10.repo
-```
-
-</TabItem>
-
-<TabItem value="Debian" label="Debian">
-
-```shell
-rm /etc/apt/sources.list.d/centreon-business.list
-```
-
-</TabItem>
-</Tabs>
-
-3. Install the 24.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
-
-4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
-
-5. Stop the Centreon Broker process:
-
-```shell
-systemctl stop cbd
-```
-
-6. Delete existing retention files:
-
-```shell
-rm /var/lib/centreon-broker/* -f
-```
-
-7. Clean the cache:
+1. Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -215,7 +224,7 @@ apt update
 </TabItem>
 </Tabs>
 
-8. Then upgrade all the components with the following command:
+2. Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

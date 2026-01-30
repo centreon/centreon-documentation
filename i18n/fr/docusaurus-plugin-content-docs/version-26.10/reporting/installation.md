@@ -259,10 +259,10 @@ vgdisplay vg_data | grep -i free*
 
 #### Couche interlogiciel et logiciel
 
-- OS : voir la compatibilité [ici](https://docs-next-int.centreon.com/fr/docs/installation/compatibility#système-dexploitation)
-- SGBD : voir la compatibilité [ici](https://docs-next-int.centreon.com/fr/docs/installation/compatibility/#sgbd)
-- Firewalld : Désactivé ([voir ici](https://docs-next-int.centreon.com/fr/docs/installation/installation-of-a-central-server/using-packages/#configurer-ou-désactiver-le-pare-feu))
-- SELinux : Désactivé ([voir ici](https://docs-next-int.centreon.com/fr/docs/installation/installation-of-a-central-server/using-packages/#désactiver-selinux))
+- OS : voir la compatibilité [ici](../installation/compatibility.md#système-dexploitation)
+- SGBD : voir la compatibilité [ici](../installation/compatibility.md#sgbd)
+- Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#configurer-ou-désactiver-le-pare-feu))
+- SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#désactiver-selinux))
 
 > Assurez-vous que le fuseau horaire du serveur de reporting est le même que celui du serveur central, sinon les publications de rapports échoueront (lien vers le téléchargement manquant).
 > Le même fuseau horaire doit être affiché avec la commande `timedatectl`.
@@ -631,22 +631,6 @@ apt update
 
 2. Installez le dépôt Business. Vous pouvez trouver son adresse sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-3. Assurez-vous qu'une version de Java 17 (ou 18) est installée.
-   
-   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-   
-   ```shell
-   java -version
-   ```
-   
-   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
-   
-   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-   
-   ```shell
-   sudo update-alternatives --config java
-   ```
-
 #### Installer le dépôt de base de données
 
 <DatabaseRepository />
@@ -851,6 +835,22 @@ apt install centreon-bi-reporting-server
 
 </TabItem>
 </Tabs>
+
+Assurez-vous qu'une version de Java 17 (ou 18) est installée.
+   
+   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+   
+   ```shell
+   java -version
+   ```
+   
+   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+   
+   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
 
 #### Activer les services
 
@@ -1195,7 +1195,7 @@ suivantes :
 | Une base de données MariaDB dédiée au reporting a été mise en place.                                                                     | Oui. Vous devez avoir un serveur de reporting dédié.                                                                                                                                                                                                                                                                                               |
 | Espace de stockage des fichiers temporaires sur le serveur de reporting *                                                                | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés                                                                                                                                                                                                                                                            |
 | Type de statistiques à traiter                                                                                                           | Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité.  Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance. Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.                  |
-| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Activé uniquement si votre configuration MariaDB et la mémoire physique allouée au serveur de reporting le permet.                                                                                                                                                                                                                                 |
+| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Crée des tables temporaires en utilisant de la RAM plutôt que de les créer sur disque. Non recommandé si vous disposez de bases de données avec moins de 64Go de RAM.                                                                                                                                                                  |
 | **Sélection du périmètre du reporting**                                                                                                  |                                                                                                                                                                                                                                                                                                                                                    |
 | Groupes d'hôtes                                                                                                                          | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                          |
 | Catégories d'hôtes                                                                                                                       | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                       |
@@ -1214,6 +1214,28 @@ suivantes :
 | Sélectionner les catégories de services sur lesquelles aggréger les données                                                              | Sélectionnez uniquement les catégories de services pertinentes (Ex: Traffic)                                                                                                                                                                                                                                                                       |
 | Premier jour de la semaine                                                                                                               | Sélectionnez le premier jour à considérer pour les statistiques à la semaine                                                                                                                                                                                                                                                                       |
 | Créer les combinaisons centile-plage horaire qui couvrent vos besoins (Format du centile : 00.0000)                                      | Créez des combinaisons centile/plage horaire sur lesquels les statistiques seront effectuées                                                                                                                                                                                                                                                       |
+
+### Définir les données qui seront utilisées par MBI
+
+Dans la page **Reporting > Monitoring Business Intelligence > Paramètres Globaux**, vous pouvez utiliser les options de l'onglet **Options de l'ETL** pour déterminer les données qui seront importées dans la base de données MBI depuis le serveur central. Assurez-vous de n'importer que les données que vous souhaitez voir dans les rapports : toutes les données innécessaires prennent de l'espace de stockage et augmentent le temps de calcul.
+
+| **Options**                                                                            | **Valeurs**                                                                                                                                                                                                                            |
+|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Options générales**                                                                    |   
+| Type de statistiques à traiter                                                            | <ul><li>Selectionnez **Disponibilité uniquement** si vous n'utilisez que les [rapports de disponibilité](../alerts-notifications/availability.md).</li><li>Select **Performance et capacité uniquement** si vous ne souhaitez avoir que des rapports de capacité et performance (c'est-à-dire les rapports de [performance](available-reports/performance-reports.md), [stockage](available-reports/storage-reports.md), [réseau](available-reports/network-reports.md), [virtualisation](available-reports/virtualization-reports.md), [consommation électrique](available-reports/electric-consumption-reports.md)).</li><li>Select **Toutes** pour calculer les statistiques de ces deux types de rapports. Cette option permet également d'obtenir des rapports de type [profiling](available-reports/profiling-reports.md) et [diagnostics de la base de données](available-reports/database-diagnostics-reports.md).</li></ul> |
+| **Sélection du périmètre du reporting***                                                      |                                                                                                                                                                                                                                       |
+| Groupes d'hôtes                                                                             | Ne sélectionnez que les groupes d'hôtes pour lesquels vous souhaitez créer des rapports.                                                                                                                                                                         |
+| Catégories d'hôtes                                                                         | Ne sélectionnez que les catégories d'hôtes pour lesquelles vous souhaitez créer des rapports.                                                                                                                                                                     |
+| Catégories de services                                                                     | Ne sélectionnez que les catégories de services pour lesquelles vous souhaitez créer des rapports.                                                                                                                                                                  |
+| **Calcul des données de disponibilité**                                                 |                                                                                                                                                                                                                                       |
+| Plages de services pour le calcul des statistiques de disponibilité                                  | Vos [rapports de disponibilité](available-reports/availability-events-reports.md) contiendront uniquement des données de ces [périodes temporelles](../monitoring/basic-objects/timeperiods.md).                                                                                                                                                                                                         |
+| **Calcul des données de performance et de capacité**                                     |                                                                                                                                                                                                                                       |
+| Granularité des données statistiques à calculer                                   | Sélectionnez le niveau de granularité nécessaire pour générer les rapports de performance souhaités (1).                                                                                                                                                  |
+| Plages de services pour le calcul des statistiques de performance.                                                                                                                                                                                                     |
+| **Données de capacité aggrégées par mois** (rapports de [stockage](available-reports/storage-reports.md)). Les données sont uniquement agrégées par mois.                                            |                                                                                                                                                                                                                                       |
+| Plage de services pour le calcul des statistiques de capacité                                     | Sélectionnez **24x7**, il s'agit de la seule période temporelle pour laquelle il est pertinent de calculer l'espace de stockage.                                                                                                                                                                                                        |
+| Catégories de services liées aux indicateurs de capacité	                                | Sélectionnez les [catégories de service](../monitoring/categories.md) qui ont été associées à des services de capacité.                                                                                                                                                  |
+| Exclure les métriques qui ne renvoient pas une indication d'utilisation des espaces de stockage  | Concerne les métriques liées aux services qui renvoient des données de stockage. Sélectionnez les métriques qui ne renvoient pas des informations d'utilisation de stockage mais une valeur maximale ou totale (par exemple la métrique "taille").                                        |
 
 **(1)** Les rapports nécessitant une granularité des données à l'heure sont listés ci-dessous.
 Si vous ne souhaitez pas utiliser ces rapports,désactivez le calcul des statistiques à l'heure:

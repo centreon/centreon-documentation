@@ -41,6 +41,12 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Supprimez les fichiers des dépôts :
 
    ```shell
@@ -62,6 +68,12 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Supprimez les fichiers des dépôts :
 
    ```shell
@@ -82,6 +94,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 2. Exécutez les commandes suivantes :
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
@@ -147,6 +160,8 @@ systemctl stop cbd
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
+
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 7. Videz le cache :
 

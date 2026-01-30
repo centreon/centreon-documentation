@@ -47,6 +47,7 @@ L'agent peut être installé sur et superviser les OS suivants :
 * Windows Server 2016
 * Windows Server 2019
 * Windows Server 2022
+* Windows Server 2025
 
 </TabItem>
 </Tabs>
@@ -61,7 +62,8 @@ L'agent peut être installé sur et superviser les OS suivants :
 ### Sens de connexion
 
 Suivant le cas, soit l'agent soit le collecteur initie la connexion.
-Une fois celle-ci établie, les échanges sont bidirectionnels.
+> Attention, le fonctionnement des 2 sens de connexion décrit ci-dessous ne concerne que l'établissement de la connexion. 
+> Une fois celle-ci établie, le comportement de l'agent (planification des contrôles, remontée d'information) et du collecteur (alertes, envoi de la configuration) sont strictement identiques et la connexion est bidirectionnelle.
 
 * Dans le cas d'une **connexion initiée par l'agent**, le collecteur écoute sur un port spécifique, et peut recevoir des données de n agents/hôtes. Il s'agit du mode par défaut, qui permet une configuration dynamique des agents (on peut ajouter ou retirer des agents sans changer la configuration côté collecteur).
 * Vous pouvez également opter pour une **connexion initiée par le collecteur**. Ceci est pertinent dans le cas où, par exemple, l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple, lorsque l'hôte se trouve dans une DMZ). Vous devez déclarer chaque agent auquel le collecteur devra se connecter, dans le menu **Configuration > Collecteur > Configuration d'agent**.

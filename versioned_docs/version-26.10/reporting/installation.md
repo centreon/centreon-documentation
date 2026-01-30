@@ -70,7 +70,7 @@ reporting server, for performance and isolation reasons.
 
 #### Software requirements
 
-See the [software requirements](https://docs-next-int.centreon.com/docs/installation/prerequisites/#characteristics-of-the-servers).
+See the [software requirements](../installation/prerequisites.md#characteristics-of-the-servers).
 
 You should install the MariaDB/MySQL database at the same time. We highly recommend
 installing the database on the same server, due to performance and isolation
@@ -260,10 +260,10 @@ vgdisplay vg_data | grep -i free*
 
 #### Firmware and software layer
 
-- OS: see [compatibility info here](https://docs-next-int.centreon.com/docs/installation/compatibility/#operating-systems)
-- SGBD: see [compatibility info here](https://docs-next-int.centreon.com/docs/installation/compatibility/#dbms)
-- Firewalld: Disabled ([look here](https://docs-next-int.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#configure-or-disable-the-firewall))
-- SELinux: Disabled ([look here](https://docs-next-int.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#disable-selinux))
+- OS: see [compatibility info here](../installation/compatibility.md#operating-systems)
+- SGBD: see [compatibility info here](../installation/compatibility.md#dbms)
+- Firewalld: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
+- SELinux: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#disable-selinux))
 
 > Make sure that the reporting server and the central server have the same time zone; otherwise report publications will fail (the link to download them will be missing).
 > The same time zone must be displayed with the `timedatectl` command.
@@ -540,9 +540,9 @@ systemctl restart mysql
 
 ### Give rights to the cbis user
 
-When you install Centreon MBI, a [user](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/contacts/) named **cbis** is automatically created.
+When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts.md) named **cbis** is automatically created.
 It allows the report generation engine to extract data from Centreon (using the APIs) in order to insert them in the report.
-This user must [have access to all resources monitored by Centreon](https://docs-next-int.centreon.com/docs/administration/access-control-lists/) in order to extract the performance graphs for the following reports:
+This user must [have access to all resources monitored by Centreon](../administration/access-control-lists.md) in order to extract the performance graphs for the following reports:
 
 - Host-Graph-v2
 - Hostgroup-Graph-v2.
@@ -637,22 +637,6 @@ apt update
 </Tabs>
 
 2. Install the Business repository. You can find its address on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
-
-3. Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-   
-   - If you need to check the Java version, enter the following command:
-   
-   ```shell
-   java -version
-   ```
-   
-   - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-   
-   - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-   
-   ```shell
-   sudo update-alternatives --config java
-   ```
 
 #### Install the database repository
 
@@ -860,6 +844,22 @@ apt install centreon-bi-reporting-server
 
 </TabItem>
 </Tabs>
+
+Then, ensure a version of Java 17 (or 18) is installed before you start the procedure.
+   
+   - If you need to check the Java version, enter the following command:
+   
+   ```shell
+   java -version
+   ```
+   
+   - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+   
+   - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
 
 #### Enable services
 
@@ -1217,7 +1217,7 @@ Go to **Reporting > Monitoring Business Intelligence > General Options**, **ETL 
 | **General options**                                                                    |                                                                                                                                                                                                                                       |
 | Reporting engine uses a dedicated dedicated MySQL server                             | The only appropriate option is **Yes**.                                                                                                                                                                                     |
 | Temporary file storage directory on reporting server                                   | Folder where dumps will be stored on the reporting server                                                                                                                                                                             |
-| Use large memory tweaks (store MariaDB temporary tables in memory)                     | Activated only if your MariaDB configuration and allocated physical memory on the server permit.                                                                                                                                     |
+| Use large memory tweaks (store MariaDB temporary tables in memory)                     | Creates temporary tables using RAM rather than creating them on disk. Not recommended if you have databases with less than 64GB of RAM.                                                               |
 | **Centile parameters**                                                                 |                                                                                                                                                                                                   |
 | Calculating centile aggregation by                                                     | Select the desired aggregation level. The standard percentile report provided with BI 2.1 uses Month data.                                                                                                                            |
 | Select service categories to aggregate centile on                                      | Filter on relevant service categories for centile statistics (e.g., Traffic).                                                                                                                                                         |
@@ -1231,19 +1231,19 @@ Use the options on the **Reporting > Monitoring Business Intelligence > General 
 | **Options**                                                                            | **Values**                                                                                                                                                                                                                            |
 |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **General options**                                                                    |   
-| Type of statistics to build                                                            | <ul><li>Select **Availability only** if you only use [availability reports](available-reports/availability-events-reports.md).</li><li>Select **Performance and capacity only** if you only want to use capacity and performance reports ([performance](available-reports/performance-reports.md), [storage](available-reports/storage-reports.md), [network](available-reports/network-reports.md), [virtualization](available-reports/virtualization-reports.md), [electric consumption](available-reports/electric-consumption-reports.md) reports).</li><li>Select **All** to calculate the statistics for both types of report. This also enables the reports from the [Profiling](available-reports/profiling-reports.md) and [Database disgnostics](available-reports/database-diagnostics-reports.md) category.</li></ul> |
+| Type of statistics to build                                                            | <ul><li>Select **Availability only** if you only use [availability reports](available-reports/availability-events-reports.md).</li><li>Select **Performance and capacity only** if you only want to use capacity and performance reports ([performance](available-reports/performance-reports.md), [storage](available-reports/storage-reports.md), [network](available-reports/network-reports.md), [virtualization](available-reports/virtualization-reports.md), [electric consumption](available-reports/electric-consumption-reports.md) reports).</li><li>Select **All** to calculate the statistics for both types of report. This also enables the reports from the [Profiling](available-reports/profiling-reports.md) and [Database diagnostics](available-reports/database-diagnostics-reports.md) category.</li></ul> |
 | **Reporting perimeter selection**                                                      |                                                                                                                                                                                                                                       |
 | Host groups                                                                             | Select only host groups on which you want to create reports.                                                                                                                                                                         |
 | Host categories                                                                         | Select only host categories on which you want to create reports.                                                                                                                                                                     |
 | Service categories                                                                     | Select only service categories on which you want to create reports.                                                                                                                                                                  |
 | **Availability statistic calculation**                                                 |                                                                                                                                                                                                                                       |
-| Live services for availability statistics calculation                                  | Your [availability reports](available-reports/availability-events-reports.md) will only include data from these [time periods](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/timeperiods/).                                                                                                                                                                                                         |
+| Live services for availability statistics calculation                                  | Your [availability reports](available-reports/availability-events-reports.md) will only include data from these [time periods](../monitoring/basic-objects/timeperiods.md).                                                                                                                                                                                                         |
 | **Performance and capacity statistic calculation**                                     |                                                                                                                                                                                                                                       |
 | Granularity required for performance data statistics                                   | Select the level of granularity required to run the desired performance reports (1).                                                                                                                                                  |
 | Live services for performance data statistics calculation                              | Select the required time periods.                                                                                                                                                                                                     |
 | **Capacity statistic aggregated by month** (reports in the [storage](available-reports/storage-reports.md) category). Data is only aggregated by month.                                            |                                                                                                                                                                                                                                       |
 | Live services for capacity statistics calculation                                      | Select **24x7**, as this is the only relevant time period to calculate disk space.                                                                                                                                                                                                        |
-| Service categories related to capacity data monitoring	                                | Select the [service categories](https://docs-next-int.centreon.com/docs/monitoring/categories) that have been associated with capacity-type services.                                                                                                                                                  |
+| Service categories related to capacity data monitoring	                                | Select the [service categories](../monitoring/categories.md) that have been associated with capacity-type services.                                                                                                                                                  |
 | Exclude metrics from service categories that do not return capacity USAGE information  | Concerns the metrics linked to services which return capacity data. Select the metrics that do not return capacity usage information. but a maximum or total value. (e.g., the metric “size”).                                        |
 
 **(1)** Reports requiring data granularity by the hour are listed below. If you do not wish to use these reports, disable the calculation of hourly statistics:
@@ -1413,7 +1413,7 @@ systemctl restart cron
 </TabItem>
 </Tabs>
 
-The installation of Centreon MBI is now complete. You can start creating [jobs](concepts.md#jobs) in order to generate reports. See [the tutorial](https://docs-next-int.centreon.com/docs/getting-started/analyze-resources-availability/).
+The installation of Centreon MBI is now complete. You can start creating [jobs](concepts.md#jobs) in order to generate reports. See [the tutorial](../getting-started/analyze-resources-availability.md).
 
 ## Monitor your MBI server with Centreon
 

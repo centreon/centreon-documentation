@@ -38,6 +38,12 @@ servers:
 
 1. Update your Centreon 24.10 to the latest minor version.
 
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Remove the repository files:
 
    ```shell
@@ -58,6 +64,12 @@ servers:
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Update your Centreon 24.10 to the latest minor version.
+
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
 
 2. Remove the repository files:
 
@@ -81,6 +93,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 2. Run the following commands:
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
@@ -146,6 +159,8 @@ systemctl stop cbd
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
+
+And ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually.
 
 7. Clean the cache:
 
@@ -600,7 +615,7 @@ Run the following command:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 ```
 
 </TabItem>
@@ -608,14 +623,14 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee /etc/apt/sources.list.d/centreon.list
 apt update
 ```
 

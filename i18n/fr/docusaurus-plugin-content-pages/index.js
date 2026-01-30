@@ -52,6 +52,13 @@ const cards = [
       },{
         label: "Reporting",
         href: "docs/reporting/introduction/"
+      },{
+        label: "Notes de release",
+        href: "docs/category/release-notes-by-component/"
+      },
+      {
+        label: "Connecteurs de supervision",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
       },
     ]
   },
@@ -71,6 +78,32 @@ const cards = [
       },{
         label: "Vues graphiques",
         href: "cloud/graph-views/introduction-map/"
+      },{
+        label: "Notes de release",
+        href: "cloud/releases/cloud-release-notes/"
+      },
+      {
+        label: "Connecteurs de supervision",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
+      },
+    ]
+  },  {
+    title: "Centreon DEM",
+    href: "dem/getting-started/welcome/",
+    links: [
+      {
+        label: "Démarrer avec Centreon Digital Experience Monitoring",
+        href: "dem/getting-started/welcome/"
+      },{
+        label: "Le Monitoring Synthétique (STM)",
+        href: "dem/getting-started/synthetic-monitoring/"
+      },
+      {
+        label: "Le Real User Monitoring (RUM)",
+        href: "dem/getting-started/real-user-monitoring/"
+      },{
+        label: "Sobriété numérique",
+        href: "dem/category/digital-sobriety/"
       },
     ]
   }
@@ -148,6 +181,7 @@ function HeadingBlock() {
     <div className={clsx(styles.headingContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <h1>Bienvenue dans la Documentation Centreon !</h1>
+        <p>Utilisez l’icône en haut à droite pour changer de documentation produit à tout moment.</p>
         <HeadingCards cards={cards}/>
       </div>
     </div>

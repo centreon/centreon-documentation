@@ -46,6 +46,13 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 1. Update your Centreon 23.10 to the latest minor version.
 
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
+
 2. Remove the repository files:
 
    ```shell
@@ -66,6 +73,12 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Update your Centreon 23.10 to the latest minor version.
+
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
 
 2. Remove the repository files:
 
@@ -88,6 +101,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 2. Run the following commands:
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
@@ -105,56 +119,6 @@ apt update
 > If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
 >
 > You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
-
-### Upgrade PHP
-
-Centreon 25.10 uses PHP in version 8.2.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf config-manager --disable remi-modular remi-safe
-dnf module disable composer:2
-dnf module disable php:remi-8.1
-rm -rf /etc/yum.repos.d/remi*
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.2
-dnf distro-sync php\* --allowerasing
-su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
-systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
-to confirm:
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.2
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-systemctl stop php8.1-fpm
-systemctl disable php8.1-fpm
-```
-
-</TabItem>
-</Tabs>
 
 ### Upgrade the Centreon solution
 
@@ -204,7 +168,68 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
-7. Clean the cache:
+### Upgrade PHP
+
+Centreon 25.10 uses PHP in version 8.2.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf config-manager --disable remi-modular remi-safe
+dnf module disable composer:2
+dnf module disable php:remi-8.1
+rm -rf /etc/yum.repos.d/remi*
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.2
+dnf distro-sync php\* --allowerasing
+```
+
+Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+
+```shell
+su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.2
+```
+
+Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
+```
+
+Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+
+</TabItem>
+</Tabs>
+
+Then, finish upgrading the Centreon solution.
+
+1. Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -231,7 +256,7 @@ apt update
 </TabItem>
 </Tabs>
 
-8. Then upgrade all the components with the following command:
+2. Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

@@ -44,11 +44,10 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 Centreon a récemment développé des règles SELinux afin de renforcer le contrôle
 des composants par le système d'exploitation.
 
-> Ces règles sont actuellement en **mode bêta** et peuvent être activées. Vous
-> pouvez les activer en suivant cette procédure. Lors de la détection d'un
+> Pour activer ces règles, suivez cette procédure. En cas de
 > problème, il est possible de désactiver SELinux globalement et de nous envoyer
 > vos commentaires afin d'améliorer nos règles sur
-> [Github](https://github.com/centreon/centreon).
+> notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).
 
 ### Présentation de SELinux
 
@@ -1450,13 +1449,13 @@ dnf install nghttp2
 
 4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
 
-Commentez la ligne suivante :
+Identifiez la ligne suivante et commentez-la en ajoutant le caractère "#" comme ci-dessous :
 
 ```shell
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 ```
 
-Décommentez la ligne suivante :
+Identifiez la ligne suivante et décommentez-la en supprimant le caractère "#" comme ci-dessous :
 
 ```shell
 LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1492,13 +1491,13 @@ dnf install nghttp2
 
 4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
 
-Commentez la ligne suivante :
+Identifiez la ligne suivante et commentez-la en ajoutant le caractère "#" comme ci-dessous :
 
 ```shell
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 ```
 
-Décommentez la ligne suivante :
+Identifiez la ligne suivante et décommentez-la en supprimant le caractère "#" comme ci-dessous :
 
 ```shell
 LoadModule mpm_event_module modules/mod_mpm_event.so

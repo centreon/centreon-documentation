@@ -5,6 +5,12 @@ title: Microsoft SQL Server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft SQL Server**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
@@ -50,7 +56,7 @@ Le connecteur apporte les modèles de service suivants
 
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Backup-Age" label="Backup-Age">
@@ -354,11 +360,14 @@ yum install centreon-plugin-Applications-Databases-Mssql
 </TabItem>
 <TabItem value="Connected-Users" label="Connected-Users">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| Macro           | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COUNTADMINUSERS | Count admin users (otherwise it's ignored)                                                                                               | 0                 |             |
+| UNIQUSERS       | Count users with the same login name once                                                                                                | 0                 |             |
+| DATABASENAME    | Filter connected users by database name (can be a regexp)                                                                                |                   |             |
+| WARNING         | Warning threshold                                                                                                                        |                   |             |
+| CRITICAL        | Critical threshold                                                                                                                       |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Connection-Time" label="Connection-Time">
@@ -650,8 +659,12 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                    | Description            |
 |:--------------------------|:-----------------------|
-| --warning-connected-user  | Warning threshold.     |
-| --critical-connected-user | Critical threshold.    |
+| --filter-counters         | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --database-name           | Filter connected users by database name (can be a regexp).                                                                |
+| --uniq-users              | Count users with the same login name once.                                                                                |
+| --count-admin-users       | Count admin users (otherwise it's ignored).                                                                               |
+| --warning-connected-user  | Warning threshold.                                                                                                        |
+| --critical-connected-user | Critical threshold.                                                                                                       |
 
 </TabItem>
 <TabItem value="Connection-Time" label="Connection-Time">

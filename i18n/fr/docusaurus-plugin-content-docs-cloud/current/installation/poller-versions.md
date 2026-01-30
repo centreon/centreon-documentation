@@ -15,7 +15,7 @@ Pour connaître la version de votre collecteur, allez à la page **Configuration
 
 ## Que se passe-t-il si je ne mets pas mon collecteur à jour ?
 
-Si vous ne mettez pas à jour votre collecteur, vous risquez de manquer d'importants correctifs de sécurité ou des améliorations. Pensez à vous abonner à [nos bulletins de sécurité sur notre plateforme communautaire The Watch] (https://thewatch.centreon.com/latest-security-bulletins-64).
+Si vous ne mettez pas à jour votre collecteur, vous risquez de manquer d'importants correctifs de sécurité ou des améliorations. Pensez à vous abonner à [nos bulletins de sécurité sur notre plateforme communautaire The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
 
 ## À quelle fréquence publiez-vous des mises à jour ?
 
