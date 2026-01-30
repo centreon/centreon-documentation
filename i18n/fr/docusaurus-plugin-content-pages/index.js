@@ -130,6 +130,9 @@ function BannerBlock() {
 function HeadingCard(props) {
   return(
     <div className={clsx(styles.headingCard)}>
+        {props.card.isBeta && (
+        <div className={clsx(styles.headingCardBetaBadge)}>BETA</div>
+      )}
       <a href={props.card.href} className={clsx(styles.headingCardHeader)}>
         {props.card.title}
       </a>
