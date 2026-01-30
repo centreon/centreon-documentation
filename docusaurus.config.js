@@ -381,7 +381,7 @@ const config = {
               type: 'doc',
               docId: defaultPageId,
               position: 'left',
-              label: 'Centreon OnPrem'
+              label: 'Infra Monitoring OnPrem'
             },
           ];
 
@@ -390,7 +390,7 @@ const config = {
               ...items,
               {
                 to: '/cloud/getting-started/welcome',
-                label: 'Centreon Cloud',
+                label: 'Infra Monitoring Cloud',
                 position: 'left',
                 activeBaseRegex: '/cloud/',
               },

@@ -119,9 +119,8 @@ function BannerBlock() {
     <div className={clsx(styles.bannerContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <div className={clsx(styles.bannerWrapper)}>
-          {<span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span>}
-          <p>Nouvelle version logicielle disponible</p>
-          <Button href={versionInfo.link} target={versionInfo.target} label="En savoir plus" dark="true"/>
+          {<span className={clsx(styles.badge)}>CENTREON INFRA MONITORING {versionInfo.version}</span>}
+          <Button href={versionInfo.link} target={versionInfo.target} label="Nouvelle version logicielle disponible" dark="true"/>
         </div>
       </div>
     </div>
@@ -201,7 +200,7 @@ function OpensourceBlock() {
   return(
     <div className={clsx(styles.socialBlock)}>
       <span className={clsx(styles.badge)}>UN CŒUR OPEN SOURCE</span>
-      <p>Plébiscité par des centaines de milliers de professionnels de l’IT à travers le monde avec 6 000 téléchargements mensuels, Centreon est devenu le numéro 1 de la supervision open source en Europe.</p>
+      <p>Plébiscité par des centaines de milliers de professionnels de l’IT à travers le monde avec 6 000 téléchargements mensuels, Centreon Infra Monitoring est devenu le numéro 1 de la supervision open source en Europe.</p>
       <Button href={links.contribute} target="_blank" label="Contribuer au projet Open Source"/>
     </div>
   )
