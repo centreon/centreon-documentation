@@ -131,20 +131,33 @@ Configurez une source de logs pour chaque service souhaité (syslog, apache, etc
 3. Récupérez sur GitHub le fichier d'exemple correspondant à la source de logs souhaitée : https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main.
 
 4. Sur l'hôte source, copiez et collez l'extrait de code dans le fichier correspondant. Enregistrez le fichier.
-   
+
    > L'indentation des paramètres dans votre fichier YAML doit être identique à celle de l'exemple.
 
-5. Dans **/etc/otelcol-contrib/otelcol-contrib.conf**, déclarez chacun des fichiers que vous avez créés : dans le paramètre **OTELCOL_OPTIONS**, ajoutez une option **--config** pour chaque fichier, comme dans l'exemple suivant (veillez à conserver la déclaration du fichier de configuration global **config.yaml**) :
+5. Déclarez chacun des fichiers que vous avez créés : déclarez une option **--config** pour chaque fichier, comme dans l'exemple suivant (veillez à conserver la déclaration du fichier de configuration global **config.yaml**) :
+
+   <Tabs groupId="os" queryString>
+   <TabItem value="Linux" label="Linux">
+
+   Dans **/etc/otelcol-contrib/otelcol-contrib.conf**, ajoutez la ligne suivante (adaptez-la avec vos noms de fichiers réels):
 
    ```shell
    OTELCOL_OPTIONS="--config=/etc/otelcol-contrib/config.yaml --config=/etc/otelcol-contrib/conf.d/httpd-combined.yaml --config=/etc/otelcol-contrib/conf.d/httpd-error.yaml"
    ```
 
-<!-- ```
-Get-WmiObject win32_service -filter "Name='otelcol-contrib'" | Invoke-WmiMethod -Name Change -ArgumentList @($null,$null,$null,$null,$null, '"C:\Program Files\OpenTelemetry Collector\otelcol-contrib.exe" --config "C:\Program Files\OpenTelemetry Collector\config.yaml" --config "C:\Program Files\OpenTelemetry Collector\conf.d\windows-event-log.yaml"')
-``` -->
+   </TabItem>
+   <TabItem value="Windows" label="Windows">
 
-5. Redémarrez le service OpenTelemetry Collector.
+   Dans votre terminal, exécutez la commande suivante (adaptez-la avec vos noms de fichiers réels):
+
+   ```shell
+   Get-WmiObject win32_service -filter "Name='otelcol-contrib'" | Invoke-WmiMethod -Name Change -ArgumentList @($null,$null,$null,$null,$null, '"C:\Program Files\OpenTelemetry Collector\otelcol-contrib.exe" --config "C:\Program Files\OpenTelemetry Collector\config.yaml" --config "C:\Program Files\OpenTelemetry Collector\conf.d\windows-event-log.yaml"')
+   ```
+
+   </TabItem>
+   </Tabs>
+
+6. Redémarrez le service OpenTelemetry Collector.
 
    <Tabs groupId="os" queryString>
    <TabItem value="Linux" label="Linux">
