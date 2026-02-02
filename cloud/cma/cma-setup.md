@@ -19,7 +19,7 @@ In the case of a Cloud platform, these connectors are already installed.
 <TabItem value="Linux" label="Linux">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](../monitoring/pluginpacks#installing-a-monitoring-connector.md) the [**Linux Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent) monitoring connector.
+2. [Install](../monitoring/pluginpacks.md#installing-a-monitoring-connector.md) the [**Linux Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent) monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
