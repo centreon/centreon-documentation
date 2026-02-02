@@ -62,6 +62,7 @@ The CMA can be installed on and monitor the following OSs:
    * [**Microsoft WSUS**](/pp/integrations/plugin-packs/procedures/applications-wsus-cma)
    * [**Linux**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent)
    * [**Windows**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent).
+   * [**Microsoft SCCM**](/pp/integrations/plugin-packs/procedures/applications-sccm-cma)
 
 * You can also [develop your own plugins](cma-custom.md).
 

@@ -63,6 +63,7 @@ L'agent peut être installé sur et superviser les OS suivants :
    * [**Microsoft WSUS**](/pp/integrations/plugin-packs/procedures/applications-wsus-cma)
    * [**Linux**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent)
    * [**Windows**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent).
+   * [**Microsoft SCCM**](/pp/integrations/plugin-packs/procedures/applications-sccm-cma)
 
 * Vous pouvez également [développer vos propres plugins](cma-custom.md).
 
