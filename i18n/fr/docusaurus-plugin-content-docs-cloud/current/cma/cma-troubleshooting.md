@@ -5,13 +5,13 @@ title: Dépanner l'agent CMA
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/troubleshooting.png)
+![image](../assets/cma/troubleshooting.png)
 
 ## Relancer un contrôle
 
 Dans de nombreuses situations, il est nécessaire de pouvoir rafraîchir le statut d'une ou plusieurs ressources en lançant un contrôle manuellement via l'interface.
 
-L'action **Vérification forcée** de la page [Statut des ressources](/docs/alerts-notifications/resources-status) est un contrôle disponible pour CMA, que vous pouvez effectuer à tout moment (pendant ou en dehors de la période de vérification configurée).
+L'action **Vérification forcée** de la page [Statut des ressources](../alerts-notifications/resources-status.md) est un contrôle disponible pour CMA, que vous pouvez effectuer à tout moment (pendant ou en dehors de la période de vérification configurée).
 
 Vous pouvez contrôler vos ressources et rafraîchir leur statut de trois manières :
 

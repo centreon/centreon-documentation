@@ -4,7 +4,7 @@ title: Configurer l’environnement de l’agent
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import PollerAgentConfiguration from '../_poller-agent-configuration.mdx';
+import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Étape 1: Configurez Centreon
 
@@ -19,13 +19,13 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 <TabItem value="Linux" label="Linux">
 
 1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Linux Centreon Monitoring Agent**](../../../procedures/operatingsystems-linux-centreon-monitoring-agent.md).
+2. [Installez](../monitoring/pluginpacks#installer-un-connecteur-de-supervision.md) le connecteur de supervision [**Linux Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent).
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Windows Centreon Monitoring Agent**](../../../procedures/operatingsystems-windows-centreon-monitoring-agent.md).
+2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent).
 
 </TabItem>
 </Tabs>
@@ -65,7 +65,7 @@ Cette étape ne s'applique que pour les plateformes OnPrem. Pour Centreon Cloud,
 </TabItem>
 </Tabs>
 
-* Lorsque vous désactivez ou révoquez un jeton, [déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration) pour que cette action soit prise en compte.
+* Lorsque vous désactivez ou révoquez un jeton, [déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) pour que cette action soit prise en compte.
 
 * L'expiration est prise en compte immédiatement, sans nécessiter d'action utilisateur.
 
@@ -74,7 +74,7 @@ Cette étape ne s'applique que pour les plateformes OnPrem. Pour Centreon Cloud,
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
+Sur le serveur central, [créez l'hôte](../monitoring/basic-objects/hosts.md) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
 
 > Selon le sens de connexion souhaité, le champ "Adresse" de l'hôte n'aura pas d'impact (connexion initiée par l'agent) ou sera récupéré lors de la sélection de l’hôte dans la configuration d'agent (connexion initiée par le collecteur).
 
@@ -83,7 +83,7 @@ Créez les services associés au modèle d'hôte.
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
+Sur le serveur central, [créez l'hôte](../monitoring/basic-objects/hosts.md) et appliquez-lui le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
 
 Créez les services associés au modèle d'hôte.
 
@@ -104,7 +104,7 @@ Créez les services associés au modèle d'hôte.
 6. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
    > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
 7. Cliquez sur **Sauvegarder**.
-8. [Déployez la configuration en redémarrant le moteur de collecte](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+8. [Déployez la configuration en redémarrant le moteur de collecte](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
@@ -115,7 +115,7 @@ Créez les services associés au modèle d'hôte.
 8. Sélectionnez le jeton d'authentification créé précédemment. Il est aussi possible de créer un jeton depuis cet écran.
 9. Ajoutez l'hôte.
 10. Répétez l'opération pour chaque hôte devant être lié à ce collecteur. Pour configurer de fortes volumétries, il est recommandé de passer par les API dédiées.
-11. [Déployez la configuration en redémarrant le moteur de collecte](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+11. [Déployez la configuration en redémarrant le moteur de collecte](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 </TabItem>
 </Tabs>
@@ -436,7 +436,7 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Téléchargez l'installer de l'agent](https://download.centreon.com)  (onglet **Custom Platform**, puis onglet **Monitoring Agent**), sur tous les serveurs que vous voulez superviser.
+[Téléchargez l'installer de l'agent](https://download.centreon.com) (onglet **Custom Platform**, puis onglet **Monitoring Agent**), sur tous les serveurs que vous voulez superviser.
 
 Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 
@@ -785,7 +785,7 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 </Tabs>
 
-### Mettre à jour une configuration existante 
+### Mettre à jour une configuration existante
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
@@ -809,6 +809,3 @@ centreon-monitoring-agent-modify.exe /VERYSILENT
 ## Étape 4 : Tester le fonctionnement de l'agent
 
 Voir [section dédiée](cma-troubleshooting.md).
-
-
-
