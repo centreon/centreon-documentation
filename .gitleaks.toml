@@ -19,4 +19,5 @@ paths = [
 regexTarget = "match"
 regexes = [
   '''ABCDEFG1234567890'''
+  "#### CMA authentication token behavior: deactivation/expiration/revocation"
 ]
