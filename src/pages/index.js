@@ -56,6 +56,10 @@ const cards = [
         label: "Release notes",
         href: "docs/category/release-notes-by-component/"
       },
+      {
+        label: "Monitoring connectors",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
+      },
     ]
   },
   {
@@ -77,6 +81,10 @@ const cards = [
       },{
         label: "Release notes",
         href: "cloud/releases/cloud-release-notes/"
+      },
+      {
+        label: "Monitoring connectors",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
       },
     ]
   },

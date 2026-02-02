@@ -118,6 +118,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-apache-cxf-jmx'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-webservers-apache-serverstatus'
         },
         {
@@ -419,6 +423,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-sccm-nsclient'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-sccm-cma'
         },
         {
           type: 'doc',
@@ -755,6 +763,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-database'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-dem-restapi'
         },
         {
           type: 'doc',
@@ -1546,10 +1558,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-security-cato-networks-api'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
         },
         {
@@ -1599,6 +1607,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cambium-epmp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-security-cato-networks-api'
         },
         {
           type: 'doc',
@@ -3015,6 +3027,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vcenter-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vcsa-restapi'
         },
         {
           type: 'doc',
