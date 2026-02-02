@@ -58,14 +58,6 @@ Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian
    dnf update
    ```
 
-Si vous utilisez Centreon Business Edition, utilisez cette commande au lieu de la précédente :
-
-   ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/22.04/el8/centreon-22.04-el8.repo
-   dnf config-manager --add-repo https://archives.centreon.com/standard/22.04/el8/centreon-business-22.04-el8.repo
-   dnf clean all --enablerepo=*
-   dnf update
-   ```
 
 2. Supprimez le fichier **centreon-22.04.repo** :
 
@@ -180,7 +172,7 @@ dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
 ```
 
-Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 ```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
@@ -206,7 +198,7 @@ dnf module install php:8.2
 dnf distro-sync php\* --allowerasing --enablerepo=centreon-25.10-unstable
 ```
 
-Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 ```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
@@ -220,7 +212,7 @@ systemctl restart php-fpm
 systemctl stop php8.0-fpm
 ```
 
-Assurez vous que le paramètre `memory-limit` contenu dans `/etc/php.d50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 </TabItem>
 </Tabs>
