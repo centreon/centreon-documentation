@@ -51,7 +51,7 @@ entre le serveur BI dédié, le serveur Centreon et les bases de données :
 | SSH             | Reporting server         | Centreon Server                      | 22           | TCP                | Envoyer les rapports générés au serveur central            |
 | CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentification et récupération des données               |
 | CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Utilisé pour contacter CBIS afin de créer des jobs         |
-| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Récupération des données aggrégées pour les widgets        |
+| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Récupération des données agrégées pour les widgets        |
 
 \**Uniquement requis pour les rapports Host-Graph-v2 et Hostgroup-Graph-v2 qui utilisent l'API Centreon pour générer des graphiques.*
 
