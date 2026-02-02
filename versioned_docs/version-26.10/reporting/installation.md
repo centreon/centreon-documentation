@@ -46,10 +46,10 @@ between the dedicated BI server, the Centreon server and the databases:
 | **Application** | **Source**               | **Destination**                      | **Port**     | **Protocol**       | **Purpose**                                         |
 |-----------------|--------------------------|--------------------------------------|--------------|--------------------|-----------------------------------------------------|
 | ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Retrieve configuration and other data from Centreon |
-| SSH             | Reporting server         |  Centreon Server                     | 22           | TCP                | Send generated reports to Central server            |
-| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentication & data retrieval                     |
-| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Central contact CBIS to generate jobs               |
-| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Retrieve aggregated data to display on widgets      |
+| SSH             | Reporting server         |  Centreon Server                     | 22           | TCP                | Send generated reports to central server            |
+| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentication and data retrieval                     |
+| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Central contacts CBIS to generate jobs               |
+| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Retrieve aggregated data to display in widgets      |
 
 *Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use the Centreon API to generate graphs.*
 
