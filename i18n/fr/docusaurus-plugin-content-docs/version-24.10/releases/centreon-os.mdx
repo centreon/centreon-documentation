@@ -30,9 +30,9 @@ Release date: `January 27, 2026`
   <summary>Enhancements</summary>
 
 - [Custom Views] Optimized performance when retrieving ACLs in widgets.
-- [Dashboards] Resource Table widget - Added a link to access the OpenTicket on the provider side.
-- [Packaging] Increased php memory limit in centreon php configuration.
-- [Performance Graphs] The limit on the number of metrics displayed per chart has been raised to 20. We also fixed an issue with the unnecessary display of legends when this limit is exceeded.
+- [Dashboards] Resource Table widget - Added a link to access OpenTicket on the provider side.
+- [Packaging] Increased the php memory limit in the centreon php configuration.
+- [Performance Graphs] The limit on the number of metrics displayed per chart has been raised to 20. Also fixed an issue with unnecessary legends being displayed when this limit is exceeded.
 
 </details>
 
@@ -42,24 +42,24 @@ Release date: `January 27, 2026`
 - [Administration] Fixed an LDAP issue where the user's DN was never updated.
 - [Configuration] Fixed an error when duplicating the configuration of an RRD broker that resulted in missing outputs.
 - [Dashboards] Metrics Graph - Improved the vertical scale display.
-- [Dashboards] Resource Table widget - Fixed host name positioning issue.
+- [Dashboards] Resource Table widget - Fixed an issue with the host name's positioning.
 - [Dashboards] The list of contacts is now displayed correctly when sharing a dashboard or a playlist.
-- [Monitoring] Fixed an issue with the "hostgroups summary" monitoring page.
+- [Monitoring] Fixed an issue with the "hostgroups summary" monitoring page redirecting users to Resource status when trying to filter on a hostgroup.
 - [Performance Graphs] Fixed an issue preventing users from selecting multiple graphs when the language selected isn't "en_US".
 - [Playlists] Fixed an issue preventing host problems from being displayed.
 - [Resource Status] Fixed an issue preventing services from being displayed when filtering on their parent host severity.
 - [Unattended] Fixed an issue that resulted in incomplete ITEE installations when installing a platform with the unattended.sh script.
-- [Users] Fixed an issue preventing users from being created when using an autologin key.
+- [Users] Fixed an issue that caused a blank page when trying to create a user with an autologin key.
 
 </details>
 
 <details>
 <summary>Security fixes</summary>
 
-- [Security] fixed a vulnerability in Administration > Parameters > Images.
+- [Security] fixed a vulnerability in images parameters.
 - [Security] Fixed a vulnerability in LDAP configuration.
-- [Security] fixed a vulnerability in Monitoring > Performance > Virtual Metrics.
-- [Security] fixed a vulnerability in Notification > Hostgroups.	
+- [Security] fixed a vulnerability in virtual metrics.
+- [Security] fixed a vulnerability in hostgroups notifications.	
 
 </details>
 
@@ -1386,7 +1386,7 @@ Release date: `January 27, 2026`
 <details>
 <summary>Bug fixes</summary>
 
-- [Custom Views] Open Ticket - Fixed filter on host categories.
+- [Custom Views] Open Ticket - Fixed the ability to filter on host categories.
 - [Dashboards] Resource Table widget - Fixed an issue preventing custom providers from being used for ticket management.
 
 </details>
@@ -1394,7 +1394,7 @@ Release date: `January 27, 2026`
 <details>
 <summary>Security fixes</summary>
 
-- [BREAKING CHANGE] [Open Tickets] The ability to define a custom command linked to a rule has been removed, due to low adoption and security concerns.
+- [BREAKING CHANGE] [Open Tickets] Due to security concerns, the ability to define a custom command linked to a rule has been removed.
 
 </details>
 
