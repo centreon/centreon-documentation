@@ -25,7 +25,7 @@ In the case of a Cloud platform, these connectors are already installed.
 <TabItem value="Windows" label="Windows">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](/docs/monitoring/pluginpacks.md#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent) monitoring connector.
+2. [Install](../monitoring/pluginpacks.md#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent) monitoring connector.
 
 </TabItem>
 </Tabs>
