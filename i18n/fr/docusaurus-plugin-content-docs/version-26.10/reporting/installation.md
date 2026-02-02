@@ -45,13 +45,13 @@ Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 Le tableau ci-dessous présente les différents types de flux, par défaut,
 entre le serveur BI dédié, le serveur Centreon et les bases de données :
 
-| **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
-|-----------------|--------------------------|--------------------------------------|----------|--------------|
-| ETL/CBIS        | Serveur de reporting     | Serveur de bases de données Centreon | 3306     | TCP          |
-| SSH             | Serveur de reporting     | Serveur Centreon                     | 22       | TCP          |
-| CBIS            | Serveur de reporting     | Serveur Centreon                     | 80       | HTTP*        |
-| CBIS            | Centreon                 | Serveur de reporting                 | 1234     | TCP          |
-| Widgets         | Serveur central Centreon | Serveur de reporting                 | 3306     | TCP          |
+| **Application** | **Source**               | **Destination**                      | **Port**     | **Protocole**      | **Objet**                                                  |
+|-----------------|--------------------------|--------------------------------------|--------------|--------------------|------------------------------------------------------------|
+| ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Récupérer la configuration et d'autres données de Centreon |
+| SSH             | Reporting server         | Centreon Server                      | 22           | TCP                | Envoyer les rapports générés au serveur central            |
+| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentification et récupération des données               |
+| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Utilisé pour contacter CBIS afin de créer des jobs         |
+| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Récupération des données agrégées pour les widgets        |
 
 \**Uniquement requis pour les rapports Host-Graph-v2 et Hostgroup-Graph-v2 qui utilisent l'API Centreon pour générer des graphiques.*
 
