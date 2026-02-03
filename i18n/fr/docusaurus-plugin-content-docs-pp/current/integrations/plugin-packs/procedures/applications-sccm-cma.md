@@ -64,7 +64,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-<CMAprerquisites />
+<CMAprerequisites />
 
 ## Installer le connecteur de supervision
 
