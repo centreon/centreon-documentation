@@ -225,8 +225,18 @@ jobs:
         shell: bash
 
       - name: Build documentation
-        run: pnpm build
+        run: |
+          while true; do
+            date -u +"%Y-%m-%dT%H:%M:%SZ"
+            free -h
+            echo "---"
+            sleep 1
+          done &
+          MONITOR_PID=$!
+          trap 'kill $MONITOR_PID' EXIT
+          pnpm build
         env:
+          DOCUSAURUS_PERF_LOGGER: true
           NODE_OPTIONS: --max_old_space_size=16000
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           PP: ${{ matrix.pp }}
