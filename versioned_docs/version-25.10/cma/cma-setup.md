@@ -19,13 +19,13 @@ In the case of a Cloud platform, these connectors are already installed.
 <TabItem value="Linux" label="Linux">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](../monitoring/pluginpacks#installing-a-monitoring-connector) the [**Linux Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent) monitoring connector.
+2. [Install](../monitoring/pluginpacks#installing-a-monitoring-connector.md) the [**Linux Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent) monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent) monitoring connector.
+2. [Install](../monitoring/pluginpacks#installing-a-monitoring-connector.md) the [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent) monitoring connector.
 
 </TabItem>
 </Tabs>
@@ -66,7 +66,7 @@ This step only applies to OnPrem platforms. For Centreon Cloud, a default token 
 </TabItem>
 </Tabs>
 
-* When you disable or revoke a token, [deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration) for this action to take effect.
+* When you disable or revoke a token, [deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for this action to take effect.
 
 * Expiration takes effect immediately, without requiring any user action.
 
@@ -75,7 +75,7 @@ This step only applies to OnPrem platforms. For Centreon Cloud, a default token 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-On the central server, [create the host](../monitoring/basic-objects/hosts) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
 
 > Depending on the desired connection direction, the host's “Address” field will have no impact (connection initiated by the agent) or will be retrieved when the host is selected in the agent configuration (connection initiated by the poller).
 
