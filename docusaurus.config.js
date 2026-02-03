@@ -73,18 +73,18 @@ const config = {
 
   future: {
     v4: {
-      removeLegacyPostBuildHeadAttribute: false,
+      removeLegacyPostBuildHeadAttribute: true,
       useCssCascadeLayers: true,
     },
     experimental_faster: {
-      swcJsLoader: false,
-      swcJsMinimizer: false,
-      swcHtmlMinimizer: false,
-      lightningCssMinimizer: false,
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
       rspackBundler: true,
       rspackPersistentCache: true,
-      ssgWorkerThreads: false,
-      mdxCrossCompilerCache: false,
+      ssgWorkerThreads: true,
+      mdxCrossCompilerCache: true,
     },
   },
 
