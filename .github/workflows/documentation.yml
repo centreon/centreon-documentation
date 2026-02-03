@@ -224,19 +224,9 @@ jobs:
         run: pnpm install --frozen-lockfile
         shell: bash
 
-      # - name: Restore rspack cache
-      #   uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-      #   with:
-      #     path: |
-      #       ./node_modules/.cache
-      #     key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
-      #     restore-keys: |
-      #       docusaurus-rspack-${{ matrix.environment }}-staging
-
       - name: Build documentation
         run: pnpm build
         env:
-          DEBUG: "*"
           DOCUSAURUS_PERF_LOGGER: true
           NODE_OPTIONS: --max_old_space_size=16000
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
@@ -266,15 +256,6 @@ jobs:
           path: |
             build
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
-
-      - name: Store rspack cache
-        # only store cache for staging branch builds because it is too big (~1.2GB)
-        if: github.ref_name == 'staging' && github.event_name != 'pull_request'
-        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-        with:
-          path: |
-            ./node_modules/.cache
-          key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
