@@ -84,7 +84,7 @@ Create the services associated with the host template.
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-On the central server, [create the host](../monitoring/basic-objects/hosts) and apply the **OS-Windows-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Windows-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
 
 Create the services associated with the host template.
 
@@ -105,7 +105,7 @@ Create the services associated with the host template.
 6. In the **OTLP Receiver** section, enter the paths to the certificate files. See [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
    > If you are configuring multiple pollers at the same time, make sure that all certificate files have the same name.
 7. Click **Save**.
-8. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration).
+8. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 </TabItem>
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
@@ -116,7 +116,7 @@ Create the services associated with the host template.
 8. Select the authentication token you created earlier. You can also create a token from this screen.
 9. Add the host.
 10. Repeat the operation for each host to be linked to this poller. To configure many hosts, we recommend using the dedicated APIs.
-11. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration).
+11. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 </TabItem>
 </Tabs>
