@@ -45,13 +45,13 @@ Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 Le tableau ci-dessous présente les différents types de flux, par défaut,
 entre le serveur BI dédié, le serveur Centreon et les bases de données :
 
-| **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
-|-----------------|--------------------------|--------------------------------------|----------|--------------|
-| ETL/CBIS        | Serveur de reporting     | Serveur de bases de données Centreon | 3306     | TCP          |
-| SSH             | Serveur de reporting     | Serveur Centreon                     | 22       | TCP          |
-| CBIS            | Serveur de reporting     | Serveur Centreon                     | 80       | HTTP*        |
-| CBIS            | Centreon                 | Serveur de reporting                 | 1234     | TCP          |
-| Widgets         | Serveur central Centreon | Serveur de reporting                 | 3306     | TCP          |
+| **Application** | **Source**               | **Destination**                      | **Port**     | **Protocole**      | **Objet**                                                  |
+|-----------------|--------------------------|--------------------------------------|--------------|--------------------|------------------------------------------------------------|
+| ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Récupérer la configuration et d'autres données de Centreon |
+| SSH             | Reporting server         | Centreon Server                      | 22           | TCP                | Envoyer les rapports générés au serveur central            |
+| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentification et récupération des données               |
+| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Utilisé pour contacter CBIS afin de créer des jobs         |
+| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Récupération des données agrégées pour les widgets        |
 
 \**Uniquement requis pour les rapports Host-Graph-v2 et Hostgroup-Graph-v2 qui utilisent l'API Centreon pour générer des graphiques.*
 
@@ -631,22 +631,6 @@ apt update
 
 2. Installez le dépôt Business. Vous pouvez trouver son adresse sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-3. Assurez-vous qu'une version de Java 17 (ou 18) est installée.
-   
-   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-   
-   ```shell
-   java -version
-   ```
-   
-   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
-   
-   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-   
-   ```shell
-   sudo update-alternatives --config java
-   ```
-
 #### Installer le dépôt de base de données
 
 <DatabaseRepository />
@@ -851,6 +835,22 @@ apt install centreon-bi-reporting-server
 
 </TabItem>
 </Tabs>
+
+Puis, assurez-vous qu'une version de Java 17 (ou 18) est installée.
+   
+   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+   
+   ```shell
+   java -version
+   ```
+   
+   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+   
+   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
 
 #### Activer les services
 

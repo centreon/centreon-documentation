@@ -89,27 +89,17 @@ rm /etc/yum.repos.d/centreon-business-21.10.repo
 ```
 
 </TabItem>
-
-<TabItem value="Debian" label="Debian">
-
-```shell
-rm /etc/apt/sources.list.d/centreon-business.list
-```
-
-</TabItem>
 </Tabs>
 
 3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
-4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
-
-5. Stop the Centreon Broker process:
+4. Stop the Centreon Broker process:
 
 ```shell
 systemctl stop cbd
 ```
 
-6. Delete existing retention files:
+5. Delete existing retention files:
 
 ```shell
 rm /var/lib/centreon-broker/* -f
@@ -136,6 +126,11 @@ dnf module reset php
 ```shell
 dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
@@ -157,6 +152,11 @@ dnf module reset php
 ```shell
 dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```

@@ -6,3 +6,7 @@
 
 *.pl                @centreon/owners-perl
 *.pm                @centreon/owners-perl
+
+.gitleaks.toml      @centreon/owners-security
+.gitleaksignore     @centreon/owners-security
+**/secu-*.yml       @centreon/owners-security

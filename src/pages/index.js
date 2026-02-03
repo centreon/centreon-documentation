@@ -56,6 +56,10 @@ const cards = [
         label: "Release notes",
         href: "docs/category/release-notes-by-component/"
       },
+      {
+        label: "Monitoring connectors",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
+      },
     ]
   },
   {
@@ -77,6 +81,10 @@ const cards = [
       },{
         label: "Release notes",
         href: "cloud/releases/cloud-release-notes/"
+      },
+      {
+        label: "Monitoring connectors",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
       },
     ]
   },
@@ -174,6 +182,7 @@ function HeadingBlock() {
     <div className={clsx(styles.headingContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <h1>Welcome to Centreon documentation!</h1>
+        <p>Use the top-right icon to switch between product documentations at any time.</p>
         <HeadingCards cards={cards}/>
       </div>
     </div>

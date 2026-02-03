@@ -43,13 +43,13 @@ The diagram below highlights the main components of Centreon MBI:
 The table below shows the different types of flows, by default,
 between the dedicated BI server, the Centreon server and the databases:
 
-| **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
-|-----------------|--------------------------|--------------------------------------|----------|--------------|
-| ETL/CBIS        | Reporting server         | Centreon database server             | 3306     | TCP          |
-| SSH             | Reporting server         |  Centreon Server                     | 22       | TCP          |
-| CBIS            | Reporting server         | Centreon Server                      | 80       | HTTP*        |
-| CBIS            | Centreon                 | Reporting server                     | 1234     | TCP          |
-| Widgets         | Centreon central server  | Reporting server                     | 3306     | TCP          |
+| **Application** | **Source**               | **Destination**                      | **Port**     | **Protocol**       | **Purpose**                                         |
+|-----------------|--------------------------|--------------------------------------|--------------|--------------------|-----------------------------------------------------|
+| ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Retrieve configuration and other data from Centreon |
+| SSH             | Reporting server         |  Centreon Server                     | 22           | TCP                | Send generated reports to central server            |
+| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentication and data retrieval                     |
+| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Central contacts CBIS to generate jobs               |
+| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Retrieve aggregated data to display in widgets      |
 
 *Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use the Centreon API to generate graphs.*
 
@@ -638,22 +638,6 @@ apt update
 
 2. Install the Business repository. You can find its address on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-3. Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-   
-   - If you need to check the Java version, enter the following command:
-   
-   ```shell
-   java -version
-   ```
-   
-   - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-   
-   - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-   
-   ```shell
-   sudo update-alternatives --config java
-   ```
-
 #### Install the database repository
 
 <DatabaseRepository />
@@ -860,6 +844,22 @@ apt install centreon-bi-reporting-server
 
 </TabItem>
 </Tabs>
+
+Then, ensure a version of Java 17 (or 18) is installed before you start the procedure.
+   
+   - If you need to check the Java version, enter the following command:
+   
+   ```shell
+   java -version
+   ```
+   
+   - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+   
+   - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
 
 #### Enable services
 

@@ -3,9 +3,11 @@ id: synthetic-monitoring
 title: Le Monitoring Synthétique (ou “Parcours Utilisateurs”)
 --- 
 
+Le Monitoring Synthétique consiste à naviguer à fréquence régulière sur un site cible en mesurant différents indicateurs de performance web.
+
 ![image](../assets/getting-started/synthetic-monitoring-1.png)
 
-Le Monitoring Synthétique consiste à naviguer à fréquence régulière sur un site cible afin :
+L'outil permet en particulier :
 
 - de **surveiller le bon fonctionnement d’un parcours type** et de calculer son **taux de disponibilité** (ex: “il a été possible de naviguer et d’acheter sur le site ecommerce pendant 99,5% du temps ce mois-ci”)
 - d’**alerter en temps réel** les gestionnaires du site en cas de dysfonctionnement du site, via l’envoi d’email, SMS ou autres notifications avec un rapport détaillé de l’incident contenant à la fois une capture d’écran de l’erreur rencontrée mais également un enregistrement précis du chargement de la page dans le navigateur.

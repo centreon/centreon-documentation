@@ -56,6 +56,10 @@ const cards = [
         label: "Notes de release",
         href: "docs/category/release-notes-by-component/"
       },
+      {
+        label: "Connecteurs de supervision",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
+      },
     ]
   },
   {
@@ -77,6 +81,10 @@ const cards = [
       },{
         label: "Notes de release",
         href: "cloud/releases/cloud-release-notes/"
+      },
+      {
+        label: "Connecteurs de supervision",
+        href: "pp/integrations/plugin-packs/getting-started/introduction/"
       },
     ]
   },  {
@@ -173,6 +181,7 @@ function HeadingBlock() {
     <div className={clsx(styles.headingContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <h1>Bienvenue dans la Documentation Centreon !</h1>
+        <p>Utilisez l’icône en haut à droite pour changer de documentation produit à tout moment.</p>
         <HeadingCards cards={cards}/>
       </div>
     </div>
