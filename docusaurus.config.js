@@ -204,12 +204,22 @@ const config = {
         //   // },
         // ],
         language: ["en", "fr"],
+        indexDocs: false,
+        indexBlog: false,
       }),
     ],
   ],
 
   plugins: (() => {
     let plugins = [
+      // [
+      //   'rsdoctor',
+      //   {
+      //     rsdoctorOptions: {
+      //       mode: 'normal',
+      //     },
+      //   },
+      // ],
       // [
       //   '@docusaurus/plugin-ideal-image',
       //   {
@@ -306,6 +316,8 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: undefined,
+
       zoom: {
         selector: '.markdown img',
         background: {
