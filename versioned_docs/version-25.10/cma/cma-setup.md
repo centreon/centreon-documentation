@@ -290,8 +290,6 @@ apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/ubuntu-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
-</TabItem>
-</Tabs>
 
 2. Import the repository key:
 
