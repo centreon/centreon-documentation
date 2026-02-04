@@ -11,7 +11,7 @@ Suivez ce tutoriel pour apprendre à concevoir un tableau de bord en y ajoutant 
 
 > Il s'agit d'un tutoriel interactif qui peut nécessiter un clic pour passer à l'étape suivante (le son est activé par défaut).
 
-<iframe width="100%" height="650" src="https://demo.arcade.software/8tvsmop1AEy8Au0DyfOd" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://app.arcade.software/8tvsmop1AEy8Au0DyfOd" frameborder="0" allowfullscreen></iframe>
 
 ## En savoir plus sur la fonctionnalité
 
