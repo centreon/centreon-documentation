@@ -1,6 +1,6 @@
 ---
 id: dashboards
-title: Dashboards
+title: Creating dashboards
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
