@@ -8,7 +8,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Step 1: Configure Centreon
 
-This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/26.10/).)
+This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/24.10/).)
 
 ### Install the Monitoring Connector you need (OnPrem version)
 
