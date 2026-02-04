@@ -82,9 +82,9 @@ const config = {
       swcHtmlMinimizer: true,
       lightningCssMinimizer: true,
       rspackBundler: true,
-      rspackPersistentCache: false,
-      ssgWorkerThreads: false,
-      mdxCrossCompilerCache: false,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: true,
+      mdxCrossCompilerCache: true,
     },
   },
 
@@ -212,14 +212,14 @@ const config = {
 
   plugins: (() => {
     let plugins = [
-      // [
-      //   'rsdoctor',
-      //   {
-      //     rsdoctorOptions: {
-      //       mode: 'normal',
-      //     },
-      //   },
-      // ],
+      [
+        'rsdoctor',
+        {
+          rsdoctorOptions: {
+            mode: 'normal',
+          },
+        },
+      ],
       // [
       //   '@docusaurus/plugin-ideal-image',
       //   {

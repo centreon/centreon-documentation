@@ -224,6 +224,11 @@ jobs:
         run: pnpm install --frozen-lockfile
         shell: bash
 
+      - name: Replace by empty png
+        run: |
+          find i18n -type f -name "*.png" -exec truncate -s 0 {} \;
+          find versioned_docs -type f -name "*.png" -exec truncate -s 0 {} \;
+        shell: bash
       - name: Build documentation
         run: |
           while true; do
