@@ -47,10 +47,12 @@ https://github.com/open-telemetry/opentelemetry-collector-releases/releases/down
 
 ### Step 2: Define the global parameters of the collector
 
-1. Logged in as **root**, edit the **config.yaml** file that was created when you installed the collector:
+1. Edit the **config.yaml** file that was created when you installed the collector:
 
    <Tabs groupId="os" queryString>
    <TabItem value="Linux" label="Linux">
+
+   You must be logged in as **root**.
 
    ```text
    /etc/otelcol-contrib/config.yaml
