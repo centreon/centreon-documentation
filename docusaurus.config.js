@@ -94,9 +94,9 @@ const config = {
       swcHtmlMinimizer: true,
       lightningCssMinimizer: true,
       rspackBundler: true,
-      rspackPersistentCache: true,
-      ssgWorkerThreads: true,
-      mdxCrossCompilerCache: true,
+      rspackPersistentCache: false,
+      ssgWorkerThreads: false,
+      mdxCrossCompilerCache: false,
     },
   },
 
