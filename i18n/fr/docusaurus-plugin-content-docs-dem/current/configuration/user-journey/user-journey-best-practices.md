@@ -105,6 +105,13 @@ iframe #my-form
     
     **Notre recommandation : identifier 2 à 3 éléments clés** (par exemple, la plus grande image ou *background-image*, un texte structurant comme le titre principal, et le *call-to-action* principal). Cela permet d’avoir une mesure pertinente et maintenable, sans surcharger le scénario avec des vérifications superflues.
     
+### L'action "Exécuter un script"
+
+    L'utilisation d'un script n'est recommandée que si vous n'avez pas eu de résultats avec les autres actions disponibles dans la configuration de parcours utilisateurs. Notez que le script garantit la réalisation d'une action mais pas son résultat. Par conséquent, vous devez ajouter au moins une vérification après chaque script.
+
+    Évitez d'utiliser un script pour remplacer une vérification ou pour cacher une instabilité du site.
+
+    Utilisez des scripts courts, simples et avec des spécifications précises.
 
 ### Ajouter des vérifications sur les cibles des actions
     
