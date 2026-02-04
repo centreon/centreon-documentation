@@ -5,7 +5,7 @@ title: Comment traduire Centreon
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Si vous voulez contribuer à traduire Centreon, ce tutoriel est pour vous ! Découvrez comment traduire l’interface web de Centreon et comment nous aider à ajouter de nouvelles langues dans Centreon.
+Si vous voulez contribuer à traduire Centreon, ce tutoriel est pour vous ! Découvrez comment traduire l’interface web de Centreon et comment nous aider à ajouter de nouvelles langues dans Centreon. 
 
 ## Installer l’environnement de traduction
 
