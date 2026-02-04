@@ -212,14 +212,14 @@ const config = {
 
   plugins: (() => {
     let plugins = [
-      [
-        'rsdoctor',
-        {
-          rsdoctorOptions: {
-            mode: 'normal',
-          },
-        },
-      ],
+      // [
+      //   'rsdoctor',
+      //   {
+      //     rsdoctorOptions: {
+      //       mode: 'normal',
+      //     },
+      //   },
+      // ],
       // [
       //   '@docusaurus/plugin-ideal-image',
       //   {
