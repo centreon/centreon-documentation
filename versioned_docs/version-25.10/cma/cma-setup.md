@@ -32,7 +32,7 @@ In the case of a Cloud platform, these connectors are already installed.
 
 3. If you want to monitor a [CMA-supported application](cma.md#applications-you-can-monitor-with-cma), install the corresponding connector on your central server.
 
-### Update the Centreon Monitoring Agent connector (onPrem version)
+### Update the Centreon Monitoring Agent connector
 
 1. Go to **Configuration > Commands > Connectors**.
 
@@ -158,7 +158,7 @@ See the [dedicated section](cma-certificates.md) to determine which files are re
 
 ### Add CMA commands to your custom whitelists
 
-If you are using whitelists on the poller ([Cloud pollers have whitelists set by default](/cloud/monitoring/basic-objects/commands#command-whitelist)), these must allow CMA commands. On the poller, in your custom whitelist file (e.g., **/etc/centreon-engine-whitelist/my-whitelist.yml**), include the following lines in the **cma-whitelist** block:
+If you are using whitelists on the poller, these must allow CMA commands. On the poller, in your custom whitelist file (e.g., **/etc/centreon-engine-whitelist/my-whitelist.yml**), include the following lines in the **cma-whitelist** block:
 
 ```text
 whitelist:
@@ -238,15 +238,6 @@ Install the Centreon repository and agent using the following commands:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-<Tabs groupId="sync">
-<TabItem value="24.10" label="24.10">
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-25.10.repo
-dnf install  centreon-monitoring-agent
-```
-</TabItem>
-<TabItem value="25.10" label="25.10">
 ```shell
 dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
@@ -256,45 +247,24 @@ dnf install  centreon-monitoring-agent
 </Tabs>
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-<Tabs groupId="sync">
-<TabItem value="24.10" label="24.10">
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-25.10.repo
-dnf install  compat-openssl11 centreon-monitoring-agent
-```
-</TabItem>
-<TabItem value="25.10" label="25.10">
+
 ```shell
 dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 dnf install  compat-openssl11 centreon-monitoring-agent
 ```
-</TabItem>
-</Tabs>
+
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 1. Execute the following commands:
 
-<Tabs groupId="sync">
-<TabItem value="24.10" label="24.10">
-```shell
-apt-get update
-apt-get -y install lsb-release gpg wget
-echo "deb https://packages.centreon.com/apt-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-```
-</TabItem>
-<TabItem value="25.10" label="25.10">
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
-</TabItem>
-</Tabs>
 
 2. Import the repository key:
 
@@ -314,16 +284,6 @@ apt install centreon-monitoring-agent
 
 1. Execute the following commands:
 
-<Tabs groupId="sync">
-<TabItem value="24.10" label="24.10">
-```shell
-apt-get update
-apt-get -y install lsb-release gpg wget
-echo "deb https://packages.centreon.com/ubuntu-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-```
-</TabItem>
-<TabItem value="25.10" label="25.10">
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
@@ -355,9 +315,6 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
-
-> Cloud: when using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 ```json
 {
@@ -458,9 +415,6 @@ The CMA installer can be executed in 2 modes:
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
-> Cloud: when using the **Central** poller, the value of **Poller endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
-
    * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317. For example, 192.168.45.32:4317.
 
 </TabItem>
@@ -477,59 +431,12 @@ The CMA installer can be executed in 2 modes:
 In this mode, there is no interface. As this installer is not a console program, it returns immediately despite not having finished. You have to wait for a message telling you that all is finished.
 If you want to have an exit status, you can launch the installer in a powershell session and wait for the exit code. The exit code will be 0 if all is right.
 
-<Tabs groupId="sync">
-<TabItem value="before 25.10" label="Before 25.10">
-
-> Cloud: when using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
-
-To run it in silent mode, you need to set /S as the first argument. You can display a list of arguments with the following command:
-
-```shell
-centreon-monitoring-agent.exe /S --help
-```
-
-To escape the **-** character in an argument value, it must be preceded by **--%**. Example:
-
-```
---% --hostname "Test-Hostname"
-```
-
-Available parameters are :
-
-| flag                       | description                                                                                                                                                                                                                                                               |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --install_cma              | Set this flag if you want to install the Centreon Monitoring Agent                                                                                                                                                                                                        |
-| --install_plugins          | Set this flag if you want to download and install the latest version of Centreon plugins                                                                                                                                                                                  |
-| --install_embedded_plugins | Set this flag if you want to install Centreon plugins embedded in the installer (case of a host that cannot access the internet)                                                                                                                                          |
-| --hostname                 | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                                                                                                                                                                                                                    |
-| --endpoint                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode, it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) |
-| --reverse                  | Add this flag for Poller-initiated connection mode.                                                                                                                                                                                                                       |
-| --log_type                 | event_log or file. In case of logging in a file, log_file param is mandatory                                                                                                                                                                                              |
-| --log_level                | can be off, critical, error, warning, debug or trace                                                                                                                                                                                                                      |
-| --log_file                 | log files path.                                                                                                                                                                                                                                                           |
-| --log_max_file_size        | max file in Mo before rotate.                                                                                                                                                                                                                                             |
-| --log_max_files            | max number of log files before delete. For the rotation of logs to be active, it is necessary that both parameters 'Max File Size' and 'Max number of files' are set.                                                                                                     |
-| --encryption               | Encryption mode. Possible values: \{full;insecure;no\}.                                                                                                                                                                                                 |
-| --private_key              | Private key file path.                                                                                                                                  |
-| --public_cert              | Public certificate file path.                                                                                                                     |
-| --ca                       | Trusted CA's certificate file path.                                                                                                                                                                                                                                       |
-| --ca_name                  | Expected TLS certificate common name (CN). Only for Insecure TLS mode.                                                                                                                                                                                                                               |
-
-| --token                    | Authentication token.
-If you use the **--install_plugins** option but the download of the plugins fails, the installer will install the plugins embedded in the installer.
-
-</TabItem>
-<TabItem value="25.10" label="From 25.10">
-
 To run it in silent mode, you must specify **/VERYSILENT** as the first argument.
 You can display a list of arguments with the following command line:
 
 ```shell
 centreon-monitoring-agent.exe /VERYSILENT /HELP
 ```
-> Cloud: when using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
-> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Available parameters are : 
 
@@ -573,8 +480,6 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /REVERSE /COMPONENTS=agent /HOST=a
 So
 ```
 
-</TabItem>
-</Tabs>
 </TabItem>
 </Tabs>
 
