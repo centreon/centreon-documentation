@@ -163,5 +163,8 @@ module.exports = {
         { type: 'doc', id: 'how-to-articles/rum-blocked-by-csp' },
       ],
     },
+    {
+      type: 'doc', id: 'release-notes'
+    }
   ],
 };

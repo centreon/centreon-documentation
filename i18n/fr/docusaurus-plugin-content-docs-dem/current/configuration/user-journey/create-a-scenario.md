@@ -77,7 +77,7 @@ Lorsque que la sonde passe, le contenu est mis à jour automatiquement. Vous ver
 
 ### Configurer une action
 
-Il existe 5 actions possibles:
+Il existe 6 actions possibles:
 
 #### Naviguer
 
@@ -140,6 +140,16 @@ Par défaut, DEM envoie le formulaire une fois rempli. Mais vous pouvez modifier
 Parfois, vous n’avez pas de solution plus simple que d’attendre qu’une action se passe. Par exemple, si les éléments s’affichent en fondu après 1s, alors attendre 1s vous permet d’avoir des captures d’écrans avec ces éléments affichés.
 
 C’est une solution de dernier recours qui ne devrait être que rarement utilisé.
+
+#### Exécuter un script
+
+Si toutes les autres actions échouent, vous pouvez utiliser cette option pour exécuter du JavaScript dans le navigateur afin de déclencher une action. Évitez d'utiliser un script simplement pour remplacer une autre action si ce n'est pas nécessaire. 
+
+Notez que le script garantit l'exécution d'une action mais pas son résultat. Ajoutez une vérification après chaque script :
+- DOM: (élément visible, classe changée)
+- Network: requête attendue (URL, statut HTTP...)
+
+Faites des scripts courts, simples et avec des spécifications précises.
 
 ### Configurer une vérification
 
