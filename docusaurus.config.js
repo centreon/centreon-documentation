@@ -67,18 +67,6 @@ if (versions.length == 0 && !pp && !cloud && !dem && !logmanagement) {
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
-  rspack: {
-    devtool: false,
-    optimization: {
-      splitChunks: {
-        chunks: 'async',
-      },
-    },
-    infrastructureLogging: {
-      level: 'error',
-    },
-  },
-
   customFields: {
     version: archivedVersion ?? null,
   },
