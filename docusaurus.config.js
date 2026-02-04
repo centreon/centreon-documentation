@@ -172,42 +172,42 @@ const config = {
   ],
 
   themes: [
-    // [
-    //   require.resolve('@easyops-cn/docusaurus-search-local'),
-    //   /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
-    //   ({
-    //     hashed: true,
-    //     indexBlog: false,
-    //     docsRouteBasePath: ["docs", "cloud", "pp", "dem", "logmanagement"],
-    //     docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem", "logmanagement"],
-    //     explicitSearchResultPath: true,
-    //     useAllContextsWithNoSearchContext: true,
-    //     // searchContextByPaths: [
-    //     //   {
-    //     //     label: {
-    //     //       en: "monitoring connectors",
-    //     //       fr: "connecteurs de supervision",
-    //     //     },
-    //     //     path: "pp"
-    //     //   },
-    //     //   {
-    //     //     label: "cloud",
-    //     //     path: "cloud",
-    //     //   },
-    //     //   // {
-    //     //   //   label: "onPrem",
-    //     //   //   path: "i18n",
-    //     //   // },
-    //     //   // {
-    //     //   //   label: "onPrem",
-    //     //   //   path: "versioned_docs",
-    //     //   // },
-    //     // ],
-    //     language: ["en", "fr"],
-    //     indexDocs: false,
-    //     indexBlog: false,
-    //   }),
-    // ],
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        hashed: true,
+        indexBlog: false,
+        docsRouteBasePath: ["docs", "cloud", "pp", "dem", "logmanagement"],
+        docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem", "logmanagement"],
+        explicitSearchResultPath: true,
+        useAllContextsWithNoSearchContext: true,
+        // searchContextByPaths: [
+        //   {
+        //     label: {
+        //       en: "monitoring connectors",
+        //       fr: "connecteurs de supervision",
+        //     },
+        //     path: "pp"
+        //   },
+        //   {
+        //     label: "cloud",
+        //     path: "cloud",
+        //   },
+        //   // {
+        //   //   label: "onPrem",
+        //   //   path: "i18n",
+        //   // },
+        //   // {
+        //   //   label: "onPrem",
+        //   //   path: "versioned_docs",
+        //   // },
+        // ],
+        language: ["en", "fr"],
+        indexDocs: false,
+        indexBlog: false,
+      }),
+    ],
   ],
 
   plugins: (() => {
