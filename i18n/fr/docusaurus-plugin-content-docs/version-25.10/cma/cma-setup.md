@@ -25,7 +25,7 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 <TabItem value="Windows" label="Windows">
 
 1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
-2. [Installez](../monitoring/pluginpacks.md#installer-un-connecteur-de-supervision.md) le connecteur de supervision [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent).
+2. [Installez](../monitoring/pluginpacks.md#installer-un-connecteur-de-supervision) le connecteur de supervision [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent).
 
 </TabItem>
 </Tabs>
