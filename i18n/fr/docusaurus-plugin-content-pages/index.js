@@ -31,83 +31,69 @@ const links = {
 
 const cards = [
   {
-    title: "Centreon OnPrem",
+    title: "Centreon Infra Monitoring",
     href: "docs/getting-started/welcome/",
     links: [
       {
-        label: "Démarrer avec Centreon OnPrem",
-        href: "docs/getting-started/welcome"
-      },{
-        label: "Installation",
-        href: "docs/installation/introduction"
-      },{
-        label: "Mettre des ressources en supervision",
-        href: "docs/category/setting-up-the-monitoring/"
-      },{
-        label: "Service mapping",
-        href: "docs/service-mapping/introduction/"
-      },{
-        label: "Vues graphiques",
-        href: "docs/graph-views/introduction-map/"
-      },{
-        label: "Reporting",
-        href: "docs/reporting/introduction/"
-      },{
-        label: "Notes de release",
-        href: "docs/category/release-notes-by-component/"
+        label: "Infra Monitoring OnPrem",
+        href: "docs/getting-started/welcome",
+      },
+      {
+        label: "Infra Monitoring Cloud",
+        href: "cloud/getting-started/welcome",
       },
       {
         label: "Connecteurs de supervision",
-        href: "pp/integrations/plugin-packs/getting-started/introduction/"
+        href: "pp/integrations/plugin-packs/getting-started/introduction/",
       },
-    ]
+    ],
   },
   {
-    title: "Centreon Cloud",
-    href: "cloud/getting-started/welcome",
-    links: [
-      {
-        label: "Démarrer avec Centreon Cloud",
-        href: "cloud/getting-started/welcome"
-      },{
-        label: "Installer un collecteur",
-        href: "cloud/installation/prerequisites/"
-      },{
-        label: "Service mapping",
-        href: "cloud/service-mapping/introduction/"
-      },{
-        label: "Vues graphiques",
-        href: "cloud/graph-views/introduction-map/"
-      },{
-        label: "Notes de release",
-        href: "cloud/releases/cloud-release-notes/"
-      },
-      {
-        label: "Connecteurs de supervision",
-        href: "pp/integrations/plugin-packs/getting-started/introduction/"
-      },
-    ]
-  },  {
     title: "Centreon DEM",
     href: "dem/getting-started/welcome/",
     links: [
       {
         label: "Démarrer avec Centreon Digital Experience Monitoring",
-        href: "dem/getting-started/welcome/"
-      },{
+        href: "dem/getting-started/welcome/",
+      },
+      {
         label: "Le Monitoring Synthétique (STM)",
-        href: "dem/getting-started/synthetic-monitoring/"
+        href: "dem/getting-started/synthetic-monitoring/",
       },
       {
         label: "Le Real User Monitoring (RUM)",
-        href: "dem/getting-started/real-user-monitoring/"
-      },{
-        label: "Sobriété numérique",
-        href: "dem/category/digital-sobriety/"
+        href: "dem/getting-started/real-user-monitoring/",
       },
-    ]
-  }
-]
+      {
+        label: "Sobriété numérique",
+        href: "dem/category/digital-sobriety/",
+      },
+    ],
+  },
+  {
+    title: "Centreon Log Management",
+    href: "logmanagement/getting-started/welcome/",
+    links: [
+      {
+        label: "S'inscrire au programme BETA",
+        href: "logmanagement/getting-started/beta/",
+      },
+      {
+        label: "Bases de CLM",
+        href: "logmanagement/getting-started/concepts/",
+      },
+      {
+        label: "Configurer un collecteur OpenTelemetry",
+        href: "logmanagement/collector/",
+      },
+      {
+        label: "Explorer et analyser les logs",
+        href: "logmanagement/explore-analyze/",
+      },
+    ],
+    isBeta: true,
+  },
+];
 
 const versionInfo = {
   version: '25.10',
@@ -133,9 +119,8 @@ function BannerBlock() {
     <div className={clsx(styles.bannerContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <div className={clsx(styles.bannerWrapper)}>
-          {<span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span>}
-          <p>Nouvelle version logicielle disponible</p>
-          <Button href={versionInfo.link} target={versionInfo.target} label="En savoir plus" dark="true"/>
+          {<span className={clsx(styles.badge)}>CENTREON INFRA MONITORING {versionInfo.version}</span>}
+          <Button href={versionInfo.link} target={versionInfo.target} label="Nouvelle version logicielle disponible" dark="true"/>
         </div>
       </div>
     </div>
@@ -215,7 +200,7 @@ function OpensourceBlock() {
   return(
     <div className={clsx(styles.socialBlock)}>
       <span className={clsx(styles.badge)}>UN CŒUR OPEN SOURCE</span>
-      <p>Plébiscité par des centaines de milliers de professionnels de l’IT à travers le monde avec 6 000 téléchargements mensuels, Centreon est devenu le numéro 1 de la supervision open source en Europe.</p>
+      <p>Plébiscité par des centaines de milliers de professionnels de l’IT à travers le monde avec 6 000 téléchargements mensuels, Centreon Infra Monitoring est devenu le numéro 1 de la supervision open source en Europe.</p>
       <Button href={links.contribute} target="_blank" label="Contribuer au projet Open Source"/>
     </div>
   )

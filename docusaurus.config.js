@@ -49,9 +49,19 @@ const dem = (() => {
   return true;
 })();
 
+const logmanagement = (() => {
+  if (archivedVersion) {
+    return false;
+  }
+  if (process.env.LOGMANAGEMENT !== undefined && process.env.LOGMANAGEMENT === '0') {
+    return false;
+  }
+  return true;
+})();
+
 const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
 
-if (versions.length == 0 && !pp && !cloud && !dem) {
+if (versions.length == 0 && !pp && !cloud && !dem && !logmanagement) {
   throw new Error('Nothing is selected for build');
 }
 
@@ -168,8 +178,8 @@ const config = {
       ({
         hashed: true,
         indexBlog: false,
-        docsRouteBasePath: ["docs", "cloud", "pp", "dem"],
-        docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem"],
+        docsRouteBasePath: ["docs", "cloud", "pp", "dem", "logmanagement"],
+        docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem", "logmanagement"],
         explicitSearchResultPath: true,
         useAllContextsWithNoSearchContext: true,
         // searchContextByPaths: [
@@ -194,24 +204,34 @@ const config = {
         //   // },
         // ],
         language: ["en", "fr"],
+        indexDocs: false,
+        indexBlog: false,
       }),
     ],
   ],
 
   plugins: (() => {
     let plugins = [
-      [
-        '@docusaurus/plugin-ideal-image',
-        {
-          quality: 70,
-          max: 1030, // max resized image's size.
-          min: 640, // min resized image's size. if original is lower, use that size.
-          steps: 2, // the max number of images generated between min and max (inclusive)
-          // Use false to debug, but it incurs huge perf costs
-          disableInDev: true,
-        },
-      ],
-      'docusaurus-plugin-image-zoom',
+      // [
+      //   'rsdoctor',
+      //   {
+      //     rsdoctorOptions: {
+      //       mode: 'normal',
+      //     },
+      //   },
+      // ],
+      // [
+      //   '@docusaurus/plugin-ideal-image',
+      //   {
+      //     quality: 70,
+      //     max: 1030, // max resized image's size.
+      //     min: 640, // min resized image's size. if original is lower, use that size.
+      //     steps: 2, // the max number of images generated between min and max (inclusive)
+      //     // Use false to debug, but it incurs huge perf costs
+      //     disableInDev: true,
+      //   },
+      // ],
+      // 'docusaurus-plugin-image-zoom',
     ];
 
     if (cloud) {
@@ -271,12 +291,33 @@ const config = {
       ];
     }
 
+    if (logmanagement) {
+      plugins = [
+        ...plugins,
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'logmanagement',
+            path: 'logmanagement',
+            routeBasePath: 'logmanagement',
+            sidebarPath: './logmanagement/sidebarsLogmanagement.js',
+            breadcrumbs: true,
+            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+            editLocalizedFiles: true,
+            showLastUpdateTime: true,
+          },
+        ],
+      ];
+    }
+
     return plugins;
   })(),
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: undefined,
+
       zoom: {
         selector: '.markdown img',
         background: {
@@ -352,7 +393,7 @@ const config = {
               type: 'doc',
               docId: defaultPageId,
               position: 'left',
-              label: 'Centreon OnPrem'
+              label: 'Infra Monitoring OnPrem'
             },
           ];
 
@@ -361,7 +402,7 @@ const config = {
               ...items,
               {
                 to: '/cloud/getting-started/welcome',
-                label: 'Centreon Cloud',
+                label: 'Infra Monitoring Cloud',
                 position: 'left',
                 activeBaseRegex: '/cloud/',
               },
@@ -391,6 +432,19 @@ const config = {
               },
             ];
           }
+
+          if (logmanagement) {
+            items = [
+              ...items,
+              {
+                to: '/logmanagement/getting-started/welcome',
+                label: 'Centreon Log Management BETA',
+                position: 'left',
+                activeBaseRegex: '/logmanagement/',
+              },
+            ];
+          }
+
 
           return [
             {
