@@ -1,13 +1,13 @@
 ---
 id: applications-monitoring-zscaler-zdx-api
-title: Zscaler ZDX Api
+title: Zscaler ZDX API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Zscaler ZDX Api** connector through the
+The following monitoring connectors will be installed when you install the **Zscaler ZDX API** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,9 +15,9 @@ The following monitoring connectors will be installed when you install the **Zsc
 
 ### Templates
 
-The Monitoring Connector **Zscaler ZDX Api** brings a host template:
+The Monitoring Connector **Zscaler ZDX API** brings a host template:
 
-* **App-Monitoring-Zscaler-Zdx-Api-custom**: each host will monitor one application, preferentially identified by 
+* **App-Monitoring-Zscaler-Zdx-Api-custom**: each host will monitor one application, preferably identified by 
   its `application_id`.
 
 The connector brings the following service templates (sorted by the host template they are attached to):
@@ -127,7 +127,7 @@ yum install centreon-pack-applications-monitoring-zscaler-zdx-api
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Zscaler ZDX Api** connector through
+2. Whatever the license type (*online* or *offline*), install the **Zscaler ZDX API** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin

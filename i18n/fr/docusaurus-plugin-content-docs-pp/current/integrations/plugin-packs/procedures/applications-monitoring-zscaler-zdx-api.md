@@ -1,13 +1,13 @@
 ---
 id: applications-monitoring-zscaler-zdx-api
-title: Zscaler ZDX Api
+title: Zscaler ZDX API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Zscaler ZDX Api** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Zscaler ZDX API** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,9 +15,9 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Zscaler ZDX Api** apporte un modèle d'hôte :
+Le connecteur de supervision **Zscaler ZDX API** apporte un modèle d'hôte :
 
-* **App-Monitoring-Zscaler-Zdx-Api-custom**: chaque hôte supervise une application, préférentiellement identifié par
+* **App-Monitoring-Zscaler-Zdx-Api-custom**: chaque hôte supervise une application, préférentiellement identifiée par
 son `application_id`. 
 
 Le connecteur apporte le modèle de service suivant
@@ -56,7 +56,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                            | Description                                                                                                                           |
 |:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|
-| App-Monitoring-Zscaler-ZDX-Api-Location-Id | Découvre toutes les *locations* (sites) et crée un service pour chacune d'elles.<br/> Les métriques seront agrégées selon ce critère. |
+| App-Monitoring-Zscaler-ZDX-Api-Location-Id | Découvre tous les *locations* (sites) et crée un service pour chacun d'eux.<br/> Les métriques seront agrégées selon ce critère. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -128,7 +128,7 @@ yum install centreon-pack-applications-monitoring-zscaler-zdx-api
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Zscaler ZDX Api**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Zscaler ZDX API**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
