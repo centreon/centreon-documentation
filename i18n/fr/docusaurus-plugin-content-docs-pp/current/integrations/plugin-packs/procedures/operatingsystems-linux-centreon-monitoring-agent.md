@@ -722,9 +722,9 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
 | ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
 
-> Commands are defined in a dedicated file on the host.
-> The path to this file is provided in centagent.json using the custom_check_file parameter.
-> To update commands, edit the file and reload the agent.
+> Les commandes sont définies dans un fichier dédié sur l'hôte.
+> Le chemin d'accès à ce fichier est fourni dans centagent.json à l'aide du paramètre custom_check_file.
+> Pour mettre à jour les commandes, modifiez le fichier et rechargez l'agent.
 
 ```cmd
 [custom_checks]
