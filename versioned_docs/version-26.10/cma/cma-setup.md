@@ -8,7 +8,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Step 1: Configure Centreon
 
-This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/26.10/).)
+This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/25.10/).)
 
 ### Install the Monitoring Connector you need (OnPrem version)
 
@@ -528,7 +528,6 @@ standard distribution repositories**.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-
 dnf -y install dnf-plugins-core epel-release
 dnf config-manager --set-enabled powertools
 
@@ -876,197 +875,12 @@ centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE "ServiceName"
 </TabItem>
 </Tabs>
 
-### Configuring multiple agent instances on the same host
-
-#### General principle
-
-You can configure multiple CMA services on a host, for example to communicate with different Centreon pollers/platforms (test/production) monitoring the same host.
-
-An instance consists of:
-* a service
-* its configuration
-
-The name of the instance must be unique on the same host.
-
-Each instance has its own configuration and executes it independently of other instances.
-
-#### Configuration
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-The configuration for each instance is stored in a dedicated JSON file on the host.
-The file name must be unique.
-
-```shell
-/etc/centreon-monitoring-agent/centagent1.json
-```
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-The configuration of each instance is stored in a dedicated registry key with a unique name.
-
-```shell
-Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
-```
-
-</TabItem>
-</Tabs>
-
-#### Deploying a named instance
-
-> Running multiple instances configured with the same \<endpoint; host\> pair will cause duplicate metrics in the database for that host. It is mandatory to change the endpoint and/or host values when deploying a new instance.
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-1. Make a copy of the configuration file created during the initial deployment of CMA.
-
-```shell
-cp  /etc/centreon-monitoring-agent/centagent.json /etc/centreon-monitoring-agent/centagent1.json
-```
-
-2. Give the file the appropriate permissions:
-
-```shell
-chmod 0644 /etc/centreon-monitoring-agent/centagent1.json
-chown centreon-monitoring-agent:centreon-monitoring-agent /etc/centreon-monitoring-agent/centagent1.json
-```
-
-3. Make sure you modify the value of 'endpoint' and, if necessary, the rest of the configuration for the new instance in the created file (for example, to change the log level or the certificate path).
-
-4. Make a copy of the service created during the first CMA deployment.
-
-```shell
-cp /lib/systemd/system/centagent.service /lib/systemd/system/centagent1.service
-```
-
-5. In this new file, modify the path in **ExecStart** to point to the new json file.
-
-```shell
-...
-[Service]
-ExecStart=/usr/bin/centagent /etc/centreon-monitoring-agent/centagent1.json
-ExecReload=/bin/kill -HUP $MAINPID
-...
-```
-
-6. Give the service the appropriate rights:
-
-```shell
-chmod 0644 /lib/systemd/system/centagent1.service
-chown centreon-monitoring-agent:centreon-monitoring-agent /lib/systemd/system/centagent1.service
-```
-
-7. Register the new service:
-
-```shell
-systemctl daemon-reload
-systemctl unmask centagent1
-systemctl preset centagent1
-systemctl enable centagent1
-systemctl restart centagent1
-```
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-<Tabs groupId="sync">
-<TabItem value="Interactive mode" label="Interactive mode">
-
-When the installer is run, the **Agent instance** field suggests a default (unique) instance name that can be modified.
-It will be used as the service name and registry key.
-
-</TabItem>
-<TabItem value="Silent mode" label="Silent mode (console)">
-
-Each time the service is run, a new instance is created with an incremental name such as ‘CentreonMonitoringAgent1’, ‘CentreonMonitoringAgent2’.
-If you want to give the service a different name (the name must be unique), use the **/AGENTINSTANCE** parameter. This name will be used as the service name and registry key.
-
-```shell
-centreon-monitoring-agent-xxx.exe /VERYSILENT /AGENTINSTANCE="ServiceName"  /COMPONENTS=agent,plugins /HOST=host_1 /ENDPOINT=localhost:4317 /TOKEN=token_value 
-```
-
-</TabItem>
-</Tabs>
-</TabItem>
-</Tabs>
-
-#### Editing a named instance
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-1. Make the desired changes in the JSON file for the instance.
-2. Restart the corresponding service.
-
-```shell
-systemctl restart centagent1
-```
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-<Tabs groupId="sync">
-<TabItem value="Interactive mode" label="Interactive mode">
-
-Run **centreon-monitoring-agent-modify.exe**, located in the CMA installation directory.
-The **Agent instance** field defaults to the first instance found and can be modified.
-Any subsequent changes will apply to the selected instance.
-
-</TabItem>
-<TabItem value="Silent mode" label="Silent mode (console)">
-
-Run **centreon-monitoring-agent-modify.exe** in silent mode.
-
-> In this context, the **/AGENTINSTANCE** parameter is mandatory.
-
-```shell
-centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE="ServiceName"
-```
-
-</TabItem>
-</Tabs>
-</TabItem>
-</Tabs>
-
-#### Uninstalling a named instance
-
-See [**Uninstalling the agent**](#uninstalling-the-agent).
-
-### Updating an existing configuration
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-1. Edit the following file: **/etc/centreon-monitoring-agent/centagent.json**.
-2. Restart the agent.
-
-```shell
-systemctl restart centagent
-```
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-Run **centreon-monitoring-agent-modify.exe**, located in the CMA installation directory.
-
-This is also possible in silent mode:
-
-```shell
-centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE "ServiceName"
-```
-
-</TabItem>
-</Tabs>
-
 ### Uninstalling the agent
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-* To uninstall an instance, run the following commands, adapting the name of the service and configuration file: 
+To uninstall an instance, run the following commands, adapting the name of the service and configuration file:
 
 ```shell
 systemctl stop centagent1

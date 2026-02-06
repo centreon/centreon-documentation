@@ -10,7 +10,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 Cette étape s'effectue via l'interface du serveur central. (Il est également possible de réaliser ces étapes via [l'API Centreon Web](https://docs-api.centreon.com/api/centreon-web/25.10/).)
 
-### Installez le connecteur de supervision nécessaire (version onPrem)
+### Installez le connecteur de supervision nécessaire
 
 Sur votre serveur central, installez le connecteur de supervision qui fournira les modèles et les commandes qui vous permettront de configurer les hôtes et les services supervisés dans Centreon.
 Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
@@ -92,6 +92,8 @@ Créez les services associés au modèle d'hôte.
 
 ### Configurez la communication collecteur/agent
 
+> Cette étape n'est pas nécessaire si vous souhaitez utiliser CMA avec le collecteur **Central**.
+
 1. Allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter**.
 2. Dans la fenêtre qui s'ouvre, sélectionnez le type d'agent **Centreon Monitoring Agent**. Des champs supplémentaires apparaissent.
 3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
@@ -124,7 +126,7 @@ Cette configuration est déployée sur le collecteur dans le fichier **/etc/cent
 
 ## Étape 2 : Préparez le collecteur
 
-> Cloud : Cette étape n'est pas nécessaire si vous souhaitez utiliser CMA avec le collecteur **Central**.
+> Cette étape n'est pas nécessaire si vous souhaitez utiliser CMA avec le collecteur **Central**.
 
 Cette étape s'effectue sur le collecteur.
 
@@ -138,6 +140,7 @@ Exécutez les commandes suivantes :
 ```bash
 firewall-cmd --zone=public --add-port=4317/tcp --permanent
 ```
+
 ```bash
 firewall-cmd --reload 
 ```
@@ -156,7 +159,8 @@ Voir [section dédiée](cma-certificates.md) pour déterminer quels fichiers son
 
 ### Ajoutez les commandes CMA à vos listes blanches personnalisées
 
-Si vous utilisez des listes blanches sur votre collecteur, celles-ci doivent autoriser les commandes CMA. 
+Si vous utilisez des listes blanches sur votre collecteur, celles-ci doivent autoriser les commandes CMA.
+
 Sur le collecteur, dans votre fichier personnalisé de liste blanche (par exemple, **/etc/centreon-engine-whitelist/my-whitelist.yml**), incluez les lignes suivantes dans le bloc **cma-whitelist** :
 
 ```text
@@ -242,8 +246,7 @@ dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 dnf install  centreon-monitoring-agent
 ```
-</TabItem>
-</Tabs>
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -464,6 +467,7 @@ Les erreurs d'exécution du mode silencieux, et l'output de /VERSION sont écrit
 *Exemples de commande*
 
 Commande minimale (paramètres obligatoires) :
+
 ```shell
 centreon-monitoring-agent-xxx.exe /VERYSILENT /COMPONENTS=agent,plugins /HOST=host_1 /ENDPOINT=localhost:4317 /TOKEN=token_value
 ```
@@ -522,7 +526,6 @@ Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendanc
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-
 dnf -y install dnf-plugins-core epel-release
 dnf config-manager --set-enabled powertools
 
