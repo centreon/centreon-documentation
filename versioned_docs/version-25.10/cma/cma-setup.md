@@ -10,7 +10,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/25.10/).)
 
-### Install the Monitoring Connector you need (OnPrem version)
+### Install the Monitoring Connector you need
 
 On your central server, install the monitoring connector which will provide the templates and commands you need to configure the hosts and services monitored in Centreon. 
 In the case of a Cloud platform, these connectors are already installed.
@@ -243,8 +243,7 @@ dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 dnf install  centreon-monitoring-agent
 ```
-</TabItem>
-</Tabs>
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
