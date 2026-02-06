@@ -476,8 +476,6 @@ So
 
 </TabItem>
 </Tabs>
-</TabItem>
-</Tabs>
 
 #### Configuration data
 
