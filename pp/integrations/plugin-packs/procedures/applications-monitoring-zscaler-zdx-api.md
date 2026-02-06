@@ -53,8 +53,8 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                                  | Description                                                                                                                                                                                  |
-|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Rule name                                  | Description                                                                                                                                     |
+|:-------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
 | App-Monitoring-Zscaler-ZDX-Api-Location-Id | Discover all the available locations and create one service for each. <br/>The app's metrics will be aggregated considering the given location. |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -242,17 +242,17 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--key-id='api-key-id' \
 	--key-secret='api-key-secret' \
 	--application-id='app-id' \
-	--include-application-name='$_SERVICEINCLUDE_APPLICATION_NAME$' \
-	--exclude-application-name='$_SERVICEEXCLUDE_APPLICATION_NAME$' \
-	--location-id='$_SERVICELOCATION_ID$' \
-	--include-location-name='$_SERVICEINCLUDE_LOCATION_NAME$' \
-	--exclude-location-name='$_SERVICEEXCLUDE_LOCATION_NAME$' \
-	--warning-score='$_SERVICEWARNING_SCORE$' \
-	--critical-score='$_SERVICECRITICAL_SCORE$' \
-	--warning-total-users='$_SERVICEWARNING_TOTAL_USERS$' \
-	--critical-total-users='$_SERVICECRITICAL_TOTAL_USERS$' \
-	--warning-page-fetch-time='$_SERVICEWARNING_PAGE_FETCH_TIME$' \
-	--critical-page-fetch-time='$_SERVICECRITICAL_PAGE_FETCH_TIME$' \
+	--include-application-name='' \
+	--exclude-application-name='' \
+	--location-id='' \
+	--include-location-name='' \
+	--exclude-location-name='' \
+	--warning-score='' \
+	--critical-score='' \
+	--warning-total-users='' \
+	--critical-total-users='' \
+	--warning-page-fetch-time='' \
+	--critical-page-fetch-time='' \
 	--max-metrics-age='20' \
 	--verbose
 ```
@@ -260,7 +260,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All apps are ok | 'application1#application.total-users.count'=55367;;;0; 'application2#application.total-users.count'=9899;;;0; 'application1#application.page-fetch-time.milliseconds'=64130ms;;;0; 'application2#application.page-fetch-time.milliseconds'=48911ms;;;0; 
+OK: All apps are ok | 'application1#application.total-users.count'=53003;;;0; 'application2#application.total-users.count'=83628;;;0; 'application1#application.page-fetch-time.milliseconds'=61218ms;;;0; 'application2#application.page-fetch-time.milliseconds'=8467ms;;;0; 
 ```
 
 ### Troubleshooting

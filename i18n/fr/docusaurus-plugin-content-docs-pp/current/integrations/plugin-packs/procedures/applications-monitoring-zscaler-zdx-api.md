@@ -33,7 +33,7 @@ Ce modèle d'hôte n'a pas de modèle de service associé.
 
 | Alias            | Modèle de service                                 | Description                                               | Découverte |
 |:-----------------|:--------------------------------------------------|:----------------------------------------------------------|:----------:|
-| Global-App-Stats | App-Monitoring-Zscaler-Zdx-Application-Api-custom | Contrôle les statistiques d'une ou plusieurs applications | X          |
+| Global-App-Stats | App-Monitoring-Zscaler-Zdx-Application-Api-custom | Contrôle les statistiques d'une ou plusieurs applications |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -186,8 +186,8 @@ yum install centreon-plugin-Applications-Monitoring-Zscaler-Zdx-Api
 |:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | ZDX_API_PROTO         | Specify http if needed                                                                                                                                 | https             |             |
 | ZDX_API_PORT          | API port                                                                                                                                               | 443               |             |
-| ZDX_API_KEY_ID        | Key ID (see [here](https://help.zscaler.com/zdx/managing-zdx-api-keys) for more details)                                                               | API\_KEY\_ID     |           |
-| ZDX_API_KEY_SECRET    | Key secret (see [here](https://help.zscaler.com/zdx/managing-zdx-api-keys) for more details)                                                           | API\_KEY\_SECRET |           |
+| ZDX_API_KEY_ID        | Key ID (see [here](https://help.zscaler.com/zdx/managing-zdx-api-keys) for more details)                                                               | API\_KEY\_ID      |             |
+| ZDX_API_KEY_SECRET    | Key secret (see [here](https://help.zscaler.com/zdx/managing-zdx-api-keys) for more details)                                                           | API\_KEY\_SECRET  |             |
 | ZDX_API_PATH          | API URL path                                                                                                                                           | /v1               |             |
 | ZDX_APPLICATION_ID    | Define the `appid` to monitor. Using this option is recommended to monitor one app because it will only retrieves the data related to the targeted app | APPLICATION\_ID   |             |
 | ZDX_API_EXTRA_OPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).     |                   |             |
@@ -243,17 +243,17 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--key-id='api-key-id' \
 	--key-secret='api-key-secret' \
 	--application-id='app-id' \
-	--include-application-name='$_SERVICEINCLUDE_APPLICATION_NAME$' \
-	--exclude-application-name='$_SERVICEEXCLUDE_APPLICATION_NAME$' \
-	--location-id='$_SERVICELOCATION_ID$' \
-	--include-location-name='$_SERVICEINCLUDE_LOCATION_NAME$' \
-	--exclude-location-name='$_SERVICEEXCLUDE_LOCATION_NAME$' \
-	--warning-score='$_SERVICEWARNING_SCORE$' \
-	--critical-score='$_SERVICECRITICAL_SCORE$' \
-	--warning-total-users='$_SERVICEWARNING_TOTAL_USERS$' \
-	--critical-total-users='$_SERVICECRITICAL_TOTAL_USERS$' \
-	--warning-page-fetch-time='$_SERVICEWARNING_PAGE_FETCH_TIME$' \
-	--critical-page-fetch-time='$_SERVICECRITICAL_PAGE_FETCH_TIME$' \
+	--include-application-name='' \
+	--exclude-application-name='' \
+	--location-id='' \
+	--include-location-name='' \
+	--exclude-location-name='' \
+	--warning-score='' \
+	--critical-score='' \
+	--warning-total-users='' \
+	--critical-total-users='' \
+	--warning-page-fetch-time='' \
+	--critical-page-fetch-time='' \
 	--max-metrics-age='20' \
 	--verbose
 ```
@@ -261,7 +261,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All apps are ok | 'application1#application.total-users.count'=55367;;;0; 'application2#application.total-users.count'=9899;;;0; 'application1#application.page-fetch-time.milliseconds'=64130ms;;;0; 'application2#application.page-fetch-time.milliseconds'=48911ms;;;0; 
+OK: All apps are ok | 'application1#application.total-users.count'=53003;;;0; 'application2#application.total-users.count'=83628;;;0; 'application1#application.page-fetch-time.milliseconds'=61218ms;;;0; 'application2#application.page-fetch-time.milliseconds'=8467ms;;;0; 
 ```
 
 ### Diagnostic des erreurs communes
