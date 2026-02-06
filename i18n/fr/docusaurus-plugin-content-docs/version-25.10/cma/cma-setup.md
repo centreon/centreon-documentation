@@ -40,8 +40,6 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 ### Créez un jeton d'authentification
 
-Cette étape ne s'applique que pour les plateformes OnPrem. Pour Centreon Cloud, un jeton est fourni par défaut à la page **Administration > Jetons d'authentification**.
-
 1. Allez à la page **Administration > Jetons d'authentification**.
 
 2. Créez un jeton de type **Centreon Monitoring Agent**.
