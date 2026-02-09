@@ -339,6 +339,13 @@ apt install centreon-bi-server
 </TabItem>
 </Tabs>
 
+You must now grant rights to the centreon user in the central database:
+
+```shell
+GRANT TRIGGER ON centreon.* TO `centreon`@'%';
+GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
+```
+
 ### Enable the extension
 
 The **Administration > Extension > Manager** menu allows you to install the extensions detected by Centreon. Click the **Centreon MBI** tile to install.
