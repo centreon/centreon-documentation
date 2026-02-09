@@ -12,9 +12,9 @@ Comme expliqué dans [Qu'est-ce qu'OpenTelemetry et comment Centreon Log Managem
 
 Un collecteur OpenTelemetry comporte trois composants principaux qui sont exécutés les uns après les autres :
 
-* Les **récepteurs** (receivers) ingèrent les données. Ils acceptent les logs dans différents formats et provenant de différentes sources (par exemple, OTLP, syslog, etc.).
+* Les **récepteurs** (receivers) lisent les données à partir de fichiers ou reçoivent des données à partir d'un flux. Ils acceptent les logs dans différents formats et provenant de différentes sources (par exemple, OTLP, syslog, etc.).
 * Les **processeurs** (processors) vous permettent de filtrer, transformer ou enrichir les données avant qu'elles ne quittent le collecteur.
-* Les **exporteurs** (exporters) envoient les logs au format OpenTelemetry vers Centreon Log Management. Les exporteurs sont configurés à l'aide du fichier général **config.yaml** du collecteur.
+* Les **exporteurs** (exporters) envoient les logs au format OpenTelemetry vers Centreon Log Management.
 
 <!-- attributs custom
 resource attributes -->
@@ -25,6 +25,8 @@ resource attributes -->
 
 * Générez [un jeton pour authentifier l'hôte auprès de votre instance Log Management](../administration/tokens.md).
 * L'endpoint requis pour connecter un collecteur OpenTelemetry à votre instance Log Management est `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
+
+> CLM peut traiter des batch de logs d'une taille de 5 MiB maximum. Au-delà, vous recevrez une erreur 413. (Si besoin, utilisez [le paramètre **sending_queue.sizer.bytes** de votre exporteur](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) pour adapter la taille de vos batchs.)
 
 ### Étape 1 : Installez OpenTelemetry Collector sur votre hôte
 
