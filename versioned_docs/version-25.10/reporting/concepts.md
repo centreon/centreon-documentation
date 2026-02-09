@@ -13,7 +13,7 @@ By default, [MBI retains the data](installation.md#etl-data-retention) for a lim
 
 The ETL obtains the raw data from the central server and transforms it to a format readable by MBI, it then stores it in the database where CBIS will retrieve it for generating the reports.
 
-The MBI ETL is static, it does not automatically detect changes to its configurations outside of [its routine check the following morning](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated). For changes to be taken into account right away, [launch a rebuild](rebuilding-data.md).
+The MBI ETL is static, it does not automatically detect changes to its configurations outside of [its routine check the following morning](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated). For changes to be taken into account right away, [launch a rebuild](rebuilding-data.mdx).
 
 ## Dimension
 
