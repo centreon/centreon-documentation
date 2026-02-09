@@ -108,7 +108,7 @@ If everything is OK, you should have the following message: **ETL execution OK, 
 [mod_bam_reporting_ba_availabilities: 2025-07-27 00:00:00] [hoststateevents: 2025-07-28 00:00:00] [servicestateevents: 2025-07-28 00:00:00] [mod_bi_hoststateevents: 2025-07-28 00:00:00] [Table mod_bi_servicestateevents: EMPTY] [mod_bi_time: 2025-07-28 00:00:00] [mod_bi_hostavailability: 2025-07-27 00:00:00] [Table mod_bi_serviceavailability: EMPTY] [Table mod_bi_hgmonthavailability: EMPTY] [Table mod_bi_hgservicemonthavailability: EMPTY] [data_bin: 2025-07-27 23:59:55] [mod_bi_metricdailyvalue: 2025-07-27 00:00:00] [Table mod_bi_metricmonthcapacity: EMPTY]
 ```
 
-In this case, you must [rebuild some of your data](rebuilding-data.md#partial-rebuild-keep-your-data-history). For instance, in the example above, you will need to rebuild **data_bin** for the 28th of July.
+In this case, you must [rebuild some of your data](rebuilding-data.mdx#partial-rebuild-keep-your-data-history). For instance, in the example above, you will need to rebuild **data_bin** for the 28th of July.
 
 ### --partitions
 
@@ -126,18 +126,18 @@ The command should return **All partitions are up-to-date**. If a problem has be
 
 In the example above, 42 missing partitions have been found for the **mod_bi_hostavailability** table (and the last partition was created on 28th July).
 
-In this case, you must [rebuild some of your data](rebuilding-data.md#partial-rebuild-keep-your-data-history).
+In this case, you must [rebuild some of your data](rebuilding-data.mdx#partial-rebuild-keep-your-data-history).
 
 ### Understanding the commands' output
 
-If the **--partitions** and **--db-content** commands indicate that there is a problem with one of your tables, you may have to do a [partial rebuild of your data](rebuilding-data.md#partial-rebuild-keep-your-data-history). Make sure you use the correct options in all cases when rebuilding (including the **--no-purge** option which stops you from deleting important data).
+If the **--partitions** and **--db-content** commands indicate that there is a problem with one of your tables, you may have to do a [partial rebuild of your data](rebuilding-data.mdx#partial-rebuild-keep-your-data-history). Make sure you use the correct options in all cases when rebuilding (including the **--no-purge** option which stops you from deleting important data).
 
 | Tables                                                   | Meaning                                                                      | What to do                                 |
 |------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------|
-| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problem with raw data imported from Centreon.                            | Investigate and fix the issue with raw data. (Maybe you need to compute events with [**eventReportBuilder** on the central server](how-mbi-works.md#phase-1-data-is-prepared-by-the-central-server)). After resolving the issue, run the import script to import missing data, [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`). |
-| `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups`                                             | Issue with **dimensions data**.                 | After resolving the issue, run the dimension script to restore consistency in dimensions, [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`).  (`/usr/share/centreon-bi/etl/dimensionsBuilder.pl`)   |
-| `mod_bi_*availability`                                             | Issue with **aggregated availability data**, not raw data.            | After resolving the issue, run the availability aggregation script [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
-| `mod_bi_metric*`                                                   | Issue with **aggregated metrics data** (e.g., performance), not raw data. | After resolving the issue, run the metrics aggregation script [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
+| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problem with raw data imported from Centreon.                            | Investigate and fix the issue with raw data. (Maybe you need to compute events with [**eventReportBuilder** on the central server](how-mbi-works.md#phase-1-data-is-prepared-by-the-central-server)). After resolving the issue, run the import script to import missing data, [using the correct options](rebuilding-data.mdx#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`). |
+| `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups`                                             | Issue with **dimensions data**.                 | After resolving the issue, run the dimension script to restore consistency in dimensions, [using the correct options](rebuilding-data.mdx#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`).  (`/usr/share/centreon-bi/etl/dimensionsBuilder.pl`)   |
+| `mod_bi_*availability`                                             | Issue with **aggregated availability data**, not raw data.            | After resolving the issue, run the availability aggregation script [using the correct options](rebuilding-data.mdx#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
+| `mod_bi_metric*`                                                   | Issue with **aggregated metrics data** (e.g., performance), not raw data. | After resolving the issue, run the metrics aggregation script [using the correct options](rebuilding-data.mdx#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
 
 If any issues occur, double check your MBI is configured according to our [post-installation configuration procedure](installation.md#step-4-configure-the-etl).
 
