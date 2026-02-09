@@ -16,8 +16,6 @@ An OpenTelemetry Collector has three main components that are executed one after
 * **Processors** let you filter, transform, or enrich data before it leaves the collector.
 * **Exporters** send the logs in OpenTelemetry format to Centreon Log Management.
 
-> CLM can process log batches up to 5 MiB in size. Beyond that, you will receive a 413 error. (If necessary, use [the **sending_queue.sizer.bytes** parameter in your exporter](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) to adjust the size of your batches.)
-
 <!-- attributs custom
 resource attributes -->
 
@@ -27,6 +25,8 @@ resource attributes -->
 
 * Generate [a token to authenticate the host to your Log Management instance](../administration/tokens.md).
 * The endpoint required to connect an OpenTelemetry Collector to your Log Management instance is `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs`.
+
+> CLM can process log batches up to 5 MiB in size. Beyond that, you will receive a 413 error. (If necessary, use [the **sending_queue.sizer.bytes** parameter in your exporter](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) to adjust the size of your batches.)
 
 ### Step 1: Install OpenTelemetry Collector on your host
 
