@@ -34,3 +34,5 @@ Définitions :
 -   **BV** (Business View) : Regroupement d'activité métier.
 -   **KPI** (Key Performance Indicator) : Indicateur pondéré rentrant
     en considération dans le calcul de la BA.
+
+> Centreon BAM peut également être utilisé [via son API](https://docs-api.centreon.com/api/centreon-bam/latest).
