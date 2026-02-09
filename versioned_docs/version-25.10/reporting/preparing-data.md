@@ -33,7 +33,7 @@ By default, the ETL is configured to compute availability and performance for al
 Select the time periods and the service categories you want (disk, ping, memory, traffic). This is also where you configure how precise you want the data statistics to be (i.e. calculated by month, day, hour...)
 
 - An empty report may be generated if the ETL could not be executed, if there is a problem with the ETL configuration or there is no monitoring data for the resource (no status/metric are returned).
-- The ETL is static: it does not automatically detect configuration changes on Centreon outside of its regular checks (scheduled for 4:30 a.m. by default). You must [launch a rebuild of the ETL](rebuilding-data.md) for new data/configuration to be taken into account immediately.
+- The ETL is static: it does not automatically detect configuration changes on Centreon outside of its regular checks (scheduled for 4:30 a.m. by default). You must [launch a rebuild of the ETL](rebuilding-data.mdx) for new data/configuration to be taken into account immediately.
 - If data has started being compiled for less than a month, it is possible to get gaps in reports that display data by month, or compare months between them.
 
 ## Making it possible to share reports
