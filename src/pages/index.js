@@ -68,7 +68,10 @@ const cards = [
       },
       {
         label: "Digital sobriety",
-        href: "dem/category/digital-sobriety/",
+        href: "dem/category/digital-sobriety/"
+      },{
+        label: "DEM release notes",
+        href: "dem/release-notes/"
       },
     ],
   },
