@@ -105,6 +105,8 @@ Cette configuration est déployée sur le collecteur dans le fichier **/etc/cent
 
 ## Étape 2 : Préparez le collecteur
 
+> Cette étape n'est pas nécessaire si vous souhaitez utiliser CMA avec le collecteur **Central**.
+
 Cette étape s'effectue sur le collecteur.
 
 ### Configurez le firewall

@@ -104,7 +104,7 @@ This configuration is deployed on the poller in the **/etc/centreon-engine/otl_s
 
 ## Step 2: Prepare the poller
 
-> Cloud: This step is not necessary if you want to use CMA with the **Central** poller.
+> This step is not necessary if you want to use CMA with the **Central** poller.
 
 This step is performed on the poller.
 
