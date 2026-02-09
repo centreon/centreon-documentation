@@ -34,9 +34,6 @@ Dans la liste de sélection des langues, sélectionnez la vôtre :
 Puis cliquez sur **Sauvegarder**. Votre interface est maintenant traduite dans votre
 langue.
 
-> Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
-> Rendez-vous dans le chapitre [Comment traduire Centreon](../../developer/developer-translate-centreon.md) pour plus d'informations.
-
 ## Réinitialiser le mot de passe
 
 Seuls les comptes locaux peuvent changer leur mot de passe via l'interface Centreon. Si vous vous connectez via un fournisseur d'identité, votre mot de passe est celui défini auprès du fournisseur d'identité.

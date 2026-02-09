@@ -1475,10 +1475,6 @@
         },
         {
           "type": "doc",
-          "id": "developer/developer-translate-centreon"
-        },
-        {
-          "type": "doc",
           "id": "developer/developer-widget"
         },
         {
