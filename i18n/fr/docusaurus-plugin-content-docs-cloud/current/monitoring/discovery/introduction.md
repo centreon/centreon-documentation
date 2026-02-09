@@ -24,4 +24,4 @@ interfaces réseau sur un serveur Linux, et une autre pour découvrir les volume
 3. Selon votre paramétrage, vous choisissez dans la liste les ressources à ajouter à votre Centreon, ou bien elles sont ajoutées automatiquement. Ces ressources peuvent ensuite être configurées dans Centreon 
 à l’aide de modèles d’hôte ou de modèles de service.
 
-> Le module d'autodécouverte peut également être utilisé [via son API](https://docs-api.centreon.com/api/centreon-autodiscovery/latest/).
+> Le module d'autodécouverte peut également être utilisé [via son API](https://docs-api.centreon.com/api/centreon-autodiscovery/cloud/).
