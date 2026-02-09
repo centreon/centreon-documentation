@@ -731,6 +731,16 @@ module.exports = {
       "label": "Centreon Cloud API"
     },
     {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-bam/latest/",
+      "label": "Centreon BAM API"
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-autodiscovery/latest/",
+      "label": "Centreon Autodiscovery API"
+    },
+    {
           "type": "doc",
           "id": "administration/api-tokens"
         }
