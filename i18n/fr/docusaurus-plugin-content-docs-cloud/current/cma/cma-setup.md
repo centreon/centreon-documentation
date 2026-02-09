@@ -27,17 +27,9 @@ Cette étape s'effectue via l'interface du serveur central. (Il est également p
 
 3. Si vous souhaitez superviser une [application supportée par CMA](cma.md#applications-supervisables-par-cma), installez le connecteur correspondant sur votre serveur central.
 
-### Créez un jeton d'authentification
+### Jeton d'authentification
 
-Cette étape ne s'applique que pour les plateformes OnPrem. Pour Centreon Cloud, un jeton est fourni par défaut à la page **Administration > Jetons d'authentification**.
-
-1. Allez à la page **Administration > Jetons d'authentification**.
-
-2. Créez un jeton de type **Centreon Monitoring Agent**.
-
-   * Vous pouvez sélectionner une durée d'expiration. Par défaut, les jetons n'expirent pas.
-   * Conservez le jeton généré pour la configuration de l'agent. Au besoin, vous pouvez le copier dans le presse-papiers à tout moment, depuis la liste des jetons.
-   * Il est possible de n'utiliser qu'un jeton pour tous vos collecteurs et agents, ou d'en gérer plusieurs, pour un contrôle plus fin.
+Un jeton est fourni par défaut à la page **Administration > Jetons d'authentification**.
 
 #### Comportement des jetons d'authentification CMA : désactivation/expiration/révocation
 

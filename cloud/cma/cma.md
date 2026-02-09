@@ -83,7 +83,7 @@ The two connection directions can be combined within the same poller, depending 
 The connection between the poller and the agent must be secure in production. You must use:
 
 - [a TLS connection with certificates](cma-certificates.md)
-- [an authentication token](cma-setup.md#create-an-authentication-token).
+- [an authentication token](cma-setup.md#authentication-token).
 
 ### Operating diagram
 
