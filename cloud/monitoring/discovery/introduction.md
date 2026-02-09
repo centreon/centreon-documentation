@@ -25,3 +25,5 @@ to discover disk volumes in a Linux server.
 
 3. According to how you have configured the job, you either choose from the list which resources you want 
 to add to your Centreon platform, or they are added automatically.
+
+> The Autodiscovery module can also be used [through its API](https://docs-api.centreon.com/api/centreon-autodiscovery/latest/).
