@@ -110,48 +110,48 @@ Vous trouverez ci-dessous une liste exhaustive des macros classées par type de 
 
 ### Macros d'hôtes
 
-| Nom de la macro [[(3)](#notes)](#notes) | Service Checks | Service Notifications  | Host Checks       | Host Notifications  | Service Event Handlers | Host Event Handlers |
-|-----------------------------------------|----------------|------------------------|-------------------|---------------------|------------------------|---------------------|
-| \$HOSTNAME\$                            | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTDISPLAYNAME\$                     | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTALIAS\$                           | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTADDRESS\$                         | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTSTATE\$                           | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 |
-| \$HOSTSTATEID\$                         | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 |
-| \$LASTHOSTSTATE\$                       | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$LASTHOSTSTATEID\$                     | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTSTATETYPE\$                       | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 |
-| \$HOSTATTEMPT\$                         | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$MAXHOSTATTEMPTS\$                     | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTEVENTID\$                         | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$LASTHOSTEVENTID\$                     | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTPROBLEMID\$                       | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$LASTHOSTPROBLEMID\$                   | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTLATENCY\$                         | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTEXECUTIONTIME\$                   | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 |
-| \$HOSTDURATION\$                        | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTDURATIONSEC\$                     | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTDOWNTIME\$                        | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTPERCENTCHANGE\$                   | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTGROUPNAME\$                       | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTGROUPNAMES\$                      | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$LASTHOSTCHECK\$                       | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$LASTHOSTSTATECHANGE\$                 | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$LASTHOSTUP\$                          | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$LASTHOSTDOWN\$                        | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$LASTHOSTUNREACHABLE\$                 | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTOUTPUT\$                          | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 |
-| \$LONGHOSTOUTPUT\$                      | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 |
-| \$HOSTPERFDATA\$                        | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 |
-| \$HOSTCHECKCOMMAND\$                    | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTACTIONURL\$                       | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTNOTESURL\$                        | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$HOSTNOTES\$                           | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$TOTALHOSTSERVICES\$                   | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$TOTALHOSTSERVICESOK\$                 | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$TOTALHOSTSERVICESWARNING\$            | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$TOTALHOSTSERVICESUNKNOWN\$            | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
-| \$TOTALHOSTSERVICESCRITICAL\$           | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 |
+| Nom de la macro [[(3)](#notes)](#notes) | Service Checks | Service Notifications  | Host Checks       | Host Notifications  | Service Event Handlers | Host Event Handlers | Note | URL d'action |
+|-----------------------------------------|----------------|------------------------|-------------------|---------------------|------------------------|---------------------|------|-------------|
+| \$HOSTNAME\$                            | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Oui | Oui         |
+| \$HOSTDISPLAYNAME\$                     | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTALIAS\$                           | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Oui | Oui         |
+| \$HOSTADDRESS\$                         | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Oui | Oui         |
+| \$HOSTSTATE\$                           | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 | Oui | Oui         |
+| \$HOSTSTATEID\$                         | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 | Oui | Oui         |
+| \$LASTHOSTSTATE\$                       | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$LASTHOSTSTATEID\$                     | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTSTATETYPE\$                       | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTATTEMPT\$                         | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$MAXHOSTATTEMPTS\$                     | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTEVENTID\$                         | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$LASTHOSTEVENTID\$                     | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTPROBLEMID\$                       | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$LASTHOSTPROBLEMID\$                   | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTLATENCY\$                         | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTEXECUTIONTIME\$                   | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTDURATION\$                        | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTDURATIONSEC\$                     | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTDOWNTIME\$                        | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTPERCENTCHANGE\$                   | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTGROUPNAME\$                       | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTGROUPNAMES\$                      | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$LASTHOSTCHECK\$                       | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$LASTHOSTSTATECHANGE\$                 | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$LASTHOSTUP\$                          | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$LASTHOSTDOWN\$                        | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$LASTHOSTUNREACHABLE\$                 | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTOUTPUT\$                          | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$LONGHOSTOUTPUT\$                      | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTPERFDATA\$                        | Oui            | Oui                    | Oui [(1)](#notes) | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTCHECKCOMMAND\$                    | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTACTIONURL\$                       | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTNOTESURL\$                        | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$HOSTNOTES\$                           | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$TOTALHOSTSERVICES\$                   | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$TOTALHOSTSERVICESOK\$                 | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$TOTALHOSTSERVICESWARNING\$            | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$TOTALHOSTSERVICESUNKNOWN\$            | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
+| \$TOTALHOSTSERVICESCRITICAL\$           | Oui            | Oui                    | Oui               | Oui                 | Oui                    | Oui                 | Non | Non         |
 
 ### Description des macros d'hôtes (3)
 
@@ -230,47 +230,47 @@ Vous trouverez ci-dessous une liste exhaustive des macros classées par type de 
 
 ### Macros de services
 
-| Nom de la macro                         | Service Checks    | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
-|-----------------------------------------|-------------------|------------------------|-------------|---------------------|------------------------|---------------------|
-| \$SERVICEDESC\$                         | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEDISPLAYNAME\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICESTATE\$                        | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICESTATEID\$                      | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LASTSERVICESTATE\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LASTSERVICESTATEID\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICESTATETYPE\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEATTEMPT\$                      | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$MAXSERVICEATTEMPTS\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEISVOLATILE\$                   | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEEVENTID\$                      | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LASTSERVICEEVENTID\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEPROBLEMID\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LASTSERVICEPROBLEMID\$                | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICELATENCY\$                      | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEEXECUTIONTIME\$                | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEDURATION\$                     | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEDURATIONSEC\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEDOWNTIME\$                     | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEPERCENTCHANGE\$                | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEGROUPNAME\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEGROUPNAMES\$                   | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LASTSERVICECHECK\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LASTSERVICESTATECHANGE\$              | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LASTSERVICEOK\$                       | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LASTSERVICEWARNING\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LASTSERVICEUNKNOWN\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LASTSERVICECRITICAL\$                 | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEOUTPUT\$                       | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$LONGSERVICEOUTPUT\$                   | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEPERFDATA\$                     | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICECHECKCOMMAND\$                 | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICEACKAUTHOR\$ [(8)](#notes)      | Non               | Oui                    | Non         | Non                 | Non                    | Non                 |
-| \$SERVICEACKAUTHORNAME\$ [(8)](#notes)  | Non               | Oui                    | Non         | Non                 | Non                    | Non                 |
-| \$SERVICEACKAUTHORALIAS\$ [(8)](#notes) | Non               | Oui                    | Non         | Non                 | Non                    | Non                 |
-| \$SERVICEACKCOMMENT\$ [(8)](#notes)     | Non               | Oui                    | Non         | Non                 | Non                    | Non                 |
-| \$SERVICEACTIONURL\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICENOTESURL\$                     | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
-| \$SERVICENOTES\$                        | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 |
+| Nom de la macro                         | Service Checks    | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers | Note | URL d'action |
+|-----------------------------------------|-------------------|------------------------|-------------|---------------------|------------------------|---------------------|------|-------------|
+| \$SERVICEDESC\$                         | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Oui | Oui         |
+| \$SERVICEDISPLAYNAME\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICESTATE\$                        | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 | Oui | Oui         |
+| \$SERVICESTATEID\$                      | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 | Oui | Oui         |
+| \$LASTSERVICESTATE\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$LASTSERVICESTATEID\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICESTATETYPE\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEATTEMPT\$                      | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$MAXSERVICEATTEMPTS\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEISVOLATILE\$                   | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEEVENTID\$                      | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$LASTSERVICEEVENTID\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEPROBLEMID\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$LASTSERVICEPROBLEMID\$                | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICELATENCY\$                      | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEEXECUTIONTIME\$                | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEDURATION\$                     | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEDURATIONSEC\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEDOWNTIME\$                     | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEPERCENTCHANGE\$                | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEGROUPNAME\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEGROUPNAMES\$                   | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$LASTSERVICECHECK\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$LASTSERVICESTATECHANGE\$              | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$LASTSERVICEOK\$                       | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$LASTSERVICEWARNING\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$LASTSERVICEUNKNOWN\$                  | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$LASTSERVICECRITICAL\$                 | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEOUTPUT\$                       | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$LONGSERVICEOUTPUT\$                   | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEPERFDATA\$                     | Oui [(2)](#notes) | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICECHECKCOMMAND\$                 | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICEACKAUTHOR\$ [(8)](#notes)      | Non               | Oui                    | Non         | Non                 | Non                    | Non                 | Non | Non         |
+| \$SERVICEACKAUTHORNAME\$ [(8)](#notes)  | Non               | Oui                    | Non         | Non                 | Non                    | Non                 | Non | Non         |
+| \$SERVICEACKAUTHORALIAS\$ [(8)](#notes) | Non               | Oui                    | Non         | Non                 | Non                    | Non                 | Non | Non         |
+| \$SERVICEACKCOMMENT\$ [(8)](#notes)     | Non               | Oui                    | Non         | Non                 | Non                    | Non                 | Non | Non         |
+| \$SERVICEACTIONURL\$                    | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICENOTESURL\$                     | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
+| \$SERVICENOTES\$                        | Oui               | Oui                    | Non         | Non                 | Oui                    | Non                 | Non | Non         |
 
 ### Description des macros de services
 
@@ -412,19 +412,19 @@ Vous trouverez ci-dessous une liste exhaustive des macros classées par type de 
 
 ### Macros de notifications
 
-| Nom de la macro               | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
-|-------------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
-| \$NOTIFICATIONTYPE\$          | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
-| \$NOTIFICATIONRECIPIENTS\$    | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
-| \$NOTIFICATIONISESCALATED\$   | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
-| \$NOTIFICATIONAUTHOR\$        | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
-| \$NOTIFICATIONAUTHORNAME\$    | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
-| \$NOTIFICATIONAUTHORALIAS\$   | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
-| \$NOTIFICATIONCOMMENT\$       | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
-| \$HOSTNOTIFICATIONNUMBER\$    | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
-| \$HOSTNOTIFICATIONID\$        | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
-| \$SERVICENOTIFICATIONNUMBER\$ | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
-| \$SERVICENOTIFICATIONID\$     | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 |
+| Nom de la macro               | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers | Note | URL d'action |
+|-------------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|------|-------------|
+| \$NOTIFICATIONTYPE\$          | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Non | Non         |
+| \$NOTIFICATIONRECIPIENTS\$    | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Non | Non         |
+| \$NOTIFICATIONISESCALATED\$   | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Non | Non         |
+| \$NOTIFICATIONAUTHOR\$        | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Non | Non         |
+| \$NOTIFICATIONAUTHORNAME\$    | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Non | Non         |
+| \$NOTIFICATIONAUTHORALIAS\$   | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Non | Non         |
+| \$NOTIFICATIONCOMMENT\$       | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Oui | Oui         |
+| \$HOSTNOTIFICATIONNUMBER\$    | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Non | Non         |
+| \$HOSTNOTIFICATIONID\$        | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Non | Non         |
+| \$SERVICENOTIFICATIONNUMBER\$ | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Non | Non         |
+| \$SERVICENOTIFICATIONID\$     | Non            | Oui                    | Non         | Oui                 | Non                    | Non                 | Non | Non         |
 
 ### Description des macros de notifications
 
