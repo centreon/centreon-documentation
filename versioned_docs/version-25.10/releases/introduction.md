@@ -8,6 +8,8 @@ This chapter contains the **Centreon Infra Monitoring 25.10** release notes:
 
 <DocCardList />
 
+Security fixes are listed [in bulletins on our community platform The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
 > Before updating your system, review this section to understand any behavioral or major changes in this version and how they may affect the features you use or the custom developments on your platform (modules, widgets, plugins).
 
 If you have feature requests or want to report a bug, please go to our
