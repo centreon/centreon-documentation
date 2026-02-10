@@ -108,7 +108,7 @@ Cette erreur est due à un problème de mise à jour des colonnes dans la base d
   php /usr/share/centreon/www/modules/centreon-bi-server/tools/updateColumnsToBigint.php
   ```
 
-2. Puis suivez cette procédure pour [reprendre partiellement les données de reporting](../reporting/rebuilding-data.md#reconstruction-partielle--conserver-lhistorique-de-vos-données).
+2. Puis suivez cette procédure pour [reprendre partiellement les données de reporting](../reporting/rebuilding-data.mdx#reconstruction-partielle--conserver-lhistorique-de-vos-données).
 
 ### MBI ne fonctionne pas si les bases de données ont des noms personnalisés
 
