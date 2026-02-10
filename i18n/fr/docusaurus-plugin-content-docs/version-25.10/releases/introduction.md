@@ -2,8 +2,11 @@
 id: introduction
 title: Notes de release Centreon Infra Monitoring 25.10
 ---
+import DocCardList from '@theme/DocCardList';
 
 Ce chapitre présente les notes de release de **Centreon Infra Monitoring 25.10** :
+
+<DocCardList />
 
 > Avant de mettre à jour votre système, consultez cette section pour comprendre les changements importants apportés à cette version et leur impact potentiel sur les fonctionnalités que vous utilisez ou sur les développements personnalisés de votre plateforme (modules, widgets, plugins).
 
@@ -11,7 +14,3 @@ Pour faire des demandes d'évolutions ou signaler des bugs, vous pouvez vous ren
 notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 > Retrouvez plus de détails sur la version 25.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-annonce-la-version-25-10-de-centreon-infra-monitoring-pierre-angulaire-de-la-nouvelle-centreon-observability-platform/).
-
-import DocCardList from '@theme/DocCardList';
-
-<DocCardList />

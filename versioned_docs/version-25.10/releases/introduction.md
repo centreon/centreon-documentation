@@ -2,11 +2,11 @@
 id: introduction
 title: Release notes for Centreon Infra Monitoring 25.10
 ---
+import DocCardList from '@theme/DocCardList';
 
 This chapter contains the **Centreon Infra Monitoring 25.10** release notes:
 
-- [Centreon Open Source](centreon-os.mdx)
-- [Commercial extensions](centreon-commercial-extensions.mdx)
+<DocCardList />
 
 > Before updating your system, review this section to understand any behavioral or major changes in this version and how they may affect the features you use or the custom developments on your platform (modules, widgets, plugins).
 
