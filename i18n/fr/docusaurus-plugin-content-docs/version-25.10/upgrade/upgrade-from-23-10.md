@@ -668,11 +668,11 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
 3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-> À partir de la version 25.10, la susbtitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-discovery associées aux connecteurs. 
+> À partir de la version 25.10, la substitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-découverte de services associées aux connecteurs. 
 > 
-> Si vous utilisez des commandes personnalisées qui contiennent de l'interpolation, vous devez les adapter pour qu'elles continuent à fonctionner.
+> Si vous utilisez des commandes personnalisées qui contiennent de l'interpolation, vous devez les adapter de manière à ce qu'elles n'utilisent que des informations issues des macros.
 > 
-> Cette nouvelle règle est appliquée dans `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via le paramètre : `no_shell_interpretation: true`. Si vous aviez antérieurement modifié ce fichier, votre version sera sauvegardée dans le même répertoire en tant que `41-autodiscovery.yaml.rpmnew` et devra être manuellement fusionnée pour intégrer ce paramètre.
+> Cette nouvelle règle est appliquée dans `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via le paramètre : `no_shell_interpretation: true`. Si vous aviez modifié ce fichier, votre version sera sauvegardée dans le même répertoire en tant que `41-autodiscovery.yaml.rpmnew` et devra être manuellement fusionnée pour intégrer ce paramètre.
 
 4. Redémarrez les processus Centreon :
 
