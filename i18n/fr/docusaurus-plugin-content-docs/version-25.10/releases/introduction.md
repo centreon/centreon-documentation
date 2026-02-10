@@ -1,11 +1,16 @@
 ---
 id: introduction
-title: Centreon Platform 25.10
+title: Notes de release Centreon Infra Monitoring 25.10
 ---
 
-Vous trouverez dans ce chapitre la note de version globale de la **Plateforme Centreon 25.10**.
-
-Pour accéder aux notes de version détaillées par composants, rendez vous dans les sections suivantes:
+Ce chapitre présente les notes de release de **Centreon Infra Monitoring 25.10** :
 
 - [Centreon Open Source](centreon-os.mdx)
 - [Extensions commerciales](centreon-commercial-extensions.mdx)
+
+> Avant de mettre à jour votre système, consultez cette section pour comprendre les changements importants apportés à cette version et leur impact potentiel sur les fonctionnalités que vous utilisez ou sur les développements personnalisés de votre plateforme (modules, widgets, plugins).
+
+Pour faire des demandes d'évolutions ou signaler des bugs, vous pouvez vous rendre sur
+notre [Github](https://github.com/centreon/centreon/issues/new/choose).
+
+> Retrouvez plus de détails sur la version 25.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-annonce-la-version-25-10-de-centreon-infra-monitoring-pierre-angulaire-de-la-nouvelle-centreon-observability-platform/).
