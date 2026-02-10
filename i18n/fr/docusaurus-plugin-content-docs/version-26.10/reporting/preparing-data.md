@@ -33,7 +33,7 @@ Par défaut, l'ETL est configuré pour calculer la disponibilité et les perform
 Sélectionnez les périodes et les catégories de services que vous souhaitez (disk, ping, memory, traffic). C'est également ici que vous configurez le niveau de précision que vous souhaitez pour les statistiques de données (c'est-à-dire calculées par mois, jour, heure...).
 
 - Un rapport peut être généré vide si l'ETL n'a pas pu être exécuté, s'il y a un problème avec la configuration de l'ETL ou s'il n'y a pas de données de surveillance pour la ressource (aucun statut/métrique n'est renvoyé).
-- L'ETL est statique : il ne détecte pas automatiquement les changements de configuration sur Centreon en dehors de ses exécutions régulières (programmées à 4h30 du matin par défaut). Vous devez [lancer une reconstruction des données](rebuilding-data.md) pour que les nouvelles données/configurations soient immédiatement prises en compte.
+- L'ETL est statique : il ne détecte pas automatiquement les changements de configuration sur Centreon en dehors de ses exécutions régulières (programmées à 4h30 du matin par défaut). Vous devez [lancer une reconstruction des données](rebuilding-data.mdx) pour que les nouvelles données/configurations soient immédiatement prises en compte.
 - Si la compilation des données a commencé depuis moins d'un mois, il est possible d'observer des trous dans les rapports qui affichent les données par mois ou comparent les mois entre eux.
 
 ## Permettre le partage des rapports
