@@ -55,10 +55,9 @@ Exceptions or errors in an application's code, such as null pointer exceptions, 
 
 * [Alert rule](../alerts.md) (count): Trigger an alert if there are X or more exception messages in 5 minutes, indicating a potential problem in the application. Example of query that could be used in such an alert rule:
 
-
-```shell
-service_name:"my-app" AND severity_text:"error" AND body.message:"this is an exception"
-```
+   ```shell
+   service_name:"my-app" AND severity_number>"17" AND body.message:"this is an exception"
+   ```
 
 ### Database connection failure
 

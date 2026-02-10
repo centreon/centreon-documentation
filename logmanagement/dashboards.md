@@ -64,7 +64,7 @@ In the right part of the screen, define the data you want to display. The graph 
 * **Name**: this will be the name of the data series in the legend of the graph.
 <!-- * **Datasource**: **Centreon Log Management** means the graph will use [data sent to Centreon Log Management by your OpenTelemetry collectors](./collector/collector.md). -->
 * **Query**: use the correct [query syntax](query-syntax.md).
-* **Alert type**:
+* **Operation**:
 
   * **Count** means that the query will return the number of log entries that match the query.
   * **Ratio** means that you divide the results of a query by the results of another query.

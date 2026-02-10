@@ -34,7 +34,7 @@ Les différents statuts d'alerte possibles sont les suivants :
 
 ## Définir une règle d'alerte
 
-> Pour le programme BETA, vous pouvez créer jusqu'à 20 règles d'alerte.
+> Pour le programme BETA, vous pouvez créer jusqu'à 10 règles d'alerte.
 
 1. Allez à la page **Alerts & notifications > Alert rules**.
 2. Cliquez sur **Add**.

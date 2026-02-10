@@ -50,6 +50,10 @@ module.exports = {
           items: [
         {
           type: 'doc',
+          id: 'collector/opentelemetry-collector'
+        },
+        {
+          type: 'doc',
           id: 'collector/collector'
         }
        ]

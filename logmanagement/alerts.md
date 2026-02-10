@@ -34,7 +34,7 @@ Possible alert statuses are:
 
 ## Defining an alert rule
 
-> For the beta program, you can create up to 20 alert rules.
+> For the beta program, you can create up to 10 alert rules.
 
 1. Go to **Alerts & notifications > Alert rules**.
 2. Click **Add**.

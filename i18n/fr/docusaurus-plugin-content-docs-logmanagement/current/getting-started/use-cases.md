@@ -40,7 +40,7 @@ Les exceptions ou erreurs dans le code d'une application, comme des "null pointe
 * [Règle d'alerte](../alerts.md) (COUNT) : déclenche une alerte s'il y a X messages d'exception ou plus en 5 minutes, indiquant un problème potentiel dans l'application. Exemple de requête pouvant être utilisée dans une telle règle d'alerte :
 
    ```shell
-   service_name:"my-app" AND severity_text:“error” AND body.message:"this is an exception"
+   service_name:"my-app" AND severity_number>"17" AND body.message:"this is an exception"
    ```
 
 ### Échec de connexion à une base de données

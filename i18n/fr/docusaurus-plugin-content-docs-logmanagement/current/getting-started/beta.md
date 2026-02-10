@@ -8,4 +8,4 @@ Pour participer au programme BETA de Centreon Log Management, contactez-nous à 
 Les limitations suivantes s'appliquent :
 
 * L'utilisation totale du stockage est limitée à 150 Go. Au-delà, les logs ne sont plus acceptés par CLM.
-* Vous pouvez créer jusqu'à 20 [règles d'alerte](../alerts.md).
+* Vous pouvez créer jusqu'à 10 [règles d'alerte](../alerts.md).

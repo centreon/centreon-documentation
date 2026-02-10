@@ -64,7 +64,7 @@ Dans la partie droite de l'écran, définissez les données que vous souhaitez a
 * **Name** : ce sera le nom de la série de données dans la légende du graphique.
 <!-- * **Datasource** : **Centreon Log Management** signifie que le graphique utilisera [les données envoyées à Centreon Log Management par vos collecteurs OpenTelemetry](./collector/collector.md). -->
 * **Query** : utilisez la [syntaxe de requête](query-syntax.md) correcte.
-* **Alert type** :
+* **Operation** :
 
    * **Count** signifie que la requête renverra le nombre d'entrées de log correspondant à la requête.
    * **Ratio** signifie que le nombre de résultats d'une requête sera divisé par le nombre de résultats d'une autre requête.
