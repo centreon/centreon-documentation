@@ -13,7 +13,7 @@ Par défaut, [MBI garde les données](installation.md#etl-rétention-de-données
 
 L'ETL récupère les données brutes du serveur central et les transforme en un format exploitable par MBI, puis les stocke dans la base de données où CBIS les récupérera pour générer les rapports.
 
-L'ETL de MBI est statique, il ne détecte pas automatiquement les changements de configuration en dehors de [son exécution quotidienne le matin](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Pour prendre en compte des changements de configuration immédiatement, [lancez une reconstruction](rebuilding-data.md).
+L'ETL de MBI est statique, il ne détecte pas automatiquement les changements de configuration en dehors de [son exécution quotidienne le matin](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Pour prendre en compte des changements de configuration immédiatement, [lancez une reconstruction](rebuilding-data.mdx).
 
 ## Dimension
 
