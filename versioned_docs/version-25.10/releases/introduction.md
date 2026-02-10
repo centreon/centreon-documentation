@@ -1,9 +1,9 @@
 ---
 id: introduction
-title: Release notes for Centreon 25.10
+title: Release notes for Centreon Infra Monitoring 25.10
 ---
 
-In this chapter, you will find the global **Centreon 25.10** release notes:
+This chapter contains the **Centreon Infra Monitoring 25.10** release notes:
 
 - [Centreon Open Source](centreon-os.mdx)
 - [Commercial extensions](centreon-commercial-extensions.mdx)
