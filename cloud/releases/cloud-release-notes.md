@@ -5,6 +5,13 @@ title: Centreon Cloud release notes
 
 ## February 17th, 2026
 
+### Centreon Pro Edition
+**MAP**
+
+* Geoviews: New actions have been added to the geographic view interface, including the ability to Duplicate, Delete, and Copy URL. Users can also now save the map position directly from the view.
+* Editor Improvements: For better visual impact and clarity, geometric resources can now be enlarged up to a maximum size of 84x84 pixels.
+
+
 ## January 8th, 2026
 
 ### Centreon IT Edition
