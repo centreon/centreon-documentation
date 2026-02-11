@@ -16,7 +16,7 @@ If a service interacting with other services or APIs does not respond or fails, 
 * [Alert rule](../alerts.md) (count): Track failed requests from a specific service (HTTP 4xx and 5xx) to detect service or API failures quickly. Example of query that could be used in such an alert rule:
 
    ```shell
-   service_name:"my-service" AND http.status >= 400 AND http.status < 600
+   service_name:"my-service" AND attributes.http.response.status_code >= 400 AND attributes.http.response.status_code < 600
    ```
 
 ### Data inconsistency
@@ -123,7 +123,7 @@ If a user or attacker repeatedly tries to log in to a system without success, th
 * [Alert rule](../alerts.md) (count): Trigger an alert when there are more than x failed SSH login attempts within a given time window. Example of query that could be used in such an alert rule:
 
    ```shell
-   event.type:"ssh_login" AND http.status >= 400 AND http.status < 500
+   event.type:"ssh_login" AND attributes.http.response.status_code >= 400 AND attributes.http.response.status_code < 500
    ```
 
 ### Intrusions or unauthorized access
@@ -133,7 +133,7 @@ Logs can reveal attempts to gain unauthorized access to sensitive systems or app
 * [Alert rule](../alerts.md) (count) : Trigger a CRITICAL alert event if the number of logs recording access attempts to a specific GitHub repository is higher than 0 for users that do not belong to **my_github_group**. Example of query that could be used in such an alert rule:
 
    ```shell
-   repo:"my-github-repo" AND http.status IS NOT NULL AND NOT user_groups:"my_github_group"
+   repo:"my-github-repo" AND attributes.http.response.status_code IS NOT NULL AND NOT user_groups:"my_github_group"
    ```
 
 <!-- * **Suspicious activity**: Abnormal behavior in logs, such as logins at unusual times or from suspicious geographic locations, can be detected. -->
@@ -150,12 +150,12 @@ Connection or communication failures between services (e.g., a server that does 
 
    * Query to divide: 
       ```shell
-      service:"my-service" AND http.status IS NOT NULL
+      service:"my-service" AND attributes.http.response.status_code IS NOT NULL
       ```
 
    * Query to divide by:
       ```shell
-      service:"my-service" AND http.status = 408
+      service:"my-service" AND attributes.http.response.status_code = 408
       ```
 
 ## Examples of questions you can find answers to

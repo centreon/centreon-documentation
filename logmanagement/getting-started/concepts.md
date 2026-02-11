@@ -40,7 +40,7 @@ OpenTelemetry logs aren't just text: they're data you can analyze. And CLM lets 
 
 A log entry in OpenTelemetry format always has a timestamp and a [service](../resources/glossary.md#service) name (for the service that produced the log). Usually, it also shows the log's [severity](../resources/glossary.md#severity): <span style={{color:'#1ebeb3'}}>**DEBUG**</span>, <span style={{color:'#1588d1'}}>**INFO**</span>, WARN (<span style={{color:'#ffca34'}}>**WARNING**</span> in CLM), <span style={{color:'#fd9b27'}}>**ERROR**</span>, or <span style={{color:'#ff4a4a'}}>**FATAL**</span>. All the other information in the log depends on [how you have configured your OpenTelemetry Collector](../collector/collector.md).
 
-Here is an example of a raw log entry sent by the Windows Event Viewer, collected by an OpenTelemetry cllector, then converted to CLM's internal syntax:
+Here is an example of a raw log entry sent by the Windows Event Viewer, collected by an OpenTelemetry collector, then converted to CLM's internal syntax:
 
 ```json
 {
@@ -84,3 +84,7 @@ Here is an example of a raw log entry sent by the Windows Event Viewer, collecte
   * deployment.environment – environment like prod or staging.
 
 In CLM, you can filter your data by using these attributes in [queries](../query-syntax.md), in [**Log explorer**](../explore-analyze.md#using-the-log-explorer-page) or [dashboards](../dashboards.md).
+
+## Which OpenTelemetry attribute determines the date and time of logs?
+
+The date and time of logs are based on the OpenTelemetry attribute **observed_timestamp_nanos**.

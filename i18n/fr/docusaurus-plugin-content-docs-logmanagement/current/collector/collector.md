@@ -105,7 +105,7 @@ https://github.com/open-telemetry/opentelemetry-collector-releases/releases/down
              enabled: true
    ```
 
-   > L'indentation des paramètres dans votre fichier YAML doit être identique à celle de l'exemple.
+   > L'indentation des paramètres dans votre fichier YAML doit être identique à celle de l'exemple. Les indentations sont de deux espaces pour chaque niveau.
 
 ### Étape 3 : Configurez chaque source de logs pour votre hôte
 
@@ -134,9 +134,16 @@ Configurez une source de logs pour chaque service souhaité (syslog, apache, etc
 
 3. Récupérez sur GitHub le fichier d'exemple correspondant à la source de logs souhaitée : https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main.
 
-4. Sur l'hôte source, copiez et collez l'extrait de code dans le fichier correspondant. Enregistrez le fichier.
+4. Sur l'hôte source, copiez et collez l'extrait de code dans le fichier correspondant. Enregistrez le fichier. Si vous utilisez plusieurs sources de logs pour un collecteur, ne définissez le pipeline qu'une seule fois (dans l'un des fichiers). Le pipeline doit mentionner tous vos receivers. Dans notre exemple :
 
-   > L'indentation des paramètres dans votre fichier YAML doit être identique à celle de l'exemple.
+    ```shell
+    service:
+      pipelines:
+        logs:
+          receivers: [filelog/httpd-combined,filelog/apache-error]
+    ```
+
+   > L'indentation des paramètres dans votre fichier YAML doit être identique à celle de l'exemple. Les indentations sont de deux espaces pour chaque niveau.
 
 5. Déclarez chacun des fichiers que vous avez créés : déclarez une option **--config** pour chaque fichier, comme dans l'exemple suivant (veillez à conserver la déclaration du fichier de configuration global **config.yaml**) :
 

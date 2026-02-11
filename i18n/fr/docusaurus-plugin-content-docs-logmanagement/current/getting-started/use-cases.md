@@ -14,7 +14,7 @@ Si un service interagissant avec d'autres services ou API ne répond pas ou éch
 * [Règle d'alerte](../alerts.md) (nombre) : suivez les requêtes ayant échoué à partir d'un service spécifique (HTTP 4xx et 5xx) afin de détecter rapidement les défaillances de service ou d'API. Exemple de requête pouvant être utilisée dans une telle règle d'alerte :
 
    ```shell
-   service_name:"my-service" AND http.status >= 400 AND http.status < 600
+   service_name:"my-service" AND attributes.http.response.status_code >= 400 AND attributes.http.response.status_code < 600
    ```
 
 ### Incohérence des données
@@ -103,7 +103,7 @@ Si un utilisateur ou un attaquant tente de se connecter à un système de maniè
 * [Règle d'alerte](../alerts.md) (COUNT) : déclenche une alerte lorsqu'il y a plus de x tentatives de connexion SSH infructueuses dans un intervalle de temps donné. Exemple de requête pouvant être utilisée dans une telle règle d'alerte :
 
  ```shell
-   event.type:"ssh_login" AND http.status >= 400 AND http.status < 500
+   event.type:"ssh_login" AND attributes.http.response.status_code >= 400 AND attributes.http.response.status_code < 500
    ```
 
 ### Intrusions ou accès non autorisés
@@ -113,7 +113,7 @@ Les logs peuvent révéler des tentatives d'accès non autorisé à des système
 * [Règle d'alerte](../alerts.md) (COUNT) : déclenche un événement d'alerte CRITIQUE si le nombre de logs enregistrant des tentatives d'accès à un dépôt GitHub spécifique est supérieur à 0 pour les utilisateurs n'appartenant pas à **my_github_group**. Exemple de requête pouvant être utilisée dans une telle règle d'alerte :
 
    ```shell
-   repo:"my-github-repo" AND http.status IS NOT NULL AND NOT user_groups:"my_github_group"
+   repo:"my-github-repo" AND attributes.http.response.status_code IS NOT NULL AND NOT user_groups:"my_github_group"
    ```
 
 ## Problèmes réseau
@@ -126,12 +126,12 @@ Les échecs de connexion ou de communication entre les services (par exemple, un
 
    * Requête à diviser :
       ```shell
-      service:"my-service" AND http.status IS NOT NULL
+      service:"my-service" AND attributes.http.response.status_code IS NOT NULL
       ```
 
    * Requête à diviser par :
       ```shell
-      service:"my-service" AND http.status = 408
+      service:"my-service" AND attributes.http.response.status_code = 408
       ```
 
 ## Exemples de questions auxquelles vous pouvez trouver des réponses

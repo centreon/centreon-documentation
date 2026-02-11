@@ -84,3 +84,7 @@ Voici un exemple d'entrée de log brute envoyée par l'Observateur d'évènement
   * deployment.environment : environnement tel que prod ou staging.
 
 Dans CLM, vous pouvez filtrer vos données en utilisant ces attributs dans les [requêtes](../query-syntax.md), dans [**Log explorer**](../explore-analyze.md#utiliser-la-page-log-explorer) ou dans les [tableaux de bord](../dashboards.md).
+
+## Quel attribut OpenTelemetry gère l'heure des logs?
+
+La date et l'heure des logs sont basées sur l'attribut OpenTelemetry **observed_timestamp_nanos**.
