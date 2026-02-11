@@ -565,6 +565,9 @@ This connector relies on an integration supported by Centreon Engine and does no
 | EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
 | FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
 | EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service           |             |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                   |             |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                   |             |
 | WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
 | CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
 | WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
