@@ -31,7 +31,7 @@ Ne pas confondre avec [Évènement d'alerte](#évènement-dalertestatut-dalerte)
 
 ## Service
 
-Ce qui a généré le log. Exemples : Apache, HTTPD, MySQL, Syslog, Postgres, Grafana... Ces informations sont fournies par l'attribut OpenTelemetry **ServiceName**.
+Ce qui a généré le log. Exemples : Apache, HTTPD, MySQL, Syslog, Postgres... Ces informations sont fournies par l'attribut **service_name**.
 
 <!-- ## service_namespace [TBC]
 

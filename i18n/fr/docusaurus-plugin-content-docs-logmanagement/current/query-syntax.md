@@ -12,7 +12,7 @@ Utilisez les requêtes dans la page [**Log explorer**](explore-analyze.md), dans
 Dans la page **Log explorer** :
 
 * Saisissez votre requête, puis appuyez sur **CTRL** + **Entrée** pour lancer la recherche. <!--autocomplete-->
-* N'incluez pas de paramètres temporels dans vos requêtes : la période de temps est définie à l'aide de la liste située dans le coin supérieur droit.
+* N'incluez pas de paramètres temporels dans vos requêtes : la période de temps est définie à l'aide de la liste située dans le coin supérieur droit, ou via la timeline.
 
 ## Exemples de requêtes simples
 

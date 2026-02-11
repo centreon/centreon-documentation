@@ -12,7 +12,7 @@ Use queries in the [**Log Explorer** page](explore-analyze.md), in [alert rules]
 In the **Log Explorer** page:
 
 * Type your query, then press **CTRL** + **Enter** to launch the search. <!--autocomplete-->
-* Do not include time parameters in your queries: time periods are defined using the list in the top right corner.
+* Do not include time parameters in your queries: time periods are defined using the list in the top right corner, or using the timeline.
 
 ## Examples of simple queries
 

@@ -31,7 +31,7 @@ Not to be confused with [Alert events](#alert-eventalert-status).
 
 ## Service
 
-What produced the log. Examples: Apache, HTTPD, MySQL, Syslog, Postgres, Grafana... This information is provided by the **ServiceName** OpenTelemetry attribute.
+What produced the log. Examples: Apache, HTTPD, MySQL, Syslog, Postgres... This information is provided by the **service_name** attribute.
 
 <!-- ## service_namespace [TBC]
 
