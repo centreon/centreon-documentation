@@ -631,7 +631,7 @@ Example:
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> You must use the default **admin** account as the **\<API_ACCOUNT\>**.
+> You must use **admin** as the **\<API_ACCOUNT\>**.
 
 Restart **centengine**:
 
@@ -744,8 +744,8 @@ systemctl restart centreon
 Run the following script with the correct IP address to enable the poller to receive and process encrypted data.
 
 The IP address to use depends on the following conditions:
-- When updating pollers linked directly to the central server, use the central server IP.
-- When updating pollers linked to a remote server, use the remote server IP. However, in this instance, you must first confirm the remote server has the correct key by checking that the value of `app_secret` in the `/etc/centreon-engine/engine-context.json` file is the same as the central server's. If this is not the case, relaunch the script with the right IP to correct the .json file.
+- When updating pollers linked directly to the central server, use the central server's IP.
+- When updating pollers linked to a remote server, use the remote server's IP. However, in this instance, you must first confirm the remote server has the correct key by checking that the value of `app_secret` in the `/etc/centreon-engine/engine-context.json` file is the same as the central server's. If this is not the case, relaunch the script with the right IP to correct the .json file.
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
@@ -757,7 +757,7 @@ Example:
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> You must use the default **admin** account as the **\<API_ACCOUNT\>**.
+> You must use **admin** as the **\<API_ACCOUNT\>**.
 
 Restart **centengine**:
 

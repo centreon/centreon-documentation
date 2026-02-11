@@ -596,7 +596,7 @@ Exemple:
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> Vous devez utiliser le compte **admin** par défaut en tant que **\<API_ACCOUNT\>**.
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
 
 Redémarrez **centengine**:
 
@@ -690,7 +690,7 @@ Exécutez le script suivant avec l'adresse IP correspondante afin de permettre a
 
 L'adresse IP à utiliser varie selon les conditions suivantes :
 - Lorsque vous mettez à jour un collecteur lié directement au server central, utilisez l'adresse IP du serveur central.
-- Lorsque vous mettez à jour un collecteur lié à un serveur distant, utilisez l'adresse IP du serveur distant. Cependant, dans ce cas, confirmez d'abord que le server distant à la bonne clé. Vérifiez que la valeur de `app_secret` dans le fichier `/etc/centreon-engine/engine-context.json` du serveur distant est la même que pour le serveur central. Si ce n'est pas le cas, relancez le script avec l'adresse IP pour corriger le fichier .json.
+- Lorsque vous mettez à jour un collecteur lié à un serveur distant, utilisez l'adresse IP du serveur distant. Cependant, dans ce cas, confirmez d'abord que le server distant a la bonne clé. Vérifiez que la valeur de `app_secret` dans le fichier `/etc/centreon-engine/engine-context.json` du serveur distant est la même que pour le serveur central. Si ce n'est pas le cas, relancez le script avec l'adresse IP pour corriger le fichier .json.
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
@@ -702,7 +702,7 @@ Exemple:
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> Vous devez utiliser le compte **admin** par défaut en tant que **\<API_ACCOUNT\>**.
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
 
 Redémarrez **centengine**:
 
