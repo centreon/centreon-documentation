@@ -673,9 +673,9 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
 | ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
 
-> Commands are defined in a dedicated configuration file using a format compatible with NSClient / NRPE.
-> The path to this file is configured via the installer or the registry using the custom_check_file parameter.
-> To update commands, edit the file and reload the agent.
+> Les commandes sont définies dans un fichier de configuration dédié utilisant un format compatible avec NSClient / NRPE.
+> Le chemin d'accès à ce fichier est configuré via le programme d'installation ou le registre à l'aide du paramètre **custom_check_file**.
+> Pour mettre à jour les commandes, modifiez le fichier et rechargez l'agent.
 
 ```cmd
 [custom_checks]
