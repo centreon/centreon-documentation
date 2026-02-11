@@ -5,13 +5,30 @@ title: Centreon Cloud release notes
 
 ## February 17th, 2026
 
+### Centreon IT Edition
+
+**Centreon Monitoring Agent (CMA)**
+
+This release brings significant enhancements to the Centreon Monitoring Agent, focusing on automation, security, and broader check capabilities:
+* Native Checks & Automation: A new generic native check for custom scripts has been added. For Windows environments, service checks now include filters for startup type and delayed services.
+* Automated Configuration: Deploying a CMA-related Monitoring Connector now automatically handles freshness by default and creates the required links to the commands connector. Freshness is also activated by default on all CMA-related services, hosts, and templates.
+* Security & Connectivity: The CMA Token is now mandatory even when using "No TLS" mode. Additionally, the agent configuration now supports .cert formats, allows any certificate path, and includes a listening port parameter for agent-initiated connections.
+
+**Data Visualization**
+
+* The limit for the number of metrics displayed per chart in Performance Graphs has been set to 20, avoiding meaningless graph display.
+* The Resource Table widget of Centreon Dashboards now features a direct link to ticket details on the provider side, streamlining the bridge between monitoring and incident management.
+
+**Configuration**
+
+* We have enhanced the management of password-type fields within additional configuration menus for a more secure and intuitive experience.
+
 ### Centreon Pro Edition
 
 **MAP**
 
 * Geoviews: New actions have been added to the geographic view interface, including the ability to Duplicate, Delete, and Copy URL. Users can also now save the map position directly from the view.
-* Editor Improvements: For better visual impact and clarity, geometric resources can now be enlarged up to a maximum size of 84x84 pixels.
-
+* Editor: For better visual impact and clarity, geometric resources can now be enlarged up to a maximum size of 84x84 pixels and other shapes reduced to a minimum of 20x20 pixels.
 
 ## January 8th, 2026
 
