@@ -28,6 +28,7 @@ jobs:
       build_pp: ${{ steps.filters.outputs.build_pp }}
       build_cloud: ${{ steps.filters.outputs.build_cloud }}
       build_dem: ${{ steps.filters.outputs.build_dem }}
+      build_logmanagement: ${{ steps.filters.outputs.build_logmanagement }}
 
     steps:
       - name: Checkout sources
@@ -57,6 +58,9 @@ jobs:
             dem:
               - 'dem/**'
               - 'i18n/**/docusaurus-plugin-content-docs-dem/**'
+            logmanagement:
+              - 'logmanagement/**'
+              - 'i18n/**/docusaurus-plugin-content-docs-logmanagement/**'
             pp:
               - 'pp/**'
               - 'i18n/**/docusaurus-plugin-content-docs-pp/**'
@@ -79,6 +83,7 @@ jobs:
             let build_pp = '1';
             let build_cloud = '1';
             let build_dem = '1';
+            let build_logmanagement = '1';
 
             if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.pp }} === false) {
@@ -91,6 +96,10 @@ jobs:
 
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.dem }} === false) {
                 build_dem = '0';
+              }
+
+              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.logmanagement }} === false) {
+                build_logmanagement = '0';
               }
 
               build_versions = [];
@@ -110,7 +119,10 @@ jobs:
                 build_versions = [...new Set(build_versions)].sort().reverse(); // remove duplicates and sort desc
               }
 
-              if (build_versions.length === 0 && (build_pp === '1' || build_cloud === '1' || build_dem === '1')) {
+              if (
+                build_versions.length === 0 &&
+                (build_pp === '1' || build_cloud === '1' || build_dem === '1' || build_logmanagement === '1')
+              ) {
                 build_versions.push(available_versions[0]);
               }
             }
@@ -120,6 +132,7 @@ jobs:
             console.log(`pp section will${build_pp === '0' ? ' not' : ''} be built`);
             console.log(`cloud section will${build_cloud === '0' ? ' not' : ''} be built`);
             console.log(`dem section will${build_dem === '0' ? ' not' : ''} be built`);
+            console.log(`logmanagement section will${build_logmanagement === '0' ? ' not' : ''} be built`);
 
             const build_environments = [];
             if (build_versions.length) {
@@ -135,6 +148,7 @@ jobs:
             core.exportVariable('build_pp', build_pp);
             core.exportVariable('build_cloud', build_cloud);
             core.exportVariable('build_dem', build_dem);
+            core.exportVariable('build_logmanagement', build_logmanagement);
 
       - name: Manage versions to build
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
@@ -154,6 +168,7 @@ jobs:
             core.exportVariable('build_pp', '1');
             core.exportVariable('build_cloud', '1');
             core.exportVariable('build_dem', '1');
+            core.exportVariable('build_logmanagement', '1');
 
       - name: Manage versions to build
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
@@ -166,6 +181,7 @@ jobs:
             core.setOutput('build_pp', '${{ env.build_pp }}');
             core.setOutput('build_cloud', '${{ env.build_cloud }}');
             core.setOutput('build_dem', '${{ env.build_dem }}');
+            core.setOutput('build_logmanagement', '${{ env.build_logmanagement }}');
 
   build:
     if: ${{ needs.get-versions.outputs.build_environments != '[]' }}
@@ -182,6 +198,7 @@ jobs:
             pp: ${{ needs.get-versions.outputs.build_pp }}
             cloud: ${{ needs.get-versions.outputs.build_cloud }}
             dem: ${{ needs.get-versions.outputs.build_dem }}
+            logmanagement: ${{ needs.get-versions.outputs.build_logmanagement }}
 
     name: Build ${{ matrix.environment }}
 
@@ -215,6 +232,7 @@ jobs:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
           DEM: ${{ matrix.dem }}
+          LOGMANAGEMENT: ${{ matrix.logmanagement }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 

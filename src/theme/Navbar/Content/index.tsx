@@ -85,7 +85,7 @@ export default function NavbarContent(): ReactNode {
     if (pluginId === 'dem') {
       return 'to' in item && item.to && item.to.includes('dem');
     }
-    if (pluginId === 'log') {
+    if (pluginId === 'logmanagement') {
       return 'to' in item && item.to && item.to.includes('log');
     }
     return false;
