@@ -1,0 +1,34 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+    "sidebar.logmanagement.category.Getting started with Centreon Log Management": {
+    "message": "Démarrer avec Centreon Log Management",
+    "description": "The label for category Getting started with Centreon Log Management in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Managing users": {
+    "message": "Gérer les utilisateurs",
+    "description": "The label for category Managing users in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Sending logs to CLM": {
+    "message": "Envoyer des logs à CLM",
+    "description": "The label for category Sending logs to CLM in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Exploring and analyzing logs": {
+    "message": "Explorer et analyser les logs",
+    "description": "The label for category Exploring and analyzing logs in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Managing alerts": {
+    "message": "Gérer les alertes",
+    "description": "The label for category Managing alerts in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Administration": {
+    "message": "Administration",
+    "description": "The label for category Administration in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Resources": {
+    "message": "Ressources",
+    "description": "The label for category Resources in sidebar logmanagement"
+  }
+}
