@@ -8,7 +8,50 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
-### Janvier
+### February
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Fortinet FortiAuthenticator RestAPI**](../procedures/network-fortinet-fortiauthenticator-restapi.md) - Initial release.
+- [**Zscaler ZDX Api**](../procedures/applications-monitoring-zscaler-zdx-api.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Base Pack**](../procedures/base-generic.md) - Decreased the ICMP packets size to pass through SaaS providers firewalls.
+- [**HP Ilo XMLAPI**](../procedures/hardware-servers-hp-ilo-xmlapi.md) - Now using warning and critical thresholds provided by ILO data when no custom thresholds are given.
+- [**AIX SSH**](../procedures/operatingsystems-aix-ssh.md) - Added a `FILTERARG` macro to **Process** service template to filter on the process' arguments. Also added the ability to display details of all processes (including "OK" processes) in the long output (issue [#5945](https://github.com/centreon/centreon-plugins/issues/5945)).
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Added a Custom-Script service template to run custom command. 
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added new parameters for Services monitoring and added a Custom-Script service template to run custom command.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Added the possibility to apply thresholds to the global number of connections, not only per database. The breaking change concerns the replacement of `*FILTER` macros in **Query-Time**, **Locks**, **Backend** and **Hitratio** templates with more explicit `*INCLUDE*` and `*EXCLUDE*` macros (issue [#5350](https://github.com/centreon/centreon-plugins/issues/5350)).
+- [**Active Directory Rest API**](../procedures/infrastructure-active-directory-nsclient-05-restapi.md) - The connector is now compatible with **NSClient++ 0.11.8**, which may be downloaded [here](https://github.com/centreon/centreon-nsclient-build/releases) as a pre-release at the time these lines are being written. The breaking change actually occurs when you update NSClient without updating the connector. Updating only the connector is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [**EMC Symmetrix API**](../procedures/hardware-storage-emc-symmetrix-nsclient-05-restapi.md) - The connector is now compatible with **NSClient++ 0.11.8**, which may be downloaded [here](https://github.com/centreon/centreon-nsclient-build/releases) as a pre-release at the time these lines are being written. The breaking change actually occurs when you update NSClient without updating the connector. Updating only the connector is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - The connector is now compatible with **NSClient++ 0.11.8**, which may be downloaded [here](https://github.com/centreon/centreon-nsclient-build/releases) as a pre-release at the time these lines are being written. The breaking change actually occurs when you update NSClient without updating the connector. Updating only the connector is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [**Microsoft SCCM NSClient**](../procedures/applications-sccm-nsclient.md) - The connector is now compatible with **NSClient++ 0.11.8**, which may be downloaded [here](https://github.com/centreon/centreon-nsclient-build/releases) as a pre-release at the time these lines are being written. The breaking change actually occurs when you update NSClient without updating the connector. Updating only the connector is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [**Microsoft WSUS**](../procedures/applications-wsus-nsclient.md) - The connector is now compatible with **NSClient++ 0.11.8**, which may be downloaded [here](https://github.com/centreon/centreon-nsclient-build/releases) as a pre-release at the time these lines are being written. The breaking change actually occurs when you update NSClient without updating the connector. Updating only the connector is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [**Netbackup NSClient++ API**](../procedures/applications-netbackup-nsclient-05-restapi.md) - The connector is now compatible with **NSClient++ 0.11.8**, which may be downloaded [here](https://github.com/centreon/centreon-nsclient-build/releases) as a pre-release at the time these lines are being written. The breaking change actually occurs when you update NSClient without updating the connector. Updating only the connector is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - The connector is now compatible with **NSClient++ 0.11.8**, which may be downloaded [here](https://github.com/centreon/centreon-nsclient-build/releases) as a pre-release at the time these lines are being written. The breaking change actually occurs when you update NSClient without updating the connector. Updating only the connector is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - The connector is now compatible with **NSClient++ 0.11.8**, which may be downloaded [here](https://github.com/centreon/centreon-nsclient-build/releases) as a pre-release at the time these lines are being written. The breaking change actually occurs when you update NSClient without updating the connector. Updating only the connector is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - Fixed UNKNOWN status when no incidents found (now it returns OK).
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages in some cases. 
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages in some cases such as `updates` and `pending-reboot` modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)). 
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fixed a mix-up between `data-write-ops` and `data-write-bytes` in **Fsx-DataUsage** service (issue [#5944](https://github.com/centreon/centreon-plugins/issues/5944)).
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed an error in the bandwidth calculation in **SDWan** service (issue [#5959](https://github.com/centreon/centreon-plugins/issues/5959)).
+
+</TabItem>
+</Tabs>
+
+
+### January
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
