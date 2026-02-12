@@ -17,7 +17,7 @@ This release brings significant enhancements to the Centreon Monitoring Agent, f
 **Data Visualization**
 
 * The limit for the number of metrics displayed per chart in Performance Graphs has been set to 20, avoiding meaningless graph display.
-* The Resource Table widget of Centreon Dashboards now features a direct link to ticket details on the provider side, streamlining the bridge between monitoring and incident management.
+* The Resource Table widget of Centreon Dashboards now features a direct link to ticket details on the provider side, facilitating the bridge between monitoring and incident management.
 
 **Configuration**
 
