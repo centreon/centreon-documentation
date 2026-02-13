@@ -276,6 +276,8 @@ Veillez à optimiser MariaDB/MySQL sur votre serveur de reporting. Vous aurez be
 d'au moins 12GB de mémoire vive afin d'utiliser le
 [fichier suivant](../assets/reporting/installation/centreon.cnf).
 
+> Si vous souhaitez utiliser un répertoire autre que `/var/lib/mysql/`, éditez les variables **datadir** et **tmpdir** du fichier centreon.cnf.
+
 Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
 
 > Ne définissez pas ces optimisations MariaDB/MySQL sur votre serveur de supervision.
