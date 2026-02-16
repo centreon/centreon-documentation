@@ -5,7 +5,7 @@ title: Troubleshooting CMA
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/troubleshooting.png)
+![image](../assets/cma/troubleshooting.png)
 
 ## Refresh a status
 

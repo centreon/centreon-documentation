@@ -624,6 +624,39 @@ module.exports = {
     },
     {
       "type": "category",
+      "label": "Centreon Monitoring Agent",
+      "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-certificates"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-custom"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-migratenscpp"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-troubleshooting"
+                }
+              ]
+    },
+    {
+      "type": "category",
       "label": "Integrations",
       "link": {
         "type": "generated-index",

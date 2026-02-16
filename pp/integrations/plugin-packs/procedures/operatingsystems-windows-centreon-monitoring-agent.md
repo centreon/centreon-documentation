@@ -4,10 +4,25 @@ title: Windows CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 The **Windows CMA** connector supplies templates and commands to be used with the Centreon Monitoring Agent (CMA). This is an observability agent implementing the OpenTelemetry protocol.
 
-Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
+For more information about the Centreon Monitoring Agent itself:
+
+<Tabs groupId="version" queryString>
+<TabItem value="OnPrem" label="OnPrem">
+
+Read [the CMA documentation for Centreon OnPrem](/docs/cma).
+(This link redirects you to the latest version of the OnPrem documentation. Use the version selector in the upper right corner to switch to another version if necessary.)
+
+</TabItem>
+<TabItem value="Cloud" label="Cloud">
+
+Read [the CMA documentation for Centreon Cloud](/cloud/cma/cma-setup).
+
+</TabItem>
+</Tabs>
 
 ## Pack assets
 
@@ -254,26 +269,7 @@ No metrics for this service.
 
 ## Prerequisites
 
-### Network flow
-
-Only one TCP flow must be open from the host to the poller.
-
-| Source         | Destination | Protocol | Port | Purpose                                          |
-|----------------|-------------|----------|------|--------------------------------------------------|
-| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval OpenTelemetry data flow. |
-
-### System prerequisites for the poller
-
-> To be able to use the Centreon Monitoring agent, you must use a poller with at least version <!--`24.09.0` for Centreon Cloud users and version--> `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will retrieve its configuration by connecting to Centreon Engine.
-
-### Configure poller/agent communication
-
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
-
-### System prerequisites for the monitored host
-
-The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in
-[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
+<CMAprerequisites />
 
 ## Installing the monitoring connector
 

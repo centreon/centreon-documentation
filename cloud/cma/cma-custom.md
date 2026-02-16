@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 **Centreon Monitoring Agent** can execute custom plugins. Use this feature if your monitoring needs are specific and not covered by native Centreon controls and plugins. Supported languages are: PowerShell, Perl, Python, Bash.
 
-To get started, create your plugin: for example, you can use [our developer guide](../../../dev-resources/introduction.md).
+To get started, create your plugin: for example, you can use [our developer guide](/pp/integrations/plugin-packs/dev-resources/introduction).
 
 ## Actions on the host
 
@@ -61,7 +61,7 @@ Copy the plugin on the host, to the directory of your choice.
 
 2. Associate this command with the **Centreon Monitoring Agent** connector (**Connectors** field).
 
-3. If you haven't already done so, [create a host](/docs/monitoring/basic-objects/hosts) for the resource to be monitored.
+3. If you haven't already done so, [create a host](../monitoring/basic-objects/hosts.md) for the resource to be monitored.
 4. You can associate the command with an existing service template or create a dedicated service template.
 The template must inherit (directly or via its parent) from the **OS-Windows-Centreon-Monitoring-Agent** or **OS-Linux-Generic-Centreon-Monitoring-Agent** templates, or alternatively be configured with passive checks enabled and active checks disabled.
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).

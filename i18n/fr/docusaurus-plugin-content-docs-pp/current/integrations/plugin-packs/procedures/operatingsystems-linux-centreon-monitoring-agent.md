@@ -4,10 +4,25 @@ title: Linux CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 Le connecteur **Linux CMA** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent - CMA). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
-Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
+Pour plus d'informations sur le fonctionnement de l'agent lui-même:
+
+<Tabs groupId="version" queryString>
+<TabItem value="OnPrem" label="OnPrem">
+
+Lisez [la documentation CMA pour Centreon OnPrem](/docs/cma).
+(Ce lien vous redirige vers la dernière version de la documentation OnPrem. Utilisez le sélecteur de version dans le coin supérieur droit pour passer à une autre version si nécessaire.)
+
+</TabItem>
+<TabItem value="Cloud" label="Cloud">
+
+Lisez [la documentation CMA pour Centreon Cloud](/cloud/cma/cma-setup).
+
+</TabItem>
+</Tabs>
 
 ## Contenu du pack
 
@@ -305,28 +320,7 @@ Pas de métrique pour ce service.
 
 ## Prérequis
 
-### Flux réseau
-
-Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
-
-| Source         | Destination | Protocole | Port | Objet                                                                       |
-|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
-| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
-
-### Prérequis système pour le collecteur
-
-> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la version--> `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent récupérera sa configuration en se connectant à Centreon Engine.
-
-### Configuration de la communication collecteur/agent
-
-Configurez la
-[communication](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent) entre le collecteur et l'agent.
-
-### Prérequis système pour l'hôte à superviser
-
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Linux est détaillée
-[dans la page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte). (Cela comprend l'installation de l'agent et l'installation des plugins qui permettront d'exécuter les contrôles non natifs).
+<CMAprerequisites />
 
 ## Installer le connecteur de supervision
 
@@ -377,7 +371,7 @@ depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de
 <Tabs groupId="sync">
 <TabItem value="Version OnPrem 24.10.6 ou plus récente" label="Version OnPrem 24.10.6 ou plus récente">
 
-Pour cette version, aucune configuration n'est nécessaire. Passez à l'[étape suivante](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
+Pour cette version, aucune configuration n'est nécessaire. Passez à [l'étape suivante](#plugin).
 
 </TabItem>
 <TabItem value="Version OnPrem antérieure à la 24.10.6" label="Version OnPrem antérieure à la 24.10.6">
