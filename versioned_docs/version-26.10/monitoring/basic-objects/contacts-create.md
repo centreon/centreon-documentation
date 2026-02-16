@@ -32,7 +32,7 @@ To display the matrix of notifications for a user, click **View contact notifica
 * The **Default Language** field is used to define the language of the Centreon interface for this user.
 * The **Admin** field defines whether or not this user is the administrator of the monitoring platform.
 * The **Autologin key** is used to define a connection key for the user. The user will no longer need to enter his / her
-  login and password, but will use this key to log in directly. Connection syntax:
+  login and password, but will use this key to log in directly. For security reasons, this feature is not available to LDAP users. Connection syntax:
 
 ```url
 http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_user]&token=[value_autologin]
