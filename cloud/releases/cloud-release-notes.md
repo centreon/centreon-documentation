@@ -18,7 +18,7 @@ This release brings significant enhancements to the Centreon Monitoring Agent, f
 **Data Visualization**
 
 * Charts in Performance Graphs are now limited to 20 metrics to keep them readable.
-* The Resource Table widget of Centreon Dashboards now features a direct link to ticket details on the provider side, facilitating the bridge between monitoring and incident management.
+* The Resource Table widget in Centreon Dashboards now includes a direct link to ticket details in the incident management system, helping connect monitoring and incident response.
 
 **Configuration**
 
