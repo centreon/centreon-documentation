@@ -22,7 +22,7 @@ This release brings significant enhancements to the Centreon Monitoring Agent, f
 
 **Configuration**
 
-* We have enhanced the management of password-type fields within additional configuration menus for a more secure and intuitive experience.
+* We have improved the handling of password fields in additional configuration menus to enhance security and usability.
 
 ### Centreon Pro Edition
 
