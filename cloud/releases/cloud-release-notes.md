@@ -10,9 +10,10 @@ title: Centreon Cloud release notes
 **Centreon Monitoring Agent (CMA)**
 
 This release brings significant enhancements to the Centreon Monitoring Agent, focusing on automation, security, and broader check capabilities:
-* Native Checks & Automation: A new generic native check for custom scripts has been added. For Windows environments, service checks now include filters for startup type and delayed services.
-* Automated Configuration: Deploying a CMA-related Monitoring Connector now automatically handles freshness by default and creates the required links to the commands connector. Freshness is also activated by default on all CMA-related services, hosts, and templates.
-* Security & Connectivity: The CMA Token is now mandatory even when using "No TLS" mode. Additionally, the agent configuration now supports .cert formats, allows any certificate path, and includes a listening port parameter for agent-initiated connections.
+* A new generic native check for custom scripts has been added.
+* For Windows environments, service checks now include filters for startup type and delayed services.
+* Deploying a CMA-related Monitoring Connector now automatically activates freshness by default and creates the required links to the commands connector. Freshness is also activated by default on all CMA-related services, hosts, and templates.
+* The CMA Token is now mandatory even when using "No TLS" mode. Additionally, the agent configuration now supports .cert formats, allows any certificate path, and includes a listening port parameter for agent-initiated connections.
 
 **Data Visualization**
 
