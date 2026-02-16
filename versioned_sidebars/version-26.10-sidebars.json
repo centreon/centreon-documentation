@@ -1700,19 +1700,12 @@
       },
       "items": [
         {
-          "type": "doc",
-          "id": "releases/introduction"
-        },
-        {
-          "type": "doc",
-          "id": "releases/lifecycle"
-        },
-        {
           "type": "category",
-          "label": "Release notes by component",
-          "link": {
-            "type": "generated-index"
-          },
+          "label": "Release notes for Centreon 26.10",
+          "link": { 
+            "type": "doc",
+            "id": "releases/introduction"
+          }, 
           "items": [
             {
               "type": "doc",
@@ -1723,6 +1716,10 @@
               "id": "releases/centreon-commercial-extensions"
             }
           ]
+        },
+        {
+          "type": "doc",
+          "id": "releases/lifecycle"
         }
       ]
     },
