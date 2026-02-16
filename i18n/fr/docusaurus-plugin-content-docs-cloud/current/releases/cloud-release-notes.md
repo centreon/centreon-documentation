@@ -26,7 +26,7 @@ This release brings significant enhancements to the Centreon Monitoring Agent, f
 
 **MAP**
 
-* Geoviews: New actions have been added to the geographic view interface, including the ability to duplicate or delete geoviews, and copy its URL. Users can also now save the map position directly from the view.
+* Geoviews: The geographic view interface now includes new actions, allowing users to duplicate or delete views, copy their URL, and save the map position directly.
 * Editor: For better visual impact and clarity, geometric resources can now be enlarged up to a maximum size of 84x84 pixels and other shapes reduced to a minimum of 20x20 pixels.
 
 
