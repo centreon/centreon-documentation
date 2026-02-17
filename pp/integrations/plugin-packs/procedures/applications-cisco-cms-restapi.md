@@ -101,7 +101,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-For more information, please refer to the official Cisco Meeting Server documentation: [Cisco Meeting Server Developer Guide](https://developer.cisco.com/docs/cisco-meeting-server/)
+For more information, please refer to the official Cisco Meeting Server documentation: [Cisco Meeting Server Developer Guide](https://developer.cisco.com/docs/cisco-meeting-server/).
 
 ## Installing the monitoring connector
 

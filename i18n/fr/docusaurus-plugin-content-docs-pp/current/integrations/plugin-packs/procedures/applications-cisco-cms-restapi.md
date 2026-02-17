@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:----------------|:---------------------------------------------|:---------------------------------------------------------------------------|
 | Alarms          | App-Cisco-Cms-Alarms-Restapi-custom          | Contrôle le nombre d'alarmes                                               |
 | Calls           | App-Cisco-Cms-Calls-Restapi-custom           | Contrôle le nombre d'appels, le nombre de participants locaux et à distance |
-| Database-Status | App-Cisco-Cms-Database-Status-Restapi-custom | Contrôle l'état des serveurs de base de données                            |
+| Database-Status | App-Cisco-Cms-Database-Status-Restapi-custom | Contrôle l'état des serveurs de bases de données                            |
 | Licences        | App-Cisco-Cms-Licences-Restapi-custom        | Contrôle l'état des licences                                               |
 | System-Status   | App-Cisco-Cms-System-Status-Restapi-custom   | Contrôle l'état du système et le trafic audio et vidéo                     |
 
@@ -102,7 +102,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour plus d’informations, veuillez consulter la documentation officielle de Cisco Meeting Server : [Cisco Meeting Server Developer Guide](https://developer.cisco.com/docs/cisco-meeting-server/)
+Pour plus d’informations, veuillez consulter la documentation officielle de Cisco Meeting Server : [Cisco Meeting Server Developer Guide](https://developer.cisco.com/docs/cisco-meeting-server/).
 
 ## Installer le connecteur de supervision
 
