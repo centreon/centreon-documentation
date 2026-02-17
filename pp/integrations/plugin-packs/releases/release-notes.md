@@ -8,7 +8,53 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
-### Janvier
+### February
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Fortinet FortiAuthenticator RestAPI**](../procedures/network-fortinet-fortiauthenticator-restapi.md) - Initial release.
+- [**Zscaler ZDX Api**](../procedures/applications-monitoring-zscaler-zdx-api.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Base Pack**](../procedures/base-generic.md) - Reduced the ICMP packet size to ensure it can pass through firewalls protecting SaaS software.
+- [**HP Ilo XMLAPI**](../procedures/hardware-servers-hp-ilo-xmlapi.md) - The connector now uses warning and critical thresholds provided by ILO data when no custom thresholds are defined.
+- [**AIX SSH**](../procedures/operatingsystems-aix-ssh.md) - Added a `FILTERARG` macro to the **Process** service template to filter on the process' arguments. Also added the ability to display details of all processes (including "OK" processes) in the long output (issue [#5945](https://github.com/centreon/centreon-plugins/issues/5945)).
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Added a **Custom-Script** service template to run custom commands. 
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added new parameters for the **Services** service template and added a **Custom-Script** service template to run custom commands.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Added support for applying thresholds to the total number of connections, not just per database. This breaking change replaces the `*FILTER` macros in the **Query-Time**, **Locks**, **Backend** and **Hitratio** templates with more explicit `*INCLUDE*` and `*EXCLUDE*` macros (issue [#5350](https://github.com/centreon/centreon-plugins/issues/5350)).
+
+- The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+
+   - [**Active Directory Rest API**](../procedures/infrastructure-active-directory-nsclient-05-restapi.md)
+   - [**EMC Symmetrix API**](../procedures/hardware-storage-emc-symmetrix-nsclient-05-restapi.md)
+   - [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md)
+   - [**Microsoft SCCM NSClient**](../procedures/applications-sccm-nsclient.md)
+   - [**Microsoft WSUS**](../procedures/applications-wsus-nsclient.md)
+   - [**Netbackup NSClient++ API**](../procedures/applications-netbackup-nsclient-05-restapi.md)
+   - [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md)
+   - [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md)
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases. 
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as `updates` and `pending-reboot` modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)). 
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fixed a mix-up between `data-write-ops` and `data-write-bytes` for the **Fsx-DataUsage** service (issue [#5944](https://github.com/centreon/centreon-plugins/issues/5944)).
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed an error in the bandwidth calculation for the **SDWan** service (issue [#5959](https://github.com/centreon/centreon-plugins/issues/5959)).
+
+</TabItem>
+</Tabs>
+
+
+### January
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
