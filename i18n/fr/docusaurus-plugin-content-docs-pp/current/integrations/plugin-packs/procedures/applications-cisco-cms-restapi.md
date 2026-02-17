@@ -298,8 +298,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--custommode='xmlapi' \
 	--hostname=10.0.0.1 \
 	--url-path='/api/v1' \
-	--username='' \
-	--password='' \
+	--username='xxxxxxx' \
+	--password='xxxxxxx' \
 	--port='445' \
 	--proto='https' \
 	--warning-status='"%\{status\} eq ""activated"" && %\{expiry\_days\} < 60"' \
