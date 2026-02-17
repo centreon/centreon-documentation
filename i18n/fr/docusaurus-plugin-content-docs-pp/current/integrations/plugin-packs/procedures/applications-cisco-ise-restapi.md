@@ -216,8 +216,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--custommode='xmlapi' \
 	--hostname=10.0.0.1 \
 	--url-path='/admin/API/mnt' \
-	--username='' \
-	--password='' \
+	--username='xxxxxx' \
+	--password='xxxxxx' \
 	--port='443' \
 	--proto='https' \
 	--filter-counters='' \
