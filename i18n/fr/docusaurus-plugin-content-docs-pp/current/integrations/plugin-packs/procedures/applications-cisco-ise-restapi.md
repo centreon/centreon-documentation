@@ -55,7 +55,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-L'utilisateur renseigné dans la macro d'hôte (plus d'informations [ici](#hôte)
+L'utilisateur renseigné dans la macro d'hôte
 doit faire partie des groupes Admin suivants et les informations
 d'identification doivent être stockées dans la base de données interne de Cisco
 ISE (utilisateurs administratifs internes)
