@@ -60,7 +60,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | remote-participants | participants |
 | call-legs           | legs         |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Database-Status" label="Database-Status">
