@@ -94,7 +94,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 | video-outgoing-rate | b/s   |
 | video-incoming-rate | b/s   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
