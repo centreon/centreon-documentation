@@ -73,7 +73,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler l'application EMC PPMA, l'API Rest doit être configuré (cf: https://dl.dell.com/content/docu98223_PowerPath-Management-Appliance-3.x-Rest-API-Reference.pdf?language=fr_FR)
+Afin de contrôler l'application EMC PPMA, l'API Rest doit être configurée (cf: https://dl.dell.com/content/docu98223_PowerPath-Management-Appliance-3.x-Rest-API-Reference.pdf?language=fr_FR).
 
 ## Installer le connecteur de supervision
 

@@ -72,9 +72,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To control your EMC PPMA, the Rest API must be configured.
+To monitor your EMC PPMA, the Rest API must be configured.
 
-E.g: https://dl.dell.com/content/docu98223_PowerPath-Management-Appliance-3.x-Rest-API-Reference.pdf?language=en_US
+See: https://dl.dell.com/content/docu98223_PowerPath-Management-Appliance-3.x-Rest-API-Reference.pdf?language=en_US.
 
 ## Installing the monitoring connector
 
