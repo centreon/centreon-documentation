@@ -58,7 +58,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The users used in the Host Macro (more information [here](#host) must be
+The users used in the host macro (more information [here](#host)) must be
 assigned to one of the following Admin Groups and must be authenticated against
 the credentials stored in the Cisco ISE internal database (internal admin
 users):
@@ -69,9 +69,9 @@ users):
 
 * MnT Admin
 
-Futhermore, the Centreon Pollers must be able to reach the Ciso ISE Rest API on
+Futhermore, the Centreon pollers must be able to reach the Cisco ISE Rest API on
 the TCP/80 or TCP/443 port(s). More information on the official Cisco website:
-https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-monitoring-rest-apis/verifying-a-monitoring-node
+https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-monitoring-rest-apis/verifying-a-monitoring-node.
 
 ## Installing the monitoring connector
 

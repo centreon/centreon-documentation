@@ -59,7 +59,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-L'utilisateur renseigné dans la Macro d'Hôte (plus d'information [ici](#hôte)
+L'utilisateur renseigné dans la macro d'hôte (plus d'informations [ici](#hôte)
 doit faire partie des groupes Admin suivants et les informations
 d'identification doivent être stockées dans la base de données interne de Cisco
 ISE (utilisateurs administratifs internes)
@@ -71,7 +71,7 @@ ISE (utilisateurs administratifs internes)
 De plus, le collecteur Centreon en charge de la supervision des ressources doit
 également pouvoir joindre l'API Rest de Cisco ISE sur le(s) port(s) TCP/80 ou
 TCP/443. Plus d'informations sur le site officiel de Cisco :
-https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-monitoring-rest-apis/verifying-a-monitoring-node
+https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-monitoring-rest-apis/verifying-a-monitoring-node.
 
 ## Installer le connecteur de supervision
 
