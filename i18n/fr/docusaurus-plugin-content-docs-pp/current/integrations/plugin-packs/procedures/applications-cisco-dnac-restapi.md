@@ -5,50 +5,51 @@ title: Cisco DNA Center Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Connector dependencies
+## Dépendances du connecteur de supervision
 
-The following monitoring connectors will be installed when you install the **Cisco DNA Center Rest API** connector through the
-**Configuration > Connectors > Monitoring Connectors** menu:
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Cisco DNA Center Rest API**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
-## Pack assets
+## Contenu du pack
 
-### Templates
+### Modèles
 
-The Monitoring Connector **Cisco DNA Center Rest API** brings a host template:
+Le connecteur de supervision **Cisco DNA Center Rest API** apporte un modèle d'hôte :
 
 * **App-Cisco-Dnac-Restapi-custom**
 
-The connector brings the following service templates (sorted by the host template they are attached to):
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
 <TabItem value="App-Cisco-Dnac-Restapi-custom" label="App-Cisco-Dnac-Restapi-custom">
 
-| Service Alias   | Service Template                              | Service Description                 |
-|:----------------|:----------------------------------------------|:------------------------------------|
-| Network-Devices | App-Cisco-Dnac-Network-Devices-Restapi-custom | Check network devices by categories |
-| Sites           | App-Cisco-Dnac-Sites-Restapi-custom           | Check sites                         |
+| Alias           | Modèle de service                             | Description                      |
+|:----------------|:----------------------------------------------|:---------------------------------|
+| Network-Devices | App-Cisco-Dnac-Network-Devices-Restapi-custom | Contrôle les équipements réseau |
+| Sites           | App-Cisco-Dnac-Sites-Restapi-custom           | Contrôle les sites               |
 
-> The services listed above are created automatically when the **App-Cisco-Dnac-Restapi-custom** host template is used.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Cisco-Dnac-Restapi-custom** est utilisé.
 
 </TabItem>
 </Tabs>
 
-### Collected metrics & status
+### Métriques & statuts collectés
 
-Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Network-Devices" label="Network-Devices">
 
-| Name                        | Unit  |
+| Nom                         | Unité |
 |:----------------------------|:------|
 | network.devices.total.count | count |
 
 </TabItem>
 <TabItem value="Sites" label="Sites">
 
-| Name                                            | Unit  |
+| Nom                                             | Unité |
 |:------------------------------------------------|:------|
 | *sites*~site.network.devices.healthy.count      | count |
 | *sites*~site.network.devices.healthy.percentage | %     |
@@ -58,23 +59,21 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Prérequis
 
-To control your Cisco DNA Center, the Rest API must be configured.
+Afin de superviser l'application Cisco DNA Center, l'API Rest doit être configurée comme indiqué dans [la documentation officielle](https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-overview).
 
-To monitor your Cisco DNA Center, the Rest API must be configured as explained in the [official documentation](https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-overview).
-
-## Installing the monitoring connector
+## Installer le connecteur de supervision
 
 ### Pack
 
-The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
-1. If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the connector displayed within the
-**Configuration > Connectors > Monitoring Connectors** menu.
-If the platform uses an *offline* license, install the package on the **central server**
-with the command corresponding to the operating system's package manager:
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -107,21 +106,19 @@ yum install centreon-pack-applications-cisco-dnac-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco DNA Center Rest API** connector through
-the **Configuration > Connectors > Monitoring Connectors** menu.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco DNA Center Rest API**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
-Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
-When this feature is enabled, you can skip the installation part below.
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
 
-You still have to manually install the plugin on the poller(s) when:
-- Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
-
-Use the commands below according to your operating system's package manager:
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -154,16 +151,16 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 </TabItem>
 </Tabs>
 
-## Using the monitoring connector
+## Utiliser le connecteur de supervision
 
-### Using a host template provided by the connector
+### Utiliser un modèle d'hôte issu du connecteur
 
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **App-Cisco-Dnac-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory.
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Cisco-Dnac-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro               | Description                                                                                          | Default value     | Mandatory   |
+| Macro               | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:--------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | DNACAPIUSERNAME     | Set username                                                                                         | username          | X           |
 | DNACAPIPASSWORD     | Set password                                                                                                     | password          |             |
@@ -171,17 +168,17 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 | DNACAPIPORT         | Port used (default: 443)                                                                             | 443               |             |
 | DNACAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-### Using a service template provided by the connector
+### Utiliser un modèle de service issu du connecteur
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
-2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
 <TabItem value="Network-Devices" label="Network-Devices">
 
-| Macro                                             | Description                                                                                        | Default value     | Mandatory   |
+| Macro                                             | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:--------------------------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERCATEGORYNAME                                | Filter categories by name (can be a regexp)                                                        |                   |             |
 | WARNINGCATEGORYDEVICESHEALTHBADUSAGE              | Threshold                                                                                          |                   |             |
@@ -202,12 +199,12 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 | CRITICALCATEGORYDEVICESHEALTHUNMONITOREDUSAGEPRCT | Threshold                                                                                          |                   |             |
 | WARNINGDEVICESTOTAL                               | Threshold                                                                                          |                   |             |
 | CRITICALDEVICESTOTAL                              | Threshold                                                                                          |                   |             |
-| EXTRAOPTIONS                                      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| EXTRAOPTIONS                                      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sites" label="Sites">
 
-| Macro                               | Description                                                                                        | Default value     | Mandatory   |
+| Macro                               | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:------------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERSITENAME                      | Filter sites by name (can be a regexp)                                                             |                   |             |
 | WARNINGSITECLIENTSHEALTHYUSAGE      | Threshold                                                                                                   |                   |             |
@@ -218,18 +215,20 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 | CRITICALSITEDEVICESHEALTHYUSAGE     | Threshold                                                                                                   |                   |             |
 | WARNINGSITEDEVICESHEALTHYUSAGEPRCT  | Threshold                                                                                                   |                   |             |
 | CRITICALSITEDEVICESHEALTHYUSAGEPRCT | Threshold                                                                                                   |                   |             |
-| EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector
-is able to monitor a resource using a command like this one (replace the sample values by yours):
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_dnac_restapi.pl \
@@ -262,27 +261,27 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--verbose
 ```
 
-The expected command output is shown below:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: total: 42214 | 'network.devices.total.count'=42214;;;0;
 
 ```
 
-### Troubleshooting
+### Diagnostic des erreurs communes
 
-Please find the troubleshooting documentation for the API-based plugins in
-this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
+des plugins basés sur HTTP/API.
 
-### Available modes
+### Modes disponibles
 
-In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
-In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the
-connector in your terminal.
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_dnac_restapi.pl \
@@ -290,19 +289,19 @@ the command:
 	--list-mode
 ```
 
-The plugin brings the following modes:
+Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                   | Linked service template                       |
+| Mode                                                                                                                                   | Modèle de service associé                     |
 |:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
 | discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/cisco/dnac/restapi/mode/discovery.pm)]            | Not used in this Monitoring Connector         |
 | network-devices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/cisco/dnac/restapi/mode/networkdevices.pm)] | App-Cisco-Dnac-Network-Devices-Restapi-custom |
 | sites [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/cisco/dnac/restapi/mode/sites.pm)]                    | App-Cisco-Dnac-Sites-Restapi-custom           |
 
-### Available options
+### Options disponibles
 
-#### Generic options
+#### Options génériques
 
-All generic options are listed here:
+Les options génériques sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -367,9 +366,9 @@ All generic options are listed here:
 | --api-password                             |   Set password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --timeout                                  |   Set timeout in seconds (default: 50).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-#### Modes options
+#### Options des modes
 
-All available options for each service template are listed below:
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="Network-Devices" label="Network-Devices">
@@ -391,8 +390,8 @@ All available options for each service template are listed below:
 </TabItem>
 </Tabs>
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_dnac_restapi.pl \
