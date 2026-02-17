@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias         | Service Template                                  | Service Description        |
 |:----------------------|:--------------------------------------------------|:---------------------------|
-| Caches-Usage          | App-DB-Cassandra-Caches-Usage-JMX-custom          | Check Cache Usage          |
-| Client-Requests-Usage | App-DB-Cassandra-Client-Requests-Usage-JMX-custom | Check Client request Usage |
-| Thread-Pools-Usage    | App-DB-Cassandra-Thread-Pools-Usage-JMX-custom    | Check Thread Pools Usage   |
+| Caches-Usage          | App-DB-Cassandra-Caches-Usage-JMX-custom          | Check cache usage          |
+| Client-Requests-Usage | App-DB-Cassandra-Client-Requests-Usage-JMX-custom | Check client request usage |
+| Thread-Pools-Usage    | App-DB-Cassandra-Thread-Pools-Usage-JMX-custom    | Check thread Pools usage   |
 
 > The services listed above are created automatically when the **App-DB-Cassandra-JMX-custom** host template is used.
 
