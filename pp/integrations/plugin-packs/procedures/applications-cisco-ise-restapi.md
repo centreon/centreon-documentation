@@ -5,11 +5,6 @@ title: Cisco ISE
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Cisco Identity Service Engine is network administration solution designed to
-simplify and control security and access on your company's network.
-
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Cisco ISE** connector through the
