@@ -29,7 +29,9 @@ configuration.
     - **Create new Poller** si vous n'avez pas encore enregistré le collecteur sur le serveur central ou un serveur distant
     - **Select a Poller** si vous avez déjà enregistré le collecteur sur le serveur central ou un serveur distant.
 
-4. Saisissez le nom, l'adresse du collecteur (IP ou FQDN) et celle du serveur central, puis
+4. En haut à gauche de votre écran, cliquez sur **Collecteurs** puis sur **Exporter la configuration**. 
+
+5. Saisissez le nom, l'adresse du collecteur (IP ou FQDN) et celle du serveur central, puis
 cliquez sur **Suivant** :
 
   ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
@@ -40,7 +42,7 @@ cliquez sur **Suivant** :
   > L'adresse IP du serveur central est l'adresse IP ou le FQDN pour accéder au
   > serveur central depuis le collecteur.
 
-5. Reliez le collecteur au central ou à un serveur distant :
+6. Reliez le collecteur au central ou à un serveur distant :
 
    - Si vous souhaitez lier ce collecteur au serveur Central, cliquez sur
 **Appliquer** :
