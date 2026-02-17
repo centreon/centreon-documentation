@@ -53,7 +53,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The users used in the host macro (more information [here](#host)) must be
+The users used in the host macro must be
 assigned to one of the following Admin Groups and must be authenticated against
 the credentials stored in the Cisco ISE internal database (internal admin
 users):
