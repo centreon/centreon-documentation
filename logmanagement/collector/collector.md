@@ -37,12 +37,29 @@ Use the **otelcol-contrib** packages to install OpenTelemetry Collector on each 
 <Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
-wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.139.0/otelcol-contrib_0.139.0_linux_amd64.rpm
+<Tabs groupId="distrib" queryString>
+<TabItem value="EL" label="EL">
+
+```shell
+https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.rpm 
+```
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+```shell
+wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.deb 
+```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.144.0/otelcol_0.144.0_windows_x64.msi
+```shell
+https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_windows_x64.msi 
+```
 
 </TabItem>
 </Tabs>
