@@ -174,6 +174,8 @@ yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 
 | Macro        | Description | Valeur par défaut | Obligatoire |
 |:-------------|:------------|:------------------|:-----------:|
+| PPMAAPIUSERNAME | Define API username            |              |      X       |
+| PPMAAPIPASSWORD | Define API password            |              |      X       |
 | PPMAAPIPROTO | Specify https if needed            | https             |             |
 | PPMAAPIPORT  | API port            | 443               |             |
 
@@ -222,8 +224,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::emc::ppma::restapi::plugin \
 	--mode=hosts \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='xxxxxxxx' \
+	--api-password='xxxxxxxx' \
 	--port='443' \
 	--proto='https'  \
 	--filter-name='' \

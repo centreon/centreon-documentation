@@ -177,6 +177,8 @@ yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 
 | Macro        | Description | Default value     | Mandatory   |
 |:-------------|:------------|:------------------|:-----------:|
+| PPMAAPIUSERNAME | Define API username            |              |      X       |
+| PPMAAPIPASSWORD | Define API password            |              |      X       |
 | PPMAAPIPROTO | Specify https if needed            | https             |             |
 | PPMAAPIPORT  | API port            | 443               |             |
 
@@ -223,8 +225,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::emc::ppma::restapi::plugin \
 	--mode=hosts \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='xxxxxxxx' \
+	--api-password='xxxxxxxx' \
 	--port='443' \
 	--proto='https'  \
 	--filter-name='' \
