@@ -93,7 +93,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | video-outgoing-rate | b/s   |
 | video-incoming-rate | b/s   |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 </Tabs>
