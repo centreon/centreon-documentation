@@ -166,7 +166,7 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 | DNACAPIPASSWORD     | Set password                                                                                                     | password          |             |
 | DNACAPIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
 | DNACAPIPORT         | Port used (default: 443)                                                                             | 443               |             |
-| DNACAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| DNACAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
