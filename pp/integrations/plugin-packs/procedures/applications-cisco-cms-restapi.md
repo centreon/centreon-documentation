@@ -60,7 +60,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 | remote-participants | participants |
 | call-legs           | legs         |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Database-Status" label="Database-Status">
