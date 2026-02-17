@@ -79,7 +79,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 | status | N/A   |
 | status | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="System-Status" label="System-Status">
