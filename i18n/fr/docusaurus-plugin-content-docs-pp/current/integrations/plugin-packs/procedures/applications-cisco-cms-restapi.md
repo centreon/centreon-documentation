@@ -68,7 +68,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:-------|:------|
 | status | N/A   |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Licences" label="Licences">
