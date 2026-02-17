@@ -22,14 +22,16 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="OS-Linux-Centreon-Monitoring-Agent-custom" label="OS-Linux-Centreon-Monitoring-Agent-custom">
 
-| Service Alias | Service Template                                 | Service Description                                                                                                                                  | Type of check |
-|:--------------|:-------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------| --- |
-| Cpu           | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs | native |
-| Load          | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Check the server load average                                                                                                                        | non-native |
-| Memory        | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Check the rate of the utilization of memory                                                                                                          | non-native |
-| Ntp           | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Check system time synchronization with an NTP server                                                                                                 | non-native |
-| Swap          | OS-Linux-Swap-Centreon-Monitoring-Agent-custom   | Check virtual memory usage                                                                                                                           | non-native |
-| Uptime        | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom | Time since the server has been working and available                                                                                                 | non-native |
+| Service Alias | Service Template                                         | Service Description                                                                                                                                  | Type of check |
+|:--------------|:---------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------| --- |
+| Cpu           | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom            | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs | native |
+| Load          | OS-Linux-Load-Centreon-Monitoring-Agent-custom           | Check the server load average                                                                                                                        | non-native |
+| Memory        | OS-Linux-Memory-Centreon-Monitoring-Agent-custom         | Check the rate of the utilization of memory                                                                                                          | non-native |
+| Ntp           | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom            | Check system time synchronization with an NTP server                                                                                                 | non-native |
+| Swap          | OS-Linux-Swap-Centreon-Monitoring-Agent-custom           | Check virtual memory usage                                                                                                                           | non-native |
+| Uptime        | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom         | Time since the server has been working and available                                                                                                 | non-native |
+| Custom-Script | OS-Linux-Custom-Script-Centreon-Monitoring-Agent-custom  | Check using a custom script                                                                                                                          | non-native |
+
 
 > The services listed above are created automatically when the **OS-Linux-Centreon-Monitoring-Agent-custom** host template is used.
 
@@ -298,6 +300,11 @@ No metrics for this service.
 | Name                  | Unit |
 |:----------------------|:-----|
 | system.uptime.seconds | s    |
+
+</TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+No metrics for this service.
 
 </TabItem>
 </Tabs>
@@ -698,6 +705,32 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+| Macro          | Description                                                                                          | Default value | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CUSTOMCHECK    | Name of the custom check to use                                                                      |               | X         |
+| ARG1           | Extra argument 1 to pass to the custom check command                                                 |               |           |
+| ARG2           | Extra argument 2 to pass to the custom check command                                                 |               |           |
+| ARG3           | Extra argument 3 to pass to the custom check command                                                 |               |           |
+| ARG4           | Extra argument 4 to pass to the custom check command                                                 |               |           |
+| ARG5           | Extra argument 5 to pass to the custom check command                                                 |               |           |
+| ARG6           | Extra argument 6 to pass to the custom check command                                                 |               |           |
+| ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
+| ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
+
+> Commands are defined in a dedicated file on the host.
+> The path to this file is provided in centagent.json using the custom_check_file parameter.
+> To update commands, edit the file and reload the agent.
+
+```cmd
+[custom_checks]
+check_echo = /usr/bin/echo "$ARG1$ $ARG2$"
+custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
+```
+
+</TabItem>
+
 </Tabs>
 
 3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
