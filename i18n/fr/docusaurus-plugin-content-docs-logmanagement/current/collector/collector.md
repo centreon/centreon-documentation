@@ -41,7 +41,7 @@ Utilisez les paquets **otelcol-contrib** pour installer OpenTelemetry Collector 
 <TabItem value="EL" label="EL">
 
 ```shell
-https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.rpm 
+wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.rpm 
 ```
 
 </TabItem>
