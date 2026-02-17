@@ -27,18 +27,20 @@ poller to the Centreon platform.
 
 4. On the top left of your screen, click on **Pollers**, then click on **Export configuration**.
 
-5. Type in the name, the address of the new poller (IP or FQDN), and the IP address of the central
+If the poller your are adding will be used in reverse flow, you must now export the configuration of your central server. In the top left of your screen, click on **Pollers**, then click on **Export configuration**.
+
+4. Type in the name, the address of the new poller (IP or FQDN), and the IP address of the central
 Server. Click **Next**:
 
-  ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
+![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
-  > The address of the poller is the IP address or the FQDN used to access this
-  > poller from the central server.
-  >
-  > The IP address of the central server is the IP address or the FQDN used to
-  > access the central server from the poller.
+ > The address of the poller is the IP address or the FQDN used to access this
+ > poller from the central server.
+ >
+ > The IP address of the central server is the IP address or the FQDN used to
+ > access the central server from the poller.
 
-6. Link the poller to the central server or to a remote server:
+5. Link the poller to the central server or to a remote server:
 
   - If you want to link the poller to the central Server, click **Apply**:
 

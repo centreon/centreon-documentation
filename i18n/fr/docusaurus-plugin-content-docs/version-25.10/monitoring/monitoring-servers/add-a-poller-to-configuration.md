@@ -31,18 +31,20 @@ configuration.
 
 4. En haut à gauche de votre écran, cliquez sur **Collecteurs** puis sur **Exporter la configuration**. 
 
-5. Saisissez le nom, l'adresse du collecteur (IP ou FQDN) et celle du serveur central, puis
+Si le collecteur qui vous êtes en train d'ajouter sera en flux inversé, vous devez maintenant exporter la configuration de votre central. En haut à gauche de votre écran, cliquez sur **Collecteurs** puis sur **Exporter la configuration**. 
+
+4. Saisissez le nom, l'adresse du collecteur (IP ou FQDN) et celle du serveur central, puis
 cliquez sur **Suivant** :
 
-  ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
+![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
-  > L'adresse du collecteur est l'adresse IP ou le FQDN pour accéder au
-  > collecteur depuis le serveur central.
-  >
-  > L'adresse IP du serveur central est l'adresse IP ou le FQDN pour accéder au
-  > serveur central depuis le collecteur.
+ > L'adresse du collecteur est l'adresse IP ou le FQDN pour accéder au
+ > collecteur depuis le serveur central.
+ >
+ > L'adresse IP du serveur central est l'adresse IP ou le FQDN pour accéder au
+ > serveur central depuis le collecteur.
 
-6. Reliez le collecteur au central ou à un serveur distant :
+5. Reliez le collecteur au central ou à un serveur distant :
 
    - Si vous souhaitez lier ce collecteur au serveur Central, cliquez sur
 **Appliquer** :
