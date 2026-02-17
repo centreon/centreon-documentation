@@ -61,8 +61,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler l'application Cisco DNA Center, l'API Rest doit être configurée comme indiquée dans la documentation officielle:
-- ```https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-overview```
+Afin de superviser l'application Cisco DNA Center, l'API Rest doit être configurée comme indiqué dans [la documentation officielle](https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-overview).
 
 ## Installer le connecteur de supervision
 

@@ -62,7 +62,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 To control your Cisco DNA Center, the Rest API must be configured.
 
-E.g: ```https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-overview```
+To monitor your Cisco DNA Center, the Rest API must be configured as explained in the [official documentation](https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-overview).
 
 ## Installing the monitoring connector
 
