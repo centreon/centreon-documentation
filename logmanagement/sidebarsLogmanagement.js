@@ -111,7 +111,7 @@ module.exports = {
     {
           type: 'doc',
           id: 'api',
-          label: 'APIs'
+          label: 'API documentation'
     },
     {
           "collapsed": true,
