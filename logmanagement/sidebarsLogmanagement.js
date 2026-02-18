@@ -124,7 +124,7 @@ module.exports = {
         {
           type: 'doc',
           id: 'resources/glossary'
-        },
+        }
       ]
     }
   ]
