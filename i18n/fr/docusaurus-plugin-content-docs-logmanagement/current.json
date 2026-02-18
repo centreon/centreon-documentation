@@ -31,8 +31,8 @@
     "message": "Ressources",
     "description": "The label for category Resources in sidebar logmanagement"
   },
-    "sidebar.logmanagement.category.API documentation": {
-    "message": "Documentation d'API",
-    "description": "The label for category API documentation in sidebar logmanagement"
+    "sidebar.logmanagement.category.API": {
+    "message": "API",
+    "description": "The label for category API in sidebar logmanagement"
   }
 }
