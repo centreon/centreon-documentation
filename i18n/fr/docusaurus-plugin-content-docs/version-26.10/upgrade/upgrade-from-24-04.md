@@ -228,7 +228,7 @@ systemctl stop php8.1-fpm
 systemctl disable php8.1-fpm
 ```
 
-Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php/8.2/fpm/conf.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 </TabItem>
 </Tabs>
