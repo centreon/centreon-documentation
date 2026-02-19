@@ -3,189 +3,230 @@ id: rest-api-v1
 title: Rest API (v1)
 ---
 
+:::warning
+This is the legacy v1 API. New integrations should use the [v2 REST API](rest-api-v2.md), which is OpenAPI-based and follows standard REST conventions. The v1 API is maintained for backward compatibility only.
+:::
+
 ## Overview
 
-This documentation is for developers familiar with HTTP requests and JSON. It
-explains various API operations, related request and response structures, and
-error codes. If you are not familiar with the JSON API, we recommend that you use
-the Centreon command line API.
+The Centreon REST API v1 provides programmatic access to Centreon's monitoring configuration and realtime data. It exposes two main areas:
 
-## Permissions
+- **[Configuration API](#configuration-api)**: Create, read, update, and delete monitoring objects (hosts, services, contacts, templates, ACLs, etc.)
+- **[Realtime API](#realtime-api)**: Query live monitoring status for hosts, services, Business Activities, and KPIs
 
-Users can be authorized to perform API calls by configuring the corresponding fields located in the **Configuration > Users > Contacts/Users >** [**Centreon Authentication tab**](../monitoring/basic-objects/contacts-create.md#centreon-authentication).
-- The [**Configuration API**](#configuration) can only be called by administrators.
-- The [**Realtime API**](#realtime-information) can be called by non-administrator users as long as the corresponding field is checked.
-- Administrators are able to call both the [**Configuration API**](#configuration) and the [**Realtime API**](#realtime-information) even if these fields are not checked. They are also the only ones allowed to use [**CLAPI**](clapi.md) while others can only use the Rest API.
+### Data model
 
-Note that you need to be authenticated before you perform each [API call](#api-calls).
+The main objects and their relationships:
+
+| Object | Description | Key relationships |
+|--------|-------------|-------------------|
+| Host | A monitored device or server | Belongs to HostGroups, uses HostTemplates, checked by an Instance (Poller) |
+| Service | A check performed on a host | Belongs to a Host, can use ServiceTemplates |
+| HostTemplate (HTPL) | Reusable host configuration | Applied to Hosts |
+| ServiceTemplate (STPL) | Reusable service configuration | Applied to Services |
+| HostGroup (HG) | Logical grouping of hosts | Contains Hosts |
+| ServiceGroup (SG) | Logical grouping of services | Contains Services |
+| Contact | A user who receives notifications | Belongs to ContactGroups, linked to Hosts/Services |
+| ContactGroup (CG) | A group of contacts | Linked to Hosts/Services for notifications |
+| Instance | A monitoring poller | Executes checks on Hosts |
+| ACL | Access control definitions | Controls what users can see and do |
+| TimePeriod | Time-based schedule | Used in check and notification periods |
+| Command (CMD) | A plugin command | Used as check command or event handler |
+| Trap | SNMP trap definition | Associated with Services |
+| Downtime | Scheduled maintenance window | Applied to Hosts, Services, or Groups |
+
+### How the Configuration API works
+
+All configuration calls use a single endpoint and pass the operation details in the JSON body:
+
+- **`action`**: The operation to perform (e.g. `show`, `add`, `del`, `setparam`)
+- **`object`**: The object type to operate on (e.g. `host`, `service`, `contact`)
+- **`values`**: A semicolon-separated string of parameters (see [Values format](#values-format))
+
+The key difference between `add` and `set` actions: **`add`** appends without overwriting existing configuration; **`set`** overwrites the existing configuration first.
+
+### Values format
+
+The `values` field is a semicolon-separated string of parameters in a fixed positional order. When a field accepts multiple values (e.g. multiple host groups), separate them with a pipe (`|`):
+
+```
+"values": "object-name;param1;param2"           // positional fields
+"values": "object-name;value1|value2|value3"    // multiple values for one field
+```
+
+If you need to pass no values (e.g. for `show`), omit the `values` key entirely.
+
+---
 
 ## Authentication
 
-Using the POST method and the URL below:
+Obtain a token before making any API call. Tokens remain valid for the duration of the server-side session. There is no dedicated logout endpoint; invalidating the session via the Centreon web interface will also invalidate the token.
 
-    api.domain.tld/centreon/api/index.php?action=authenticate
+**Endpoint:** `POST api.domain.tld/centreon/api/index.php?action=authenticate`
 
-Body form-data:
+**Body (form-data):**
 
-| Parameter | Type | Value                                      |
-| --------- | ---- | ------------------------------------------ |
-| username  | Text | The user name you use to login on Centreon |
-| password  | Text | Your Centreon password                     |
+| Parameter | Type   | Description            |
+|-----------|--------|------------------------|
+| username  | string | Your Centreon username |
+| password  | string | Your Centreon password |
 
-The response is a json flow getting back the authentication token :
+**Response:**
 
-``` json
+```json
 {
     "authToken": "NTc1MDU3MGE3M2JiODIuMjA4OTA2OTc="
 }
 ```
 
-This token will be used later on for the other API actions.
+Use this token in the `centreon-auth-token` header for all subsequent requests.
+
+**Example (curl):**
+
+```bash
+curl -X POST \
+  "https://api.domain.tld/centreon/api/index.php?action=authenticate" \
+  -d "username=admin&password=centreon"
+```
+
+---
+
+## Permissions
+
+| API | Who can call it |
+|-----|-----------------|
+| Configuration API | Administrators only |
+| Realtime API | Any user with "Reach API Real Time" enabled in their contact profile |
+| CLAPI | Administrators only |
+
+Administrators can call both APIs regardless of their contact configuration. Permission settings are found at **Configuration > Users > Contacts/Users > Centreon Authentication tab**.
+
+---
 
 ## Error codes
 
-|Code|Message                                                                                 |
-|----|----------------------------------------------------------------------------------------|
-|200 |Successful                                                                              |
-|400 |Missing parameter / Missing name parameter  / Unknown parameter / Objects are not linked|
-|401 |Unauthorized                                                                            |
-|404 |Object not found / Method not implemented into Centreon API                             |
-|409 |Object already exists / Name is already in use / Objects already linked                 |
-|500 |Internal server error (custom message)                                                  |
+| Code | Meaning | Common causes |
+|------|---------|---------------|
+| 200 | Success | — |
+| 400 | Bad request | Missing parameter, unknown parameter, objects not linked |
+| 401 | Unauthorized | Invalid or missing token |
+| 404 | Not found | Object does not exist, action not implemented |
+| 409 | Conflict | Object already exists, name already in use, objects already linked |
+| 500 | Internal server error | See the custom message in the response body |
 
-## Configuration
+**Example error response:**
 
-### Getting started
-
-Most of the actions available (about 95%) in the command line API are available
-in the REST API.
-
-Here is an example of listing hosts using REST API.
-
-Using the POST method and the URL below:
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header:**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body:**
-
-``` json
+```json
 {
-    "action": "show",
-    "object": "HOST"
+    "result": [],
+    "status": "failed",
+    "message": "Object not found"
 }
 ```
 
-  - The key **action** corresponds to the option **-a** in Centreon CLAPI. The
-    value **show** corresponds to the **-a** option value.
-  - The key **object** corresponds to the option **-o** in Centreon CLAPI. The
-    value **HOST** corresponds to the **-o** option value.
+---
 
-The equivalent action using Centreon CLAPI is:
+## Configuration API
 
-``` shell
-centreon -u admin -p centreon -o HOST -a show
+### Common request format
+
+All configuration calls use the following endpoint and headers.
+
+**Endpoint:**
+
+```
+POST api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
 ```
 
-**Response:** The response is a json flow listing all hosts and formatted as
-below:
+**Headers:**
 
-``` json
-{
-    "result": [
-        {
-            "id": "12",
-            "name": "mail-uranus-frontend",
-            "alias": "mail-uranus-frontend",
-            "address": "mail-uranus-frontend",
-            "activate": "1"
-        },
-        {
-            "id": "13",
-            "name": "mail-neptune-frontend",
-            "alias": "mail-neptune-frontend",
-            "address": "mail-neptune-frontend",
-            "activate": "1"
-        },
-        {
-            "id": "14",
-            "name": "srvi-mysql01",
-            "alias": "srvi-mysql01",
-            "address": "srvi-mysql01",
-            "activate": "1"
-        }
-    ]
-}
+| Key | Value |
+|-----|-------|
+| Content-Type | application/json |
+| centreon-auth-token | The token obtained from the authentication call |
+
+The examples below show only the **Body** and **Response** for each call. Apply the endpoint and headers above to all of them.
+
+**Full example (curl):**
+
+```bash
+curl -X POST \
+  "https://api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi" \
+  -H "Content-Type: application/json" \
+  -H "centreon-auth-token: NTc1MDU3MGE3M2JiODIuMjA4OTA2OTc=" \
+  -d '{"action": "show", "object": "host"}'
 ```
 
-> Some actions need the values key (the option **-v** in Centreon CLAPI).
-Depending on the action called, the body can contain a **values** key. We will see
-that in detail later.
+---
 
-### API Calls
+### Object and action reference
 
-All API calls you can do on objects are described below. Note that you need to
-be authenticated before each call.
+Quick reference for all available objects and their supported actions.
 
-API calls on the Host object are fully detailed below. For the next objects,
-only the actions available are listed, so just follow the same approach as for
-the host object for an API call.
+| Object | CLAPI name | Available actions |
+|--------|-----------|-------------------|
+| [Host](#host) | HOST | show, add, del, setparam, getparam, setinstance, getmacro, setmacro, delmacro, gettemplate, settemplate, addtemplate, deltemplate, applytpl, getparent, addparent, setparent, delparent, getchild, addchild, setchild, delchild, getcontactgroup, addcontactgroup, setcontactgroup, delcontactgroup, getcontact, addcontact, setcontact, delcontact, gethostgroup, addhostgroup, sethostgroup, delhostgroup, enable, disable |
+| [ACL](#acl) | ACL | reload, lastreload |
+| [Action ACL](#action-acl) | ACLACTION | show, add, del, setparam, getaclgroup, grant, revoke |
+| [ACL Groups](#acl-groups) | ACLGROUP | show, add, del, setparam, getmenu, getaction, getresource, getcontact, getcontactgroup, setmenu, setaction, setresource, addmenu, addaction, addresource, delmenu, delaction, delresource, setcontact, setcontactgroup, addcontact, addcontactgroup, delcontact, delcontactgroup |
+| [Menu ACL](#menu-acl) | ACLMENU | show, add, del, setparam, getaclgroup, grant, revoke |
+| [Resource ACL](#resource-acl) | ACLRESOURCE | show, add, del, setparam, getaclgroup, grant, revoke |
+| [Centreon Broker](#centreon-broker) | CENTBROKERCFG | show, add, del, setparam, listinput/output/logger/…, getinput/output/logger/…, addinput/output/logger/…, delinput/output/logger/…, setinput/output/logger/… |
+| [CGI CFG](#cgi-cfg) | CGICFG | show, add, del, setparam |
+| [Commands](#commands) | CMD | show, add, del, setparam |
+| [Contacts](#contacts) | CONTACT | show, add, del, setparam, enable, disable |
+| [Contact Templates](#contact-templates) | CONTACTTPL | show, add, del, setparam, enable, disable |
+| [Contact Groups](#contact-groups) | CG | show, add, del, setparam, enable, disable, getcontact, addcontact, setcontact, delcontact |
+| [Dependencies](#dependencies) | DEP | show, add, del, setparam, listdep, addparent, addchild, delparent, delchild |
+| [Downtimes](#downtimes) | DOWNTIME | show, add, del, listperiods, addweeklyperiod, addmonthlyperiod, addspecificperiod, addhost/hostgroup/service/servicegroup, delhost/hostgroup/service/servicegroup, sethost/hostgroup/service/servicegroup |
+| [Host Templates](#host-template) | HTPL | show, add, del, setparam, getmacro, setmacro, delmacro, getparent, addparent, setparent, delparent, getcontactgroup, addcontactgroup, setcontactgroup, delcontactgroup, getcontact, addcontact, setcontact, delcontact, gethostgroup, addhostgroup, sethostgroup, delhostgroup, setseverity, unsetseverity, enable, disable |
+| [Host Categories](#host-categories) | HC | show, add, del, getmember, addmember, setmember, setseverity, unsetseverity, delmember |
+| [Host Groups](#hostgroups) | HG | show, add, del, setparam, getmember, addmember, setmember, delmember |
+| [Instances (Pollers)](#instances-pollers) | INSTANCE | show, add, del, setparam, gethosts |
+| [Resource CFG](#resource-cfg-pollers-related-macros) | RESOURCECFG | show, add, del, setparam |
+| [Service Templates](#service-templates) | STPL | show, add, del, setparam, gethosttemplate, addhosttemplate, sethosttemplate, delhosttemplate, getmacro, setmacro, delmacro, getcontact, addcontact, setcontact, delcontact, getcontactgroup, setcontactgroup, delcontactgroup, gettrap, settrap, deltrap |
+| [Services](#services) | SERVICE | show, add, del, setparam, addhost, sethost, delhost, getmacro, setmacro, delmacro, setseverity, unsetseverity, getcontact, addcontact, setcontact, delcontact, getcontactgroup, setcontactgroup, delcontactgroup, gettrap, settrap, deltrap |
+| [Service Groups](#service-groups) | SG | show, add, del, setparam, getservice, gethostgroupservice, addservice, setservice, addhostgroupservice, sethostgroupservice, delservice, delhostgroupservice |
+| [Service Categories](#service-categories) | SC | show, add, del, setparam, getservice, getservicetemplate, addservice, setservice, addservicetemplate, setservicetemplate, delservice, delservicetemplate, setseverity, unsetseverity |
+| [Time Periods](#time-periods) | TIMEPERIOD | show, add, del, setparam, getexception, setexception, delexception |
+| [Traps](#traps) | TRAP | show, add, del, setparam, getmatching, addmatching, delmatching, updatematching |
+| [Vendors](#vendors) | VENDOR | show, add, del, setparam, generatetraps |
+
+---
 
 ### Host
 
+The `HOST` object represents a monitored device or server.
+
 #### List hosts
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "show",
     "object": "host"
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": [
         {
-        "id": "79",
-        "name": "mail-uranus-frontend",
-        "alias": "mail-uranus-frontend",
-        "address": "mail-uranus-frontend",
-        "activate": "1"
+            "id": "79",
+            "name": "mail-uranus-frontend",
+            "alias": "mail-uranus-frontend",
+            "address": "mail-uranus-frontend",
+            "activate": "1"
         },
         {
-        "id": "80",
-        "name": "mail-neptune-frontend",
-        "alias": "mail-neptune-frontend",
-        "address": "mail-neptune-frontend",
-        "activate": "1"
-        },
-        {
-        "id": "81",
-        "name": "mail-earth-frontend",
-        "alias": "mail-earth-frontend",
-        "address": "mail-earth-frontend",
-        "activate": "1"
+            "id": "80",
+            "name": "mail-neptune-frontend",
+            "alias": "mail-neptune-frontend",
+            "address": "mail-neptune-frontend",
+            "activate": "1"
         }
     ]
 }
@@ -193,20 +234,11 @@ the host object for an API call.
 
 #### Add host
 
-**POST**
+The `values` field follows: `name;alias;address;template;instance;hostgroup`
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "add",
     "object": "host",
@@ -214,9 +246,9 @@ the host object for an API call.
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": []
 }
@@ -224,20 +256,9 @@ the host object for an API call.
 
 #### Delete host
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "del",
     "object": "host",
@@ -245,9 +266,9 @@ the host object for an API call.
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": []
 }
@@ -255,80 +276,71 @@ the host object for an API call.
 
 #### Set parameters
 
-**POST**
+Updates one parameter on a host.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "setparam",
     "object": "host",
-    "values": "test;ParameterToSet;NewParameter"
+    "values": "test;ParameterToSet;NewValue"
 }
 ```
 
-Available parameters
+Available parameters:
 
-| Parameter                      | Description                                                            |
-| ------------------------------ | ---------------------------------------------------------------------- |
-| 2d\_coords                     | 2D coordinates (used by statusmap)                                     |
-| 3d\_coords                     | 3D coordinates (used by statusmap)                                     |
-| geo\_coords                    | Geo coordinates (used by Centreon MAP)                                 |
-| action\_url                    | Action URL                                                             |
-| activate                       | Whether or not host is enabled                                         |
-| active\_checks\_enabled        | Whether or not active checks are enabled                               |
-| acknowledgement\_timeout       | Acknowledgement timeout (in seconds)                                   |
-| address                        | Host IP Address                                                        |
-| alias                          | Alias                                                                  |
-| check\_command                 | Check command                                                          |
-| check\_command\_arguments      | Check command arguments                                                |
-| check\_interval                | Normal check interval                                                  |
-| check\_freshness               | Check freshness (in seconds)                                           |
-| check\_period                  | Check period                                                           |
-| checks\_enabled                | Whether or not checks are enabled                                      |
-| contact\_additive\_inheritance | Enables contact additive inheritance                                   |
-| cg\_additive\_inheritance      | Enables contactgroup additive inheritance                              |
-| event\_handler                 | Event handler command                                                  |
-| event\_handler\_arguments      | Event handler command arguments                                        |
-| event\_handler\_enabled        | Whether or not event handler is enabled                                |
-| first\_notification\_delay     | First notification delay (in seconds)                                  |
-| flap\_detection\_enabled       | Whether or not flap detection is enabled                               |
-| flap\_detection\_options       | Flap detection options                                                 |
-| icon\_image                    | Icon image                                                             |
-| icon\_image\_alt               | Icon image text                                                        |
-| max\_check\_attempts           | Maximum number of attempt before a HARD state is declared              |
-| name                           | Host name                                                              |
-| notes                          | Notes                                                                  |
-| notes\_url                     | Notes URL                                                              |
-| notifications\_enabled         | Whether or not notification is enabled                                 |
-| notification\_interval         | Notification interval                                                  |
-| notification\_options          | Notification options                                                   |
-| notification\_period           | Notification period                                                    |
-| obsess\_over\_host             | Whether or not obsess over host option is enabled                      |
-| passive\_checks\_enabled       | Whether or not passive checks are enabled                              |
-| process\_perf\_data            | Process performance data command                                       |
-| retain\_nonstatus\_information | Whether or not there is non-status retention                           |
-| retain\_status\_information    | Whether or not there is status retention                               |
-| retry\_check\_interval         | Retry check interval                                                   |
-| snmp\_community                | Snmp Community                                                         |
-| snmp\_version                  | Snmp version                                                           |
-| stalking\_options              | Comma separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
-| statusmap\_image               | Status map image (used by statusmap                                    |
-| host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
-| timezone                       | Timezone                                                               |
+| Parameter | Description |
+|-----------|-------------|
+| 2d\_coords | 2D coordinates (used by statusmap) |
+| 3d\_coords | 3D coordinates (used by statusmap) |
+| geo\_coords | Geo coordinates (used by Centreon MAP) |
+| action\_url | Action URL |
+| activate | Whether or not host is enabled |
+| active\_checks\_enabled | Whether or not active checks are enabled |
+| acknowledgement\_timeout | Acknowledgement timeout (in seconds) |
+| address | Host IP address |
+| alias | Alias |
+| check\_command | Check command |
+| check\_command\_arguments | Check command arguments |
+| check\_interval | Normal check interval |
+| check\_freshness | Check freshness (in seconds) |
+| check\_period | Check period |
+| checks\_enabled | Whether or not checks are enabled |
+| contact\_additive\_inheritance | Enables contact additive inheritance |
+| cg\_additive\_inheritance | Enables contactgroup additive inheritance |
+| event\_handler | Event handler command |
+| event\_handler\_arguments | Event handler command arguments |
+| event\_handler\_enabled | Whether or not event handler is enabled |
+| first\_notification\_delay | First notification delay (in seconds) |
+| flap\_detection\_enabled | Whether or not flap detection is enabled |
+| flap\_detection\_options | Flap detection options |
+| icon\_image | Icon image |
+| icon\_image\_alt | Icon image text |
+| max\_check\_attempts | Maximum number of attempts before a HARD state is declared |
+| name | Host name |
+| notes | Notes |
+| notes\_url | Notes URL |
+| notifications\_enabled | Whether or not notification is enabled |
+| notification\_interval | Notification interval |
+| notification\_options | Notification options |
+| notification\_period | Notification period |
+| obsess\_over\_host | Whether or not obsess over host option is enabled |
+| passive\_checks\_enabled | Whether or not passive checks are enabled |
+| process\_perf\_data | Process performance data command |
+| retain\_nonstatus\_information | Whether or not there is non-status retention |
+| retain\_status\_information | Whether or not there is status retention |
+| retry\_check\_interval | Retry check interval |
+| snmp\_community | SNMP community |
+| snmp\_version | SNMP version |
+| stalking\_options | Comma separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
+| statusmap\_image | Status map image (used by statusmap) |
+| host\_notification\_options | Notification options (d,u,r,f,s) |
+| timezone | Timezone |
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": []
 }
@@ -336,79 +348,23 @@ Available parameters
 
 #### Get parameters
 
-**POST**
+Pipe-separate multiple parameter names to retrieve them in a single call.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "getparam",
     "object": "host",
-    "values": "test;ParameterToGet|ParameterToGet"
+    "values": "test;alias|address|timezone"
 }
 ```
 
-Available parameters
+Available parameters are the same as for `setparam` (see table above), minus `acknowledgement_timeout`.
 
-| Parameter                      | Description                                                            |
-| ------------------------------ | ---------------------------------------------------------------------- |
-| 2d\_coords                     | 2D coordinates (used by statusmap)                                     |
-| 3d\_coords                     | 3D coordinates (used by statusmap)                                     |
-| geo\_coords                    | Geo coordinates (used by Centreon MAP)                                 |
-| action\_url                    | Action URL                                                             |
-| activate                       | Whether or not host is enabled                                         |
-| active\_checks\_enabled        | Whether or not active checks are enabled                               |
-| address                        | Host IP Address                                                        |
-| alias                          | Alias                                                                  |
-| check\_command                 | Check command                                                          |
-| check\_command\_arguments      | Check command arguments                                                |
-| check\_interval                | Normal check interval                                                  |
-| check\_freshness               | Check freshness (in seconds)                                           |
-| check\_period                  | Check period                                                           |
-| checks\_enabled                | Whether or not checks are enabled                                      |
-| contact\_additive\_inheritance | Enables contact additive inheritance                                   |
-| cg\_additive\_inheritance      | Enables contactgroup additive inheritance                              |
-| event\_handler                 | Event handler command                                                  |
-| event\_handler\_arguments      | Event handler command arguments                                        |
-| event\_handler\_enabled        | Whether or not event handler is enabled                                |
-| first\_notification\_delay     | First notification delay (in seconds)                                  |
-| flap\_detection\_enabled       | Whether or not flap detection is enabled                               |
-| flap\_detection\_options       | Flap detection options                                                 |
-| icon\_image                    | Icon image                                                             |
-| icon\_image\_alt               | Icon image text                                                        |
-| max\_check\_attempts           | Maximum number of attempts befores a HARD state is declared              |
-| name                           | Host name                                                              |
-| notes                          | Notes                                                                  |
-| notes\_url                     | Notes URL                                                              |
-| notifications\_enabled         | Whether or not notification is enabled                                 |
-| notification\_interval         | Notification interval                                                  |
-| notification\_options          | Notification options                                                   |
-| notification\_period           | Notification period                                                    |
-| obsess\_over\_host             | Whether or not obsess over host option is enabled                      |
-| passive\_checks\_enabled       | Whether or not passive checks are enabled                              |
-| process\_perf\_data            | Process performance data command                                       |
-| retain\_nonstatus\_information | Whether or not there is non-status retention                           |
-| retain\_status\_information    | Whether or not there is status retention                               |
-| retry\_check\_interval         | Retry check interval                                                   |
-| snmp\_community                | Snmp Community                                                         |
-| snmp\_version                  | Snmp version                                                           |
-| stalking\_options              | Comma separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
-| statusmap\_image               | Status map image (used by statusmap                                    |
-| host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
-| timezone                       | Timezone                                                               |
+**Response:**
 
-**Response**
-
-``` json
+```json
 {
     "result": [
         {
@@ -420,22 +376,13 @@ Available parameters
 }
 ```
 
-#### Set instance poller
+#### Set instance (poller)
 
-**POST**
+Assigns a host to a specific monitoring poller.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "setinstance",
     "object": "host",
@@ -443,30 +390,19 @@ Available parameters
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": []
 }
 ```
 
-#### Get macro
+#### Get macros
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "getmacro",
     "object": "host",
@@ -474,9 +410,9 @@ Available parameters
 }
 ```
 
-**Response** Here is a response example :
+**Response:**
 
-``` json
+```json
 {
     "result": [
         {
@@ -506,20 +442,11 @@ Available parameters
 
 #### Set macro
 
-**POST**
+Creates or updates a custom macro. If the macro does not exist on the host, it is created.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "setmacro",
     "object": "host",
@@ -527,13 +454,9 @@ Available parameters
 }
 ```
 
-To edit an existing custom macro, The MacroName used on the body should be
-defined on the Custom Macro of the chosen host. If the macro doesn't exist, it
-will be created.
+**Response:**
 
-**Response**
-
-``` json
+```json
 {
     "result": []
 }
@@ -541,20 +464,11 @@ will be created.
 
 #### Delete macro
 
-**POST**
+The macro must exist in the host's Custom Macros.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "delmacro",
     "object": "host",
@@ -562,33 +476,19 @@ will be created.
 }
 ```
 
-The MacroName used on the body is the macro to delete. It should be defined on
-the Custom Macro of the chosen host.
+**Response:**
 
-**Response**
-
-``` json
+```json
 {
     "result": []
 }
 ```
 
-#### Get template
+#### Get templates
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "gettemplate",
     "object": "host",
@@ -596,9 +496,9 @@ the Custom Macro of the chosen host.
 }
 ```
 
-**Response** Here is a response example :
+**Response:**
 
-``` json
+```json
 {
     "result": [
         {
@@ -619,20 +519,11 @@ the Custom Macro of the chosen host.
 
 #### Set template
 
-**POST**
+Replaces all linked templates with the specified template.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "settemplate",
     "object": "host",
@@ -640,12 +531,9 @@ the Custom Macro of the chosen host.
 }
 ```
 
-The MyHostTemplate used on the body should exist as a host template. The new
-template erase templates already exist.
+**Response:**
 
-**Response**
-
-``` json
+```json
 {
     "result": []
 }
@@ -653,20 +541,11 @@ template erase templates already exist.
 
 #### Add template
 
-**POST**
+Adds a template without removing existing linked templates.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "addtemplate",
     "object": "host",
@@ -674,12 +553,9 @@ template erase templates already exist.
 }
 ```
 
-The MyHostTemplate used on the body should exist as a host template. The new
-template is added without erasing template already linked
+**Response:**
 
-**Response**
-
-``` json
+```json
 {
     "result": []
 }
@@ -687,20 +563,9 @@ template is added without erasing template already linked
 
 #### Delete template
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "deltemplate",
     "object": "host",
@@ -708,12 +573,9 @@ template is added without erasing template already linked
 }
 ```
 
-The MyHostTemplate used on the body should exist as a host template.
+**Response:**
 
-
-**Response**
-
-``` json
+```json
 {
     "result": []
 }
@@ -721,20 +583,11 @@ The MyHostTemplate used on the body should exist as a host template.
 
 #### Apply template
 
-**POST**
+Applies all templates linked to the host, propagating template configuration to the host.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "applytpl",
     "object": "host",
@@ -742,30 +595,19 @@ The MyHostTemplate used on the body should exist as a host template.
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": []
 }
 ```
 
-#### Get parent
+#### Get parents
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "getparent",
     "object": "host",
@@ -773,9 +615,9 @@ The MyHostTemplate used on the body should exist as a host template.
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": [
         {
@@ -788,20 +630,11 @@ The MyHostTemplate used on the body should exist as a host template.
 
 #### Add parent
 
-**POST**
+Adds a parent host without removing existing parents.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "addparent",
     "object": "host",
@@ -809,36 +642,23 @@ The MyHostTemplate used on the body should exist as a host template.
 }
 ```
 
-**Response**
+To add multiple parents at once, pipe-separate them: `"values": "mail-uranus-frontend;fw-berlin|fw-dublin"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To add more than one parent to a host, use the character '|'. Example:
-
-    "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
-
-The add action adds the parent without overwriting the previous configuration.
-
 #### Set parent
 
-**POST**
+Replaces all existing parents with the specified parent(s).
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "setparent",
     "object": "host",
@@ -846,37 +666,21 @@ The add action adds the parent without overwriting the previous configuration.
 }
 ```
 
-**Response**
+To set multiple parents: `"values": "mail-uranus-frontend;fw-berlin|fw-dublin"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To set more than one parent to a host, use the character '|'. Example:
-
-    "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
-
-The set action overwrites the previous configuration before setting the new
-parent.
-
 #### Delete parent
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "delparent",
     "object": "host",
@@ -884,180 +688,116 @@ parent.
 }
 ```
 
-**Response**
+To delete multiple parents: `"values": "mail-uranus-frontend;fw-berlin|fw-dublin"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To delete more than one parent, use the character '|'. Example:
+#### Get children
 
-    "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
+**Body:**
 
-#### Get child
-
-**POST** 
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
-  {
+```json
+{
     "action": "getchild",
     "object": "host",
     "values": "mail-uranus-frontdad"
-  }
+}
 ```
 
-**Response**
+**Response:**
 
-``` json
- {
-  "result": [
-    {
-      "id": "219",
-      "name": "mail-uranus-frontchild"
-    }
-  ]
- }
+```json
+{
+    "result": [
+        {
+            "id": "219",
+            "name": "mail-uranus-frontchild"
+        }
+    ]
+}
 ```
 
 #### Add child
 
-**POST**
+Adds a child host without removing existing children.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
-  {
+```json
+{
     "action": "addchild",
     "object": "host",
     "values": "fw-berlin;mail-uranus-frontend"
-  }
+}
 ```
 
-**Response**
+To add multiple children: `"values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"`
 
-``` json
- {
-  "result": []
- }
+**Response:**
+
+```json
+{
+    "result": []
+}
 ```
 
-To add more than one child to a host, use the character '|'. Example:
+#### Set child
 
-    "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
+Replaces all existing children with the specified child(ren).
 
-The add action adds the child without overwriting the previous configuration.
+**Body:**
 
-### Set child
-
-**POST**
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-
-**Body**
-
-``` json
-  {
+```json
+{
     "action": "setchild",
     "object": "host",
     "values": "fw-berlin;mail-uranus-frontend"
-  }
+}
 ```
 
-**Response**
+To set multiple children: `"values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"`
 
-``` json
- {
-  "result": []
- }
+**Response:**
+
+```json
+{
+    "result": []
+}
 ```
 
-To set more than one child to a host, use the character '|'. Example:
+#### Delete child
 
-    "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
+**Body:**
 
-The set action overwrites the previous configuration before setting the new child.
-
-### Delete child
-
-**POST**
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
-  {
+```json
+{
     "action": "delchild",
     "object": "host",
     "values": "fw-berlin;mail-uranus-frontend"
-  }
+}
 ```
 
-**Response**
+To delete multiple children: `"values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"`
 
-``` json
- {
-  "result": []
- }
+**Response:**
+
+```json
+{
+    "result": []
+}
 ```
 
-To delete more than one child, use the character '|'. Example:
+#### Get contact groups
 
-    "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
+**Body:**
 
-#### Get contact group
-
-**POST**
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "getcontactgroup",
     "object": "host",
@@ -1065,9 +805,9 @@ To delete more than one child, use the character '|'. Example:
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": [
         {
@@ -1080,20 +820,11 @@ To delete more than one child, use the character '|'. Example:
 
 #### Add contact group
 
-**POST**
+Adds a contact group without removing existing contact groups.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "addcontactgroup",
     "object": "host",
@@ -1101,36 +832,23 @@ To delete more than one child, use the character '|'. Example:
 }
 ```
 
-**Response**
+To add multiple: `"values": "mail-uranus-frontend;Supervisors|Guest"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To add more than one contactgroup to a host, use the character '|'. Example:
-
-    "values": "mail-uranus-frontend;Supervisors|Guest"
-
-The add action adds the contact without overwriting the previous configuration.
-
 #### Set contact group
 
-**POST**
+Replaces all existing contact groups.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "setcontactgroup",
     "object": "host",
@@ -1138,37 +856,21 @@ The add action adds the contact without overwriting the previous configuration.
 }
 ```
 
-**Response**
+To set multiple: `"values": "mail-uranus-frontend;Supervisors|Guest"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To set more than one contactgroup to a host, use the character '|'. Example:
-
-    "values": "mail-uranus-frontend;Supervisors|Guest"
-
-The set action overwrites the previous configuration before setting the new
-contactgroup.
-
 #### Delete contact group
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "delcontactgroup",
     "object": "host",
@@ -1176,34 +878,21 @@ contactgroup.
 }
 ```
 
-**Response**
+To delete multiple: `"values": "mail-uranus-frontend;Guest|Supervisors"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To delete more than one contactgroup, use the character '|'. Example:
+#### Get contacts
 
-    "values": "mail-uranus-frontend;Guest|Supervisors"
+**Body:**
 
-#### Get contact
-
-**POST**
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "getcontact",
     "object": "host",
@@ -1211,9 +900,9 @@ To delete more than one contactgroup, use the character '|'. Example:
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": [
         {
@@ -1226,20 +915,11 @@ To delete more than one contactgroup, use the character '|'. Example:
 
 #### Add contact
 
-**POST**
+Adds a contact without removing existing contacts.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "addcontact",
     "object": "host",
@@ -1247,36 +927,23 @@ To delete more than one contactgroup, use the character '|'. Example:
 }
 ```
 
-**Response**
+To add multiple: `"values": "mail-uranus-frontend;admin|SuperAdmin"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To add more than one contact to a host, use the character '|'. Example:
-
-    "values": "mail-uranus-frontend;admin|SuperAdmin"
-
-The add action adds the contact without overwriting the previous configuration.
-
 #### Set contact
 
-**POST**
+Replaces all existing contacts.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "setcontact",
     "object": "host",
@@ -1284,72 +951,43 @@ The add action adds the contact without overwriting the previous configuration.
 }
 ```
 
-**Response**
+To set multiple: `"values": "mail-uranus-frontend;admin|SuperAdmin"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
-
-To set more than one contact to a host, use the character '|'. Example:
-
-    "values": "mail-uranus-frontend;admin|SuperAdmin"
-
-The set action overwrites the previous configuration before setting the new
-contact.
 
 #### Delete contact
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "delcontact",
     "object": "host",
-    "values": "mail-uranus-frontend;Guest"
+    "values": "mail-uranus-frontend;admin"
 }
 ```
 
-**Response**
+To delete multiple: `"values": "mail-uranus-frontend;admin|SuperAdmin"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To delete more than one contact, use the character '|'. Example:
+#### Get host groups
 
-    "values": "mail-uranus-frontend;admin|SuperAdmin"
+**Body:**
 
-#### Get hostgroup
-
-**POST**
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "gethostgroup",
     "object": "host",
@@ -1357,9 +995,9 @@ To delete more than one contact, use the character '|'. Example:
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": [
         {
@@ -1374,22 +1012,13 @@ To delete more than one contact, use the character '|'. Example:
 }
 ```
 
-#### Add hostgroup
+#### Add host group
 
-**POST**
+Adds a host group without removing existing host groups.
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "addhostgroup",
     "object": "host",
@@ -1397,36 +1026,23 @@ To delete more than one contact, use the character '|'. Example:
 }
 ```
 
-**Response**
+To add multiple: `"values": "mail-uranus-frontend;Mail-Postfix-Frontend|Linux-Servers"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To add more than one hostgroup to a host, use the character '|'. Example:
+#### Set host group
 
-    "values": "mail-uranus-frontend;Mail-Postfix-Frontend|Linux-Servers"
+Replaces all existing host groups.
 
-The add action adds the hostgroup without overwriting the previous configuration.
+**Body:**
 
-#### Set hostgroup
-
-**POST**
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "sethostgroup",
     "object": "host",
@@ -1434,37 +1050,21 @@ The add action adds the hostgroup without overwriting the previous configuration
 }
 ```
 
-**Response**
+To set multiple: `"values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To set more than one hostgroup to a host, use the character '|'. Example:
+#### Delete host group
 
-    "values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"
+**Body:**
 
-The set action overwrites the previous configuration before setting the new
-hostgroup.
-
-#### Delete hostgroup
-
-**POST**
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "delhostgroup",
     "object": "host",
@@ -1472,34 +1072,21 @@ hostgroup.
 }
 ```
 
-**Response**
+To delete multiple: `"values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"`
 
-``` json
+**Response:**
+
+```json
 {
     "result": []
 }
 ```
 
-To delete more than one hostgroup, use the character '|'. Example:
-
-    "values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"
-
 #### Enable
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "enable",
     "object": "host",
@@ -1507,9 +1094,9 @@ To delete more than one hostgroup, use the character '|'. Example:
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": []
 }
@@ -1517,20 +1104,9 @@ To delete more than one hostgroup, use the character '|'. Example:
 
 #### Disable
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "disable",
     "object": "host",
@@ -1538,646 +1114,1740 @@ To delete more than one hostgroup, use the character '|'. Example:
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
     "result": []
 }
 ```
 
+---
+
 ### ACL
 
-  - **Object**
-    
-      - ACL
+Manages the global ACL cache. Useful after making bulk changes to ACL configuration.
 
-**Actions**
+#### Reload
 
-    - reload
-    - lastreload
+Forces a reload of all ACL definitions.
 
-#### Action ACL
+**Body:**
 
-  - **Object**
-    
-      - ACLACTION
+```json
+{
+    "action": "reload",
+    "object": "ACL"
+}
+```
 
-**Actions**
+**Response:**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getaclgroup
-    - grant
-    - revoke
+```json
+{
+    "result": []
+}
+```
 
-#### ACL groups
+#### Last reload
 
-  - **Object**
-    
-      - ACLGROUP
+Returns the timestamp of the last ACL reload.
 
-**Actions**
+**Body:**
 
-    - show
-    - add
-    - del
-    - setparam
-    - getmenu
-    - getaction
-    - getresource
-    - getcontact
-    - getcontactgroup
-    - setmenu
-    - setaction
-    - setresource
-    - addmenu
-    - addaction
-    - addresource
-    - delmenu
-    - delaction
-    - delresource
-    - setcontact
-    - setcontactgroup
-    - addcontact
-    - addcontactgroup
-    - delcontact
-    - delcontactgroup
+```json
+{
+    "action": "lastreload",
+    "object": "ACL"
+}
+```
 
-#### Menu ACL
+**Response:**
 
-  - **Object**
-    
-      - ACLMENU
+```json
+{
+    "result": [
+        {
+            "last_reload": "1528884076"
+        }
+    ]
+}
+```
 
-**Actions**
+---
 
-    - show
-    - add
-    - del
-    - setparam
-    - getaclgroup
-    - grant
-    - revoke
+### Action ACL
 
-#### Resource ACL
+Manages ACL rules that control which monitoring actions users can perform (e.g. acknowledge, schedule downtime).
 
-  - **Object**
-    
-      - ACLRESOURCE
+**Object:** `ACLACTION`
 
-**Actions**
+**Available actions:** show, add, del, setparam, getaclgroup, grant, revoke
 
-    - show
-    - add
-    - del
-    - setparam
-    - getaclgroup
-    - grant
-    - revoke
+#### List action ACLs
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "ACLACTION"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "AllActions",
+            "description": "All monitoring actions",
+            "activate": "1"
+        }
+    ]
+}
+```
+
+#### Add action ACL
+
+The `values` field follows: `name;description`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "ACLACTION",
+    "values": "AllActions;All monitoring actions"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Grant or revoke an action
+
+Available action names: `acknowledgement`, `disacknowledgement`, `schedule_check`, `schedule_downtime`, `comment`, `delete_comment`, `add_downtime`, `cancel_downtime`, `enable_host`, `disable_host`, `enable_service`, `disable_service`.
+
+**Body:**
+
+```json
+{
+    "action": "grant",
+    "object": "ACLACTION",
+    "values": "AllActions;acknowledgement"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
+
+### ACL Groups
+
+Manages groups that bundle menu, action, and resource ACL rules and assign them to contacts.
+
+**Object:** `ACLGROUP`
+
+**Available actions:** show, add, del, setparam, getmenu, getaction, getresource, getcontact, getcontactgroup, setmenu, setaction, setresource, addmenu, addaction, addresource, delmenu, delaction, delresource, setcontact, setcontactgroup, addcontact, addcontactgroup, delcontact, delcontactgroup
+
+#### List ACL groups
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "ACLGROUP"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "Operators",
+            "alias": "Operators group",
+            "activate": "1"
+        }
+    ]
+}
+```
+
+#### Add ACL group
+
+The `values` field follows: `name;alias`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "ACLGROUP",
+    "values": "Operators;Operators group"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Assign a contact to an ACL group
+
+**Body:**
+
+```json
+{
+    "action": "addcontact",
+    "object": "ACLGROUP",
+    "values": "Operators;john.doe"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+All other relationship actions (getmenu, setmenu, addresource, etc.) follow the same pattern with `values` as `"group-name;item-name"`.
+
+---
+
+### Menu ACL
+
+Controls which Centreon web menus are accessible to users in an ACL group.
+
+**Object:** `ACLMENU`
+
+**Available actions:** show, add, del, setparam, getaclgroup, grant, revoke
+
+#### List menu ACLs
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "ACLMENU"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "AllMenus",
+            "alias": "Full menu access",
+            "activate": "1"
+        }
+    ]
+}
+```
+
+#### Grant menu access
+
+The `values` field follows: `acl-name;top-level-menu;sub-menu`
+
+**Body:**
+
+```json
+{
+    "action": "grant",
+    "object": "ACLMENU",
+    "values": "AllMenus;Configuration;Hosts"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
+
+### Resource ACL
+
+Controls which monitored resources (hosts, host groups, etc.) users in an ACL group can see.
+
+**Object:** `ACLRESOURCE`
+
+**Available actions:** show, add, del, setparam, getaclgroup, grant, revoke
+
+#### List resource ACLs
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "ACLRESOURCE"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "AllResources",
+            "alias": "All resources",
+            "activate": "1"
+        }
+    ]
+}
+```
+
+#### Grant resource access
+
+**Body:**
+
+```json
+{
+    "action": "grant",
+    "object": "ACLRESOURCE",
+    "values": "AllResources;host;mail-uranus-frontend"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
 
 ### Centreon Broker
 
-  - **Object**
-    
-      - CENTBROKERCFG
+Manages Centreon Broker configuration — the event-brokering daemon that handles monitoring data flows.
 
-**Actions**
+**Object:** `CENTBROKERCFG`
 
-    - show
-    - add
-    - del
-    - setparam
-    - listinput, listoutput, listlogger, listcorrelation, listtemporary,
->     liststats
-    - getinput , getoutput, getlogger, getcorrelation, gettemporary, getstats
-    - addinput, addoutput, addlogger, addcorrelation, addtemporary, addstats
-    - delinput, deloutput, dellogger, delcorrelation, deltemporary, delstats
-    - setinput, setoutput, setlogger, setcorrelation, settemporary, setstats
+**Available actions:**
+
+| Category | Actions |
+|----------|---------|
+| Core | show, add, del, setparam |
+| List flow items | listinput, listoutput, listlogger, listcorrelation, listtemporary, liststats |
+| Get flow items | getinput, getoutput, getlogger, getcorrelation, gettemporary, getstats |
+| Add flow items | addinput, addoutput, addlogger, addcorrelation, addtemporary, addstats |
+| Delete flow items | delinput, deloutput, dellogger, delcorrelation, deltemporary, delstats |
+| Set flow items | setinput, setoutput, setlogger, setcorrelation, settemporary, setstats |
+
+#### List Broker configurations
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "CENTBROKERCFG"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "central-broker-master",
+            "instance": "Central",
+            "activate": "1"
+        }
+    ]
+}
+```
+
+#### List outputs for a Broker configuration
+
+**Body:**
+
+```json
+{
+    "action": "listoutput",
+    "object": "CENTBROKERCFG",
+    "values": "central-broker-master"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "type": "sql",
+            "name": "central-broker-master-sql"
+        }
+    ]
+}
+```
+
+---
 
 ### CGI CFG
 
-  - **Object**
-    
-      - CGICFG
+Manages the CGI configuration file used by the Centreon Engine web interface.
 
-**Actions**
+**Object:** `CGICFG`
 
-    - show
-    - add
-    - del
-    - setparam
+**Available actions:** show, add, del, setparam
+
+#### List CGI configurations
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "CGICFG"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "Centreon Default CGI",
+            "instance": "Central"
+        }
+    ]
+}
+```
+
+---
 
 ### Commands
 
-  - **Object**
-    
-      - CMD
+Manages check commands and event handler commands used by Centreon Engine.
 
-**Actions**
+**Object:** `CMD`
 
-    - show
-    - add
-    - del
-    - setparam
+**Available actions:** show, add, del, setparam
+
+#### List commands
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "CMD"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "check_centreon_ping",
+            "type": "check",
+            "line": "$CENTREONPLUGINS$/check_icmp -H $HOSTADDRESS$ -n $_HOSTALIVENUM$ -w $_HOSTALIVEWARNING$ -c $_HOSTALIVE CRITICAL$"
+        }
+    ]
+}
+```
+
+#### Add command
+
+The `values` field follows: `name;type;command_line`
+
+Valid types: `check`, `notif`, `misc`, `discovery`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "CMD",
+    "values": "check_ssh;check;$CENTREONPLUGINS$/check_ssh -H $HOSTADDRESS$"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
 
 ### Contacts
 
-  - **Object**
-    
-      - CONTACT
+Manages Centreon users and contacts who receive notifications.
 
-**Actions**
+**Object:** `CONTACT`
 
-    - show
-    - add
-    - del
-    - setparam
-    - enable
-    - disable
+**Available actions:** show, add, del, setparam, enable, disable
 
-#### Contact templates
+#### List contacts
 
-  - **Object**
-    
-      - CONTACTTPL
+**Body:**
 
-**Actions**
+```json
+{
+    "action": "show",
+    "object": "CONTACT"
+}
+```
 
-    - show
-    - add
-    - del
-    - setparam
-    - enable
-    - disable
+**Response:**
 
-#### Contact groups
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "admin",
+            "alias": "Administrator",
+            "email": "admin@example.com",
+            "activate": "1"
+        }
+    ]
+}
+```
 
-  - **Object**
-    
-      - CG
+#### Add contact
 
-**Actions**
+The `values` field follows: `name;alias;email;password;admin(0/1);reach_api(0/1);reach_api_rt(0/1)`
 
-    - show
-    - add
-    - del
-    - setparam
-    - enable
-    - disable
-    - getcontact
-    - addcontact
-    - setcontact
-    - delcontact
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "CONTACT",
+    "values": "jdoe;John Doe;john.doe@example.com;MyP@ssw0rd;0;1;1"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
+
+### Contact Templates
+
+Reusable contact configurations that can be applied to multiple contacts.
+
+**Object:** `CONTACTTPL`
+
+**Available actions:** show, add, del, setparam, enable, disable
+
+All actions follow the same patterns as [Contacts](#contacts). Substitute `CONTACTTPL` for `CONTACT` in the object field.
+
+---
+
+### Contact Groups
+
+Groups of contacts used to route notifications.
+
+**Object:** `CG`
+
+**Available actions:** show, add, del, setparam, enable, disable, getcontact, addcontact, setcontact, delcontact
+
+#### List contact groups
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "CG"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "Supervisors",
+            "alias": "Supervisors",
+            "activate": "1"
+        }
+    ]
+}
+```
+
+#### Add contact group
+
+The `values` field follows: `name;alias`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "CG",
+    "values": "Supervisors;Supervisors"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Add contact to group
+
+**Body:**
+
+```json
+{
+    "action": "addcontact",
+    "object": "CG",
+    "values": "Supervisors;jdoe"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
 
 ### Dependencies
 
-  - **Object**
-    
-      - DEP
+Defines parent-child relationships between monitored objects to suppress notifications when a parent is down.
 
-**Actions**
+**Object:** `DEP`
 
-    - show
-    - add
-    - del
-    - setparam
-    - listdep
-    - addparent
-    - addchild
-    - delparent
-    - delchild
+**Available actions:** show, add, del, setparam, listdep, addparent, addchild, delparent, delchild
+
+#### List dependencies
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "DEP"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "Firewall dependency",
+            "description": "Services depend on firewall",
+            "inherits_parent": "1",
+            "execution_failure_criteria": "n",
+            "notification_failure_criteria": "w,u,c"
+        }
+    ]
+}
+```
+
+#### Add dependency
+
+The `values` field follows: `name;description;dependency_type;inherits_parent;execution_failure_criteria;notification_failure_criteria`
+
+Valid dependency types: `HOST`, `SVC`, `HG`, `SG`, `META`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "DEP",
+    "values": "Firewall dependency;Services depend on firewall;HOST;1;n;w,u,c"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
 
 ### Downtimes
 
-  - **Object**
-    
-      - DOWNTIME
+Manages recurring downtime schedules for planned maintenance windows.
 
-**Actions**
+**Object:** `DOWNTIME`
 
-    - show
-    - add
-    - del
-    - listperiods
-    - addweeklyperiod
-    - addmonthlyperiod
-    - addspecificperiod
-    - addhost, addhostgroup, addservice, addservicegroup
-    - delhost, delhostgroup, delservice, delservicegroup
-    - sethost, sethostgroup, setservice, setservicegroup
+**Available actions:** show, add, del, listperiods, addweeklyperiod, addmonthlyperiod, addspecificperiod, addhost, addhostgroup, addservice, addservicegroup, delhost, delhostgroup, delservice, delservicegroup, sethost, sethostgroup, setservice, setservicegroup
 
-### Host template
+#### List downtime schedules
 
-  - **Object**
-    
-      - HTPL
+**Body:**
 
-**Actions** APPLYTPL and SETINSTANCE actions on HTPL
+```json
+{
+    "action": "show",
+    "object": "DOWNTIME"
+}
+```
 
-    - show
-    - add
-    - del
-    - setparam
-    - getmacro
-    - setmacro
-    - delmacro
-    - getparent
-    - addparent
-    - setparent
-    - delparent
-    - getcontactgroup
-    - addcontactgroup
-    - setcontactgroup
-    - delcontactgroup
-    - getcontact
-    - addcontact
-    - setcontact
-    - delcontact
-    - gethostgroup
-    - addhostgroup
-    - sethostgroup
-    - delhostgroup
-    - setseverity
-    - unsetseverity
-    - enable
-    - disable
+**Response:**
 
-### Host categories
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "Weekend-Maintenance",
+            "description": "Weekly maintenance window",
+            "activate": "1"
+        }
+    ]
+}
+```
 
-  - **Object**
-    
-      - HC
+#### Add a downtime schedule
 
-**Actions**
+The `values` field follows: `name;description`
 
-    - show
-    - add
-    - del
-    - getmember
-    - addmember
-    - setmember
-    - setseverity
-    - unsetseverity
-    - delmember
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "DOWNTIME",
+    "values": "Weekend-Maintenance;Weekly maintenance window"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Add a weekly period
+
+The `values` field follows: `downtime-name;day(1=Mon…7=Sun);start-time;end-time;fixed(0/1);duration(seconds);with-services(0/1)`
+
+**Body:**
+
+```json
+{
+    "action": "addweeklyperiod",
+    "object": "DOWNTIME",
+    "values": "Weekend-Maintenance;6;22:00;06:00;1;0;1"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Add a monthly period
+
+The `values` field follows: `downtime-name;day-of-month;start-time;end-time;fixed(0/1);duration(seconds);with-services(0/1)`
+
+**Body:**
+
+```json
+{
+    "action": "addmonthlyperiod",
+    "object": "DOWNTIME",
+    "values": "Monthly-Maintenance;1;00:00;06:00;1;0;1"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Add host to downtime schedule
+
+**Body:**
+
+```json
+{
+    "action": "addhost",
+    "object": "DOWNTIME",
+    "values": "Weekend-Maintenance;mail-uranus-frontend"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
+
+### Host Template
+
+Reusable host configurations that can be applied to multiple hosts.
+
+> **Note:** The `APPLYTPL` and `SETINSTANCE` actions are not available on host templates.
+
+**Object:** `HTPL`
+
+**Available actions:** show, add, del, setparam, getmacro, setmacro, delmacro, getparent, addparent, setparent, delparent, getcontactgroup, addcontactgroup, setcontactgroup, delcontactgroup, getcontact, addcontact, setcontact, delcontact, gethostgroup, addhostgroup, sethostgroup, delhostgroup, setseverity, unsetseverity, enable, disable
+
+#### List host templates
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "HTPL"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "3",
+            "name": "generic-host",
+            "alias": "Generic Host Template",
+            "activate": "1"
+        }
+    ]
+}
+```
+
+All other actions follow the same patterns as [Host](#host). Substitute `HTPL` for `HOST` in the object field.
+
+---
+
+### Host Categories
+
+Groups hosts by functional category (e.g. "Web Servers", "Databases"). Categories can have a severity level.
+
+**Object:** `HC`
+
+**Available actions:** show, add, del, getmember, addmember, setmember, setseverity, unsetseverity, delmember
+
+#### List host categories
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "HC"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "web-servers",
+            "alias": "Web Servers",
+            "severity_level": "",
+            "severity_icon": "",
+            "activate": "1"
+        }
+    ]
+}
+```
+
+#### Add host category
+
+The `values` field follows: `name;alias`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "HC",
+    "values": "web-servers;Web Servers"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Add member to category
+
+**Body:**
+
+```json
+{
+    "action": "addmember",
+    "object": "HC",
+    "values": "web-servers;mail-uranus-frontend"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Set severity
+
+The `values` field follows: `category-name;severity-level;severity-icon`
+
+**Body:**
+
+```json
+{
+    "action": "setseverity",
+    "object": "HC",
+    "values": "web-servers;3;icon-warning"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
 
 ### Hostgroups
 
-  - **Object**
-    
-      - HG
+Logical groupings of hosts, used for filtering in views and for applying ACLs or notifications.
 
-**Actions**
+**Object:** `HG`
 
-    - show
-    - add
-    - del
-    - setparam
-    - getmember
-    - addmember
-    - setmember
-    - delmember
+**Available actions:** show, add, del, setparam, getmember, addmember, setmember, delmember
+
+#### List host groups
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "HG"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "53",
+            "name": "Linux-Servers",
+            "alias": "Linux Servers"
+        }
+    ]
+}
+```
+
+#### Add host group
+
+The `values` field follows: `name;alias`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "HG",
+    "values": "Linux-Servers;Linux Servers"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Add member to host group
+
+**Body:**
+
+```json
+{
+    "action": "addmember",
+    "object": "HG",
+    "values": "Linux-Servers;mail-uranus-frontend"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
 
 ### Instances (Pollers)
 
-  - **Object**
-    
-      - INSTANCE
+Manages Centreon monitoring pollers — the engines that execute checks.
 
-**Actions**
+**Object:** `INSTANCE`
 
-    - show
-    - add
-    - del
-    - setparam
-    - gethosts
+**Available actions:** show, add, del, setparam, gethosts
+
+#### List pollers
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "INSTANCE"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "Central",
+            "localhost": "1",
+            "ip_address": "127.0.0.1",
+            "activate": "1",
+            "status": "1"
+        }
+    ]
+}
+```
+
+#### Get hosts for a poller
+
+**Body:**
+
+```json
+{
+    "action": "gethosts",
+    "object": "INSTANCE",
+    "values": "Central"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "79",
+            "name": "mail-uranus-frontend"
+        }
+    ]
+}
+```
+
+---
 
 ### Resource CFG (pollers related macros)
 
-`RESOURCECFG` objects allow to define macro values that apply to a set of pollers.  
-A `RESOURCECFG` object defines a macro for one or multiple pollers.  
-The same macro can be defined in multiple `RESOURCECFG` objects with complementary lists of pollers.  
-More information here: [Resource macros](../monitoring/basic-objects/macros.md#resource-macros)
+`RESOURCECFG` objects define `$USERn$` and custom resource macros that apply to one or more pollers. The same macro can be defined in multiple `RESOURCECFG` objects with complementary lists of pollers.
+
+More information: [Resource macros](../monitoring/basic-objects/macros.md#resource-macros)
+
+**Object:** `RESOURCECFG`
+
+**Available actions:** show, add, del, setparam
 
 #### List RESOURCECFG objects
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "show",
     "object": "resourcecfg"
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {
-  "result": [
-    {
-      "id": "1",
-      "name": "$USER1$",
-      "value": "/usr/lib64/nagios/plugins",
-      "comment": "Nagios Plugins Path",
-      "activate": "1",
-      "instance": [
-        "Central"
-      ]
-    },
-    {
-      "id": "2",
-      "name": "$CENTREONPLUGINS$",
-      "value": "/usr/lib/centreon/plugins",
-      "comment": "Centreon Plugins Path",
-      "activate": "1",
-      "instance": [
-        "Central"
-      ]
-    }
-  ]
+    "result": [
+        {
+            "id": "1",
+            "name": "$USER1$",
+            "value": "/usr/lib64/nagios/plugins",
+            "comment": "Nagios Plugins Path",
+            "activate": "1",
+            "instance": [
+                "Central"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "$CENTREONPLUGINS$",
+            "value": "/usr/lib/centreon/plugins",
+            "comment": "Centreon Plugins Path",
+            "activate": "1",
+            "instance": [
+                "Central"
+            ]
+        }
+    ]
 }
 ```
 
 #### Add a RESOURCECFG object
 
-**POST**
+The `values` field follows: `macro-name;macro-value;poller-list;comment`
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+Pipe-separate poller names for multiple pollers.
 
-**Header**
+**Body:**
 
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "add",
     "object": "resourcecfg",
-    "values": "{macro name};{macro value};{poller related list};{comment}"
+    "values": "$MYMACRO$;my-value;Central|Poller-2;My custom macro"
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {"result":[]}
 ```
 
 #### Delete a RESOURCECFG object
 
-**POST**
+**Body:**
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "del",
     "object": "resourcecfg",
-    "values": "{macro ID}"
+    "values": "1"
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {"result":[]}
 ```
 
 #### Change a RESOURCECFG object
 
-**POST**
+The `values` field follows: `macro-id;parameter;new-value`
 
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+Valid parameters: `instance`, `comment`, `value`, `activate`
 
-**Header**
+**Body:**
 
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
     "action": "setparam",
     "object": "resourcecfg",
-    "values": "{macro ID};{parameter to change: instance,comment,value or activate};{value}"
+    "values": "1;value;/usr/lib/nagios/plugins"
 }
 ```
 
-**Response**
+**Response:**
 
-``` json
+```json
 {"result":[]}
 ```
 
+---
+
 ### Service templates
 
-  - **Object**
-    
-      - STPL
+Reusable service configurations that can be applied to multiple services.
 
-**Actions**
+**Object:** `STPL`
 
-    - show
-    - add
-    - del
-    - setparam
-    - gethosttemplate
-    - addhosttemplate
-    - sethosttemplate
-    - delhosttemplate
-    - getmacro
-    - setmacro
-    - delmacro
-    - getcontact
-    - addcontact
-    - setcontact
-    - delcontact
-    - getcontactgroup
-    - setcontactgroup
-    - delcontactgroup
-    - gettrap
-    - settrap
-    - deltrap
+**Available actions:** show, add, del, setparam, gethosttemplate, addhosttemplate, sethosttemplate, delhosttemplate, getmacro, setmacro, delmacro, getcontact, addcontact, setcontact, delcontact, getcontactgroup, setcontactgroup, delcontactgroup, gettrap, settrap, deltrap
 
-### Services
+#### List service templates
 
-  - **Object**
-    
-      - SERVICE
+**Body:**
 
-**Actions**
-
-    - show
-    - add
-    - del
-    - setparam
-    - addhost
-    - sethost
-    - delhost
-    - getmacro
-    - setmacro
-    - delmacro
-    - setseverity
-    - unsetseverity
-    - getcontact
-    - addcontact
-    - setcontact
-    - delcontact
-    - getcontactgroup
-    - setcontactgroup
-    - delcontactgroup
-    - gettrap
-    - settrap
-    - deltrap
-
-### Service groups
-
-  - **Object**
-    
-      - SG
-
-**Actions**
-
-    - show
-    - add
-    - del
-    - setparam
-    - getservice
-    - gethostgroupservice
-    - addservice
-    - setservice
-    - addhostgroupservice
-    - sethostgroupservice
-    - delservice
-    - delhostgroupservice
-
-### Service categories
-
-  - **Object**
-    
-      - SC
-
-**Actions**
-
-    - show
-    - add
-    - del
-    - setparam
-    - getservice
-    - getservicetemplate
-    - addservice
-    - setservice
-    - addservicetemplate
-    - setservicetemplate
-    - delservice
-    - delservicetemplate
-    - setseverity
-    - unsetseverity
-
-### Time periods
-
-  - **Object**
-    
-      - TIMEPERIOD
-
-**Actions**
-
-    - show
-    - add
-    - del
-    - setparam
-    - getexception
-    - setexception
-    - delexception
-
-### Traps
-
-  - **Object**
-    
-      - TRAP
-
-**Actions**
-
-    - show
-    - add
-    - del
-    - setparam
-    - getmatching
-    - addmatching
-    - delmatching
-    - updatematching
-
-#### Vendors
-
-  - **Object**
-    
-      - VENDOR
-
-**Actions**
-
-    - show
-    - add
-    - del
-    - setparam
-    - generatetraps
-
-#### Get business views
-
-**POST**
-
-    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
-
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Body**
-
-``` json
+```json
 {
-    "action":"show",
-    "object":"bv"
+    "action": "show",
+    "object": "STPL"
 }
 ```
 
-**Response**
+**Response:**
 
-The response is a JSON flow listing all hosts, formatted as follows: :
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "generic-service",
+            "alias": "Generic Service Template",
+            "activate": "1"
+        }
+    ]
+}
+```
 
-``` json
+#### Add service template
+
+The `values` field follows: `description;name;check-command`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "STPL",
+    "values": "Ping-template;Ping check template;check_centreon_ping"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+All relationship actions (getmacro, setmacro, getcontact, addcontact, etc.) follow the same patterns as [Host](#host). Substitute `STPL` for `HOST` in the object field.
+
+---
+
+### Services
+
+Individual monitoring checks associated with a specific host.
+
+**Object:** `SERVICE`
+
+**Available actions:** show, add, del, setparam, addhost, sethost, delhost, getmacro, setmacro, delmacro, setseverity, unsetseverity, getcontact, addcontact, setcontact, delcontact, getcontactgroup, setcontactgroup, delcontactgroup, gettrap, settrap, deltrap
+
+#### List services
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "SERVICE"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "host id": "79",
+            "host name": "mail-uranus-frontend",
+            "id": "1",
+            "description": "Ping",
+            "check command": "check_centreon_ping",
+            "activate": "1"
+        }
+    ]
+}
+```
+
+#### Add service
+
+The `values` field follows: `host-name;service-description;service-template`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "SERVICE",
+    "values": "mail-uranus-frontend;Ping;Ping-template"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
+
+### Service groups
+
+Logical groupings of services, used for filtering in views and for ACLs.
+
+**Object:** `SG`
+
+**Available actions:** show, add, del, setparam, getservice, gethostgroupservice, addservice, setservice, addhostgroupservice, sethostgroupservice, delservice, delhostgroupservice
+
+#### List service groups
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "SG"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "Mail-Services",
+            "alias": "Mail Services"
+        }
+    ]
+}
+```
+
+#### Add service group
+
+The `values` field follows: `name;alias`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "SG",
+    "values": "Mail-Services;Mail Services"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Add service to group
+
+The `values` field follows: `servicegroup-name;host-name,service-description`
+
+**Body:**
+
+```json
+{
+    "action": "addservice",
+    "object": "SG",
+    "values": "Mail-Services;mail-uranus-frontend,Ping"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
+
+### Service categories
+
+Groups services by functional category. Categories can have a severity level.
+
+**Object:** `SC`
+
+**Available actions:** show, add, del, setparam, getservice, getservicetemplate, addservice, setservice, addservicetemplate, setservicetemplate, delservice, delservicetemplate, setseverity, unsetseverity
+
+#### List service categories
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "SC"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "ping-services",
+            "description": "Ping checks",
+            "severity_level": "",
+            "severity_icon": ""
+        }
+    ]
+}
+```
+
+#### Add service category
+
+The `values` field follows: `name;description`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "SC",
+    "values": "ping-services;Ping checks"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
+
+### Time periods
+
+Defines time schedules used for check periods and notification periods.
+
+**Object:** `TIMEPERIOD`
+
+**Available actions:** show, add, del, setparam, getexception, setexception, delexception
+
+#### List time periods
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "TIMEPERIOD"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "24x7",
+            "alias": "Always",
+            "sunday": "00:00-24:00",
+            "monday": "00:00-24:00",
+            "tuesday": "00:00-24:00",
+            "wednesday": "00:00-24:00",
+            "thursday": "00:00-24:00",
+            "friday": "00:00-24:00",
+            "saturday": "00:00-24:00"
+        }
+    ]
+}
+```
+
+#### Add time period
+
+The `values` field follows: `name;alias`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "TIMEPERIOD",
+    "values": "business-hours;Business Hours"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+Then use `setparam` to define the time ranges for each day (e.g. `setparam;business-hours;monday;09:00-18:00`).
+
+#### Add exception
+
+An exception overrides the normal schedule for a specific date or date pattern (e.g. holidays).
+
+The `values` field follows: `timeperiod-name;exception-date-or-pattern;timerange`
+
+**Body:**
+
+```json
+{
+    "action": "setexception",
+    "object": "TIMEPERIOD",
+    "values": "business-hours;december 25;00:00-00:00"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
+
+### Traps
+
+Manages SNMP trap definitions that can trigger service state changes.
+
+**Object:** `TRAP`
+
+**Available actions:** show, add, del, setparam, getmatching, addmatching, delmatching, updatematching
+
+#### List traps
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "TRAP"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "linkDown",
+            "oid": ".1.3.6.1.6.3.1.1.5.3",
+            "manufacturer": "Generic",
+            "comments": "Link down trap"
+        }
+    ]
+}
+```
+
+#### Add trap
+
+The `values` field follows: `name;oid`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "TRAP",
+    "values": "linkDown;.1.3.6.1.6.3.1.1.5.3"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
+
+### Vendors
+
+Manages SNMP MIB vendors, used to organize traps by manufacturer.
+
+**Object:** `VENDOR`
+
+**Available actions:** show, add, del, setparam, generatetraps
+
+#### List vendors
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "VENDOR"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": [
+        {
+            "id": "1",
+            "name": "Generic",
+            "alias": "Generic SNMP MIBs",
+            "description": "Standard SNMP traps"
+        }
+    ]
+}
+```
+
+#### Add vendor
+
+The `values` field follows: `name;alias;description`
+
+**Body:**
+
+```json
+{
+    "action": "add",
+    "object": "VENDOR",
+    "values": "Generic;Generic SNMP MIBs;Standard SNMP traps"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+#### Generate traps from MIB
+
+Parses a MIB file for this vendor and imports its trap definitions.
+
+**Body:**
+
+```json
+{
+    "action": "generatetraps",
+    "object": "VENDOR",
+    "values": "Generic"
+}
+```
+
+**Response:**
+
+```json
+{
+    "result": []
+}
+```
+
+---
+
+### Get business views
+
+Business Views are logical groupings of Business Activities (requires the BAM module).
+
+**Body:**
+
+```json
+{
+    "action": "show",
+    "object": "BV"
+}
+```
+
+**Response:**
+
+```json
 {
     "result": [
         {
@@ -2194,214 +2864,221 @@ The response is a JSON flow listing all hosts, formatted as follows: :
 }
 ```
 
-## Realtime information
+---
+
+## Realtime API
+
+The Realtime API provides read-only access to live monitoring data. It uses **GET** requests (unlike the Configuration API which uses POST), with filter and field parameters passed in the query string.
+
+### Common request format
+
+**Endpoint:**
+
+```
+GET api.domain.tld/centreon/api/index.php?object=<object>&action=list[&param=value...]
+```
+
+**Headers:**
+
+| Key | Value |
+|-----|-------|
+| Content-Type | application/json |
+| centreon-auth-token | The token obtained from the authentication call |
+
+### Pagination
+
+Realtime endpoints support pagination via two query parameters:
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| limit | integer | 30 | Number of results per page |
+| number | integer | 0 | Page number (zero-based) |
+
+When the response contains fewer results than the `limit`, you have reached the last page.
+
+---
 
 ### Host Status
 
-All monitoring information regarding hosts is available through the Centreon
-API.
+Returns real-time status for monitored hosts.
 
-Using the GET method and the URL below:
+**Endpoint:**
 
-    api.domain.tld/centreon/api/index.php?object=centreon_realtime_hosts&action=list
+```
+GET api.domain.tld/centreon/api/index.php?object=centreon_realtime_hosts&action=list
+```
 
-**Header**
+**Query parameters:**
 
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
+| Parameter | Type | Values | Description |
+|-----------|------|--------|-------------|
+| viewType | string | `all`, `unhandled`, `problems` | Predefined filter matching the monitoring view |
+| fields | string | Comma-separated field names | Fields to include in the response (default: all) |
+| status | string | `up`, `down`, `unreachable`, `pending`, `all` | Filter by host status |
+| hostgroup | integer | Host group ID | Filter by host group |
+| instance | integer | Poller ID | Filter by poller instance |
+| search | string | Pattern | Filter applied to host name |
+| criticality | integer | Criticality ID | Filter by criticality level |
+| sortType | string | Any field name | Field to sort by |
+| order | string | `ASC`, `DESC` | Sort direction |
+| limit | integer | — | Results per page (default: 30) |
+| number | integer | — | Page number, zero-based (default: 0) |
 
-**Parameters**
+**Available fields:**
 
-You can pass a list of parameters in order to select the data you want.
+| Field | Type | Description |
+|-------|------|-------------|
+| id | integer | Host ID |
+| name | string | Host name |
+| alias | string | Host alias (description) |
+| address | string | IP address or hostname |
+| state | integer | Host state: 0=UP, 2=DOWN, 3=UNREACHABLE |
+| state\_type | integer | State type: 0=SOFT, 1=HARD |
+| output | string | Plugin output message |
+| max\_check\_attempts | integer | Maximum check attempts |
+| check\_attempt | integer | Current attempt count |
+| last\_check | timestamp | Last check time |
+| last\_state\_change | timestamp | Last state change time |
+| last\_hard\_state\_change | timestamp | Last HARD state change time |
+| acknowledged | boolean | Whether the host is acknowledged |
+| instance | string | Poller name |
+| instance\_id | integer | Poller ID |
+| criticality | integer | Criticality level |
+| passive\_checks | boolean | Whether passive checks are accepted |
+| active\_checks | boolean | Whether active checks are enabled |
+| notify | boolean | Whether notifications are enabled |
+| action\_url | string | Action URL shortcut |
+| notes\_url | string | Notes URL shortcut |
+| notes | string | Notes |
+| icon\_image | string | Icon image path |
+| icon\_image\_alt | string | Icon image alt text |
+| scheduled\_downtime\_depth | integer | Number of active downtimes |
+| flapping | boolean | Whether the host is flapping |
 
-| Parameters  | values                                                                             |
-| ----------- | ---------------------------------------------------------------------------------- |
-| viewType    | select the predefined filter like in the monitoring view: all, unhandled, problems |
-| fields      | the fields list that you want to get separated by a ","                            |
-| status      | the status of hosts that you want to get (up, down, unreachable, pending, all)     |
-| hostgroup   | hostgroup id filter                                                                |
-| instance    | instance id filter                                                                 |
-| search      | search pattern applyed on host name                                                |
-| criticality | a specific criticity                                                               |
-| sortType    | the sortType (selected in the field list)                                          |
-| order       | ASC ou DESC                                                                        |
-| limit       | number of line you want                                                            |
-| number      | page number                                                                        |
+**Example:**
 
-Field list :
+```
+GET api.domain.tld/centreon/api/index.php?object=centreon_realtime_hosts&action=list&limit=60&viewType=all&sortType=name&order=desc&fields=id,name,alias,address,state,output,next_check
+```
 
-| Fields                     | Description                              |
-| -------------------------- | ---------------------------------------- |
-| id                         | host id                                  |
-| name                       | host name                                |
-| alias                      | host alias (description of the host)     |
-| address                    | host address (domain name or ip)         |
-| state                      | host state (UP = 0, DOWN = 2, UNREA = 3) |
-| state\_type                | host state type (SOFT = 0, HARD = 1)     |
-| output                     | Plugin output - state message            |
-| max\_check\_attempts       | maximum check attempts                   |
-| check\_attempt             | current attempts                         |
-| last\_check                | last check time                          |
-| last\_state\_change        | last time the state change               |
-| last\_hard\_state\_change  | last time the state change in hard type  |
-| acknowledged               | acknowledged flag                        |
-| instance                   | name of the instance who check this host |
-| instance\_id               | id of the instance who check this host   |
-| criticality                | criticality fo this host                 |
-| passive\_checks            | accept passive results                   |
-| active\_checks             | active checks are enabled                |
-| notify                     | notification is enabled                  |
-| action\_url                | shortcut for action URL                  |
-| notes\_url                 | shortcut for note URL                    |
-| notes                      | note                                     |
-| icon\_image                | icone image for this host                |
-| icon\_image\_alt           | title of the image                       |
-| scheduled\_downtime\_depth | scheduled\_downtime\_depth               |
-| flapping                   | is the host flapping ?                   |
-
-Using the GET method and the URL below:
-
-    api.domain.tld/centreon/api/index.php?object=centreon_realtime_hosts&action=list&limit=60&viewType=all&sortType=name&order=desc&fields=id,name,alias,address,state,output,next_check
+---
 
 ### Service Status
 
-All monitoring information regarding services is available through the
-Centreon API. With this call, you can also get host information at the same
-time as service information. This web service provides the same possibility
-as the service monitoring view.
+Returns real-time status for monitored services. Each result also includes host information.
 
-Using the GET method and the URL below:
+**Endpoint:**
 
-    api.domain.tld/centreon/api/index.php?object=centreon_realtime_services&action=list
+```
+GET api.domain.tld/centreon/api/index.php?object=centreon_realtime_services&action=list
+```
 
-**Header**
+**Query parameters:**
 
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
+| Parameter | Type | Values | Description |
+|-----------|------|--------|-------------|
+| viewType | string | `all`, `unhandled`, `problems` | Predefined filter |
+| fields | string | Comma-separated field names | Fields to include (default: all) |
+| status | string | `ok`, `warning`, `critical`, `unknown`, `pending`, `all` | Filter by service status |
+| hostgroup | integer | Host group ID | Filter by host group |
+| servicegroup | integer | Service group ID | Filter by service group |
+| instance | integer | Poller ID | Filter by poller |
+| search | string | Pattern | Filter applied to service description |
+| searchHost | string | Pattern | Filter applied to host name |
+| searchOutput | string | Pattern | Filter applied to plugin output |
+| criticality | integer | Criticality ID | Filter by criticality level |
+| sortType | string | Any field name | Field to sort by |
+| order | string | `ASC`, `DESC` | Sort direction |
+| limit | integer | — | Results per page (default: 30) |
+| number | integer | — | Page number, zero-based (default: 0) |
 
-**Parameters**
+**Available fields:**
 
-You can pass a list of parameters in order to select the data you want.
+| Field | Type | Description |
+|-------|------|-------------|
+| host\_id | integer | Host ID |
+| host\_name | string | Host name |
+| host\_alias | string | Host alias |
+| host\_address | string | Host IP address |
+| host\_state | integer | Host state: 0=UP, 2=DOWN, 3=UNREACHABLE |
+| host\_state\_type | integer | Host state type: 0=SOFT, 1=HARD |
+| host\_output | string | Host plugin output |
+| host\_max\_check\_attempts | integer | Maximum check attempts for host |
+| host\_check\_attempt | integer | Current attempt count for host |
+| host\_last\_check | timestamp | Last check time for host |
+| host\_acknowledged | boolean | Whether the host is acknowledged |
+| instance | string | Poller name |
+| instance\_id | integer | Poller ID |
+| host\_action\_url | string | Host action URL shortcut |
+| host\_notes\_url | string | Host notes URL shortcut |
+| host\_notes | string | Host notes |
+| description | string | Service description (name) |
+| display\_name | string | Service display name |
+| service\_id | integer | Service ID |
+| state | integer | Service state: 0=OK, 1=WARNING, 2=CRITICAL, 3=UNKNOWN |
+| state\_type | integer | Service state type: 0=SOFT, 1=HARD |
+| output | string | Service plugin output |
+| perfdata | string | Performance data |
+| current\_attempt | integer | Current attempt count |
+| last\_update | timestamp | Last data update |
+| last\_state\_change | timestamp | Last state change |
+| last\_hard\_state\_change | timestamp | Last HARD state change |
+| next\_check | timestamp | Next scheduled check |
+| max\_check\_attempts | integer | Maximum check attempts for service |
+| action\_url | string | Service action URL shortcut |
+| notes\_url | string | Service notes URL shortcut |
+| notes | string | Service notes |
+| icon\_image | string | Service icon image path |
+| passive\_checks | boolean | Whether passive checks are accepted |
+| active\_checks | boolean | Whether active checks are enabled |
+| acknowledged | boolean | Whether the service is acknowledged |
+| notify | boolean | Whether notifications are enabled |
+| scheduled\_downtime\_depth | integer | Number of active downtimes |
+| flapping | boolean | Whether the service is flapping |
+| event\_handler\_enabled | boolean | Whether the event handler is enabled |
+| criticality | integer | Criticality level |
 
-| Parameters   | values                                                                                     |
-| ------------ | ------------------------------------------------------------------------------------------ |
-| viewType     | select the predefined filter like in the monitoring view: all, unhandled, problems         |
-| fields       | the fields list that you want to get separated by a ","                                    |
-| status       | the status of services that you want to get (ok, warning, critical, unknown, pending, all) |
-| hostgroup    | hostgroup id filter                                                                        |
-| servicegroup | servicegroup id filter                                                                     |
-| instance     | instance id filter                                                                         |
-| search       | search pattern applied on service                                                          |
-| searchHost   | search pattern applied on host                                                             |
-| searchOutput | search pattern applied on output                                                           |
-| criticality  | a specific criticity                                                                       |
-| sortType     | the sortType (selected in the field list)                                                  |
-| order        | ASC ou DESC                                                                                |
-| limit        | number of line you want                                                                    |
-| number       | page number                                                                                |
+**Example:**
 
-Field list :
+```
+GET api.domain.tld/centreon/api/index.php?action=list&object=centreon_realtime_services&limit=60&viewType=all&sortType=name&order=desc&fields=id,description,host_id,host_name,state,output
+```
 
-| Fields                     | Description                              |
-| -------------------------- | ---------------------------------------- |
-| host\_id                   | host id                                  |
-| host\_name                 | host name                                |
-| host\_alias                | host alias (description of the host)     |
-| host\_address              | host address (domain name or ip)         |
-| host\_state                | host state (UP = 0, DOWN = 2, UNREA = 3) |
-| host\_state\_type          | host state type (SOFT = 0, HARD = 1)     |
-| host\_output               | Plugin output - state message            |
-| host\_max\_check\_attempts | maximum check attempts for host          |
-| host\_check\_attempt       | current attempts                         |
-| host\_last\_check          | last check time                          |
-| host\_acknowledged         | acknowledged flag                        |
-| instance                   | name of the instance who check this host |
-| instance\_id               | id of the instance who check this host   |
-| host\_action\_url          | shortcut for action URL                  |
-| host\_notes\_url           | shortcut for note URL                    |
-| host\_notes                | note                                     |
-| description                | service description - service name       |
-| display\_name              | service display name                     |
-| service\_id                | service id                               |
-| state                      | service state                            |
-| state\_type                | service state type (SOFT = 0, HARD = 1)  |
-| output                     | service output returned by plugins       |
-| perfdata                   | service perfdata returned by plugins     |
-| current\_attempt           | maximum check attempts for the service   |
-| last\_update               | last update date for service             |
-| last\_state\_change        | last time the state change               |
-| last\_hard\_state\_change  | last time the state change in hard type  |
-| next\_check                | next check time for service              |
-| max\_check\_attempts       | maximum check attempts for service       |
-| action\_url                | shortcut for action URL                  |
-| notes\_url                 | shortcut for note URL                    |
-| notes                      | notes                                    |
-| icone\_image               | icone image for service                  |
-| passive\_checks            | accept passive results                   |
-| active\_checks             | active checks are enabled                |
-| acknowledged               | acknowledged flag                        |
-| notify                     | notification is enabled                  |
-| scheduled\_downtime\_depth | scheduled\_downtime\_depth               |
-| flapping                   | is the host flapping ?                   |
-| event\_handler\_enabled    | is the event-handfler enabled            |
-| criticality                | criticality fo this service              |
-
-Example:
-
-Using the GET method and the URL below:
-
-    api.domain.tld/centreon/api/index.php?action=list&object=centreon_realtime_services&limit=60&viewType=all&sortType=name&order=desc&fields=id,description,host_id,host_name,state,output
+---
 
 ### Submit results
 
-You can use the centreon API to submit information to the monitoring engine. All
-information that you submit will be forwarded to the centreon engine poller that
-hosts the configuration.
+Submits passive check results to the monitoring engine. Results are forwarded to the poller managing the target host or service.
 
-To provide information, Centreon needs to have specific and mandatory
-information.
+**Required permissions:** Administrator, or a user with "Reach API Configuration" enabled in their contact profile.
 
-The user must be admin or have access to "Reach API Configuration".
+**Endpoint:** `POST api.domain.tld/centreon/api/index.php?action=submit&object=centreon_submit_results`
 
-For the service submission please provide the following information :
+#### Service result fields
 
-| Fields              | Description                                              |
-| ------------------- | -------------------------------------------------------- |
-| host                | host name                                                |
-| service             | service description                                      |
-| status              | status ID (0, 1, 2, 3) or ok, warning, critical, unknown |
-| output              | a specific message                                       |
-| perfdata (optional) | all performance metric following the nagios plugin API   |
-| updatetime          | the check time (timestamp)                               |
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| host | string | Yes | Host name |
+| service | string | Yes | Service description |
+| status | string or integer | Yes | `0`/`ok`, `1`/`warning`, `2`/`critical`, `3`/`unknown` |
+| output | string | Yes | Status message |
+| perfdata | string | No | Performance data in Nagios plugin format |
+| updatetime | timestamp | Yes | Check time as a Unix timestamp |
 
-For the host submission please provide the following information :
+#### Host result fields
 
-| Fields     | Description                |
-| ---------- | -------------------------- |
-| host       | host name                  |
-| status     | status ID (0, 1, 2, 'up', 'down', 'unknown')     |
-| output     | a specific message         |
-| updatetime | the check time (timestamp) |
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| host | string | Yes | Host name |
+| status | string or integer | Yes | `0`/`up`, `1`/`down`, `2`/`unknown` |
+| output | string | Yes | Status message |
+| updatetime | timestamp | Yes | Check time as a Unix timestamp |
 
-To send status, please use the following URL using POST method:
+#### Example — submit service results
 
-    api.domain.tld/centreon/api/index.php?action=submit&object=centreon_submit_results
+**Body:**
 
-**Header**
-
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
-
-**Example of service body submit:** The body is a json with the parameters
-provided above formated as below:
-
-``` json
+```json
 {
     "results": [
         {
@@ -2409,31 +3086,43 @@ provided above formated as below:
             "host": "Centreon-Central",
             "service": "Memory",
             "status": "2",
-            "output": "The service is in CRITICAL state",
-            "perfdata": "perf=20"
+            "output": "CRITICAL: Memory usage at 95%",
+            "perfdata": "used=3800MB;3000;3500;0;4096"
         },
         {
             "updatetime": "1528884076",
             "host": "Centreon-Central",
-            "service": "fake-service",
+            "service": "CPU",
             "status": "1",
-            "output": "The service is in WARNING state",
-            "perfdata": "perf=10"
+            "output": "WARNING: CPU usage at 82%",
+            "perfdata": "cpu=82%;70;90;0;100"
         }
     ]
 }
 ```
 
-**Example of body response** The response body is a json with the HTTP
-return code and a message for each submit
+**Response:**
 
-``` json
+```json
 {
     "results": [
         {
             "code": 202,
             "message": "The status send to the engine"
         },
+        {
+            "code": 202,
+            "message": "The status send to the engine"
+        }
+    ]
+}
+```
+
+**Example error response (service not found):**
+
+```json
+{
+    "results": [
         {
             "code": 404,
             "message": "The service is not present."
@@ -2442,42 +3131,38 @@ return code and a message for each submit
 }
 ```
 
+---
+
 ### Business activity
 
-All monitoring information on Business Activities is available through
-the Centreon API. The BA list is sorted by *impact*.
+Returns real-time status for Business Activities (requires the BAM module). Results are sorted by impact.
 
-Use the GET method and URL below: :
+**Endpoint:**
 
-    api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_ba&action=list
+```
+GET api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_ba&action=list
+```
 
-**Header**
+**Query parameters:**
 
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| ba\_id | integer | Filter by BA ID |
+| search | string | Filter pattern on BA name |
+| business\_view | string | Filter pattern on business view name |
+| status | string | Filter by status: `OK`, `Warning`, `Critical`, `Unknown` (comma-separate for multiple) |
+| limit | integer | Results per page (default: 30) |
+| number | integer | Page number, zero-based (default: 0) |
 
-**Parameters**
+**Example:**
 
-You can pass a number of parameters to select the data you want.
+```
+GET api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_ba&action=list&status=ok&number=0&limit=2
+```
 
-| Parameters     | values                                                                                      |
-| -------------- | ------------------------------------------------------------------------------------------- |
-| ba\_id         | filter on BA ID                                                                             |
-| search         | filter pattern on BA name                                                                   |
-| business\_view | filter pattern on business view name                                                        |
-| status         | filter on BA status (OK, Warning, Critical, Unknown); multiple statuses separated by commas |
-| limit          | number of desired lines                                                                     |
-| number         | page number                                                                                 |
+**Response:**
 
-Use the GET method and URL below: :
-
-    api.domain.tld/centreon/api/index.php?object=centreon_bam_ba_realtime&action=list&status=ok&number=0&limit=2
-
-**Response**
-
-``` json
+```json
 [
     {
         "id": "49",
@@ -2517,51 +3202,52 @@ Use the GET method and URL below: :
 ]
 ```
 
-Additional information:
+**Response field descriptions:**
 
-  - current_status: 0 = OK, 1 = warning, 2 = Critical, 3 = Unknown
-  - current_impact: impact on linked BA in %
-  - number: page number (first page is 0)
-  - limit: page limit (default= 30)
+| Field | Description |
+|-------|-------------|
+| current\_status | 0=OK, 1=Warning, 2=Critical, 3=Unknown |
+| current\_level | Health level as a percentage (0–100) |
+| level\_w | Warning threshold |
+| level\_c | Critical threshold |
+| kpis | List of KPI IDs contributing to this BA |
+| number | Page number (first page is 0) |
+| limit | Page limit (default: 30) |
+
+---
 
 ### KPI
 
-All monitoring information for Key Performance Indicators(KPI) is
-available through the Centreon API. The kpi list is sorted by *impact*.
+Returns real-time status for Key Performance Indicators. Results are sorted by impact.
 
-Use the GET method and URL below: :
+**Endpoint:**
 
-    api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_kpi&action=list
+```
+GET api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_kpi&action=list
+```
 
-**Header**
+**Query parameters:**
 
-| Key                 | Value                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| Content-Type        | application/json                                              |
-| centreon-auth-token | The value of authToken you got on the authentication response |
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| kpi\_id | integer | Filter by KPI ID |
+| kpi\_search | string | Filter pattern on KPI name |
+| ba\_search | string | Filter pattern on BA name |
+| is\_impacting | boolean | Filter on impacting KPIs: `true`, `false` |
+| kpi\_status | string | Filter by KPI status: `ok`, `warning`, `critical`, `unknown` (comma-separate for multiple) |
+| ba\_status | string | Filter by BA status: `OK`, `Warning`, `Critical`, `Unknown` (comma-separate for multiple) |
+| limit | integer | Results per page (default: 30) |
+| number | integer | Page number, zero-based (default: 0) |
 
-**Parameters**
+**Example:**
 
-You can pass a number of parameters to select the data you want:
+```
+GET api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_kpi&action=list&kpi_status=ok,warning&number=0&limit=2
+```
 
-| Parameters    | values                                                                                                 |
-| ------------- | ------------------------------------------------------------------------------------------------------ |
-| kpi\_id       | filter on KPI ID                                                                                       |
-| kpi\_search   | filter pattern on KPI name                                                                             |
-| ba\_search    | filter pattern on BA name                                                                              |
-| is\_impacting | filter on impacting KPI (false, true)                                                                  |
-| kpi\_status   | filter on KPI status (ok, warning, critical, unknown) multiple statuses can be set separated by commas |
-| ba\_status    | filter on BA status (OK, Warning, Critical, Unknown) multiple status separated by commas               |
-| limit         | number of desired lines                                                                                |
-| number        | page number                                                                                            |
+**Response:**
 
-Use the GET method and URL below: :
-
-    api.domain.tld/centreon/api/index.php?object=centreon_bam_realtime_kpi&action=list&kpi_status=ok,warning&number=0&limit=2
-
-**Response**
-
-``` json
+```json
 [
     {
         "id": "366",
@@ -2630,13 +3316,14 @@ Use the GET method and URL below: :
 ]
 ```
 
-Additional information:
+**Response field descriptions:**
 
--   kpi\_type: 0 = service, 1 = metaservice, 2 = BA, 3 = boolean rule
--   kpi\_name: name of the kpi (\<host\> / \<service\> or
-    \<metaservice\> or \<ba_name\> or \<boolean_rule\>)
--   kpi\_current\_status: 0 = OK, 1 = Warning, 2 = Critical, 3 = Unknown
--   ba\_current\_status: 0 = OK, 1 = Warning, 2 = Critical, 3 = Unknown
--   current\_impact: impact on linked BA in %
--   number: page number (first page is 0)
--   limit: page limit (default= 30)
+| Field | Description |
+|-------|-------------|
+| type | KPI type: 0=service, 1=metaservice, 2=BA, 3=boolean rule |
+| current\_status | 0=OK, 1=Warning, 2=Critical, 3=Unknown |
+| ba\_current\_status | 0=OK, 1=Warning, 2=Critical, 3=Unknown |
+| current\_impact | Current impact on the linked BA (percentage) |
+| warning/critical/unknown\_impact | Configured impact weights |
+| number | Page number (first page is 0) |
+| limit | Page limit (default: 30) |
