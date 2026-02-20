@@ -19,6 +19,6 @@ Si vous ne mettez pas à jour votre collecteur, vous risquez de manquer d'import
 
 ## À quelle fréquence publiez-vous des mises à jour ?
 
-Nous publions régulièrement des mises à jour pour les collecteurs, en général une fois par mois, mais nous vous recommandons de consulter les [release notes de Centreon Collect OnPrem](/docs/releases/centreon-os#centreon-collect) toutes les semaines.
+Nous publions régulièrement des mises à jour pour les collecteurs, en général une fois par mois, mais nous vous recommandons de consulter les [release notes de Centreon Collect OnPrem](/docs/releases/centreon-os) toutes les semaines.
 
 Notez que toute modification impactante ("breaking change") sera annoncée directement dans l'interface de Centreon Cloud.

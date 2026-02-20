@@ -20,37 +20,8 @@ module.exports = {
               id: 'integrations/plugin-packs/getting-started/how-to-guides/plugin-customization'
             },
             {
-              type: 'category',
-              label: 'Centreon Monitoring Agent',
-              link: {
-                type: 'generated-index'
-              },
-              items: [
-                {
-                  type: 'doc',
-                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma'
-                },
-                {
-                  type: 'doc',
-                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-setup'
-                },
-                {
-                  type: 'doc',
-                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates'
-                },
-                {
-                  type: 'doc',
-                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-custom'
-                },
-                {
-                  type: 'doc',
-                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-migratenscpp'
-                },
-                {
-                  type: 'doc',
-                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-troubleshooting'
-                }
-              ]
+              type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma'
             },
             {
               type: 'doc',
@@ -180,10 +151,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-cassandra-jmx'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-monitoring-quanta-restapi'
         },
         {
           type: 'doc',
@@ -583,6 +550,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-quanta-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-rabbitmq-restapi'
         },
         {
@@ -760,6 +731,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-zookeeper-jmx'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-zscaler-zdx-api'
         }
       ]
     },
@@ -1587,10 +1562,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-hpe-athonet-alertmanager-api'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-athonet-epc-snmp'
         },
         {
@@ -1844,6 +1815,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fortinet-fortiadc-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortiauthenticator-restapi'
         },
         {
           type: 'doc',

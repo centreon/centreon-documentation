@@ -3,29 +3,29 @@ id: centreon-os
 title: Centreon Open Source
 ---
 
-import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
-
-## Introduction
-
-In this chapter, you can find all the changelogs concerning **Centreon Open Source**.
-
-> It is very important when you update your system to refer to this section in order to learn about behavior changes or
-> major changes that have been made on this version. This will inform you about the impact of installing these
-> versions on the features you use or the specific developments that you have built on your platform (modules,
-> widgets, plugins).
-
-If you have feature requests or want to report a bug, please go to our
-[Github](https://github.com/centreon/centreon/issues/new/choose).
-
-Read more about version 25.10 in our [blog post](https://www.centreon.com/centreon-announces-the-25-10-release-of-centreon-infra-monitoring-cornerstone-of-the-new-centreon-observability-platform/).
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll'; 
 
 <ExpandCollapseAll />
 
-## Centreon Web
+## Component version history
 
-### 25.10.7
+<details>
 
-Release date: `February 10, 2026`
+| Component | Releases |
+|----------|----------|
+| **Centreon Web** | [25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
+| **Centreon Collect** | [25.10.2 (January 29, 2026)](#centreon-collect-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-collect-25101) |
+| **Centreon Gorgone** | [25.10.3 (January 29, 2026)](#centreon-gorgone-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-gorgone-25102)<br/>[25.10.1 (November 17, 2025)](#centreon-gorgone-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-gorgone-25100) |
+| **Centreon Monitoring Agent** | [25.10.2 (January 29, 2026)](#centreon-monitoring-agent-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-monitoring-agent-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-monitoring-agent-25100)  |
+| **Centreon Open Tickets** | [25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
+| **Centreon AWIE** | [25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
+| **Centreon DSM** | [25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
+
+</details>
+
+## February 10, 2026
+
+### Centreon Web 25.10.7
 
 <details>
   <summary>Bug fixes</summary>
@@ -35,9 +35,9 @@ Release date: `February 10, 2026`
 
 </details>
 
-### 25.10.6
+## January 29, 2026
 
-Release date: `January 29, 2026`
+### Centreon Web 25.10.6
 
 <details open>
   <summary>Enhancements</summary>
@@ -93,9 +93,93 @@ Release date: `January 29, 2026`
 
 </details>
 
-### 25.10.5
+### Centreon Collect 25.10.2
 
-Release date: `January 15, 2026`
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Agent configuraiton - CMA Token is now mandatory in No TLS mode.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue that resulted in an error log when removing a service from a service group.
+- [Configuration] Fixed an issue that caused Engine to crash when trying to send a notification without contact address.
+- [Configuration] Fixed an issue where some outputs wer truncated for CMA checks.
+- [Configuration] Updated logrotate configuration to match packaging permissions.
+- [Engine] Fixed an issue that allowed external command executions to segfault.
+- [Engine] Fixed an issue where host severities were not removed from the `resources` table after deletion.
+- [Resource status] Fixed an issue with commands not being displayed for CMA Windows services.
+
+</details>
+
+### Centreon Gorgone 25.10.3
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CONFIG] Updated the logrotate configuration to match packaging permissions.
+
+</details>
+
+
+### Centreon Monitoring Agent 25.10.2
+
+> You need to remove the previous version of CMA before installing this one because the installer has changed (it now supports multiple instances and has built-in checks for custom scripts).
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Added a native check to allow the exection of custom scripts.
+- [CMA] Native checks - Windows - Services - added a filter for startup/service type and delayed services.
+- [CMA] Token is now mandatory in No TLS mode.
+- [CMA] Windows installer can now handle multiple instances of CMA on the same host.
+- [Packaging] Added a RHEL 10 package for CMA.
+
+</details>
+
+### Centreon Open Tickets 25.10.2
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Custom Views] Optimized performance when retrieving ACLs in widgets.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Custom Views] Open Ticket - Fixed filter on host categories.
+- [Dashboards] Resource Table widget - Fixed issue preventing custom providers from being used for ticket management.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [BREAKING CHANGE] [Open Tickets] Due to security concerns, it is no longer possible to define a custom command linked to a removed rule.
+- [Open Ticket] For enhanced security, two new configuration parameters have been introduced: 'SSL Verify Peer' and 'Certificate Authority Info'.
+
+</details>
+
+## January 26, 2026
+
+### Centreon AWIE 25.10.3
+
+<details>
+
+<summary>Bug fixes</summary>
+
+- [AWIE] Fixed an issue with the configuration import/export page that resulted in the "Uncaught ReferenceError: submitForm is not defined" message.
+
+</details>
+
+## January 15, 2026
+
+### Centreon Web 25.10.5
 
 <details>
 <summary>Bug fixes</summary>
@@ -111,9 +195,9 @@ Release date: `January 15, 2026`
 
 </details>
 
-### 25.10.4
+## December 31, 2025
 
-Release date: `December 31, 2025`
+### Centreon Web 25.10.4
 
 <details>
   <summary>Bug fixes</summary>
@@ -129,9 +213,19 @@ Release date: `December 31, 2025`
 
 </details>
 
-### 25.10.3
+### Centreon AWIE 25.10.2
 
-Release date: `December 23, 2025`
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an issue with the AWIE Export Module.
+- [Security] Fixed an issue with CLAPI Import.
+
+</details>
+
+## December 23, 2025
+
+### Centreon Web 25.10.3
 
 <details open>
   <summary>Enhancements</summary>
@@ -140,9 +234,9 @@ Release date: `December 23, 2025`
 
 </details>
 
-### 25.10.2
+## December 17, 2025
 
-Release date: `December 17, 2025`
+### Centreon Web 25.10.2
 
 <details open>
   <summary>Enhancements</summary>
@@ -187,7 +281,7 @@ Release date: `December 17, 2025`
 - [Custom Views - Host-Monitoring] Fixed an issue where only the current page was exported instead of all data
 - [Dashboards] Fixed an issue preventing dashboards to be filtered.
 - [Dashboards] Fixed an issue where host status icons were displayed incorrectly in the group monitoring widget.
-- [Dashboards] Resource Table widget - Fixed an issue with the host name positioning.```
+- [Dashboards] Resource Table widget - Fixed an issue with the host name positioning.
 - [Dashboards] Single Metric widget - Fixed an issue with the real-time retrieval of metric values.
 - [Gorgone] Clarified Apache logs when gorgone connection failed in discovery.
 - [Hosts] Fixed an error where the ACL Resource Groups field would lose its value and display a number instead of a string when a form error occurs.
@@ -216,9 +310,94 @@ Release date: `December 17, 2025`
 
 </details>
 
-### 25.10.1
+### Centreon Collect 25.10.1
 
-Release date: `November 10, 2025`
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] CMA will now take into account retry_interval and max_attempts.
+- [CMA] Freshness check are now taken into account.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue with RRD error messages being incorrectly added to the logfile.
+- [Engine] Fixed an issue where parameters are not correctly inherited from templates.
+
+</details>
+
+### Centreon Gorgone 25.10.2
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed Gorgone whitelist to allow NRPE service discovery.
+- [Packaging] Fixed an issue that cause an upgrade failure due to centreon-perl-libs being split into centreon-perl-libs and centreon-perl-libs-common.
+
+</details>
+
+### Centreon Monitoring Agent 25.10.1
+
+<details>
+  <summary>Bug fixes</summary>
+
+- CMA is now taking account retry_interval and max_attempts.
+
+</details>
+
+### Centreon AWIE 25.10.1
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Extensions] Fixed an issue on documentation links for extensions which were dont using versioning.
+
+</details>
+
+### Centreon DSM 25.10.1
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue with dsmd daemon being stuck on start.
+- [Translation] Added missing French translations.
+
+</details>
+
+### Centreon Open Tickets 25.10.1
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [GLPI] Fixed group retrieval when using versions 9.5 and above.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Open Tickets] Fixed an issue that exposed passwords when using EasyVista.
+- [Open Tickets] Fixed an issue preventing ticket from being closed when the corresponding resource had its status changed since the opening of the ticket.
+- [Translation] Added missing French translations.
+
+</details>
+
+## November 17, 2025
+
+### Centreon Gorgone 25.10.1
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Upgrade no longer fails because of centreon-perl-libs being split into centreon-perl-libs and centreon-perl-libs-common.
+
+</details>
+
+## November 10, 2025
+
+### Centreon Web 25.10.1
  
 <details>
   <summary>Security fixes</summary>
@@ -228,9 +407,9 @@ Release date: `November 10, 2025`
 
 </details>
 
-### 25.10.0
+## November 4, 2025
 
-Release date: `November 4, 2025`
+### Centreon Web 25.10.0
  
 <details open>
   <summary>Enhancements</summary>
@@ -334,55 +513,7 @@ Release date: `November 4, 2025`
 
 </details>
 
-## Centreon Collect
-
-### 25.10.2
-
-Release date: `January 29, 2026`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [CMA] Agent configuraiton - CMA Token is now mandatory in No TLS mode.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Broker] Fixed an issue that resulted in an error log when removing a service from a service group.
-- [Configuration] Fixed an issue that caused Engine to crash when trying to send a notification without contact address.
-- [Configuration] Fixed an issue where some outputs wer truncated for CMA checks.
-- [Configuration] Updated logrotate configuration to match packaging permissions.
-- [Engine] Fixed an issue that allowed external command executions to segfault.
-- [Engine] Fixed an issue where host severities were not removed from the `resources` table after deletion.
-- [Resource status] Fixed an issue with commands not being displayed for CMA Windows services.
-
-</details>
-
-### 25.10.1
-
-Release date: `December 17, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [CMA] CMA will now take into account retry_interval and max_attempts.
-- [CMA] Freshness check are now taken into account.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Broker] Fixed an issue with RRD error messages being incorrectly added to the logfile.
-- [Engine] Fixed an issue where parameters are not correctly inherited from templates.
-
-</details>
-
-### 25.10.0
-
-Release date: `November 4, 2025`
+### Centreon Collect 25.10.0
 
 <details open>
   <summary>Enhancements</summary>
@@ -424,39 +555,16 @@ Release date: `November 4, 2025`
 
 </details>
 
-## Centreon Monitoring Agent
-
-### 25.10.2
-
-Release date: `January 29, 2026`
-
-> You need to remove the previous version of CMA before installing this one because the installer has changed (it now supports multiple instances and has built-in checks for custom scripts).
+### Centreon Gorgone 25.10.0
 
 <details open>
   <summary>Enhancements</summary>
 
-- [CMA] Added a native check to allow the exection of custom scripts.
-- [CMA] Native checks - Windows - Services - added a filter for startup/service type and delayed services.
-- [CMA] Token is now mandatory in No TLS mode.
-- [CMA] Windows installer can now handle multiple instances of CMA on the same host.
-- [Packaging] Added a RHEL 10 package for CMA.
+- [Gorgone] Added the ability to fetch configuration credentials from a vault.
 
 </details>
 
-### 25.10.1
-
-Release date: `December 17, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- CMA is now taking account retry_interval and max_attempts.
-
-</details>
-
-### 25.10.0
-
-Release date: `November 4, 2025`
+### Centreon Monitoring Agent 25.10.0
 
 <details open>
   <summary>Enhancements</summary>
@@ -471,93 +579,7 @@ Release date: `November 4, 2025`
 
 </details>
 
-## Centreon Gorgone
-
-### 25.10.3
-
-Release date: `January 29, 2026`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [CONFIG] Updated the logrotate configuration to match packaging permissions.
-
-</details>
-
-### 25.10.2
-
-Release date: `December 17, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Gorgone] Fixed Gorgone whitelist to allow NRPE service discovery.
-- [Packaging] Fixed an issue that cause an upgrade failure due to centreon-perl-libs being split into centreon-perl-libs and centreon-perl-libs-common.
-
-</details>
-
-### 25.10.1
-
-Release date: `November 17, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Packaging] Upgrade no longer fails because of centreon-perl-libs being split into centreon-perl-libs and centreon-perl-libs-common.
-
-</details>
-
-### 25.10.0
-
-Release date: `November 4, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Gorgone] Added the ability to fetch configuration credentials from a vault.
-
-</details>
-
-## Centreon AWIE
-
-### 25.10.3
-
-Release date: `January 26, 2026`
-
-<details>
-
-<summary>Bug fixes</summary>
-
-- [AWIE] Fixed an issue with the configuration import/export page that resulted in the "Uncaught ReferenceError: submitForm is not defined" message.
-
-</details>
-
-### 25.10.2
-
-Release date: `December 31, 2025`
-
-<details>
-  <summary>Security fixes</summary>
-
-- [Security] Fixed an issue with the AWIE Export Module.
-- [Security] Fixed an issue with CLAPI Import.
-
-</details>
-
-### 25.10.1
-
-Release date: `December 17, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Extensions] Fixed an issue on documentation links for extensions which were dont using versioning.
-
-</details>
-
-### 25.10.0
-
-Release date: `November 4, 2025`
+### Centreon AWIE 25.10.0
 
 <details open>
   <summary>Enhancements</summary>
@@ -566,97 +588,7 @@ Release date: `November 4, 2025`
 
 </details>
 
-## Centreon DSM
-
-### 25.10.1
-
-Release date: `December 17, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [DSM] Fixed an issue with dsmd daemon being stuck on start.
-- [Translation] Added missing French translations.
-
-</details>
-
-### 25.10.0
-
-<details>
-  <summary>Security fixes</summary>
-
-- [Vulnerability] Fixed an XSS vulnerability in the Extensions Dynamic Services Configure page.
-
-</details>
-
-Release date: `November 4, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Core] Updated PHP dependencies to 8.2 version.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Packaging] SQL files are now correctly packaged on centreon-dsm.
-
-</details>
-
-## Centreon Open Tickets
-
-### 25.10.2
-
-Release date: `January 29, 2026`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Custom Views] Optimized performance when retrieving ACLs in widgets.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Custom Views] Open Ticket - Fixed filter on host categories.
-- [Dashboards] Resource Table widget - Fixed issue preventing custom providers from being used for ticket management.
-
-</details>
-
-<details>
-  <summary>Security fixes</summary>
-
-- [BREAKING CHANGE] [Open Tickets] Due to security concerns, it is no longer possible to define a custom command linked to a removed rule.
-- [Open Ticket] For enhanced security, two new configuration parameters have been introduced: 'SSL Verify Peer' and 'Certificate Authority Info'.
-
-</details>
-
-### 25.10.1
-
-Release date: `December 17, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [GLPI] Fixed group retrieval when using versions 9.5 and above.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Open Tickets] Fixed an issue that exposed passwords when using EasyVista.
-- [Open Tickets] Fixed an issue preventing ticket from being closed when the corresponding resource had its status changed since the opening of the ticket.
-- [Translation] Added missing French translations.
-
-</details>
-
-### 25.10.0
-
-Release date: `November 4, 2025`
+### Centreon Open Tickets 25.10.0
 
 <details open>
   <summary>Enhancements</summary>
@@ -673,10 +605,25 @@ Release date: `November 4, 2025`
 
 </details>
 
-## Centreon High Availability
+### Centreon DSM 25.10.0
 
-### 25.10.1
+<details>
+  <summary>Security fixes</summary>
 
-Release date: `December 17, 2025`
+- [Vulnerability] Fixed an XSS vulnerability in the Extensions Dynamic Services Configure page.
 
-- No changes for this module in this version.
+</details>
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Core] Updated PHP dependencies to 8.2 version.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] SQL files are now correctly packaged on centreon-dsm.
+
+</details>

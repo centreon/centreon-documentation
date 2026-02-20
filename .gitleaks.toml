@@ -18,5 +18,6 @@ paths = [
 
 regexTarget = "match"
 regexes = [
-  '''ABCDEFG1234567890'''
+  '''ABCDEFG1234567890''',
+  '''deactivation/expiration/revocation'''
 ]
