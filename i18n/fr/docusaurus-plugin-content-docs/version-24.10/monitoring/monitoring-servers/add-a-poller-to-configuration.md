@@ -29,8 +29,6 @@ configuration.
     - **Create new Poller** si vous n'avez pas encore enregistré le collecteur sur le serveur central ou un serveur distant
     - **Select a Poller** si vous avez déjà enregistré le collecteur sur le serveur central ou un serveur distant.
 
-4. En haut à gauche de votre écran, cliquez sur **Collecteurs** puis sur **Exporter la configuration**. 
-
 Si le collecteur qui vous êtes en train d'ajouter sera en flux inversé, vous devez maintenant exporter la configuration de votre central. En haut à gauche de votre écran, cliquez sur **Collecteurs** puis sur **Exporter la configuration**. 
 
 4. Saisissez le nom, l'adresse du collecteur (IP ou FQDN) et celle du serveur central, puis

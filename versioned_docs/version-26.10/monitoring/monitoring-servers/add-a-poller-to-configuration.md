@@ -25,8 +25,6 @@ poller to the Centreon platform.
     - **Create new poller** if you haven't registered the poller yet on the central or remote server
     - **Select a poller** if you have already registered the poller on the central or remote server.
 
-4. On the top left of your screen, click on **Pollers**, then click on **Export configuration**.
-
 If the poller your are adding will be used in reverse flow, you must now export the configuration of your central server. In the top left of your screen, click on **Pollers**, then click on **Export configuration**.
 
 4. Type in the name, the address of the new poller (IP or FQDN), and the IP address of the central
