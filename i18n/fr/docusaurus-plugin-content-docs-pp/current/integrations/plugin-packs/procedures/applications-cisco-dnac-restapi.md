@@ -1,14 +1,13 @@
 ---
-id: applications-cisco-ise-restapi
-title: Cisco ISE
+id: applications-cisco-dnac-restapi
+title: Cisco DNA Center Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Cisco ISE**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Cisco DNA Center Rest API**
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -16,21 +15,22 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Cisco ISE** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco DNA Center Rest API** apporte un modèle d'hôte :
 
-* **App-Cisco-Ise-Restapi-custom**
+* **App-Cisco-Dnac-Restapi-custom**
 
-Le connecteur apporte le modèle de service suivant
-(classé selon le modèle d'hôte auquel il est rattaché) :
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="App-Cisco-Ise-Restapi-custom" label="App-Cisco-Ise-Restapi-custom">
+<TabItem value="App-Cisco-Dnac-Restapi-custom" label="App-Cisco-Dnac-Restapi-custom">
 
-| Alias   | Modèle de service                    | Description                                                                                     |
-|:--------|:-------------------------------------|:------------------------------------------------------------------------------------------------|
-| Session | App-Cisco-Ise-Session-Restapi-custom | Contrôle le nombre de sessions actives, de terminaux conformes, de sessions du service Profiler |
+| Alias           | Modèle de service                             | Description                      |
+|:----------------|:----------------------------------------------|:---------------------------------|
+| Network-Devices | App-Cisco-Dnac-Network-Devices-Restapi-custom | Contrôle les équipements réseau |
+| Sites           | App-Cisco-Dnac-Sites-Restapi-custom           | Contrôle les sites               |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Cisco-Ise-Restapi-custom** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Cisco-Dnac-Restapi-custom** est utilisé.
 
 </TabItem>
 </Tabs>
@@ -40,34 +40,28 @@ Le connecteur apporte le modèle de service suivant
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Session" label="Session">
+<TabItem value="Network-Devices" label="Network-Devices">
 
-| Nom                      | Unité |
-|:-------------------------|:------|
-| sessions.active.count    | count |
-| endpoints.postured.count | count |
-| sessions.profiler.count  | count |
+| Nom                         | Unité |
+|:----------------------------|:------|
+| network.devices.total.count | count |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+</TabItem>
+<TabItem value="Sites" label="Sites">
+
+| Nom                                             | Unité |
+|:------------------------------------------------|:------|
+| *sites*~site.network.devices.healthy.count      | count |
+| *sites*~site.network.devices.healthy.percentage | %     |
+| *sites*~site.clients.healthy.count              | count |
+| *sites*~site.clients.healthy.percentage         | %     |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-L'utilisateur renseigné dans la macro d'hôte
-doit faire partie des groupes Admin suivants et les informations
-d'identification doivent être stockées dans la base de données interne de Cisco
-ISE (utilisateurs administratifs internes)
-
-* Super Admin
-* System Admin
-* MnT Admin
-
-De plus, le collecteur Centreon en charge de la supervision des ressources doit
-également pouvoir joindre l'API Rest de Cisco ISE sur le(s) port(s) TCP/80 ou
-TCP/443. Plus d'informations sur le site officiel de Cisco :
-https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-monitoring-rest-apis/verifying-a-monitoring-node.
+Afin de superviser l'application Cisco DNA Center, l'API Rest doit être configurée comme indiqué dans [la documentation officielle](https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-overview).
 
 ## Installer le connecteur de supervision
 
@@ -85,34 +79,34 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-cisco-ise-restapi
+dnf install centreon-pack-applications-cisco-dnac-restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-cisco-ise-restapi
+dnf install centreon-pack-applications-cisco-dnac-restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-applications-cisco-ise-restapi
+apt install centreon-pack-applications-cisco-dnac-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-cisco-ise-restapi
+yum install centreon-pack-applications-cisco-dnac-restapi
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco ISE**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco DNA Center Rest API**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -130,28 +124,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Applications-Cisco-Ise-Restapi
+dnf install centreon-plugin-Applications-Cisco-Dnac-Restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Applications-Cisco-Ise-Restapi
+dnf install centreon-plugin-Applications-Cisco-Dnac-Restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-applications-cisco-ise-restapi
+apt install centreon-plugin-applications-cisco-dnac-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Applications-Cisco-Ise-Restapi
+yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 ```
 
 </TabItem>
@@ -163,17 +157,16 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **App-Cisco-Ise-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+3. Appliquez le modèle d'hôte **App-Cisco-Dnac-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro          | Description                                                                                                                | Valeur par défaut | Obligatoire |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| ISEAPIUSERNAME | Set API username                                                                                                           |                   | X           |
-| ISEAPIPASSWORD | Set API password                                                                                                           |                   | X           |
-| ISEAPIPROTO    | Specify https if needed (default: 'https')                                                                                 | https             |             |
-| ISEAPIPORT     | API port (default: 443)                                                                                                    | 443               |             |
-| ISEAPIURLPATH  | API url path (default: '/admin/API/mnt')                                                                                   | /admin/API/mnt    |             |
-| ISECUSTOMMODE  | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | xmlapi            |             |
+| Macro               | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:--------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| DNACAPIUSERNAME     | Set username                                                                                         | username          | X           |
+| DNACAPIPASSWORD     | Set password                                                                                                     | password          |             |
+| DNACAPIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
+| DNACAPIPORT         | Port used (default: 443)                                                                             | 443               |             |
+| DNACAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -183,18 +176,46 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Session" label="Session">
+<TabItem value="Network-Devices" label="Network-Devices">
 
-| Macro                           | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCOUNTERS                  | Only display some counters (regexp can be used). (example: --filter-counters='active')             |                   |             |
-| WARNINGACTIVESESSIONS           | Threshold                                                                                          |                   |             |
-| CRITICALACTIVESESSIONS          | Threshold                                                                                          |                   |             |
-| WARNINGPOSTUREDENDPOINTS        | Threshold                                                                                          |                   |             |
-| CRITICALPOSTUREDENDPOINTS       | Threshold                                                                                          |                   |             |
-| WARNINGPROFILERSERVICESESSIONS  | Threshold                                                                                          |                   |             |
-| CRITICALPROFILERSERVICESESSIONS | Threshold                                                                                          |                   |             |
-| EXTRAOPTIONS                    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro                                             | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:--------------------------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCATEGORYNAME                                | Filter categories by name (can be a regexp)                                                        |                   |             |
+| WARNINGCATEGORYDEVICESHEALTHBADUSAGE              | Threshold                                                                                          |                   |             |
+| CRITICALCATEGORYDEVICESHEALTHBADUSAGE             | Threshold                                                                                          |                   |             |
+| WARNINGCATEGORYDEVICESHEALTHBADUSAGEPRCT          | Threshold                                                                                          |                   |             |
+| CRITICALCATEGORYDEVICESHEALTHBADUSAGEPRCT         | Threshold                                                                                          |                   |             |
+| WARNINGCATEGORYDEVICESHEALTHFAIRUSAGE             | Threshold                                                                                          |                   |             |
+| CRITICALCATEGORYDEVICESHEALTHFAIRUSAGE            | Threshold                                                                                          |                   |             |
+| WARNINGCATEGORYDEVICESHEALTHFAIRUSAGEPRCT         | Threshold                                                                                          |                   |             |
+| CRITICALCATEGORYDEVICESHEALTHFAIRUSAGEPRCT        | Threshold                                                                                          |                   |             |
+| WARNINGCATEGORYDEVICESHEALTHGOODUSAGE             | Threshold                                                                                          |                   |             |
+| CRITICALCATEGORYDEVICESHEALTHGOODUSAGE            | Threshold                                                                                          |                   |             |
+| WARNINGCATEGORYDEVICESHEALTHGOODUSAGEPRCT         | Threshold                                                                                          |                   |             |
+| CRITICALCATEGORYDEVICESHEALTHGOODUSAGEPRCT        | Threshold                                                                                          |                   |             |
+| WARNINGCATEGORYDEVICESHEALTHUNMONITOREDUSAGE      | Threshold                                                                                          |                   |             |
+| CRITICALCATEGORYDEVICESHEALTHUNMONITOREDUSAGE     | Threshold                                                                                          |                   |             |
+| WARNINGCATEGORYDEVICESHEALTHUNMONITOREDUSAGEPRCT  | Threshold                                                                                          |                   |             |
+| CRITICALCATEGORYDEVICESHEALTHUNMONITOREDUSAGEPRCT | Threshold                                                                                          |                   |             |
+| WARNINGDEVICESTOTAL                               | Threshold                                                                                          |                   |             |
+| CRITICALDEVICESTOTAL                              | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS                                      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Sites" label="Sites">
+
+| Macro                               | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSITENAME                      | Filter sites by name (can be a regexp)                                                             |                   |             |
+| WARNINGSITECLIENTSHEALTHYUSAGE      | Threshold                                                                                                   |                   |             |
+| CRITICALSITECLIENTSHEALTHYUSAGE     | Threshold                                                                                                   |                   |             |
+| WARNINGSITECLIENTSHEALTHYUSAGEPRCT  | Threshold                                                                                                   |                   |             |
+| CRITICALSITECLIENTSHEALTHYUSAGEPRCT | Threshold                                                                                                   |                   |             |
+| WARNINGSITEDEVICESHEALTHYUSAGE      | Threshold                                                                                                   |                   |             |
+| CRITICALSITEDEVICESHEALTHYUSAGE     | Threshold                                                                                                   |                   |             |
+| WARNINGSITEDEVICESHEALTHYUSAGEPRCT  | Threshold                                                                                                   |                   |             |
+| CRITICALSITEDEVICESHEALTHYUSAGEPRCT | Threshold                                                                                                   |                   |             |
+| EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -210,29 +231,41 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_cisco_ise_restapi.pl \
-	--plugin=apps::cisco::ise::restapi::plugin \
-	--mode=session \
-	--custommode='xmlapi' \
-	--hostname=10.0.0.1 \
-	--url-path='/admin/API/mnt' \
-	--username='xxxxxx' \
-	--password='xxxxxx' \
+/usr/lib/centreon/plugins/centreon_cisco_dnac_restapi.pl \
+	--plugin=apps::cisco::dnac::restapi::plugin \
+	--mode=network-devices \
+	--hostname='10.0.0.1' \
+	--api-username='username' \
+	--api-password='password' \
 	--port='443' \
-	--proto='https' \
-	--filter-counters='' \
-	--warning-active-sessions='' \
-	--critical-active-sessions='' \
-	--warning-postured-endpoints='' \
-	--critical-postured-endpoints='' \
-	--warning-profiler-service-sessions='' \
-	--critical-profiler-service-sessions=''
+	--proto='https'  \
+	--filter-category-name='' \
+	--warning-category-devices-health-unmonitored-usage='' \
+	--critical-category-devices-health-unmonitored-usage='' \
+	--warning-category-devices-health-unmonitored-usage-prct='' \
+	--critical-category-devices-health-unmonitored-usage-prct='' \
+	--warning-category-devices-health-good-usage='' \
+	--critical-category-devices-health-good-usage='' \
+	--warning-category-devices-health-good-usage-prct='' \
+	--critical-category-devices-health-good-usage-prct='' \
+	--warning-category-devices-health-bad-usage='' \
+	--critical-category-devices-health-bad-usage='' \
+	--warning-category-devices-health-bad-usage-prct='' \
+	--critical-category-devices-health-bad-usage-prct='' \
+	--warning-devices-total='' \
+	--critical-devices-total='' \
+	--warning-category-devices-health-fair-usage='' \
+	--critical-category-devices-health-fair-usage='' \
+	--warning-category-devices-health-fair-usage-prct='' \
+	--critical-category-devices-health-fair-usage-prct='' \
+	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Active sessions: 13228 Postured endpoints: 17362 Profiler service sessions: 28764 | 'sessions.active.count'=13228;;;0; 'endpoints.postured.count'=17362;;;0; 'sessions.profiler.count'=28764;;;0;
+OK: total: 42214 | 'network.devices.total.count'=42214;;;0;
+
 ```
 
 ### Diagnostic des erreurs communes
@@ -251,31 +284,27 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_cisco_ise_restapi.pl \
-	--plugin=apps::cisco::ise::restapi::plugin \
+/usr/lib/centreon/plugins/centreon_cisco_dnac_restapi.pl \
+	--plugin=apps::cisco::dnac::restapi::plugin \
 	--list-mode
 ```
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                   | Modèle de service associé            |
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------|
-| session [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/cisco/ise/restapi/mode/session.pm)] | App-Cisco-Ise-Session-Restapi-custom |
+| Mode                                                                                                                                   | Modèle de service associé                     |
+|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/cisco/dnac/restapi/mode/discovery.pm)]            | Not used in this Monitoring Connector         |
+| network-devices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/cisco/dnac/restapi/mode/networkdevices.pm)] | App-Cisco-Dnac-Network-Devices-Restapi-custom |
+| sites [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/cisco/dnac/restapi/mode/sites.pm)]                    | App-Cisco-Dnac-Sites-Restapi-custom           |
 
 ### Options disponibles
 
-#### Options des modes
+#### Options génériques
 
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
-
-<Tabs groupId="sync">
-<TabItem value="Session" label="Session">
+Les options génériques sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters                          |   Only display some counters (regexp can be used). (example: --filter-counters='active')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --warning-*                                |   Warning threshold. Can be: 'active-sessions', 'postured-endpoints', 'profiler-service-sessions'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --critical-*                               |   Critical threshold. Can be: 'active-sessions', 'postured-endpoints', 'profiler-service-sessions'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -291,8 +320,12 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
 | --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -308,18 +341,51 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --hostname                                 |   API hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --url-path                                 |   API url path (default: '/admin/API/mnt')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --port                                     |   API port (default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --redis-server                             |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --redis-attribute                          |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --redis-db                                 |   Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --failback-file                            |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --memexpiration                            |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-dir                            |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --statefile-suffix                         |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-concat-cwd                     |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --hostname                                 |   Set hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --port                                     |   Port used (default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --proto                                    |   Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --username                                 |   Set API username                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --password                                 |   Set API password                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --timeout                                  |   Set HTTP timeout                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --api-username                             |   Set username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --api-password                             |   Set password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  |   Set timeout in seconds (default: 50).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Network-Devices" label="Network-Devices">
+
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                 |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-category-name   |   Filter categories by name (can be a regexp).                                                                                                                                                                                                                                                                                                                                              |
+| --warning-* --critical-* |   Thresholds. Can be: 'category-devices-health-good-usage', 'category-devices-health-good-usage-prct', 'category-devices-health-unmonitored-usage', 'category-devices-health-unmonitored-usage-prct',  'category-devices-health-fair-usage', 'category-devices-health-fair-usage-prct', 'category-devices-health-bad-usage', 'category-devices-health-bad-usage-prct',  'devices-total'.    |
+
+</TabItem>
+<TabItem value="Sites" label="Sites">
+
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                 |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-site-name       |   Filter sites by name (can be a regexp).                                                                                                                                                                                                                                                                                                                                                   |
+| --use-site-fullname      |   Use site fullname (with parents name).                                                                                                                                                                                                                                                                                                                                                    |
+| --warning-* --critical-* |   Thresholds. Can be: 'category-devices-health-good-usage', 'category-devices-health-good-usage-prct', 'category-devices-health-unmonitored-usage', 'category-devices-health-unmonitored-usage-prct',  'category-devices-health-fair-usage', 'category-devices-health-fair-usage-prct', 'category-devices-health-bad-usage', 'category-devices-health-bad-usage-prct',  'devices-total'.    |
 
 </TabItem>
 </Tabs>
@@ -328,8 +394,8 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_cisco_ise_restapi.pl \
-	--plugin=apps::cisco::ise::restapi::plugin \
-	--mode=session \
+/usr/lib/centreon/plugins/centreon_cisco_dnac_restapi.pl \
+	--plugin=apps::cisco::dnac::restapi::plugin \
+	--mode=network-devices \
 	--help
 ```

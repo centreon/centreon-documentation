@@ -109,6 +109,11 @@ module.exports = {
        ]
     },
     {
+          type: 'doc',
+          id: 'api',
+          label: 'API'
+    },
+    {
           "collapsed": true,
           "type": "category",
           "label": "Resources",
@@ -120,7 +125,7 @@ module.exports = {
           type: 'doc',
           id: 'resources/glossary'
         }
-       ]
+      ]
     }
   ]
 }
