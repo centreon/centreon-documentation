@@ -104,6 +104,43 @@ const config = {
   projectName: 'Centreon Documentation',
   trailingSlash: true,
 
+  headTags: [
+  {
+    tagName: 'script',
+    attributes: { type: 'text/javascript' },
+    innerHTML: `
+      !function(){
+        if(!window.QTABMR || !window.QTABMR.version && !window.QTABMR.snippetExecuted){
+          window.QTABMR = window.QTABMR || {};
+          window.QTABMR.snippetStart = (new Date).getTime();
+          window.QTABMR.snippetExecuted = true;
+          window.QTABMR.snippetVersion = 12;
+          QTABMR_URL = "https://appstatic.quanta.io/rum/10133/quanta-rum-v2.0.0.min.js";
+          QTABMR_BEACON_URL = "https://rum-metrics.quanta.io/d4d67133f0642283feb69f56a3bbcadd9d7cd45ec7f03b02a5/beacon.gif";
+          window.QTABMR.jserr = 0;
+          window.addEventListener("error", function(){ window.QTABMR.jserr++; }, false);
+          var s = document.currentScript || document.getElementsByTagName("script")[0], c = false;
+          var e = document.createElement("link");
+          if(e.relList && typeof e.relList.supports === "function" && "as" in e){
+            window.QTABMR.snippetMethod = "p";
+            e.href = QTABMR_URL;
+            e.rel = "preload";
+            e.as = "script";
+            e.addEventListener("load", function o(){ if(!c){ var e = document.createElement("script"); e.id = "boomr-scr-as"; e.src = QTABMR_URL; e.async = true; s.parentNode.appendChild(e); c = true; }});
+            e.addEventListener("error", function(){ t(true); });
+            setTimeout(function(){ if(!c) t(true); }, 3000);
+            QTABMR_lstart = (new Date).getTime();
+            s.parentNode.appendChild(e);
+          } else t(false);
+          window.addEventListener ? window.addEventListener("load", n, false) : window.attachEvent && window.attachEvent("onload", n);
+        }
+        function t(e){ c = true; var d = document, a = window; window.QTABMR.snippetMethod = e ? "if" : "i"; var n = function(e,t){ var n = d.createElement("script"); n.id = t || "boomr-if-as"; n.src = QTABMR_URL; QTABMR_lstart = (new Date).getTime(); (e = e || d.body).appendChild(n); }; if(!window.addEventListener && window.attachEvent && navigator.userAgent.match(/MSIE [67]./)){ window.QTABMR.snippetMethod = "s"; n(s.parentNode, "boomr-async"); } else { var o = document.createElement("IFRAME"); o.src = "about:blank"; o.title = ""; o.role = "presentation"; o.loading = "eager"; var i = (o.frameElement || o).style; i.width = 0; i.height = 0; i.border = 0; i.display = "none"; s.parentNode.appendChild(o); try{ a = o.contentWindow; d = a.document.open(); } catch(r){ t = document.domain; o.src = "javascript:var d=document.open();d.domain='" + t + "';void 0;"; a = o.contentWindow; d = a.document.open(); } if(t){ d._boomrl = function(){ this.domain = t; n(); }; d.write(""); } else { a._boomrl = function(){ n(); }; a.addEventListener ? a.addEventListener("load", a._boomrl, false) : a.attachEvent && a.attachEvent("onload", a._boomrl); } d.close(); } }
+        function n(e){ window.QTABMR_onload = e && e.timeStamp || (new Date).getTime(); }
+      }();
+    `,
+  },
+],
+
   noIndex: false,
 
   i18n: {
