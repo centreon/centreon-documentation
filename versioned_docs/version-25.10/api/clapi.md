@@ -3672,7 +3672,6 @@ You may edit the following parameters:
 | notification\_interval         | Notification interval                                                  |
 | notification\_options          | Notification options                                                   |
 | notification\_period           | Notification period                                                    |
-| recovery\_notification\_delay  | Recovery notification delay                                            |
 | obsess\_over\_host             | Whether or not obsess over host option is enabled                      |
 | passive\_checks\_enabled       | Whether or not passive checks are enabled                              |
 | retain\_nonstatus\_information | Whether or not there is non-status retention                           |
