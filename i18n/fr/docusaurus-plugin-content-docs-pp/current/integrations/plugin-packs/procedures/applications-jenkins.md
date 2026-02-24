@@ -47,7 +47,7 @@ Ce modèle d'hôte n'est lié à aucun modèle de service.
 
 | Nom de la règle          | Description |
 |:-------------------------|:------------|
-| App-Jenkins-Api-Job-Name | Découvre les jobs et supervise le statut            |
+| App-Jenkins-Api-Job-Name | Découvre les jobs et supervise leur statut            |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
