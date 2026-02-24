@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 | AppSharing-Qoe     | App-Lync-2013-AppSharing-Qoe-Mssql-custom | Contrôle les métriques du partage d'application Qoe dans la base Lync dédiée                                        |
 | Lync-Audio-Qoe     | App-Lync-2013-Audio-Qoe-Mssql-custom      | Contrôle les métriques Audio Qoe dans la base Lync dédiée                                                           |
 | Lync-Poor-Calls    | App-Lync-2013-Poor-Calls-Mssql-custom     | Contrôle le nombre d'appels de basse qualité durant les X dernières minutes de manière globale et par utilisateur |
-| Lync-Session-Types | App-Lync-2013-Session-Types-Mssql-custom  | Contrôle le nombre de sessions de chaque types durant les X dernières minutes                                     |
+| Lync-Session-Types | App-Lync-2013-Session-Types-Mssql-custom  | Contrôle le nombre de sessions de chaque type durant les X dernières minutes                                     |
 | Lync-User-Count    | App-Lync-2013-User-Count-Mssql-custom     | Contrôle le nombre d'utilisateurs sur un serveur Lync FrontEnd                                                    |
 | Lync-Video-Qoe     | App-Lync-2013-Video-Qoe-Mssql-custom      | Contrôle les métriques Qoe dans la base Lync dédiée                                                                 |
 
