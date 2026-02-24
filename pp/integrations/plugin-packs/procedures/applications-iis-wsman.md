@@ -1,6 +1,6 @@
 ---
 id: applications-iis-wsman
-title: Microsoft IIS WSMAN
+title: Microsoft IIS Server WSMAN
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -41,7 +41,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                           | Description |
 |:------------------------------------|:------------|
-| App-Iis-WSMAN-Application-Pool-Name | Discover application pools and monitor status            |
+| App-Iis-WSMAN-Application-Pool-Name | Discover application pools and monitor their status            |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
