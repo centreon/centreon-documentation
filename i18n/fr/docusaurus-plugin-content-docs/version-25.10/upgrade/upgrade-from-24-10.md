@@ -41,6 +41,12 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Supprimez les fichiers des dépôts :
 
    ```shell
@@ -61,6 +67,12 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
+
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
 
 2. Supprimez les fichiers des dépôts :
 
@@ -148,6 +160,8 @@ systemctl stop cbd
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
+
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 7. Videz le cache :
 
@@ -585,10 +599,31 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 
-## Montée de version des Remote Servers
+## Montée de version des serveurs distants
 
-Cette procédure est identique à la montée de version d'un serveur Centreon
-Central.
+Cette procédure est identique à celle utilisée pour effectuer la montée de version d'un serveur Centreon Central, avec en plus la nécessité de récupérer la clé de déchiffrement à la fin.
+
+### Récupération de la clé de déchiffrement
+
+Exécutez le script suivant avec l'adresse IP du serveur central afin de permettre au serveur distant de recevoir et traiter des données chiffrées : 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Exemple:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
+
+Redémarrez **centengine**:
+
+```shell
+systemctl restart centengine
+```
 
 > En fin de mise à jour, la configuration doit être déployée depuis le serveur Central.
 
@@ -602,6 +637,8 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 ```
 
@@ -609,6 +646,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 ```
 
@@ -616,6 +655,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon*
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 apt update
 ```
@@ -690,19 +730,23 @@ systemctl restart centreon
 
 ### Récupération de la clé de déchiffrement
 
-Exécutez le script suivant afin de permettre au collecteur de recevoir et traiter des données chiffrées : 
+Exécutez le script suivant avec l'adresse IP correspondante afin de permettre au collecteur de recevoir et traiter des données chiffrées.
+
+L'adresse IP à utiliser varie selon les conditions suivantes :
+- Lorsque vous mettez à jour un collecteur lié directement au server central, utilisez l'adresse IP du serveur central.
+- Lorsque vous mettez à jour un collecteur lié à un serveur distant, utilisez l'adresse IP du serveur distant. Cependant, dans ce cas, confirmez d'abord que le server distant a la bonne clé. Vérifiez que la valeur de `app_secret` dans le fichier `/etc/centreon-engine/engine-context.json` du serveur distant est la même que pour le serveur central. Si ce n'est pas le cas, relancez le script avec l'adresse IP pour corriger le fichier .json.
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
 ```
 
-Example:
+Exemple:
 
 ``` shell
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> Vous devez utiliser le compte **admin** par défaut en tant que **\<API_ACCOUNT\>**.
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
 
 Redémarrez **centengine**:
 

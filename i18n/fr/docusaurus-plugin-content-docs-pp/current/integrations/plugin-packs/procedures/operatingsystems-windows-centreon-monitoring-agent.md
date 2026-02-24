@@ -4,10 +4,25 @@ title: Windows CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 Le connecteur **Windows CMA** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent - CMA). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
-Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
+Pour plus d'informations sur le fonctionnement de l'agent lui-même:
+
+<Tabs groupId="version" queryString>
+<TabItem value="OnPrem" label="OnPrem">
+
+Lisez [la documentation CMA pour Centreon OnPrem](/docs/cma).
+(Ce lien vous redirige vers la dernière version de la documentation OnPrem. Utilisez le sélecteur de version dans le coin supérieur droit pour passer à une autre version si nécessaire.)
+
+</TabItem>
+<TabItem value="Cloud" label="Cloud">
+
+Lisez [la documentation CMA pour Centreon Cloud](/cloud/cma/cma-setup).
+
+</TabItem>
+</Tabs>
 
 ## Contenu du pack
 
@@ -36,6 +51,7 @@ Le connecteur apporte les modèles de service suivants
 | Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    | natif            |
 | Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Contrôle si des mises à jour sont en attente                                                                                                                              | non natif        |
 | Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Contrôle la durée depuis laquelle le serveur tourne sans interruption                                                                                                     | natif            |
+| Custom-Script  | OS-Windows-Custom-Script-Centreon-Monitoring-Agent-custom  | Contrôle permettant d'exécuter un script personnalisé sur l'hôte supervisé                                                                                                | non natif        |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom** est utilisé.
 
@@ -251,31 +267,17 @@ Pas de métrique pour ce service.
 | uptime | s     |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+Pas de métrique pour ce service.
+
+</TabItem>
+
 </Tabs>
 
 ## Prérequis
 
-### Flux réseau
-
-Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
-
-| Source         | Destination | Protocole | Port | Objet                                                                       |
-|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
-| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
-
-### Prérequis système pour le collecteur
-
-> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la version--> `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent récupérera sa configuration en se connectant à Centreon Engine.
-
-### Configuration de la communication collecteur/agent
-
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
-
-### Prérequis système pour l'hôte à superviser
-
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur
-[cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte)
+<CMAprerequisites />
 
 ## Installer le connecteur de supervision
 
@@ -525,6 +527,9 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
 | FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
 | EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service           |             |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                   |             |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                   |             |
 | WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
 | CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
 | WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
@@ -544,6 +549,9 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
 | FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
 | EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service           |             |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                   |             |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                   |             |
 | WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
 | CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
 | WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
@@ -645,6 +653,30 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600              |             |
 | CRITICALUPTIME | Critical threshold                                                                                   | 600               |             |
 
+</TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+| Macro          | Description                                                                                          | Default value | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CUSTOMCHECK    | Name of the custom check to use                                                                      |               | X         |
+| ARG1           | Extra argument 1 to pass to the custom check command                                                 |               |           |
+| ARG2           | Extra argument 2 to pass to the custom check command                                                 |               |           |
+| ARG3           | Extra argument 3 to pass to the custom check command                                                 |               |           |
+| ARG4           | Extra argument 4 to pass to the custom check command                                                 |               |           |
+| ARG5           | Extra argument 5 to pass to the custom check command                                                 |               |           |
+| ARG6           | Extra argument 6 to pass to the custom check command                                                 |               |           |
+| ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
+| ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
+
+> Les commandes sont définies dans un fichier de configuration dédié utilisant un format compatible avec NSClient / NRPE.
+> Le chemin d'accès à ce fichier est configuré via le programme d'installation ou le registre à l'aide du paramètre **custom_check_file**.
+> Pour mettre à jour les commandes, modifiez le fichier et rechargez l'agent.
+
+```cmd
+[custom_checks]
+check_echo = /usr/bin/echo "$ARG1$ $ARG2$"
+custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
+```
 </TabItem>
 </Tabs>
 

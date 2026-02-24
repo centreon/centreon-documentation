@@ -11,3 +11,4 @@ Please include a short summary of the changes and what is the purpose of the PR.
 - [ ] Cloud
 - [ ] Monitoring Connectors
 - [ ] DEM
+- [ ] Log Management

@@ -8,7 +8,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  dependency-scan:
+    uses: centreon/security-tools/.github/workflows/dependency-analysis.yml@main
+
   deploy:
+    needs: [dependency-scan]
     runs-on: infrastructure
 
     name: Deploy to production

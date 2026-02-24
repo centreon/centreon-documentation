@@ -34,9 +34,6 @@ In the language selection box, choose your language:
 
 Then click **Save**. Your interface is now translated.
 
-> If your language doesn't appear in the available language list, you can help the Centreon community to translate
-> the web interface. For more details go to  [How to translate Centreon](../../developer/developer-translate-centreon.md).
-
 ## Reset your password
 
 Only local accounts can change their password via the Centreon interface. If you connect using an identity provider, your password is the one you defined with your identity provider.

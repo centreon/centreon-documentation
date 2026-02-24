@@ -4,10 +4,25 @@ title: Linux CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 Le connecteur **Linux CMA** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent - CMA). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
-Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
+Pour plus d'informations sur le fonctionnement de l'agent lui-même:
+
+<Tabs groupId="version" queryString>
+<TabItem value="OnPrem" label="OnPrem">
+
+Lisez [la documentation CMA pour Centreon OnPrem](/docs/cma).
+(Ce lien vous redirige vers la dernière version de la documentation OnPrem. Utilisez le sélecteur de version dans le coin supérieur droit pour passer à une autre version si nécessaire.)
+
+</TabItem>
+<TabItem value="Cloud" label="Cloud">
+
+Lisez [la documentation CMA pour Centreon Cloud](/cloud/cma/cma-setup).
+
+</TabItem>
+</Tabs>
 
 ## Contenu du pack
 
@@ -23,14 +38,15 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="OS-Linux-Centreon-Monitoring-Agent-custom" label="OS-Linux-Centreon-Monitoring-Agent-custom">
 
-| Alias  | Modèle de service                                | Description                                                                                                                                                               | Type de contrôle |
-|:-------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
-| Cpu    | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif |
-| Load   | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Contrôle de la charge serveur                                                                                                                                             |non natif |
-| Memory | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |non natif |
-| Ntp    | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |non natif |
-| Swap   | OS-Linux-Swap-Centreon-Monitoring-Agent-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |non natif |
-| Uptime | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |non natif |
+| Alias  | Modèle de service                                                | Description                                                                                                                                                               | Type de contrôle |
+|:-------|:-----------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
+| Cpu    | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom                    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif |
+| Load   | OS-Linux-Load-Centreon-Monitoring-Agent-custom                   | Contrôle de la charge serveur                                                                                                                                             |non natif |
+| Memory | OS-Linux-Memory-Centreon-Monitoring-Agent-custom                 | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |non natif |
+| Ntp    | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom                    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |non natif |
+| Swap   | OS-Linux-Swap-Centreon-Monitoring-Agent-custom                   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |non natif |
+| Uptime | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom                 | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |non natif |
+| Custom-Script | OS-Linux-Custom-Script-Centreon-Monitoring-Agent-custom   | Contrôle permettant d'exécuter un script personnalisé sur l'hôte supervisé                                                                                                |non natif |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom** est utilisé.
 
@@ -301,32 +317,16 @@ Pas de métrique pour ce service.
 | system.uptime.seconds | s     |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+Pas de métrique pour ce service.
+
+</TabItem>
 </Tabs>
 
 ## Prérequis
 
-### Flux réseau
-
-Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
-
-| Source         | Destination | Protocole | Port | Objet                                                                       |
-|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
-| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
-
-### Prérequis système pour le collecteur
-
-> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la version--> `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent récupérera sa configuration en se connectant à Centreon Engine.
-
-### Configuration de la communication collecteur/agent
-
-Configurez la
-[communication](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent) entre le collecteur et l'agent.
-
-### Prérequis système pour l'hôte à superviser
-
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Linux est détaillée
-[dans la page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte). (Cela comprend l'installation de l'agent et l'installation des plugins qui permettront d'exécuter les contrôles non natifs).
+<CMAprerequisites />
 
 ## Installer le connecteur de supervision
 
@@ -377,7 +377,7 @@ depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de
 <Tabs groupId="sync">
 <TabItem value="Version OnPrem 24.10.6 ou plus récente" label="Version OnPrem 24.10.6 ou plus récente">
 
-Pour cette version, aucune configuration n'est nécessaire. Passez à l'[étape suivante](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
+Pour cette version, aucune configuration n'est nécessaire. Passez à [l'étape suivante](#plugin).
 
 </TabItem>
 <TabItem value="Version OnPrem antérieure à la 24.10.6" label="Version OnPrem antérieure à la 24.10.6">
@@ -702,6 +702,32 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+| Macro          | Description                                                                                          | Default value | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CUSTOMCHECK    | Name of the custom check to use                                                                      |               | X         |
+| ARG1           | Extra argument 1 to pass to the custom check command                                                 |               |           |
+| ARG2           | Extra argument 2 to pass to the custom check command                                                 |               |           |
+| ARG3           | Extra argument 3 to pass to the custom check command                                                 |               |           |
+| ARG4           | Extra argument 4 to pass to the custom check command                                                 |               |           |
+| ARG5           | Extra argument 5 to pass to the custom check command                                                 |               |           |
+| ARG6           | Extra argument 6 to pass to the custom check command                                                 |               |           |
+| ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
+| ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
+
+> Les commandes sont définies dans un fichier dédié sur l'hôte.
+> Le chemin d'accès à ce fichier est fourni dans centagent.json à l'aide du paramètre custom_check_file.
+> Pour mettre à jour les commandes, modifiez le fichier et rechargez l'agent.
+
+```cmd
+[custom_checks]
+check_echo = /usr/bin/echo "$ARG1$ $ARG2$"
+custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
+```
+
+</TabItem>
+
 </Tabs>
 
 3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.

@@ -39,7 +39,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 ## Montée de version du serveur Centreon Central
 
-> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+> Lorsque vous lancez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
 ### Installation du nouveau dépôt Centreon
 
@@ -47,6 +47,12 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
+
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el8/centreon-23.04-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
 
 2. Supprimez les fichiers des dépôts :
 
@@ -68,6 +74,12 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
+
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el9/centreon-23.04-el9.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
 
 2. Supprimez les fichiers des dépôts :
 
@@ -666,6 +678,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
@@ -673,6 +686,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
 ```
 

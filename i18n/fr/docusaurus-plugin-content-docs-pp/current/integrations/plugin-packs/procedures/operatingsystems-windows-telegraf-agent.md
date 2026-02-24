@@ -132,7 +132,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 
 ### Configuration de Centreon Engine
 
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/telegraf.md#configurez-engine).
 
 ### Prérequis système sur l'hôte à superviser
 

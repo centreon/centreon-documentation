@@ -19,8 +19,6 @@ La page d'accueil affiche la liste des cartes existantes et vous pouvez visualis
 
 Vous pouvez effectuer des actions sur chaque carte standard et chaque vue géographique à laquelle vous avez accès. Suivez ces procédures si vous souhaitez modifier les propriétés d'une carte, la partager ou la supprimer.
 
-> Les fonctionnalités de partage et de copie d'URL d'une carte ne sont pas disponibles sur une vue géographique.
-
 ### Dupliquer une carte
 
 Cliquez sur le menu avec les trois points verticaux en haut à droite de la carte, puis cliquez sur **Dupliquer**.

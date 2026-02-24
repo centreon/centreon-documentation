@@ -39,7 +39,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 ## Montée de version du serveur Centreon Central
 
-> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+> Lorsque vous lancez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
 ### Installation du nouveau dépôt Centreon
 
@@ -47,6 +47,12 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Mettez à jour votre Centreon 22.10 jusqu'à la dernière version mineure.
+
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
 
 2. Supprimez le fichier **centreon-22.10.repo** :
 
