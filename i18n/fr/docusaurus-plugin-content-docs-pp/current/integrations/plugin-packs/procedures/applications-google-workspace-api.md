@@ -69,7 +69,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Le collecteur Centreon doit pouvoir joindre les serveurs Google (www.google.com) sur Internet sur le port TCP/443 (HTTPS).
+Le collecteur Centreon doit pouvoir joindre les serveurs Google (www.google.com) sur internet sur le port TCP/443 (HTTPS).
 Il est possible de spécifier un proxy à utiliser le cas échéant.
 
 ## Installer le connecteur de supervision

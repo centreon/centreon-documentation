@@ -67,7 +67,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The Centreon Poller that will be used to monitor Google Workspace must be able to reach the related servers (www.google.com) on the Internet
+The Centreon poller that will be used to monitor Google Workspace must be able to reach the related servers (www.google.com) on the internet
 using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
 
 ## Installing the monitoring connector
