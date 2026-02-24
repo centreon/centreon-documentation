@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                    | Service Description      |
 |:--------------|:------------------------------------|:-------------------------|
-| Temperatures  | App-Hddtemp-Temperatures-Tcp-custom | Check drive temperatures |
+| Temperatures  | App-Hddtemp-Temperatures-Tcp-custom | Check drive temperature |
 
 > The services listed above are created automatically when the **App-Hddtemp-Tcp-custom** host template is used.
 
@@ -50,7 +50,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To use this Pack, install the Hddtemp utility on your Linux server. Most of the
+To use this Pack, install the Hddtemp utility on your Linux server. Most
 distributions make it available as a standard package.
 
 ## Installing the monitoring connector

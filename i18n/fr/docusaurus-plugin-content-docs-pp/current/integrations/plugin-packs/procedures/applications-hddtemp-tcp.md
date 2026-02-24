@@ -52,7 +52,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ## Prérequis
 
 Pour utiliser ce Pack, il est nécessaire d'installer l'utilitaire Hddtemp sur le
-serveur Linux à superviser. La plupart des distributions offre un paquet dans son
+serveur Linux à superviser. La plupart des distributions offrent un paquet dans son
 socle standard.
 
 ## Installer le connecteur de supervision
