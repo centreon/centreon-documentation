@@ -43,8 +43,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                      | Description |
 |:-------------------------------------|:------------|
-| App-Ibmmq-Restapi-Queue-Manager-Name | Découvre les queues manager et supervise les statistiques            |
-| App-Ibmmq-Restapi-Queue-Name         | Découvre les queues et supervise les statistiques            |
+| App-Ibmmq-Restapi-Queue-Manager-Name | Découvre les queue managers et en supervise les statistiques            |
+| App-Ibmmq-Restapi-Queue-Name         | Découvre les queues et en supervise les statistiques            |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -75,9 +75,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler votre application IBM MQ, l'API Rest doit être configurée (cf: https://www.ibm.com/docs/en/ibm-mq/9.0?topic=api-getting-started-administrative-rest).
+Afin de superviser votre application IBM MQ, l'API Rest doit être configurée (cf: https://www.ibm.com/docs/en/ibm-mq/9.0?topic=api-getting-started-administrative-rest).
 
-Le Pack supporte uniquement une authentification basique.
+Le connecteur supporte uniquement une authentification basique.
 
 ## Installer le connecteur de supervision
 

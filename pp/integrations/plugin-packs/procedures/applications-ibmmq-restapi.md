@@ -42,8 +42,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                            | Description |
 |:-------------------------------------|:------------|
-| App-Ibmmq-Restapi-Queue-Manager-Name | Discover queue managers and monitor statistics            |
-| App-Ibmmq-Restapi-Queue-Name         | Discover queues and monitor statistics            |
+| App-Ibmmq-Restapi-Queue-Manager-Name | Discover queue managers and monitor their statistics            |
+| App-Ibmmq-Restapi-Queue-Name         | Discover queues and monitor their statistics            |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -74,10 +74,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To control your IBM MQ, the Rest API must be configured.
-E.g: https://www.ibm.com/docs/en/ibm-mq/9.0?topic=api-getting-started-administrative-rest
+To monitor your IBM MQ, the Rest API must be configured.
+Read https://www.ibm.com/docs/en/ibm-mq/9.0?topic=api-getting-started-administrative-rest
 
-The Pack supports only the basic authentification.
+The connector supports only the basic authentification mode.
 
 ## Installing the monitoring connector
 
