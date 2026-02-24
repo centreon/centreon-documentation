@@ -46,7 +46,7 @@ This host template is not linked to any service template.
 
 | Rule name                | Description |
 |:-------------------------|:------------|
-| App-Jenkins-Api-Job-Name | Discover jobs and monitor status            |
+| App-Jenkins-Api-Job-Name | Discover jobs and monitor their status            |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
