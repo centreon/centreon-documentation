@@ -32,7 +32,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                         | Service Description                                    |
 |:---------------------|:-----------------------------------------|:-------------------------------------------------------|
-| System-Notifications | App-Graylog-Notifications-Restapi-custom | Check Graylog server system notifications via Rest Api |
+| System-Notifications | App-Graylog-Notifications-Restapi-custom | Check Graylog server system notifications via Rest API |
 
 > The services listed above are created automatically when the **App-Graylog-Restapi-custom** host template is used.
 
@@ -41,7 +41,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                 | Service Description                                         |
 |:--------------|:---------------------------------|:------------------------------------------------------------|
-| Query         | App-Graylog-Query-Restapi-custom | Check Lucene query matches on a Graylog server via Rest Api |
+| Query         | App-Graylog-Query-Restapi-custom | Check Lucene query matches on a Graylog server via Rest API |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 

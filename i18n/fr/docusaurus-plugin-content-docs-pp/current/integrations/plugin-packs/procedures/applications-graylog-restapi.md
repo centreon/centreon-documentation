@@ -75,7 +75,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Un compte de service est requis pour interroger l'API Rest Graylog:
 le rôle "Reader" est suffisant pour obtenir les métriques sur les
-notifications systèmes. Cependant, un compte avec le rôle "admin" est nécessaire
+notifications système. Cependant, un compte avec le rôle "admin" est nécessaire
 pour effectuer les requêtes Lucène sur le serveur Graylog.
 
 Plus d'informations sur le site officiel de Graylog :
