@@ -107,8 +107,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Please install Spring Boot Actuator module: https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
-Ask to your admin to deploy it and give you the URL.
+Please install the Spring Boot Actuator module: https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html.
+Ask your admin to deploy it and to give you the URL.
 
 ## Installing the monitoring connector
 

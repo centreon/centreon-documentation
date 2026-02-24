@@ -28,9 +28,9 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                       | Description                                                           |
 |:----------------|:----------------------------------------|:----------------------------------------------------------------------|
 | Class-Count     | App-Jvm-Class-Count-Actuator-custom     | Contrôle permettant de vérifier l'utilisation des classes de la JVM   |
-| Cpu-Load        | App-Jvm-Cpu-Load-Actuator-custom        | Contrôle permettant de vérifier l'utilisation cpu de la JVM           |
+| Cpu-Load        | App-Jvm-Cpu-Load-Actuator-custom        | Contrôle permettant de vérifier l'utilisation CPU de la JVM           |
 | Fd-Usage        | App-Jvm-Fd-Usage-Actuator-custom        | Contrôle permettant de vérifier l'utilisation des file descriptors    |
-| Load-Average    | App-Jvm-Load-Average-Actuator-custom    | Contrôle permettant de vérifier la 'load' système                     |
+| Load-Average    | App-Jvm-Load-Average-Actuator-custom    | Contrôle permettant de vérifier la charge système                     |
 | Memory          | App-Jvm-Memory-Actuator-custom          | Contrôle permettant de vérifier la mémoire Java ('NonHeap' et 'Heap') |
 | Memory-Detailed | App-Jvm-Memory-Detailed-Actuator-custom | Contrôle permettant de vérifier les pools de mémoire Java             |
 | Threads         | App-Jvm-Threads-Actuator-custom         | Contrôle les threads                                                  |
@@ -108,8 +108,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Veuiller installer le module Spring Boot Actuator: https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
-Demander à votre administrateur de le déployer et de vous fournir l'adresse.
+Veuillez installer le module Spring Boot Actuator: https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html.
+Demandez à votre administrateur de le déployer et de vous en fournir l'adresse.
 
 ## Installer le connecteur de supervision
 
