@@ -5,11 +5,6 @@ title: Graylog
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Graylog is a leading centralized log management solution built to open standards
-for capturing, storing, and enabling real-time analysis of terabytes of machine
-data.
 
 ## Connector dependencies
 
