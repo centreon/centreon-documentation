@@ -54,7 +54,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                      | Description                                          |
 |:-------------------------------|:-----------------------------------------------------|
-| Cloud-Azure-Management-Budgets | Discover Azure Budgets and monitor their consumption |
+| Cloud-Azure-Management-Budgets | Discover Azure budgets and monitor their consumption |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).

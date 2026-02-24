@@ -55,7 +55,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                | Description                                             |
 |:-------------------------------|:--------------------------------------------------------|
-| Cloud-Azure-Management-Budgets | Découvre les Budget Azure et supervise leur utilisation |
+| Cloud-Azure-Management-Budgets | Découvre les budgets Azure et supervise leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
