@@ -7,8 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Google Workspace est une suite d'outils et de logiciels de productivité de type Cloud computing et de groupware destinée aux professionnels,
-proposée par Google sous la forme d'un abonnement.
 
 ## Dépendances du connecteur de supervision
 
