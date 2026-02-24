@@ -3694,7 +3694,6 @@ You may edit the following parameters:
 | retry\_check\_interval         | Retry check interval                                                   |
 | snmp\_community                | Snmp Community                                                         |
 | snmp\_version                  | Snmp version                                                           |
-| stalking\_options              | Comma separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
 | statusmap\_image               | Status map image (used by statusmap)                                   |
 | host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
 | timezone                       | Timezone                                                               |
@@ -3767,7 +3766,6 @@ You may edit the following parameters:
 | retry\_check\_interval         | Retry check interval                                                   |
 | snmp\_community                | Snmp Community                                                         |
 | snmp\_version                  | Snmp version                                                           |
-| stalking\_options              | Comma separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
 | statusmap\_image               | Status map image (used by statusmap)                                   |
 | host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
 | timezone                       | Timezone                                                               |
