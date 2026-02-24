@@ -28,10 +28,10 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                  | Description                                                           |
 |:----------------|:-----------------------------------|:----------------------------------------------------------------------|
 | Class-Count     | App-Jvm-Class-Count-JMX-custom     | Contrôle permettant de vérifier l'utilisation des classes de la JVM   |
-| Cpu-Load        | App-Jvm-Cpu-Load-JMX-custom        | Contrôle permettant de vérifier l'utilisation cpu de la JVM           |
+| Cpu-Load        | App-Jvm-Cpu-Load-JMX-custom        | Contrôle permettant de vérifier l'utilisation CPU de la JVM           |
 | Fd-Usage        | App-Jvm-Fd-Usage-JMX-custom        | Contrôle permettant de vérifier l'utilisation des file descriptors    |
 | Gc-Usage        | App-Jvm-Gc-Usage-JMX-custom        | Contrôle permettant de vérifier l'utilisation des garbage collectors  |
-| Load-Average    | App-Jvm-Load-Average-JMX-custom    | Contrôle permettant de vérifier la 'load' système                     |
+| Load-Average    | App-Jvm-Load-Average-JMX-custom    | Contrôle permettant de vérifier la charge système                     |
 | Memory          | App-Jvm-Memory-JMX-custom          | Contrôle permettant de vérifier la mémoire Java ('NonHeap' et 'Heap') |
 | Memory-Detailed | App-Jvm-Memory-Detailed-JMX-custom | Contrôle permettant de vérifier les pools de mémoire Java             |
 | Threads         | App-Jvm-Threads-JMX-custom         | Contrôle les threads                                                  |
@@ -119,8 +119,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Veuiller installer l'agent Jolokia sur votre JVM [Jolokia download page](https://jolokia.org/download).
-Demander à votre administrateur de le déployer et de vous fournir l'URL.
+Veuillez [installer l'agent Jolokia sur votre JVM](https://jolokia.org/download).
+Demandez à votre administrateur de le déployer et de vous en fournir l'URL.
 
 ## Installer le connecteur de supervision
 
