@@ -28,13 +28,13 @@ Le connecteur apporte les modèles de service suivants
 | Alias                  | Modèle de service                                | Description                                                           |
 |:-----------------------|:-------------------------------------------------|:----------------------------------------------------------------------|
 | Tomcat-Class-Count     | App-Webserver-Tomcat-Class-Count-JMX-custom      | Contrôle permettant de vérifier l'utilisation des classes de la JVM   |
-| Tomcat-Cpu-Load        | App-Webserver-Tomcat-Cpu-Load-JMX-custom         | Contrôle permettant de vérifier l'utilisation cpu de la JVM           |
+| Tomcat-Cpu-Load        | App-Webserver-Tomcat-Cpu-Load-JMX-custom         | Contrôle permettant de vérifier l'utilisation CPU de la JVM           |
 | Tomcat-Fd-Usage        | App-Webserver-Tomcat-Fd-Usage-JMX-custom         | Contrôle permettant de vérifier l'utilisation des file descriptors    |
-| Tomcat-Load-Average    | App-Webserver-Tomcat-Load-Average-JMX-custom     | Contrôle permettant de vérifier la 'load' système                     |
+| Tomcat-Load-Average    | App-Webserver-Tomcat-Load-Average-JMX-custom     | Contrôle permettant de vérifier la charge système                     |
 | Tomcat-Memory          | App-Webserver-Tomcat-Memory-JMX-custom           | Contrôle permettant de vérifier la mémoire Java ('NonHeap' et 'Heap') |
 | Tomcat-Memory-Detailed | App-Webserver-Tomcat-Memory-Detailed-JMX-custom  | Contrôle permettant de vérifier les pools de mémoire Java             |
 | Tomcat-Threads         | App-Webserver-Tomcat-Threads-JMX-custom          | Contrôle les threads                                                  |
-| Webapps-Sessions       | App-Webserver-Tomcat-Webapps-Sessions-JMX-custom | Contrôle permettant de vérifier les sessions des applications webs    |
+| Webapps-Sessions       | App-Webserver-Tomcat-Webapps-Sessions-JMX-custom | Contrôle permettant de vérifier les sessions des applications web    |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Webserver-Tomcat-JMX-custom** est utilisé.
 
@@ -156,7 +156,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour superviser Tomcat, il faut activer l’accès JMX ou installer Jolokia, et s’assurer que le poller Centreon peut y accéder avec les bons identifiants.
+Pour superviser Tomcat, il faut activer l’accès JMX ou installer l'agent Jolokia, et s’assurer que le collecteur Centreon peut y accéder avec les bons identifiants.
 
 ## Installer le connecteur de supervision
 
