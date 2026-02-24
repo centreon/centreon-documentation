@@ -103,7 +103,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Please install jolokia agent on your JVM [Jolokia download page](https://jolokia.org/download). Ask to your admin to deploy it and give you the URL.
+Please [install the Jolokia agent on your JVM](https://jolokia.org/download). Ask to your admin to deploy it and give you the URL.
 
 ## Installing the monitoring connector
 

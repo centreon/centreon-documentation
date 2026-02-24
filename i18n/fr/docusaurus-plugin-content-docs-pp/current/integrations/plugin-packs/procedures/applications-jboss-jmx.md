@@ -104,8 +104,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Veuiller installer l'agent Jolokia sur votre JVM [Jolokia download page](https://jolokia.org/download).
-Demander à votre administrateur de le déployer et de vous fournir l'URL.
+Veuiller [installer l'agent Jolokia sur votre JVM](https://jolokia.org/download).
+Demander à votre administrateur de le déployer et de vous fournir l'URL correspondante.
 
 ## Installer le connecteur de supervision
 
