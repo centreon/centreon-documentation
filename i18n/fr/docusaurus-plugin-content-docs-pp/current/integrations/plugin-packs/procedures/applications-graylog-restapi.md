@@ -5,10 +5,6 @@ title: Graylog
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Graylog est une solution de gestion de log permettant stocker ces derniers et de
-les analyser en temps réel. 
 
 ## Dépendances du connecteur de supervision
 
