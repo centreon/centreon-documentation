@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                  | Service Description           |
 |:--------------|:----------------------------------|:------------------------------|
-| Global-Stats  | App-Kafka-Global-Stats-JMX-custom | Check kafka global statistics |
+| Global-Stats  | App-Kafka-Global-Stats-JMX-custom | Check Kafka global statistics |
 
 > The services listed above are created automatically when the **App-Kafka-JMX-custom** host template is used.
 

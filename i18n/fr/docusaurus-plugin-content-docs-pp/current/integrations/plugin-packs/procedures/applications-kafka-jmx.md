@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias        | Modèle de service                 | Description                             |
 |:-------------|:----------------------------------|:----------------------------------------|
-| Global-Stats | App-Kafka-Global-Stats-JMX-custom | Contrôler les statistiques global Kafka |
+| Global-Stats | App-Kafka-Global-Stats-JMX-custom | Contrôler les statistiques globales Kafka |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Kafka-JMX-custom** est utilisé.
 
@@ -60,8 +60,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Veuillez installer l'agent Jolokia sur votre JVM : [Jolokia download page](https://jolokia.org/download.html).
-Demandez à votre administrateur de le déployer et de vous fournir l'URL.
+Veuillez [installer l'agent Jolokia sur votre JVM](https://jolokia.org/download.html).
+Demandez à votre administrateur de le déployer et de vous en fournir l'URL.
 
 ## Installer le connecteur de supervision
 
