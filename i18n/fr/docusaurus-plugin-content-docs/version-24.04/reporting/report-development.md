@@ -5,7 +5,7 @@ title: Dév. de rapport
 
 Compatibilité : BIRT 4.20.0+
 
-> La mise à jour vers la version 4.20.0 peut entraîner des changements impactant vos modèles personnalisés. Nous vous recommandons de procéder à une vérification complète de ceux-ci après la migration.
+> La mise à jour de BIRT vers la version 4.20.0 peut entraîner des changements impactant vos modèles personnalisés. Nous vous recommandons de procéder à une vérification complète de ceux-ci après la mise à jour depuis une version précédente.
 
 Ce guide a pour but de présenter les bonnes pratiques sur la mise en
 place d'un projet de reporting BIRT. Cette documentation s'adresse à
