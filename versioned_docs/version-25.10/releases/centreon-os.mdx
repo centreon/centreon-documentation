@@ -13,15 +13,118 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 | Component | Releases |
 |----------|----------|
-| **Centreon Web** | [25.10.8 (February 23, 2026)](#centreon-web-25108)<br/>[25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
-| **Centreon Collect** | [25.10.2 (January 29, 2026)](#centreon-collect-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-collect-25101) |
-| **Centreon Gorgone** | [25.10.3 (January 29, 2026)](#centreon-gorgone-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-gorgone-25102)<br/>[25.10.1 (November 17, 2025)](#centreon-gorgone-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-gorgone-25100) |
-| **Centreon Monitoring Agent** | [25.10.2 (January 29, 2026)](#centreon-monitoring-agent-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-monitoring-agent-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-monitoring-agent-25100)  |
-| **Centreon Open Tickets** | [25.10.3 (February 23, 2026)](#centreon-open-tickets-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
-| **Centreon AWIE** | [25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
-| **Centreon DSM** | [25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
+| **Centreon Web** | [25.10.9 (February 25, 2026)](#centreon-web-25109)<br/>[25.10.8 (February 23, 2026)](#centreon-web-25108)<br/>[25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
+| **Centreon Collect** | [25.10.3 (February 25, 2026)](#centreon-collect-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-collect-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-collect-25101) |
+| **Centreon Gorgone** |  [25.10.4 (February 25, 2026)](#centreon-gorgone-25104)<br/>[25.10.3 (January 29, 2026)](#centreon-gorgone-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-gorgone-25102)<br/>[25.10.1 (November 17, 2025)](#centreon-gorgone-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-gorgone-25100) |
+| **Centreon Monitoring Agent** | [25.10.3 (February 25, 2026)](#centreon-monitoring-agent-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-monitoring-agent-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-monitoring-agent-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-monitoring-agent-25100)  |
+| **Centreon Open Tickets** | [25.10.4 (February 25, 2026)](#centreon-open-tickets-25104)<br/>[25.10.3 (February 23, 2026)](#centreon-open-tickets-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
+| **Centreon AWIE** | [25.10.5 (Febuary 25, 2026)](#centreon-awie-25105)<br/>[25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
+| **Centreon DSM** | [25.10.2 (February 25, 2026)](#centreon-dsm-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
 
 </details>
+
+## February 25, 2026
+
+### Centreon Web 25.10.9
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CA] CA certificate-related columns have been created in the instances database.
+- [Configuration] Provided a script to adapt the threshold format for CMA native checks.
+- [Dashboards] Resource Table widget - Options are now available to enable/disable ticket creation (for hosts and services).
+- [Pollers] Dedicated token & agent configuration are now automatically created when adding a Poller/Remote Server.
+- [Logs] Opentelemetry has been added in the Engine logs menu.
+- [Poller wizard] Replaced "service" by "systemctl" in Poller related commands (engine/broker).
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API V2] The "hosts" field is no longer required when adding a host.
+- [Configuration] Fixed an issue where macros to a service by HG would not be exported.
+- [Configuration] Fixed an issue where the new Host Group configuration page would appear twice in the menu.
+- [Configuration] Fixed an issue where a trailing comma in string leads to an sql error for hostgroups during a remote server export.
+- [Configuration] Macros defined on a parent resource are now preserved when a child resource overrides its value.
+- [Custom Views] Group Monitoring widgets - Fixed an issue that occurred when using hyphens in resource names.
+- [Dashboards] Fixed an issue preventing metric widgets from being displayed.
+- [Dashboards] Metrics Graph widget - Fixed an issue preventing meta services from being used in dataset selection.
+- [Downtimes] Fixed an issue when filtering downtimes by service names.
+- [API] Fixed an issue where the "Reach API Realtime" option was set to "Yes" even if a "No" was selected when creating the user.
+- [Host Group] Fixed an issue where the host group name restrictions would allow characters that then prevented exporting the configuration.
+-[LDAP] Fixed an issue where auto import was ignored when different LDAP configurations coexisted.
+- [Logs] Fixed a wrongful PHP warning that appeared after running CentreonWorker.
+- [Monitoring] Fixed an issue where non-local accounts would be wrongfully notified of their password's expiration date.
+- [Monitoring] Fixed an issue with the base values for the graph in the Ressource status and the Performance pages.
+- [Performance Graph] Fixed an issue with the legend not reflecting changes to the displayed timeframe.
+- [Remote server] Fixed an issue where tasks would not be correctly imported.
+- [SNMP Traps] Fixed an issue with credentials exposure.
+- [UI Notifications] Fixed an issue where LDAP/local users were not able to see the “UI Notifications” panel.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. More details on [our community platform The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+### Centreon Collect 25.10.3
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] If an SC write function does not return a boolean, the next write retry is delayed.
+- [Configuration] Added a Broker output to handle script execution.
+- [Engine] Engine is now able to generate & renew CMA certificates.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker][Engine] Fixed an issue with unexpected notifications being sent for "UNKNOWN" services when a host status switches to "DOWN".
+
+</details>
+
+### Centreon Gorgone 25.10.4
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed an issue with the gorgoned logrotate configuration file.
+
+</details>
+
+### Centreon Monitoring Agent 25.10.3
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Full threshold format is now handled for all CMA native checks.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CMA] Fixed issues with uninstaller signature and installer AGENTINSTANCE.
+
+</details>
+
+### Centreon Open Tickets 25.10.4
+
+- No functional changes for this module in this version.
+
+### Centreon AWIE 25.10.5
+
+- No functional changes for this module in this version.
+
+### Centreon DSM 25.10.2
+
+- No functional changes for this module in this version.
 
 ## February 23, 2026
 
