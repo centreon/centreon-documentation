@@ -70,13 +70,13 @@ curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | se
 If opening traffic to IP addresses is not suitable for you, it is also possible to open routes based on FQDNs or some specific URLs. The FQDNs/URLs that should be authorized are the following:
 
 On the network of each poller:
-- api.euwest1.caasprod.centreon.cloud
-- engine-centreon-${CLOUD_ORG}.euwest1.centreon.cloud
-- broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
-- gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+- api.euwest1.caasprod.centreon.cloud:443
+- broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443
+- gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443
 - engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443
 
 On the network of the user's browser:
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/*
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/_centreon/centreon-map/*
 
+You can retrieve the values for \{CLOUD_ORG\} and \{SITE_NAME\} from your platform's URL, which has the following format: http://\{CLOUD_ORG\}.euwest1.centreon.cloud/\{SITE_NAME\}.
