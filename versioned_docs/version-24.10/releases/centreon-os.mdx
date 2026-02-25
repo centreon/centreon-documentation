@@ -31,9 +31,9 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [Authentication] SAML IDP form - Added a new field to handle the requested authentication context.
-- [Configuration] Automated link to commands connector when deploying CMA related monitoring connector.
-- [Configuration] Provided script to adapt threshold format for CMA native checks.
+- [Authentication] SAML IDP form - Added a new field to handle the "Requested Authentication Context" parameter.
+- [Configuration] The CMA connector will now automatically link to new commands when deploying monitoring connectors related to CMA.
+- [Configuration] Provided a script to adapt the threshold format for CMA native checks.
 - [Poller wizard] Replaced "service" by "systemctl" in Poller related commands (engine/broker).
 
 </details>
@@ -41,17 +41,17 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
 <summary>Bug fixes</summary>
 
-- [API] Fixed an issue where Reach API Realtime was always set to "Yes" if User Created With "No" was selected.
-- [Configuration] Fixed an issue where host can't be edited after being added by host discovery.
+- [API] Fixed an issue where the "Reach API Realtime" option was set to "Yes" even if a "No" was selected when creating the user.
+- [Configuration] Fixed an issue where a host couldn't be edited after being added by host discovery.
 - [Custom Views] Group Monitoring widgets - Fixed an issue occurring when using hyphens in resource names.
-- [Dashboards] Fixed issue preventing metric widgets from being displayed
-- [Downtimes] Fixed issue when filtering on services.
-- [Host Group] Fixed an issue where the host group configuration name restriction is not aligned with export configuration.
-- [LDAP] Fixed an issue where auto import was ignored.
-- [Monitoring] Fixed an issue where top counter wrongfully checks password expiration for non-local accounts.
+- [Dashboards] Fixed an issue preventing metric widgets from being displayed
+- [Downtimes] Fixed an issue when filtering downtimes by service name.
+- [Host Group] Fixed an issue where the host group configuration name restrictions would allow characters that prevented export configuration.
+- [LDAP] Fixed an issue where auto import was ignored when different LDAP configurations coexisted.
+- [Monitoring] Fixed an issue where non-local accounts would be wrongfully notified of their password's expiration date.
 - [Playlists] Fixed an issue preventing the Resource Table widget from displaying according to the dashboard settings.
-- [Remote server] Fixed an issue where tasks were not correctly imported.
-- [UI Notifications] Fixed an issue where LDAP/local users were not able to see “UI Notifications” panel.
+- [Remote server] Fixed an issue where tasks would not be correctly imported.
+- [UI Notifications] Fixed an issue with LDAP/local users not being able to see the “UI Notifications” panel.
 
 </details>
 
@@ -67,7 +67,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
 <summary>Bug fixes</summary>
 
-- [Broker][Engine]Fixed an issue where unexpected notifications were sent for UNKNOWN services when host goes DOWN.
+- [Broker][Engine]Fixed an issue with unexpected notifications being sent for "UNKNOWN" services when a host status switches to "DOWN".
 
 </details>
 
@@ -76,7 +76,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [CMA] Full treshold syntax is now handled for all native checks.
+- [CMA] Full threshold format is now handled for all CMA native checks.
 
 </details>
 
