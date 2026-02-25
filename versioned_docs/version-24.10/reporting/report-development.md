@@ -3,7 +3,9 @@ id: report-development
 title: Report development
 ---
 
-Compatibility: BIRT 4.4.2
+Compatibility: BIRT 4.20.0+
+
+> Upgrading to BIRT 4.20.0 may result in changes that affect your custom templates. We recommend that you check them after the migration.
 
 This quick start guide presents the best practices for developing
 reports using Business Intelligence and Reporting Tools (BIRT). It is
