@@ -1,21 +1,34 @@
 ---
 id: operatingsystems-windows-centreon-monitoring-agent
-title: Windows Centreon Monitoring Agent
+title: Windows CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
-Le connecteur **Windows Centreon Monitoring Agent** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
+Le connecteur **Windows CMA** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent - CMA). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
-> Pour le moment, ce connecteur de supervision est en version **BETA**. L'agent est encore dans sa phase beta pour les utilisateurs de Centreon Cloud.
+Pour plus d'informations sur le fonctionnement de l'agent lui-même:
 
-Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
+<Tabs groupId="version" queryString>
+<TabItem value="OnPrem" label="OnPrem">
+
+Lisez [la documentation CMA pour Centreon OnPrem](/docs/cma).
+(Ce lien vous redirige vers la dernière version de la documentation OnPrem. Utilisez le sélecteur de version dans le coin supérieur droit pour passer à une autre version si nécessaire.)
+
+</TabItem>
+<TabItem value="Cloud" label="Cloud">
+
+Lisez [la documentation CMA pour Centreon Cloud](/cloud/cma/cma-setup).
+
+</TabItem>
+</Tabs>
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Windows Centreon Monitoring Agent** apporte un modèle d'hôte :
+Le connecteur de supervision **Windows CMA** apporte un modèle d'hôte :
 
 * **OS-Windows-Centreon-Monitoring-Agent-custom**
 
@@ -38,6 +51,7 @@ Le connecteur apporte les modèles de service suivants
 | Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    | natif            |
 | Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Contrôle si des mises à jour sont en attente                                                                                                                              | non natif        |
 | Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Contrôle la durée depuis laquelle le serveur tourne sans interruption                                                                                                     | natif            |
+| Custom-Script  | OS-Windows-Custom-Script-Centreon-Monitoring-Agent-custom  | Contrôle permettant d'exécuter un script personnalisé sur l'hôte supervisé                                                                                                | non natif        |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom** est utilisé.
 
@@ -68,7 +82,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Certificates" label="Certificates">
 
-| Métrique                             | Unité |
+| Nom                                  | Unité |
 |:-------------------------------------|:------|
 | certificates.detected.count          | count |
 | certificate#certificate.expires.days | d     |
@@ -76,7 +90,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="CMA-Health" label="CMA-Health">
 
-| Métrique | Unité |
+| Nom      | Unité |
 |:---------|:------|
 | runtime  | s     |
 | interval | s     |
@@ -84,7 +98,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Métrique       | Unité  |
+| Nom            | Unité  |
 |:---------------|:-------|
 | *counter_name* | *unit* |
 | critical-count | count  |
@@ -96,7 +110,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Métrique                                     | Unité |
+| Nom                                          | Unité |
 |:---------------------------------------------|:------|
 | *core_index*#core.cpu.utilization.percentage | %     |
 | user#cpu.utilization.percentage              | %     |
@@ -104,7 +118,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
-| Métrique                                                    | Unité |
+| Nom                                                         | Unité |
 |:------------------------------------------------------------|:------|
 | *core_index*\~user#core.cpu.utilization.percentage          | %     |
 | user#cpu.utilization.percentage                             | %     |
@@ -117,7 +131,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
 
-| Métrique       | Unité |
+| Nom            | Unité |
 |:---------------|:------|
 | critical-count | count |
 | warning-count  | count |
@@ -125,7 +139,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Metric         | Unit  |
+| Nom            | Unité |
 |:---------------|:------|
 | critical_count | count |
 | warning_count  | count |
@@ -134,7 +148,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | memory.usage.bytes      | B     |
 | memory.free.bytes       | B     |
@@ -143,9 +157,9 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Métrique    | Unité |
-|:------------|:------|
-| offset      | s     |
+| Nom    | Unité |
+|:-------|:------|
+| offset | s     |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
@@ -155,14 +169,14 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
 
-| Métrique      | Unité |
+| Nom           | Unité |
 |:--------------|:------|
 | process.count | count |
 
 </TabItem>
 <TabItem value="Services" label="Services">
 
-| Métrique                  | Unité |
+| Nom                       | Unité |
 |:--------------------------|:------|
 | services.stopped.count    | count |
 | services.starting.count   | count |
@@ -175,7 +189,7 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-| Métrique                  | Unité |
+| Nom                       | Unité |
 |:--------------------------|:------|
 | services.stopped.count    | count |
 | services.starting.count   | count |
@@ -188,7 +202,7 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | sessions.created.total.count        | count |
 | sessions.disconnected.total.count   | count |
@@ -201,15 +215,15 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Métrique  | Unité |
-|:----------|:------|
-| used_C:\  | B     |
-| used_D:\  | B     |
+| Nom      | Unité |
+|:---------|:------|
+| used_C:\ | B     |
+| used_D:\ | B     |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | memory.usage.bytes      | B     |
 | memory.free.bytes       | B     |
@@ -221,7 +235,7 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Task-Global" label="Task-Global">
 
-| Métrique       | Unité     |
+| Nom            | Unité     |
 |:---------------|:----------|
 | *task_name*    | exit_code |
 | ok_count       | count     |
@@ -231,7 +245,7 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Task-Name" label="Task-Name">
 
-| Métrique       | Unité     |
+| Nom            | Unité     |
 |:---------------|:----------|
 | *task_name*    | exit_code |
 | ok_count       | count     |
@@ -241,43 +255,29 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Métrique                      | Unité |
+| Nom                           | Unité |
 |:------------------------------|:------|
 | windows.pending.updates.count | count |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Métrique | Unité |
-|:---------|:------|
-| uptime   | s     |
+| Nom    | Unité |
+|:-------|:------|
+| uptime | s     |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+Pas de métrique pour ce service.
+
+</TabItem>
+
 </Tabs>
 
 ## Prérequis
 
-### Flux réseau
-
-Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
-
-| Source         | Destination | Protocole | Port | Objet                                                                       |
-|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
-| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
-
-### Prérequis système pour le collecteur
-
-> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la version--> `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent récupérera sa configuration en se connectant à Centreon Engine.
-
-### Configuration de la communication collecteur/agent
-
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
-
-### Prérequis système pour l'hôte à superviser
-
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur
-[cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte)
+<CMAprerequisites />
 
 ## Installer le connecteur de supervision
 
@@ -320,20 +320,20 @@ apt install centreon-pack-operatingsystems-windows-centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows Centreon Monitoring Agent**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows CMA**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 3. Créez le connecteur suivant :
 
 Dans le menu **Configuration > Commandes > Connecteurs**, cliquez sur **Ajouter** puis saisissez les champs suivants :
 
-| Paramètre                 | Valeur                                                                                                                                                                                        |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nom du connecteur         | Centreon Monitoring Agent Beta                                                                                                                                                                |
-| Description du connecteur | Centreon Monitoring Agent Beta                                                                                                                                                                |
+| Paramètre                 | Valeur                                                                                                                                                                                      |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                               |
+| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                               |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `OS-Windows-Centreon-Monitoring-Agent-*`                                                                                           |
-| Statut du connecteur      | Activé                                                                                                                                                                                        |
+| Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `OS-Windows-Centreon-Monitoring-Agent-*`                                                                                         |
+| Statut du connecteur      | Activé                                                                                                                                                                                      |
 
 ### Plugin
 
@@ -527,6 +527,9 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
 | FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
 | EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service           |             |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                   |             |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                   |             |
 | WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
 | CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
 | WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
@@ -546,6 +549,9 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
 | FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
 | EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service           |             |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                   |             |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                   |             |
 | WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
 | CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
 | WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
@@ -647,6 +653,30 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600              |             |
 | CRITICALUPTIME | Critical threshold                                                                                   | 600               |             |
 
+</TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+| Macro          | Description                                                                                          | Default value | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CUSTOMCHECK    | Name of the custom check to use                                                                      |               | X         |
+| ARG1           | Extra argument 1 to pass to the custom check command                                                 |               |           |
+| ARG2           | Extra argument 2 to pass to the custom check command                                                 |               |           |
+| ARG3           | Extra argument 3 to pass to the custom check command                                                 |               |           |
+| ARG4           | Extra argument 4 to pass to the custom check command                                                 |               |           |
+| ARG5           | Extra argument 5 to pass to the custom check command                                                 |               |           |
+| ARG6           | Extra argument 6 to pass to the custom check command                                                 |               |           |
+| ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
+| ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
+
+> Les commandes sont définies dans un fichier de configuration dédié utilisant un format compatible avec NSClient / NRPE.
+> Le chemin d'accès à ce fichier est configuré via le programme d'installation ou le registre à l'aide du paramètre **custom_check_file**.
+> Pour mettre à jour les commandes, modifiez le fichier et rechargez l'agent.
+
+```cmd
+[custom_checks]
+check_echo = /usr/bin/echo "$ARG1$ $ARG2$"
+custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
+```
 </TabItem>
 </Tabs>
 

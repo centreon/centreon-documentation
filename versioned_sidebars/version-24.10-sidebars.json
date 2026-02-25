@@ -842,6 +842,7 @@
         {
           "type": "category",
           "label": "Guide",
+          "key": "reporting-guide",
           "link": {
             "type": "generated-index"
           },
@@ -875,6 +876,7 @@
         {
           "type": "category",
           "label": "Administrate",
+          "key": "reporting-administrate",
           "link": {
             "type": "generated-index"
           },
@@ -1102,6 +1104,10 @@
             {
               "type": "doc",
               "id": "upgrade/upgrade-mariadb"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-mysql"
             }
           ]
         },
@@ -1152,6 +1158,39 @@
       "type": "link",
       "href": "/pp/integrations/plugin-packs/getting-started/introduction",
       "label": "Monitoring Connectors"
+    },
+    {
+      "type": "category",
+      "label": "Centreon Monitoring Agent",
+      "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-certificates"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-custom"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-migratenscpp"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-troubleshooting"
+                }
+              ]
     },
     {
       "type": "category",
@@ -1392,10 +1431,6 @@
         },
         {
           "type": "doc",
-          "id": "developer/developer-translate-centreon"
-        },
-        {
-          "type": "doc",
           "id": "developer/developer-widget"
         },
         {
@@ -1580,19 +1615,12 @@
       },
       "items": [
         {
-          "type": "doc",
-          "id": "releases/introduction"
-        },
-        {
-          "type": "doc",
-          "id": "releases/lifecycle"
-        },
-        {
           "type": "category",
-          "label": "Release notes by component",
-          "link": {
-            "type": "generated-index"
-          },
+          "label": "Release notes for Centreon 24.10",
+          "link": { 
+            "type": "doc",
+            "id": "releases/introduction"
+          }, 
           "items": [
             {
               "type": "doc",
@@ -1603,6 +1631,10 @@
               "id": "releases/centreon-commercial-extensions"
             }
           ]
+        },
+        {
+          "type": "doc",
+          "id": "releases/lifecycle"
         }
       ]
     },

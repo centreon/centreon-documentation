@@ -3,9 +3,9 @@ id: introduction
 title: Introduction à Centreon BAM
 ---
 
-La fonctionnalité de "Service Mapping" de Centreon se base sur
-l'extension appellée "Centreon Business Activity Monitoring" (Centreon
-BAM).
+La fonctionnalité de **Service Mapping** de Centreon se base sur
+l'extension appellée **Centreon Business Activity Monitoring (Centreon
+BAM)**.
 
 Le module **Centreon Business Activity Monitoring** offre la possibilité
 de mesurer en temps réel l'activité de la production informatique en
@@ -30,7 +30,7 @@ disponibles au travers du module **Centreon BAM**.
 
 Définitions :
 
--   **BA** ("Business Activity") : Activité métier
--   **BV** ("Business View") : Regroupement d'activité métier
--   **KPI** ("Key Performance Indicator") : Indicateur pondéré rentrant
+-   **BA** (Business Activity) : Activité métier.
+-   **BV** (Business View) : Regroupement d'activité métier.
+-   **KPI** (Key Performance Indicator) : Indicateur pondéré rentrant
     en considération dans le calcul de la BA.

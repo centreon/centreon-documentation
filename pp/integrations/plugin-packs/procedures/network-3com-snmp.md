@@ -69,36 +69,41 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                         | Unit  |
-|:------------------------------------|:------|
-| *cpu*#cpu.utilization.5s.percentage | %     |
-| *cpu*#cpu.utilization.1m.percentage | %     |
-| *cpu*#cpu.utilization.5m.percentage | %     |
+| Name                                | Unit |
+|:------------------------------------|:-----|
+| *cpu*#cpu.utilization.5s.percentage | %    |
+| *cpu*#cpu.utilization.1m.percentage | %    |
+| *cpu*#cpu.utilization.5m.percentage | %    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Name                | Unit  |
+|:--------------------|:------|
+| hardware.psu.status | N/A   |
+| hardware.psu.count  | count |
+| hardware.fan.status | N/A   |
+| hardware.fan.count  | count |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name                 | Unit  |
-|:----------------------------|:------|
-| *memory*#memory.usage.bytes | B     |
+| Name                        | Unit |
+|:----------------------------|:-----|
+| *memory*#memory.usage.bytes | B    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-| Metric name                                          | Unit  |
-|:-----------------------------------------------------|:------|
-| *interface_name*#status                              | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+| Name                                                 | Unit |
+|:-----------------------------------------------------|:-----|
+| *interface_name*#status                              | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s  |
 
 > Applies to the following service templates: Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
 

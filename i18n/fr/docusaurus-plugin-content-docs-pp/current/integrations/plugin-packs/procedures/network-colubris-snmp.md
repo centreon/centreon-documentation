@@ -320,8 +320,6 @@ yum install centreon-plugin-Network-Colubris-Snmp
 
 | Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCURRENT    | Warning threshold                                                                                                                                |                   |             |
-| CRITICALCURRENT   | Critical threshold                                                                                                                               |                   |             |
 | WARNINGUSAGEPRCT  | Warning threshold                                                                                                                                |                   |             |
 | CRITICALUSAGEPRCT | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
