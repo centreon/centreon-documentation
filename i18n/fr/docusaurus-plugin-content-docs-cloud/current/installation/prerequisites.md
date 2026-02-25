@@ -79,3 +79,4 @@ Sur le réseau du navigateur de l'utilisateur :
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/*
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/_centreon/centreon-map/*
 
+Vous pouvez récupérer les valeurs de \{CLOUD_ORG\} et de \{SITE_NAME\} dans l'URL de votre plateforme, qui a le format suivant : https://\{CLOUD_ORG\}.euwest1.centreon.cloud/\{SITE_NAME\}.
