@@ -247,7 +247,7 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 1. Exécutez les commandes suivantes :
 
@@ -634,7 +634,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
