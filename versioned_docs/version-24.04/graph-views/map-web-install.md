@@ -295,7 +295,7 @@ GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
 The INSERT privilege will only be used during the installation process
-in order to create new Centreon Broker output. It will be revoked later.
+in order to create new Centreon Broker output. It will be revoked later ([at this step](#step-6-apply-centreon-broker-configuration-and-restart-map-engine-service)).
 
 ### Step 3: Install MAP Engine server
 
