@@ -248,6 +248,15 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el10/centreon-24.10.repo
+dnf install  compat-openssl11 centreon-monitoring-agent
+```
+
+</TabItem>
 <TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 1. Execute the following commands:
