@@ -32,12 +32,6 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 3. Si vous souhaitez superviser une [application supportée par CMA](cma.md#applications-supervisables-par-cma), installez le connecteur correspondant sur votre serveur central.
 
-### Mettez à jour le connecteur Centreon Monitoring Agent
-
-1. Allez à la page **Configuration > Commandes > Connecteurs**.
-
-2. Mettez à jour le connecteur **Centreon Monitoring Agent** de la façon suivante : dans le champ **Utilisé par la commande**, entrez **Centreon-Monitoring-Agent** puis cliquez sur  **Select all**.
-
 ### Créez un jeton d'authentification
 
 1. Allez à la page **Administration > Jetons d'authentification**.

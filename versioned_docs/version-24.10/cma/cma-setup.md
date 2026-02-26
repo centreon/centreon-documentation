@@ -32,12 +32,6 @@ In the case of a Cloud platform, these connectors are already installed.
 
 3. If you want to monitor a [CMA-supported application](cma.md#applications-you-can-monitor-with-cma), install the corresponding connector on your central server.
 
-### Update the Centreon Monitoring Agent connector
-
-1. Go to **Configuration > Commands > Connectors**.
-
-2. Update the Centreon Monitoring Agent connector in the following way: in the **Used by command** field, type **Centreon-Monitoring-Agent** and then click **Select all**.
-
 ### Create an authentication token
 
 This step only applies to OnPrem platforms. For Centreon Cloud, a default token is provided on the **Administration > Authentication token** page.
