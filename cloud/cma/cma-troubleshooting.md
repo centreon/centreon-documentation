@@ -228,6 +228,8 @@ No CMA related lines should be returned.
 
 ## Checks in Centreon
 
+Check in Resources status that all resources are up to date.
+
 The host and its configured services must return a status and metrics.
 
 ## Location of poller and agent logs

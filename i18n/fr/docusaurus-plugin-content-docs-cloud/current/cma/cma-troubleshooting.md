@@ -232,6 +232,8 @@ Aucune ligne concernant CMA ne doit être retournée.
 
 ## Vérifications dans Centreon
 
+Vérifiez ensuite dans le Statut des ressources que tous les services sont à jour.
+
 L'hôte et les services configurés doivent remonter un statut et des métriques.
 
 ## Emplacement des logs collecteur et agent
