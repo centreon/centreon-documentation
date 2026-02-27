@@ -13,13 +13,13 @@ Cette étape s'effectue via l'interface du serveur central. (Il est également p
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-1. Sur votre serveur central, allez à la page **Configuration > Connecteurs de supervision**.
+1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
 2. [Installez](../monitoring/pluginpacks.md#installer-le-pack) le connecteur de supervision [**Linux Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent).
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. Sur votre serveur central, allez à la page **Configuration > Connecteurs de supervision**.
+1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
 2. [Installez](../monitoring/pluginpacks.md#installer-le-pack) le connecteur de supervision [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent).
 
 </TabItem>

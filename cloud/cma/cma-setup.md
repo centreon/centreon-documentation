@@ -13,13 +13,13 @@ This step is performed via the central server's interface. (It is also possible 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-1. On your central server, go to **Configuration > Monitoring Connectors**.
+1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
 2. [Install](../monitoring/pluginpacks.md#installing-the-pack) the [**Linux Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent) monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. On your central server, go to **Configuration > Monitoring Connectors**.
+1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
 2. [Install](../monitoring/pluginpacks.md#installing-the-pack) the [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent) monitoring connector.
 
 </TabItem>
