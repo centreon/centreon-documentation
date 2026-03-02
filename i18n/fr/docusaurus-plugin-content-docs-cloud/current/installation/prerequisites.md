@@ -70,13 +70,13 @@ curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | se
 S'il n'est pas possible pour vous de faire du filtrage sur les adresses IP, vous pouvez faire du filtrage par FQDN ou sur des URLs spécifiques. Les FQDNs/URLs à autoriser sont les suivants :
 
 Sur le réseau de chaque collecteur :
-- api.euwest1.prod1.centreon.cloud
-- api.a.prod.mycentreon.com
-- broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
-- gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
-- engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443
+- api.euwest1.caasprod.centreon.cloud:443
+- broker-$\{site-name\}-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443
+- gorgone-$\{site-name\}-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443
+- engine-$\{site-name\}-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443
 
 Sur le réseau du navigateur de l'utilisateur :
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/*
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/_centreon/centreon-map/*
 
+Vous pouvez récupérer les valeurs de \{CLOUD_ORG\} et de \{SITE_NAME\} dans l'URL de votre plateforme, qui a le format suivant : https://\{CLOUD_ORG\}.euwest1.centreon.cloud/\{SITE_NAME\}.

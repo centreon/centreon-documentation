@@ -32,12 +32,6 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 3. Si vous souhaitez superviser une [application supportée par CMA](cma.md#applications-supervisables-par-cma), installez le connecteur correspondant sur votre serveur central.
 
-### Mettez à jour le connecteur Centreon Monitoring Agent
-
-1. Allez à la page **Configuration > Commandes > Connecteurs**.
-
-2. Mettez à jour le connecteur **Centreon Monitoring Agent** de la façon suivante : dans le champ **Utilisé par la commande**, entrez **Centreon-Monitoring-Agent** puis cliquez sur  **Select all**.
-
 ### Créez un jeton d'authentification
 
 1. Allez à la page **Administration > Jetons d'authentification**.
@@ -255,7 +249,16 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el10/centreon-25.10.repo
+dnf install  compat-openssl11 centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 1. Exécutez les commandes suivantes :
 
@@ -650,7 +653,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
