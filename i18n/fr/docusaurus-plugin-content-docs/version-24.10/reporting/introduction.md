@@ -59,7 +59,7 @@ Principales fonctionnalités:
 
 ### Formats supportés
 
-| Category | Report | PDF | CSV | XLSX | DOCX | PPTX | ODT | ODS | ODP |
+| Category | Report | PDF | CSV\* | XLSX | DOCX | PPTX | ODT | ODS | ODP |
 |---|---|---|---|---|---|---|---|---|---|
 | **Business activity monitoring** | BV-BA-Availabilities-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
 | | BA-Availability-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
@@ -105,3 +105,5 @@ Principales fonctionnalités:
 | | Content-diagnostic-availability | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 | | Content-diagnostic-performance | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 | | Metric-integrity-check | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
+
+\* Le format CSV ne concerne que les rapports personnalisés.
