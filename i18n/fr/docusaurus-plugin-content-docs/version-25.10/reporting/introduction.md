@@ -46,6 +46,56 @@ Notez que les rapports ne contiennent que les données jusqu'à la veille. Les d
 ## Quels sont les formats de sortie possibles ?
   
 * MBI génère des rapports dans différents formats : PDF, CSV, XLSX, DOCX, PPTX, ODT, ODS, ODP.
-* Tous les rapports ne peuvent pas être exportés dans tous les formats : consultez notre [liste des rapports disponibles](available-reports/available-reports.md) pour en savoir plus sur les spécificités de chaque rapport.
+* Tous les rapports ne peuvent pas être exportés dans tous les formats : consultez notre [tableau des formats](#formats-supportés) pour en savoir plus.
 * Par défaut, ces rapports peuvent être téléchargés à partir de la page **Rapports > Monitoring Business Intelligence > Report view**, mais ils peuvent également être [configurés pour être envoyés à des personnes spécifiques lorsqu'ils sont générés](reports-publication-rule.md).
 * Les données des rapports peuvent également être affichées dans vos [vues personnalisées](../alerts-notifications/custom-views.md) Centreon à l'aide de [widgets](widgets.md) dédiés.
+
+### Formats supportés
+
+| Category | Report | PDF | CSV | XLSX | DOCX | PPTX | ODT | ODS | ODP |
+|---|---|---|---|---|---|---|---|---|---|
+| **Business activity monitoring** | BV-BA-Availabilities-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | BA-Availability-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | BV-BA-Availabilities-List | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | BA-Event-List | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | BV-BA-Current-Health-VS-Past | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | BV-BA-Availabilities-Calendars | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| **Availability & Events** | Hostgroups-Incidents-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroups-Availability-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Availability-2 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Service-Incident-Resolution-2 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Host-Availability-List | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Hostgroup-Host-Event-List | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Hostgroup-Service-Availability-List | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Hostgroup-Service-Event-List | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Hostgroup-Host-Pareto | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroups-Host-Current-Events | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroups-Service-Current-Events | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| **Performance** | Host-Graphs-V2 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Graphs-v2 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Capacity-Planning-Linear-Regression | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroups-Rationalization-Of-Resources-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Service-Metric-Performance-List | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Hostgroups-Categories-Performance-List | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| **Storage** | Hostgroups-Storage-Capacity-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Storage-Capacity-2 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Storage-Capacity-List | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| **Network** | Hostgroup-Traffic-By-Interface-And-Bandwith-Ranges | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Traffic-average-By-Interface | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-monthly-network-percentile | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| **Virtualization** | VMWare-Cluster-Performances-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | VMWare-VM-Performances-List | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| **Electric consumption** | Hostgroup-Electricity-Consumption-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| **Profiling** | Host-Detail-2 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Host-Detail-3 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Host-Details-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| **Inventory & Configuration** | Hostgroups-Host-Templates | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Hostgroups-Service-Templates | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Poller-Performances | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
+| | Hosts-not-classified | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Services-not-classified | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| **Database diagnostics** | Content-diagnostic | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Content-diagnostic-availability | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Content-diagnostic-performance | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+| | Metric-integrity-check | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+
