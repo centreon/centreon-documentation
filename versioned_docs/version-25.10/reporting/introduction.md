@@ -45,9 +45,11 @@ Note that reports only contain data up to the previous day. The data for each da
 ## What are the possible output formats?
   
 * MBI generates reports in different formats: PDF, CSV, XLSX, DOCX, PPTX, ODT, ODS, ODP.
+* * Not all reports can be exported to every format. See our [table of supported formats](#supported-formats) below.
 * By default, these reports can be downloaded from the **Reports view** page, but they can also be [configured to be sent to specific people when generated](reports-publication-rule.md).
 * Report data can also be displayed in your Centreon [custom views](../alerts-notifications/custom-views.md) using dedicated [widgets](widgets.md).
-* Not all reports can be exported to every format. Here is a summary of supported formats:
+
+### Supported formats
 
 | Category | Report | PDF | CSV | XLSX | DOCX | PPTX | ODT | ODS | ODP |
 |---|---|---|---|---|---|---|---|---|---|
