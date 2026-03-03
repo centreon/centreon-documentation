@@ -58,7 +58,7 @@ Main features:
 
 ### Supported formats
 
-| Category | Report | PDF | CSV | XLSX | DOCX | PPTX | ODT | ODS | ODP |
+| Category | Report | PDF | CSV\*| XLSX | DOCX | PPTX | ODT | ODS | ODP |
 |---|---|---|---|---|---|---|---|---|---|
 | **Business activity monitoring** | BV-BA-Availabilities-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
 | | BA-Availability-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
@@ -104,3 +104,5 @@ Main features:
 | | Content-diagnostic-availability | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
 | | Content-diagnostic-performance | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
 | | Metric-integrity-check | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
+
+\* The CSV format is only for custom reports.
