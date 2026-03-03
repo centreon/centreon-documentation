@@ -51,7 +51,7 @@ Note that reports only contain data up to the previous day. The data for each da
 
 ### Supported formats
 
-| Category | Report | PDF | CSV | XLSX | DOCX | PPTX | ODT | ODS | ODP |
+| Category | Report | PDF | CSV\* | XLSX | DOCX | PPTX | ODT | ODS | ODP |
 |---|---|---|---|---|---|---|---|---|---|
 | **Business activity monitoring** | BV-BA-Availabilities-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
 | | BA-Availability-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
@@ -98,3 +98,4 @@ Note that reports only contain data up to the previous day. The data for each da
 | | Content-diagnostic-performance | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
 | | Metric-integrity-check | OK | Non-OK | BEST | OK | OK | OK | OK | OK |
 
+\* The CSV format is only for custom reports.
