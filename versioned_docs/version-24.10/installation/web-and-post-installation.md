@@ -92,8 +92,6 @@ The installation is complete. Click **Finish**.
 
 You can now log in using the **admin** account and [initialize the monitoring](#initialization-of-the-monitoring).
 
-![image](../assets/installation/aconnection.png)
-
 ## Initialization of the monitoring
 
 To start the monitoring processes:
