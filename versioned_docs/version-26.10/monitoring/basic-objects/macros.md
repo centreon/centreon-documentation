@@ -72,7 +72,7 @@ To add a global macro:
 * Go into the **Configuration \> Pollers \> Global macros** menu
 * Click **Add**
 
-![image](../../assets/configuration/01macrosressources.png)
+![image](../../assets/configuration/01globalmacros.png)
 
 * The **Name** field defines the name of the macro, e.g.: $USER3$
 * The **Expression** field defines the value of the macro.
