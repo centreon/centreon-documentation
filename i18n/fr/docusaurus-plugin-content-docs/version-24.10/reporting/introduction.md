@@ -54,7 +54,7 @@ Principales fonctionnalités:
   
 * MBI génère des rapports dans différents formats : PDF, CSV, XLSX, DOCX, PPTX, ODT, ODS, ODP.
 * Tous les rapports ne peuvent pas être exportés dans tous les formats : consultez notre [tableau des formats](#formats-supportés) pour en savoir plus.
-* Par défaut, ces rapports peuvent être téléchargés à partir de la page **Rapports > Monitoring Business Intelligence > Report view**, mais ils peuvent également être [configurés pour être envoyés à des personnes spécifiques lorsqu'ils sont générés](reports-publication-rule.md).
+* Par défaut, ces rapports peuvent être téléchargés à partir de la page **Rapports > Monitoring Business Intelligence > Report view**, mais ils peuvent également être configurés pour être envoyés à des personnes spécifiques lorsqu'ils sont générés.
 * Les données des rapports peuvent également être affichées dans vos [vues personnalisées](../alerts-notifications/custom-views.md) Centreon à l'aide de [widgets](widgets.md) dédiés.
 
 ### Formats supportés
