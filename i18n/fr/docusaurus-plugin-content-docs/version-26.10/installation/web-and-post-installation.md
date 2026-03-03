@@ -96,8 +96,6 @@ L’installation est terminée, cliquez sur **Finish**.
 
 Vous pouvez maintenant vous connecter en utilisant le compte **admin**, et [initialiser la supervision](#initialisation-de-la-supervision).
 
-![image](../assets/installation/aconnection.png)
-
 ## Initialisation de la supervision
 
 Pour démarrer les processus de supervision :
