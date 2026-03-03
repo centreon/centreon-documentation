@@ -54,44 +54,44 @@ Notez que les rapports ne contiennent que les données jusqu'à la veille. Les d
 
 | Category | Report | PDF | CSV | XLSX | DOCX | PPTX | ODT | ODS | ODP |
 |---|---|---|---|---|---|---|---|---|---|
-| **Business activity monitoring** | BV-BA-Availabilities-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | BA-Availability-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | BV-BA-Availabilities-List | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | BA-Event-List | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | BV-BA-Current-Health-VS-Past | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | BV-BA-Availabilities-Calendars | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| **Availability & Events** | Hostgroups-Incidents-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroups-Availability-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroup-Availability-2 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroup-Service-Incident-Resolution-2 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
+| **Business activity monitoring** | BV-BA-Availabilities-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | BA-Availability-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | BV-BA-Availabilities-List | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | BA-Event-List | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | BV-BA-Current-Health-VS-Past | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | BV-BA-Availabilities-Calendars | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| **Availability & Events** | Hostgroups-Incidents-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroups-Availability-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Availability-2 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Service-Incident-Resolution-2 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
 | | Hostgroup-Host-Availability-List | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 | | Hostgroup-Host-Event-List | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 | | Hostgroup-Service-Availability-List | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 | | Hostgroup-Service-Event-List | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
-| | Hostgroup-Host-Pareto | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroups-Host-Current-Events | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroups-Service-Current-Events | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| **Performance** | Host-Graphs-V2 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroup-Graphs-v2 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroup-Capacity-Planning-Linear-Regression | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroups-Rationalization-Of-Resources-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Host-Pareto | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroups-Host-Current-Events | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroups-Service-Current-Events | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| **Performance** | Host-Graphs-V2 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Graphs-v2 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Capacity-Planning-Linear-Regression | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroups-Rationalization-Of-Resources-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
 | | Hostgroup-Service-Metric-Performance-List | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 | | Hostgroups-Categories-Performance-List | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
-| **Storage** | Hostgroups-Storage-Capacity-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroup-Storage-Capacity-2 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
+| **Storage** | Hostgroups-Storage-Capacity-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Storage-Capacity-2 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
 | | Hostgroup-Storage-Capacity-List | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
-| **Network** | Hostgroup-Traffic-By-Interface-And-Bandwith-Ranges | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroup-Traffic-average-By-Interface | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroup-monthly-network-percentile | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| **Virtualization** | VMWare-Cluster-Performances-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
+| **Network** | Hostgroup-Traffic-By-Interface-And-Bandwith-Ranges | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Traffic-average-By-Interface | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-monthly-network-percentile | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| **Virtualization** | VMWare-Cluster-Performances-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
 | | VMWare-VM-Performances-List | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
-| **Electric consumption** | Hostgroup-Electricity-Consumption-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| **Profiling** | Host-Detail-2 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Host-Detail-3 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
-| | Hostgroup-Host-Details-1 | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
+| **Electric consumption** | Hostgroup-Electricity-Consumption-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| **Profiling** | Host-Detail-2 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Host-Detail-3 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
+| | Hostgroup-Host-Details-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
 | **Inventory & Configuration** | Hostgroups-Host-Templates | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 | | Hostgroups-Service-Templates | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
-| | Poller-Performances | Meilleur format | Pas OK | OK | OK | OK | OK | OK | OK |
+| | Poller-Performances | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
 | | Hosts-not-classified | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 | | Services-not-classified | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 | **Database diagnostics** | Content-diagnostic | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
@@ -99,3 +99,4 @@ Notez que les rapports ne contiennent que les données jusqu'à la veille. Les d
 | | Content-diagnostic-performance | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 | | Metric-integrity-check | OK | Non-OK | Meilleur format | OK | OK | OK | OK | OK |
 
+\* Le format CSV ne concerne que les rapports personnalisés.
