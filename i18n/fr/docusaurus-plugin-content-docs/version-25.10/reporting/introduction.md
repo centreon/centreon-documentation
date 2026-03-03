@@ -52,7 +52,7 @@ Notez que les rapports ne contiennent que les données jusqu'à la veille. Les d
 
 ### Formats supportés
 
-| Category | Report | PDF | CSV | XLSX | DOCX | PPTX | ODT | ODS | ODP |
+| Category | Report | PDF | CSV\* | XLSX | DOCX | PPTX | ODT | ODS | ODP |
 |---|---|---|---|---|---|---|---|---|---|
 | **Business activity monitoring** | BV-BA-Availabilities-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
 | | BA-Availability-1 | Meilleur format | Non-OK | OK | OK | OK | OK | OK | OK |
