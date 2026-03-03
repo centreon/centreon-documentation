@@ -471,7 +471,7 @@ Checks files in a directory tree, applies filters, and evaluates file metadata (
 | PATTERN        | Shell-style wildcards pattern to match filenames.<br>* can be used as wildward                                                                                                     |           |                              | `*.*`                        |                |
 | MAXDEPTH       | Max recursion depth.                                                                                                                                                               |           | - 0: top only <br>- 1: include subdirs <br>- -1: recursively include all subdirs  | 0     |           |
 | OUTPUTSYNTAX   | Output format string for the overall check result.                                                                                                                                 |           |  Placeholders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{warn_list}`, `{crit_count}`, `{crit_list}`, `{problem_count}`, `{problem_list}`, `{ok_count}`, `{ok_list}`  | `{status}: {problem_count}/{count} files ({problem_list})` |           |     |
-| DETAILSYNTAX   | Format for each file detail inside `{list}`.                                                                                                                                       |           |  `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{written}`, `{version}`, `{line_count}`, `{extension}`.  | `{name}`                                               |           |
+| DETAILSYNTAX   | Format for each file detail inside `{list}`.                                                                                                                                       |           |  `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{written}`, `{version}`, `{line_count}`, `{extension}`.  | `{filename}`                                           |           |
 | OKSYNTAX       | Output if all files are OK.                                                                                                                                                        |           |                              |`{status}: All {count} files are ok`             |           |
 | FILTER         | Filter expression to select files for the check.                                                                                                                                   |           |                              |                              | `size > 1M && extension == '.dll'`      |
 | WARNINGSTATUS  | Filter expression: files matching are considered WARNING.                                                                                                                          |           |                              | no relevant status change if empty |           |
@@ -488,9 +488,9 @@ Checks files in a directory tree, applies filters, and evaluates file metadata (
 
 Filter syntax is similar to C/SQL:
 
-- Numeric operators: ==, !=, >, <, >=, <=
-- Logical: && (AND), || (OR)
-- String equality: ==, !=
+- Numeric operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- Logical: `&&` (AND), `||` (OR)
+- String equality: `==`, `!=`
 - IN/NOT IN: version in ('1.0', '1.1')
 
 Supported file metadata labels:
