@@ -194,6 +194,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-nsclient-05-nrpe'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi'
         },
         {
@@ -375,10 +379,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-nsclient-05-nrpe'
         },
         {
           type: 'doc',
@@ -691,6 +691,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-veeam-vone-restapi'
         },
         {
           type: 'doc',
