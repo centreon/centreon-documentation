@@ -27,9 +27,9 @@ custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
 ...
 ```
 
-3. Déclarer le fichier
+3. Declare the file
 
-Le chemin vers le fichier doit être déclaré dans la configuration de l'agent, vie le paramètre **custom_check_file**.
+The path to the file must be declared in the agent configuration, via the **custom_check_file** parameter.
 
 * Linux : centagent.json
 
