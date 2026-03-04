@@ -5,6 +5,11 @@ title: Windows WSMAN
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Windows WSMAN** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+
 ## Pack assets
 
 ### Templates
@@ -32,6 +37,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias      | Service Template                           | Service Description                                                                                     | Discovery  |
 |:-------------------|:-------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
+| Certificates       | OS-Windows-Certificates-WSMAN-custom       | Check the local certificates                                                                            | X          |
 | Disk-Global        | OS-Windows-Disk-Global-WSMAN-custom        | Check the rate of free space on the disk. For each checks the name of the disk will appear              | X          |
 | Files-Date-Generic | OS-Windows-Files-Date-Generic-WSMAN-custom | Check time                                                                                              |            |
 | Files-Size-Generic | OS-Windows-Files-Size-Generic-WSMAN-custom | Check size of files                                                                                     |            |
@@ -55,21 +61,30 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                       | Description                                                   |
-|:--------------------------------|:--------------------------------------------------------------|
-| OS-Windows-WSMAN-Disk-Name      | Discover the disk partitions and monitor space occupation     |
-| OS-Windows-WSMAN-Processes-Name | Discover processes and monitor their system usage             |
-| OS-Windows-WSMAN-Services-Name  | Discover services and monitor their system usage              |
-| OS-Windows-WSMAN-Traffic-Name   | Discover network interfaces and monitor bandwidth utilization |
+| Rule name                            | Description                                                   |
+|:-------------------------------------|:--------------------------------------------------------------|
+| OS-Windows-WSMAN-Certificate-Subject | Discover the disk partitions and monitor space occupation     |
+| OS-Windows-WSMAN-Disk-Name           | Discover the disk partitions and monitor space occupation     |
+| OS-Windows-WSMAN-Processes-Name      | Discover processes and monitor their system usage             |
+| OS-Windows-WSMAN-Services-Name       | Discover services and monitor their system usage              |
+| OS-Windows-WSMAN-Traffic-Name        | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Metric name                 | Unit  |
+|:----------------------------|:------|
+| certificates.detected.count | count |
+| certificate.expires.seconds | s     |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Metric name                              | Unit  |
@@ -203,8 +218,7 @@ To monitor Windows Servers through WSMAN, please follow our [official documentat
 
 ### Pack
 
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -295,7 +309,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **OS-Windows-WSMAN-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
@@ -315,6 +329,24 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Macro                          | Description                                                                                                                                                | Default value | Mandatory |
+|:-------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| UNIT                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s             |           |
+| INCLUDE_THUMBPRINT             | Filter certificate by thumbprint (can be a regexp)                                                                                                         |               |           |
+| EXCLUDE_THUMBPRINT             | Exclude certificate by thumbprint (can be a regexp)                                                                                                        |               |           |
+| INCLUDE_SUBJECT                | Filter certificate by subject (can be a regexp)                                                                                                            |               |           |
+| EXCLUDE_SUBJECT                | Exclude certificate by subject (can be a regexp)                                                                                                           |               |           |
+| INCLUDE_PATH                   | Filter certificate by path (can be a regexp)                                                                                                               |               |           |
+| EXCLUDE_PATH                   | Exclude certificate by path (can be a regexp)                                                                                                              |               |           |
+| WARNING_CERTIFICATES_DETECTED  | Threshold                                                                                                                                                  |               |           |
+| CRITICAL_CERTIFICATES_DETECTED | Threshold                                                                                                                                                  |               |           |
+| WARNING_CERTIFICATE_EXPIRES    | Threshold                                                                                                                                                  |               |           |
+| CRITICAL_CERTIFICATE_EXPIRES   | Threshold                                                                                                                                                  |               |           |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                     |               |           |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Macro           | Description                                                                                         | Default value     | Mandatory   |
@@ -478,7 +510,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -535,6 +567,7 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                            | Linked service template                                                            |
 |:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/certificates.pm)]      | OS-Windows-Certificates-WSMAN-custom                                               |
 | cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/cpu.pm)]                        | OS-Windows-Cpu-WSMAN-custom                                                        |
 | eventlog [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/eventlog.pm)]              | Not used in this Monitoring Connector                                              |
 | files-date [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/filesdate.pm)]           | OS-Windows-Files-Date-Generic-WSMAN-custom                                         |
@@ -610,6 +643,26 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Option                           | Description                                                                                                                                                 |
+|:---------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                   |
+| --ps-display                     | Display powershell script.                                                                                                                                  |
+| --ps-exec-only                   | Print powershell output.                                                                                                                                    |
+| --include-thumbprint             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |
+| --exclude-thumbprint             | Exclude certificate by thumbprint (can be a regexp).                                                                                                        |
+| --include-subject                | Filter certificate by subject (can be a regexp).                                                                                                            |
+| --exclude-subject                | Exclude certificate by subject (can be a regexp).                                                                                                           |
+| --include-path                   | Filter certificate by path (can be a regexp).                                                                                                               |
+| --exclude-path                   | Exclude certificate by path (can be a regexp).                                                                                                              |
+| --unit                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. |
+| --warning-certificate-expires    | Threshold.                                                                                                                                                  |
+| --critical-certificate-expires   | Threshold.                                                                                                                                                  |
+| --warning-certificates-detected  | Threshold.                                                                                                                                                  |
+| --critical-certificates-detected | Threshold.                                                                                                                                                  |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Option                 | Description                                                                                                                                                                                                                                   |
