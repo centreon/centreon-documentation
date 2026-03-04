@@ -307,6 +307,8 @@ apt install centreon-monitoring-agent
 > Si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 $\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
+Pour un collecteur distant :
+
 ```json
 {
   "log_level":"info",
@@ -410,7 +412,7 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 $\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 
-   * Dans le champ **Poller endpoint**, saisissez l'adresse IP ou le nom DNS du collecteur, suivi du port d'écoute CMA (4317 par défaut), sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317.
+   * Dans le champ **Poller endpoint**, saisissez l'adresse IP ou le nom DNS du collecteur, suivi du port d'écoute CMA (4317 par défaut pour un collecteur distant), sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317.
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
    * Le champ **Listening interface** pourra rester à sa valeur par défaut (0.0.0.0:4317), et correspond à l'interface sur laquelle l'agent va accepter les connections venant du collecteur.
@@ -431,7 +433,7 @@ Vous pouvez afficher une liste des arguments avec la ligne de commande suivante 
 centreon-monitoring-agent.exe /VERYSILENT /HELP
 ```
 
-> Si vous utilisez le collecteur central, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> Si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 > $\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Les différents arguments sont:
@@ -441,7 +443,7 @@ Les différents arguments sont:
 |/COMPONENTS| Composants à installer. "agent", "plugins" ou "agent,plugins"  |X |
 |/AGENTINSTANCE| Le nom d'instance de l'agent (nom du service). Si non renseigné, un nom par défaut est généré (CentreonMonitoringAgent) |  |
 |/HOST                 | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon.                          | X |
-|/ENDPOINT                 | Dans le cas le plus courant (l'agent se connecte au collecteur), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le collecteur, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si **/REVERSE=true**, vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur. | X|
+|/ENDPOINT                 | Dans le cas le plus courant (l'agent se connecte au collecteur), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le collecteur, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si **/REVERSE=true**, vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317 pour le collecteur distant) sur lequel l'agent va accepter les connections venant du collecteur. | X|
 |/TOKEN| Jeton d'authentification | X |
 |/PLUGINSRC| Source d'installation des plugins Centreon. "auto" : via internet, "embedded" : version locale. Défaut : "auto" || 
 |/REVERSE| Connection initiée par le collecteur. "true" ou "false". Défaut : "false"| |
@@ -455,6 +457,7 @@ Les différents arguments sont:
 |/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Défaut : "error"| si /LOGTYPE=file |
 |/MAXFILESIZE| Taille maximale du fichier de log avant rotation, en Mo. Défaut : 10. Si /LOGTYPE=file | |
 |/MAXNUMBER| Nombre maximal de fichiers de log. Pour que la rotation des logs soit activée, ces deux paramètres sont nécessaires. Défaut : 3. Si /LOGTYPE=file | |
+|/CUSTOMCHECKFILE| Chemin du fichier de commandes personnalisées. | |
 |/VERSION| Version de centagent.exe |  |                                                                                                                                                                                                                                                      
                                                                                          
 Si **/PLUGINSRC=auto** et que le téléchargement échoue, l'installeur passera automatiquement en mode **embedded**.
@@ -462,6 +465,9 @@ Si **/PLUGINSRC=auto** et que le téléchargement échoue, l'installeur passera 
 Les erreurs d'exécution du mode silencieux, et l'output de /VERSION sont écrits dans ./installer_output.log.
 
 *Exemples de commande*
+
+> Si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+$\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Commande minimale (paramètres obligatoires) :
 
@@ -787,6 +793,9 @@ Il sera utilisé comme nom de service et de clé de registre.
 
 À chaque exécution, une nouvelle instance est créée, avec nom incrémental “CentreonMonitoringAgent1”, “CentreonMonitoringAgent2”.
 Si l’on veut nommer autrement le service (le nom doit être unique), utilisez le paramètre **/AGENTINSTANCE**. Ce nom sera utilisé comme nom de service et de clé de registre.
+
+> Si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+$\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 ```shell
 centreon-monitoring-agent-xxx.exe /VERYSILENT /AGENTINSTANCE="ServiceName"  /COMPONENTS=agent,plugins /HOST=host_1 /ENDPOINT=localhost:4317 /TOKEN=token_value 
