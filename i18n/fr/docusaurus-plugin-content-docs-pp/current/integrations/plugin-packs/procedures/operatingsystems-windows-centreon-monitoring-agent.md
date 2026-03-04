@@ -523,7 +523,7 @@ _“I want to trigger a CRITICAL alert if at least one file of my test directory
 PATH= "C:\Users\User\Documents\test"
 PATTERN= "*.*"
 MAXDEPTH= -1,
-FILESDETAILSYNTAX= {filename}: {size}
+DETAILSYNTAX= {filename}: {size}
 WARNINGSTATUS= written > 12h
 CRITICALSTATUS= written > 1d
 WARNING= 0
@@ -541,7 +541,7 @@ PATH= C:\\Windows\\System32
 PATTERN= *.dll
 MAXDEPTH= 1,
 OUTPUTSYNTAX= {status}: {problem_count}/{count} DLLs have issues: {problem_list}
-FILESDETAILSYNTAX: {filename}: {size} {version}
+DETAILSYNTAX: {filename}: {size} {version}
 FILTER= extension == '.dll'
 WARNINGSTATUS= size > 10M
 CRITICALSTATUS= size > 100M
@@ -563,7 +563,7 @@ _“I want to trigger a CRITICAL alert if file is not present“  “I want to t
 PATH= C:\Users\User\Documents\test
 PATTERN= *.*
 MAXDEPTH= -1,
-FILESDETAILSYNTAX= {filename}: {size}
+DETAILSYNTAX= {filename}: {size}
 WARNINGSTATUS=
 CRITICALSTATUS= filename=myfile.txt
 WARNING=
@@ -576,7 +576,7 @@ _“I want to trigger a CRITICAL alert if file is present“_
 PATH= C:\Users\User\Documents\test
 PATTERN= *.*
 MAXDEPTH= -1,
-FILESDETAILSYNTAX= {filename}: {size}
+DETAILSYNTAX= {filename}: {size}
 WARNINGSTATUS=
 CRITICALSTATUS= filename=myfile.txt
 WARNING=
