@@ -523,7 +523,7 @@ You can combine with WARNING/CRITICAL to require multiple matches before changin
 
 #### File age check
 
-File age can be checked using 3 metadata labels, which can be mixed using logical operators : 
+File age can be checked using 3 metadata labels, which can be mixed using logical operators :
 
 - creation       (file age in seconds since creation, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
 - access         (file age in seconds since last access, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
@@ -533,7 +533,7 @@ _“I want to trigger a CRITICAL alert if at least one file of my test directory
 
 ```
 PATH= "C:\Users\User\Documents\test"
-PATTERN= "*.*"     
+PATTERN= "*.*"
 MAXDEPTH= -1,
 FILESDETAILSYNTAX= {filename}: {size}
 WARNINGSTATUS= written > 12h
@@ -573,12 +573,12 @@ _“I want to trigger a CRITICAL alert if file is not present“  “I want to t
 
 ```
 PATH= C:\Users\User\Documents\test
-PATTERN= *.*    
+PATTERN= *.*
 MAXDEPTH= -1,
 FILESDETAILSYNTAX= {filename}: {size}
-WARNINGSTATUS= 
+WARNINGSTATUS=
 CRITICALSTATUS= filename=myfile.txt
-WARNING= 
+WARNING=
 CRITICAL= 1:
 ```
 
@@ -586,12 +586,12 @@ _“I want to trigger a CRITICAL alert if file is present“_
 
 ```
 PATH= C:\Users\User\Documents\test
-PATTERN= *.*    
+PATTERN= *.*
 MAXDEPTH= -1,
 FILESDETAILSYNTAX= {filename}: {size}
-WARNINGSTATUS= 
+WARNINGSTATUS=
 CRITICALSTATUS= filename=myfile.txt
-WARNING= 
+WARNING=
 CRITICAL= 0
 ```
 
@@ -836,7 +836,7 @@ OK: Sessions created: 0, disconnected: 0, reconnected : 0, current active : 1, c
 
 In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
 In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
 connector in your terminal.
 
 The plugin brings the following modes:
