@@ -15,7 +15,7 @@ Centreon Monitoring Business Intelligence (MBI) is a software tool
 designed to help business users make critical decisions and to
 facilitate management of an IT environment. Centreon MBI analyzes data
 from monitored events, performance counters and capacity accessed from
-the Centreon Business Edition, providing you with
+the Centreon, providing you with
 full visibility of your infrastructures and application activities
 through *ITIL compliant* reporting.
 
