@@ -3,6 +3,9 @@ id: stream-connectors-rn
 title: Stream connectors release notes
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## 2025
 
 ### February

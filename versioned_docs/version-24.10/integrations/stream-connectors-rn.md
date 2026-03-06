@@ -3,6 +3,9 @@ id: stream-connectors-rn
 title: Stream connectors release notes
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## 2025
 
 ### February
@@ -10,9 +13,9 @@ title: Stream connectors release notes
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
 
-- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed downtimes.
-- [**ServiceNow Incident**](event-management/sc-service-now-em-events.md) - Fixed oauth refresh token parameters.
-- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Fixed subinstances.
+- [**Canopsis Events**](data-analytics/sc-canopsis-events) - Fixed downtimes.
+- [**ServiceNow Incident**](event-management/sc-service-now-em-events) - Fixed oauth refresh token parameters.
+- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics) - Fixed subinstances.
 
 </TabItem>
 </Tabs>
@@ -34,9 +37,9 @@ title: Stream connectors release notes
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
 
-- [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed an issue with **max_buffer_size** parameter in Splunk stream connector.
-- [**Clickhouse**](data-analytics/sc-clickhouse.md) - Added a protection on metric names containing spaces.
-- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Added a protection on metric names containing spaces.
+- [**Splunk Metrics**](data-analytics/sc-splunk-metrics) - Fixed an issue with **max_buffer_size** parameter in Splunk stream connector.
+- [**Clickhouse**](data-analytics/sc-clickhouse) - Added a protection on metric names containing spaces.
+- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics) - Added a protection on metric names containing spaces.
 - [**Centreon library: sc_macro**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_macro.lua) - Fixed an issue with **_scshort flag** leading to the macro name of an event being displayed instead of its value.
 
 </TabItem>
@@ -53,7 +56,7 @@ title: Stream connectors release notes
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
 
-- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Enhanced a lot of functionalities to catch up with the new version of Canopsis (24.04).
+- [**Canopsis Events**](data-analytics/sc-canopsis-events) - Enhanced a lot of functionalities to catch up with the new version of Canopsis (24.04).
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Added a new parameter allowing a delta between timestamps, to fix an issue with the notification of a host status change.
 - [**Centreon library: sc_logger**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_logger.lua) - Removed the **allow_insecure_connection** parameter to convert it to **verify_certificate** (working the opposite way).
 - [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added a new **verify_certificate** parameter (and deprecated **allow_insecure_connection**).
@@ -67,7 +70,7 @@ title: Stream connectors release notes
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**All stream connectors**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/docs/README.md) - Added additional debug information when an issue occurs while sending data.
-- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Added the possibility to send **metric_id**.
+- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics) - Added the possibility to send **metric_id**.
 
 </TabItem>
 </Tabs>
@@ -77,7 +80,7 @@ title: Stream connectors release notes
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
 
-- [**Clickhouse Metrics**](data-analytics/sc-clickhouse.md) - Initial release of Clickhouse Metrics.
+- [**Clickhouse Metrics**](data-analytics/sc-clickhouse) - Initial release of Clickhouse Metrics.
 
 </TabItem>
 </Tabs>
@@ -87,8 +90,8 @@ title: Stream connectors release notes
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
 
-- [**Elastic Metrics**](data-analytics/sc-elasticsearch-metrics.md) - Made elastic username and password optional.
-- [**Elastic Metrics**](data-analytics/sc-elasticsearch-metrics.md) - Added min/max property with thresholds (warning/critical) in the template.
+- [**Elastic Metrics**](data-analytics/sc-elasticsearch-metrics) - Made elastic username and password optional.
+- [**Elastic Metrics**](data-analytics/sc-elasticsearch-metrics) - Added min/max property with thresholds (warning/critical) in the template.
 - [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added method to validate Lua patterns and build a table of patterns to compensate the lack of alternation operator (commonly known as | in POSIX regex).
 
 </TabItem>
@@ -143,7 +146,7 @@ title: Stream connectors release notes
 </TabItem>
 <TabItem value="New Stream connector" label="New Stream connector">
 
-- [**Elastic Metrics**](data-analytics/sc-elasticsearch-metrics.md) - Initial release of Elastic Metrics.
+- [**Elastic Metrics**](data-analytics/sc-elasticsearch-metrics) - Initial release of Elastic Metrics.
 
 </TabItem>
 </Tabs>
