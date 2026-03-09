@@ -16,7 +16,6 @@ Ces commandes seront utilisées comme valeurs de macros dans le service correspo
 1. Copiez le plugin sur l'hôte, dans le répertoire de votre choix.
 2. Créer le fichier de commandes
 
-La déclaration des plugins personnalisés (commandes) se fait dans un fichier dédié, sur l’hôte.
 
 Formats supportés : .txt ou .ini
 
