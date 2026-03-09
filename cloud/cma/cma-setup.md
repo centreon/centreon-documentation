@@ -304,7 +304,7 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 > When using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 > $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
-For remote poller : 
+For remote pollers : 
 
 ```json
 {
@@ -408,7 +408,7 @@ The CMA installer can be executed in 2 modes:
 > When using the **Central** poller, the value of **Poller endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 > $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
-   * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317 for remote poller. For example, 192.168.45.32:4317.
+   * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA's listening port, usually 4317 for remote pollers. For example, 192.168.45.32:4317.
 
 </TabItem>
 <TabItem value="Poller connects to agent" label="Poller connects to agent">
@@ -441,7 +441,7 @@ Available parameters are :
 |/COMPONENTS| Components to install. "agent", "plugins" or "agent,plugins"  |X |
 |/AGENTINSTANCE| Agent instance name (service name). If omitted, the installer auto-generates a name (e.g., CentreonMonitoringAgent) |  |
 |/HOST                 | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                          | X |
-|/ENDPOINT                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode (/REVERSE=true), it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) , you must choose the interface (all interfaces: 0.0.0.0) and the port (usually 4317 for remote poller) on which the agent will accept connections from the poller. 
+|/ENDPOINT                 | IP address or DNS name of the poller the agent will connect to. In case of poller-initiated connection mode (/REVERSE=true), it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port), you must choose the interface (all interfaces: 0.0.0.0) and the port (usually 4317 for remote poller) on which the agent will accept connections from the poller. 
 | X|
 |/TOKEN| Authentication token | X |
 |/PLUGINSRC| Source of installation for Centreon plugins. "auto": via the internet, "embedded": local version. Default: "auto" || 
@@ -456,7 +456,7 @@ Available parameters are :
 |/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Default: "error"| if /LOGTYPE=file |
 |/MAXFILESIZE| Maximum size of the log file before rotation, in MB. Default: 10. If /LOGTYPE=file | |
 |/MAXNUMBER| Maximum number of log files. Both of these parameters are required for log rotation to be enabled. Default: 3. If /LOGTYPE=file | |
-|/CUSTOMCHECKFILE| Path to custom commands file. | |
+|/CUSTOMCHECKFILE| Path to custom commands file, if you have one. | |
 |/VERSION| Version of centagent.exe |  |                                                                                                                                                                                                                                                      
                                                                                          
 If **/PLUGINSRC=auto** and the download fails, the installer will automatically switch to **embedded** mode.
