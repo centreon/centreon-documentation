@@ -50,6 +50,12 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 1. Mettez à jour votre Centreon 22.10 jusqu'à la dernière version mineure.
 
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Supprimez le fichier **centreon-22.10.repo** :
 
    ```shell
@@ -73,6 +79,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 2. Exécutez les commandes suivantes :
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
@@ -90,56 +97,6 @@ apt update
 > Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
 >
 > Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
-
-### Montée de version de PHP
-
-Centreon 25.10 utilise PHP en version 8.2.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf config-manager --disable remi-modular remi-safe
-dnf module disable composer:2
-dnf module disable php:remi-8.1
-rm -rf /etc/yum.repos.d/remi*
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.2
-dnf distro-sync php\* --allowerasing
-su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
-systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.2
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-systemctl stop php8.1-fpm
-systemctl disable php8.1-fpm
-```
-
-</TabItem>
-</Tabs>
 
 ### Montée de version de la solution Centreon
 
@@ -189,7 +146,68 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
-7. Videz le cache :
+### Montée de version de PHP
+
+Centreon 25.10 utilise PHP en version 8.2.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+
+```shell
+dnf config-manager --disable remi-modular remi-safe
+dnf module disable composer:2
+dnf module disable php:remi-8.1
+rm -rf /etc/yum.repos.d/remi*
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.2
+dnf distro-sync php\* --allowerasing
+```
+
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+```shell
+su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.2
+```
+
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
+```
+
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php/8.2/fpm/conf.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+</TabItem>
+</Tabs>
+
+Puis, finissez la montée de version de la solution Centreon.
+
+1. Videz le cache :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -216,7 +234,7 @@ apt update
 </TabItem>
 </Tabs>
 
-8. Mettez à jour l'ensemble des composants :
+2. Mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -545,10 +563,31 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
 Suivez [cette procédure](upgrade-mariadb.md) pour monter de version MariaDB en 10.11.
 
-## Montée de version des Remote Servers
+## Montée de version des serveurs distants
 
-Cette procédure est identique à la montée de version d'un serveur Centreon
-Central.
+Cette procédure est identique à celle utilisée pour effectuer la montée de version d'un serveur Centreon Central, avec en plus la nécessité de récupérer la clé de déchiffrement à la fin.
+
+### Récupération de la clé de déchiffrement
+
+Exécutez le script suivant avec l'adresse IP du serveur central afin de permettre au serveur distant de recevoir et traiter des données chiffrées : 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Exemple:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
+
+Redémarrez **centengine**:
+
+```shell
+systemctl restart centengine
+```
 
 > En fin de mise à jour, la configuration doit être déployée depuis le serveur Central.
 
@@ -562,7 +601,8 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 ```
 
@@ -570,6 +610,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon*
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 apt update
 ```
@@ -630,19 +671,23 @@ systemctl restart centreon
 
 ### Récupération de la clé de déchiffrement
 
-Exécutez le script suivant afin de permettre au collecteur de recevoir et traiter des données chiffrées : 
+Exécutez le script suivant avec l'adresse IP correspondante afin de permettre au collecteur de recevoir et traiter des données chiffrées.
+
+L'adresse IP à utiliser varie selon les conditions suivantes :
+- Lorsque vous mettez à jour un collecteur lié directement au server central, utilisez l'adresse IP du serveur central.
+- Lorsque vous mettez à jour un collecteur lié à un serveur distant, utilisez l'adresse IP du serveur distant. Cependant, dans ce cas, confirmez d'abord que le server distant a la bonne clé. Vérifiez que la valeur de `app_secret` dans le fichier `/etc/centreon-engine/engine-context.json` du serveur distant est la même que pour le serveur central. Si ce n'est pas le cas, relancez le script avec l'adresse IP pour corriger le fichier .json.
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
 ```
 
-Example:
+Exemple:
 
 ``` shell
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> Vous devez utiliser le compte **admin** par défaut en tant que **\<API_ACCOUNT\>**.
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
 
 Redémarrez **centengine**:
 

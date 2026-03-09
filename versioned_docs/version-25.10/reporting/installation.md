@@ -43,13 +43,13 @@ The diagram below highlights the main components of Centreon MBI:
 The table below shows the different types of flows, by default,
 between the dedicated BI server, the Centreon server and the databases:
 
-| **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
-|-----------------|--------------------------|--------------------------------------|----------|--------------|
-| ETL/CBIS        | Reporting server         | Centreon database server             | 3306     | TCP          |
-| SSH             | Reporting server         |  Centreon Server                     | 22       | TCP          |
-| CBIS            | Reporting server         | Centreon Server                      | 80       | HTTP*        |
-| CBIS            | Centreon                 | Reporting server                     | 1234     | TCP          |
-| Widgets         | Centreon central server  | Reporting server                     | 3306     | TCP          |
+| **Application** | **Source**               | **Destination**                      | **Port**     | **Protocol**       | **Purpose**                                         |
+|-----------------|--------------------------|--------------------------------------|--------------|--------------------|-----------------------------------------------------|
+| ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Retrieve configuration and other data from Centreon |
+| SSH             | Reporting server         |  Centreon Server                     | 22           | TCP                | Send generated reports to central server            |
+| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentication and data retrieval                     |
+| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Central contacts CBIS to generate jobs               |
+| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Retrieve aggregated data to display in widgets      |
 
 *Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use the Centreon API to generate graphs.*
 
@@ -274,7 +274,9 @@ vgdisplay vg_data | grep -i free*
 >```
 
 Be sure to optimize MariaDB/MySQL on your reporting server.
-You will need at least 12 GB of RAM in order to use the [next file](../assets/reporting/installation/centreon.cnf).
+You will need at least 12 GB of RAM in order to use the [following file](../assets/reporting/installation/centreon.cnf).
+
+> If you want to use a different directory than `/var/lib/mysql/`, edit the **datadir** and **tmpdir** variables in the centreon.cnf file.
 
 Make sure you have a **tmp** folder in **/var/lib/mysql**.
 
@@ -287,12 +289,20 @@ If you are using MySQL:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.
+In the `/etc/my.cnf.d/mysql-server.cnf` file, add: 
+
+```shell
+log_bin_trust_function_creators=1
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.
+In the `/etc/my.cnf.d/mysql-server.cnf` file, add:
+
+```shell
+log_bin_trust_function_creators=1
+```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
@@ -308,6 +318,22 @@ log_bin_trust_function_creators=1
 </Tabs>
 
 2. Restart MySQL.
+
+3. Check the database to confirm this variable is applied:
+
+```shell
+show global variables like 'log_bin_trust_function_creators';
++---------------------------------+-------+
+| Variable_name                   | Value |
++---------------------------------+-------+
+| log_bin_trust_function_creators | ON   |
+```
+
+If the variable is not turned on, set it manually:
+
+```shell
+mysql> SET GLOBAL log_bin_trust_function_creators = 1;
+```
 
 Users and groups:
 
@@ -638,22 +664,6 @@ apt update
 
 2. Install the Business repository. You can find its address on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-3. Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-   
-   - If you need to check the Java version, enter the following command:
-   
-   ```shell
-   java -version
-   ```
-   
-   - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
-   
-   - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-   
-   ```shell
-   sudo update-alternatives --config java
-   ```
-
 #### Install the database repository
 
 <DatabaseRepository />
@@ -860,6 +870,22 @@ apt install centreon-bi-reporting-server
 
 </TabItem>
 </Tabs>
+
+Then, ensure a version of Java 17 (or 18) is installed before you start the procedure.
+   
+   - If you need to check the Java version, enter the following command:
+   
+   ```shell
+   java -version
+   ```
+   
+   - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+   
+   - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
 
 #### Enable services
 
@@ -1217,7 +1243,7 @@ Go to **Reporting > Monitoring Business Intelligence > General Options**, **ETL 
 | **General options**                                                                    |                                                                                                                                                                                                                                       |
 | Reporting engine uses a dedicated dedicated MySQL server                             | The only appropriate option is **Yes**.                                                                                                                                                                                     |
 | Temporary file storage directory on reporting server                                   | Folder where dumps will be stored on the reporting server                                                                                                                                                                             |
-| Use large memory tweaks (store MariaDB temporary tables in memory)                     | Activated only if your MariaDB configuration and allocated physical memory on the server permit.                                                                                                                                     |
+| Use large memory tweaks (store MariaDB temporary tables in memory)                     | Creates temporary tables using RAM rather than creating them on disk. Not recommended if you have databases with less than 64GB of RAM.                                                  |
 | **Centile parameters**                                                                 |                                                                                                                                                                                                   |
 | Calculating centile aggregation by                                                     | Select the desired aggregation level. The standard percentile report provided with BI 2.1 uses Month data.                                                                                                                            |
 | Select service categories to aggregate centile on                                      | Filter on relevant service categories for centile statistics (e.g., Traffic).                                                                                                                                                         |

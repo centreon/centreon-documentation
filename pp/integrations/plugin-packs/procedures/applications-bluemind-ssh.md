@@ -143,7 +143,7 @@ setting your unique user and password directly in the host macros.
 
 ### BlueMind Configuration
 
-A monitoring account allowed to access Unix sockets within the `/var/run/bm-metrics/` directory must be created on the BlueMind system and be part of the `telegraph` group.
+A monitoring account allowed to access Unix sockets within the `/var/run/bm-metrics/` directory must be created on the BlueMind system and be part of the `telegraf` group.
 
 You can check that the proper monitoring account permissions are set by logging on to the BlueMind system using this newly created user and executing this test command:
 

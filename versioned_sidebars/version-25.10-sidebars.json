@@ -534,7 +534,7 @@
                 },
                 {
                   "type": "doc",
-                  "id": "alerts-notifications/notif-config-for-teams"
+                  "id": "integrations/notifications/sms-notifications"
                 },
                 {
                   "type": "doc",
@@ -1238,6 +1238,39 @@
     },
     {
       "type": "category",
+      "label": "Centreon Monitoring Agent",
+      "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-certificates"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-custom"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-migratenscpp"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-troubleshooting"
+                }
+              ]
+    },
+    {
+      "type": "category",
       "label": "Integrations",
       "link": {
         "type": "doc",
@@ -1252,6 +1285,10 @@
             "id": "integrations/stream-connectors"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "integrations/stream-connectors-rn"
+            },
             {
               "type": "doc",
               "id": "integrations/event-management/sc-hp-bsm"
@@ -1475,10 +1512,6 @@
         },
         {
           "type": "doc",
-          "id": "developer/developer-translate-centreon"
-        },
-        {
-          "type": "doc",
           "id": "developer/developer-widget"
         },
         {
@@ -1671,19 +1704,12 @@
       },
       "items": [
         {
-          "type": "doc",
-          "id": "releases/introduction"
-        },
-        {
-          "type": "doc",
-          "id": "releases/lifecycle"
-        },
-        {
           "type": "category",
-          "label": "Release notes by component",
-          "link": {
-            "type": "generated-index"
-          },
+          "label": "Release notes for Centreon 25.10",
+          "link": { 
+            "type": "doc",
+            "id": "releases/introduction"
+          }, 
           "items": [
             {
               "type": "doc",
@@ -1694,6 +1720,10 @@
               "id": "releases/centreon-commercial-extensions"
             }
           ]
+        },
+        {
+          "type": "doc",
+          "id": "releases/lifecycle"
         }
       ]
     },

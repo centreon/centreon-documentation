@@ -39,7 +39,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 ## Montée de version du serveur Centreon Central
 
-> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+> Lorsque vous lancez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
 ### Installation du nouveau dépôt Centreon
 
@@ -47,6 +47,12 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Mettez à jour votre Centreon 22.10 jusqu'à la dernière version mineure.
+
+   ```shell
+   dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10-el8.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
 
 2. Supprimez le fichier **centreon-22.10.repo** :
 
@@ -90,6 +96,54 @@ apt update
 > Si vous avez une édition Business, faites de même avec le dépôt Business.
 >
 > Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+### Montée de version de la solution Centreon
+
+1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
+
+2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 22.10 :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-22.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-22.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Debian" label="Debian">
+
+```shell
+rm /etc/apt/sources.list.d/centreon-business.list
+```
+
+</TabItem>
+</Tabs>
+
+3. Installez le dépôt business en 24.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
+
+4. Si votre système d'exploitation est Debian et que vous utilisez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
+
+5. Arrêtez le processus Centreon Broker :
+
+```shell
+systemctl stop cbd
+```
+
+6. Supprimez les fichiers de rétention présents :
+
+```shell
+rm /var/lib/centreon-broker/* -f
+```
 
 ### Montée de version de PHP
 
@@ -141,55 +195,9 @@ systemctl disable php8.1-fpm
 </TabItem>
 </Tabs>
 
-### Montée de version de la solution Centreon
+Puis, terminez la montée de version de la solution Centroen.
 
-1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
-
-2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 22.10 :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-22.10.repo
-```
-
-</TabItem>
-
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-rm /etc/yum.repos.d/centreon-business-22.10.repo
-```
-
-</TabItem>
-
-<TabItem value="Debian" label="Debian">
-
-```shell
-rm /etc/apt/sources.list.d/centreon-business.list
-```
-
-</TabItem>
-</Tabs>
-
-3. Installez le dépôt business en 24.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
-
-4. Si votre système d'exploitation est Debian et que vous utilisez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
-
-5. Arrêtez le processus Centreon Broker :
-
-```shell
-systemctl stop cbd
-```
-
-6. Supprimez les fichiers de rétention présents :
-
-```shell
-rm /var/lib/centreon-broker/* -f
-```
-
-7. Videz le cache :
+1. Videz le cache :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -216,7 +224,7 @@ apt update
 </TabItem>
 </Tabs>
 
-8. Mettez à jour l'ensemble des composants :
+2. Mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

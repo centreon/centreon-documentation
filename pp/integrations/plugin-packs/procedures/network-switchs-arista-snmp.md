@@ -26,8 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template               | Service Description                                                                                                                                  |
 |:--------------|:-------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | Net-Arista-Cpu-SNMP-custom     | Check the rate of utilization of CPU for the equipment. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
-| Memory        | Net-Arista-Memory-SNMP-custom  | Check the rate of the utilization of memory (RAM)                                                                                                    |
+| Bgp           | Net-Arista-Bgp-SNMP-custom     | Check BGP peers                                                                                                                                      |
+| Cpu           | Net-Arista-Cpu-SNMP-custom     | Check the rate of utilization of the CPU for the resource. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Memory        | Net-Arista-Memory-SNMP-custom  | Check the rate of the utilization of the memory                                                                                                          |
 | Sensors       | Net-Arista-Sensors-SNMP-custom | Check sensors                                                                                                                                        |
 
 > The services listed above are created automatically when the **Net-Arista-SNMP-custom** host template is used.
@@ -66,6 +67,14 @@ More information about discovering hosts automatically is available on the [dedi
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
+<TabItem value="Bgp" label="Bgp">
+
+| Name                     | Unit  |
+|:-------------------------|:------|
+| bgp.peers.detected.count | count |
+| status                   | N/A   |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Name                                       | Unit |
@@ -265,6 +274,27 @@ yum install centreon-plugin-Network-Switchs-Arista-Snmp
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
+<TabItem value="Bgp" label="Bgp">
+
+| Macro                 | Description                                                                                                                                                                                                                                      | Default value                                                | Mandatory |
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:---------:|
+| INCLUDELOCALAS        | Filter by peer local AS number (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                    |                                                              |           |
+| EXCLUDELOCALAS        | Exclude by peer local AS number (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                   |                                                              |           |
+| INCLUDELOCALADDR      | Filter by peer local IP (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                           |                                                              |           |
+| EXCLUDELOCALADDR      | Exclude by peer local IP (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                          |                                                              |           |
+| INCLUDEREMOTEAS       | Filter by peer remote AS number (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                   |                                                              |           |
+| EXCLUDEREMOTEAS       | Exclude by peer remote AS number (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                  |                                                              |           |
+| INCLUDEREMOTEADDR     | Filter by peer remote IP (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                          |                                                              |           |
+| EXCLUDEREMOTEADDR     | Exclude by peer remote IP (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                         |                                                              |           |
+| INCLUDEDESCRIPTION    | Filter by peer description (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                        |                                                              |           |
+| EXCLUDEDESCRIPTION    |                                                                                                                                                                                                                                                  |                                                              |           |
+| WARNINGPEERSDETECTED  | Thresholds                                                                                                                                                                                                                                       |                                                              |           |
+| CRITICALPEERSDETECTED |                                                                                                                                                                                                                                                  |                                                              |           |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{adminStatus\}, %\{state\}, %\{localAddr\}, %\{localPort\}, %\{localAs\}, %\{remoteAddr\}, %\{remotePort\}, %\{remoteAs\}, %\{description\} | %\{adminStatus\} =~ /running/ && %\{state\} !~ /established/ |           |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{adminStatus\}, %\{state\}, %\{localAddr\}, %\{localPort\}, %\{localAs\}, %\{remoteAddr\}, %\{remotePort\}, %\{remoteAs\}, %\{description\}  |                                                              |           |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                           |                                                              |           |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Macro        | Description                                                                                                                                      | Default value | Mandatory |
@@ -462,6 +492,7 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                         | Linked service template                                                                                                                                                                                                                                                                            |
 |:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| bgp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/arista/snmp/mode/bgp.pm)]                  | Net-Arista-Bgp-SNMP-custom                                                                                                                                                                                                                                                                         |
 | cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpu.pm)]                        | Net-Arista-Cpu-SNMP-custom                                                                                                                                                                                                                                                                         |
 | entity [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/entity.pm)]                  | Net-Arista-Sensors-SNMP-custom                                                                                                                                                                                                                                                                     |
 | interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]          | Net-Arista-Packet-Errors-Generic-Id-SNMP-custom<br />Net-Arista-Packet-Errors-Generic-Name-SNMP-custom<br />Net-Arista-Packet-Errors-Global-SNMP-custom<br />Net-Arista-Traffic-Generic-Id-SNMP-custom<br />Net-Arista-Traffic-Generic-Name-SNMP-custom<br />Net-Arista-Traffic-Global-SNMP-custom |
@@ -542,6 +573,29 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
+<TabItem value="Bgp" label="Bgp">
+
+| Option                    | Description                                                                                                                                                                                                                                                                                                                |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters         | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                  |
+| --include-local-as        | Filter by peer local AS number (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                                                                                              |
+| --exclude-local-as        | Exclude by peer local AS number (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                                                                                             |
+| --include-local-addr      | Filter by peer local IP (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                                                                                                     |
+| --exclude-local-addr      | Exclude by peer local IP (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                                                                                                    |
+| --include-remote-as       | Filter by peer remote AS number (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                                                                                             |
+| --exclude-remote-as       | Exclude by peer remote AS number (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                                                                                            |
+| --include-remote-addr     | Filter by peer remote IP (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                                                                                                    |
+| --exclude-remote-addr     | Exclude by peer remote IP (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                                                                                                   |
+| --include-description     | Filter by peer description (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                                                                                                  |
+| --exclude-description     | Exclude by peer description (can be a regexp and can be used multiple times or for comma separated values)                                                                                                                                                                                                                 |
+| --unknown-status          | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{adminStatus\}, %\{state\}, %\{localAddr\}, %\{localPort\}, %\{localAs\}, %\{remoteAddr\}, %\{remotePort\}, %\{remoteAs\}, %\{description\}                                                                            |
+| --warning-status          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{adminStatus\}, %\{state\}, %\{localAddr\}, %\{localPort\}, %\{localAs\}, %\{remoteAddr\}, %\{remotePort\}, %\{remoteAs\}, %\{description\}                                                                            |
+| --critical-status         | Define the conditions to match for the status to be CRITICAL (default: '%\{adminStatus\} =~ /running/ && %\{state\} !~ /established/'). You can use the following variables: %\{adminStatus\}, %\{state\}, %\{localAddr\}, %\{localPort\}, %\{localAs\}, %\{remoteAddr\}, %\{remotePort\}, %\{remoteAs\}, %\{description\} |
+| --unknown-peers-detected  | Thresholds. Default: --unknown-peers-detected='1:'                                                                                                                                                                                                                                                                         |
+| --warning-peers-detected  | Thresholds.                                                                                                                                                                                                                                                                                                                |
+| --critical-peers-datected | Thresholds.                                                                                                                                                                                                                                                                                                                |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Option             | Description                                                                                                               |

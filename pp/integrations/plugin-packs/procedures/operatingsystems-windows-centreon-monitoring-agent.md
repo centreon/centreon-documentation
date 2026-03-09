@@ -4,10 +4,25 @@ title: Windows CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 The **Windows CMA** connector supplies templates and commands to be used with the Centreon Monitoring Agent (CMA). This is an observability agent implementing the OpenTelemetry protocol.
 
-Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
+For more information about the Centreon Monitoring Agent itself:
+
+<Tabs groupId="version" queryString>
+<TabItem value="OnPrem" label="OnPrem">
+
+Read [the CMA documentation for Centreon OnPrem](/docs/cma).
+(This link redirects you to the latest version of the OnPrem documentation. Use the version selector in the upper right corner to switch to another version if necessary.)
+
+</TabItem>
+<TabItem value="Cloud" label="Cloud">
+
+Read [the CMA documentation for Centreon Cloud](/cloud/cma/cma-setup).
+
+</TabItem>
+</Tabs>
 
 ## Pack assets
 
@@ -30,11 +45,12 @@ The connector brings the following service templates (sorted by the host templat
 | Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Check the rate of memory utilization                                                                                                                            | native        |
 | Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Check the synchronization with a NTP server.                                                                                                                    | non-native    |
 | Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Check if Windows needs rebooting.                                                                                                                               | non-native    |
-| Services-Auto  | OS-Windows-Services-Auto-Centreon-Monitoring-Agent-custom  | Check if all auto-start Windows services are running                                                                                                           | native        |
+| Services-Auto  | OS-Windows-Services-Auto-Centreon-Monitoring-Agent-custom  | Check if all auto-start Windows services are running                                                                                                            | native        |
 | Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Check the number of active sessions.                                                                                                                            | non-native    |
 | Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Check virtual memory usage                                                                                                                                      | native        |
 | Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Check if there are pending updates.                                                                                                                             | non-native    |
 | Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Check time since the server has been working and available                                                                                                      | native        |
+| Custom-Script  | OS-Windows-Custom-Script-Centreon-Monitoring-Agent-custom  | Check using a custom script                                                                                                                                     | non-native    |
 
 > The services listed above are created automatically when the **OS-Windows-Centreon-Monitoring-Agent-custom** host template is used.
 
@@ -250,30 +266,16 @@ No metrics for this service.
 | uptime | s    |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+No metrics for this service.
+
+</TabItem>
 </Tabs>
 
 ## Prerequisites
 
-### Network flow
-
-Only one TCP flow must be open from the host to the poller.
-
-| Source         | Destination | Protocol | Port | Purpose                                          |
-|----------------|-------------|----------|------|--------------------------------------------------|
-| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval OpenTelemetry data flow. |
-
-### System prerequisites for the poller
-
-> To be able to use the Centreon Monitoring agent, you must use a poller with at least version <!--`24.09.0` for Centreon Cloud users and version--> `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will retrieve its configuration by connecting to Centreon Engine.
-
-### Configure poller/agent communication
-
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
-
-### System prerequisites for the monitored host
-
-The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in
-[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
+<CMAprerequisites />
 
 ## Installing the monitoring connector
 
@@ -537,6 +539,9 @@ This connector relies on an integration supported by Centreon Engine and does no
 | EXCLUDENAME          | Regex to exclude service names                                                                                                            |               |           |
 | FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |               |           |
 | EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |               |           |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service       |           |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |               |           |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |               |           |
 | WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |               |           |
 | CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |               |           |
 | WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |               |           |
@@ -556,6 +561,9 @@ This connector relies on an integration supported by Centreon Engine and does no
 | EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
 | FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
 | EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service           |             |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                   |             |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                   |             |
 | WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
 | CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
 | WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
@@ -658,6 +666,32 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALUPTIME | Critical threshold                                                                                   | 600           |           |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+| Macro          | Description                                                                                          | Default value | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CUSTOMCHECK    | Name of the custom check to use                                                                      |               | X         |
+| ARG1           | Extra argument 1 to pass to the custom check command                                                 |               |           |
+| ARG2           | Extra argument 2 to pass to the custom check command                                                 |               |           |
+| ARG3           | Extra argument 3 to pass to the custom check command                                                 |               |           |
+| ARG4           | Extra argument 4 to pass to the custom check command                                                 |               |           |
+| ARG5           | Extra argument 5 to pass to the custom check command                                                 |               |           |
+| ARG6           | Extra argument 6 to pass to the custom check command                                                 |               |           |
+| ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
+| ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
+
+> Commands are defined in a dedicated file on the host.
+> The path to this file is configured via the installer or the registry using the custom_check_file parameter.
+> To update commands, edit the file and reload the agent.
+
+```cmd
+[custom_checks]
+check_echo = /usr/bin/echo "$ARG1$ $ARG2$"
+custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
+```
+
+</TabItem>
+
 </Tabs>
 
 3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.

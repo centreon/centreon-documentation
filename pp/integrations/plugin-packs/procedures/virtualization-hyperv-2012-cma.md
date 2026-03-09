@@ -4,6 +4,7 @@ title: Hyper-V 2012 CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 ## Connector dependencies
 
@@ -127,30 +128,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-### Network flow
-
-Only one TCP flow must be open from the host to the poller.
-
-| Source         | Destination | Protocol | Port | Purpose                                              |
-|----------------|-------------|----------|------|------------------------------------------------------|
-| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow |
-
-### System prerequisites on the poller
-
-> To be able to use the Centreon Monitoring agent, you must use a poller with at least version <!--`24.09.0` for Centreon Cloud users and version--> `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
-
-### Configure Engine
-
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
-
-### System prerequisites on the monitored host
-
-The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in [this dedicated page](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-setup/#step-3-prepare-the-host).
-
-#### Installing the Centreon Monitoring Agent
-
-The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in 
-[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
+<CMAprerequisites />
 
 ## Installing the monitoring connector
 

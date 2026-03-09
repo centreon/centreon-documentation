@@ -3,6 +3,65 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## February 17th, 2026
+
+### Centreon IT Edition
+
+**Centreon Monitoring Agent (CMA)**
+
+This release brings significant enhancements to the Centreon Monitoring Agent, focusing on automation, security, and broader check capabilities:
+* A new generic native check for custom scripts has been added.
+* For Windows environments, service checks now include filters for startup type and delayed services.
+* Deploying a CMA-related Monitoring Connector now automatically activates freshness by default and creates the required links to the commands connector. Freshness is also activated by default on all CMA-related services, hosts, and templates.
+* The CMA Token is now mandatory even when using "No TLS" mode. Additionally, the agent configuration now supports .cert formats, allows any certificate path, and includes a listening port parameter for agent-initiated connections.
+
+**Data Visualization**
+
+* Charts in Performance Graphs are now limited to 20 metrics to keep them readable.
+* The Resource Table widget in Centreon Dashboards now includes a direct link to ticket details in the incident management system, helping connect monitoring and incident response.
+
+**Configuration**
+
+* We have improved the handling of password fields in additional configuration menus to enhance security and usability.
+
+### Centreon Pro Edition
+
+**MAP**
+
+* Geoviews: The geographic view interface now includes new actions, allowing users to duplicate or delete views, copy their URL, and save the map position directly.
+* Editor: For better visual impact and clarity, geometric resources can now be enlarged up to a maximum size of 84x84 pixels and other shapes reduced to a minimum of 20x20 pixels.
+
+## January 8th, 2026
+
+### Centreon IT Edition
+
+**Centreon Monitoring Agent**
+
+This release brings significant improvements to the Centreon Monitoring Agent (CMA) to align its behavior with standard monitoring logic and to offer more flexibility in deployment:
+
+* CMA now supports the **retry_interval** and **max_attempts** parameters, allowing for more granular control over alerting. Additionally, freshness checks are now fully supported, ensuring data consistency even in case of communication silence.
+* The Windows installer has been enhanced to support multiple CMA instances on a single host, catering to complex infrastructure requirements.
+* To simplify the configuration process, the “CA common name” field is now only displayed when **Insecure TLS** mode is selected.
+
+**Centreon Dashboards**
+
+* A new filtering layer has been added to the **Status Grid** widget. You can now filter resources based on their specific state: unhandled, acknowledged, in downtime, or flapping. This allows for a much more focused view of critical events.
+
+**Configuration**
+
+* When using the **Deploy Service** action on a host, the **Pollers** list will now correctly display the **Conf Changed** status, ensuring administrators know exactly when a configuration update is required.
+
+### Centreon Pro Edition
+
+**Business Activities**
+
+* We have improved the readability of Business Activity diagrams. Label width has been increased to accommodate longer names, and an ellipsis is displayed to gracefully handle very long strings.
+
+**MAP**
+
+* Enhancements have been made to geographic views. It is now possible to define specific geo-coordinates directly for maps and display them accurately within your geographic views, bridging the gap between logical topology and physical location.
+
+
 ## November 6th, 2025
 
 ### Centreon IT Edition

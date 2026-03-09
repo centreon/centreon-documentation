@@ -568,8 +568,10 @@ module.exports = {
         {
           "type": "category",
           "label": "Guide",
+          "key": "graph-views-guide",
           "link": {
             "type": "generated-index",
+            "slug": "graph-views-guide"
           },
           "items": [
             {
@@ -619,6 +621,39 @@ module.exports = {
       "type": "link",
       "href": "/pp/integrations/plugin-packs/getting-started/introduction",
       "label": "Monitoring Connectors"
+    },
+    {
+      "type": "category",
+      "label": "Centreon Monitoring Agent",
+      "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-certificates"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-custom"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-migratenscpp"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-troubleshooting"
+                }
+              ]
     },
     {
       "type": "category",

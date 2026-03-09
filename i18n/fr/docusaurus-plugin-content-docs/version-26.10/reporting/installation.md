@@ -45,13 +45,13 @@ Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 Le tableau ci-dessous présente les différents types de flux, par défaut,
 entre le serveur BI dédié, le serveur Centreon et les bases de données :
 
-| **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
-|-----------------|--------------------------|--------------------------------------|----------|--------------|
-| ETL/CBIS        | Serveur de reporting     | Serveur de bases de données Centreon | 3306     | TCP          |
-| SSH             | Serveur de reporting     | Serveur Centreon                     | 22       | TCP          |
-| CBIS            | Serveur de reporting     | Serveur Centreon                     | 80       | HTTP*        |
-| CBIS            | Centreon                 | Serveur de reporting                 | 1234     | TCP          |
-| Widgets         | Serveur central Centreon | Serveur de reporting                 | 3306     | TCP          |
+| **Application** | **Source**               | **Destination**                      | **Port**     | **Protocole**      | **Objet**                                                  |
+|-----------------|--------------------------|--------------------------------------|--------------|--------------------|------------------------------------------------------------|
+| ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Récupérer la configuration et d'autres données de Centreon |
+| SSH             | Reporting server         | Centreon Server                      | 22           | TCP                | Envoyer les rapports générés au serveur central            |
+| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentification et récupération des données               |
+| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Utilisé pour contacter CBIS afin de créer des jobs         |
+| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Récupération des données agrégées pour les widgets        |
 
 \**Uniquement requis pour les rapports Host-Graph-v2 et Hostgroup-Graph-v2 qui utilisent l'API Centreon pour générer des graphiques.*
 
@@ -276,6 +276,8 @@ Veillez à optimiser MariaDB/MySQL sur votre serveur de reporting. Vous aurez be
 d'au moins 12GB de mémoire vive afin d'utiliser le
 [fichier suivant](../assets/reporting/installation/centreon.cnf).
 
+> Si vous souhaitez utiliser un répertoire autre que `/var/lib/mysql/`, éditez les variables **datadir** et **tmpdir** du fichier centreon.cnf.
+
 Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
 
 > Ne définissez pas ces optimisations MariaDB/MySQL sur votre serveur de supervision.
@@ -287,12 +289,20 @@ Si vous utilisez MySQL :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
+Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
+
+```shell
+log_bin_trust_function_creators=1
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
+Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
+
+```shell
+log_bin_trust_function_creators=1
+```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
@@ -308,6 +318,22 @@ log_bin_trust_function_creators=1
 </Tabs>
 
 2. Redémarrez MySQL.
+
+3. Vérifiez que la base de données que la variable suivante est appliquée :
+
+```shell
+show global variables like 'log_bin_trust_function_creators';
++---------------------------------+-------+
+| Variable_name                   | Value |
++---------------------------------+-------+
+| log_bin_trust_function_creators | ON    |
+```
+
+Si la variable n'est pas appliquée, activez-la manuellement : 
+
+```shell
+mysql> SET GLOBAL log_bin_trust_function_creators = 1;
+```
 
 Utilisateurs et groupes :
 
@@ -631,22 +657,6 @@ apt update
 
 2. Installez le dépôt Business. Vous pouvez trouver son adresse sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-3. Assurez-vous qu'une version de Java 17 (ou 18) est installée.
-   
-   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-   
-   ```shell
-   java -version
-   ```
-   
-   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
-   
-   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-   
-   ```shell
-   sudo update-alternatives --config java
-   ```
-
 #### Installer le dépôt de base de données
 
 <DatabaseRepository />
@@ -851,6 +861,22 @@ apt install centreon-bi-reporting-server
 
 </TabItem>
 </Tabs>
+
+Assurez-vous qu'une version de Java 17 (ou 18) est installée.
+   
+   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
+   
+   ```shell
+   java -version
+   ```
+   
+   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+   
+   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+   
+   ```shell
+   sudo update-alternatives --config java
+   ```
 
 #### Activer les services
 
@@ -1195,7 +1221,7 @@ suivantes :
 | Une base de données MariaDB dédiée au reporting a été mise en place.                                                                     | Oui. Vous devez avoir un serveur de reporting dédié.                                                                                                                                                                                                                                                                                               |
 | Espace de stockage des fichiers temporaires sur le serveur de reporting *                                                                | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés                                                                                                                                                                                                                                                            |
 | Type de statistiques à traiter                                                                                                           | Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité.  Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance. Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.                  |
-| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Activé uniquement si votre configuration MariaDB et la mémoire physique allouée au serveur de reporting le permet.                                                                                                                                                                                                                                 |
+| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Crée des tables temporaires en utilisant de la RAM plutôt que de les créer sur disque. Non recommandé si vous disposez de bases de données avec moins de 64Go de RAM.                                                                                                                                                                  |
 | **Sélection du périmètre du reporting**                                                                                                  |                                                                                                                                                                                                                                                                                                                                                    |
 | Groupes d'hôtes                                                                                                                          | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                          |
 | Catégories d'hôtes                                                                                                                       | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                       |

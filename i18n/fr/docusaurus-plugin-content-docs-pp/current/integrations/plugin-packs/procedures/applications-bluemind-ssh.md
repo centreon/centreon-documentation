@@ -148,7 +148,7 @@ Deux méthodes de connexion SSH sont possibles :
 
 ### Configuration BlueMind
 
-Sur le serveur BlueMind, créer un utilisateur ayant accès aux sockets Unix dans le répertoire `/var/run/bm-metrics/` (groupe `telegraph`).
+Sur le serveur BlueMind, créer un utilisateur ayant accès aux sockets Unix dans le répertoire `/var/run/bm-metrics/` (groupe `telegraf`).
 
 Afin d'en vérifier les permissions, exécutez cette commande avec cet utilisateur :
 
