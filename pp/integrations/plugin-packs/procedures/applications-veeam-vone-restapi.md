@@ -268,8 +268,8 @@ yum install centreon-plugin-Applications-Veeam-Vbem-Restapi
 | FILTER_NAME               | Filter proxies by name (can be a regexp)                                                                                                         |                                            |           |
 | WARNING_PROXIES_DETECTED  | Thresholds                                                                                                                                       |                                            |           |
 | CRITICAL_PROXIES_DETECTED | Thresholds                                                                                                                                       |                                            |           |
-| WARNING_PROXY_STATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{name\}, %\{type\}               | %\{state\} =~ /inaccessible\|disconnected/ |           |
-| CRITICAL_PROXY_STATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{name\}, %\{type\}              | %\{state\} =~ /warning\|outofdate/         |           |
+| WARNING_PROXY_STATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{name\}, %\{type\}               | %\{state\} =~ /warning\|outofdate/         |           |
+| CRITICAL_PROXY_STATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{name\}, %\{type\}              | %\{state\} =~ /inaccessible\|disconnected/ |           |
 | EXTRA_OPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |                                            |           |
 
 </TabItem>
@@ -282,8 +282,8 @@ yum install centreon-plugin-Applications-Veeam-Vbem-Restapi
 | FILTER_NAME                    | Filter repositories by name (can be a regexp)                                                                                                    |                                            |           |
 | WARNING_REPOSITORIES_DETECTED  | Threshold                                                                                                                                        |                                            |           |
 | CRITICAL_REPOSITORIES_DETECTED | Threshold                                                                                                                                        |                                            |           |
-| WARNING_REPOSITORY_STATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{name\}, %\{type\}               | %\{state\} =~ /inaccessible\|disconnected/ |           |
-| CRITICAL_REPOSITORY_STATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{name\}, %\{type\}              | %\{state\} =~ /warning\|outofdate/         |           |
+| WARNING_REPOSITORY_STATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{name\}, %\{type\}               | %\{state\} =~ /warning\|outofdate/         |           |
+| CRITICAL_REPOSITORY_STATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{name\}, %\{type\}              | %\{state\} =~ /inaccessible\|disconnected/ |           |
 | WARNING_SPACE_USAGE            | Threshold in bytes                                                                                                                               |                                            |           |
 | CRITICAL_SPACE_USAGE           | Threshold in bytes                                                                                                                               |                                            |           |
 | WARNING_SPACE_USAGE_FREE       | Threshold in bytes                                                                                                                               |                                            |           |
@@ -320,8 +320,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--warning-proxies-detected='' \
 	--critical-proxies-detected='' \
 	--unknown-proxy-status='%\{state\} =~ /unknown/' \
-	--warning-proxy-status='%\{state\} =~ /inaccessible|disconnected/' \
-	--critical-proxy-status='%\{state\} =~ /warning|outofdate/' 
+	--warning-proxy-status='%\{state\} =~ /warning|outofdate/'
+	--critical-proxy-status='%\{state\} =~ /inaccessible|disconnected/'
 ```
 
 The expected command output is shown below:
@@ -477,8 +477,8 @@ All available options for each service template are listed below:
 | --filter-uid                | Filter proxies by UID (can be a regexp).                                                                                                                                                   |
 | --filter-name               | Filter proxies by name (can be a regexp).                                                                                                                                                  |
 | --unknown-proxy-status      | Define the conditions to match for the status to be UNKNOWN (default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{name\}, %\{type\}                    |
-| --warning-proxy-status      | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /inaccessible\|disconnected/'). You can use the following variables: %\{state\}, %\{name\}, %\{type\} |
-| --critical-proxy-status     | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /warning\|outofdate/'). You can use the following variables: %\{state\}, %\{name\}, %\{type\}        |
+| --warning-proxy-status      | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /warning\|outofdate/'). You can use the following variables: %\{state\}, %\{name\}, %\{type\}         |
+| --critical-proxy-status     | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /inaccessible\|disconnected/'). You can use the following variables: %\{state\}, %\{name\}, %\{type\} |
 | --warning-proxies-detected  | Thresholds.                                                                                                                                                                                |
 | --critical-proxies-detected | Thresholds.                                                                                                                                                                                |
 
@@ -490,8 +490,8 @@ All available options for each service template are listed below:
 | --filter-uid                     | Filter repositories by UID (can be a regexp).                                                                                                                                              |
 | --filter-name                    | Filter repositories by name (can be a regexp).                                                                                                                                             |
 | --unknown-repository-status      | Define the conditions to match for the status to be UNKNOWN (default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{name\}, %\{type\}                    |
-| --warning-repository-status      | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /inaccessible\|disconnected/'). You can use the following variables: %\{state\}, %\{name\}, %\{type\} |
-| --critical-repository-status     | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /warning\|outofdate/'). You can use the following variables: %\{state\}, %\{name\}, %\{type\}        |
+| --warning-repository-status      | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /warning\|outofdate/'). You can use the following variables: %\{state\}, %\{name\}, %\{type\}         |
+| --critical-repository-status     | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /inaccessible\|disconnected/'). You can use the following variables: %\{state\}, %\{name\}, %\{type\} |
 | --warning-repositories-detected  | Threshold.                                                                                                                                                                                 |
 | --critical-repositories-detected | Threshold.                                                                                                                                                                                 |
 | --warning-space-usage            | Threshold in bytes.                                                                                                                                                                        |
