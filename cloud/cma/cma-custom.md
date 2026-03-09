@@ -15,7 +15,6 @@ These commands will be used as macro values in the corresponding service.
 1. Copy the plugin to the host, in the directory of your choice.
 2. Create the commands file
 
-The declaration of custom plugins (commands) is done in a dedicated file, on the host.
 
 Supported formats: .txt or .ini
 
