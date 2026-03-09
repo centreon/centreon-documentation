@@ -10,6 +10,10 @@ import TabItem from '@theme/TabItem';
 
 ### March
 
+> **Warning:**  As you may notice, almost all monitoring connectors will appear as updated in the Monitoring Connector Manager.
+> Most of them have been reissued for technical reasons. If you do not find them in the tabs below, there will be no changes except that the required plugin version will be available for Debian 13 and EL10 to prepare the future availability of Centreon on these platforms.
+> Also notice that Monitoring Connectors for EL7 will be archived soon since this platform is no longer supported.
+
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
@@ -37,6 +41,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Fix" label="Fix">
 
 - [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed a `No peers detected` error with `--ntp-mode=ntpq`.
+- [**SecurActive SNMP**](../procedures/network-securactive-snmp.md) - Fixed the **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.
 - [**Splunk API**](../procedures/applications-monitoring-splunk-api.md) - Fixed the **App-Monitoring-Splunk-Api-String-Value** command that used a wrong mode.
 - [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Fixed host ID macro in **Virt-VMWare8-VM-Restapi-Network-Throughput** command.
 - [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - The temporary files are now deleted when the execution ends.
