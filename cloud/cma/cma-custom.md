@@ -8,7 +8,8 @@ import TabItem from '@theme/TabItem';
 **Centreon Monitoring Agent** can execute custom plugins. Use this feature if your monitoring needs are specific and not covered by native Centreon controls and plugins. Supported languages are: PowerShell, Perl, Python, Bash.
 
 To get started, create your plugin: for example, you can use [our developer guide](/pp/integrations/plugin-packs/dev-resources/introduction).
-
+Custom plugins execution requires to declare associated commands in a dedicated file, on the host.
+These commands will be used as macro values in the corresponding service.
 ## Actions on the host
 
 1. Copy the plugin to the host, in the directory of your choice.
@@ -41,7 +42,7 @@ The path to the file must be declared in the agent configuration, via the **cust
 }
 ```
 
-* Windows: via the installer/silent mode (/CUSTOMCHECK) or directly in the registry (custom_check_file).
+* Windows: via the installer/silent mode (**/CUSTOMCHECK**) or directly in the registry (by adding a **custom_check_file** registry key).
 
 ## Actions in Centreon
 
