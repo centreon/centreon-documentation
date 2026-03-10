@@ -468,7 +468,7 @@ Checks files in a directory tree, applies filters, and evaluates file metadata (
 | Macro          | Description                                                                                                                                                                        | Mandatory | Allowed values               | Default value                | Examples       |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|:-----------------------------|------------------------------|----------------|
 | PATHS          | Root directory to search files in.                                                                                                                                                 |     X     |                              |                              | path/to/file   |
-| PATTERN        | Shell-style wildcards pattern to match filenames.<br/>* can be used as wildward                                                                                                    |           |                              | `*.*`                        |                |
+| PATTERN        | Shell-style wildcards pattern to match filenames.<br/>* can be used as a wildcard                                                                                                    |           |                              | `*.*`                        |                |
 | MAXDEPTH       | Max recursion depth.                                                                                                                                                               |           | - 0: top only <br/>- 1: include subdirs <br/>- -1: recursively include all subdirs  | 0     |           |
 | OUTPUTSYNTAX   | Output format string for the overall check result.                                                                                                                                 |           |  Placeholders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{warn_list}`, `{crit_count}`, `{crit_list}`, `{problem_count}`, `{problem_list}`, `{ok_count}`, `{ok_list}`  | `{status}: {problem_count}/{count} files ({problem_list})` |           |     |
 | DETAILSYNTAX   | Format for each file detail inside `{list}`.                                                                                                                                       |           |  `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{written}`, `{version}`, `{line_count}`, `{extension}`.  | `{filename}`                                           |           |
@@ -481,7 +481,7 @@ Checks files in a directory tree, applies filters, and evaluates file metadata (
 | VERBOSE        | Display detailed file info.                                                                                                                                                        |           |                              | false                        |                 |
 
 
-### Filters expressions
+### Filter expressions
 
 > Applies for FILTER, WARNINGSTATUS, CRITICALSTATUS.
 
