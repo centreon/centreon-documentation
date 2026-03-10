@@ -28,7 +28,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template              | Service Description                                  |
 |:--------------|:------------------------------|:-----------------------------------------------------|
 | Events        | Net-Aviat-Events-SNMP-custom  | Check events                                         |
-| Sensors       | Net-Aviat-Sensors-SNMP-custom | Check sensors states                                 |
+| Sensors       | Net-Aviat-Sensors-SNMP-custom | Check sensor states                                 |
 | Uptime        | Net-Aviat-Uptime-SNMP-custom  | Time since the system has been working and available |
 
 > The services listed above are created automatically when the **Net-Aviat-SNMP-custom** host template is used.
