@@ -1210,6 +1210,10 @@
           "items": [
             {
               "type": "doc",
+              "id": "integrations/stream-connectors-rn"
+            },
+            {
+              "type": "doc",
               "id": "integrations/event-management/sc-hp-bsm"
             },
             {
