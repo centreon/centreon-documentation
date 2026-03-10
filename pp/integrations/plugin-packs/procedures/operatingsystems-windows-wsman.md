@@ -11,6 +11,7 @@ The following monitoring connectors will be installed when you install the **Win
 **Configuration > Connectors > Monitoring Connectors** menu:
 
 * [Base Pack](./base-generic.md)
+
 ## Pack assets
 
 ### Templates

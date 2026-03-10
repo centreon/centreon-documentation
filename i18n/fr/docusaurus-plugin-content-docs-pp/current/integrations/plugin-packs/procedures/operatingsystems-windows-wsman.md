@@ -11,6 +11,7 @@ Les connecteurs de supervision suivants sont automatiquement installés lors de 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 * [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
@@ -69,7 +70,7 @@ Le connecteur apporte les modèles de service suivants
 | OS-Windows-WSMAN-Disk-Name           | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé     |
 | OS-Windows-WSMAN-Processes-Name      | Découvre les processus en utilisant leur nom et supervise leur utilisation par le système             |
 | OS-Windows-WSMAN-Services-Name       | Découvre les services en utilisant leur nom et supervise leur statut              |
-| OS-Windows-WSMAN-Traffic-Name        | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisatio |
+| OS-Windows-WSMAN-Traffic-Name        | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
