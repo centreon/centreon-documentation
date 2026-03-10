@@ -10,6 +10,7 @@ import TabItem from '@theme/TabItem';
 The following monitoring connectors will be installed when you install the **Veeam ONE Rest API** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 
+* [Base Pack](./base-generic.md)
 ## Pack assets
 
 ### Templates
