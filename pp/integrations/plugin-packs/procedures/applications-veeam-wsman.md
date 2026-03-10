@@ -207,7 +207,6 @@ yum install centreon-plugin-Applications-Backup-Veeam-Wsman
 | WSMANEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 | VEEAM_VERSION     | Set the Veeam version to monitor                                                                                                                   | 12            |           |
 
-> [!TIP]
 > Adjust `VEEAM_VERSION` if you are using Veeam version 13 or later.
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.

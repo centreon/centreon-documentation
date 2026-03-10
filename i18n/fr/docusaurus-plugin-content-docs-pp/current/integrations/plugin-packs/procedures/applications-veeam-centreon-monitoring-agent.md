@@ -171,7 +171,6 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X      |
 | VEEAM_VERSION        | Set the Veeam version to monitor                        | 12                                |             |
 
-> [!TIP]
 > Modifiez `VEEAM_VERSION` si vous utilisez Veeam version 13 ou une version plus récente.
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
