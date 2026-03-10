@@ -25,6 +25,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**HAProxy SNMP**](../procedures/applications-haproxy-snmp.md) - Allow compatibility with version 17 OIDs.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Added the number and percent of open files per process in process mode.
 - [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - Allow compatibility with version 13.
 - [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Allow compatibility with version 13.
 - [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Allow compatibility with version 13.
