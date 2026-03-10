@@ -483,7 +483,6 @@ Checks files in a directory tree, applies filters, and evaluates file metadata (
 
 ### Filters expressions
 
-> [!NOTE]
 > Applies for FILTER, WARNINGSTATUS, CRITICALSTATUS.
 
 Filter syntax is similar to C/SQL:
@@ -514,7 +513,6 @@ You can combine with WARNING/CRITICAL to require multiple matches before changin
 
 #### Filters
 
-> [!NOTE]
 > Applies for FILTER, WARNINGSTATUS, CRITICALSTATUS.
 
 - "size > 50M"                            # File larger than 50 MB
