@@ -11,6 +11,7 @@ Les connecteurs de supervision suivants sont automatiquement installés lors de 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 * [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
@@ -65,7 +66,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                | Description                                                                                       |
 |:-------------------------------|:--------------------------------------------------------------------------------------------------|
-| Net-Kairos-SNMP-Alarms-Name    |                                                                                                   |
+| Net-Kairos-SNMP-Alarms-Name    | Découvre les alarmes et supervise statut                                                                |
 | Net-Kairos-SNMP-Interface-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)

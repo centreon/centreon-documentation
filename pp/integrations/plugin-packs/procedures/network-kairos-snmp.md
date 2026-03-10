@@ -11,6 +11,7 @@ The following monitoring connectors will be installed when you install the **Kai
 **Configuration > Connectors > Monitoring Connectors** menu:
 
 * [Base Pack](./base-generic.md)
+
 ## Pack assets
 
 ### Templates
@@ -64,7 +65,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                      | Description                                                   |
 |:-------------------------------|:--------------------------------------------------------------|
-| Net-Kairos-SNMP-Alarms-Name    |                                                               |
+| Net-Kairos-SNMP-Alarms-Name    | Découvre les alarmes et supervise statut |
 | Net-Kairos-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
