@@ -11,6 +11,7 @@ The following monitoring connectors will be installed when you install the **Vee
 **Configuration > Connectors > Monitoring Connectors** menu:
 
 * [Base Pack](./base-generic.md)
+
 ## Pack assets
 
 ### Templates
@@ -54,9 +55,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                                | Description |
 |:-----------------------------------------|:------------|
-| App-Veeam-Vone-Restapi-Job-Name          |             |
-| App-Veeam-Vone-Restapi-Proxies-Name      |             |
-| App-Veeam-Vone-Restapi-Repositories-Name |             |
+| App-Veeam-Vone-Restapi-Job-Name          | Discover jobs and monitor their status           |
+| App-Veeam-Vone-Restapi-Proxies-Name      | Discover proxies and monitor their status            |
+| App-Veeam-Vone-Restapi-Repositories-Name | Discover repositories and monitor their status            |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).

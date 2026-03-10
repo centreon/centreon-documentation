@@ -11,6 +11,7 @@ Les connecteurs de supervision suivants sont automatiquement installés lors de 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 * [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
@@ -57,7 +58,9 @@ Le connecteur apporte les modèles de service suivants
 |:-----------------------------------------|:------------|
 | App-Veeam-Vone-Restapi-Job-Name          |             |
 | App-Veeam-Vone-Restapi-Proxies-Name      |             |
-| App-Veeam-Vone-Restapi-Repositories-Name |             |
+| App-Veeam-Vone-Restapi-Job-Name          | Découvre les jobs et supervise leur statut            |
+| App-Veeam-Vone-Restapi-Proxies-Name      | Découvre les proxys et supervise leur statut            |
+| App-Veeam-Vone-Restapi-Repositories-Name | Découvre les dépôts et supervise leur statut            |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
