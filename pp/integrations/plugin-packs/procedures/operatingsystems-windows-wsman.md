@@ -10,6 +10,7 @@ import TabItem from '@theme/TabItem';
 The following monitoring connectors will be installed when you install the **Windows WSMAN** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 
+* [Base Pack](./base-generic.md)
 ## Pack assets
 
 ### Templates
@@ -38,7 +39,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias      | Service Template                           | Service Description                                                                                     | Discovery  |
 |:-------------------|:-------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
 | Certificates       | OS-Windows-Certificates-WSMAN-custom       | Check the local certificates                                                                            | X          |
-| Disk-Global        | OS-Windows-Disk-Global-WSMAN-custom        | Check the rate of free space on the disk. For each checks the name of the disk will appear              | X          |
+| Disk-Global        | OS-Windows-Disk-Global-WSMAN-custom        | Check the rate of free space on the disk. For each check the name of the disk will appear              | X          |
 | Files-Date-Generic | OS-Windows-Files-Date-Generic-WSMAN-custom | Check time                                                                                              |            |
 | Files-Size-Generic | OS-Windows-Files-Size-Generic-WSMAN-custom | Check size of files                                                                                     |            |
 | Ntp                | OS-Windows-Ntp-WSMAN-custom                | Check the synchronization with an NTP server                                                            |            |
