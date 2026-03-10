@@ -650,8 +650,8 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro          | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:---------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600              |             |
-| CRITICALUPTIME | Critical threshold                                                                                   | 600               |             |
+| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600:             |             |
+| CRITICALUPTIME | Critical threshold                                                                                   | 600:              |             |
 
 </TabItem>
 <TabItem value="Custom-Script" label="Custom-Script">

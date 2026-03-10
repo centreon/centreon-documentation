@@ -662,8 +662,8 @@ This connector relies on an integration supported by Centreon Engine and does no
 
 | Macro          | Description                                                                                          | Default value | Mandatory |
 |:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600          |           |
-| CRITICALUPTIME | Critical threshold                                                                                   | 600           |           |
+| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600:         |           |
+| CRITICALUPTIME | Critical threshold                                                                                   | 600:          |           |
 
 </TabItem>
 <TabItem value="Custom-Script" label="Custom-Script">
