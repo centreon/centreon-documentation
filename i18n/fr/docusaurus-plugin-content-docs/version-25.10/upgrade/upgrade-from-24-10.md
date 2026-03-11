@@ -42,7 +42,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -69,7 +69,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
