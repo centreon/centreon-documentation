@@ -39,9 +39,9 @@ systemctl stop cbd-sql
 
 Now, to perform the upgrade:
 
-> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-23-10.md) **until the "Post-upgrade actions" step included**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-24-10.md) **until the "Upgrade MariaDB" step included**.
 
-> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-23-10.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-24-10.md) **until the "Update your customized Apache configuration" step included**. Then, skip to the "Upgrade MariaDB" step and follow its instructions. **Do not follow "Finalizing the upgrade" and "Post-upgrade actions"**.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">

@@ -62,24 +62,24 @@ suivantes : $_SERVICEPARTITION$, $_SERVICEWARNING$, $_SERVICECRITICAL$.
 Les champs **Community SNMP & Version** présent au sein d'une fiche d'hôte génèrent automatiquement les macros
 personnalisées suivantes : $_HOSTSNMPCOMMUNITY$ et $_HOSTSNMPVERSION$.
 
-## Les macros de ressources
+## Les macros globales
 
-Les macros de ressources sont des macros globales qui sont utilisées par le moteur de supervision. Ces macros peuvent
+Les macros globales sont utilisées par le moteur de supervision. Ces macros peuvent
 être invoquées par n'importe quel type de commande. Elles se présentent sous la forme $USERn$ où ‘n' est compris entre
 1 et 256.
 
 D'une manière générale, ces macros sont utilisées pour faire référence aux chemins contenant les sondes de supervision.
 Par défaut, la macro $USER1$ est créée et sa valeur est la suivante : /usr/lib/nagios/plugins.
 
-Pour ajouter une macro de ressources :
+Pour ajouter une macro globale :
 
 * Renez-vous dans le menu **Configuration > Pollers > Resources**
 * Cliquez sur le bouton **Add**
 
-![image](../../assets/configuration/01macrosressources.png)
+![image](../../assets/configuration/01globalmacros.png)
 
-* Le champ **Resource Name** définit le nom de la macro de ressources. Exemple : $USER3$
-* Le champ **MACRO Expression** définit la valeur de la macro.
+* Le champ **Name** définit le nom de la macro globale. Exemple : $USER3$
+* Le champ **Expression** définit la valeur de la macro.
 * La liste **Linked Instances** permet de définir quels seront les moteurs de supervision qui pourront accéder à cette
   macro.
 * Les champs **Status** et **Comment** permettent d'activer/désactiver la macro ou de la commenter.

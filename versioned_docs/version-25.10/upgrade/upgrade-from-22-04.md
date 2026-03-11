@@ -200,7 +200,7 @@ Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at
 systemctl stop php8.0-fpm
 ```
 
-Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+Ensure the `memory_limit` parameter in `/etc/php/8.2/fpm/conf.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
 
 </TabItem>
 </Tabs>
