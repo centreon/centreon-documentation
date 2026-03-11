@@ -228,7 +228,7 @@ systemctl stop php8.1-fpm
 systemctl disable php8.1-fpm
 ```
 
-Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+Ensure the `memory_limit` parameter in `/etc/php/8.2/fpm/conf.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
 
 </TabItem>
 </Tabs>
@@ -665,6 +665,36 @@ with the following:
      (You can also adapt them manually.)
 
 3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via the `no_shell_interpretation: true` parameter. If you previously customized this file, your version will be saved in the same directory as `41-autodiscovery.yaml.rpmnew` and must be manually merged to include this parameter.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via the `no_shell_interpretation: true` parameter. If you previously customized this file, your version will be saved in the same directory as `41-autodiscovery.yaml.rpmnew` and must be manually merged to include this parameter.
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml` via the `no_shell_interpretation: true` parameter. If you previously customized this file, you will be prompted to resolve the potential conflicts.
+
+</TabItem>
+</Tabs>
 
 4. Restart the processes:
 
