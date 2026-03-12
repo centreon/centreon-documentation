@@ -1655,3 +1655,33 @@ Centreon event logs are available in the following directories:
 ## Backing up the platform
 
 Centreon offers to save the configuration of the platform. To do this, go to the [**Administration > Parameters > Backup**](./backup.md) menu.
+
+## Using antivirus software on your Centreon platform
+
+This section applies if you are using antivirus/EDR software to scan a Centreon Infra Monitoring platform (central server, remote server, poller, MAP or MBI server). This includes Business modules.
+
+Here is a list of services and directories that should be excluded from antivirus scanning.
+
+### Services to be excluded
+
+* centengine
+* cbd
+* centreontrapd
+* gorgoned
+* php-fpm
+* httpd
+
+If you are using one of these connectors, exclude the following services:
+
+* vmware: centreon_vmware
+* as400: centreon-as400
+
+## Directories to be excluded
+
+* /etc/centreon*
+* /var/log/centreon*
+* /var/lib/centreon*
+* /var/cache/centreon*
+* /usr/share/centreon*
+* /var/spool/centreon*
+* /var/lib/mysql
