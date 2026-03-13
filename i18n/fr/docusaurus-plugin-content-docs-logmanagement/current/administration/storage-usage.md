@@ -10,4 +10,4 @@ Vous pouvez utiliser la page **Administration > Storage Usage** pour surveiller 
 
 Dans Centreon Log Management, l'utilisation du stockage est exprimée en mébioctets. 1 Mioctet = 1,048576 Mo.
 
-Pour le programme bêta, l'utilisation totale du stockage est limitée à 150 Go. Au-delà, les logs ne sont plus acceptés par CLM.
+Pour le programme bêta, l'utilisation totale du stockage est limitée à 150 Go. Au-delà, les logs ne sont plus acceptés par Centreon Log Management.

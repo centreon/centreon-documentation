@@ -1,26 +1,26 @@
 ---
 id: collector-simple
-title: Simple collector configurations
+title: Configurations simples de collecteur
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Here are two examples of simple configurations. If you want to collect many types of logs from the same host, use [Full collector configuration (multiple log sources)](collector.md).
+Voici deux exemples de configurations simples. Si vous souhaitez collecter plusieurs types de logs à partir d'un même hôte, utilisez la page [Configuration complète de collecteur (sources de journaux multiples)](collector.md).
 
-## Example 1: Quick configuration to start collecting logs from Windows Event Viewer
+## Exemple 1 : Configuration rapide pour commencer à collecter les logs de l'Observateur d'événements Windows
 
-1. On a Windows machine, [install the OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_windows_x64.msi).
+1. Sur une machine Windows, [installez l'OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_windows_x64.msi).
 
-2. In Centreon Log Management (CLM), [generate a token to authenticate the host to your CLM instance](../administration/tokens.md).
+2. Dans Centreon Log Management (CLM), [générez un jeton pour authentifier l'hôte auprès de votre instance CLM](../administration/tokens.md).
 
-3. On your Windows machine, edit the **config.yaml** file that was created in the directory where you installed OpenTelemetry Collector. By default, it is located here:
+3. Sur votre machine Windows, modifiez le fichier **config.yaml** qui a été créé dans le répertoire où vous avez installé OpenTelemetry Collector. Par défaut, il se trouve ici :
 
    ```shell
    C:\Program Files\OpenTelemetry Collector\config.yaml
    ```
 
-4. Replace the file's contents by the snippet below (replace **mytoken** with your actual token). Make sure you save the file as an administrator.
+4. Remplacez le contenu du fichier par l'extrait ci-dessous (remplacez **mytoken** par votre jeton). Veillez à enregistrer le fichier en tant qu'administrateur.
 
    ```yaml
    # Copyright 2025 Centreon.
@@ -110,18 +110,18 @@ Here are two examples of simple configurations. If you want to collect many type
          exporters: [otlphttp/centreon]
    ```
 
-5. Restart the OpenTelemetry Collector service.
+5. redémarrez le service OpenTelemetry Collector.
 
    ```shell
    net stop otelcol-contrib
    net start otelcol-contrib
    ```
 
-   You should start receiving logs in Centreon Log Management.
+   Vous devriez commencer à recevoir des logs dans Centreon Log Management.
 
-## Example 2 : One configuration file with 3 log sources
+## Exemple 2 : Un fichier de configuration avec 3 sources de logs
 
-In the following example, we receive data from three different sources on the same Windows server. Logs go through only one pipeline. All of the configuration is gathered into the collector's **config.yaml** file. (Follow the same procedure as in example 1 and adapt the configuration file below.)
+Dans l'exemple suivant, nous recevons des données provenant de trois sources différentes sur le même serveur Windows. Les logs transitent par un seul pipeline. Toute la configuration est regroupée dans le fichier **config.yaml** du collecteur. (Suivez la même procédure que pour l'exemple 1 et adaptez le fichier de configuration ci-dessous.)
 
 ![image](../assets/receivers-processors-exporters.png)
 

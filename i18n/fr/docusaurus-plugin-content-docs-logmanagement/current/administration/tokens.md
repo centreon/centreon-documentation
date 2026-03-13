@@ -5,7 +5,7 @@ title: Gérer les jetons d'authentification
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Chaque hôte a besoin d'un jeton pour s'authentifier auprès de CLM. Ce jeton permet à l'hôte de s'identifier de manière sécurisée lors de l'envoi de données, garantissant ainsi que seuls les hôtes autorisés peuvent se connecter à votre instance CLM et l'utiliser.
+Chaque hôte a besoin d'un jeton pour s'authentifier auprès de Centreon Log Management (CLM). Ce jeton permet à l'hôte de s'identifier de manière sécurisée lors de l'envoi de données, garantissant ainsi que seuls les hôtes autorisés peuvent se connecter à votre instance CLM et l'utiliser.
 
 ## Créer un jeton
 
