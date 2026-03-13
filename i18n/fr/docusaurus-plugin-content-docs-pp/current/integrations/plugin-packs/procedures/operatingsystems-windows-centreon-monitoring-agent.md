@@ -768,8 +768,8 @@ Limitation : le résultat renvoyé par path+pattern+filter ne peut pas être vid
 
 | Macro          | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:---------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600              |             |
-| CRITICALUPTIME | Critical threshold                                                                                   | 600               |             |
+| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600:             |             |
+| CRITICALUPTIME | Critical threshold                                                                                   | 600:              |             |
 
 </TabItem>
 <TabItem value="Custom-Script" label="Custom-Script">
