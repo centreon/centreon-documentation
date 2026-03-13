@@ -1676,7 +1676,7 @@ If you are using one of these connectors, exclude the following services:
 * vmware: centreon_vmware
 * as400: centreon-as400
 
-## Directories to be excluded
+### Directories to be excluded
 
 * /etc/centreon*
 * /var/log/centreon*
