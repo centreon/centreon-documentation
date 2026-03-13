@@ -1650,7 +1650,7 @@ Si vous utilisez l'un de ces connecteurs, excluez les services suivants :
 * vmware: centreon_vmware
 * as400: centreon-as400
 
-## Répertoires à exclure
+### Répertoires à exclure
 
 * /etc/centreon*
 * /var/log/centreon*
