@@ -5,7 +5,7 @@ title: Managing authentication tokens
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Each host needs a token to authenticate with CLM. This token allows the host to securely identify itself when sending data, ensuring that only authorized hosts can connect to and use your CLM instance.
+Each host needs a token to authenticate with Centreon Log Management (CLM). This token allows the host to securely identify itself when sending data, ensuring that only authorized hosts can connect to and use your CLM instance.
 
 ## Creating a token
 
