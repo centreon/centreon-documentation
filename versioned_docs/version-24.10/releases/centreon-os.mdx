@@ -32,16 +32,16 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <summary>Bug fixes</summary>
 
 - [Administration] Fixed pagination issues on the LDAP page.
-- [API] Fixed an issue where reach API realtime was reset to "No" if front-end set to "No".
-- [API] When trying to acces the /monitoring/servers endpoint, the API no longer returns "null" (it returns the IP address of the pollers).
-- [Configuration] Allowed horizontal resize on select type fields.
-- [Configuration] Fixed an issue where MIB import logs were unreadable.
-- [Custom Views] Fixed an issue where exporting data for Service Monitoring widgets included all services in the configuration instead of just the selected resources.
-- [Installation] Fix mariadb password setup.
-- [Performances Graphs] Fixed an issue that prevented the filters from working together sequentially (in a funnel).
-- [Resource Status] Fixed issue breaking the interface when displaying the graph of a service without any performance data available.
-- [Resource Status] Resolved an issue with PNG exports.
-- [Resource Status] The CSV export has been fixed and now works fine when filtering resources by state.
+- [API] Fixed an issue where LDAP users configured to reach the API realtime would get their permission revoked after requesting a login token.
+- [API] The API no longer returns "null" when trying to acces the /monitoring/servers endpoint (it will now returns the IP address of the pollers).
+- [Configuration] Users can now horizontally resize on select type fields.
+- [Configuration] Fixed an issue with MIB import logs being unreadable.
+- [Custom Views] Fixed an issue where exporting data for Service Monitoring widgets included all services in the configuration instead of only the selected resources.
+- [Installation] Fixed an issue with the mariadb password setup.
+- [Performances Graphs] Fixed an issue that prevented filters from working together.
+- [Resource Status] Fixed an issue that caused the Centreon interface to crash when trying to display the graph of a service without any performance data available.
+- [Resource Status] Fixed an issue that prevented PNG exports of the details panel.
+- [Resource Status] Fixed an issue with the CSV export not taking into consideration the applied filters.
 
 </details>
 
@@ -50,8 +50,8 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
 <summary>Bug fixes</summary>
 
-- [Dashboards] Resource Table widget - Fixed several issues occurring when using Easy Vista Rest API provider.
-- [Dashboards] Resource Table widget - Fixed an issue occurring when the ticket ID is not a numeric value.
+- [Dashboards] Resource Table widget - Fixed various issues with the Easy Vista Rest API connector.
+- [Dashboards] Resource Table widget - Fixed an issue where the ticket ID field would be empty when the ticket ID was not a numeric value.
 
 </details>
 
@@ -60,7 +60,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [Broker] In case of SC write function does not return a boolean, we delay next write retry.
+- [Broker] If an SC write function does not return a boolean, the next write retry is delayed.
 
 </details>
 
@@ -69,7 +69,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
 <summary>Bug fixes</summary>
 
-- [Gorgone] Resolved partitioning and data duplication issues in rebuild process.
+- [Gorgone] Fixed issues with partitioning and data duplication during the rebuild process.
 
 </details>
 
