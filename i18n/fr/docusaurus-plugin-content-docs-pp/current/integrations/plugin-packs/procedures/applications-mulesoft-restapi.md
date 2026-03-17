@@ -5,10 +5,6 @@ title: Mulesoft Anypoint
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Le Plugin Centreon associé permet d'interroger l'API Rest de Mulesoft Anypoint afin de récupérer le statut de diverses ressources Mulesoft.
-
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Mulesoft Anypoint**
