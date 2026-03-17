@@ -5,14 +5,6 @@ title: Alyvix Server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Alyvix is an open source APM software tool for visual monitoring.
-
-Build end-user bots visually interacting with any Windows application like ERPs or your favourite browser.
-Measure end-user experiences: Alyvix records the click-to-appearance responsiveness of each transaction.
-Report IT service quality to support technical and business actions.
-
 The Centreon Monitoring Connector *Alyvix Server* aims to collect the execution status and duration of the Alyvix's *testcases* and their *transactions*
 by requesting the dedicated built-in RestAPI.
 
