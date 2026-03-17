@@ -228,7 +228,7 @@
     "description": "The label for category Before you start in sidebar docs"
   },
   "sidebar.docs.category.Before you start.link.generated-index.description": {
-    "message": "Ce que vous devez savoir avant d'installer votre plateforme Centreon.",
+    "message": "Ce que vous devez savoir avant d'installer votre plateforme Centreon Infra Monitoring.",
     "description": "The generated-index page description for category Before you start in sidebar docs"
   },
   "sidebar.docs.category.First steps with Centreon": {
@@ -310,5 +310,25 @@
   "sidebar.docs.category.Types of notifications": {
     "message": "Types de notifications",
     "description": "The label for category Types of notifications in sidebar docs"
-  }
+  },
+  "sidebar.docs.category.Available reports": {
+    "message": "Rapports disponibles",
+    "description": "The label for category Available reports in sidebar docs"
+  },
+  "sidebar.docs.category.MBI administration": {
+    "message": "Administration de MBI",
+    "description": "The label for category MBI administration in sidebar docs"
+  },
+  "sidebar.docs.category.Fixing MBI issues": {
+    "message": "Résoudre les problèmes MBI",
+    "description": "The label for category Fixing MBI issues in sidebar docs"
+  },
+  "sidebar.docs.category.Using MBI": {
+    "message": "Utiliser MBI",
+    "description": "The label for category Using MBI in sidebar docs"
+  },
+  "sidebar.docs.category.Release notes for Centreon 25.10": {
+    "message": "Notes de release Centreon Infra Monitoring 25.10",
+    "description": "The label for category Release notes for Centreon 25.10 in sidebar docs"
+  }       
 }

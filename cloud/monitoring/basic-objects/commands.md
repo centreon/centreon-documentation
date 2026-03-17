@@ -53,15 +53,69 @@ For security reasons, Centreon Cloud has a built-in whitelist that defines which
 
 1. Log in as **root** to the poller that will run the commmand.
 2. Edit (or create) the following file: **/etc/centreon-engine-whitelist/my-whitelist.yml**. (You can create as many whitelist files as you want in this directory.)
-3. Use a regex to define which commands to authorize. Example:
+3. Make sure the correct access rights are defined on all whitelist files:
 
-   ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
-   whitelist:
-     regex:
-       - \/opt\/my_plugins\/my_custom_plugin\.py .*
-    ```
+   ```yaml
+   chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+   chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+   chown root:centreon-engine /etc/centreon-engine-whitelist
+   chmod 750 /etc/centreon-engine-whitelist
+   ```
 
-The `.*`  at the end of the regex allows it to handle any arguments it may contain. Bear in mind that the format must be strictly indentical to the one above (including indents).
+4. Use a regex to define which commands to authorize. Example:
+
+  ```text
+  whitelist:
+      regex:
+		 - \/usr\/lib(64)?\/nagios\/plugins\/.*
+		 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+         - \/opt\/my_plugins\/my_custom_plugin\.py .*
+  cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  ```
+
+The **whitelist** block defines the commands that can be executed by the poller. 
+
+> The first two lines must always be present in the “whitelist” block; they correspond to Centreon commands.
+
+The **cma-whitelist** block defines the commands that can be executed by the CMA agent.
+
+In the **cma-whitelist** block, you can specify whitelists by host if necessary. The syntax is as follows:
+
+```text
+whitelist:
+  regex:
+	 - \/usr\/lib(64)?\/nagios\/plugins\/.*
+	 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+	 - \/opt\/my_plugins\/my_custom_plugin\.py .*
+cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  hosts:
+    - hostname:Host_1
+    regex:
+      - ...
+      
+    - hostname:Host_2
+    regex:
+      - ...
+```
+
+
+Use `.*` to include all arguments in the regex. The `.*`  at the end of the regex allows it to handle any arguments it may contain. Bear in mind that the format must be strictly indentical to the one above (including indents).
 
 > If you have not authorized your custom command in a whitelist, it will say so in the **Information** column of the **Resources Status** page.
 

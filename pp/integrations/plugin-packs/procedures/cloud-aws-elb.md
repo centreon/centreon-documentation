@@ -27,14 +27,14 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Aws-Elb-Application-LoadBalancer-custom" label="Cloud-Aws-Elb-Application-LoadBalancer-custom">
 
-| Service Alias      | Service Template                                    | Service Description          | Discovery  |
-|:-------------------|:----------------------------------------------------|:-----------------------------|:----------:|
-| Elb-Connections    | Cloud-Aws-Elb-Application-Connections-Api-custom    | Check connection statistics |            |
-| Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Check HTTP return codes      |            |
-| Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Check HTTP return codes      |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health         |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Check targets health         |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Check targets health         | X          |
+| Service Alias      | Service Template                                    | Service Description         | Discovery |
+|:-------------------|:----------------------------------------------------|:----------------------------|:---------:|
+| Elb-Connections    | Cloud-Aws-Elb-Application-Connections-Api-custom    | Check connection statistics |           |
+| Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Check HTTP return codes     |           |
+| Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Check HTTP return codes     |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health        |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Check targets health        |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Check targets health        |     X     |
 
 > The services listed above are created automatically when the **Cloud-Aws-Elb-Application-LoadBalancer-custom** host template is used.
 
@@ -43,15 +43,15 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Cloud-Aws-Elb-AvailabilityZone-custom" label="Cloud-Aws-Elb-AvailabilityZone-custom">
 
-| Service Alias      | Service Template                                    | Service Description     | Discovery  |
-|:-------------------|:----------------------------------------------------|:------------------------|:----------:|
-| Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Check HTTP return codes |            |
-| Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Check HTTP return codes |            |
-| Elb-Performances   | Cloud-Aws-Elb-Performances-Api-custom               | Check performance      |            |
-| Elb-Queues         | Cloud-Aws-Elb-Queues-Api-custom                     | Check queues            |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health    |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Check targets health    |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Check targets health    | X          |
+| Service Alias      | Service Template                                    | Service Description     | Discovery |
+|:-------------------|:----------------------------------------------------|:------------------------|:---------:|
+| Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Check HTTP return codes |           |
+| Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Check HTTP return codes |           |
+| Elb-Performances   | Cloud-Aws-Elb-Performances-Api-custom               | Check performance       |           |
+| Elb-Queues         | Cloud-Aws-Elb-Queues-Api-custom                     | Check queues            |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health    |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Check targets health    |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Check targets health    |     X     |
 
 > The services listed above are created automatically when the **Cloud-Aws-Elb-AvailabilityZone-custom** host template is used.
 
@@ -60,15 +60,15 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Cloud-Aws-Elb-LoadBalancer-custom" label="Cloud-Aws-Elb-LoadBalancer-custom">
 
-| Service Alias      | Service Template                                    | Service Description     | Discovery  |
-|:-------------------|:----------------------------------------------------|:------------------------|:----------:|
-| Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Check HTTP return codes |            |
-| Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Check HTTP return codes |            |
-| Elb-Performances   | Cloud-Aws-Elb-Performances-Api-custom               | Check performance      |            |
-| Elb-Queues         | Cloud-Aws-Elb-Queues-Api-custom                     | Check queues            |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health    |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Check targets health    |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Check targets health    | X          |
+| Service Alias      | Service Template                                    | Service Description     | Discovery |
+|:-------------------|:----------------------------------------------------|:------------------------|:---------:|
+| Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Check HTTP return codes |           |
+| Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Check HTTP return codes |           |
+| Elb-Performances   | Cloud-Aws-Elb-Performances-Api-custom               | Check performance       |           |
+| Elb-Queues         | Cloud-Aws-Elb-Queues-Api-custom                     | Check queues            |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health    |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Check targets health    |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Check targets health    |     X     |
 
 > The services listed above are created automatically when the **Cloud-Aws-Elb-LoadBalancer-custom** host template is used.
 
@@ -82,11 +82,11 @@ This host template doesn't have any associated services.
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias      | Service Template                                    | Service Description  | Discovery  |
-|:-------------------|:----------------------------------------------------|:---------------------|:----------:|
-| Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Check targets health |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Check targets health | X          |
+| Service Alias      | Service Template                                    | Service Description  | Discovery |
+|:-------------------|:----------------------------------------------------|:---------------------|:---------:|
+| Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Check targets health |           |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Check targets health |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -272,28 +272,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Cloud-Aws-Elb-Api
+dnf install centreon-plugin-Cloud-Aws-Elb-Api centreon-plugin-Cloud-Aws-Elb-Application-Api centreon-plugin-Cloud-Aws-Elb-Network-Api
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Cloud-Aws-Elb-Api
+dnf install centreon-plugin-Cloud-Aws-Elb-Api centreon-plugin-Cloud-Aws-Elb-Application-Api centreon-plugin-Cloud-Aws-Elb-Network-Api
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-cloud-aws-elb-api
+apt install centreon-plugin-cloud-aws-elb-api centreon-plugin-cloud-aws-elb--application-api centreon-plugin-cloud-aws-elb-network-api
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Elb-Api
+yum install centreon-plugin-Cloud-Aws-Elb-Api centreon-plugin-Cloud-Aws-Elb-Application-Api centreon-plugin-Cloud-Aws-Elb-Network-Api
 ```
 
 </TabItem>

@@ -159,7 +159,7 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="RHEL, Oracle Linux, Alma Linux 8" label="RHEL, Oracle Linux, Alma Linux 8">
 
 ```bash
-dnf install centreon-plugin-Applications-Vmware-Vcsa-SNMP
+dnf install centreon-plugin-Applications-Vmware-Vcsa-Snmp
 ```
 
 </TabItem>

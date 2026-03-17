@@ -131,3 +131,5 @@ chmod 640 /etc/centreon/license.d/*
     ```sql
     SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
     ```
+
+  > Disabled hosts are taken into account by the license. Make sure that the total number of existing hosts (enabled + disabled) is below the limit set by your license.

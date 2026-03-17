@@ -100,7 +100,9 @@ Expected content found | 'size'=158714B;;;0; 'time'=0.262s;;;0;
 
 ### Ne collecter qu'une seule métrique
 
-Pour le service **HTTP-response-Time**, on décide que seule la métrique **time** nous intéresse. Il est donc inutile de collecter la métrique **size**, qui utilisera de l'espace de stockage pour rien. On peut utiliser l'option **--filter perfdata** ou bien l'option **--filter-perfdata-adv** dans la macro **EXTRAOPTIONS** du service.
+Pour le service **HTTP-response-Time**, on décide que seule la métrique **time** nous intéresse. 
+Il est donc inutile de collecter la métrique **size**, qui utilisera de l'espace de stockage pour rien. 
+On peut utiliser l'option **--filter-perfdata** ou bien l'option **--filter-perfdata-adv** dans la macro **EXTRAOPTIONS** du service.
 
 Commande :
 
@@ -147,7 +149,7 @@ Cette fois-ci, prenons l'exemple d'un serveur Centreon supervisé par un collect
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=processcount --hostname=127.0.0.1 --snmp-version='2c' --snmp-community='public'  --process-name='php-fpm' --process-path='' --process-args='' --regexp-name --regexp-path --regexp-args --warning=''
 ```
 
-Pour que le service passe en CRITIQUE lorsque le nombre de workers est supérieur à 5, nous utilisons l'option **--critical='5'** :
+Pour que le service passe en CRITIQUE lorsque le nombre de workers est **strictement** supérieur à 5, nous utilisons l'option **--critical='5'** :
 
 Commande :
 
@@ -177,7 +179,7 @@ CRITICAL: Number of current processes running: 11 | 'nbproc'=11;;0:5;0;
 
 ### Inverser le seuil : alerte en cas de valeur inférieure au seuil
 
-Il est également possible de passer le service en CRITIQUE lorsque le nombre retourné est moins élevé qu'une certaine valeur. On utilisera la syntaxe suivante : **--critical='5:'**.
+Il est également possible de passer le service en CRITIQUE lorsque le nombre retourné est **strictement** moins élevé qu'une certaine valeur. On utilisera la syntaxe suivante : **--critical='5:'**.
 
 Commande :
 
@@ -193,7 +195,7 @@ CRITICAL: Number of current processes running: 4 | 'nbproc'=4;;5:;0;
 
 ### Plages de valeurs
 
-Dans l'exemple suivant, le service passe en statut CRITIQUE quand la métrique est comprise dans une plage de valeurs (entre 0 et 5) :
+Dans l'exemple suivant, le service passe en statut CRITIQUE quand la métrique est comprise dans une plage de valeurs (entre 0 et 5 **inclus**) :
 
 Commande :
 
@@ -207,7 +209,7 @@ Résultat :
 CRITICAL: Number of current processes running: 4 | 'nbproc'=4;;@0:5;0;
 ```
 
-Et dans celui-ci, le service passe en CRITIQUE lorsque la métrique est en-dehors d'une plage de valeurs :
+Et dans celui-ci, le service passe en CRITIQUE lorsque la métrique est en-dehors d'une plage de valeurs (hors de 5 et 15 **inclus**) :
 
 Commande :
 

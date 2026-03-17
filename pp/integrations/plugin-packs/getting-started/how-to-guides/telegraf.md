@@ -33,13 +33,13 @@ Due to Telegraf or Centreon constraints, the following limitations need to be co
 <TabItem value="Linux" label="Linux">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
+2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
+2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
 
 </TabItem>
 </Tabs>

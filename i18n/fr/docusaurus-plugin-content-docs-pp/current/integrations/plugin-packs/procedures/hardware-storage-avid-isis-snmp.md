@@ -48,15 +48,33 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-Coming soon
+| Nom                          | Unité |
+|:-----------------------------|:------|
+| hardware.alarm.status        | N/A   |
+| hardware.alarm.count         | count |
+| hardware.fan.status          | N/A   |
+| hardware.fan.count           | count |
+| hardware.pdrive.status       | N/A   |
+| hardware.pdrive.count        | count |
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.sim.status          | N/A   |
+| hardware.sim.count           | count |
+| hardware.slot.status         | N/A   |
+| hardware.slot.count          | count |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
+| hardware.temperature.celsius | C     |
+| hardware.vdrive.status       | N/A   |
+| hardware.vdrive.count        | count |
 
 </TabItem>
 <TabItem value="Performance" label="Performance">
 
-| Métrique         | Unité      |
+| Nom              | Unité      |
 |:-----------------|:-----------|
-| active_clients   | clients    |
-| open-files       | files      |
+| active_clients   | count      |
+| open-files       | count      |
 | processing-speed | messages/s |
 | read-throughput  | B/s        |
 | write-throughput | B/s        |
@@ -66,7 +84,7 @@ Coming soon
 </TabItem>
 <TabItem value="Status" label="Status">
 
-| Métrique             | Unité |
+| Nom                  | Unité |
 |:---------------------|:------|
 | status               | N/A   |
 | redistributing-count | N/A   |
@@ -76,7 +94,7 @@ Coming soon
 </TabItem>
 <TabItem value="Usage" label="Usage">
 
-| Métrique        | Unité |
+| Nom             | Unité |
 |:----------------|:------|
 | allocated       | B     |
 | workspace-count | N/A   |
