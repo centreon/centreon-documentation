@@ -256,7 +256,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--server='10.0.0.1' \
 	--port='26379' \
 	--username='' \
-	--password=''  \
+	--username='SENTINELUSERNAME' \
+	--password='SENTINELPASSWORD'  \
 	--mode=redis-clusters \
 	--filter-cluster-name='' \
 	--warning-status='' \

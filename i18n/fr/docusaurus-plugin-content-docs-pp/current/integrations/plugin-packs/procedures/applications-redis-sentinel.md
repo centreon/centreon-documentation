@@ -252,12 +252,8 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_redis_sentinel.pl \
-	--plugin=apps::redis::sentinel::plugin \
-	--server='10.0.0.1' \
-	--port='26379' \
-	--username='' \
-	--password=''  \
+	--username='SENTINELUSERNAME' \
+	--password='SENTINELPASSWORD'  \
 	--mode=redis-clusters \
 	--filter-cluster-name='' \
 	--warning-status='' \
