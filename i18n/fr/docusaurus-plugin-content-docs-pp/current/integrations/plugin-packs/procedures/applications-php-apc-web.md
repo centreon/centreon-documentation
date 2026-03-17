@@ -71,8 +71,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ## Prérequis
 
 La page web PHP APC doit être joignable depuis le collecteur Centreon sur le
-port spécifié dans la macro d'hôte *PHPAPCWEBPORT*. Plus d'informations sur
-les macros d'hôte dans la partie [Configuration](#configuration).
+port spécifié dans la macro d'hôte *PHPAPCWEBPORT*.
 
 ## Installer le connecteur de supervision
 
