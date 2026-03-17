@@ -87,7 +87,7 @@ An access token needs to be created with the following permissions:
     * events.read
     * syntheticLocations.read
 
-More information on the offcial Dynatrace documentation: https://www.dynatrace.com/support/help/dynatrace-api/environment-api/tokens-v2/api-tokens
+More information on the official Dynatrace documentation: https://www.dynatrace.com/support/help/dynatrace-api/environment-api/tokens-v2/api-tokens
 
 ## Installing the monitoring connector
 
