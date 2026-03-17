@@ -5,8 +5,6 @@ title: Google Workspace
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
 
 ## Dépendances du connecteur de supervision
 

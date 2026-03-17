@@ -5,9 +5,6 @@ title: Google Workspace
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Google Workspace, is a collection of cloud computing, productivity and collaboration tools, software and products developed and marketed by Google.
 
 ## Connector dependencies
 
