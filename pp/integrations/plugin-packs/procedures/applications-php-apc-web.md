@@ -69,8 +69,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The target PHP APC Web page must be reachable from the Centreon Poller on the 
-specified port in the *PHPAPCWEBPORT* Host Macro. More information in the 
+The target PHP APC web page must be reachable from the Centreon poller on the 
+specified port in the *PHPAPCWEBPORT* host macro. More information in the 
 [Configuration](#configuration) section.
 
 ## Installing the monitoring connector

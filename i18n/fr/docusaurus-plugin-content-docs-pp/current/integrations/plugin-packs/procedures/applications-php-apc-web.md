@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                 | Description                             |
 |:-------------------|:----------------------------------|:----------------------------------------|
-| Php-Apc-File-Cache | App-Php-Apc-File-Cache-Web-custom | Contrôle de l'utilisation du cache sur fichier |
+| Php-Apc-File-Cache | App-Php-Apc-File-Cache-Web-custom | Contrôle de l'utilisation du cache de fichiers |
 | Php-Apc-Memory     | App-Php-Apc-Memory-Web-custom     | Contrôle l'utilisation mémoire          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Php-Apc-Web-custom** est utilisé.
@@ -70,9 +70,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-La page Web PHP APC doit être joignable depuis le collecteur Centreon sur le
-port spécifié dans la Macro d'Hôte *PHPAPCWEBPORT*. Plus d'information sur
-les Macros d'Hôte dans la partie [Configuration](#configuration).
+La page web PHP APC doit être joignable depuis le collecteur Centreon sur le
+port spécifié dans la macro d'hôte *PHPAPCWEBPORT*. Plus d'informations sur
+les macros d'hôte dans la partie [Configuration](#configuration).
 
 ## Installer le connecteur de supervision
 
