@@ -206,7 +206,7 @@ L'évolution est calculée par rapport à la période précedente:
 
 > - Si la période de reporting est un mois plein, la période
 >   précedente sera le mois plein précedent.
-> - Si la répiode de reporting est autre qu'un mois plein,
+> - Si la période de reporting est autre qu'un mois plein,
 >   l'évolution sera calculée sur le nombre de jour qui précede le
 >   nombre de jour de la période de reporing.
 
