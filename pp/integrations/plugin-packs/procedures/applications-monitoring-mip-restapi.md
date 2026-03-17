@@ -5,9 +5,6 @@ title: Maltem Insight Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Maltem Insight Performance (MIP) provides solutions to measure performance of web applications and thick clients through custom scenarios. It provides an API to gather metrics and status associated to the end-user experience from various locations.
 
 ## Connector dependencies
 
@@ -72,7 +69,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### MIP
 
-To be able to get data from MIP API, you must have a valid API key. Contact MIP support or sales representative to get one.
+To be able to get data from the MIP API, you must have a valid API key. Contact MIP support or sales representative to get one.
 
 ## Installing the monitoring connector
 

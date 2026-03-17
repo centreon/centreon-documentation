@@ -5,9 +5,6 @@ title: Maltem Insight Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Maltem Insight Performance (MIP) développe et intègre des solutions permettant la mesure du ressenti utilisateurs. Ces mesures prennent la forme de scénarios personnalisés sur les applications web comme les clients riches. MIP met à disposition une API pour récupérer les métriques et les statuts associés à ces scénarios.
 
 ## Dépendances du connecteur de supervision
 
@@ -31,7 +28,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias     | Modèle de service                           | Description                        | Découverte |
 |:----------|:--------------------------------------------|:-----------------------------------|:----------:|
-| Scenarios | App-Monitoring-Mip-Scenarios-Restapi-custom | Contrôle le resultat des scénarios | X          |
+| Scenarios | App-Monitoring-Mip-Scenarios-Restapi-custom | Contrôle le résultat des scénarios | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Mip-Restapi-custom** est utilisé.
 
