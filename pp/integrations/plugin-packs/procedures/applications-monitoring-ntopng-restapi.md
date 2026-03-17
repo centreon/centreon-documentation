@@ -99,7 +99,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 ## Prerequisites
 
 To monitor your NtopNG, the Rest API must be configured.
-E.g: https://www.ntop.org/guides/ntopng/api/
+Read https://www.ntop.org/guides/ntopng/api/.
 
 ## Installing the monitoring connector
 
