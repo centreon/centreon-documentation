@@ -5,11 +5,6 @@ title: Netdata RestAPI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Netdata est un outil open source pour visualiser et surveiller les mesures en temps réel, optimisé pour accumuler tous les types de données,
-tels que l'utilisation du processeur, l'activité du disque, les requêtes SQL, les visites sur un site Web, etc.
-
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Netdata RestAPI**
