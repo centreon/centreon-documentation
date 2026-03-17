@@ -3,6 +3,201 @@ id: cloud-release-notes
 title: Centreon Cloud - notes de release
 ---
 
+## February 17th, 2026
+
+### Centreon IT Edition
+
+**Centreon Monitoring Agent (CMA)**
+
+This release brings significant enhancements to the Centreon Monitoring Agent, focusing on automation, security, and broader check capabilities:
+* A new generic native check for custom scripts has been added.
+* For Windows environments, service checks now include filters for startup type and delayed services.
+* Deploying a CMA-related Monitoring Connector now automatically activates freshness by default and creates the required links to the commands connector. Freshness is also activated by default on all CMA-related services, hosts, and templates.
+* The CMA Token is now mandatory even when using "No TLS" mode. Additionally, the agent configuration now supports .cert formats, allows any certificate path, and includes a listening port parameter for agent-initiated connections.
+
+**Data Visualization**
+
+* Charts in Performance Graphs are now limited to 20 metrics to keep them readable.
+* The Resource Table widget in Centreon Dashboards now includes a direct link to ticket details in the incident management system, helping connect monitoring and incident response.
+
+**Configuration**
+
+* We have improved the handling of password fields in additional configuration menus to enhance security and usability.
+
+### Centreon Pro Edition
+
+**MAP**
+
+* Geoviews: The geographic view interface now includes new actions, allowing users to duplicate or delete views, copy their URL, and save the map position directly.
+* Editor: For better visual impact and clarity, geometric resources can now be enlarged up to a maximum size of 84x84 pixels and other shapes reduced to a minimum of 20x20 pixels.
+
+
+## January 8th, 2026
+
+### Centreon IT Edition
+
+**Centreon Monitoring Agent**
+
+This release brings significant improvements to the Centreon Monitoring Agent (CMA) to align its behavior with standard monitoring logic and to offer more flexibility in deployment:
+
+* CMA now supports the **retry_interval** and **max_attempts** parameters, allowing for more granular control over alerting. Additionally, freshness checks are now fully supported, ensuring data consistency even in case of communication silence.
+* The Windows installer has been enhanced to support multiple CMA instances on a single host, catering to complex infrastructure requirements.
+* To simplify the configuration process, the “CA common name” field is now only displayed when **Insecure TLS** mode is selected.
+
+**Centreon Dashboards**
+
+* A new filtering layer has been added to the **Status Grid** widget. You can now filter resources based on their specific state: unhandled, acknowledged, in downtime, or flapping. This allows for a much more focused view of critical events.
+
+**Configuration**
+
+* When using the **Deploy Service** action on a host, the **Pollers** list will now correctly display the **Conf Changed** status, ensuring administrators know exactly when a configuration update is required.
+
+### Centreon Pro Edition
+
+**Business Activities**
+
+* We have improved the readability of Business Activity diagrams. Label width has been increased to accommodate longer names, and an ellipsis is displayed to gracefully handle very long strings.
+
+**MAP**
+
+* Enhancements have been made to geographic views. It is now possible to define specific geo-coordinates directly for maps and display them accurately within your geographic views, bridging the gap between logical topology and physical location.
+
+## November 6th, 2025
+
+### Centreon IT Edition
+
+**Centreon Dashboards**
+
+It is now easier to keep your dashboards up to date, as regular expressions are supported in the dataset configuration section of the **Resource Table**, **Group Monitoring** and **Status Grid** widgets.
+
+**User interface**
+
+A few adjustments have been made to the Centreon Monitoring Agent configuration interface. 
+
+**Collect**
+
+**Note:** Updating your poller (as described [here](../installation/poller-update-upgrade.md)) and the Centreon Monitoring Agent will unlock the following features.
+
+Thanks to the new version of the Centreon Monitoring Agent, you will be able to use autosigned certificates as CMA now allows insecure TLS connection mode. Security has still be reenforced by making usage of Centreon authentication tokens mandatory.
+
+On top of that, new native Files check for Windows have been implemented, and it is now possible to trigger on-demand forced check performed by CMA.
+
+### Centreon Pro Edition
+
+**MAP**
+
+* This release introduces image folders in Resource Access Management: folder-level access control is now available for images in MAP. Administrators can organize images into folders and manage access permissions in one place.
+* It is now possible to use the MAP API. As for the Centreon web API, use an authentication token to get started and begin automating your MAP usage.
+* Besides, you can now customize geographic view tiles in the dashboard homepage by adding a custom image to the tile.
+
+## September 25th, 2025
+
+### Centreon IT Edition
+
+**Centreon Monitoring Agent**
+
+The Centreon Monitoring Agent is now generally available and fully supported by our teams.
+As such, we have implemented the following features and enhancements:
+
+- Authenticated communication thanks to token management.
+- Dedicated whitelist for CMA commands. Only whitelisted commands can be executed by the CMA agent.
+- Native **Files** and **Task scheduler** check for Windows & Linux.
+- Central poller configuration: you can now use the central poller to collect data from your agents.
+- The agent configuration now requires a valid authentication token for TLS connection.
+- To avoid disrupting configurations already in place at the time of the update, a default token has been generated and applied to existing configurations and hosts.
+  * This token must be copied (from the **Administration > Authentication tokens** page) and applied to the agent configuration, on the host.
+- An issue has also been fixed regarding host mapping in **Poller-initiated connection** mode, and may need a check if you are using the same IP addresses for multiple hosts:
+  * In **Agent configuration**, please ensure each host is correctly mapped in the **Select host** field, which must display the host's name
+  * Deploy the configuration and restart Engine, as well as the agent on the host.
+
+**Metaservices**
+
+It is now possible to use Centreon metaservices. 
+A metaservice is a virtual service providing the aggregation of metrics from different services via a mathematical operation. 
+Metaservices are managed in the same way as a service, i.e. they have thresholds, a notification process, they generate a performance graph, etc.
+
+
+**Miscellaneous**
+
+Centreon uses service accounts for technical purposes. Those are now correctly hidden in all user interfaces, and only real users are listed.
+
+Flapping detection is now enabled, as well as the possibility to disable service checks when a host is down.
+
+Two new options have been added to the script which handles poller installation and update:
+- the **--reset** option allows you to reinstall the poller from scratch.
+- the **--private-repo** option allows you to specify a repository from where Centreon packages are fetched in case you cannot use the default ones.
+
+## July 29th, 2025
+
+### Centreon IT Edition
+
+**Centreon Monitoring Agent**
+
+As the Centreon Monitoring Agent (CMA) is about to be generally available, enhancements in its configuration are now available for our Centreon Cloud customers.
+
+As a reminder, CMA collects metrics and computes statuses on the servers it monitors, and sends them to Centreon. 
+Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
+More information about configuration is available in our [official documentation](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/).
+
+This version adds the following enhancements to agent communication configuration:
+- A "no TLS" option was added for troubleshooting purposes (valid for a time-limited period).
+- It is now possible to store certificates in sub-directories.
+
+> With the changes introduced in communication schemes, if you are planning on using CMA,
+> it is important to update your poller to at least version 24.10.8 of the Centreon Collect package.
+**Centreon Dashboards**
+
+The **Metrics graph** widget has been enhanced to add the name of the service and/or host when needed in order to more clearly identify metrics that have the same name.
+
+**Resource status**
+
+It is now possible to export the current data as filtered by Resource status in CSV format.
+
+**Host group configuration**
+
+The configuration page for host groups has been improved to provide a better experience with listing, adding, editing etc.
+
+### Centreon Pro Edition
+
+**MAP**
+
+The MAP widget is now operational when displayed in Dashboard public playlists.
+An option to "Display icons" was added to map containers and resources. If checked, custom and state icons are displayed on the shape.
+
+**Business Activities**
+
+A new Dashboard widget was added: **Business Activity status timeline**. It displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
+In addition, a new, modern version of the BA monitoring page is now available. It includes the BA tree and the BA timeline, and lists BA KPIs.
+
+## June 12th, 2025
+
+### Centreon IT Edition
+
+**Centreon Monitoring Agent Beta**
+
+The Beta version of the Centreon Monitoring Agent is now available for our Centreon Cloud customers.
+The Centreon Monitoring Agent (CMA) collects metrics and computes statuses on the servers it monitors, and sends them to Centreon. 
+Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
+More information about configuration is available in our [official documentation](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/) and in a dedicated [TheWatch group](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
+
+**Centreon Dashboards**
+
+No big new features for Centreon Dashboards this time, but still some improvements have been made.
+The readability of the Business Activities Diagram widget has been improved by adding the host's name to service KPIs and by increasing the number of characters displayed. 
+Designing dashboards has been made easier: you can now resize the widgets in all directions, and reduce unused spacing between widgets.
+
+**Resource status**
+
+Performance for the Resource Status page has been improved by optimizing filtering requests.
+
+### Centreon Business Edition
+
+**MAP**
+
+We have enhanced access control on maps: you can now assign privileges (owner, editor, viewer or none) to geographic views.
+Note that for now, it is only possible to select ACL groups derived either from roles (Administrator, Editor, Viewer) or from Resource Access Management rules. A section based on user groups will follow.
+The widget that displays the output of a check has also been improved by adding more macros that the editor can display.
+
 ## March 18th, 2025
 
 ### Centreon IT Edition
@@ -50,7 +245,6 @@ This release contains numerous bug and vulnerability fixes but also the followin
   > * [VMware vCenter v4](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-4/)
   > * [VMware vCenter v5](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-5/)
   > * [VMware vCenter v6](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-6/)
-
 - It is also now possible to duplicate and then customize commands coming from official Centreon Monitoring Connectors.
 
 
@@ -71,6 +265,7 @@ Status Grid widget tiles have also been improved by displaying resource icons an
 **APIs**
 
 The creation of a resource is now synchronous with the computation of its associated access rights, which improves automatic resource creation using the API.
+
 
 ### Centreon Business Edition
 
@@ -179,7 +374,7 @@ Finally, you can also assign your resources with specific icons to improve the r
 **Dashboards Beta**
 
 We keep improving our new proposition for creating and sharing intuitive dashboards effortlessly! With this release you can benefit from multiple improvements (with the selection of resources, with the look and feel of graphs...), from a new widget named "Status grid", and from bug fixes.
-   
+
 
 ## December 5, 2023
 

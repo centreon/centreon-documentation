@@ -89,6 +89,8 @@ dnf update
 
 ### Étape 3 : Récupérer les bases de données
 
+>Si vous utilisez une base de données distante, ignorez cette étape et passez directement à l'[étape 4](#étape-4--synchroniser-les-plugins).
+
 1. Sur l'ancien serveur, faitez un dump des bases de données :
 
    ```shell
@@ -186,6 +188,12 @@ apt install centreon-plugin-\*
 </Tabs>
 
 Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoires qui contiennent ceux-ci, ainsi que toutes éventuelles dépendances.
+
+Utilisez la commande suivante pour synchroniser les images et autres médias entre votre ancien serveur et le nouveau.
+
+```shell
+rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img/
+```
 
 ### Étape 5 : Montée de version de la solution Centreon
 

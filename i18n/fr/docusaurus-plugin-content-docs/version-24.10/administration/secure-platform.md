@@ -44,15 +44,14 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 Centreon a récemment développé des règles SELinux afin de renforcer le contrôle
 des composants par le système d'exploitation.
 
-> Ces règles sont actuellement en **mode bêta** et peuvent être activées. Vous
-> pouvez les activer en suivant cette procédure. Lors de la détection d'un
+> Pour activer ces règles, suivez cette procédure. En cas de
 > problème, il est possible de désactiver SELinux globalement et de nous envoyer
 > vos commentaires afin d'améliorer nos règles sur
-> [Github](https://github.com/centreon/centreon).
+> notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).
 
 ### Présentation de SELinux
 
-Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système. SELinux répond
+Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système pour les environnements EL. SELinux répond
 fondamentalement à la question: `Le <suject> peut-il faire cette <action> sur <object> ?`, Par exemple: un serveur Web
 peut-il accéder aux fichiers des répertoires personnels des utilisateurs ?
 
@@ -180,45 +179,7 @@ Suivant le type de serveur, installer les paquets avec la commande suivante :
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   apt install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   apt install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+SELinux ne concerne que les environnements EL.
 
 </TabItem>
 </Tabs>
@@ -699,11 +660,12 @@ dnf install mod_ssl mod_security openssl
 
 2. Installez les certificats :
 
-Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
+Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas, et le certificat CA) en les copiant dans la configuration Apache :
 
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
@@ -715,11 +677,12 @@ dnf install mod_ssl mod_security openssl
 
 2. Installez les certificats :
 
-Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
+Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas, et le certificat CA) en les copiant dans la configuration Apache :
 
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
@@ -736,11 +699,12 @@ systemctl restart apache2
 
 2. Installez les certificats :
 
-Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas) en les copiant dans la configuration Apache :
+Installez vos certificats (**centreon7.key** et **centreon7.crt** dans notre cas, et le certificat CA) en les copiant dans la configuration Apache :
 
 ```shell
 cp centreon7.key /etc/ssl/private/
 cp centreon7.crt /etc/ssl/certs/
+cp ca_demo.crt /etc/ssl/certs/
 ```
 
 </TabItem>
@@ -1063,11 +1027,20 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre `expose_php` :
+Éditez le fichier **/etc/php.d/50-centreon.ini** :
 
-```phpconf
-expose_php = Off
-```
+* Assurez-vous que le paramètre `expose_php` est désactivé :
+
+  ```phpconf
+  expose_php = Off
+  ```
+
+* Ajoutez le chemin d'accès au certificat CA qui a été utilisé pour signer le certificat du serveur :
+  
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -1081,11 +1054,20 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Éditez le fichier **/etc/php.d/50-centreon.ini** en désactivant le paramètre `expose_php` :
+Éditez le fichier **/etc/php.d/50-centreon.ini** :
 
-```phpconf
-expose_php = Off
-```
+* Assurez-vous que le paramètre `expose_php` est désactivé :
+
+  ```phpconf
+  expose_php = Off
+  ```
+
+* Ajoutez le chemin d'accès au certificat CA qui a été utilisé pour signer le certificat du serveur :
+  
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
@@ -1101,9 +1083,12 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/php/8.2/mods-available/centreon.ini** en désactivant le paramètre **expose_php** :
+Éditez le fichier **/etc/php/8.2/mods-available/centreon.ini** et ajoutez les lignes suivantes :
 
-> Cela a été fait automatiquement pendant l'installation.
+```text
+openssl.cafile=/etc/ssl/certs/ca_demo.crt
+curl.cainfo=/etc/ssl/certs/ca_demo.crt
+```
 
 </TabItem>
 </Tabs>
@@ -1456,7 +1441,7 @@ dnf install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1464,13 +1449,13 @@ dnf install nghttp2
 
 4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
 
-Commentez la ligne suivante :
+Identifiez la ligne suivante et commentez-la en ajoutant le caractère "#" comme ci-dessous :
 
 ```shell
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 ```
 
-Décommentez la ligne suivante :
+Identifiez la ligne suivante et décommentez-la en supprimant le caractère "#" comme ci-dessous :
 
 ```shell
 LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1498,7 +1483,7 @@ dnf install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1506,13 +1491,13 @@ dnf install nghttp2
 
 4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
 
-Commentez la ligne suivante :
+Identifiez la ligne suivante et commentez-la en ajoutant le caractère "#" comme ci-dessous :
 
 ```shell
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 ```
 
-Décommentez la ligne suivante :
+Identifiez la ligne suivante et décommentez-la en supprimant le caractère "#" comme ci-dessous :
 
 ```shell
 LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1540,7 +1525,7 @@ apt install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1563,6 +1548,9 @@ systemctl restart apache2
 
 </TabItem>
 </Tabs>
+
+## Ajoutez votre certificat à votre navigateur
+Si vous utilisez un certificat qui n'est pas fourni par une autorité de confiance, vous devez importer le certificat CA dans votre navigateur.
 
 ## Authentification des utilisateurs
 
@@ -1620,6 +1608,29 @@ Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
 
 Le fichier **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** (sur votre serveur central, vos serveurs distants et vos collecteurs) contient les listes blanches pour Gorgone. Si vous souhaitez personnaliser les commandes autorisées, n'éditez pas ce fichier. Créez un nouveau fichier dans le même dossier, par exemple **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
 
+## Centreon Gorgone autodiscovery
+
+Par défaut, Gorgone autorise les commandes du module autodiscovery à interpréter les métacaractères bash lorsqu'elles sont exécutées. Cela peut constituer un risque de sécurité si un utilisateur disposant des privilèges nécessaires pour effectuer une découverte d'hôte est compromis.
+
+Pour désactiver ce comportement, vous pouvez définir le paramètre **no_shell_interpolation** à **true** dans le fichier **/etc/centreon-gorgone/config.d/41-autodiscovery.yaml**, comme suit : 
+
+**vi /etc/centreon-gorgone/config.d/41-autodiscovery.yaml**
+
+```yaml
+gorgone:
+  modules:
+    - name: autodiscovery
+      package: "gorgone::modules::centreon::autodiscovery::hooks"
+      enable: true
+      no_shell_interpretation: true
+```
+
+Redémarrez ensuite Gorgone pour que le nouveau paramètre prenne effet :
+
+```shell
+systemctl restart gorgoned
+```
+
 ## Gestion de l'information et des événements de sécurité (SIEM)
 
 Les journaux des événements Centreon sont disponibles dans les répertoires suivants :
@@ -1640,3 +1651,33 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 
 Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu 
 [**Administration > Parameters > Backup**](./backup.md).
+
+## Utiliser un antivirus sur une plateforme Centreon
+
+Cette section s'applique si vous utilisez un logiciel antivirus/EDR pour analyser une plateforme Centreon Infra Monitoring (serveur central, serveur distant, poller, serveur MAP ou MBI). Cela inclut les modules Business.
+
+Voici une liste des services et répertoires qui doivent être exclus de l'analyse antivirus.
+
+### Services à exclure
+
+* centengine
+* cbd
+* centreontrapd
+* gorgoned
+* php-fpm
+* httpd
+
+Si vous utilisez l'un de ces connecteurs, excluez les services suivants :
+
+* vmware: centreon_vmware
+* as400: centreon-as400
+
+### Répertoires à exclure
+
+* /etc/centreon*
+* /var/log/centreon*
+* /var/lib/centreon*
+* /var/cache/centreon*
+* /usr/share/centreon*
+* /var/spool/centreon*
+* /var/lib/mysql

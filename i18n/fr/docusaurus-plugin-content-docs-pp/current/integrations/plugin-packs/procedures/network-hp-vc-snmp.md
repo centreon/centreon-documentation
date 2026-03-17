@@ -67,12 +67,32 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Nom                                   | Unité |
+|:--------------------------------------|:------|
+| hardware.domain.status                | N/A   |
+| hardware.domain.count                 | count |
+| hardware.enclosure.status             | N/A   |
+| hardware.enclosure.count              | count |
+| hardware.enet.status                  | N/A   |
+| hardware.enet.count                   | count |
+| hardware.fc.status                    | N/A   |
+| hardware.fc.count                     | count |
+| hardware.module.status                | N/A   |
+| hardware.module.count                 | count |
+| hardware.moduleport.loop.status       | N/A   |
+| hardware.moduleport.protection.status | N/A   |
+| hardware.moduleport.count             | count |
+| hardware.physicalserver.status        | N/A   |
+| hardware.physicalserver.count         | count |
+| hardware.port.status                  | N/A   |
+| hardware.port.count                   | count |
+| hardware.profile.status               | N/A   |
+| hardware.profile.count                | count |
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-| Métrique                                             | Unité |
+| Nom                                                  | Unité |
 |:-----------------------------------------------------|:------|
 | *interface_name*#status                              | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond  | b/s   |

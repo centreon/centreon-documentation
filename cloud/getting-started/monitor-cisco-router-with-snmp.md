@@ -22,7 +22,7 @@ The target device must be reachable from the Centreon Poller on the UDP/161 SNMP
 
 ### In the user interface
 
-In the user interface, go to **Configuration > Monitoring Connector Manager**, search for the **Cisco standard** Monitoring Connector; and install it:
+In the user interface, go to **Configuration > Connectors > Monitoring Connectors**, search for the **Cisco standard** Monitoring Connector; and install it:
 
    ![image](../assets/getting-started/quick_start_cisco_0.gif)
 

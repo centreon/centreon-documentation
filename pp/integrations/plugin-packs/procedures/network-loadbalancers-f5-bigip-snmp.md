@@ -26,6 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias               | Service Template                                     | Service Description          | Discovery |
 |:----------------------------|:-----------------------------------------------------|:-----------------------------|:---------:|
+| Certificates                | Net-F5-Bigip-Certificates-SNMP-custom                | Check certificates validity  |           |
 | Connections                 | Net-F5-Bigip-Connections-SNMP-custom                 | Check current connections    |           |
 | Cpu-Usage                   | Net-F5-Bigip-Cpu-Usage-SNMP-custom                   | Check CPU usage              |           |
 | Hardware-Global             | Net-F5-Bigip-Hardware-Global-SNMP-custom             | Check hardware status        |           |
@@ -95,6 +96,15 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *vs*~*ap*#accessprofile.sessions.pending.count | count |
 
 </TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Name                              | Unit  |
+|:----------------------------------|:------|
+| certificates.count                | count |
+| *certificate*#certificate.expires | s     |
+
+ </TabItem>
+
 <TabItem value="Connections" label="Connections">
 
 | Name                                 | Unit  |
@@ -378,6 +388,25 @@ yum install centreon-plugin-Network-Loadbalancers-F5-Bigip-Snmp
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Macro                      | Description                                                                                                                                                | Default value     | Mandatory   |
+|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| UNIT                       | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s                 |             |
+| FILTERCOUNTERS             | Only display some counters (regexp can be used).  Can be : certificate-expires, certificates-count  Example : --filter-counters='^certificate-expires$'    |                   |             |
+| INCLUDENAME                | Filter certificate by name (regexp can be used).  Example : --include-name='ABCaBundle'                                                                    |                   |             |
+| INCLUDEISSUER              | Filter certificate by issuer (regexp can be used)                                                                                                          |                   |             |
+| INCLUDEVALIDATION          | Filter certificate by status validation options (regexp can be used).  Example : --include-validation='1'                                                  |                   |             |
+| EXCLUDENAME                | Exclude certificate by name (regexp can be used)                                                                                                           |                   |             |
+| EXCLUDEISSUER              | Exclude certificate by issuer (regexp can be used)                                                                                                         |                   |             |
+| EXCLUDEVALIDATION          | Exclude certificate by status validation options (regexp can be used)                                                                                      |                   |             |
+| WARNINGCERTIFICATEEXPIRES  | Thresholds                                                                                                                                                 |                   |             |
+| CRITICALCERTIFICATEEXPIRES | Thresholds                                                                                                                                                 |                   |             |
+| WARNINGCERTIFICATESCOUNT   | Thresholds                                                                                                                                                 |                   |             |
+| CRITICALCERTIFICATESCOUNT  | Thresholds                                                                                                                                                 |                   |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                         |                   |             |
+
+</TabItem>
 <TabItem value="Connections" label="Connections">
 
 | Macro                | Description                                                                                                                            | Default value | Mandatory |
@@ -639,6 +668,7 @@ The plugin brings the following modes:
 | Mode                                                                                                                                           | Linked service template                                                                                                                                                           |
 |:-----------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | apm [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/f5/bigip/snmp/mode/apm.pm)]                                  | Net-F5-Bigip-APM-Sessions-SNMP-custom                                                                                                                                             |
+| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/f5/bigip/snmp/mode/certificates.pm)]                | Net-F5-Bigip-Certificates-SNMP-custom                                                                                                                                             |
 | connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/f5/bigip/snmp/mode/connections.pm)]                  | Net-F5-Bigip-Connections-SNMP-custom                                                                                                                                              |
 | cpu-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/f5/bigip/snmp/mode/cpuusage.pm)]                       | Net-F5-Bigip-Cpu-Usage-SNMP-custom                                                                                                                                                |
 | failover [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/f5/bigip/snmp/mode/failover.pm)]                        | Net-F5-Bigip-Failover-SNMP-custom                                                                                                                                                 |
@@ -746,6 +776,25 @@ All available options for each service template are listed below:
 | --critical-ap-sessions-pending |   Thresholds.                                                                                                                 |
 
 </TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Option                         | Description                                                                                                                                                     |
+|:-------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters              |   Only display some counters (regexp can be used).  Can be : certificate-expires, certificates-count  Example : --filter-counters='^certificate-expires$'       |
+| --include-name                 |   Filter certificate by name (regexp can be used).  Example : --include-name='ABCaBundle'                                                                       |
+| --include-issuer               |   Filter certificate by issuer (regexp can be used).                                                                                                            |
+| --include-validation           |   Filter certificate by status validation options (regexp can be used).  Example : --include-validation='1'                                                     |
+| --exclude-name                 |   Exclude certificate by name (regexp can be used).                                                                                                             |
+| --exclude-issuer               |   Exclude certificate by issuer (regexp can be used).                                                                                                           |
+| --exclude-validation           |   Exclude certificate by status validation options (regexp can be used).                                                                                        |
+| --unit                         |   Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.   |
+| --warning-certificate-expires  |   Thresholds.                                                                                                                                                   |
+| --critical-certificate-expires |   Thresholds.                                                                                                                                                   |
+| --warning-certificates-count   |   Thresholds.                                                                                                                                                   |
+| --critical-certificates-count  |   Thresholds.                                                                                                                                                   |
+
+ </TabItem>
+
 <TabItem value="Connections" label="Connections">
 
 | Option                    | Description                                                                                                                               |

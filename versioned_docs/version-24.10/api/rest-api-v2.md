@@ -20,7 +20,7 @@ From your workspace, click the **Import** button.
 Go to the **Link** tab and enter the URL to the OpenAPI definition from GitHub:
 
 ```text
-https://raw.githubusercontent.com/centreon/centreon/24.10.x/centreon/doc/API/centreon-api.yaml
+https://raw.githubusercontent.com/centreon/centreon/refs/tags/24.10-latest/centreon/doc/API/centreon-api.yaml
 ```
 
 ![image](../assets/api/postman-import-link.png)

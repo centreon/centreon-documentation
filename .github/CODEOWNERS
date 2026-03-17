@@ -2,7 +2,15 @@
 *.js                @centreon/owners-pipelines
 *.jsx               @centreon/owners-pipelines
 
-**/sidebars*.j*
-
 *.pl                @centreon/owners-perl
 *.pm                @centreon/owners-perl
+
+# Pipelines Codeowners rules
+.github/**                    @centreon/owners-pipelines
+.yamlfix.toml                 @centreon/owners-pipelines
+
+# Security Codeowners rules
+.gitleaks.toml                @centreon/owners-security
+.gitleaksignore               @centreon/owners-security
+.githooks/pre-commit          @centreon/owners-security
+**/secu-*.yml                 @centreon/owners-security
