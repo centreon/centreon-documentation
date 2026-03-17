@@ -5,12 +5,6 @@ title: Alyvix Server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Alyvix Server est un logiciel APM permettant une supervision visuelle et une exécution automatisée de scénarios.
-La solution permet de créer des robots émulant le comportement d'utilisateurs finaux, en interagissant visuellement
-avec n'importe quelle application Windows ou n'importe quel site ouvert depuis votre navigateur préféré.
-
 Le connecteur de supervision Centreon Alyvix Server permet (par l'interrogation de l'API Rest) de récupérer le statut et
 le temps d’exécution d'un ou de multiples scénarios (*testcases*) lancés par Alyvix Server, ainsi que le détail de chaque étape
 (*transaction*) du scénario élaboré.
