@@ -215,7 +215,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: Temperature: 27822 C Humidity: 78977% Clouds: 36274% Wind: 543 m/s | 'temperature.celsius'=27822C;;;; 'humidity.percentage'=78977%;;;0;100 'clouds.percentage'=36274%;;;0;100 'wind.speed.meterspersecond'=543m/s;;;0;
+OK: Temperature: 27.8 C Humidity: 78% Clouds: 36% Wind: 5.43 m/s | 'temperature.celsius'=27.822C;;;; 'humidity.percentage'=78%;;;0;100 'clouds.percentage'=36%;;;0;100 'wind.speed.meterspersecond'=5.43m/s;;;0;
 ```
 
 ### Troubleshooting
