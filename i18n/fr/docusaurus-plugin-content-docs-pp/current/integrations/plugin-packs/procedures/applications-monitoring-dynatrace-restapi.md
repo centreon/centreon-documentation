@@ -78,7 +78,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Un _acces token_ doit être créé avec les droits suivants :
+Un **access token** doit être créé avec les droits suivants :
 * API v1:
     * DataExport
     * ReadConfig
