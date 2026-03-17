@@ -5,14 +5,6 @@ title: Netdata RestAPI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Netdata is an open source tool to visualize and monitor real-time metrics, optimized to accumulate all types of data, such as CPU usage, disk activity,
-SQL queries, visits to a website, etc.
-
-The tool is designed to visualize activity in the greatest possible detail, allowing the user to obtain an overview of what is happening and
-what has just happened in their system or application.
-
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Netdata RestAPI** connector through the
