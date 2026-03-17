@@ -116,7 +116,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 ### API Privileges
 
 A service account with proper access in the right Mulesoft environment/organization has to be used.
-This account has to own the privileges to manage Applications, Servers, Clusters and Messages Queues on the designated environment.
+This account must have sufficient privileges to manage Applications, Servers, Clusters and MessagesQueues in the designated environment.
 
 ## Installing the monitoring connector
 
