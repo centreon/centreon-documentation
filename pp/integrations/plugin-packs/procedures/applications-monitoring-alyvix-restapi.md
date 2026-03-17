@@ -8,8 +8,8 @@ import TabItem from '@theme/TabItem';
 The Centreon Monitoring Connector *Alyvix Server* aims to collect the execution status and duration of the Alyvix's *testcases* and their *transactions*
 by requesting the dedicated built-in RestAPI.
 
-> The *Alyvix Server* Monitoring Connector **can not** be used with the Open-Source free version of Alyvix, as the Rest API feature is only
-> available in the commercial version. Get in touch with your Centreon Sales representative to get a quote!
+> The *Alyvix Server* Monitoring Connector **cannot** be used with the Open-Source free version of Alyvix, as the Rest API feature is only
+> available in the commercial version. Get in touch with your sales representative to get a quote.
 
 ## Connector dependencies
 
@@ -72,8 +72,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The *Alyvix Server* must be installed and configured on a dedicated Windows Server machine.
-The Centreon Pollers must as well be able to reach the Alyvix Rest API on the TCP/80 or TCP/443 port(s).
+**Alyvix Server** must be installed and configured on a dedicated Windows Server machine.
+The Centreon pollers must also be able to reach the Alyvix Rest API on the TCP/80 or TCP/443 port(s).
 
 More information about how to configure Alyvix and set up *testcases* can be found in the official documentation:
 https://www.alyvix.com/learn/.
