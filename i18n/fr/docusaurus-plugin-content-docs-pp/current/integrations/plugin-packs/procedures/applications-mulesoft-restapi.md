@@ -225,7 +225,7 @@ yum install centreon-plugin-Applications-Mulesoft-Restapi
 | ENVID        | Mulesoft API Environment ID (mandatory)                                                              |                   | X            |
 | ORGID        | Mulesoft API Organization ID (mandatory)                                                             |                   | X            |
 | REGIONID     | Mulesoft MQ region ID to use (only mandatory for *messages* mode)                                                                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
