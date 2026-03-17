@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 | Alarms         | App-Monitoring-Netdata-Restapi-Alarms-custom         | Liste les alarmes actives remontées par Netdata sur le serveur                                                                                                               |            |
 | Cpu            | App-Monitoring-Netdata-Restapi-Cpu-custom            | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            |
 | Disks-Global   | App-Monitoring-Netdata-Restapi-Disks-Global-custom   | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques                                                     | X          |
-| Inodes-Global  | App-Monitoring-Netdata-Restapi-Inodes-Global-custom  | Contrôle du taux d'inodes disponible d'un disque                                                                                                                             | X          |
+| Inodes-Global  | App-Monitoring-Netdata-Restapi-Inodes-Global-custom  | Contrôle du taux d'inodes disponibles d'un disque                                                                                                                             | X          |
 | Load           | App-Monitoring-Netdata-Restapi-Load-custom           | Contrôle de la charge serveur                                                                                                                                                |            |
 | Memory         | App-Monitoring-Netdata-Restapi-Memory-custom         | Contrôle du taux d'utilisation de la mémoire vive (RAM)                                                                                                                      |            |
 | Swap           | App-Monitoring-Netdata-Restapi-Swap-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle (SWAP)                                                                                                                |            |
@@ -49,7 +49,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                             | Description                                                                                       |
 |:--------------------------------------------|:--------------------------------------------------------------------------------------------------|
-| App-Monitoring-Netdata-Restapi-Disk-Name    | Discover the disk partitions and monitor space occupation                                         |
+| App-Monitoring-Netdata-Restapi-Disk-Name    | Découvre les partitions du disque et supervise l'espace occupé                                    |
 | App-Monitoring-Netdata-Restapi-Inodes-Name  | Découvre les partitions du disque en utilisant son nom et supervise l'utilisation des inodes      |
 | App-Monitoring-Netdata-Restapi-Traffic-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
