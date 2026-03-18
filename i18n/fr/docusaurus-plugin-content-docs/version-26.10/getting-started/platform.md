@@ -31,6 +31,12 @@ Un collecteur peut être rattaché à un [serveur distant](#serveur-distant) ou 
 - Un collecteur Centreon supervise des [ressources](../resources/glossary.md#ressource). Il possède un [moteur de supervision](../resources/glossary.md#moteur-de-supervision).
 - Il n’a pas d’interface graphique : les ressources qu’il supervise s’affichent dans l’interface du serveur central et du serveur distant auxquels il est rattaché.
 
+## Centreon Monitoring Agent
+
+L'agent de supervision Centreon [(Centreon Monitoring Agent, CMA)](../cma/cma.md) est un logiciel installé sur un hôte pour le superviser.
+- CMA collecte des métriques et calcule des statuts, et les envoie à Centreon.
+- Il exécute lui-même des contrôles natifs et non-natifs grâce au plugins installé localement.
+
 ## Architecture distribuée
 
 ![image](../assets/getting-started/archi.png)
