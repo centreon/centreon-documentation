@@ -15,16 +15,14 @@ resource attributes -->
 
 ## Prérequis
 
-* Générez [un jeton pour authentifier l'hôte auprès de votre instance Centreon Log Management](../administration/tokens.md).
-* L'endpoint requis pour connecter un collecteur OpenTelemetry à votre instance Centreon Log Management est `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
+* Générez [un jeton pour authentifier l'hôte auprès de votre plateforme Centreon Log Management](../administration/tokens.md).
+* L'endpoint requis pour connecter un collecteur OpenTelemetry à votre plateforme Centreon Log Management est `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
 
 > CLM peut traiter des batch de logs d'une taille de 5 MiB maximum. Au-delà, vous recevrez une erreur 413. (Si besoin, utilisez [le paramètre **sending_queue.sizer.bytes** de votre exporteur](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) pour adapter la taille de vos batchs.)
 
 # Étape 1 : Installez OpenTelemetry Collector sur votre hôte
 
 Utilisez les paquets **otelcol-contrib** pour installer OpenTelemetry Collector sur chaque hôte à partir duquel vous souhaitez collecter des logs.
-
-<!--[en mode agent ou gateway - différence mode agent/mode gateway].-->
 
 <Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
@@ -50,7 +48,7 @@ wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases
 <TabItem value="Windows" label="Windows">
 
 ```shell
-https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_windows_x64.msi 
+https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.147.0/otelcol-contrib_0.147.0_windows_x64.msi 
 ```
 
 </TabItem>
@@ -84,7 +82,7 @@ https://github.com/open-telemetry/opentelemetry-collector-releases/releases/down
 2. Dans ce fichier, entrez les paramètres globaux de collecte des logs spécifiques à cet hôte. Ceux-ci s'appliqueront à toutes les sources de logs pour cet hôte.
 
    * Dans **endpoint**, entrez `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
-   * Dans **X-Api-Key**, entrez le [jeton requis pour vous authentifier auprès de votre instance CLM](../administration/tokens.md).
+   * Dans **X-Api-Key**, entrez le [jeton requis pour vous authentifier auprès de votre plateforme CLM](../administration/tokens.md).
 
    Exemple:
 

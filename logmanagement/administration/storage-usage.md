@@ -5,7 +5,7 @@ title: Keeping track of storage usage
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-You can use the **Administration > Storage Usage** page to monitor how much storage your Centreon Log Management instance is using.
+You can use the **Administration > Storage Usage** page to monitor how much storage your Centreon Log Management platform is using.
 
 * Select the time period you want in the top right corner.
 * Hover over the graph to display the value of the data points.

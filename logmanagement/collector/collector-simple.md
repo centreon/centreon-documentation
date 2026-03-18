@@ -10,9 +10,9 @@ Here are two examples of simple configurations. If you want to collect many type
 
 ## Example 1: Quick configuration to start collecting logs from Windows Event Viewer
 
-1. On a Windows machine, [install the OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_windows_x64.msi).
+1. On a Windows machine, [install the OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.147.0/otelcol-contrib_0.147.0_windows_x64.msi).
 
-2. In Centreon Log Management (CLM), [generate a token to authenticate the host to your CLM instance](../administration/tokens.md).
+2. In Centreon Log Management (CLM), [generate a token to authenticate the host to your CLM platform](../administration/tokens.md).
 
 3. On your Windows machine, edit the **config.yaml** file that was created in the directory where you installed OpenTelemetry Collector. By default, it is located here:
 
@@ -24,12 +24,11 @@ Here are two examples of simple configurations. If you want to collect many type
 
    ```yaml
    # Copyright 2025 Centreon.
-
    # SPDX-License-Identifier: Apache-2.0
 
    exporters:
      otlphttp/centreon: # The exporter that will send logs to CLM
-       endpoint: "https://api-logs-qual.int.centreon.com/v1/ingress/otlp"
+       endpoint: "https://api.euwest1.obs.centreon.com/v1/ingress/otlp"
        headers:
          "X-Api-Key": "mytoken" ## Replace mytoken by your actual token
      debug: # The exporter that will write debug info to log files
@@ -127,12 +126,11 @@ In the following example, we receive data from three different sources on the sa
 
 ```yaml
 # Copyright 2025 Centreon.
-
 # SPDX-License-Identifier: Apache-2.0
 
 exporters:
   otlphttp/centreon: # The exporter that will send logs to CLM
-    endpoint: "https://api-logs-qual.int.centreon.com/v1/ingress/otlp"
+    endpoint: "https://api.euwest1.obs.centreon.com/v1/ingress/otlp"
     headers:
       "X-Api-Key": "mytoken" ## Replace mytoken by your actual token
   debug: # The exporter that will write debug info to log files

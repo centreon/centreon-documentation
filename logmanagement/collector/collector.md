@@ -15,16 +15,14 @@ resource attributes -->
 
 ## Prerequisites
 
-* Generate [a token to authenticate the host to your Centreon Log Management instance](../administration/tokens.md).
-* The endpoint required to connect an OpenTelemetry Collector to your Centreon Log Management instance is `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs`.
+* Generate [a token to authenticate the host to your Centreon Log Management platform](../administration/tokens.md).
+* The endpoint required to connect an OpenTelemetry Collector to your Centreon Log Management platform is `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs`.
 
 > CLM can process log batches up to 5 MiB in size. Beyond that, you will receive a 413 error. (If necessary, use [the **sending_queue.sizer.bytes** parameter in your exporter](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) to adjust the size of your batches.)
 
 ## Step 1: Install OpenTelemetry Collector on your host
 
 Use the **otelcol-contrib** packages to install OpenTelemetry Collector on each device from which you want to collect logs.
-
-<!--[en mode agent ou gateway - différence mode agent/mode gateway].-->
 
 <Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
@@ -33,14 +31,16 @@ Use the **otelcol-contrib** packages to install OpenTelemetry Collector on each 
 <TabItem value="EL" label="EL">
 
 ```shell
-wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.rpm 
+wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.rpm
+dnf install ./otelcol-contrib_0.145.0_linux_amd64.rpm
 ```
 
 </TabItem>
 <TabItem value="Debian" label="Debian">
 
 ```shell
-wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.deb 
+wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.deb
+apt install ./otelcol-contrib_0.145.0_linux_amd64.deb
 ```
 
 </TabItem>
@@ -50,7 +50,7 @@ wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases
 <TabItem value="Windows" label="Windows">
 
 ```shell
-https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_windows_x64.msi 
+https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.147.0/otelcol-contrib_0.145.0_windows_x64.msi 
 ```
 
 </TabItem>
@@ -84,7 +84,7 @@ https://github.com/open-telemetry/opentelemetry-collector-releases/releases/down
 2. In this file, enter the global log collection settings specific to this device. These will apply to all log sources for this device.
 
    * In **endpoint**, enter `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs`.
-   * in **X-Api-Key**, enter the [token required to authenticate to your CLM instance](../administration/tokens.md).
+   * in **X-Api-Key**, enter the [token required to authenticate to your CLM platform](../administration/tokens.md).
 
    Example:
 

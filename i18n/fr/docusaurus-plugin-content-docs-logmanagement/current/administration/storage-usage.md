@@ -3,7 +3,7 @@ id: storage-usage
 title: Surveiller l’utilisation du stockage
 ---
 
-Vous pouvez utiliser la page **Administration > Storage Usage** pour surveiller l'espace de stockage utilisé par votre instance Centreon Log Management.
+Vous pouvez utiliser la page **Administration > Storage Usage** pour surveiller l'espace de stockage utilisé par votre plateforme Centreon Log Management.
 
 * Sélectionnez la période souhaitée dans le coin supérieur droit.
 * Passez la souris sur le graphique pour afficher la valeur des points de données.

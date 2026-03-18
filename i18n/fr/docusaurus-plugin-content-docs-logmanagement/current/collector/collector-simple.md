@@ -10,9 +10,9 @@ Voici deux exemples de configurations simples. Si vous souhaitez collecter plusi
 
 ## Exemple 1 : Configuration rapide pour commencer à collecter les logs de l'Observateur d'événements Windows
 
-1. Sur une machine Windows, [installez l'OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_windows_x64.msi).
+1. Sur une machine Windows, [installez l'OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.147.0/otelcol-contrib_0.147.0_windows_x64.msi).
 
-2. Dans Centreon Log Management (CLM), [générez un jeton pour authentifier l'hôte auprès de votre instance CLM](../administration/tokens.md).
+2. Dans Centreon Log Management (CLM), [générez un jeton pour authentifier l'hôte auprès de votre plateforme CLM](../administration/tokens.md).
 
 3. Sur votre machine Windows, modifiez le fichier **config.yaml** qui a été créé dans le répertoire où vous avez installé OpenTelemetry Collector. Par défaut, il se trouve ici :
 
@@ -24,12 +24,11 @@ Voici deux exemples de configurations simples. Si vous souhaitez collecter plusi
 
    ```yaml
    # Copyright 2025 Centreon.
-
    # SPDX-License-Identifier: Apache-2.0
 
    exporters:
      otlphttp/centreon: # The exporter that will send logs to CLM
-       endpoint: "https://api-logs-qual.int.centreon.com/v1/ingress/otlp"
+       endpoint: "https://api.euwest1.obs.centreon.com/v1/ingress/otlp"
        headers:
          "X-Api-Key": "mytoken" ## Replace mytoken by your actual token
      debug: # The exporter that will write debug info to log files
@@ -126,13 +125,12 @@ Dans l'exemple suivant, nous recevons des données provenant de trois sources di
 ![image](../assets/receivers-processors-exporters.png)
 
 ```yaml
-# Copyright 2025 Centreon.
-
+# Copyright 2025 Centreon
 # SPDX-License-Identifier: Apache-2.0
 
 exporters:
   otlphttp/centreon: # The exporter that will send logs to CLM
-    endpoint: "https://api-logs-qual.int.centreon.com/v1/ingress/otlp"
+    endpoint: "https://api.euwest1.obs.centreon.com/v1/ingress/otlp"
     headers:
       "X-Api-Key": "mytoken" ## Replace mytoken by your actual token
   debug: # The exporter that will write debug info to log files
