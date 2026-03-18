@@ -1,6 +1,6 @@
 ---
 id: tokens
-title: Managing authentication tokens
+title: Authentication tokens
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

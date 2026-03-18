@@ -5,6 +5,8 @@ title: Defining alert rules
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Collecting logs is only the first step — the real value comes from knowing when something goes wrong, **before your users do**. CLM's alerting system lets you define rules that automatically analyze your log stream and trigger alerts when specific patterns emerge. No more staring at dashboards hoping to catch an anomaly: set up the right rules once, and let CLM watch for you.
+
 ## From logs to alert events
 
 Logs have a [severity](./resources/glossary.md#severity) (i.e., a log level) that indicates how serious an event is. However, severity only tells you about the nature of a single log. On its own, this is not enough. Logs often need to be analyzed together.
@@ -56,3 +58,9 @@ Go to **Alerts & notifications > Alert events**. Use the search bar and its filt
 You can expand each alert event to display more information about it. Hover over the graph to display the start and end dates.
 
 ![image](./assets/alert_events_detail.png)
+
+## What's next?
+
+- [**Dashboards**](dashboards.md) — visualize alert trends alongside log data
+- [**Query syntax**](query-syntax.md) — refine your alert queries for better accuracy
+- [**FAQ & Troubleshooting**](resources/faq.md#alert-issues) — common alert issues and how to fix them

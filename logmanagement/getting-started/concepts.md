@@ -3,44 +3,62 @@ id: concepts
 title: CLM basics
 ---
 
-## What are logs?
+Every second, your servers, applications, and network devices generate logs — timestamped records of what's happening in your IT system. A failed database connection, a spike in login attempts, an unexpected restart: it's all in the logs. The challenge is finding the signal in the noise.
 
-CLM handles logs. Logs contain detailed information about events, errors, and the performance of your IT system.
+That's what Centreon Log Management (CLM) does: it collects logs from across your infrastructure, gives you the tools to search and analyze them in real time, and alerts you when something goes wrong.
 
-## What does a log entry look like in CLM?
+## How does it work?
 
-All logs received by CLM are listed on the **Log explorer** page, where you can filter them. In CLM, each log entry has a [severity (i.e., a log level)](../resources/glossary.md#severity), indicated by a colored line.
+Here's the big picture — how logs flow from your infrastructure into CLM:
+
+```text
+┌──────────────┐    raw logs    ┌──────────────┐  structured logs  ┌──────────────┐
+│ Your servers │ ─────────────► │ OpenTelemetry│ ────────────────► │   Centreon   │
+│ applications │                │  Collector   │   (OTLP format)   │     Log      │
+│   devices    │                │              │                   │  Management  │
+└──────────────┘                └──────────────┘                   └──────┬───────┘
+                                                                          │
+                                                          ┌───────────────┼───────────────┐
+                                                          ▼               ▼               ▼
+                                                   ┌────────────┐ ┌────────────┐ ┌────────────┐
+                                                   │    Log     │ │   Alert    │ │ Dashboards │
+                                                   │  Explorer  │ │   Rules    │ │            │
+                                                   │  Search &  │ │   Get      │ │ Visualize  │
+                                                   │ investigate│ │  notified  │ │   trends   │
+                                                   └────────────┘ └────────────┘ └────────────┘
+```
+
+The **OpenTelemetry Collector** runs on your hosts. It reads log files (or receives log streams), enriches them with context (hostname, OS, service name), and forwards them to CLM in a standardized format. From there, you can search, alert, and visualize.
+
+## What can you do with CLM?
+
+- **Collect and centralize**: [gather logs](../collector/collector.md) from servers, applications, databases, and network devices into a single place.
+- **Search and investigate**: [explore your logs in real time](../explore-analyze.md) using filters, [queries](../query-syntax.md), and [dashboards](../dashboards.md) to detect anomalies, errors, security incidents, or unexpected behavior. See [**Use cases**](use-cases.md) for detailed examples.
+- **Get alerted**: define [alert rules](../alerts.md) so that CLM creates [alert events](../resources/glossary.md#alert-eventalert-status) when problems occur or critical thresholds are exceeded — no need to watch a screen all day.
+- **Store for the long term**: keep logs securely over extended periods for compliance, security, or historical analysis.
+
+## What does a log look like in CLM?
+
+All logs received by CLM appear on the **Log explorer** page. Each entry shows a [severity (i.e., a log level)](../resources/glossary.md#severity), indicated by a colored line — so you can immediately spot errors among thousands of routine messages.
 
 ![image](../assets/log_explorer.png)
 
-## What can Centreon Log Management do with logs?
+## Why OpenTelemetry?
 
-Here are the main features of Centreon Log Management:
+Logs come in all shapes and formats. CLM standardizes them using [OpenTelemetry](https://opentelemetry.io/docs/concepts/semantic-conventions/), an open protocol that turns unstructured text into structured, queryable data — with consistent fields, rich context (service, environment, version), and support for [custom attributes](../resources/glossary.md#custom-attributes).
 
-1. CLM [collects](../collector/collector.md) and centralizes logs from various sources (servers, applications, databases, network devices, etc.).
+This means your logs aren't just text anymore: they're data you can filter, correlate, and [define dynamic alerts on](../alerts.md).
 
-3. CLM allows you to [analyze these logs in real time](../explore-analyze.md), using filters, [queries](../query-syntax.md), or [dashboards](../dashboards.md). This helps you detect detect anomalies, errors, security incidents, or unexpected behavior: see [**Use cases**](use-cases.md) for detailed examples.
+Two ways to get logs into CLM:
 
-4. CLM creates [alert events](../resources/glossary.md#alert-eventalert-status) in case problems occur or critical thresholds are exceeded, according to [alert rules](../alerts.md) you have defined.
+* **Your system already produces OpenTelemetry logs?** Send them directly to CLM.
+* **Your system produces logs in another format?** [Install an OpenTelemetry Collector](../collector/collector.md) to convert, enrich, and forward them. The collector can run as an agent on the device or in gateway mode.
 
-5. CLM allows you to store logs securely over long periods of time (for compliance, security, or historical analysis).
+## Understanding a log entry
 
-## What is OpenTelemetry and how is it used by Centreon Log Management?
+A log entry in OpenTelemetry format always includes a **timestamp** and a **[service](../resources/glossary.md#service) name** (the service that produced the log). Most entries also carry a [severity](../resources/glossary.md#severity): <span style={{color:'#1ebeb3'}}>**DEBUG**</span>, <span style={{color:'#1588d1'}}>**INFO**</span>, <span style={{color:'#ffca34'}}>**WARNING**</span>, <span style={{color:'#fd9b27'}}>**ERROR**</span>, or <span style={{color:'#ff4a4a'}}>**FATAL**</span>. Everything else depends on [how you configure your OpenTelemetry Collector](../collector/collector.md).
 
-Logs are a type of [telemetry](../resources/glossary.md#telemetry) data. Centreon Log Management can read logs in the OpenTelemetry format. OpenTelemetry is a protocol for sending this kind of data.
-
-OpenTelemetry data is structured (often in JSON or in Protobuf), standardized based on [semantic conventions](https://opentelemetry.io/docs/concepts/semantic-conventions/) (with the same fields and format everywhere), and provides rich context about events, such as the service, environment, version, and custom attributes.
-
-OpenTelemetry logs aren't just text: they're data you can analyze. And CLM lets you [define dynamic alerts on them](../alerts.md).
-
-* You can send logs in OpenTelemetry format directly to Centreon Log Management.
-* If a device produces logs in a format other than OpenTelemetry, [use an OpenTelemetry Collector to convert the data](../collector/collector.md). The collector can run as an agent on the device or in gateway mode to receive, enrich, translate and forward logs to Centreon Log Management.
-
-## What does a log entry in OpenTelemetry format look like?
-
-A log entry in OpenTelemetry format always has a timestamp and a [service](../resources/glossary.md#service) name (for the service that produced the log). Usually, it also shows the log's [severity](../resources/glossary.md#severity): <span style={{color:'#1ebeb3'}}>**DEBUG**</span>, <span style={{color:'#1588d1'}}>**INFO**</span>, WARN (<span style={{color:'#ffca34'}}>**WARNING**</span> in CLM), <span style={{color:'#fd9b27'}}>**ERROR**</span>, or <span style={{color:'#ff4a4a'}}>**FATAL**</span>. All the other information in the log depends on [how you have configured your OpenTelemetry Collector](../collector/collector.md).
-
-Here is an example of a raw log entry sent by the Windows Event Viewer, collected by an OpenTelemetry collector, then converted to CLM's internal syntax:
+Here's a real example — a Windows Event Viewer log collected by an OpenTelemetry collector:
 
 ```json
 {
@@ -72,19 +90,48 @@ Here is an example of a raw log entry sent by the Windows Event Viewer, collecte
 }
 ```
 
-* Log **attributes** describe what the log is about (message details, error code, etc.)
+This entry has two kinds of metadata:
 
-* **Resource attributes** show the context of the log, i.e. what produced this log. Here are some examples of common resource attributes for logs:
+* **Attributes** describe the event itself — message details, error codes, process IDs.
+* **Resource attributes** describe where the log came from. Common examples:
 
-  * service.name – the name of the service emitting the log
-  * service.version – version of the service
-  * host.name – hostname or machine name
-  * cloud.region – cloud region (e.g., us-east-1)
-  * k8s.container.name – Kubernetes container name
-  * deployment.environment – environment like prod or staging.
+  | Attribute | Description | Example |
+  |-----------|-------------|---------|
+  | service.name | Service emitting the log | `apache`, `payments-api` |
+  | service.version | Version of the service | `2.4.1` |
+  | host.name | Hostname or machine name | `prod-web-03` |
+  | cloud.region | Cloud region | `us-east-1` |
+  | k8s.container.name | Kubernetes container name | `api-gateway` |
+  | deployment.environment | Environment | `prod`, `staging` |
 
-In CLM, you can filter your data by using these attributes in [queries](../query-syntax.md), in [**Log explorer**](../explore-analyze.md#using-the-log-explorer-page) or [dashboards](../dashboards.md).
+You can use any of these attributes in [queries](../query-syntax.md), in the [**Log explorer**](../explore-analyze.md#using-the-log-explorer-page), or in [dashboards](../dashboards.md) to filter and drill down into your data.
 
-## Which OpenTelemetry attribute determines the date and time of logs?
+## How does CLM determine the date and time of logs?
 
-The date and time of logs are based on the OpenTelemetry attribute **observed_timestamp_nanos**.
+The date and time of each log are based on the OpenTelemetry attribute **observed_timestamp_nanos**.
+
+## How does CLM complement monitoring?
+
+If you already use Centreon for monitoring, here's how CLM fits in:
+
+- **Monitoring** detects problems that can be anticipated — it relies on metrics and predefined thresholds. It answers: "Is the system working as expected?"
+- **CLM** lets you discover and investigate unexpected problems — by analyzing detailed, contextualized logs. It answers: "What happened, and why?"
+
+In practice, these two work together:
+
+1. You notice an incident in monitoring, but can't determine the root cause from metrics alone.
+2. In CLM, you investigate the relevant logs and explore their context to identify what went wrong.
+3. Once the cause is understood, you create an [alert rule](../alerts.md) in CLM (or in monitoring) to detect the issue automatically in the future.
+
+| Aspect | Monitoring | CLM (Observability) |
+| --- | --- | --- |
+| Purpose | Know that there is a problem | Understand why and where it occurs |
+| Data | Metrics with predefined thresholds | Enriched, contextualized logs |
+| Approach | Predefined checks | Exploratory, open-ended investigation |
+| Best for | Simple, known failure modes | Complex systems, unknown issues |
+
+## What's next?
+
+- [**Quickstart**](quickstart.md) — send your first logs in under 10 minutes
+- [**Use cases**](use-cases.md) — see what you can detect and investigate with CLM
+- [**Query syntax**](../query-syntax.md) — learn how to filter and search your logs

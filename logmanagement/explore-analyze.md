@@ -36,3 +36,9 @@ Log summaries are a list of the main events detected for a period:
 ## Using dashboards
 
 Create [dashboards](dashboards.md) to view and explore your data visually. Dashboards display both current information and historical data, allowing you to examine trends and understand changes over time.
+
+## What's next?
+
+- [**Query syntax**](query-syntax.md) — master the query language to filter logs with precision
+- [**Alert rules**](alerts.md) — automate incident detection based on log patterns
+- [**Dashboards**](dashboards.md) — build visual overviews of your log data

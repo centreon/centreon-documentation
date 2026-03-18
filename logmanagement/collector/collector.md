@@ -220,3 +220,10 @@ ls -l /var/log/messages
 id otelcol-contrib
 usermod -aG root otelcol-contrib
 ```
+
+## What's next?
+
+- [**Log Explorer**](../explore-analyze.md) — verify your logs are arriving and start investigating
+- [**Query syntax**](../query-syntax.md) — learn how to filter and search your logs
+- [**Alert rules**](../alerts.md) — get notified when specific log patterns appear
+- [**FAQ & Troubleshooting**](../resources/faq.md#collector-issues) — common collector issues and fixes
