@@ -34,8 +34,10 @@ The CMA can be installed on and monitor the following OSs:
 
 * RHEL/Oracle Linux/Alma Linux 8
 * RHEL/Oracle Linux/Alma Linux 9
+* RHEL/Oracle Linux/Alma Linux 10
 * Debian 11
 * Debian 12
+* Debian 13
 * Ubuntu 22.04/24.04 LTS
 
 </TabItem>

@@ -13,7 +13,7 @@ Par exemple, une entrée de log INFO peut simplement enregistrer qu'un utilisate
 
 Pour détecter ce type de problème, vous devez créer des règles d'alerte.
 
-Une règle d'alerte évalue des critères spécifiques et génère des [évènements d'alerte](./resources/glossary.md#évènement-dalertestatut-dalerte), chacun avec un [statut d'alerte](#statuts-dalerte). Par exemple, une règle d'alerte peut être décrite comme suit :
+Une règle d'alerte évalue des critères spécifiques sur une période donnée et génère des [évènements d'alerte](./resources/glossary.md#évènement-dalertestatut-dalerte), chacun avec un [statut d'alerte](#statuts-dalerte). Par exemple, une règle d'alerte peut être décrite comme suit :
 "Si cette requête renvoie plus de 50 résultats au cours des 5 dernières minutes, un évènement d'alerte avec le statut CRITIQUE doit être enregistré."
 
 * type d'alerte : count
