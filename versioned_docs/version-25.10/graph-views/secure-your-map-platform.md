@@ -408,11 +408,7 @@ This section describes how to enable SSL on a MySQL/MariaDB server and configure
 
 **5. Verify SSL is active.**
 
-    ```shell
-        SHOW VARIABLES LIKE '%ssl%';
-        -- have_ssl should be YES
-        -- ssl_ca, ssl_cert, ssl_key should point to your certificate files
-    ```
+    
 
 </TabItem>
 <TabItem value="MariaDB" label="MariaDB">
@@ -464,22 +460,10 @@ This section describes how to enable SSL on a MySQL/MariaDB server and configure
 
 **1. Require SSL for the user.**
 
-    ```shell
-        ALTER USER 'centreon_map'@'<ip_or_hostname>' REQUIRE SSL;
-        -- Verify: ssl_type should now show ANY
-        SELECT user, host, ssl_type FROM mysql.user WHERE user='centreon_map';
-    ```
-
+    
 **2. Grant privileges.**
 
-    ```shell
-        GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER,
-            CREATE TEMPORARY TABLES, LOCK TABLES
-        ON `centreon_map`.*
-        TO `centreon_map`@`<ip_or_hostname>`;
-        -- Verify grants
-        SHOW GRANTS FOR 'centreon_map'@'<ip_or_hostname>';
-    ```
+    
 
 </TabItem>
 <TabItem value="MariaDB" label="MariaDB">

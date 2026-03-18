@@ -377,12 +377,7 @@ Cette section décrit comment activer SSL sur un serveur MySQL/MariaDB et config
 
 **3. Optionnel - Modifiez la configuration du client MySQL.** Cela permet à l’outil CLI mysql de se connecter en utilisant SSL.
 
-    ```shell
-        [mysql]
-        ssl-ca   = /etc/mysql/newcerts/ca-cert.pem
-        ssl-cert = /etc/mysql/newcerts/client-cert.pem
-        ssl-key  = /etc/mysql/newcerts/client-key.pem
-    ```
+    
 
 **4. Redémarrez MySQL.**
 
@@ -392,11 +387,7 @@ Cette section décrit comment activer SSL sur un serveur MySQL/MariaDB et config
 
 **5. Vérifiez que SSL est actif.**
 
-    ```shell
-        SHOW VARIABLES LIKE '%ssl%';
-        -- have_ssl doit être YES
-        -- ssl_ca, ssl_cert, ssl_key doivent pointer vers vos fichiers de certificats
-    ```
+    
 
 </TabItem>
 <TabItem value="MariaDB" label="MariaDB">
@@ -448,22 +439,11 @@ Cette section décrit comment activer SSL sur un serveur MySQL/MariaDB et config
 
 **1. Exigez SSL pour l’utilisateur.**
 
-    ```shell
-        ALTER USER 'centreon_map'@'<ip_or_hostname>' REQUIRE SSL;
-        -- Vérification : ssl_type doit maintenant afficher ANY
-        SELECT user, host, ssl_type FROM mysql.user WHERE user='centreon_map';
-    ```
+    
 
 **2. Accordez les privilèges.**
 
-    ```shell
-        GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER,
-            CREATE TEMPORARY TABLES, LOCK TABLES
-        ON `centreon_map`.* 
-        TO `centreon_map`@`<ip_or_hostname>`;
-        -- Vérifiez les droits
-        SHOW GRANTS FOR 'centreon_map'@'<ip_or_hostname>';
-    ```
+    
 
 </TabItem>
 <TabItem value="MariaDB" label="MariaDB">
