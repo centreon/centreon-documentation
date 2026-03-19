@@ -24,6 +24,12 @@ Read [the CMA documentation for Centreon Cloud](/cloud/cma/cma-setup).
 </TabItem>
 </Tabs>
 
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Linux SSH** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
 ## Pack assets
 
 ### Templates
@@ -82,7 +88,7 @@ The connector brings the following service templates (sorted by the host templat
 
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
@@ -258,6 +264,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 | *processes*#cpu-utilization                   | N/A   |
 | *processes*#disks-read                        | N/A   |
 | *processes*#disks-write                       | N/A   |
+| *processes*#open-files                        | N/A   |
+| *processes*#open-files-prct                   | N/A   |
 | processes.total.count                         | count |
 | processes.memory.usage.bytes                  | B     |
 | processes.cpu.utilization.percentage          | %     |
@@ -1150,13 +1158,42 @@ All available options for each service template are listed below:
 | --add-cpu                | Monitor CPU usage.                                                                                                                                                                                                                            |
 | --add-memory             | Monitor memory usage. It's inaccurate but it provides a trend.                                                                                                                                                                                |
 | --add-disk-io            | Monitor disk I/O.                                                                                                                                                                                                                             |
+| --add-open-files         | Monitor open file usage per process. This functionality requires that the `centreon_linux_sudoers` package be installed on the monitored host and configured in the sudoers file. Please refer to the notice below.                           |
 | --filter-command         | Filter process commands (regexp can be used).                                                                                                                                                                                                 |
 | --exclude-command        | Exclude process commands (regexp can be used).                                                                                                                                                                                                |
 | --filter-arg             | Filter process arguments (regexp can be used).                                                                                                                                                                                                |
 | --exclude-arg            | Exclude process arguments (regexp can be used).                                                                                                                                                                                               |
 | --filter-ppid            | Filter process ppid (regexp can be used).                                                                                                                                                                                                     |
 | --filter-state           | Filter process states (regexp can be used). You can use: 'zombie', 'dead', 'paging', 'stopped', 'InterrupibleSleep', 'running', 'UninterrupibleSleep'.                                                                                        |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'total-memory-usage', 'total-cpu-utilization', 'total-disks-read', 'total-disks-write', 'time', 'memory-usage', 'cpu-utilization', 'disks-read', 'disks-write'.                                                  |
+| --privileged-script-path         | This parameter allows specifying a custom path to the centreon\_plugin\_local\_process.pl script used for monitoring open file usage per process (default: '/usr/lib/centreon/plugins').                                              |
+| --warning-total                  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total                 | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-memory-usage     | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-memory-usage    | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-cpu-utilization  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-cpu-utilization | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-read       | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-read      | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-write      | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-write     | Thresholds.                                                                                                                                                                                                                           |
+| --warning-time                   | Thresholds.                                                                                                                                                                                                                           |
+| --critical-time                  | Thresholds.                                                                                                                                                                                                                           |
+| --warning-memory-usage           | Thresholds.                                                                                                                                                                                                                           |
+| --critical-memory-usage          | Thresholds.                                                                                                                                                                                                                           |
+| --warning-cpu-utilization        | Thresholds.                                                                                                                                                                                                                           |
+| --critical-cpu-utilization       | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-read             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-read            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-write            | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-write           | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-open-files            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files-prct        | Thresholds in percentage.                                                                                                                                                                                                             |
+| --critical-open-files-prct       | Thresholds in percentage.                                                                                                                                                                                                             |
+
+> To monitor open file usage per process, you need to install the `centreon-plugin-Operatingsystems-Linux-sudoers` package on each monitored host.
+> This package installs the `centreon_linux_local_process.pl` script and adds the `sudoersCentreonLinuxPlugins` file to the `sudoers` configuration.
+> Depending on the monitored hosts, this package will be installed with ```dnf install centreon-plugin-Operatingsystems-Linux-sudoers``` or ```apt install centreon-plugin-operatingsystems-linux-sudoers```.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">

@@ -458,6 +458,7 @@ Les différents arguments sont:
 |/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Défaut : "error"| si /LOGTYPE=file |
 |/MAXFILESIZE| Taille maximale du fichier de log avant rotation, en Mo. Défaut : 10. Si /LOGTYPE=file | |
 |/MAXNUMBER| Nombre maximal de fichiers de log. Pour que la rotation des logs soit activée, ces deux paramètres sont nécessaires. Défaut : 3. Si /LOGTYPE=file | |
+|/CUSTOMCHECKFILE| Chemin du fichier de commandes personnalisées, si vous en utilisez. | |
 |/VERSION| Version de centagent.exe |  |                                                                                                                                                                                                                                                      
                                                                                          
 Si **/PLUGINSRC=auto** et que le téléchargement échoue, l'installeur passera automatiquement en mode **embedded**.

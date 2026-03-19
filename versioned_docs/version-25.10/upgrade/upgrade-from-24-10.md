@@ -39,7 +39,7 @@ servers:
 1. Update your Centreon 24.10 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -66,7 +66,7 @@ servers:
 1. Update your Centreon 24.10 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -591,6 +591,36 @@ with the following:
      (You can also adapt them manually.)
 
 3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via the `no_shell_interpretation: true` parameter. If you previously customized this file, your version will be saved in the same directory as `41-autodiscovery.yaml.rpmnew` and must be manually merged to include this parameter.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via the `no_shell_interpretation: true` parameter. If you previously customized this file, your version will be saved in the same directory as `41-autodiscovery.yaml.rpmnew` and must be manually merged to include this parameter.
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml` via the `no_shell_interpretation: true` parameter. If you previously customized this file, you will be prompted to resolve the potential conflicts.
+
+</TabItem>
+</Tabs>
 
 4. Restart the processes:
 

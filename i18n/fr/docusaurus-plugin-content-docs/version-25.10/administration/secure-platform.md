@@ -1629,3 +1629,33 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 
 Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu 
 [**Administration > Parameters > Backup**](./backup.md).
+
+## Utiliser un antivirus sur une plateforme Centreon
+
+Cette section s'applique si vous utilisez un logiciel antivirus/EDR pour analyser une plateforme Centreon Infra Monitoring (serveur central, serveur distant, poller, serveur MAP ou MBI). Cela inclut les modules Business.
+
+Voici une liste des services et répertoires qui doivent être exclus de l'analyse antivirus.
+
+### Services à exclure
+
+* centengine
+* cbd
+* centreontrapd
+* gorgoned
+* php-fpm
+* httpd
+
+Si vous utilisez l'un de ces connecteurs, excluez les services suivants :
+
+* vmware: centreon_vmware
+* as400: centreon-as400
+
+### Répertoires à exclure
+
+* /etc/centreon*
+* /var/log/centreon*
+* /var/lib/centreon*
+* /var/cache/centreon*
+* /usr/share/centreon*
+* /var/spool/centreon*
+* /var/lib/mysql

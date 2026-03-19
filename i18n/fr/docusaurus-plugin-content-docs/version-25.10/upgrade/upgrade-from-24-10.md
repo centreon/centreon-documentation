@@ -42,7 +42,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -69,7 +69,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -592,6 +592,36 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
      (Vous pouvez également les adapter manuellement.)
 
 3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+> À partir de la version 25.10, la substitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-découverte de services associées aux connecteurs. 
+> 
+> Si vous utilisez des commandes personnalisées qui contiennent de l'interpolation, vous devez les adapter de manière à ce qu'elles n'utilisent que des informations issues des macros.
+> 
+> Cette nouvelle règle est appliquée dans `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via le paramètre : `no_shell_interpretation: true`. Si vous aviez modifié ce fichier, votre version sera sauvegardée dans le même répertoire en tant que `41-autodiscovery.yaml.rpmnew` et devra être manuellement fusionnée pour intégrer ce paramètre.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+> À partir de la version 25.10, la substitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-découverte de services associées aux connecteurs. 
+> 
+> Si vous utilisez des commandes personnalisées qui contiennent de l'interpolation, vous devez les adapter de manière à ce qu'elles n'utilisent que des informations issues des macros.
+> 
+> Cette nouvelle règle est appliquée dans `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via le paramètre : `no_shell_interpretation: true`. Si vous aviez modifié ce fichier, votre version sera sauvegardée dans le même répertoire en tant que `41-autodiscovery.yaml.rpmnew` et devra être manuellement fusionnée pour intégrer ce paramètre.
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+   
+> À partir de la version 25.10, la substitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-découverte de services associées aux connecteurs. 
+> 
+> Si vous utilisez des commandes personnalisées qui contiennent de l'interpolation, vous devez les adapter de manière à ce qu'elles n'utilisent que des informations issues des macros.
+> 
+> Cette nouvelle règle est appliquée dans `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml` via le paramètre : `no_shell_interpretation: true`. Si vous aviez antérieurement modifié ce fichier, vous serez invité à résoudre les potentiels conflits entre les deux versions.
+
+</TabItem>
+</Tabs>
 
 4. Redémarrez les processus Centreon :
 
