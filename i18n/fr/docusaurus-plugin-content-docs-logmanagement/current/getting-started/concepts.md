@@ -55,7 +55,7 @@ Voici un exemple d'entrée de log brute envoyée par l'Observateur d'évènement
   },
   "observed_timestamp_nanos": 1763648218788360200,
   "resource_attributes": {
-    "event.provider.guid": "{XXXXXXXX-C8C9-472C-A5F9-F2BDFEA0X309}",
+    "event.provider.guid": "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}",
     "event.provider.name": "Microsoft-Windows-Security-SPP",
     "host.name": "MyLaptop",
     "os.name": "Microsoft Windows 10 Pro",

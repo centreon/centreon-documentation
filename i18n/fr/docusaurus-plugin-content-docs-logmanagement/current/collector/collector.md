@@ -6,7 +6,13 @@ title: Configuration complète de collecteur (sources de logs multiples)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-La section [Configurations simples de collecteur](opentelemetry-collector.md) fournit un fichier de configuration permettant de mettre en place la collecte des logs à partir d'une machine Windows. La procédure ci-dessous est plus adaptée aux cas où plusieurs types de journaux sont collectés sur le même hôte.
+La section [Configurations simples de collecteur](opentelemetry-collector.md) fournit un fichier de configuration permettant de mettre en place la collecte des logs à partir d'une machine Windows. La procédure ci-dessous est plus adaptée aux cas où plusieurs types de journaux sont collectés sur le même hôte (sous Windows comme sous Linux).
+
+:::tip Gagnez du temps avec les modèles Centreon
+
+Centreon met à disposition [des modèles de configuration prêts à l'emploi pour les sources de logs les plus courantes](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main). Utilisez-les comme point de départ pour configurer rapidement votre collecteur.
+
+:::
 
 Si vous rencontrez des problèmes, consultez la page [Dépanner votre installation](collector-troubleshooting.md).
 
@@ -16,11 +22,11 @@ resource attributes -->
 ## Prérequis
 
 * Générez [un jeton pour authentifier l'hôte auprès de votre plateforme Centreon Log Management](../administration/tokens.md).
-* L'endpoint requis pour connecter un collecteur OpenTelemetry à votre plateforme Centreon Log Management est `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
+* L'endpoint requis pour connecter un collecteur OpenTelemetry à votre plateforme Centreon Log Management est `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs`.
 
 > CLM peut traiter des batch de logs d'une taille de 5 MiB maximum. Au-delà, vous recevrez une erreur 413. (Si besoin, utilisez [le paramètre **sending_queue.sizer.bytes** de votre exporteur](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) pour adapter la taille de vos batchs.)
 
-# Étape 1 : Installez OpenTelemetry Collector sur votre hôte
+## Étape 1 : Installez OpenTelemetry Collector sur votre hôte
 
 Utilisez les paquets **otelcol-contrib** pour installer OpenTelemetry Collector sur chaque hôte à partir duquel vous souhaitez collecter des logs.
 
@@ -141,9 +147,9 @@ Configurez une source de logs pour chaque service souhaité (syslog, apache, etc
 
 2. Dans ce répertoire, créez un fichier par source de logs. Par exemple : les fichiers **httpd-combined.yaml** et **httpd-error.yaml** contiendront respectivement la configuration du journal d'accès Apache et du journal d'erreurs Apache.
 
-3. Récupérez sur GitHub le fichier d'exemple correspondant à la source de logs souhaitée : https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main.
+3. [Récupérez sur GitHub](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main) le fichier d'exemple correspondant à la source de logs souhaitée.
 
-4. Sur l'hôte source, copiez et collez l'extrait de code dans le fichier correspondant. Enregistrez le fichier. Si vous utilisez plusieurs sources de logs pour un collecteur, ne définissez le pipeline qu'une seule fois (dans l'un des fichiers). Le pipeline doit mentionner tous vos receivers. Dans notre exemple :
+4. Sur l'hôte source, copiez et collez l'extrait de code dans le fichier correspondant, puis adaptez-le en fonction de votre environnement et de votre OS. Enregistrez le fichier. Si vous utilisez plusieurs sources de logs pour un collecteur, ne définissez le pipeline qu'une seule fois (dans l'un des fichiers). Le pipeline doit mentionner tous vos receivers. Dans notre exemple :
 
     ```shell
     service:

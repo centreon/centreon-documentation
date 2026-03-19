@@ -6,7 +6,7 @@ title: Configurations simples de collecteur
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Voici deux exemples de configurations simples. Si vous souhaitez collecter plusieurs types de logs à partir d'un même hôte, utilisez la page [Configuration complète de collecteur (sources de journaux multiples)](collector.md).
+Voici deux exemples de configurations simples. Si vous souhaitez collecter plusieurs types de logs à partir d'un même hôte, utilisez la page [Configuration complète de collecteur (sources de logs multiples)](collector.md).
 
 ## Exemple 1 : Configuration rapide pour commencer à collecter les logs de l'Observateur d'événements Windows
 
@@ -28,7 +28,7 @@ Voici deux exemples de configurations simples. Si vous souhaitez collecter plusi
 
    exporters:
      otlphttp/centreon: # The exporter that will send logs to CLM
-       endpoint: "https://api.euwest1.obs.centreon.com/v1/ingress/otlp"
+       endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp"
        headers:
          "X-Api-Key": "mytoken" ## Replace mytoken by your actual token
      debug: # The exporter that will write debug info to log files
@@ -130,7 +130,7 @@ Dans l'exemple suivant, nous recevons des données provenant de trois sources di
 
 exporters:
   otlphttp/centreon: # The exporter that will send logs to CLM
-    endpoint: "https://api.euwest1.obs.centreon.com/v1/ingress/otlp"
+    endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp"
     headers:
       "X-Api-Key": "mytoken" ## Replace mytoken by your actual token
   debug: # The exporter that will write debug info to log files

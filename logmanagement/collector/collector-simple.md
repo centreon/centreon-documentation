@@ -28,7 +28,7 @@ Here are two examples of simple configurations. If you want to collect many type
 
    exporters:
      otlphttp/centreon: # The exporter that will send logs to CLM
-       endpoint: "https://api.euwest1.obs.centreon.com/v1/ingress/otlp"
+       endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp"
        headers:
          "X-Api-Key": "mytoken" ## Replace mytoken by your actual token
      debug: # The exporter that will write debug info to log files
@@ -130,7 +130,7 @@ In the following example, we receive data from three different sources on the sa
 
 exporters:
   otlphttp/centreon: # The exporter that will send logs to CLM
-    endpoint: "https://api.euwest1.obs.centreon.com/v1/ingress/otlp"
+    endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp"
     headers:
       "X-Api-Key": "mytoken" ## Replace mytoken by your actual token
   debug: # The exporter that will write debug info to log files

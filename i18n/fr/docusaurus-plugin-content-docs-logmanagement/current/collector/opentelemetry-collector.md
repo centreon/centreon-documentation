@@ -1,6 +1,6 @@
 ---
 id: opentelemetry-collector
-title: How an OpenTelemetry collector works
+title: Fonctionnement d'un collecteur OpenTelemetry
 ---
 
 import Tabs from '@theme/Tabs';

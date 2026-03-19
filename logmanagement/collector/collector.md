@@ -6,7 +6,13 @@ title: Full collector configuration (multiple log sources)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-[Simple collector configurations](opentelemetry-collector.md) provides a configuration file to set up log collection from a Windows machine. The procedure below is better suited to cases where multiple log types are collected on the same host.
+[Simple collector configurations](opentelemetry-collector.md) provides a configuration file to set up log collection from a Windows machine. The procedure below is better suited to cases where multiple log types are collected on the same host (Windows or Linux).
+
+:::tip Save time with Centreon templates
+
+Centreon provides [ready-to-use configuration templates for the most common log sources](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main). Use them as a starting point to quickly configure your collector.
+
+:::
 
 If you run into any problems, refer to the [Troubleshooting](collector-troubleshooting.md) page.
 
@@ -50,7 +56,7 @@ apt install ./otelcol-contrib_0.145.0_linux_amd64.deb
 <TabItem value="Windows" label="Windows">
 
 ```shell
-https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.147.0/otelcol-contrib_0.145.0_windows_x64.msi 
+https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.147.0/otelcol-contrib_0.147.0_windows_x64.msi 
 ```
 
 </TabItem>
@@ -83,8 +89,8 @@ https://github.com/open-telemetry/opentelemetry-collector-releases/releases/down
 
 2. In this file, enter the global log collection settings specific to this device. These will apply to all log sources for this device.
 
-   * In **endpoint**, enter `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs`.
-   * in **X-Api-Key**, enter the [token required to authenticate to your CLM platform](../administration/tokens.md).
+   * In **endpoint**, enter `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
+   * In **X-Api-Key**, enter the [token required to authenticate to your CLM platform](../administration/tokens.md).
 
    Example:
 
@@ -93,7 +99,7 @@ https://github.com/open-telemetry/opentelemetry-collector-releases/releases/down
    # SPDX-License-Identifier: Apache-2.0
    exporters:
      otlphttp/centreon:
-       endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs"
+       endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp"
        headers:
          "X-Api-Key": "mytoken"
      debug:
@@ -141,9 +147,9 @@ Configure a log source for each desired service (syslog, apache, etc.) in the fo
 
 2. In this directory, create one file per log source. For example: the **httpd-combined.yaml** and **httpd-error.yaml** files will contain the configuration for the Apache access log and Apache error log, respectively.
 
-3. Retrieve from GitHub the sample file for the log source you want: https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main.
+3. [Retrieve from GitHub](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main) the sample file for the log source you want.
 
-4. On the source device, copy and paste the code snippet into the corresponding file. Save the file. If you are using several log sources for a collector, make sure you define the pipeline only once (in one of the files). The pipeline must mention all your receivers. In our example:
+4. On the source device, copy and paste the code snippet into the corresponding file, and adapt it to your environment and your OS. Save the file. If you are using several log sources for a collector, make sure you define the pipeline only once (in one of the files). The pipeline must mention all your receivers. In our example:
 
     ```shell
     service:
