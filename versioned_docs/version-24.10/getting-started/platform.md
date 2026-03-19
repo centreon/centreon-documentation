@@ -33,7 +33,7 @@ A poller can be attached to a [remote server](#remote-server), or directly to a 
 
 ## Centreon Monitoring Agent
 
-The [Centreon Monitoring Agent (CMA)](../cma/cma.md) is a piece of software installed on a host to monitor it.
+The [Centreon Monitoring Agent (CMA)](../cma/cma.md) is an optional piece of software installed on a host to monitor it.
 - CMA collects metrics and computes statuses, and sends them to Centreon.
 - It can perform native checks by itself or non-native checks using locally installed plugins.
 
