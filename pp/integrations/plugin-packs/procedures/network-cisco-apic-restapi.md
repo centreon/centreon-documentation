@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                     | Service Description |
 |:--------------|:-------------------------------------|:--------------------|
-| Fabric        | Net-Cisco-Apic-Fabric-Restapi-custom | Check Fabrics       |
-| Node          | Net-Cisco-Apic-Node-Restapi-custom   | Check Nodes         |
-| Tenant        | Net-Cisco-Apic-Tenant-Restapi-custom | Check Tenant        |
+| Fabric        | Net-Cisco-Apic-Fabric-Restapi-custom | Check fabrics       |
+| Node          | Net-Cisco-Apic-Node-Restapi-custom   | Check nodes         |
+| Tenant        | Net-Cisco-Apic-Tenant-Restapi-custom | Check tenant        |
 
 > The services listed above are created automatically when the **Net-Cisco-Apic-Restapi-custom** host template is used.
 

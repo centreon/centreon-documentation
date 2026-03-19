@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias     | Service Template                                      | Service Description       |
 |:------------------|:------------------------------------------------------|:--------------------------|
-| Isdn-Usage-Global | Net-Cisco-Voice-Gateway-Isdn-Usage-Global-SNMP-custom | Check ISDN channel usages |
+| Isdn-Usage-Global | Net-Cisco-Voice-Gateway-Isdn-Usage-Global-SNMP-custom | Check ISDN channel usage |
 
 > The services listed above are created automatically when the **Net-Cisco-Voice-Gateway-SNMP-custom** host template is used.
 
@@ -35,8 +35,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                         | Service Description                          | Discovery |
 |:---------------------|:---------------------------------------------------------|:---------------------------------------------|:---------:|
-| Traffic-Generic-Id   | Net-Cisco-Voice-Gateway-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface        |           |
-| Traffic-Generic-Name | Net-Cisco-Voice-Gateway-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface        |           |
+| Traffic-Generic-Id   | Net-Cisco-Voice-Gateway-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface        |           |
+| Traffic-Generic-Name | Net-Cisco-Voice-Gateway-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |           |
 | Traffic-Global       | Net-Cisco-Voice-Gateway-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces |     X     |
 | Voice-Call           | Net-Cisco-Voice-Gateway-Voice-Call-SNMP-custom           | Check call traffic statistics                |           |
 
