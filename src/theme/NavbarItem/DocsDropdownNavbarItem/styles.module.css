@@ -1,0 +1,37 @@
+/*
+Hide color mode toggle in small viewports
+ */
+@media (max-width: 996px) {
+  .docsDropdown {
+    display: none;
+  }
+}
+
+.docsDropdown + ul {
+  background-color: var(--ifm-product-dropdown-background-color);
+  width: 15rem;
+}
+
+.docsDropdown:after {
+  display: none;
+}
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: normal;
+}
+
+.itemIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}

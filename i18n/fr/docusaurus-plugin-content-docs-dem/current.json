@@ -3,9 +3,49 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.dem.category.Getting started": {
-    "message": "Getting started",
-    "description": "The label for category Getting started in sidebar dem"
+  "sidebar.dem.category.Getting started with Centreon DEM": {
+    "message": "Démarrer avec Centreon DEM",
+    "description": "The label for category Getting started in sidebar DEM"
+  },
+    "sidebar.dem.category.Installation": {
+    "message": "Installation",
+    "description": "The label for category Installation in sidebar DEM"
+  },
+   "sidebar.dem.category.Servers and middleware": {
+    "message": "Serveurs et middleware",
+    "description": "The label for category Servers and middlewares in sidebar DEM"
+  },
+  "sidebar.dem.category.Configuration": {
+    "message": "Configuration",
+    "description": "The label for category Configuration in sidebar DEM"
+  },
+  "sidebar.dem.category.User journey": {
+    "message": "Parcours Utilisateurs",
+    "description": "The label for category User journey in sidebar DEM"
+  },
+  "sidebar.dem.category.Advanced configuration": {
+    "message": "Configuration avancée",
+    "description": "The label for category Advanced configuration in sidebar DEM"
+  },
+  "sidebar.dem.category.Performance analysis": {
+    "message": "Analyse de la performance",
+    "description": "The label for category Performance analysis in sidebar DEM"
+  },
+  "sidebar.dem.category.Metric overview": {
+    "message": "Vue d'ensemble des métriques",
+    "description": "The label for category Metric overview in sidebar DEM"
+  },
+  "sidebar.dem.category.Basic actions": {
+    "message": "Actions de base",
+    "description": "The label for category Basic actions in sidebar DEM"
+  },
+  "sidebar.dem.category.Digital sobriety": {
+    "message": "Sobriété numérique",
+    "description": "The label for category Digital sobriety in sidebar DEM"
+  },
+  "sidebar.dem.category.How-to articles": {
+    "message": "Articles How-to",
+    "description": "The label for category How-to articles in sidebar DEM"
   }
 }
   

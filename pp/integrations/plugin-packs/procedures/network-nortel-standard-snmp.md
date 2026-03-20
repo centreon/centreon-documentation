@@ -1,15 +1,26 @@
 ---
 id: network-nortel-standard-snmp
-title: Nortel Standard
+title: Extreme (formerly Nortel/Avaya) SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Compatibility
+
+This connector has been tested with the following products.
+
+| Product     | Model        | Versions |
+|-------------|--------------|----------|
+| Extreme Networks | 4950GTS-PWR+ | - |
+| Extreme Networks | 5520-24T | - |
+| Extreme Networks | 7520-48Y-8C | - |
+| Extreme Networks | 7520-48YE-8CE | - |
 
 ## Pack assets
 
 ### Templates
 
-The Monitoring Connector **Nortel Standard** brings a host template:
+The Monitoring Connector **Extreme (formerly Nortel/Avaya) SNMP** brings a host template:
 
 * **Net-Nortel-Standard-SNMP-custom**
 

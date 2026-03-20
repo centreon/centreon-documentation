@@ -101,11 +101,6 @@ Installing a Monitoring Connector is a 4-step process:
 dnf install centreon-pack-*
 ```
 
-or:
-
-```shell
-dnf update centreon-pack-*
-```
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -113,23 +108,11 @@ dnf update centreon-pack-*
 dnf install centreon-pack-*
 ```
 
-or:
-
-```shell
-dnf update centreon-pack-*
-```
-
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install centreon-pack-*
-```
-
-or:
-
-```shell
-apt install --only-upgrade centreon-pack-\*
 ```
 
 </TabItem>
