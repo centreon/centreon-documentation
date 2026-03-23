@@ -39,6 +39,6 @@ L'agent de supervision Centreon [(Centreon Monitoring Agent, CMA)](../cma/cma.md
 
 ## Architecture distribuée
 
-![image](../assets/getting-started/archi.png)
+![image](../assets/getting-started/elements_of_centreon_platform.svg)
 
 Voir aussi [**Architectures**](../installation/architectures.md).
