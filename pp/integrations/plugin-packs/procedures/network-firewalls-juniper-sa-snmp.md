@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-juniper-sa-snmp
-title: Juniper SA
+title: Juniper SA SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

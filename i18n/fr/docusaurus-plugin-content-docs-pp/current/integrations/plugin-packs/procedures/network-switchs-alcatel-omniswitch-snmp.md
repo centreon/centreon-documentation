@@ -1,21 +1,21 @@
 ---
 id: network-switchs-alcatel-omniswitch-snmp
-title: Alcatel Omniswitch
+title: Alcatel Omniswitch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Alcatel Omniswitch** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Alcatel Omniswitch SNMP** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Alcatel Omniswitch** apporte un modèle d'hôte :
+Le connecteur de supervision **Alcatel Omniswitch SNMP** apporte un modèle d'hôte :
 
 * **Net-Alcatel-OmniSwitch-SNMP-custom**
 
@@ -163,7 +163,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:-----------------------|:------|
 | chassis.detected.count | count |
 | chassis-status         | N/A   |
-| chassis-status         | N/A   |
 
 </TabItem>
 </Tabs>
@@ -173,7 +172,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ### Configuration SNMP
 
 L'agent SNMP doit être activé et configuré sur l'équipement. 
-Veuillez vous référer à la [documentation officielle](https://www.al-enterprise.com/en/search#q=omniswitch&t=all&sort=relevancy) du constructeur/éditeur. 
+Référez vous à la [documentation officielle](https://www.al-enterprise.com/en/search#q=omniswitch&t=all&sort=relevancy). 
 Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
 Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
@@ -223,8 +222,8 @@ yum install centreon-pack-network-switchs-alcatel-omniswitch-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Alcatel Omniswitch**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Alcatel Omniswitch SNMP**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -365,7 +364,7 @@ yum install centreon-plugin-Network-Switchs-Alcatel-Omniswitch-Snmp
 |:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
 | WARNINGCHASSISDETECTED  | Threshold                                                                                                                                        |                                |             |
 | CRITICALCHASSISDETECTED | Threshold                                                                                                                                        |                                |             |
-| CRITICALCHASSISSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{role\}, %\{status\}, %\{mac\}              | %\{status\} !~ /init\|running/ |             |
+| CRITICALCHASSISSTATUS   | Define the conditions to match for the status to be CRITICAL You can use the following variables: %\{role\}, %\{status\}, %\{mac\}               | %\{status\} !~ /init\|running/ |             |
 | WARNINGCHASSISSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{role\}, %\{status\}, %\{mac\}               |                                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                      |             |
 
@@ -431,8 +430,8 @@ Le plugin apporte les modes suivants :
 | flash-memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/alcatel/omniswitch/snmp/mode/flashmemory.pm)]       | Net-Alcatel-Omniswitch-Flash-Memory-SNMP-custom    |
 | hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/alcatel/omniswitch/snmp/mode/hardware.pm)]              | Net-Alcatel-Omniswitch-Hardware-SNMP-custom        |
 | interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                            | Net-Alcatel-Omniswitch-Interfaces-SNMP-custom      |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                   | Used for service discovery                         |
-| list-spanning-trees [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listspanningtrees.pm)]            | Not used in this Monitoring Connector              |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                   | Utilisé pour la découverte de services             |
+| list-spanning-trees [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listspanningtrees.pm)]            | Non utilisé dans ce connecteur de supervision      |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/alcatel/omniswitch/snmp/mode/memory.pm)]                  | Net-Alcatel-Omniswitch-Memory-SNMP-custom          |
 | spanning-tree [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/spanningtree.pm)]                       | Net-Alcatel-Omniswitch-SpanningTree-SNMP-custom    |
 | virtual-chassis [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/alcatel/omniswitch/snmp/mode/virtualchassis.pm)] | Net-Alcatel-Omniswitch-Virtual-Chassis-SNMP-custom |
