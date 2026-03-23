@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-nimble-snmp
-title: Nimble Storage
+title: Nimble Storage SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

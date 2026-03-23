@@ -22,6 +22,12 @@ on:
       - '!redis'
       - '!anomaly_detection/training/**'
       - '!centreon-cloud-ml/**'
+      - '!runners/**'
+      - '!.github/workflows/runners-build.yml'
+      - '!backplane/**/*.tf'
+      - '!.github/workflows/backplane.yml'
+      - '!observability/**'
+      - '!stonehenge/**'
 
   workflow_dispatch:
 

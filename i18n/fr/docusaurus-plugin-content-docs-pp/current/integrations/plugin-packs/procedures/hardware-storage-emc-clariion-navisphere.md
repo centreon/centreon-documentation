@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-emc-clariion-navisphere
-title: EMC Clariion
+title: EMC Clariion Navisphere
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **EMC Clariion** apporte un modèle d'hôte :
+Le connecteur de supervision **EMC Clariion Navisphere** apporte un modèle d'hôte :
 
 * **HW-Storage-EMC-Clariion-Navisphere-custom**
 
@@ -177,7 +177,7 @@ yum install centreon-pack-hardware-storage-emc-clariion-navisphere
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Clariion**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Clariion Navisphere**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin

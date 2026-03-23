@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-synology-snmp
-title: Synology
+title: Synology SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Synology** connector through the
+The following monitoring connectors will be installed when you install the **Synology SNMP** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Syn
 
 ### Templates
 
-The Monitoring Connector **Synology** brings a host template:
+The Monitoring Connector **Synology SNMP** brings a host template:
 
 * **HW-Storage-Synology-SNMP-custom**
 
@@ -231,7 +231,7 @@ yum install centreon-pack-hardware-storage-synology-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Synology** connector through
+2. Whatever the license type (*online* or *offline*), install the **Synology SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
