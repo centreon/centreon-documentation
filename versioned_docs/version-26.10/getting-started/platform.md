@@ -39,6 +39,6 @@ The [Centreon Monitoring Agent (CMA)](../cma/cma.md) is an optional piece of sof
 
 ## Distributed architecture
 
-![image](../assets/getting-started/archi.png)
+![image](../assets/getting-started/elements_of_centreon_platform.svg)
 
 See also [**Architectures**](../installation/architectures.md).
