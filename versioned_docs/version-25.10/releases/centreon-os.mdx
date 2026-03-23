@@ -13,13 +13,59 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 | Component | Releases |
 |----------|----------|
-| **Centreon Web** | [25.10.9 (February 25, 2026)](#centreon-web-25109)<br/>[25.10.8 (February 23, 2026)](#centreon-web-25108)<br/>[25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
+| **Centreon Web** | [25.10.10 (March 23, 2026)](#centreon-web-251010)<br/>[25.10.9 (February 25, 2026)](#centreon-web-25109)<br/>[25.10.8 (February 23, 2026)](#centreon-web-25108)<br/>[25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
 | **Centreon Collect** | [25.10.3 (February 25, 2026)](#centreon-collect-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-collect-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-collect-25101) |
 | **Centreon Gorgone** |  [25.10.4 (February 25, 2026)](#centreon-gorgone-25104)<br/>[25.10.3 (January 29, 2026)](#centreon-gorgone-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-gorgone-25102)<br/>[25.10.1 (November 17, 2025)](#centreon-gorgone-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-gorgone-25100) |
 | **Centreon Monitoring Agent** | [25.10.3 (February 25, 2026)](#centreon-monitoring-agent-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-monitoring-agent-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-monitoring-agent-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-monitoring-agent-25100)  |
-| **Centreon Open Tickets** | [25.10.4 (February 25, 2026)](#centreon-open-tickets-25104)<br/>[25.10.3 (February 23, 2026)](#centreon-open-tickets-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
+| **Centreon Open Tickets** | [25.10.5 (March 23, 2026)](#centreon-open-tickets-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-open-tickets-25104)<br/>[25.10.3 (February 23, 2026)](#centreon-open-tickets-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
 | **Centreon AWIE** | [25.10.5 (Febuary 25, 2026)](#centreon-awie-25105)<br/>[25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
 | **Centreon DSM** | [25.10.2 (February 25, 2026)](#centreon-dsm-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
+
+</details>
+
+## March 23, 2026
+
+### Centreon Web 25.10.10
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Host can now be automaticaly created when option is checked in Agent configuration.
+- [Dashboards] Status Chart widget - A filter for the state of the resources (in downtime, acknowledged, flapping) is now available.
+- [Image Administration] You can now upload images up to 5 MB.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue where reach API realtime was reset to "No" if front-end set to "No".
+- [API] When trying to acces the /monitoring/servers endpoint, the API no longer returns "null" (it returns the IP address of the pollers).
+- [Administration] Fixed an issue where additional configuration wasn't updated after deleting user.
+- [Administration] Fixed pagination issues on the LDAP page.
+- [Configuration] Fixed an issue where changes to the "Broker module configuration file" field weren’t applied.
+- [Configuration] Listing pages now display the total count and the range of visible elements.
+- [Configuration] Macros defined on a parent resource are now preserved when a child resource overrides its value.
+- [Custom Views] Fixed an issue occurring when renaming a widget.
+- [Custom Views] Fixed an issue where exporting data for Service Monitoring widgets included all services in the configuration instead of just the selected resources.
+- [Custom Views] Fixed an issue with large platforms where the CSV export in the Service Monitoring widget failed.
+- [Installation] Fix mariadb password setup.
+- [Resource Status] Fixed issue breaking the interface when displaying the graph of a service without any performance data available.
+- [Resource Status] Resolved an issue with PNG exports.
+- [Resource Status] The CSV export has been fixed and now works fine when filtering resources by state.
+- [configuration] Allowed horizontal resize on select type fields.
+- [configuration] Fixed an issue on additional configuration when changing vCenter name.
+- [configuration] Fixed an issue where MIB import logs were unreadable.
+
+</details>
+
+### Centreon Open Tickets 25.10.5
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Resource Table widget - Fixed an issue occurring when the ticket ID is not a numeric value.
+- [Dashboards] Resource Table widget - Fixed several issues occurring when using Easy Vista Rest API provider.
 
 </details>
 
