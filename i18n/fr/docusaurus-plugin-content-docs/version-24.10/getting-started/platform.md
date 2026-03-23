@@ -33,9 +33,9 @@ Un collecteur peut être rattaché à un [serveur distant](#serveur-distant) ou 
 
 ## Centreon Monitoring Agent
 
-L'agent de supervision Centreon [(Centreon Monitoring Agent, CMA)](../cma/cma.md) est une brique logicielle optionnelle installé sur un hôte pour le superviser.
+L'agent de supervision Centreon [(Centreon Monitoring Agent, CMA)](../cma/cma.md) est une brique logicielle optionnelle installée sur un hôte pour le superviser.
 - CMA collecte des métriques et calcule des statuts, et les envoie à Centreon.
-- Il exécute lui-même des contrôles natifs et non-natifs grâce au plugins installé localement.
+- Il exécute lui-même des contrôles natifs et non-natifs grâce aux plugins installé localement.
 
 ## Architecture distribuée
 
