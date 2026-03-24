@@ -53,9 +53,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-La page Web PHP FPM doit être joignable depuis le collecteur Centreon sur le
-port spécifié dans la Macro d'Hôte *PHPFPMWEBPORT*. Plus d'information sur
-les Macros d'Hôte dans la partie [configuration](#configuration).
+La page web PHP FPM doit être joignable depuis le collecteur Centreon sur le
+port spécifié dans la macro d'hôte *PHPFPMWEBPORT*. Plus d'information sur
+les macros d'hôte dans la partie [configuration](#configuration).
 
 ## Installer le connecteur de supervision
 

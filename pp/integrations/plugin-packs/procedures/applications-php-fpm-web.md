@@ -52,8 +52,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The target PHP FPM Web page must be reachable from the Centreon Poller on the
-specified port in the *PHPFPMWEBPORT* Host Macro. More information in the
+The target PHP FPM web page must be reachable from the Centreon poller on the
+specified port in the *PHPFPMWEBPORT* host macro. More information in the
 [configuration](#configuration) section.
 
 ## Installing the monitoring connector
