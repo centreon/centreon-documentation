@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Barco ClickShare Rest API** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias  | Modèle de service                        | Description                                 |
 |:-------|:-----------------------------------------|:--------------------------------------------|
-| Device | HW-Device-Barco-Cs-Device-Restapi-custom | Contrôle l'équipement (statut, températures |
+| Device | HW-Device-Barco-Cs-Device-Restapi-custom | Contrôle l'équipement (statut, températures) |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Device-Barco-Cs-Restapi-custom** est utilisé.
 
@@ -55,14 +55,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler l'équipement Barco ClickShare, l'API Rest doit être configuré voir la [documentation officielle](https://www.barco.com/en/support/knowledge-base/kb11350).
+Afin de superviser l'équipement Barco ClickShare, l'API Rest doit être configurée : voir la [documentation officielle](https://www.barco.com/en/support/knowledge-base/kb11350).
 
 ## Installer le connecteur de supervision
 
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -99,7 +99,7 @@ yum install centreon-pack-hardware-devices-barco-cs-restapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Barco ClickShare Rest API**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -248,7 +248,7 @@ checking device
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
