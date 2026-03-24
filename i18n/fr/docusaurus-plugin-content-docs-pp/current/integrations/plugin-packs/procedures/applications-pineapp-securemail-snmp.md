@@ -73,7 +73,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ### Configuration SNMP
 
 Afin de superviser votre **PineApp Mail Secure SNMP** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* http://www2.pineapp.com/images/pineapp/pdf/Mail_Secure_5.1_User.Manual_edited.pdf
+
+http://www2.pineapp.com/images/pineapp/pdf/Mail_Secure_5.1_User.Manual_edited.pdf
 
 ### Flux réseau
 

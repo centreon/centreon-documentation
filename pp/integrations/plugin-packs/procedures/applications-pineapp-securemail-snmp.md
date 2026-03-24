@@ -73,7 +73,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 To use this pack, the SNMP service must be properly configured on your **PineApp Mail Secure SNMP**
 server. Please refer to the official documentation:
-* http://www2.pineapp.com/images/pineapp/pdf/Mail_Secure_5.1_User.Manual_edited.pdf
+
+http://www2.pineapp.com/images/pineapp/pdf/Mail_Secure_5.1_User.Manual_edited.pdf
 
 ### Network flow
 
