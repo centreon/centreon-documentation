@@ -149,7 +149,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour les prérequis et les détails d’installation, veuillez vous référer à la [official documentation](https://docs.rudder.io/api/v/21/).
+Pour les prérequis et les détails d’installation, veuillez vous référer à la [documentation officielle](https://docs.rudder.io/api/v/21/).
 
 ## Installer le connecteur de supervision
 
