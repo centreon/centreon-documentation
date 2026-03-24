@@ -1,21 +1,21 @@
 ---
 id: hardware-devices-camera-mobotix-snmp
-title: Mobotix camera SNMP
+title: Mobotix Camera SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Mobotix Camera** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+The following monitoring connectors will be installed when you install the **Mobotix Camera SNMP** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
 
 ### Templates
 
-The Monitoring Connector **Mobotix Camera** brings a host template:
+The Monitoring Connector **Mobotix Camera SNMP** brings a host template:
 
 * **HW-Device-Camera-Mobotix-SNMP-custom**
 
@@ -115,7 +115,7 @@ The target resource must be reachable from the Centreon poller on the UDP/161 SN
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -150,8 +150,8 @@ yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Mobotix Camera** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+2. Whatever the license type (*online* or *offline*), install the **Mobotix Camera SNMP** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

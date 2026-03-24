@@ -1,21 +1,21 @@
 ---
 id: hardware-devices-camera-mobotix-snmp
-title: Mobotix camera SNMP
+title: Mobotix Camera SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Mobotix Camera** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Mobotix Camera SNMP** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Mobotix Camera** apporte un modèle d'hôte :
+Le connecteur de supervision **Mobotix Camera SNMP** apporte un modèle d'hôte :
 
 * **HW-Device-Camera-Mobotix-SNMP-custom**
 
@@ -115,7 +115,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -151,8 +151,8 @@ yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Mobotix Camera**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Mobotix Camera SNMP**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -205,7 +205,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 3. Appliquez le modèle d'hôte **HW-Device-Camera-Mobotix-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
