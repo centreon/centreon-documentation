@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias          | Modèle de service                       | Description                                                      |
 |:---------------|:----------------------------------------|:-----------------------------------------------------------------|
 | Vtl-Disk-Usage | App-Quadstor-Vtl-Disk-Usage-NRPE-custom | Contrôle permettant de vérifier l'utilisation des disques        |
-| Vtl-Job-Status | App-Quadstor-Vtl-Job-Status-NRPE-custom | Contrôle permettant de vérifier l'état de des jobs de sauvegarde |
+| Vtl-Job-Status | App-Quadstor-Vtl-Job-Status-NRPE-custom | Contrôle permettant de vérifier l'état des jobs de sauvegarde |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Quadstor-Vtl-NRPE-custom** est utilisé.
 
@@ -89,7 +89,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Centreon NSClient++
 
-Pour surveiller les ressources *Windows* via NRPE, installez la version Centreon
+Pour superviser des ressources Quadstor via NRPE, installez la version Centreon
 de l'agent NSClient++. Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur NRPE** est correcte.
 
 ## Installer le connecteur de supervision
