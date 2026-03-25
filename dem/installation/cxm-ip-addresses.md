@@ -1,5 +1,5 @@
 ---
-id: dem-ip-addresses
+id: cxm-ip-addresses
 title: CXM IP addresses
 ---
 

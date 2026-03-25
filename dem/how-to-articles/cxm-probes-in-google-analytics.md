@@ -1,5 +1,5 @@
 ---
-id: dem-probes-in-google-analytics
+id: cxm-probes-in-google-analytics
 title: Are CXM probes counted in Google Analytics?
 --- 
 

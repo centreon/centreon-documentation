@@ -1,5 +1,5 @@
 ---
-id: navigate-in-dem
+id: navigate-in-cxm
 title: Navigate in CXM
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: dem-solution
+id: cxm-solution
 title: The Centreon CXM Solution
 ---
 
