@@ -1,6 +1,6 @@
 ---
 id: applications-backup-emc-recoverypoint-ssh
-title: EMC RecoveryPoint
+title: EMC RecoveryPoint SSH
 ---
 
 ## Prerequisites

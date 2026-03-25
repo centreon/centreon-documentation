@@ -1,6 +1,6 @@
 ---
 id: network-polycom-rmx-snmp
-title: Polycom RMX
+title: Polycom RMX SNMP
 ---
 
 ## Prerequisites

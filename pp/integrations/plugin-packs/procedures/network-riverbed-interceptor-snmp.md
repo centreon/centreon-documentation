@@ -1,6 +1,6 @@
 ---
 id: network-riverbed-interceptor-snmp
-title: Riverbed Interceptor
+title: Riverbed Interceptor SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

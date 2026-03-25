@@ -1,6 +1,6 @@
 ---
 id: cloud-ovh-restapi
-title: OVH
+title: OVH Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

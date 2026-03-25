@@ -90,7 +90,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To monitor, a user with read privileges on the Veeam Backup Enterprise Manager [API](https://helpcenter.veeam.com/docs/backup/em_rest/em_web_api_reference.html?ver=120) is required.
+To monitor, a user with read privileges on the Veeam Backup Enterprise Manager [API](https://helpcenter.veeam.com/docs/vbr/em_rest/em_web_api_reference.html) is required.
 
 ## Installing the monitoring connector
 

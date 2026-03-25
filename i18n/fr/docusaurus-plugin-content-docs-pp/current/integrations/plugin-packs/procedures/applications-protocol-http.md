@@ -5,7 +5,9 @@ title: HTTP Server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Contenu du pack
+## Contenu du connecteur
+
+> Attention : Ce connecteur supporte seulement les authentifications BASIC ou NTLM v.1/2 (il n'est pas possible de faire des checks de pages web derrière des portails SSO).
 
 ### Modèles
 

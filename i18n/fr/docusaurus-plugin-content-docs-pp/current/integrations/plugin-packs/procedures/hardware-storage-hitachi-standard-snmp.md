@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-hitachi-standard-snmp
-title: Hitachi Standard
+title: Hitachi Standard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Hitachi Standard** apporte un modèle d'hôte :
+Le connecteur de supervision **Hitachi Standard SNMP** apporte un modèle d'hôte :
 
 * **HW-Storage-Hitachi-Standard-SNMP-custom**
 
@@ -45,7 +45,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Métrique         | Unité |
+| Nom              | Unité |
 |:-----------------|:------|
 | component.status | N/A   |
 | dkc.status       | N/A   |
@@ -111,7 +111,7 @@ yum install centreon-pack-hardware-storage-hitachi-standard-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Hitachi Standard**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Hitachi Standard SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -183,7 +183,7 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Standard-Snmp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'component', 'dkc', 'dku'                                                                      | .*                |             |
+| COMPONENT    | Which component to check. Can be: 'component', 'dkc', 'dku'                                                                                      | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>

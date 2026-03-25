@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-hp-msl-snmp
-title: HP MSL
+title: HP MSL SNMP
 ---
 
 ## Prerequisites

@@ -1,6 +1,6 @@
 ---
 id: network-ruggedcom
-title: Ruggedcom Network
+title: Ruggedcom Network SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

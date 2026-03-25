@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-lenovo-sseries-snmp
-title: Lenovo S Series
+title: Lenovo S Series SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

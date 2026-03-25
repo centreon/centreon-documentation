@@ -7,15 +7,15 @@ import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Cisco IronPort SNMP**  connector through the
-**Configuration > Monitoring Connector Manager** menu:
+The following monitoring connectors will be installed when you install the **Cisco IronPort SNMP** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
 
 ### Templates
 
-The Monitoring Connector **Cisco IronPort SNMP**  brings a host template:
+The Monitoring Connector **Cisco IronPort SNMP** brings a host template:
 
 * **Net-Cisco-Ironport-SNMP-custom**
 
@@ -253,7 +253,7 @@ yum install centreon-plugin-Network-Cisco-Ironport-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **Net-Cisco-Ironport-SNMP-custom** template to the host. 
+3. Apply the **Net-Cisco-Ironport-SNMP-custom** template to the host.
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
@@ -291,26 +291,26 @@ yum install centreon-plugin-Network-Cisco-Ironport-Snmp
 </TabItem>
 <TabItem value="Mail-Usage" label="Mail-Usage">
 
-| Macro                          | Description                                                                                                                                                                                                                                                                          | Default value     | Mandatory   |
-|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNKNOWNSTATUS                  | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{queue\_status\}, %\{resource\_conservation\}                                                                                                                      |                   |             |
-| WARNINGDNSREQUESTSOUTSTANDING  | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| CRITICALDNSREQUESTSOUTSTANDING | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| WARNINGDNSREQUESTSPENDING      | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| CRITICALDNSREQUESTSPENDING     | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| WARNINGFDOPENED                | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| CRITICALFDOPENED               | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMESSAGESWORKQUEUE       | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMESSAGESWORKQUEUE      | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING (default: '%\{resource\_conservation\} =~ /memoryShortage\|queueSpaceShortage/i \|\| %\{queue\_status\} =~ /queueSpaceShortage/i'). You can use the following variables: %\{queue\_status\}, %\{resource\_conservation\} |                   |             |
-| CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL (default: '%\{resource\_conservation\} =~ /queueFull/i \|\| %\{queue\_status\} =~ /queueFull/i'). You can use the following variables: %\{queue\_status\}, %\{resource\_conservation\}                                  |                   |             |
-| WARNINGTHREADSMAIL             | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| CRITICALTHREADSMAIL            | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| WARNINGTIMEEXPIRATION          | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| CRITICALTIMEEXPIRATION         | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| WARNINGUPDATEFAILURES          | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| CRITICALUPDATEFAILURES         | Threshold                                                                                                                                                                                                                                                                            |                   |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                               | --verbose         |             |
+| Macro                          | Description                                                                                                                                        | Default value                                                                                                         | Mandatory |
+|:-------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|:---------:|
+| UNKNOWNSTATUS                  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{queue\_status\}, %\{resource\_conservation\}  |                                                                                                                       |           |
+| WARNINGDNSREQUESTSOUTSTANDING  | Threshold                                                                                                                                          |                                                                                                                       |           |
+| CRITICALDNSREQUESTSOUTSTANDING | Threshold                                                                                                                                          |                                                                                                                       |           |
+| WARNINGDNSREQUESTSPENDING      | Threshold                                                                                                                                          |                                                                                                                       |           |
+| CRITICALDNSREQUESTSPENDING     | Threshold                                                                                                                                          |                                                                                                                       |           |
+| WARNINGFDOPENED                | Threshold                                                                                                                                          |                                                                                                                       |           |
+| CRITICALFDOPENED               | Threshold                                                                                                                                          |                                                                                                                       |           |
+| WARNINGMESSAGESWORKQUEUE       | Threshold                                                                                                                                          |                                                                                                                       |           |
+| CRITICALMESSAGESWORKQUEUE      | Threshold                                                                                                                                          |                                                                                                                       |           |
+| WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue\_status\}, %\{resource\_conservation\}  | %\{resource\_conservation\} =~ /memoryShortage\|queueSpaceShortage/i \|\| %\{queue\_status\} =~ /queueSpaceShortage/i |           |
+| CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{queue\_status\}, %\{resource\_conservation\} | %\{resource\_conservation\} =~ /queueFull/i \|\| %\{queue\_status\} =~ /queueFull/i                                   |           |
+| WARNINGTHREADSMAIL             | Threshold                                                                                                                                          |                                                                                                                       |           |
+| CRITICALTHREADSMAIL            | Threshold                                                                                                                                          |                                                                                                                       |           |
+| WARNINGTIMEEXPIRATION          | Threshold                                                                                                                                          |                                                                                                                       |           |
+| CRITICALTIMEEXPIRATION         | Threshold                                                                                                                                          |                                                                                                                       |           |
+| WARNINGUPDATEFAILURES          | Threshold                                                                                                                                          |                                                                                                                       |           |
+| CRITICALUPDATEFAILURES         | Threshold                                                                                                                                          |                                                                                                                       |           |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).             | --verbose                                                                                                             |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -349,39 +349,39 @@ yum install centreon-plugin-Network-Cisco-Ironport-Snmp
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
 
-| Macro        | Description                                                                                                                                                         | Default value     | Mandatory   |
-|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
-| CRITICALIN   | Threshold                                                                                                                                                           | 90                |             |
-| WARNINGIN    | Threshold                                                                                                                                                           | 80                |             |
-| CRITICALOUT  | Threshold                                                                                                                                                           | 90                |             |
-| WARNINGOUT   | Threshold                                                                                                                                                           | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |                   |             |
+| Macro        | Description                                                                                                                                                         | Default value | Mandatory |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACEID  | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |               |           |
+| CRITICALIN   | Threshold                                                                                                                                                           | 90            |           |
+| WARNINGIN    | Threshold                                                                                                                                                           | 80            |           |
+| CRITICALOUT  | Threshold                                                                                                                                                           | 90            |           |
+| WARNINGOUT   | Threshold                                                                                                                                                           | 80            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Macro         | Description                                                                                                                                                         | Default value     | Mandatory   |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
-| CRITICALIN    | Threshold                                                                                                                                                           | 90                |             |
-| WARNINGIN     | Threshold                                                                                                                                                           | 80                |             |
-| CRITICALOUT   | Threshold                                                                                                                                                           | 90                |             |
-| WARNINGOUT    | Threshold                                                                                                                                                           | 80                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |                   |             |
+| Macro         | Description                                                                                                                                                         | Default value | Mandatory |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACENAME | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |               |           |
+| CRITICALIN    | Threshold                                                                                                                                                           | 90            |           |
+| WARNINGIN     | Threshold                                                                                                                                                           | 80            |           |
+| CRITICALOUT   | Threshold                                                                                                                                                           | 90            |           |
+| WARNINGOUT    | Threshold                                                                                                                                                           | 80            |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro          | Description                                                                                                                                                                                                                     | Default value     | Mandatory   |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                             | .*                |             |
-| CRITICALIN     | Threshold                                                                                                                                                                                                                       | 90                |             |
-| WARNINGIN      | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALOUT    | Threshold                                                                                                                                                                                                                       | 90                |             |
-| WARNINGOUT     | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                          | --verbose         |             |
+| Macro          | Description                                                                                                                                                         | Default value                                    | Mandatory |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:---------:|
+| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name | .*                                               |           |
+| CRITICALIN     | Threshold                                                                                                                                                           | 90                                               |           |
+| WARNINGIN      | Threshold                                                                                                                                                           | 80                                               |           |
+| CRITICALOUT    | Threshold                                                                                                                                                           | 90                                               |           |
+| WARNINGOUT     | Threshold                                                                                                                                                           | 80                                               |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} ne "up" |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose                                        |           |
 
 </TabItem>
 </Tabs>
@@ -405,7 +405,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--name \
 	--add-status \
 	--add-traffic \
-	--critical-status='' \
+	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' \
 	--warning-in-traffic='80' \
 	--critical-in-traffic='90' \
 	--warning-out-traffic='80' \
@@ -416,7 +416,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=61b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=21b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=36b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=25b/s;80;90;; 
 ```
 
 ### Troubleshooting
