@@ -5,7 +5,7 @@ title: Accélérez votre site avec applicatifs ou configuration serveurs
 
 **Décomposition du waiting time**
 
-Le waiting time correspond au temps passé à attendre le serveur (contient le temps passé dans Magento). DEM le décompose ensuite en deux étapes grâce au module de profiling que vous avez fait installer par votre intégrateur.
+Le waiting time correspond au temps passé à attendre le serveur (contient le temps passé dans Magento). CXM le décompose ensuite en deux étapes grâce au module de profiling que vous avez fait installer par votre intégrateur.
 
 - **Magento Time** : temps pris par Magento pour générer la pageNB : L’optimisation de ce facteur est à réaliser en collaboration avec votre agence (ou votre développeur)
 - **Other** : temps de traitement en dehors de l’applicatif MagentoNB : L’optimisation de ce facteur est à réaliser en collaboration avec votre hébergeur dans la plupart des cas
@@ -14,7 +14,7 @@ Si le plus gros du temps est passé dans le « Magento time », alors cliquez 
 
 **Analyse du code Magento**
 
-DEM détaille le temps de génération de la page au sein de Magento en différentes étapes.
+CXM détaille le temps de génération de la page au sein de Magento en différentes étapes.
 
 - Trouvez la source des optimisations de votre site en commençant par les étapes qui sont les plus consommatrices de temps.
 - Vous pouvez zommer sur deux étapes particulières : l'étape de "Chargement de Magento" et l'étape de "Rendu des blocs". Pour cela, cliquez sur les boutons « Plus de détails ».
@@ -22,7 +22,7 @@ DEM détaille le temps de génération de la page au sein de Magento en différe
 
 ## Focus sur les blocs Magento
 
-DEM identifie automatiquement les blocs du code Magento représentant le plus de temps ou bien ayant représenté la plus grande variation.
+CXM identifie automatiquement les blocs du code Magento représentant le plus de temps ou bien ayant représenté la plus grande variation.
 
 Sélectionnez les blocs qui vous intéressent (de préférence les blocs qui ont été les plus longs à se générer, soit en haut de la liste) et cliquez sur « Voir les détails des blocs ».
 

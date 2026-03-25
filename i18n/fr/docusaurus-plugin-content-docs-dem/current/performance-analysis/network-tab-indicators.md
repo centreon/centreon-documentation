@@ -20,7 +20,7 @@ Dans les deux cas, il s’agit d’un test réseau. Ce qui change, c’est le pr
 
 ### Que signifient les barres rouges ?
 
-Si vous voyez du rouge ponctuellement sur ce graphique, cela signifie que votre site est indisponible à cause d’un problème de réseau. Le temps de réponse du ping dépend à la fois de la bande passante et du chemin à parcourir entre la sonde DEM et l’endroit où est hébergé votre site. Dans un souci de clarté nous allons dissocier ce qui n’est pas grave, ce qui mérite votre attention et ce qui nécessite une intervention d’urgence.
+Si vous voyez du rouge ponctuellement sur ce graphique, cela signifie que votre site est indisponible à cause d’un problème de réseau. Le temps de réponse du ping dépend à la fois de la bande passante et du chemin à parcourir entre la sonde CXM et l’endroit où est hébergé votre site. Dans un souci de clarté nous allons dissocier ce qui n’est pas grave, ce qui mérite votre attention et ce qui nécessite une intervention d’urgence.
 
 >Il est a noter qu'à l'heure actuelle, toutes les mesures sont réalisées depuis notre infrastructure en Europe. Donc si votre site est hébergé sur un autre continent, il se peut que la latence soit plus élevée.
 
@@ -36,5 +36,5 @@ Une augmentation conséquente du temps de réponse ou des pics récurrents sur 
 
 Un pic isolé sur l’un des deux graphiques n’est pas grave, le temps d’une seule mesure il est fort probable que les utilisateurs du site n’aient pas été perturbés.
 
-- Une barre rouge continue depuis que DEM est installé sur le graphe ICMP signifie que ce système de communication est fermé délibérément, cela ne constitue pas une anomalie mais pour une meilleure visibilité sur la qualité du réseau, nous vous invitons à demander à votre administrateur réseau (ou hébergeur) d’ouvrir l’accès au Ping.
+- Une barre rouge continue depuis que CXM est installé sur le graphe ICMP signifie que ce système de communication est fermé délibérément, cela ne constitue pas une anomalie mais pour une meilleure visibilité sur la qualité du réseau, nous vous invitons à demander à votre administrateur réseau (ou hébergeur) d’ouvrir l’accès au Ping.
 - Si une barre rouge apparaît subitement sur le graphique ICMP, mais que le test TCP fonctionne toujours, pas de panique votre site est encore disponible. Cela signifie que le système de communication ICMP a probablement été coupé délibérément.

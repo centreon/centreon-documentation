@@ -1,6 +1,6 @@
-# Démarrer avec Centreon DEM
+# Démarrer avec Centreon CXM
 
-Bienvenue dans Centreon DEM !
+Bienvenue dans Centreon CXM !
 
 import DocCardList from '@theme/DocCardList';
 

@@ -5,7 +5,7 @@ title: Intervalle de mesure
 
 ## Définition
 
-L'intervalle de mesure d'un parcours utilisateur définit le temps entre chaque passage de la sonde DEM sur votre site.
+L'intervalle de mesure d'un parcours utilisateur définit le temps entre chaque passage de la sonde CXM sur votre site.
 
 Par exemple : si votre intervalle de mesure est de 3 minutes, la sonde effectuera donc un passage complet du parcours toutes les 3 minutes.
 

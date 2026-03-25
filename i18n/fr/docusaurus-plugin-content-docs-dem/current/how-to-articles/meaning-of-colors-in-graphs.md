@@ -5,7 +5,7 @@ title: Que signifient les barres vertes-jaunes-rouges et grises dans les graphes
 
 ## Préambule
 
-Il peut vous arriver de constater, en naviguant sur vos graphes DEM, de voir apparaître des barres ou parfois des zones rouges ou grises avec des données incomplète. Mais qu'est-ce que ça peut bien vouloir dire ?
+Il peut vous arriver de constater, en naviguant sur vos graphes CXM, de voir apparaître des barres ou parfois des zones rouges ou grises avec des données incomplète. Mais qu'est-ce que ça peut bien vouloir dire ?
 
 ## Barres supérieures
 
@@ -19,7 +19,7 @@ Au-dessus de la plupart des graphs, vous trouverez une barre supérieure de coul
 
 Dans cette exemple, le Speed Index peut être amélioré.
 
-En passant votre souris sur les quartiers dans cette bande supérieure, DEM mettra en surbrillance les quartiers de même couleur.
+En passant votre souris sur les quartiers dans cette bande supérieure, CXM mettra en surbrillance les quartiers de même couleur.
 
 ## Barres verticales
 
@@ -35,7 +35,7 @@ En cliquant dessus, on vous proposera également de visionner une capture d'écr
 
 ### Barres grises
 
-Vous retrouverez parfois sur les différents graphiques de DEM des barres grises comme ci-dessus, celles-ci indiquent simplement que les données n'ont pas pu être reçues au moment de la mesure.
+Vous retrouverez parfois sur les différents graphiques de CXM des barres grises comme ci-dessus, celles-ci indiquent simplement que les données n'ont pas pu être reçues au moment de la mesure.
 
 Cela peut se produire principalement dans 2 cas:
 

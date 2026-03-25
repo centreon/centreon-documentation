@@ -1,6 +1,6 @@
 ---
 id: contact-support
-title: Contacter le support DEM
+title: Contacter le support CXM
 ---
 
 Une question ? Besoin d'aide sur votre outil, sur vos scénarios ? Vous ne comprenez pas les alertes remontées par l'outil ? Nous sommes là pour vous répondre !

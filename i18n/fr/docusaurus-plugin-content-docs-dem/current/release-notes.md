@@ -1,6 +1,6 @@
 ---
 id: release-notes
-title: Centreon DEM - notes de release
+title: Centreon CXM - notes de release
 ---
 
 ## February 2nd, 2026

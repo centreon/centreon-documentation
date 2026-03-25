@@ -20,15 +20,15 @@ Les utilisateurs devront changer leur mot de passe après le nombre de jours que
 ## **Inviter un nouvel utilisateur à votre organisation**
 
 
->Si personne de votre organisation n’est Administrateur ou Propriétaire, contactez le support DEM ou votre revendeur pour gérer votre organisation.
+>Si personne de votre organisation n’est Administrateur ou Propriétaire, contactez le support CXM ou votre revendeur pour gérer votre organisation.
 
 
 
 ### **Les permissions**
 
-DEM distingue 2 types de permissions pour les utilisateurs que vous invitez :
+CXM distingue 2 types de permissions pour les utilisateurs que vous invitez :
 
-- **Membre** : les Membres peuvent lire les informations. Ils ne peuvent pas modifier la configuration du site et des scénarios DEM. Ils ne peuvent que gérer leurs propres paramètres et leurs inscriptions aux différentes alertes et rapports, et ajouter des commentaires dans les graphes.
+- **Membre** : les Membres peuvent lire les informations. Ils ne peuvent pas modifier la configuration du site et des scénarios CXM. Ils ne peuvent que gérer leurs propres paramètres et leurs inscriptions aux différentes alertes et rapports, et ajouter des commentaires dans les graphes.
 - **Administrateur** : les Administrateurs ont les permissions les plus étendues. Ils peuvent modifier les paramètres des scénarios, ajouter / supprimer des utilisateurs à l'organisation, activer / désactiver les rapports et alertes, ajouter des utilisateurs aux rapports et alertes, ...
 
 Les permissions sont partagées au niveau de tous les sites d'une même *Organisation*.
@@ -39,7 +39,7 @@ Pour ajouter un nouvel utilisateur à votre organisation vous devez être *Admi
 
 En bas de cet écran, vous aurez accès à la liste des différents utilisateurs ayant déjà accès à l'*Organisation* ainsi que les permissions attribuées à chacun.
 
-Pour ajouter l'utilisateur, cliquez sur l’icône à côté du rôle auquel vous voulez l’ajouter et saisissez l'adresse mail de l'utilisateur. S'il n'a pas encore d'accès à DEM, il sera automatiquement invité à se créer un compte.
+Pour ajouter l'utilisateur, cliquez sur l’icône à côté du rôle auquel vous voulez l’ajouter et saisissez l'adresse mail de l'utilisateur. S'il n'a pas encore d'accès à CXM, il sera automatiquement invité à se créer un compte.
 
 ![image](../assets/configuration/manage-users-and-rights-2.png)
 
@@ -56,6 +56,6 @@ Pour retirer les permissions d'un utilisateur dans votre organisation vous devez
 Pour retirer les permissions d'un utilisateur, il suffit de cliquer sur la croix à côté de son nom
 
 
->Si vous souhaitez supprimer l'accès d'un utilisateur à plusieurs organisations, il faut le faire pour chacune d'entre elles. Si vous avez accès à beaucoup d'Organisations, n'hésitez pas à contacter le support DEM pour que nous vous assistions.
+>Si vous souhaitez supprimer l'accès d'un utilisateur à plusieurs organisations, il faut le faire pour chacune d'entre elles. Si vous avez accès à beaucoup d'Organisations, n'hésitez pas à contacter le support CXM pour que nous vous assistions.
 
 

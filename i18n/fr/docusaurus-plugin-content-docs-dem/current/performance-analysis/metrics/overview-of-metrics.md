@@ -3,11 +3,11 @@ id: overview-of-metrics
 title: Vue d'ensemble des métriques
 --- 
 
-Centreon DEM présente plusieurs métriques de performance, cette page les présente **très brièvement**. En cliquant sur chacun, vous accéderez à une page détaillant plus la métrique.
+Centreon CXM présente plusieurs métriques de performance, cette page les présente **très brièvement**. En cliquant sur chacun, vous accéderez à une page détaillant plus la métrique.
 
 ## [Hero Time](./hero-time.md)
 
-Le Hero Time est une mesure propre à DEM. Elle n’existe nul part ailleurs. Il s’agit du temps que la sonde DEM va mettre entre le début de l’interaction et le moment ou la vérification de succès survient (exemples: la page est chargée, la pop-up pour les cookies s’est affichée, etc)
+Le Hero Time est une mesure propre à CXM. Elle n’existe nul part ailleurs. Il s’agit du temps que la sonde CXM va mettre entre le début de l’interaction et le moment ou la vérification de succès survient (exemples: la page est chargée, la pop-up pour les cookies s’est affichée, etc)
 
 L’amélioration de cette métrique signifie que l’interactivité est meilleure: les clics produisent plus vite des résultats sur la page.
 
