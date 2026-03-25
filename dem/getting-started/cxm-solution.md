@@ -1,9 +1,9 @@
 ---
 id: dem-solution
-title: The Centreon DEM Solution
+title: The Centreon CXM Solution
 ---
 
-**Centreon DEM (formerly Quanta) is a Digital Experience Monitoring platform designed to combine web performance and digital sustainability.** It enables tech, product, and business teams to collaborate efficiently to deliver fast and reliable digital experiences while saving hardware resources.
+**Centreon CXM (formerly Quanta) is a Digital Experience Monitoring platform designed to combine web performance and digital sustainability.** It enables tech, product, and business teams to collaborate efficiently to deliver fast and reliable digital experiences while saving hardware resources.
 
 The solution combines several complementary components:
 
@@ -12,7 +12,7 @@ The solution combines several complementary components:
 - **Digital Sustainability Monitoring**: Continuous assessment of the carbon footprint and eco-design score of each page.
 - **Load Testing**: Validates the technical robustness of the site under high traffic conditions.
 
-DEM provides a clear and unified interface, enhanced by:
+CXM provides a clear and unified interface, enhanced by:
 
 - **Dynamic graphs** to visualize loading times,
 - **Customizable and intelligent alerts**,

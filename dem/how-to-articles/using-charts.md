@@ -5,7 +5,7 @@ title: Using Charts
 
 ## Zooming in on graphs
 
-DEM graphs are interactive. Easily zoom in on the period you are interested in by using the "click and drag" action from left to right on the graph (and the opposite to zoom out).
+CXM graphs are interactive. Easily zoom in on the period you are interested in by using the "click and drag" action from left to right on the graph (and the opposite to zoom out).
 
 ![Image](../assets/how-to-articles/using-charts-1.png)
 

@@ -3,7 +3,7 @@ id: rum-blocked-by-csp
 title: A strict Content Security Policy (CSP) blocks the RUM data collection
 ---
 
-In certain web environments with an enforced security policy ([Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)), the Centreon DEM Real User Monitoring (RUM) tag may require additional configuration. The issue is rare, but can prevent RUM data from being transmitted until the Quanta domains are correctly authorized.
+In certain web environments with an enforced security policy ([Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)), the Centreon CXM Real User Monitoring (RUM) tag may require additional configuration. The issue is rare, but can prevent RUM data from being transmitted until the Quanta domains are correctly authorized.
 
 ## Symptom - RUM data is not being transmitted
 
@@ -16,7 +16,7 @@ Your site uses a CSP that requires an update. This behavior is completely normal
 
 ## Issue - The RUM tag is blocked by a CSP
 
-Centreon DEM uses a script loaded from ``https://appstatic.quanta.io``, and then sends its performance metrics to ``https://rum-metrics.quanta.io``. 
+Centreon CXM uses a script loaded from ``https://appstatic.quanta.io``, and then sends its performance metrics to ``https://rum-metrics.quanta.io``. 
 On the large majority of sites, this works automatically, including when the tag is installed via GTM, Axeptio or another manager. However, some sites implement an advanced Content Security Policy (CSP).
 
 This is a security mechanism that precisely defines:
