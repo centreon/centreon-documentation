@@ -5,7 +5,7 @@ title: Load Tests
 
 This section allows analysis of how the platform hosting your web application behaves under conditions of heavy traffic. To access it, open the main menu and select **Load Tests**.
 
-Performing a Load Test (often abbreviated “LT”) consists of launching a large number of web browsers in parallel directly from DEM and having them interact with a website to deliberately "stress" the platform and the web application.
+Performing a Load Test (often abbreviated “LT”) consists of launching a large number of web browsers in parallel directly from CXM and having them interact with a website to deliberately "stress" the platform and the web application.
 
 ![image](../assets/getting-started/load-tests-1.png)
 
@@ -25,4 +25,4 @@ Example conclusion: “*We observe that the add-to-cart function and the deliver
 
 Example conclusion: “*Near the limit, several 503 errors (internal server errors) were detected on the webservice MonSiteEcommerce.com/reloadBasket.php, making cart display inoperative in the user's browser; a few minutes later, delivery selection had [...]*”
 
-Offered with or without expert support, DEM's load tests are billed separately. For more information, contact your sales representative or the DEM by Centreon sales team at [sales@quanta.io](mailto:sales@quanta.io).
+Offered with or without expert support, CXM's load tests are billed separately. For more information, contact your sales representative or the CXM by Centreon sales team at [sales@quanta.io](mailto:sales@quanta.io).

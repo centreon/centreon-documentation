@@ -5,7 +5,7 @@ title: Install Real User Monitoring
 
 ## GDPR considerations
 
-Although DEM uses a cookie, **no consent is required.**
+Although CXM uses a cookie, **no consent is required.**
 
 The CNIL (French data protection authority) exempts certain cookies from requiring consent under these conditions:
 
@@ -15,7 +15,7 @@ The CNIL (French data protection authority) exempts certain cookies from requiri
 - they are not transmitted to third parties
 - they do not enable tracking a user's browsing across other websites.
 
-**DEM meets these conditions.**
+**CXM meets these conditions.**
 
 You can find CNIL's recommendations on [this page](https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience).
 
@@ -31,7 +31,7 @@ You will then find the tag on that screen with a button to copy it easily:
 
 This tag should be inserted into the site's HEAD section. The operation can be done manually by a developer, or alternatively **it can be added to a tag manager such as GTM by following the procedure below**.
 
-### Using GTM to add a DEM tag to your pages
+### Using GTM to add a CXM tag to your pages
 
 **1 — Create a new tag**
 

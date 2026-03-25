@@ -5,7 +5,7 @@ title: Speed up your website with application or server configuration
 
 ## Breakdown of waiting time
 
-Waiting time corresponds to the time spent waiting for the server (it includes the time spent inside Magento). DEM breaks this down into two parts thanks to the profiling module installed by your integrator.
+Waiting time corresponds to the time spent waiting for the server (it includes the time spent inside Magento). CXM breaks this down into two parts thanks to the profiling module installed by your integrator.
 
 - **Magento Time**: time taken by Magento to generate the page. Optimizing this is typically done with your agency or developer.
 - **Other**: processing time outside the Magento application. Optimizing this is usually done with your hosting provider.
@@ -14,7 +14,7 @@ If most of the time is spent in "Magento time", click "More details" again to an
 
 ## Magento code analysis
 
-DEM breaks down page generation time within Magento into several steps.
+CXM breaks down page generation time within Magento into several steps.
 
 - Start investigating the largest time-consuming steps to find optimization opportunities.
 - You can zoom into two particular steps: "Magento Loading" and "Layout Rendering". Click the "More details" buttons to do so.
@@ -22,7 +22,7 @@ DEM breaks down page generation time within Magento into several steps.
 
 ## Focus on Magento blocks
 
-DEM automatically identifies the Magento code blocks that take the most time or that showed the largest variation.
+CXM automatically identifies the Magento code blocks that take the most time or that showed the largest variation.
 
 Select the blocks that interest you (preferably the top ones that took the longest to render) and click "See block details".
 

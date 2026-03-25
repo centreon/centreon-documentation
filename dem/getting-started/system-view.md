@@ -9,9 +9,9 @@ The **System data** section provides metrics from the infrastructure hosting you
 
 Prerequisites:
 
-- an **OPS**, **Full**, or **Enterprise** DEM license
+- an **OPS**, **Full**, or **Enterprise** CXM license
 - a hosting platform that allows installing Linux packages — this excludes fully managed SaaS platforms like Salesforce or Shopify. For this kind of hosting solution, the System section would not be as relevant, as you don't have control over the underlying platform, since it's the SaaS provider's responsibility to keep their application running smoothly.
-- DEM system agents installed. They are distributed as Linux packages and only require a few minutes of work from a system administrator to install.
+- CXM system agents installed. They are distributed as Linux packages and only require a few minutes of work from a system administrator to install.
 
 The **key benefits** provided by the System view are:
 
@@ -20,8 +20,8 @@ The **key benefits** provided by the System view are:
 ![image](../assets/getting-started/system-view-2.png)
     
 - measurements of **system indicators**, such as disk space status, network bandwidth, or any other resource whose limits can lead to a potential server outage.
-- application-specific measurements for services installed on the architecture that are required for the application to function: Apache, Nginx, MySQL, Redis, Memcached. For these applications, DEM provides **specific metrics** (e.g., number of requests received by Redis, percentage of requests served from cache vs. not, etc.).
+- application-specific measurements for services installed on the architecture that are required for the application to function: Apache, Nginx, MySQL, Redis, Memcached. For these applications, CXM provides **specific metrics** (e.g., number of requests received by Redis, percentage of requests served from cache vs. not, etc.).
     
 ![image](../assets/getting-started/system-view-3.png)
     
-Targeted primarily at a technical audience, the System view is especially useful to anticipate and understand potential hosting platform issues, and to verify that the platform is optimally configured to ensure your web application runs smoothly. When combined with other DEM measurements (page response times, site traffic, etc.), these system insights are very helpful for **correlating** platform problems with impacts on site experience.
+Targeted primarily at a technical audience, the System view is especially useful to anticipate and understand potential hosting platform issues, and to verify that the platform is optimally configured to ensure your web application runs smoothly. When combined with other CXM measurements (page response times, site traffic, etc.), these system insights are very helpful for **correlating** platform problems with impacts on site experience.

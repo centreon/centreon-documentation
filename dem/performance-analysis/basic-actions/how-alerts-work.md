@@ -1,11 +1,11 @@
 ---
 id: how-alerts-work
-title: Understanding how alerts work in DEM
+title: Understanding how alerts work in CXM
 ---
 
 ## Preamble
 
-DEM can alert you about many different events. If you haven't enabled alerts yet, see:
+CXM can alert you about many different events. If you haven't enabled alerts yet, see:
 
 [Receive and configure alerts](../../configuration/receive-and-configure-alerts.md)
 

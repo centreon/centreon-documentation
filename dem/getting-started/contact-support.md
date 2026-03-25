@@ -1,6 +1,6 @@
 ---
 id: contact-support
-title: Contact DEM Support
+title: Contact CXM Support
 ---
 
 Have a question? Need help with your tool or your scenarios? Not sure what the alerts from the tool mean? We are here to help!

@@ -1,6 +1,6 @@
 ---
 id: errors-and-unavailability-front-end
-title: Understanding errors & unavailability in DEM
+title: Understanding errors & unavailability in CXM
 --- 
 
 > The HAR for all steps can be found under the incident screenshot to help your developers understand where the incident originated.
@@ -9,7 +9,7 @@ title: Understanding errors & unavailability in DEM
 
 The easiest way to determine what went wrong is to check the screenshot captured at the time of the error. This is available by clicking the red area above the scenario and selecting "Incident details".
 
-When DEM probes detect an incident on your web scenario, they attempt to capture a screenshot of the returned page to help you diagnose the issue.
+When CXM probes detect an incident on your web scenario, they attempt to capture a screenshot of the returned page to help you diagnose the issue.
 
 You can view that screenshot by clicking the graph in the red area and selecting the "view screenshot" option.
 
@@ -55,7 +55,7 @@ This can be caused by several issues:
 
 ### Invalid return code
 
-When a web page loads, it sends a status code to confirm it loaded correctly; most commonly this is 200. DEM verifies that code during scenario execution.
+When a web page loads, it sends a status code to confirm it loaded correctly; most commonly this is 200. CXM verifies that code during scenario execution.
 
 If the page returns a different code (404 for not found or 503 service unavailable, for example), the scenario fails and the received code is displayed.
 

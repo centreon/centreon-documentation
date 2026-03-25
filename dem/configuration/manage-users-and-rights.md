@@ -19,13 +19,13 @@ Users will be required to change their password after the number of days you set
 
 ## Invite a new user to your organization
 
-> If nobody in your organization is an Administrator or Owner, contact DEM support or your reseller to manage your organization.
+> If nobody in your organization is an Administrator or Owner, contact CXM support or your reseller to manage your organization.
 
 ### Permissions
 
-DEM distinguishes two types of permissions for invited users:
+CXM distinguishes two types of permissions for invited users:
 
-- **Member**: Members can read information. They cannot change site or DEM scenario configuration. They can only manage their own settings and subscriptions to alerts and reports, and add comments to charts.
+- **Member**: Members can read information. They cannot change site or CXM scenario configuration. They can only manage their own settings and subscriptions to alerts and reports, and add comments to charts.
 - **Administrator**: Administrators have the widest set of permissions. They can modify scenario settings, add/remove users to the organization, enable/disable reports and alerts, add users to reports and alerts, and more.
 
 Permissions are shared across all sites within the same Organization.
@@ -36,7 +36,7 @@ To add a new user to your organization you must be an Administrator of the Organ
 
 At the bottom of this screen you have the list of users who already have access to the Organization and the permissions assigned to each of them.
 
-To add a user, click the icon next to the role you want to assign and enter the user's email address. If they don't yet have a DEM account, they will be invited to create one automatically.
+To add a user, click the icon next to the role you want to assign and enter the user's email address. If they don't yet have a CXM account, they will be invited to create one automatically.
 
 ![image](../assets/configuration/manage-users-and-rights-2.png)
 
@@ -52,4 +52,4 @@ To remove a user's permissions in your organization you must be an Administrator
 
 To remove a user's permissions, click the cross next to their name.
 
-> If you want to remove a user's access from multiple organizations, you must do it for each organization separately. If you have access to many Organizations, contact DEM support for assistance.
+> If you want to remove a user's access from multiple organizations, you must do it for each organization separately. If you have access to many Organizations, contact CXM support for assistance.

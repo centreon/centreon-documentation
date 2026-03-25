@@ -5,7 +5,7 @@ title: Track production deployment events
 
 ## Automatically track production deployment events
 
-You can automatically record your code deployments or system configuration changes in DEM:
+You can automatically record your code deployments or system configuration changes in CXM:
 
 ![image](../assets/installation/monitor-prod-events-1.png)
 
@@ -25,7 +25,7 @@ Our API is triggered with a simple HTTP call to the URL *"https://app.quanta.io/
 
 ### Authentication and token generation
 
-You must also provide an API token to authenticate the request. This token can be generated from the "Integrations" section of your site settings in DEM. You can also add a custom icon.
+You must also provide an API token to authenticate the request. This token can be generated from the "Integrations" section of your site settings in CXM. You can also add a custom icon.
 
 ![image](../assets/installation/monitor-prod-events-1.png)
 

@@ -3,7 +3,7 @@ id: install-php-magento-orocommerce-profiler
 title: Install the PHP / Magento / OroCommerce Profiler
 ---
 
-The DEM PHP module comes as a PHP extension that allows you to collect detailed information about the execution time of each part of your CMS.
+The CXM PHP module comes as a PHP extension that allows you to collect detailed information about the execution time of each part of your CMS.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ The DEM PHP module comes as a PHP extension that allows you to collect detailed 
 
 ## Compatibility
 
-| Distribution | OS Version | PHP Version | DEM PHP Module |
+| Distribution | OS Version | PHP Version | CXM PHP Module |
 |--------------|------------|-------------|-------------------|
 | Debian | Buster (10) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
 | Debian | Bullseye (11) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
@@ -25,9 +25,9 @@ The DEM PHP module comes as a PHP extension that allows you to collect detailed 
 
 > The PHP module must be installed on every server running your PHP application.
 
-### Install the DEM PHP Module for Debian / Ubuntu
+### Install the CXM PHP Module for Debian / Ubuntu
 
-You must have added the DEM repositories, which you should already have done during the system agent installation.
+You must have added the CXM repositories, which you should already have done during the system agent installation.
 
 Depending on your PHP version, install the corresponding package. Here are a few examples:
 
@@ -67,9 +67,9 @@ Then, enable the extension with the following command:
 phpenmod quanta_mon
 ```
 
-### Install the DEM PHP Module for CentOS / RedHat
+### Install the CXM PHP Module for CentOS / RedHat
 
-You must have added the DEM repositories, which you should already have done during the system agent installation.
+You must have added the CXM repositories, which you should already have done during the system agent installation.
 
 Depending on your PHP version, install the corresponding package, for example:
 
@@ -103,7 +103,7 @@ We do not officially support packages for other operating systems. However, you 
 
 ## Configure Your Backoffice URL if You Use Magento
 
-If you use Magento and a custom URL is used to access the Magento backoffice (i.e., a URL that does **not** start with **"/admin/"**), you must modify the module configuration so that Magento-type events are correctly reported in DEM.
+If you use Magento and a custom URL is used to access the Magento backoffice (i.e., a URL that does **not** start with **"/admin/"**), you must modify the module configuration so that Magento-type events are correctly reported in CXM.
 
 This file is usually located here for Debian/Ubuntu:
 
@@ -143,7 +143,7 @@ After installing the module, you must restart your web service so that the PHP e
 
 ## Checking That Everything Works
 
-Once everything is installed **and the web scenario has been created in DEM**, go to the Web Scenario menu, then click “+ details” in the legend of one of the pages requiring PHP execution (for example: a Cart page, which is usually never cached).
+Once everything is installed **and the web scenario has been created in CXM**, go to the Web Scenario menu, then click “+ details” in the legend of one of the pages requiring PHP execution (for example: a Cart page, which is usually never cached).
 
 You should then see an “Application” tab (otherwise this tab is grayed out) with information about the time spent in PHP.
 

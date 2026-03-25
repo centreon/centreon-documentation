@@ -1,17 +1,17 @@
 ---
 id: installation-checklist
-title: DEM Installation checklist
+title: CXM Installation checklist
 ---
 
-This list covers the requirements to ensure proper operation of DEM's different modules for a given site.
+This list covers the requirements to ensure proper operation of CXM's different modules for a given site.
 
 ## User journeys
 
-There is **nothing to install** because DEM connects to your application just like any regular user.
+There is **nothing to install** because CXM connects to your application just like any regular user.
 
 However, depending on the security level on your site, you may need to allow our IP addresses so that your anti-bot system does not block our probes. If that's the case, you'll find the procedure here:
 
-[DEM IP addresses](./dem-ip-addresses.md)
+[CXM IP addresses](./dem-ip-addresses.md)
 
 ## Real User Monitoring
 
@@ -21,7 +21,7 @@ Real User Monitoring installs like any marketing tag: by inserting a JavaScript 
 
 ## System agent
 
-DEM's system functionality requires at minimum the installation of system agents, then adding modules depending on the level of detail required or allowed by your license.
+CXM's system functionality requires at minimum the installation of system agents, then adding modules depending on the level of detail required or allowed by your license.
 
 ### Minimal installation
 
@@ -44,6 +44,6 @@ After the agent is installed, you can install additional modules:
 
 ## Automatic events
 
-You can add events manually in the UI, or automatically via the API. **This is especially useful when you deploy a new version of your site.** We recommend setting this up so changes are recorded in DEM.
+You can add events manually in the UI, or automatically via the API. **This is especially useful when you deploy a new version of your site.** We recommend setting this up so changes are recorded in CXM.
 
 [Automatically track production deployment events](./monitor-production-events.md)

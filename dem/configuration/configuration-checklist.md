@@ -1,15 +1,15 @@
 ---
 id: configuration-checklist
-title: DEM configuration checklist
+title: CXM configuration checklist
 ---
 
-This documentation assumes you have already installed the DEM solution. Refer to the installation page:
+This documentation assumes you have already installed the CXM solution. Refer to the installation page:
 
-[DEM installation checklist](../installation/installation-checklist.md)
+[CXM installation checklist](../installation/installation-checklist.md)
 
 ## Invite users and configure password expiration
 
-DEM licenses have no user count limits. We recommend inviting everyone involved in the project, regardless of their role. Go to the Organization page to invite users.
+CXM licenses have no user count limits. We recommend inviting everyone involved in the project, regardless of their role. Go to the Organization page to invite users.
 
 User management is detailed here:
 
@@ -17,21 +17,21 @@ User management is detailed here:
 
 ## Configure CO<sub>2</sub> estimation
 
-To estimate CO<sub>2</sub>, DEM needs a few details. Follow the guide on this page:
+To estimate CO<sub>2</sub>, CXM needs a few details. Follow the guide on this page:
 
 [Configure Digital Sobriety](./configure-digital-sobriety.md)
 
 ## Revenue tracking and missed revenue
 
-DEM can import revenue and conversion rates from your Google Analytics account to correlate them with site performance and availability.
+CXM can import revenue and conversion rates from your Google Analytics account to correlate them with site performance and availability.
 
 To do so, you must grant read access to your Google Analytics account. This page explains how to set up that connection:
 
-[Configure Google Analytics with DEM](./configure-google-analytics.md)
+[Configure Google Analytics with CXM](./configure-google-analytics.md)
 
 ## User journeys
 
-User journeys can be implemented by DEM support. Ask your sales contact or open a support request using the question mark in the bottom-right corner.
+User journeys can be implemented by CXM support. Ask your sales contact or open a support request using the question mark in the bottom-right corner.
 
 Find the documentation for user journeys here:
 

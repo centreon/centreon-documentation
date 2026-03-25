@@ -13,7 +13,7 @@ Largest Contentful Paint (LCP) measures the render time of the largest image or 
 
 ## What is a good LCP score?
 
-For a good user experience, sites should aim for an LCP below 2.5 seconds. To ensure this target is met for most users, check that 75% of your users (on both mobile and desktop) achieve this score. DEM's Real User Monitoring can help you verify this.
+For a good user experience, CXM should aim for an LCP below 2.5 seconds. To ensure this target is met for most users, check that 75% of your users (on both mobile and desktop) achieve this score. CXM's Real User Monitoring can help you verify this.
 
 
 ## Which elements can be considered the largest content?

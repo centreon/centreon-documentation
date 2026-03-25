@@ -1,37 +1,37 @@
 ---
 id: carbon-footprint-evaluation-and-digital-sobriety
-title: Carbon footprint evaluation and digital sobriety approach in DEM
+title: Carbon footprint evaluation and digital sobriety approach in CXM
 --- 
 
 Measuring the environmental footprint of digital activity for a website requires many factors and ongoing updates to calculation methods: the field is relatively new and the state of the art evolves rapidly.
 
-Although the domain is changing fast, DEM already aims to provide actionable measures that follow the principles of the [GHG Protocol](https://www.greenly.earth/blog-fr/ghg-protocol-quest-ce-que-cest-comment-ca-marche) (Relevance, Completeness, Consistency, Transparency, and Accuracy). These criteria are important to allow companies that wish to include their website impact in their corporate carbon accounting.
+Although the domain is changing fast, CXM already aims to provide actionable measures that follow the principles of the [GHG Protocol](https://www.greenly.earth/blog-fr/ghg-protocol-quest-ce-que-cest-comment-ca-marche) (Relevance, Completeness, Consistency, Transparency, and Accuracy). These criteria are important to allow companies that wish to include their website impact in their corporate carbon accounting.
 
-To respect these principles and provide carbon impact estimates as close to reality as possible, DEM relies on several market-recognized algorithms:
+To respect these principles and provide carbon impact estimates as close to reality as possible, CXM relies on several market-recognized algorithms:
 
 - The Digital Sobriety Score for eco-design scoring, represented as a per-page score out of 100:
     
-    ![Eco-design score measurement in DEM for a given user journey](../assets/digital-sobriety/carbon-footprint-1.png)
+    ![Eco-design score measurement in CXM for a given user journey](../assets/digital-sobriety/carbon-footprint-1.png)
         
 - The [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/) method to estimate CO<sub>2</sub>eq emissions for downloading a page over the network:
     
     ![Carbon impact measurement (in CO<sub>2</sub>eq) performed via synthetic requests for a given user journey](../assets/digital-sobriety/carbon-footprint-2.png)
 
-- The open-source Boavizta impact database for manufacturing and end-of-life impact calculations for servers (measurement to be published in DEM in Q2 2023).
+- The open-source Boavizta impact database for manufacturing and end-of-life impact calculations for servers (measurement to be published in CXM in Q2 2023).
 
-Depending on the feature—whether it measures the carbon impact of a specific user journey, weights per-page carbon impact by page traffic, or highlights pages with the greatest eco-design optimization potential—DEM will use one of these methods, always transparently.
+Depending on the feature—whether it measures the carbon impact of a specific user journey, weights per-page carbon impact by page traffic, or highlights pages with the greatest eco-design optimization potential—CXM will use one of these methods, always transparently.
 
-  ![Global site measurement (eco-design score and carbon footprint) calculated based on real traffic in DEM's Real User Monitoring module](../assets/digital-sobriety/carbon-footprint-3.png)
+  ![Global site measurement (eco-design score and carbon footprint) calculated based on real traffic in CXM's Real User Monitoring module](../assets/digital-sobriety/carbon-footprint-3.png)
 
-Beyond using established methods, DEM contributes to refining calculation methods through ongoing collaboration with industry professionals, notably:
+Beyond using established methods, CXM contributes to refining calculation methods through ongoing collaboration with industry professionals, notably:
 
-- the ecosystem of [Planet'Tech Care](https://planet-techcare.green/) signatories (of which Centreon DEM is an active member)
+- the ecosystem of [Planet'Tech Care](https://planet-techcare.green/) signatories (of which Centreon CXM is an active member)
 - the cross-company working group [Boavizta](https://www.boavizta.org/en)
 - the association [La Fresque du Numérique](https://www.fresquedunumerique.org/).
 
 The goal of these collaborations is to advance the state of the art in digital impact measurement and cross-validate results with other professionals to ensure coherence (see GHG Protocol criteria: Relevance and Accuracy).
 
-For more on digital decarbonization and measurement tools, [see the interview](https://www.youtube.com/watch?v=UELsTjTDMag) with Laurent Eskenazi (co-founder of Boavizta) and Guillaume Thibaux (co-founder of Centreon DEM) on BSmart TV.
+For more on digital decarbonization and measurement tools, [see the interview](https://www.youtube.com/watch?v=UELsTjTDMag) with Laurent Eskenazi (co-founder of Boavizta) and Guillaume Thibaux (co-founder of Centreon CXM) on BSmart TV.
 
 ## Calculation dimensions
 
@@ -46,9 +46,9 @@ To measure a website's total carbon impact, two major dimensions must be conside
     - Network (routers, firewalls, 4G antennas, submarine fiber, etc.);
     - End-user devices (computer, tablet, or phone);
 
-As shown in the two-dimensional table below, DEM can measure emissions related to site "usage" across the entire chain (datacenter, network, and end-user devices). This measurement generally represents the largest portion of greenhouse gas emissions, and eco-design measures typically have the greatest impact on this metric when implemented.
+As shown in the two-dimensional table below, CXM can measure emissions related to site "usage" across the entire chain (datacenter, network, and end-user devices). This measurement generally represents the largest portion of greenhouse gas emissions, and eco-design measures typically have the greatest impact on this metric when implemented.
 
-Here is the current functional scope of DEM:
+Here is the current functional scope of CXM:
 
 |  | Scope 1 | Scope 2 | Scope 3 |  |
 | --- | --- | --- | --- | --- |

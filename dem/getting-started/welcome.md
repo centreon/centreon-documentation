@@ -1,6 +1,6 @@
-# Getting started with Centreon DEM
+# Getting started with Centreon CXM
 
-Welcome to Centreon DEM!
+Welcome to Centreon CXM!
 
 import DocCardList from '@theme/DocCardList';
 
