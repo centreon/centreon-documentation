@@ -733,12 +733,12 @@ module.exports = {
     {
       "type": "link",
       "href": "https://docs-api.centreon.com/api/centreon-bam/cloud/",
-      "label": "Centreon BAM API"
+      "label": "BAM API"
     },
     {
       "type": "link",
       "href": "https://docs-api.centreon.com/api/centreon-autodiscovery/cloud/",
-      "label": "Centreon Autodiscovery API"
+      "label": "Autodiscovery API"
     },
     {
           "type": "doc",
