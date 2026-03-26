@@ -19,5 +19,6 @@ paths = [
 regexTarget = "match"
 regexes = [
   '''ABCDEFG1234567890''',
-  '''deactivation/expiration/revocation'''
+  '''deactivation/expiration/revocation''',
+  '''78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216''' # token example
 ]
