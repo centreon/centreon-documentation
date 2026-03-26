@@ -49,7 +49,7 @@ const cards = [
     ],
   },
   {
-    title: "Centreon DEM",
+    title: "Centreon Experience Monitoring",
     href: "dem/getting-started/welcome/",
     links: [
       {

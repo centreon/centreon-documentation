@@ -1,13 +1,13 @@
 ---
 id: applications-monitoring-centreon-dem-restapi
-title: Centreon DEM (formerly Quanta) Rest API
+title: Centreon Experience Monitoring (formerly Quanta) Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Centreon DEM (formerly Quanta) Rest API** connector through the
+The following monitoring connectors will be installed when you install the **Centreon Experience Monitoring (formerly Quanta) Rest API** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Cen
 
 ### Templates
 
-The Monitoring Connector **Centreon DEM (formerly Quanta) Rest API** brings a host template:
+The Monitoring Connector **Centreon Experience Monitoring (formerly Quanta) Rest API** brings a host template:
 
 * **App-Monitoring-Centreon-DEM-Restapi-custom**
 
@@ -114,8 +114,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-In order to monitor Centreon DEM, you must have [a valid API token](/dem/installation/monitor-production-events#authentication-and-token-generation), and [have user journeys configured in Centreon DEM](/dem/configuration/user-journey/create-a-scenario).
-Data from Real User Monitoring will only be accessible if you have completed [the integration of Centreon DEM's RUM tag](/dem/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
+In order to monitor Centreon Experience Monitoring, you must have [a valid API token](/dem/installation/monitor-production-events#authentication-and-token-generation), and [have user journeys configured in Centreon Experience Monitoring](/dem/configuration/user-journey/create-a-scenario).
+Data from Real User Monitoring will only be accessible if you have completed [the integration of Centreon Experience Monitoring's RUM tag](/dem/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
 
 ## Installing the monitoring connector
 
@@ -160,7 +160,7 @@ yum install centreon-pack-applications-monitoring-centreon-dem-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Centreon DEM (formerly Quanta) Rest API** connector through
+2. Whatever the license type (*online* or *offline*), install the **Centreon Experience Monitoring (formerly Quanta) Rest API** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -449,7 +449,7 @@ All generic options are listed here:
 | --statefile-format                         | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --statefile-key                            | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --statefile-cipher                         | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --hostname                                 | Centreon DEM (formerly Quanta) API hostname (default: 'api.quanta.io')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --hostname                                 | Centreon Experience Monitoring (formerly Quanta) API hostname (default: 'api.quanta.io')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --port                                     | API port (default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --proto                                    | Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --api-path                                 | API URL path (default: '/api/v1')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |

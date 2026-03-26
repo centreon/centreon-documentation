@@ -90,7 +90,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases. 
 - [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as `updates` and `pending-reboot` modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)). 
 - [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fixed a mix-up between `data-write-ops` and `data-write-bytes` for the **Fsx-DataUsage** service (issue [#5944](https://github.com/centreon/centreon-plugins/issues/5944)).
@@ -105,7 +105,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**Apache CXF**](../procedures/applications-apache-cxf-jmx.md) - Initial release.
-- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - Initial release.
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - Initial release.
 - [**Microsoft SCCM CMA**](../procedures/applications-sccm-cma.md) - Initial release.
 - [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md) - Initial release ([Issue 5551](https://github.com/centreon/centreon-plugins/issues/5551)).
 
@@ -120,7 +120,7 @@ import TabItem from '@theme/TabItem';
 - [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Added an option to the **connected-users** mode to filter by database name ([PR 5195](https://github.com/centreon/centreon-plugins/pull/5195)).
 - [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - Added the **snapmirrorlag** service template.
 - [**Nutanix**](../procedures/virtualization-nutanix-snmp.md) - Added support of Nutanix 6.10 (fixes 'No disk found' error in **disk-usage**_ service template).
-- [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Deprecated, replaced by [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md).
+- [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Deprecated, replaced by [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md).
 - [**VMware VCSA Rest API**](../procedures/applications-vmware-vcsa-restapi.md) - Deprecated, replaced by [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md).
 
 </TabItem>
@@ -231,7 +231,7 @@ import TabItem from '@theme/TabItem';
 
 - [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - Fixed localized time calculation using the ` timezone` option.
 - [**Azure ServiceBus**](../procedures/cloud-azure-integration-servicebus.md) - Fixed an issue in metric configuration in **namespaces** mode.
-- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Handle empty table returns.
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Handle empty table returns.
 - [**Comet P8000 Sensor SNMP**](../procedures/hardware-sensors-comet-p8000-snmp.md) - Removed 'geist' from connector name.
 - [**Dell Compellent Nsclient NRPE**](../procedures/hardware-storage-dell-compellent-api.md) - Made NSClient and NRPE usage more explicit.
 - [**Dell iDRAC SNMP**](../procedures/hardware-servers-dell-idrac-snmp.md) - Fixed ready status for `pdisk.state` in **hardware** mode.
