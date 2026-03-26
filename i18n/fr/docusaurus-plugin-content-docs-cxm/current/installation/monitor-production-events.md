@@ -37,7 +37,7 @@ Ce token devra être au choix:
 Voici un exemple de requête avec cURL qui ajoute un évènement de déploiement de code avec le message "version 42.0". On notera la présence du header "*Content-Type*" qui est indispensable pour que notre API puisse prendre en compte la requête :
 
 ```bash
-curl -L -m 10 -X POST -d '{"type": "code_deploy", "content": "version 42.0"}' -H 'Content-Type: application/json' -H 'Authorization: Token 78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216' https://app.quanta.io/api/events/push
+curl -L -m 10 -X POST -d '{"type": "code_deploy", "content": "version 42.0"}' -H 'Content-Type: application/json' -H 'Authorization: <your_token_here>' https://app.quanta.io/api/events/push
 ```
 
 Si vous souhaitez intégrer des évènements via un autre service qui ne permet pas d'effectuer de requêtes POST, vous pouvez également utiliser l'API via une requête GET. Par exemple, la commande suivante ajoute un évènement générique ("custom") en utilisant cURL :
