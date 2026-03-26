@@ -1,5 +1,5 @@
 ---
-id: applications-monitoring-centreon-dem-restapi
+id: applications-monitoring-centreon-cxm-restapi
 title: Centreon Experience Monitoring (formerly Quanta) Rest API
 ---
 import Tabs from '@theme/Tabs';
