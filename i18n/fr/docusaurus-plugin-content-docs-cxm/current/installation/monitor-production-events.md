@@ -43,7 +43,7 @@ curl -L -m 10 -X POST -d '{"type": "code_deploy", "content": "version 42.0"}' -H
 Si vous souhaitez intégrer des évènements via un autre service qui ne permet pas d'effectuer de requêtes POST, vous pouvez également utiliser l'API via une requête GET. Par exemple, la commande suivante ajoute un évènement générique ("custom") en utilisant cURL :
 
 ```bash
-curl -L -m 10 https://app.quanta.io/api/events/push?content=bonjour&type=custom&auth_token=78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216
+curl -L -m 10 https://app.quanta.io/api/events/push?content=bonjour&type=custom&auth_token=<your_token_here>
 ```
 
 

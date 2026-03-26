@@ -45,7 +45,7 @@ curl -L -m 10 -X POST -d '{"type": "code_deploy", "content": "version 42.0"}' -H
 If you need to send events from a service that cannot perform POST requests, you can also send a GET request using the API. For example, the following command adds a generic ("custom") event using cURL:
 
 ```bash
-curl -L -m 10 "https://app.quanta.io/api/events/push?content=bonjour&type=custom&auth_token=78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216"
+curl -L -m 10 "https://app.quanta.io/api/events/push?content=bonjour&type=custom&auth_token=<your_token_here>"
 ```
 
 > In the 2 commands above, the cURL option *-m* sets a timeout of 10 seconds to avoid blocking your scripts in case our API is temporarily unavailable.
