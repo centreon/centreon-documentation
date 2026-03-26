@@ -115,9 +115,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de superviser Centreon Experience Monitoring, vous devez disposer [d'un jeton d'API valide](/dem/installation/monitor-production-events#authentification-et-génération-de-token), et [avoir des parcours utilisateur configurés dans Centreon DEM](/dem/configuration/user-journey/create-a-scenario).
+Afin de superviser Centreon Experience Monitoring, vous devez disposer [d'un jeton d'API valide](/cxm/installation/monitor-production-events#authentification-et-génération-de-token), et [avoir des parcours utilisateur configurés dans Centreon DEM](/cxm/configuration/user-journey/create-a-scenario).
 
-Les données issues du Real User Monitoring ne seront accessibles que si vous avez réalisé [l'intégration du tag RUM de Centreon Experience Monitoring](/dem/installation/real-user-monitoring-installation#trouver-le-tag-à-insérer-dans-mon-site).
+Les données issues du Real User Monitoring ne seront accessibles que si vous avez réalisé [l'intégration du tag RUM de Centreon Experience Monitoring](/cxm/installation/real-user-monitoring-installation#trouver-le-tag-à-insérer-dans-mon-site).
 
 ## Installer le connecteur de supervision
 

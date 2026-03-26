@@ -114,8 +114,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-In order to monitor Centreon Experience Monitoring, you must have [a valid API token](/dem/installation/monitor-production-events#authentication-and-token-generation), and [have user journeys configured in Centreon Experience Monitoring](/dem/configuration/user-journey/create-a-scenario).
-Data from Real User Monitoring will only be accessible if you have completed [the integration of Centreon Experience Monitoring's RUM tag](/dem/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
+In order to monitor Centreon Experience Monitoring, you must have [a valid API token](/cxm/installation/monitor-production-events#authentication-and-token-generation), and [have user journeys configured in Centreon Experience Monitoring](/cxm/configuration/user-journey/create-a-scenario).
+Data from Real User Monitoring will only be accessible if you have completed [the integration of Centreon Experience Monitoring's RUM tag](/cxm/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
 
 ## Installing the monitoring connector
 
