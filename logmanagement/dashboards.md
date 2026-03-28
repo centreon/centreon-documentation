@@ -70,3 +70,9 @@ In the right part of the screen, define the data you want to display. The graph 
   * **Ratio** means that you divide the results of a query by the results of another query.
   
 If you display the graph in **Line** mode, each dataset will produce a curve. If you display the chart as a **Bar** chart, each dataset will produce a bar. Inside each bar, the data will be stacked according to the **Group by** parameter.
+
+## What's next?
+
+- [**Query syntax**](query-syntax.md) — build more powerful queries for your widgets
+- [**Alert rules**](alerts.md) — combine dashboards with automated alerting
+- [**Log Explorer**](explore-analyze.md) — drill down into individual log entries
