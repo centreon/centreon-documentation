@@ -1,11 +1,11 @@
 ---
 id: concepts
-title: Bases de CLM
+title: Bases de Centreon Log Management
 ---
 
 ## Que sont les logs ?
 
-CLM gère des logs. Les logs contiennent des informations détaillées sur les événements, les erreurs et les performances de votre système informatique.
+Centreon Log Management (CLM) gère des logs. Les logs contiennent des informations détaillées sur les événements, les erreurs et les performances de votre système informatique.
 
 ## À quoi ressemble une entrée de log dans CLM ?
 
@@ -55,7 +55,7 @@ Voici un exemple d'entrée de log brute envoyée par l'Observateur d'évènement
   },
   "observed_timestamp_nanos": 1763648218788360200,
   "resource_attributes": {
-    "event.provider.guid": "{XXXXXXXX-C8C9-472C-A5F9-F2BDFEA0X309}",
+    "event.provider.guid": "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}",
     "event.provider.name": "Microsoft-Windows-Security-SPP",
     "host.name": "MyLaptop",
     "os.name": "Microsoft Windows 10 Pro",
@@ -76,12 +76,12 @@ Voici un exemple d'entrée de log brute envoyée par l'Observateur d'évènement
 
 * Les **attributs de ressource** indiquent le contexte du log, c'est-à-dire ce qui a généré ce log. Voici quelques exemples d'attributs de ressource courants pour les logs :
 
-  * service.name : nom du service émettant le log.
-  * service.version : version du service.
-  * host.name : nom d'hôte ou nom de machine.
-  * cloud.region : région cloud (par exemple, us-east-1).
-  * k8s.container.name : nom du conteneur Kubernetes.
-  * deployment.environment : environnement tel que prod ou staging.
+  * **service_name** : nom du service émettant le log.
+  * **service.version** : version du service.
+  * **host.name** : nom d'hôte ou nom de machine.
+  * **cloud.region** : région cloud (par exemple, us-east-1).
+  * **k8s.container.name** : nom du conteneur Kubernetes.
+  * **deployment.environment** : environnement tel que prod ou staging.
 
 Dans CLM, vous pouvez filtrer vos données en utilisant ces attributs dans les [requêtes](../query-syntax.md), dans [**Log explorer**](../explore-analyze.md#utiliser-la-page-log-explorer) ou dans les [tableaux de bord](../dashboards.md).
 

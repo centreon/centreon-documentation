@@ -38,7 +38,7 @@ Une fois que vous avez modifié votre widget, enregistrez-le, puis enregistrez l
 
 ## Widgets disponibles
 
-## Generic text
+### Generic text
 
 Utilisez ce widget pour insérer des titres, des informations ou des liens dans vos tableaux de bord. Utilisez la barre d'outils pour mettre en forme la description.
 

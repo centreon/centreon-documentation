@@ -1,11 +1,11 @@
 ---
 id: concepts
-title: CLM basics
+title: Centreon Log Management basics
 ---
 
 ## What are logs?
 
-CLM handles logs. Logs contain detailed information about events, errors, and the performance of your IT system.
+Centreon Log Management (CLM) handles logs. Logs contain detailed information about events, errors, and the performance of your IT system.
 
 ## What does a log entry look like in CLM?
 
@@ -55,7 +55,7 @@ Here is an example of a raw log entry sent by the Windows Event Viewer, collecte
   },
   "observed_timestamp_nanos": 1763648218788360200,
   "resource_attributes": {
-    "event.provider.guid": "{XXXXXXXX-C8C9-472C-A5F9-F2BDFEA0X309}",
+    "event.provider.guid": "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}",
     "event.provider.name": "Microsoft-Windows-Security-SPP",
     "host.name": "MyLaptop",
     "os.name": "Microsoft Windows 10 Pro",
@@ -76,12 +76,12 @@ Here is an example of a raw log entry sent by the Windows Event Viewer, collecte
 
 * **Resource attributes** show the context of the log, i.e. what produced this log. Here are some examples of common resource attributes for logs:
 
-  * service.name – the name of the service emitting the log
-  * service.version – version of the service
-  * host.name – hostname or machine name
-  * cloud.region – cloud region (e.g., us-east-1)
-  * k8s.container.name – Kubernetes container name
-  * deployment.environment – environment like prod or staging.
+  * **service_name** – the name of the service emitting the log
+  * **service.version** – version of the service
+  * **host.name** – hostname or machine name
+  * **cloud.region** – cloud region (e.g., us-east-1)
+  * **k8s.container.name** – Kubernetes container name
+  * **deployment.environment** – environment like prod or staging.
 
 In CLM, you can filter your data by using these attributes in [queries](../query-syntax.md), in [**Log explorer**](../explore-analyze.md#using-the-log-explorer-page) or [dashboards](../dashboards.md).
 

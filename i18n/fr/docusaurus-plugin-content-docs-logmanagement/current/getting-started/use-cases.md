@@ -3,7 +3,7 @@ id: use-cases
 title: Cas d'usage
 ---
 
-Centreon Log Management vous permet de détecter et de résoudre une grande variété de problèmes dans un système informatique, allant des erreurs mineures aux incidents majeurs. De nombreux cas d'utilisation typiques de CLM se concentrent sur l'analyse des causes profondes (root cause analysis). Voici quelques exemples concrets de ce que CLM peut vous aider à détecter à partir de l'analyse des journaux manquants, des types de journaux inattendus ou des volumes de journaux inhabituels.
+Centreon Log Management (CLM) vous permet de détecter et de résoudre une grande variété de problèmes dans un système informatique, allant des erreurs mineures aux incidents majeurs. De nombreux cas d'utilisation typiques de CLM se concentrent sur l'analyse des causes profondes (root cause analysis). Voici quelques exemples concrets de ce que CLM peut vous aider à détecter à partir de l'analyse des journaux manquants, des types de journaux inattendus ou des volumes de journaux inhabituels.
 
 ## Problèmes d'intégration et de communication entre services
 
