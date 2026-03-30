@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Each host needs a token to authenticate with Centreon Log Management (CLM). This token allows the host to securely identify itself when sending data, ensuring that only authorized hosts can connect to and use your CLM platform.
 
+Ypu can also generate a token to [use the API](../api.md).
+
 ## Creating a token
 
 1. Go to **Administration > Token management** and then click **Add**.
