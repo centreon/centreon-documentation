@@ -24,10 +24,10 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
         initials: 'LM',
         color:  '#611485ff'
       });
-    } else if ('to' in item && item.to && item.to.includes('dem')) {
+    } else if ('to' in item && item.to && item.to.includes('cxm')) {
       sections.push({
         ...item,
-        label: 'Digital Experience Monitoring',
+        label: 'Experience Monitoring',
         initials: 'DM',
         color:  '#259788ff'
       });
