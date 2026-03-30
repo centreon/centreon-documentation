@@ -43,7 +43,7 @@ const cxm = (() => {
   if (archivedVersion) {
     return false;
   }
-  if (process.env.DEM !== undefined && process.env.DEM === '0') {
+  if (process.env.CXM !== undefined && process.env.CXM === '0') {
     return false;
   }
   return true;
@@ -280,7 +280,7 @@ const config = {
             id: 'cxm',
             path: 'cxm',
             routeBasePath: 'cxm',
-            sidebarPath: './cxm/sidebarsDem.js',
+            sidebarPath: './cxm/sidebarsCxm.js',
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
