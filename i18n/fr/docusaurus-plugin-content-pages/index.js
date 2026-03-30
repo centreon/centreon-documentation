@@ -31,7 +31,7 @@ const links = {
 
 const cards = [
   {
-    title: "Centreon Infra Monitoring",
+    title: "Infra Monitoring",
     href: "docs/getting-started/welcome/",
     links: [
       {
@@ -74,7 +74,7 @@ const cards = [
     ],
   },
   {
-    title: "Centreon Log Management",
+    title: "Log Management",
     href: "logmanagement/getting-started/welcome/",
     links: [
       {
