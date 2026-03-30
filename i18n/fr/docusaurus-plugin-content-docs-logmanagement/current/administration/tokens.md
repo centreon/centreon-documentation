@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Chaque hôte a besoin d'un jeton pour s'authentifier auprès de Centreon Log Management (CLM). Ce jeton permet à l'hôte de s'identifier de manière sécurisée lors de l'envoi de données, garantissant ainsi que seuls les hôtes autorisés peuvent se connecter à votre plateforme CLM et l'utiliser.
 
+Vous pouvez également uiliser un jeton pour [utiliser l'API](../api.md).
+
 ## Créer un jeton
 
 1. À la page **Administration > Token management**, cliquez sur **Add**.
