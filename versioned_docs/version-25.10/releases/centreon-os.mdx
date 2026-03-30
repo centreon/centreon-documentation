@@ -30,35 +30,35 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [CMA] Host can now be automaticaly created when option is checked in Agent configuration.
-- [Dashboards] Status Chart widget - A filter for the state of the resources (in downtime, acknowledged, flapping) is now available.
-- [Image Administration] You can now upload images up to 5 MB.
+- [CMA] Hosts can now be automaticaly created when the option for it is checked in Agent configuration.
+- [Dashboards] Status Chart widget - Added the ability to filter by the state of resources (in downtime, acknowledged, flapping).
+- [Image Administration] You can now upload images weighing up to 5 MB.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue during remote server upgrade, regarding event_script output for CMA.
-- [API] Fixed an issue where reach API realtime was reset to "No" if front-end set to "No".
-- [API] When trying to acces the /monitoring/servers endpoint, the API no longer returns "null" (it returns the IP address of the pollers).
-- [Administration] Fixed an issue where additional configuration wasn't updated after deleting user.
+- [CMA] Fixed an issue during the remote server upgrade, regarding the event_script output for CMA.
+- [API] Fixed an issue where LDAP users configured to reach the API realtime would get their permission revoked after requesting a login token.
+- [API] The API no longer returns "null" when trying to acces the /monitoring/servers endpoint (it will now returns the IP address of the pollers).
+- [Administration] Fixed an issue where additional configuration wasn't updated after deleting a user.
 - [Administration] Fixed pagination issues on the LDAP page.
 - [Authentication] Changed the default setting for "Requested Authentication Context" to Disabled in SAML/SSO configurations.
 - [Configuration] Allowed horizontal resize on select type fields.
 - [Configuration] Fixed an issue on additional configuration when changing vCenter name.
 - [Configuration] Fixed an issue on macro decryption (use engine-context instead of .env when encrypting).
-- [Configuration] Fixed an issue where MIB import logs were unreadable.
+- [Configuration] Fixed an issue where .mib import logs were unreadable.
 - [Configuration] Fixed an issue where changes to the "Broker module configuration file" field weren’t applied.
 - [Configuration] Listing pages now display the total count and the range of visible elements.
 - [Configuration] Macros defined on a parent resource are now preserved when a child resource overrides its value.
-- [Custom Views] Fixed an issue occurring when renaming a widget.
+- [Custom Views] Fixed an SQL error that occurred when renaming a widget.
 - [Custom Views] Fixed an issue where exporting data for Service Monitoring widgets included all services in the configuration instead of just the selected resources.
 - [Custom Views] Fixed an issue with large platforms where the CSV export in the Service Monitoring widget failed.
-- [Installation] Fixed mariadb password setup.
-- [Resource Status] Fixed issue breaking the interface when displaying the graph of a service without any performance data available.
-- [Resource Status] Resolved an issue with PNG exports.
-- [Resource Status] The CSV export has been fixed and now works fine when filtering resources by state.
+- [Installation] Fixed an issue with the mariadb password setup.
+- [Resource Status] Fixed an issue that caused the Centreon interface to crash when trying to display the graph of a service without any performance data available.
+- [Resource Status] Fixed an issue with PNG exports.
+- [Resource Status] Fixed an issue with the CSV export not taking into consideration the applied filters.
 
 </details>
 
@@ -77,7 +77,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- [CMA] Fixed an issue where peer name was not in peer certificate, while correctly configured in self-signed certificate.
+- [CMA] Fixed an issue where peer name was not in the peer certificate, while correctly configured in the self-signed certificate.
 
 </details>
 
@@ -86,7 +86,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Resolved partitioning and data duplication issues in rebuild process.
+- Fixed an issue with partitioning and data duplication during the rebuild process.
 
 </details>
 
@@ -98,8 +98,8 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 - [CMA] A new “Host template" parameter is available in CMA configuration, and used for Host registration.
 - [CMA] Added a Linux script to ease agent download & deployment.
 - [CMA] Added a Windows script to ease agent download & deployment.
-- [CMA] File native check can now trigger alerts on empty result set.
-- [CMA] Improved wording for CMA installation script output.
+- [CMA] File native checks can now trigger alerts on empty result set.
+- [CMA] Improved wording for the outpute of the CMA installation script.
 
 </details>
 
