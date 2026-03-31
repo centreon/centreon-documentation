@@ -152,7 +152,7 @@ yum install centreon-plugin-Applications-Zookeeper-Jmx
 
 ### Utiliser un modèle d'hôte issu du connecteur
 
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **App-Zookeeper-JMX-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
