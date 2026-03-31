@@ -29,11 +29,14 @@ les notifications pourront être envoyées. En-dehors de ces périodes de temps,
 ## Onglet Authentification Centreon
  
 * **Autoriser l'utilisateur à se connecter à l'interface web** : permet d’autoriser l’utilisateur à accéder à l’interface web de Centreon.
+* Le champ **Votre mot de passe actuel** est requis lorsque vous (l'utilisateur actuellement connecté) devez modifier le mot de passe d'un autre utilisateur. Vous devez faire vérifier votre identité en saisissant votre propre mot de passe.
+  > Vous ne pouvez modifier le mot de passe d'un autre utilisateur que si vous êtes connecté en utilisant une authentification locale, et non via un fournisseur d'identité (pour des raisons de sécurité).
 * **Mot de passe** et **Confirmation du mot de passe** : contiennent le mot de passe de l'utilisateur.
+  > Pour changer le mot de passe d'un utilisateur local, il est nécessaire de saisir également votre **Mot de passe actuel**. Dans le cas où vous êtes identifié par une connexion SSO, ce champ n'est pas visible. Pour créer un nouvel utilisateur, il n'est pas nécessaire de saisir cette information.
 * **Langue par défaut** permet de définir la langue de l’interface Centreon pour cet utilisateur.
 * **Administrateur** définit si cet utilisateur est administrateur de la plateforme de supervision ou non. Un administrateur a tous les droits (lecture, écriture) et peut accéder à toutes les pages de l'interface.
 * **Clé d'auto-connexion** : permet de définir une clé de connexion pour l’utilisateur. L’utilisateur n’aura plus
-  besoin d’entrer son login et mot de passe mais utilisera directement cette clé pour se connecter. Syntaxe de connexion :
+  besoin d’entrer son login et mot de passe mais utilisera directement cette clé pour se connecter. Pour des raisons de sécurité, cette fonctionnalité n'est pas disponible pour les utilisateurs LDAP. Syntaxe de connexion :
 
     ```url
     http://[IP_DU_SERVER_CENTRAL]/index.php?autologin=1&useralias=[login_user]&token=[value_autologin]
@@ -41,12 +44,14 @@ les notifications pourront être envoyées. En-dehors de ces périodes de temps,
 
   > La possibilité de connexion automatique (auto login) doit être activée dans le menu : **Administration > Options**.
 
-* Le champ **Source d'authentification** spécifie si les informations de connexion proviennent d’un annuaire LDAP ou
-  d’informations stockées localement sur le serveur.
-* Le champ **Groupes de liste d'accès** permet de définir un groupe d’accès pour un utilisateur, groupe utilisé pour les
-  contrôles d’accès (ACL).
+* Le champ **Source d'authentification** spécifie si les informations de connexion proviennent d’un annuaire LDAP ou d’informations stockées localement sur le serveur (définies via l'interface Centreon).
+* Les trois champs qui suivent servent à autoriser les utilisateurs à faire appel à l'[API v1](../../api/rest-api-v1.md#api-calls) et à l'[API v2](https://docs-api.centreon.com/api/centreon-web/23.04/) (à noter que la documentation API n'est disponible qu'en anglais et est destinée à des développeurs familiers avec les requêtes HTTP et JSON).
+  - Le champ **API de configuration** ne s'applique qu'aux API V2. (Seuls les administrateurs peuvent utiliser cette API en v1).
+  - L'[**API de temps réel**](../../api/rest-api-v1.md#realtime-information) peut être appelée par les non-administrateurs dans les deux versions lorsque ce champ est coché.
+  - Les administrateurs peuvent faire appel à l'**API de configuration** et l'[**API de temps réel**](../../api/rest-api-v1.md#realtime-information) indépendamment de si le champ correspondant à ces APIs est coché. Ceci est valable pour l'API v1 et l'API v2. Les administrateurs sont également les seuls à pouvoir utiliser [**CLAPI**](../../api/clapi.md), les autres utilisteurs n'ont accès qu'à l'API Rest.
+* Le champ **Groupes de liste d'accès** permet de définir un groupe d’accès pour un utilisateur, groupe utilisé pour les [contrôles d’accès (ACL)](../../administration/access-control-lists.md).
 
-  > Un utilisateur Administrateur a tous les droits et les règles de contrôle d’accès ne s'appliquent pas à lui, même si vous l'incluez dans un groupe d’accès.
+> Un utilisateur Administrateur a tous les droits et les règles de contrôle d’accès ne s'appliquent pas à lui, même si vous l'incluez dans un groupe d’accès.
 
 ## Onglet Informations supplémentaires
 

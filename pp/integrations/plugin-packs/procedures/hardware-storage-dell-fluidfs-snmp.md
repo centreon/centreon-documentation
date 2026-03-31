@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-dell-fluidfs-snmp
-title: Dell FluidFS
+title: Dell FluidFS SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

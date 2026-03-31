@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-quantum-scalar-snmp
-title: Quantum Scalar
+title: Quantum Scalar SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Quantum Scalar** apporte un modèle d'hôte :
+Le connecteur de supervision **Quantum Scalar SNMP** apporte un modèle d'hôte :
 
 * **HW-Storage-Quantum-Scalar-SNMP-custom**
 
@@ -45,15 +45,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Métrique         | Unité      |
-|:--------------------|:----------|
-| global.status          | N/A       |
-| hardware.sensor.humidity.percentage          | %      |
-| physicaldrive.status   | N/A   |
-| hardware.psu.power.watt   | W   |
-| subsystem.status   | N/A   |
-| hardware.sensor.temperature.celsius   | C   |
-| hardware.sensor.voltage.volt   | V   |
+| Nom                                 | Unité |
+|:------------------------------------|:------|
+| global.status                       | N/A   |
+| hardware.sensor.humidity.percentage | %     |
+| physicaldrive.status                | N/A   |
+| hardware.psu.power.watt             | W     |
+| subsystem.status                    | N/A   |
+| hardware.sensor.temperature.celsius | C     |
+| hardware.sensor.voltage.volt        | V     |
 
 
 </TabItem>
@@ -63,7 +63,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -113,7 +116,7 @@ yum install centreon-pack-hardware-storage-quantum-scalar-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Quantum Scalar**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Quantum Scalar SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -183,10 +186,10 @@ yum install centreon-plugin-Hardware-Storage-Quantum-Scalar-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                                           | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'global', 'subsystem', 'physicaldrive', 'psu', 'voltage', 'humidity', 'temperature' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                    | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'global', 'subsystem', 'physicaldrive', 'psu', 'voltage', 'humidity', 'temperature'                            | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 </Tabs>

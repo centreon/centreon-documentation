@@ -12,6 +12,10 @@ module.exports = {
           type: 'doc',
           id: 'getting-started/about-centreon-cloud',
         },
+         {
+          type: 'doc',
+          id: 'getting-started/centreon-cloud-trial',
+        },
         {
           "collapsed": true,
           "type": "category",
@@ -150,6 +154,10 @@ module.exports = {
           type: 'doc',
           id: 'administration/ram',
         },
+        {
+          type: 'doc',
+          id: 'ciam/cloud-saml',
+        },
       ],
     },
     {
@@ -272,6 +280,10 @@ module.exports = {
             {
               "type": "doc",
               "id": "monitoring/basic-objects/services-templates"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/meta-services"
             }
           ]
         },
@@ -411,6 +423,10 @@ module.exports = {
           "id": "alerts-notifications/notif-configuration"
         },
         {
+          "type": "doc",
+          "id": "alerts-notifications/notif-flapping"
+        },
+        {
           "type": "category",
           "label": "Managing tickets",
           "link": {
@@ -418,10 +434,6 @@ module.exports = {
             "id": "alerts-notifications/ticketing-overview"
           },
           "items": [
-            {
-              "type": "doc",
-              "id": "alerts-notifications/ticketing-install"
-            },
             {
               "type": "doc",
               "id": "alerts-notifications/ticketing"
@@ -556,8 +568,10 @@ module.exports = {
         {
           "type": "category",
           "label": "Guide",
+          "key": "graph-views-guide",
           "link": {
             "type": "generated-index",
+            "slug": "graph-views-guide"
           },
           "items": [
             {
@@ -607,6 +621,39 @@ module.exports = {
       "type": "link",
       "href": "/pp/integrations/plugin-packs/getting-started/introduction",
       "label": "Monitoring Connectors"
+    },
+    {
+      "type": "category",
+      "label": "Centreon Monitoring Agent",
+      "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-certificates"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-custom"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-migratenscpp"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-troubleshooting"
+                }
+              ]
     },
     {
       "type": "category",
@@ -682,6 +729,16 @@ module.exports = {
       "type": "link",
       "href": "https://docs-api.centreon.com/api/centreon-web/cloud/",
       "label": "Centreon Cloud API"
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-bam/cloud/",
+      "label": "BAM API"
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-autodiscovery/cloud/",
+      "label": "Autodiscovery API"
     },
     {
           "type": "doc",

@@ -1,15 +1,26 @@
 ---
 id: network-nortel-standard-snmp
-title: Nortel Standard
+title: Extreme (formerly Nortel/Avaya) SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Compatibilité
+
+Ce connecteur a été conçu pour être compatible avec les produits suivants.
+
+| Produit     | Modèles       | Versions |
+| ----------- | ------------- | -------- |
+| Extreme Networks | 4950GTS-PWR+ | - |
+| Extreme Networks | 5520-24T | - |
+| Extreme Networks | 7520-48Y-8C | - |
+| Extreme Networks | 7520-48YE-8CE | - |
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Nortel Standard** apporte un modèle d'hôte :
+Le connecteur de supervision **Extreme (formerly Nortel/Avaya) SNMP** apporte un modèle d'hôte :
 
 * **Net-Nortel-Standard-SNMP-custom**
 

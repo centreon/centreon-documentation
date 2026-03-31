@@ -12,7 +12,12 @@ the Centreon command line API.
 
 ## Permissions
 
-To perform API calls, you must be an administrator.
+Users can be authorized to perform API calls by configuring the corresponding fields located in the **Configuration > Users > Contacts/Users >** [**Centreon Authentication tab tab**](../monitoring/basic-objects/contacts-create.md#centreon-authentication).
+- The [**Configuration API**](#configuration) can only be called by administrators.
+- The [**Realtime API**](#realtime-information) can be called by non-administrator users as long as the corresponding field is checked.
+- Administrators are able to call both the [**Configuration API**](#configuration) and the [**Realtime API**](#realtime-information) even if these fields are not checked. They are also the only ones allowed to use [**CLAPI**](clapi.md) while others can only use the Rest API.
+
+Note that you need to be authenticated before you perform each [API call](#api-calls).
 
 ## Authentication
 
@@ -816,7 +821,7 @@ To add more than one parent to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
 
-The add action adds the parent without overwriting he previous configuration.
+The add action adds the parent without overwriting the previous configuration.
 
 #### Set parent
 
@@ -1108,7 +1113,7 @@ To add more than one contactgroup to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Supervisors|Guest"
 
-The add action adds the contact without overwriting he previous configuration.
+The add action adds the contact without overwriting the previous configuration.
 
 #### Set contact group
 
@@ -1254,7 +1259,7 @@ To add more than one contact to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;admin|SuperAdmin"
 
-The add action adds the contact without overwriting he previous configuration.
+The add action adds the contact without overwriting the previous configuration.
 
 #### Set contact
 
@@ -1404,7 +1409,7 @@ To add more than one hostgroup to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Mail-Postfix-Frontend|Linux-Servers"
 
-The add action adds the hostgroup without overwriting he previous configuration.
+The add action adds the hostgroup without overwriting the previous configuration.
 
 #### Set hostgroup
 
