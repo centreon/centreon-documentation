@@ -72,7 +72,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 ## Prerequisites
 
 [Install the Jolokia agent on your java application server](https://jolokia.org/download).
-page](https://jolokia.org/download). Ask to your admin to deploy it and
+Ask your admin to deploy it and
 give you the URL.
 
 ## Installing the monitoring connector
