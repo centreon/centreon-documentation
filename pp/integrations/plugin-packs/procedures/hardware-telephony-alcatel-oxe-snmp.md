@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Alcatel OXE** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -120,7 +120,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="PBX-Role" label="PBX-Role">
 
-Only stringified status is reported.
+Only the status is reported.
 
 </TabItem>
 <TabItem value="State" label="State">
@@ -170,7 +170,7 @@ SNMP port.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -206,7 +206,7 @@ yum install centreon-pack-hardware-telephony-alcatel-oxe-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Alcatel OXE** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
