@@ -1,6 +1,6 @@
-# Démarrer avec Centreon CXM
+# Démarrer avec Centreon Experience Monitoring
 
-Bienvenue dans Centreon CXM !
+Bienvenue dans Centreon Experience Monitoring !
 
 import DocCardList from '@theme/DocCardList';
 
