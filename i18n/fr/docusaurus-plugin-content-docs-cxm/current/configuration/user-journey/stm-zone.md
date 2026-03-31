@@ -13,7 +13,7 @@ Depuis la Vue Globale, ouvrez le sélecteur de site en haut à gauche et ouvrez 
 
 Gardez les deux onglets ouverts — vous aurez besoin de l'onglet site plus tard pour récupérer votre token.
 
-
+![image](../../assets/configuration/user-journey/organization-page.png)
 
 ## Étape 2 : Accéder à l'onglet Zones STM
 

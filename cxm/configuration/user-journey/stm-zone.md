@@ -13,7 +13,7 @@ From the Global View, open the site selector at the top left and open your organ
 
 Keep both tabs open as you’ll need the site tab later to retrieve your token.
 
-
+![image](../../assets/configuration/user-journey/organization-page.png)
 
 ## Step 2: Access the STM Zones tab
 
