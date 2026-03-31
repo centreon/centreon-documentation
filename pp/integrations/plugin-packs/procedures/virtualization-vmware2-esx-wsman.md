@@ -214,8 +214,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::vmware::wsman::plugin \
 	--mode=hardware \
 	--hostname='10.0.0.1' \
-	--wsman-username='' \
-	--wsman-password='' \
+	--wsman-username='XXXXXXXXX' \
+	--wsman-password='XXXXXXXXX' \
 	--wsman-scheme='https' \
 	--wsman-port='443' \
 	--component='.*' \
