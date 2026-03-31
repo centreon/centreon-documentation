@@ -380,7 +380,7 @@ This section describes how to enable SSL on a MySQL/MariaDB server and configure
     chown -Rv mysql:root /etc/mysql/newcerts/*
     ```
 
-**2. Edit the MySQL server configuration.** Add the following block to your MySQL server configuration file (typically /etc/mysql/mysql.conf.d/mysqld.cnf):
+**2. Edit the MySQL server configuration.** Add the following block to your MySQL server configuration file (typically `/etc/mysql/mysql.conf.d/mysqld.cnf`):
 
     ```shell
     [mysqld]
