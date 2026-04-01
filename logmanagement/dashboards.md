@@ -33,12 +33,12 @@ Edit each widget you want, saving your changes to each widget. Then save the das
 
 ## Editing a widget
 
-When editing a dashboard, click the 3 dots in the top rigt corner of a widget to enter edit mode.
-Once you have edited your widget, save it, then save th edashboard itself.
+When editing a dashboard, click the 3 dots in the top right corner of a widget to enter edit mode.
+Once you have edited your widget, save it, then save the dashboard itself.
 
 ## Available widgets
 
-## Generic text
+### Generic text
 
 Use this widget to insert titles, information or links into your dashboards. Use the toolbar to format the description.
 
