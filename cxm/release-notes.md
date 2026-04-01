@@ -1,6 +1,6 @@
 ---
 id: release-notes
-title: Centreon CXM release notes
+title: Centreon Experience Monitoring release notes
 ---
 
 ## February 2nd, 2026
