@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes advanced procedures to secure your Centreon MBI platform.
 
-> If you want to use MBI with a secured database connection, we recommend that you also secure your Centreon platform. Follow this [procedure](../administration/secure-platform.md#secure-the-web-server-with-https) if needed.
+> If you want to use MBI with a secured database connection, we recommend that you also secure your Centreon platform. Follow this [procedure](..//administration/secure-platform.md#secure-the-web-server-with-https) if needed.
 
 
 ## Configure TLS on a MySQL or MariaDB database
