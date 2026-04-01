@@ -1,13 +1,13 @@
 ---
 id: observability
-title: CLM and observability
+title: Centreon Log Management and observability
 ---
 
 ## What is observability?
 
 Observability is the ability to understand what is happening in an IT system in real time, even when it is complex or distributed. It is based on a set of contextualized events from various sources, originating from systems that may be dynamic.
 
-* In CLM, an event is a log entry.
+* In Centreon Log Management (CLM), an event is a log entry.
 * Contextualized: the log indicates its source (service name, environment, etc.).
 * From various sources: Logs come from all types of devices and applications. For example, technical data can be cross-referenced with sales data.
 
@@ -52,7 +52,7 @@ Si quelque chose d'imprévu se passe, mais qu'aucun seuil n'a été défini, la 
 
 → Grâce aux traces distribuées, on voit que la latence vient d'un appel interne à un service de facturation.-->
 
-## Simple Summary
+## Simple summary
 
 | Aspect | Monitoring | Observability |
 | --- | --- | --- |

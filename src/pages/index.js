@@ -33,7 +33,7 @@ const links = {
 
 const cards = [
   {
-    title: "Centreon Infra Monitoring",
+    title: "Infra Monitoring",
     href: "docs/getting-started/welcome/",
     links: [
       {
@@ -51,32 +51,32 @@ const cards = [
     ],
   },
   {
-    title: "Centreon DEM",
-    href: "dem/getting-started/welcome/",
+    title: "Experience Monitoring",
+    href: "cxm/getting-started/welcome/",
     links: [
       {
         label: "Getting started with Centreon Digital Experience Monitoring",
-        href: "dem/getting-started/welcome/",
+        href: "cxm/getting-started/welcome/",
       },
       {
         label: "Synthetic Monitoring (STM)",
-        href: "dem/getting-started/synthetic-monitoring/",
+        href: "cxm/getting-started/synthetic-monitoring/",
       },
       {
         label: "Real User Monitoring (RUM)",
-        href: "dem/getting-started/real-user-monitoring/",
+        href: "cxm/getting-started/real-user-monitoring/",
       },
       {
         label: "Digital sobriety",
-        href: "dem/category/digital-sobriety/"
+        href: "cxm/category/digital-sobriety/"
       },{
-        label: "DEM release notes",
-        href: "dem/release-notes/"
+        label: "CXM release notes",
+        href: "cxm/release-notes/"
       },
     ],
   },
   {
-    title: "Centreon Log Management",
+    title: "Log Management",
     href: "logmanagement/getting-started/welcome/",
     links: [
       {
