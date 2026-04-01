@@ -18,7 +18,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Setting up CXM',
+      label: 'Setting up Experience Monitoring',
       link: {
         type: 'generated-index',
       },
