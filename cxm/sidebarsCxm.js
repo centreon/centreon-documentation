@@ -2,7 +2,7 @@ module.exports = {
   dem: [
     {
       type: 'category',
-      label: 'Getting started with Centreon Experience Monitoring',
+      label: 'What can I do with Centreon Experience Monitoring?',
       link: {
         type: "doc",
         id: "getting-started/welcome"
@@ -29,7 +29,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Getting started with CXM',
+      label: 'Getting to know Experience Monitoring',
       link: {
         type: 'generated-index',
       },
@@ -40,7 +40,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Synthetic Monitoring (STM)',
+      label: 'Simulate user journeys: Synthetic Monitoring (STM)',
       link: {
         type: 'generated-index',
       },
@@ -52,7 +52,7 @@ module.exports = {
      {
       collapsed: true,
       type: 'category',
-      label: 'Real User Monitoring (RUM)',
+      label: 'Analyze user experience: Real User Monitoring (RUM)',
       link: {
         type: 'generated-index',
       },
@@ -64,7 +64,7 @@ module.exports = {
     {
       collapsed: true,
       type: 'category',
-      label: 'Digital sobriety',
+      label: "Evaluate a site's digital sobriety",
       link: {
         type: 'generated-index',
       },
@@ -77,7 +77,7 @@ module.exports = {
     {
       collapsed: true,
       type: 'category',
-      label: 'Business data',
+      label: "Analyze a site's business data (Google Analytics/Matomo)",
       link: {
         type: 'generated-index',
       },
@@ -89,7 +89,7 @@ module.exports = {
      {
       collapsed: true,
       type: 'category',
-      label: 'System data',
+      label: 'Monitor the health of my host server',
       link: {
         type: 'generated-index',
       },
@@ -101,7 +101,7 @@ module.exports = {
      {
       collapsed: true,
       type: 'category',
-      label: 'Network data',
+      label: "Check a site’s network performance",
       link: {
         type: 'generated-index',
       },
@@ -113,7 +113,7 @@ module.exports = {
      {
       collapsed: true,
       type: 'category',
-      label: 'Load testing',
+      label: 'Run a load test',
       link: {
         type: 'generated-index',
       },
