@@ -225,6 +225,10 @@
         {
           "type": "doc",
           "id": "graph-views/secure-your-map-platform"
+        },
+        {
+          "type": "doc",
+          "id": "reporting/secure-your-mbi-platform"
         }
       ]
     },
