@@ -2,7 +2,7 @@ module.exports = {
   dem: [
     {
       type: 'category',
-      label: 'Discovering CXM',
+      label: 'Getting started with Centreon Experience Monitoring',
       link: {
         type: "doc",
         id: "getting-started/welcome"

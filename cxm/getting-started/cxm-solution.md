@@ -1,9 +1,9 @@
 ---
 id: cxm-solution
-title: The Centreon CXM Solution
+title: The Centreon Experience Monitoring Solution
 ---
 
-**Centreon CXM (formerly Quanta) is a Digital Experience Monitoring platform designed to combine web performance and digital sustainability.** It enables tech, product, and business teams to collaborate efficiently to deliver fast and reliable digital experiences while saving hardware resources.
+**Centreon Experience Monitoring (formerly Quanta) is a Digital Experience Monitoring platform designed to combine web performance and digital sustainability.** It enables tech, product, and business teams to collaborate efficiently to deliver fast and reliable digital experiences while saving hardware resources.
 
 The solution combines several complementary components:
 

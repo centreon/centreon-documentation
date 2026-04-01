@@ -25,13 +25,13 @@ Depending on the feature—whether it measures the carbon impact of a specific u
 
 Beyond using established methods, CXM contributes to refining calculation methods through ongoing collaboration with industry professionals, notably:
 
-- the ecosystem of [Planet'Tech Care](https://planet-techcare.green/) signatories (of which Centreon CXM is an active member)
+- the ecosystem of [Planet'Tech Care](https://planet-techcare.green/) signatories (of which Centreon is an active member)
 - the cross-company working group [Boavizta](https://www.boavizta.org/en)
 - the association [La Fresque du Numérique](https://www.fresquedunumerique.org/).
 
 The goal of these collaborations is to advance the state of the art in digital impact measurement and cross-validate results with other professionals to ensure coherence (see GHG Protocol criteria: Relevance and Accuracy).
 
-For more on digital decarbonization and measurement tools, [see the interview](https://www.youtube.com/watch?v=UELsTjTDMag) with Laurent Eskenazi (co-founder of Boavizta) and Guillaume Thibaux (co-founder of Centreon CXM) on BSmart TV.
+For more on digital decarbonization and measurement tools, [see the interview](https://www.youtube.com/watch?v=UELsTjTDMag) with Laurent Eskenazi (co-founder of Boavizta) and Guillaume Thibaux (co-founder of Quanta, now Centreon Experience Monitoring) on BSmart TV.
 
 ## Calculation dimensions
 

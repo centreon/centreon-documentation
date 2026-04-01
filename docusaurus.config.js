@@ -423,7 +423,7 @@ const config = {
               ...items,
               {
                 to: '/cxm/getting-started/welcome',
-                label: 'Centreon CXM',
+                label: 'Centreon Experience Monitoring',
                 position: 'left',
                 activeBaseRegex: '/cxm/',
               },
