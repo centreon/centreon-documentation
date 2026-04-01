@@ -8,13 +8,13 @@ module.exports = {
         id: "getting-started/welcome"
       },
       items: [
-       { type: 'doc', id: 'getting-started/cxm-solution' },
+        { type: 'doc', id: 'getting-started/cxm-solution' },
         { type: 'doc', id: 'getting-started/synthetic-monitoring' },
         { type: 'doc', id: 'getting-started/real-user-monitoring' },
         { type: 'doc', id: 'getting-started/system-view' },
         { type: 'doc', id: 'getting-started/business-view' },
         { type: 'doc', id: 'getting-started/load-tests' },
-       ],
+      ],
     },
     {
       type: 'category',
@@ -24,7 +24,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'installation/installation-checklist' },
-        
+
       ],
     },
     {
@@ -35,7 +35,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'configuration/configuration-checklist' },
-       
+
       ],
     },
     {
@@ -46,10 +46,10 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'performance-analysis/network-tab-indicators' },
-      
+
       ],
     },
-     {
+    {
       collapsed: true,
       type: 'category',
       label: 'Analyze user experience: Real User Monitoring (RUM)',
@@ -58,7 +58,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-       
+
       ],
     },
     {
@@ -83,10 +83,10 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'how-to-articles/unable-to-connect' },
-       
+
       ],
     },
-     {
+    {
       collapsed: true,
       type: 'category',
       label: 'Monitor the health of my host server',
@@ -95,10 +95,10 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-      
+
       ],
     },
-     {
+    {
       collapsed: true,
       type: 'category',
       label: "Check a site’s network performance",
@@ -107,10 +107,10 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-       
+
       ],
     },
-     {
+    {
       collapsed: true,
       type: 'category',
       label: 'Run a load test',
@@ -119,10 +119,10 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-      
+
       ],
     },
-     {
+    {
       collapsed: true,
       type: 'category',
       label: 'Dashboards and exports',
@@ -131,7 +131,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-      
+
       ],
     },
     {
@@ -143,13 +143,13 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-       
+
       ],
     },
     {
       type: 'doc', id: 'release-notes'
     },
-     {
+    {
       collapsed: true,
       type: 'category',
       label: 'Resources',
@@ -158,7 +158,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-       
+
       ],
     },
   ],
