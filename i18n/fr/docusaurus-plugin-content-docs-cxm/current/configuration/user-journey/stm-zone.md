@@ -47,8 +47,8 @@ Une fois les identifiants obtenus, connectez-vous au registre Docker :
 
 '''shell
 docker login docker.centreon.com/centreon-dem-beta
-Username: <entrez votre nom utilisateur>
-Password: <entrez votre mot de passe>
+Username: \<username\>
+Password: \<password\>
 '''
 
 ## Étape 6 : Lancement de la sonde

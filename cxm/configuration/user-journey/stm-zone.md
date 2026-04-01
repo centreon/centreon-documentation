@@ -47,8 +47,8 @@ Once you have obtained the credentials, log in to the Docker registry:
 
 '''shell
 docker login docker.centreon.com/centreon-dem-beta
-Username: <entrez votre nom utilisateur>
-Password: <entrez votre mot de passe>
+Username: \<username\>
+Password: \<password\>
 '''
 
 
