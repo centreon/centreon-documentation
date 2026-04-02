@@ -57,8 +57,10 @@ module.exports = {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-
+         { type: 'doc', id: 'installation/real-user-monitoring-installation' },
+         { type: 'doc', id: 'rum/rum-results' },
+         { type: 'doc', id: 'rum/rum-improve' },
+         { type: 'doc', id: 'how-to-articles/rum-blocked-by-csp' },          
       ],
     },
     {
