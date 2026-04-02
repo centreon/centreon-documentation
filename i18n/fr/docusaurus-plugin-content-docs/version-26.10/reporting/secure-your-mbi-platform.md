@@ -224,7 +224,7 @@ SHOW VARIABLES LIKE '%ssl%';
 
 Centreon MBI utilise l'utilisateur `centreonbi`. Appliquez les exigences SSL à cet utilisateur pour chaque hôte concerné.
 
-**1. Exiger SSL pour l'utilisateur.**
+**1. Exigez SSL pour l'utilisateur.**
 
     ```sql
     -- SSL uniquement (aucun certificat client requis)
@@ -237,7 +237,7 @@ Centreon MBI utilise l'utilisateur `centreonbi`. Appliquez les exigences SSL à 
     SELECT user, host, ssl_type FROM mysql.user WHERE user='centreonbi';
     ```
 
-**2. Accorder les privilèges.**
+**2. Accordez les privilèges.**
 
     ```sql
     GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER,
@@ -266,7 +266,7 @@ Centreon MBI utilise l'utilisateur `centreonbi`. Appliquez les exigences SSL à 
 
 Centreon MBI utilise l'utilisateur `centreonbi`. Appliquez les exigences SSL à cet utilisateur pour chaque hôte concerné.
 
-**1. Exiger SSL pour l'utilisateur.**
+**1. Exigez SSL pour l'utilisateur.**
 
   ```shell
   -- SSL uniquement (aucun certificat client requis)
@@ -277,7 +277,7 @@ Centreon MBI utilise l'utilisateur `centreonbi`. Appliquez les exigences SSL à 
   SELECT user, host, ssl_type FROM mysql.user WHERE user='centreonbi';
   ```
 
-**2. Accorder les privilèges.**
+**2. Accordez les privilèges.**
 
   ```shell
   GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER,
