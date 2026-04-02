@@ -340,8 +340,8 @@ yum install centreon-plugin-Operatingsystems-Aix-Snmp
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Time offset warning threshold (in seconds)                                                         | -5:5              |             |
-| CRITICAL     | Time offset critical Threshold (in seconds)                                                        | -10:10            |             |
+| WARNING      | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. | -5:5              |             |
+| CRITICAL     | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. | -10:10            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>

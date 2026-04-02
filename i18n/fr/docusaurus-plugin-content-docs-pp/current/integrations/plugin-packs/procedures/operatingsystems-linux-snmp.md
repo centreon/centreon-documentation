@@ -501,8 +501,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 | NTPADDR      | Set the ntp hostname (if not set, localtime is used)                                                                                             |                   |             |
 | NTPPORT      | Set the ntp port (default: 123)                                                                                                                  |                   |             |
 | TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'                                  |                   |             |
-| WARNING      | Time offset warning threshold (in seconds)                                                                                                       | -1:1              |             |
-| CRITICAL     | Time offset critical Threshold (in seconds)                                                                                                      | -2:2              |             |
+| WARNING      | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. | -1:1              |             |
+| CRITICAL     | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. | -2:2              |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
