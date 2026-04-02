@@ -21,13 +21,32 @@ Les formats supportés sont :
 - fichier de certificat public, CA ou wildcard : .crt/.cer
 - fichier de clé privée : .key
 
-Les fichiers de certificat déposés sur le collecteur doivent être déposés dans **/etc/pki/**, à la racine ou dans un sous-repértoire.
-Ils doivent avoir les permissions suivantes :
+Les fichiers de certificat déposés sur le collecteur peuvent être placés dans n'importe quel répertoire (sauf les répertoires interdits).
+
+#### Répertoires interdits
 
 ```shell
-chmod 644 /etc/pki/agent.crt
-chmod 644 /etc/pki/agent.key
+/tmp 
+/root 
+/proc 
+/mnt 
+/run 
+/snap 
+/sys 
+/boot 
+/etc (seul /etc/pki/** est autorisé)
+/.*
 ```
+
+#### Permissions
+
+Les fichiers de certificat doivent avoir les permissions suivantes :
+
+```shell
+chmod 644 /chemin/vers/le/certificat/agent.crt
+chmod 644 /chemin/vers/le/certificat/agent.key
+```
+
 > Attention, ne pas appliquer ces droits à l'ensemble du répertoire /etc/pki/ au risque de provoquer une panne globale du collecteur.
 
 Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans le répertoire de votre choix.
