@@ -18,7 +18,7 @@ La vérification est faite sur les blocs **subject** et **alt_names** du certifi
 
 Les formats supportés sont :
 
-- fichier de certificat public, CA ou wildcard : .crt/.cer
+- fichier de certificat public, CA ou wildcard : .crt/.cert/.cer
 - fichier de clé privée : .key
 
 Les fichiers de certificat déposés sur le collecteur peuvent être placés dans n'importe quel répertoire (sauf les répertoires interdits).

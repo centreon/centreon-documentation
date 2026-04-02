@@ -18,7 +18,7 @@ The verification is performed on the **alt_names** block of the certificate, whi
 
 Supported formats are :
 
-- public certificate file, CA or wildcard: .crt/.cer
+- public certificate file, CA or wildcard: .crt/.cert/.cer
 - private key file: .key
 
 Certificate files stored on the poller can be put in any directory (except forbidden).
