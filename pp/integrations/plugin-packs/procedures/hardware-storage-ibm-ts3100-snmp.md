@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-ibm-ts3100-snmp
-title: IBM TS3100
+title: IBM TS3100 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **IBM TS3100** brings a host template:
+The Monitoring Connector **IBM TS3100 SNMP** brings a host template:
 
 * **HW-Storage-IBM-TS3100-SNMP-custom**
 
@@ -18,8 +18,8 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-IBM-TS3100-SNMP-custom" label="HW-Storage-IBM-TS3100-SNMP-custom">
 
-| Service Alias | Service Template                               | Service Description                  |
-|:--------------|:-----------------------------------------------|:-------------------------------------|
+| Service Alias | Service Template                               | Service Description               |
+|:--------------|:-----------------------------------------------|:----------------------------------|
 | GlobalStatus  | HW-Storage-IBM-TS3100-GlobalStatus-SNMP-custom | Check global status of the device |
 
 > The services listed above are created automatically when the **HW-Storage-IBM-TS3100-SNMP-custom** host template is used.
@@ -44,7 +44,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="GlobalStatus" label="GlobalStatus">
 
-| Metric name   | Unit |
+| Name          | Unit |
 |:--------------|:-----|
 | global.status | N/A  |
 
@@ -109,7 +109,7 @@ yum install centreon-pack-hardware-storage-ibm-ts3100-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **IBM TS3100** connector through
+2. Whatever the license type (*online* or *offline*), install the **IBM TS3100 SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin

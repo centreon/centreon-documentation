@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-ibm-ts3200-snmp
-title: IBM TS3200
+title: IBM TS3200 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **IBM TS3200** apporte un modèle d'hôte :
+Le connecteur de supervision **IBM TS3200 SNMP** apporte un modèle d'hôte :
 
 * **HW-Storage-IBM-TS3200-SNMP-custom**
 
@@ -19,8 +19,8 @@ Le connecteur apporte le modèle de service suivant
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-IBM-TS3200-SNMP-custom" label="HW-Storage-IBM-TS3200-SNMP-custom">
 
-| Alias        | Modèle de service                              | Description                             |
-|:-------------|:-----------------------------------------------|:----------------------------------------|
+| Alias        | Modèle de service                              | Description                            |
+|:-------------|:-----------------------------------------------|:---------------------------------------|
 | GlobalStatus | HW-Storage-IBM-TS3200-GlobalStatus-SNMP-custom | Contrôle l'état global de l'équipement |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-IBM-TS3200-SNMP-custom** est utilisé.
@@ -45,7 +45,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="GlobalStatus" label="GlobalStatus">
 
-| Métrique      | Unité |
+| Nom           | Unité |
 |:--------------|:------|
 | global.status | N/A   |
 
@@ -56,7 +56,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -106,7 +109,7 @@ yum install centreon-pack-hardware-storage-ibm-ts3200-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IBM TS3200**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IBM TS3200 SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin

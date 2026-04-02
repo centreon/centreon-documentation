@@ -35,8 +35,8 @@ Votre administrateur vous a invité dans Centreon CIAM : vous avez reçu un emai
 2. Entrez votre mot de passe, puis cliquez sur **Continue**. Le site Centreon CIAM s'ouvre.
 3. Dans le coin supérieur droit de l'écran, cliquez sur l'icône de profil, puis cliquez sur **Edit profile**. Vous pouvez maintenant renseigner vos informations personnelles.
 
-## Accéder à CLM
+## Accéder à Centreon Log Management
 
-Pour lancer CLM, connectez-vous au CIAM. À la page **Applications**, cliquez sur la vignette souhaitée :
+Pour lancer Centreon Log Management, connectez-vous au CIAM. À la page **Applications**, cliquez sur la vignette souhaitée :
 
 ![image](./assets/ciam.png)

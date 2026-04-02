@@ -1,6 +1,6 @@
 ---
 id: hardware-servers-sun-mseries-snmp
-title: Sun Mseries
+title: Sun Mseries SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

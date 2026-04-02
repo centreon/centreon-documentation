@@ -427,7 +427,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--name \
 	--add-status \
 	--add-traffic \
-	--critical-status='' \
+	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' \
 	--warning-in-traffic='80' \
 	--critical-in-traffic='90' \
 	--warning-out-traffic='80' \
@@ -438,7 +438,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=35b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=52b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=68b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=77b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes
@@ -472,7 +472,7 @@ Le plugin apporte les modes suivants :
 | cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stonesoft/snmp/mode/cpu.pm)]                          | Net-Stonesoft-Cpu-SNMP-custom                                                                                                                  |
 | dropped-packets [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stonesoft/snmp/mode/droppedpackets.pm)]   | Net-Stonesoft-Dropped-Packets-SNMP-custom                                                                                                      |
 | interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                     | Net-Stonesoft-Traffic-Generic-ID-SNMP-custom<br />Net-Stonesoft-Traffic-Generic-Name-SNMP-custom<br />Net-Stonesoft-Traffic-Global-SNMP-custom |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]            | Used for service discovery                                                                                                                     |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]            | Utilisé pour la découverte de services                                                                                                         |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stonesoft/snmp/mode/memory.pm)]                    | Net-Stonesoft-Memory-SNMP-custom                                                                                                               |
 | rejected-packets [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stonesoft/snmp/mode/rejectedpackets.pm)] | Net-Stonesoft-Rejected-Packets-SNMP-custom                                                                                                     |
 | storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stonesoft/snmp/mode/storage.pm)]                  | Net-Stonesoft-Disk-Global-SNMP-custom<br />Net-Stonesoft-Disk-Name-SNMP-custom                                                                 |
