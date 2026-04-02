@@ -156,6 +156,41 @@ You should have a result like this:
 -rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
 ```
 
+### Modifying php service version on Debian
+On Debian the php service contain the version of the package, so we need to change this value in the cluster configuration.
+No needed in EL distributions because the servicename is "php-fpm" only.
+To do this we'll use the cibadmin tool to modify the configuration and reimport it.
+<Tabs groupId="sync">
+    <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+        <Tabs groupId="sync">
+            <TabItem value="Debian 12" label="Debian 12">
+                Update the name of the service in the xml configuration file.
+                ```bash
+                sed -i.bak 's#php8.1#php8.2#' export_cluster.xml
+                ```
+                Then reimport de cluster configuration.
+                ```bash
+                cibadmin -R --xml-file export_cluster.xml
+                ```
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+        <Tabs groupId="sync">
+            <TabItem value="Debian 12" label="Debian 12">
+                Update the name of the service in the xml configuration file.
+                ```bash
+                sed -i.bak 's#php8.1#php8.2#' export_cluster.xml
+                ```
+                Then reimport de cluster configuration.
+                ```bash
+                cibadmin -R --xml-file export_cluster.xml
+                ```
+            </TabItem>
+        </Tabs>
+    </TabItem>
+</Tabs>
+
 ### Modifying order of resources on centreon group
 
 To optimize managment of resources and to avoid restart cbd-sql when we just want to restart gorgone, we must change there order in the group.
@@ -277,6 +312,53 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 ```
 
 </TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+First extract all contraint IDs:
+
+```bash
+pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+```
+
+You should have a similar result:
+
+```text
+order-centreon-ms_mysql-clone-mandatory
+colocation-ms_mysql-clone-centreon-INFINITY
+colocation-centreon-ms_mysql-clone-INFINITY
+```
+
+and delete **all** constraints, **adapt IDs with your own**
+
+```bash
+pcs constraint delete order-centreon-ms_mysql-clone-mandatory
+pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
+pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
+```
+
+Verify if all constraint are well deleted:
+
+```bash
+pcs constraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints
+
+```bash
+pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
+```
+
+</TabItem>
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
@@ -292,14 +374,14 @@ pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.
 You should have a similar result depending of your host names:
 
 ```text
-location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
-location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
-location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
-location-centreon-cc-ha-bdd2-2210-alma8--INFINITY
-location-ms_mysql-clone-cc-ha-web1-2210-alma8--INFINITY
-location-ms_mysql-clone-cc-ha-web2-2210-alma8--INFINITY
-location-php-clone-cc-ha-bdd1-2210-alma8--INFINITY
-location-php-clone-cc-ha-bdd2-2210-alma8--INFINITY
+location-cbd_rrd-clone-cc-ha-bdd1-alma8--INFINITY
+location-cbd_rrd-clone-cc-ha-bdd2-alma8--INFINITY
+location-centreon-cc-ha-bdd1-alma8--INFINITY
+location-centreon-cc-ha-bdd2-alma8--INFINITY
+location-ms_mysql-clone-cc-ha-web1-alma8--INFINITY
+location-ms_mysql-clone-cc-ha-web2-alma8--INFINITY
+location-php-clone-cc-ha-bdd1-alma8--INFINITY
+location-php-clone-cc-ha-bdd2-alma8--INFINITY
 order-centreon-ms_mysql-clone-mandatory
 colocation-ms_mysql-clone-vip_mysql-INFINITY
 colocation-centreon-vip-INFINITY
@@ -308,9 +390,9 @@ colocation-centreon-vip-INFINITY
 and delete **all** constraints, **adapt IDs with your own**
 
 ```bash
-pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
-pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
-pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1-alma8--INFINITY
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd2-alma8--INFINITY
+pcs constraint delete location-centreon-cc-ha-bdd1-alma8--INFINITY
 ...
 ```
 
@@ -350,14 +432,14 @@ pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.
 You should have a similar result depending of your host names:
 
 ```text
-location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
-location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
-location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
-location-centreon-cc-ha-bdd2-2210-alma8--INFINITY
-location-ms_mysql-clone-cc-ha-web1-2210-alma8--INFINITY
-location-ms_mysql-clone-cc-ha-web2-2210-alma8--INFINITY
-location-php-clone-cc-ha-bdd1-2210-alma8--INFINITY
-location-php-clone-cc-ha-bdd2-2210-alma8--INFINITY
+location-cbd_rrd-clone-cc-ha-bdd1-alma9--INFINITY
+location-cbd_rrd-clone-cc-ha-bdd2-alma9--INFINITY
+location-centreon-cc-ha-bdd1-alma9--INFINITY
+location-centreon-cc-ha-bdd2-alma9--INFINITY
+location-ms_mysql-clone-cc-ha-web1-alma9--INFINITY
+location-ms_mysql-clone-cc-ha-web2-alma9--INFINITY
+location-php-clone-cc-ha-bdd1-alma9--INFINITY
+location-php-clone-cc-ha-bdd2-alma9--INFINITY
 order-centreon-ms_mysql-clone-mandatory
 colocation-ms_mysql-clone-vip_mysql-INFINITY
 colocation-centreon-vip-INFINITY
@@ -366,9 +448,67 @@ colocation-centreon-vip-INFINITY
 and delete **all** constraints, **adapt IDs with your own**
 
 ```bash
-pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
-pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
-pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1-alma9--INFINITY
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd2-alma9--INFINITY
+pcs constraint delete location-centreon-cc-ha-bdd1-alma9--INFINITY
+...
+```
+
+Verify if all constraint are well deleted:
+
+```bash
+pcs constraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints.
+
+In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
+
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+First extract all contraint IDs:
+
+```bash
+pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+```
+
+You should have a similar result depending of your host names:
+
+```text
+location-cbd_rrd-clone-cc-ha-bdd1--INFINITY
+location-cbd_rrd-clone-cc-ha-bdd2--INFINITY
+location-centreon-cc-ha-bdd1--INFINITY
+location-centreon-cc-ha-bdd2--INFINITY
+location-ms_mysql-clone-cc-ha-web1--INFINITY
+location-ms_mysql-clone-cc-ha-web2--INFINITY
+location-php-clone-cc-ha-bdd1--INFINITY
+location-php-clone-cc-ha-bdd2--INFINITY
+order-centreon-ms_mysql-clone-mandatory
+colocation-ms_mysql-clone-vip_mysql-INFINITY
+colocation-centreon-vip-INFINITY
+```
+
+and delete **all** constraints, **adapt IDs with your own**
+
+```bash
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1--INFINITY
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd2--INFINITY
+pcs constraint delete location-centreon-cc-ha-bdd1--INFINITY
 ...
 ```
 
@@ -413,6 +553,16 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 
 </TabItem>
 <TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
