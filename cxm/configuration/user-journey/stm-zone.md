@@ -56,7 +56,7 @@ Go to the **User Journeys** tab on your site. On the journey you want to run fro
 In the **Advanced configuration** window, scroll down to the **Synthetic Monitoring Zones** section. Your private zone appears under Private Zones. Select it.
 Click Save
 
-Your internal journey monitoring is now in place! You can analize it as a you would for a regular [user journey](../how-to-articles/user-journey-screen.md)
+Your internal journey monitoring is now in place! You can analize it as a you would for a regular [user journey](../how-to-articles/user-journey-screen.md).
 
 ## Troubleshooting
 
