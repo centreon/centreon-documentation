@@ -1,11 +1,13 @@
 ---
 id: rum-blocked-by-csp
-title: A strict Content Security Policy (CSP) blocks the RUM data collection
+title: Troubleshooting RUM
 ---
+
+## A strict Content Security Policy (CSP) blocks the RUM data collection
 
 In certain web environments with an enforced security policy ([Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)), the Centreon Real User Monitoring (RUM) tag may require additional configuration. The issue is rare, but can prevent RUM data from being transmitted until the Quanta domains are correctly authorized.
 
-## Symptom - RUM data is not being transmitted
+### Symptom - RUM data is not being transmitted
 
 If you have installed the Quanta RUM tag via GTM or Axeptio and you observe that:
 - the Quanta script loads correctly,
@@ -14,7 +16,7 @@ If you have installed the Quanta RUM tag via GTM or Axeptio and you observe that
 
 Your site uses a CSP that requires an update. This behavior is completely normal in environments where the security policy is strict (banking, advanced retail, sites under WAF/CDN, etc.).
 
-## Issue - The RUM tag is blocked by a CSP
+### Issue - The RUM tag is blocked by a CSP
 
 CXM uses a script loaded from ``https://appstatic.quanta.io``, and then sends its performance metrics to ``https://rum-metrics.quanta.io``. 
 On the large majority of sites, this works automatically, including when the tag is installed via GTM, Axeptio or another manager. However, some sites implement an advanced Content Security Policy (CSP).
@@ -28,7 +30,7 @@ This is a security mechanism that precisely defines:
 
 > In Chrome DevTools, this appears as ``blocked:csp`` on the ``beacon.gif`` type request.
 
-## Solution - Add authorizations
+### Solution - Add authorizations
 
 To allow the RUM module to work while strictly respecting your security rules, simply add the two Quanta domains to the appropriate directives.
 
@@ -49,7 +51,7 @@ Even if the current beacon passes through ``img-src``, this addition ensures com
 - future optimizations of the RUM API,
 - enforced security environments.
 
-## CSP adjustment example
+### CSP adjustment example
 
 Here is a schematic example (to be adapted to your existing configuration):
 

@@ -84,8 +84,9 @@ module.exports = {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'how-to-articles/unable-to-connect' },
-
+        { type: 'doc', id: 'configuration/configure-google-analytics' },
+        { type: 'doc', id: 'business-data/business-data-results' },
+        { type: 'doc', id: 'business-data/business-alerts' },
       ],
     },
     {
