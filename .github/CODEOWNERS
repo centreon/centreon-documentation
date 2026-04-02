@@ -1,6 +1,5 @@
 .github/**          @centreon/owners-pipelines
-*.js                @centreon/owners-pipelines
-*.jsx               @centreon/owners-pipelines
+docusaurus.config.js                @centreon/owners-pipelines
 
 *.pl                @centreon/owners-perl
 *.pm                @centreon/owners-perl
