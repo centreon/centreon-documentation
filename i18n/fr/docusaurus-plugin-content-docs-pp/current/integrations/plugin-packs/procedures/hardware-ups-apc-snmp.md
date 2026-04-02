@@ -332,8 +332,8 @@ yum install centreon-plugin-Hardware-Ups-Apc-Snmp
 | NTPHOSTNAME    | Set the ntp hostname (if not set, localtime is used)                                                                                             |                   |             |
 | NTPPORT        | Set the ntp port (default: 123)                                                                                                                  |                   |             |
 | TIMEZONE       | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London'                                             |                   |             |
-| WARNINGOFFSET  | Time offset warning threshold (in seconds)                                                                                                       |                   |             |
-| CRITICALOFFSET | Time offset critical Threshold (in seconds)                                                                                                      |                   |             |
+| WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |                   |             |
+| CRITICALOFFSET | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
