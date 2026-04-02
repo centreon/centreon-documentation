@@ -439,11 +439,22 @@ Cette section décrit comment activer SSL sur un serveur MySQL/MariaDB et config
 
 **1. Exigez SSL pour l’utilisateur.**
 
-    
+    ```shell
+    ALTER USER 'centreon_map'@'<ip_or_hostname>' REQUIRE SSL;
+    -- Verify: ssl_type should now show ANY
+    SELECT user, host, ssl_type FROM mysql.user WHERE user='centreon_map';
+    ```
 
 **2. Accordez les privilèges.**
 
-    
+    ```shell
+    GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER,
+          CREATE TEMPORARY TABLES, LOCK TABLES
+      ON `centreon_map`.*
+      TO `centreon_map`@`<ip_or_hostname>`;
+    -- Verify grants
+    SHOW GRANTS FOR 'centreon_map'@'<ip_or_hostname>';
+    ```
 
 </TabItem>
 <TabItem value="MariaDB" label="MariaDB">
