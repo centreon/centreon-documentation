@@ -177,7 +177,7 @@ chmod 644 /etc/pki/agent.key
 
 ## Mode test : communication non chiffrée
 
-Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat ou jeton.
+Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat mais le jeton reste obligatoire.
 
 > Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
 

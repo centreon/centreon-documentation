@@ -177,7 +177,7 @@ chmod 644 /etc/pki/agent.key
 
 ## Testing mode: unencrypted communication
 
-You can leave the connection unencrypted **for test purposes only**. In this mode, you do not need any certificates or tokens.
+You can leave the connection unencrypted **for test purposes only**. In this mode, you do not need any certificates but token remains mandatory.
 
 > Note that this connection will only last for one hour. Do not use this setting in production!
 
