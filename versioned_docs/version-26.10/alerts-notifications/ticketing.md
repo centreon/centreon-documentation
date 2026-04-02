@@ -65,7 +65,8 @@ To use **Open Ticket**, you must add it into a dashboard.
 2. Fill in the properties.
 
 3. Set the parameters for your tickets in the **Ticket management** section.
-   - Define if you want to display **Resources with no tickets** or **Resources linked to a ticket**.
+   - In **Rule (ticket provider)**, you can define if you want to display **Resources with no tickets** or **Resources linked to a ticket**.
+   - In **Display ticket creation buttons**, you can **Enable ticket creation for hosts** and **Enable ticket creation for services**.
 
 4. Save your changes.
 
