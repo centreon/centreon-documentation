@@ -715,8 +715,8 @@ All available options for each service template are listed below:
 | --ntp-hostname    | Set the ntp hostname (if not set, localtime is used).      |
 | --ntp-port        | Set the ntp port (default: 123).                           |
 | --timezone        | Set the timezone for displaying the date (default: UTC).   |
-| --warning-offset  | Time offset warning threshold (in seconds).                |
-| --critical-offset | Time offset critical Threshold (in seconds).               |
+| --warning-offset  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

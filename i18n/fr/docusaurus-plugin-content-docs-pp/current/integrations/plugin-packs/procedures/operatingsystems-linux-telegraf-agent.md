@@ -1331,8 +1331,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-state     | Filter peer state (can be a regexp).                                                                                                                                            |
 | --warning-peers    | Warning threshold minimum amount of NTP-Server                                                                                                                                  |
 | --critical-peers   | Critical threshold minimum amount of NTP-Server                                                                                                                                 |
-| --warning-offset   | Warning threshold offset deviation value in milliseconds                                                                                                                        |
-| --critical-offset  | Critical threshold offset deviation value in milliseconds                                                                                                                       |
+| --warning-offset   | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset  | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --warning-stratum  | Warning threshold.                                                                                                                                                              |
 | --critical-stratum | Critical threshold.                                                                                                                                                             |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |
