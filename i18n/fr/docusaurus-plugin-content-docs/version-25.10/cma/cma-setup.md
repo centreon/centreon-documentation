@@ -127,6 +127,8 @@ Cette étape s'effectue sur le collecteur.
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
+> Ces commandes doivent être adaptées selon le système d'exploitation.
+
 Exécutez les commandes suivantes :
 
 ```bash

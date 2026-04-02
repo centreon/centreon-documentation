@@ -113,6 +113,8 @@ This step is performed on the poller.
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
+> These commands need to be adapted depending on the OS.
+
 Run the following commands:
 
 ```bash
