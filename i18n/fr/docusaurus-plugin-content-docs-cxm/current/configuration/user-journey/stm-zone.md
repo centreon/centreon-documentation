@@ -11,7 +11,6 @@ Depuis la **Vue Globale**, ouvrez le sélecteur de site en haut à gauche et ouv
 
 ![image](../../assets/configuration/user-journey/organization-page.png)
 
-
 ## Étape 2 : Accéder à l'onglet Zones STM
 
 Dans la page de configuration de votre organisation, cliquez sur l'onglet **Zones de Monitoring Synthétique**.
@@ -41,8 +40,8 @@ Une fois les identifiants obtenus, connectez-vous au registre Docker :
 
 '''shell
 docker login docker.centreon.com/centreon-dem-beta
-Username: <entrez votre nom utilisateur>
-Password: <entrez votre mot de passe>
+Username: \<username>
+Password: \<password>
 '''
 
 ## Étape 6 : Démarrage de la sonde

@@ -11,7 +11,6 @@ From the **Global View**, open the site selector at the top left and open your o
 
 ![image](../../assets/configuration/user-journey/organization-page.png)
 
-
 ## Step 2: Access the STM Zones tab
 
 On your organization’s configuration page, click the **Synthetic Monitoring Zones** tab.
@@ -41,8 +40,8 @@ Once you have obtained the credentials, log in to the Docker registry:
 
 '''shell
 docker login docker.centreon.com/centreon-dem-beta
-Username: <entrez votre nom utilisateur>
-Password: <entrez votre mot de passe>
+Username: \<username>
+Password: \<password>
 '''
 
 ## Step 6: Launching the probe
