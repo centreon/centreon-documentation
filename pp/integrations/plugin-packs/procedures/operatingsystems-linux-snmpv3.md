@@ -875,8 +875,8 @@ All available options for each service template are listed below:
 | Option            | Description                                                                                                         |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------|
 | --oid             | Override default OID.                                                                                               |
-| --warning-offset  | Time offset warning threshold (in seconds).                                                                         |
-| --critical-offset | Time offset critical threshold (in seconds).                                                                        |
+| --warning-offset  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --ntp-hostname    | Set the NTP server's hostname (if not set, local time is used)                                                         |
 | --ntp-port        | Define the port of the NTP server (default: 123).                                                                                    |
 | --timezone        | Set the timezone of the distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.    |
