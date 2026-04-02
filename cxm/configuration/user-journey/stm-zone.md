@@ -33,7 +33,7 @@ the second one is used to launch the probe (see [Step 6](#step-6-launching-the-p
 
 ## Step 5: Obtain the Docker credentials from Keeper
 
-The probe image is stored in a private registry. The credentials must be shared via a secure Keeper link.
+The credentials are sent to you by Centreon via a secure Keeper link.
 
 Contact Centreon to receive the Keeper link. Save the credentials in your own vault.
 
@@ -41,8 +41,8 @@ Once you have obtained the credentials, log in to the Docker registry:
 
 '''shell
 docker login docker.centreon.com/centreon-dem-beta
-Username: \<username\>
-Password: \<password\>
+Username: <entrez votre nom utilisateur>
+Password: <entrez votre mot de passe>
 '''
 
 ## Step 6: Launching the probe
@@ -51,10 +51,12 @@ Once launched, the probe is automatically saved and appears in the STM Zones lis
 
 ## Step 7: Associate the zone with a user journey
 
-Go to the User Journeys tab on your site. On the journey you want to run from your private zone, click on the three dots on the right, then click on **Advanced**.
+Go to the **User Journeys** tab on your site. On the journey you want to run from your private zone, click on the three dots on the right, then click on **Advanced**.
 
-In the Advanced Edit window, scroll down to the Synthetic Monitoring Zones section. Your private zone appears under Private Zones. Select it.
+In the **Advanced configuration** window, scroll down to the **Synthetic Monitoring Zones** section. Your private zone appears under Private Zones. Select it.
 Click Save
+
+Your internal journey monitoring is now in place! You can analize it as a you would for a regular [user journey](../how-to-articles/user-journey-screen.md)
 
 ## Troubleshooting
 
