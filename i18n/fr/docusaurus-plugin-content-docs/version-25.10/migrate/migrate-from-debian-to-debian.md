@@ -11,6 +11,8 @@ Cette procédure ne s'applique que si vous souhaitez migrer de Debian 11 vers De
 
 Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
 
+> Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
+
 > En cas de migration d'une plateforme disposant du système de redondance
 > Centreon, il est nécessaire de contacter le
 > [support Centreon](https://support.centreon.com).
