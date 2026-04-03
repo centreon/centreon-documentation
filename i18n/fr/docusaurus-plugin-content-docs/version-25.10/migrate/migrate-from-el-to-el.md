@@ -16,10 +16,6 @@ Tous les serveurs de votre architecture (serveur central, serveurs distants et c
 
 > Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
-> En cas de migration d'une plateforme disposant du système de redondance
-> Centreon, il est nécessaire de contacter le
-> [support Centreon](https://support.centreon.com).
-
 Avant toute chose, effectuez une sauvegarde de l’ensemble des serveurs de votre plateforme :
 
 - Serveur Centreon central,
