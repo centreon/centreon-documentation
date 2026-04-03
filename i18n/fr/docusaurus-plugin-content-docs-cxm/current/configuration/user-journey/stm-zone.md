@@ -18,6 +18,7 @@ Dans la page de configuration de votre organisation, cliquez sur l'onglet **Zone
 ## Étape 3 : Créer une nouvelle zone STM
 
 Cliquez sur **+ Nouvelle Zone de Monitoring Synthétique**, donnez-lui un nom significatif (ex. : Paris Office), puis cliquez sur **+ Créer**.
+
 Votre nouvelle zone apparaît désormais dans la liste.
 
 ## Étape 4 : Associer une sonde
@@ -32,11 +33,11 @@ la seconde sert à lancer la sonde (voir [étape 6](#étape-6--démarrage-de-la-
 
 ## Étape 5 : Obtenir les identifiants Docker depuis Keeper
 
-Les identifiants vous sont partagés par Centreon via un lien sécurisé Keeper.
+1. Les identifiants vous sont partagés par Centreon via un lien sécurisé Keeper.
 
-Contactez Centreon pour recevoir le lien Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
+2. Contactez Centreon pour recevoir le lien Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
 
-Une fois les identifiants obtenus, connectez-vous au registre Docker :
+3. Une fois les identifiants obtenus, connectez-vous au registre Docker :
 
 '''shell
 docker login docker.centreon.com/centreon-dem-beta
@@ -50,12 +51,12 @@ Une fois démarrée, la sonde s'enregistre automatiquement et apparaît dans la 
 
 ## Étape 7 : Associer la zone à un parcours utilisateur
 
-Accédez à l'onglet **Parcours Utilisateur** de votre site. Sur le parcours que vous souhaitez exécuter depuis votre zone privée, cliquez sur les trois points à droite puis sur **Avancé**.
+1. Accédez à l'onglet **Parcours Utilisateur** de votre site. Sur le parcours que vous souhaitez exécuter depuis votre zone privée, cliquez sur les trois points à droite puis sur **Avancé**.
 
-Dans la fenêtre **Configuration avancée**, faites défiler jusqu'à la section **Zones de Monitoring Synthétique**. Votre zone privée apparaît sous Zones Privées. Sélectionnez-la.
+2. Dans la fenêtre **Configuration avancée**, faites défiler jusqu'à la section **Zones de Monitoring Synthétique**. Votre zone privée apparaît sous Zones Privées. Sélectionnez-la.
 Cliquez sur Sauvegarder.
 
-Votre supervision de parcours interne est désormais en place ! Vous pouvez l'étudier de la même manière qu'un [parcours utilisateur](../how-to-articles/user-journey-screen.md) normal.
+3. Votre supervision de parcours interne est désormais en place ! Vous pouvez l'étudier de la même manière qu'un [parcours utilisateur](../how-to-articles/user-journey-screen.md) normal.
 
 ## Troubleshooting
 
