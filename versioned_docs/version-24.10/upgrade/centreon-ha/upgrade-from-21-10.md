@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon HA platform from version 21.10 to version 24.10.
 
+> If you were considering migrating your platform to another OS too, contact your Centreon sales representative to discuss this.
+
 ## Prerequisites
 
 ### Suspend cluster resources management
