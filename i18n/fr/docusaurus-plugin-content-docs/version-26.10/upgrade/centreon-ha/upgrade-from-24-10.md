@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 24.04 vers la version 25.10.
 
+Si vous envisagez également de migrer votre plateforme vers un autre système d’exploitation, contactez votre représentant commercial Centreon pour en discuter.
+
 ## Prérequis
 
 ### Suspendre la gestion des ressources du cluster
