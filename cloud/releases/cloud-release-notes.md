@@ -3,9 +3,48 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
-## April 7th, 2026
+## April 8th, 2026
 
-RELEASE NOTES 26.03.0 
+### Centreon IT Edition
+
+**Centreon Monitoring Agent (CMA)**
+
+This release focuses on streamlining the deployment lifecycle of the Centreon Monitoring Agent, from installation to automated host provisioning:
+
+Automated Host Creation: To accelerate large-scale deployments, hosts can now be automatically created in the Centreon configuration upon agent registration. This behavior can be enabled via a new option in the Agent configuration menu.
+
+Simplified Deployment: New helper scripts for both Linux and Windows are now available to simplify the download, installation, and initial registration of the agent.
+
+Enhanced Native Checks: The File native check has been improved and can now trigger alerts when a result set is empty, providing better visibility into missing critical files.
+
+Certificate Management: The Centreon Engine is now capable of automatically generating and renewing CMA certificates, reducing manual administrative overhead and ensuring continuous secure communication.
+
+Threshold Compatibility: A dedicated script is now provided to help administrators adapt threshold formats specifically for CMA native checks.
+
+Certificate Authority: New columns dedicated to CA certificates have been integrated into the instances database to support enhanced security tracking.
+
+
+**Centreon Dashboards**
+
+
+Resource Table Widget: To offer better control over incident management workflows, new options allow users to enable or disable the ticket creation action directly from the widget (available for both hosts and services).
+
+
+**Configuration & Poller Wizard**
+
+Global Macros: In an effort to clarify configuration terminology, Resource macros have been renamed Global macros throughout the interface.
+
+Poller Setup: When creating a new Poller, the system now automatically generates the dedicated token and agent configuration, ensuring a "ready-to-monitor" state immediately.
+
+Poller Commands: The Poller wizard has been updated to use systemctl instead of the legacy service command for Engine and Broker management, aligning with modern OS standards.
+
+Broker Enhancements: A new Broker output has been added to handle script execution, and a mechanism has been implemented to delay write retries in specific scenarios where the system call does not return a boolean.
+
+
+**Centreon Customer Identity and Access Management**
+
+Improved invitation management: A new page is available to have visibility over invitation status.
+
 
 ## February 17th, 2026
 
