@@ -6,7 +6,195 @@ title: Release Notes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## 2026
+
+### Mars
+
+> **Attention :** Comme vous l'aurez constaté, la quasi-totalité des connecteurs de supervision apparaîtront comme à mettre à jour suite à cette release.
+> Pour la majorité d'entre eux, il s'agit d'une release technique. Si vous ne les trouvez pas dans les onglets ci-dessous, il n'y aura pas d'autre changement mis à part que la version requise du plugin sera disponible sur les plateformes Debian 13 et EL10 pour préparer la future disponibilité de Centreon sur ces OS.
+> Notez également que les paquets à destination d'EL7 seront prochainement archivés étant donné que cette plateforme n'est plus supportée.
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Aviat Networks SNMP**](../procedures/network-aviat-snmp.md) - Initial release.
+- [**Kairos SNMP**](../procedures/network-kairos-snmp.md) - Initial release.
+- [**Veeam ONE Rest API**](../procedures/applications-veeam-vone-restapi.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**HAProxy SNMP**](../procedures/applications-haproxy-snmp.md) - Allow compatibility with version 17 OIDs.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Added the number and percent of open files per process in process mode.
+- [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - Allow compatibility with version 13.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Allow compatibility with version 13.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Allow compatibility with version 13.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Allow compatibility with version 13.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Allow compatibility with version 13.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Add certificates mode.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Handle extended thresholds on CMA native checks.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed a `No peers detected` error with `--ntp-mode=ntpq`.
+- [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - Fixed edge cases size calculation in database mode.
+- [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Fixed edge cases size calculation in database mode.
+- [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - Fixed edge cases size calculation in database mode.
+- [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Replaced obsolete '\C' pattern in regular expressions in Cpu, Psu and Temperature.
+- [**SecurActive SNMP**](../procedures/network-securactive-snmp.md) - Fixed the **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.
+- [**Splunk API**](../procedures/applications-monitoring-splunk-api.md) - Fixed the **App-Monitoring-Splunk-Api-String-Value** command that used a wrong mode.
+- [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Fixed host ID macro in **Virt-VMWare8-VM-Restapi-Network-Throughput** command.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - The temporary files are now deleted when the execution ends.
+
+</TabItem>
+</Tabs>
+
+### Février
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Fortinet FortiAuthenticator RestAPI**](../procedures/network-fortinet-fortiauthenticator-restapi.md) - Initial release.
+- [**Zscaler ZDX Api**](../procedures/applications-monitoring-zscaler-zdx-api.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Base Pack**](../procedures/base-generic.md) - Reduced the ICMP packet size to ensure it can pass through firewalls protecting SaaS software.
+- [**HP Ilo XMLAPI**](../procedures/hardware-servers-hp-ilo-xmlapi.md) - The connector now uses warning and critical thresholds provided by ILO data when no custom thresholds are defined.
+- [**AIX SSH**](../procedures/operatingsystems-aix-ssh.md) - Added a `FILTERARG` macro to the **Process** service template to filter on the process' arguments. Also added the ability to display details of all processes (including "OK" processes) in the long output (issue [#5945](https://github.com/centreon/centreon-plugins/issues/5945)).
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Added a **Custom-Script** service template to run custom commands. 
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added new parameters for the **Services** service template and added a **Custom-Script** service template to run custom commands.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Added support for applying thresholds to the total number of connections, not just per database. This breaking change replaces the `*FILTER` macros in the **Query-Time**, **Locks**, **Backend** and **Hitratio** templates with more explicit `*INCLUDE*` and `*EXCLUDE*` macros (issue [#5350](https://github.com/centreon/centreon-plugins/issues/5350)).
+
+- The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+
+   - [**Active Directory Rest API**](../procedures/infrastructure-active-directory-nsclient-05-restapi.md)
+   - [**EMC Symmetrix API**](../procedures/hardware-storage-emc-symmetrix-nsclient-05-restapi.md)
+   - [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md)
+   - [**Microsoft SCCM NSClient**](../procedures/applications-sccm-nsclient.md)
+   - [**Microsoft WSUS**](../procedures/applications-wsus-nsclient.md)
+   - [**Netbackup NSClient++ API**](../procedures/applications-netbackup-nsclient-05-restapi.md)
+   - [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md)
+   - [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md)
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-cxm-restapi.md) - The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases. 
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as `updates` and `pending-reboot` modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)). 
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fixed a mix-up between `data-write-ops` and `data-write-bytes` for the **Fsx-DataUsage** service (issue [#5944](https://github.com/centreon/centreon-plugins/issues/5944)).
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed an error in the bandwidth calculation for the **SDWan** service (issue [#5959](https://github.com/centreon/centreon-plugins/issues/5959)).
+
+</TabItem>
+</Tabs>
+
+### Janvier
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Apache CXF**](../procedures/applications-apache-cxf-jmx.md) - Initial release.
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-cxm-restapi.md) - Initial release.
+- [**Microsoft SCCM CMA**](../procedures/applications-sccm-cma.md) - Initial release.
+- [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md) - Initial release ([Issue 5551](https://github.com/centreon/centreon-plugins/issues/5551)).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Arista Switch SNMP**](../procedures/network-switchs-arista-snmp.md) - Added **bgp** service template.
+- [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - Added completion time to **ipsla** mode.
+- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Added client name to the output prefix of the **jobs** mode.
+- [**HPE Athonet w/ Prometheus API**](../procedures/network-hpe-athonet-node-exporter-api.md) - Added the common system checks from Prometheus node exporter.
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - Handle the pagination brought by version 7.5.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Added an option to the **connected-users** mode to filter by database name ([PR 5195](https://github.com/centreon/centreon-plugins/pull/5195)).
+- [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - Added the **snapmirrorlag** service template.
+- [**Nutanix**](../procedures/virtualization-nutanix-snmp.md) - Added support of Nutanix 6.10 (fixes 'No disk found' error in **disk-usage**_ service template).
+- [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Deprecated, replaced by [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-cxm-restapi.md).
+- [**VMware VCSA Rest API**](../procedures/applications-vmware-vcsa-restapi.md) - Deprecated, replaced by [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md).
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Dell Compellent Nsclient NRPE**](../procedures/hardware-storage-dell-compellent-api.md) - The pack has been renamed and the default NRPECLIENT macro changed to use the official Nagios NRPE4 client.
+- [**Microsoft Cluster Server NSClient++ NRPE**](../procedures/applications-mscs-nrpe.md) - Changed the default NRPECLIENT macro to use the official Nagios NRPE4 client and fixed the default client options.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**D-Link DGS 3100 SNMP**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [**HP MSA2000 SNMP**](../procedures/hardware-storage-hp-msa2000-snmp.md) - Fixed GitHub [issue 5899](https://github.com/centreon/centreon-plugins/issues/5899), also talked about on [TheWatch](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [**Lenovo S Series SNMP**](../procedures/hardware-storage-lenovo-sseries-snmp.md) - Fixed GitHub [issue 5899](https://github.com/centreon/centreon-plugins/issues/5899), also talked about on [TheWatch](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Forced the version of a dependency, to fix a segmentation fault issue. 
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+
+</TabItem>
+</Tabs>
+
 ## 2025
+
+### Décembre
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Cato Networks API**](../procedures/network-security-cato-networks-api.md) - Initial release, based on a [The Watch idea](https://thewatch.centreon.com/ideas/create-a-new-cato-network-connector-4025). 
+- [**Microsoft Cluster Server CMA**](../procedures/applications-mscs-cma.md) - Initial release.
+- [**Nvidia (formerly Mellanox) SNMP**](../procedures/network-nvidia-mellanox-snmp.md) - Initial release [PR 5753](https://github.com/centreon/centreon-plugins/pull/5753).
+- [**OpenStack RESTAPI**](../procedures/cloud-openstack-restapi.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - New LTE service template.
+- [**Active Directory CMA**](../procedures/infrastructure-active-directory-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Base Pack**](../procedures/base-generic.md) - New **Generic-Passive-CMA-Service** service template with `is_volatile` set to 0 to avoid multiple notifications.
+- [**Hyper-V 2012 CMA**](../procedures/virtualization-hyperv-2012-cma.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Microsoft WSUS CMA**](../procedures/applications-wsus-cma.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Cisco Waas SNMP**](../procedures/network-cisco-waas-snmp.md) - Fixed errors related to thresholds.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - Fixed typo in jobs mode.
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Added state to the requested fields in volume query [PR 5851](https://github.com/centreon/centreon-plugins/pull/5851).
+- [**Netbackup NSClient++ API**](../procedures/applications-netbackup-nsclient-05-restapi.md) - Removed exchange command.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed wrong tablespace size calculation in tablespace-usage mode.
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**D-Link DGS 3100**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed wrong output unit in locks-wait mode.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
+- [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+
+</TabItem>
+</Tabs>
 
 ### Novembre
 
@@ -43,7 +231,7 @@ import TabItem from '@theme/TabItem';
 
 - [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - Fixed localized time calculation using the ` timezone` option.
 - [**Azure ServiceBus**](../procedures/cloud-azure-integration-servicebus.md) - Fixed an issue in metric configuration in **namespaces** mode.
-- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Handle empty table returns.
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Handle empty table returns.
 - [**Comet P8000 Sensor SNMP**](../procedures/hardware-sensors-comet-p8000-snmp.md) - Removed 'geist' from connector name.
 - [**Dell Compellent Nsclient NRPE**](../procedures/hardware-storage-dell-compellent-api.md) - Made NSClient and NRPE usage more explicit.
 - [**Dell iDRAC SNMP**](../procedures/hardware-servers-dell-idrac-snmp.md) - Fixed ready status for `pdisk.state` in **hardware** mode.

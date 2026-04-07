@@ -44,10 +44,9 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 Centreon developed SELinux rules in order to strengthen the control of
 components by the operating system.
 
-> These rules are currently in **beta mode** and can be activated.
-> You can activate them by following this procedure. If you detect a problem,
+> To activate these rules, follow this procedure. If you detect a problem,
 > you can disable SELinux globally and send us your feedback in
-> order to improve our rules on [Github](https://github.com/centreon/centreon).
+> order to improve our rules on our community platform [The Watch](https://thewatch.centreon.com/).
 
 ### SELinux Overview
 
@@ -1454,13 +1453,13 @@ dnf install nghttp2
 
 4. Update the method used by the apache multi-process module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
-   Comment the following line:
+   Find the following line and comment it by adding the "#" character as below:
 
    ```shell
-   LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   #LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
    ```
 
-   Uncomment the following line:
+   Find the following line and uncomment it by removing the "#" character as below:
 
    ```shell
    LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1496,13 +1495,13 @@ dnf install nghttp2
 
 4. Update the method used by the apache multi-process module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
-   Comment the following line:
+   Find the following line and comment it by adding the "#" character as below:
 
    ```shell
-   LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   #LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
    ```
 
-   Uncomment the following line:
+   Find the following line and uncomment it by removing the "#" character as below:
 
    ```shell
    LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1656,3 +1655,33 @@ Centreon event logs are available in the following directories:
 ## Backing up the platform
 
 Centreon offers to save the configuration of the platform. To do this, go to the [**Administration > Parameters > Backup**](./backup.md) menu.
+
+## Using antivirus software on your Centreon platform
+
+This section applies if you are using antivirus/EDR software to scan a Centreon Infra Monitoring platform (central server, remote server, poller, MAP or MBI server). This includes Business modules.
+
+Here is a list of services and directories that should be excluded from antivirus scanning.
+
+### Services to be excluded
+
+* centengine
+* cbd
+* centreontrapd
+* gorgoned
+* php-fpm
+* httpd
+
+If you are using one of these connectors, exclude the following services:
+
+* vmware: centreon_vmware
+* as400: centreon-as400
+
+### Directories to be excluded
+
+* /etc/centreon*
+* /var/log/centreon*
+* /var/lib/centreon*
+* /var/cache/centreon*
+* /usr/share/centreon*
+* /var/spool/centreon*
+* /var/lib/mysql

@@ -224,7 +224,7 @@
     "description": "The label for category Before you start in sidebar docs"
   },
   "sidebar.docs.category.Before you start.link.generated-index.description": {
-    "message": "Ce que vous devez savoir avant d'installer votre plateforme Centreon.",
+    "message": "Ce que vous devez savoir avant d'installer votre plateforme Centreon Infra Monitoring.",
     "description": "The generated-index page description for category Before you start in sidebar docs"
   },
   "sidebar.docs.category.First steps with Centreon": {

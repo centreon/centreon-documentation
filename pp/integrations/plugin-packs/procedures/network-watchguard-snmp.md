@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Watchguard SNMP** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -35,13 +35,13 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias  | Service Template                          | Service Description                                                                         | Discovery |
-|:---------------|:------------------------------------------|:--------------------------------------------------------------------------------------------|:---------:|
-| Cluster        | Net-Watchguard-Cluster-SNMP-custom        | Check cluster                                                                               |           |
-| Disk-Global    | Net-Watchguard-Disk-Global-SNMP-custom    | Check the rate of free space on disks. For each checks the mount point of disks will appear |     X     |
-| Ipsec-Tunnel   | Net-Watchguard-Ipsec-Tunnel-SNMP-custom   | Check ipsec tunnels                                                                         |           |
-| Policy-Usage   | Net-Watchguard-Policy-Usage-SNMP-custom   | Check policy usage                                                                          |           |
-| Traffic-Global | Net-Watchguard-Traffic-Global-SNMP-custom | Check traffic of multiple network interfaces                                                |     X     |
+| Service Alias  | Service Template                          | Service Description                                                                                     | Discovery |
+|:---------------|:------------------------------------------|:--------------------------------------------------------------------------------------------------------|:---------:|
+| Cluster        | Net-Watchguard-Cluster-SNMP-custom        | Check cluster                                                                                           |           |
+| Disk-Global    | Net-Watchguard-Disk-Global-SNMP-custom    | Check the rate of free space on disks. For each checks the mount point of disks will appear (« label ») |     X     |
+| Ipsec-Tunnel   | Net-Watchguard-Ipsec-Tunnel-SNMP-custom   | Check ipsec tunnels                                                                                     |           |
+| Policy-Usage   | Net-Watchguard-Policy-Usage-SNMP-custom   | Check policy usage                                                                                      |           |
+| Traffic-Global | Net-Watchguard-Traffic-Global-SNMP-custom | Check traffic of multiple network interfaces                                                            |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -54,9 +54,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name       | Description                                                                                                                                                                                                                                         |
-|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Watchguard-SNMP-custom** host template. |
+| Rule name   | Description                                                                                                                                                                                                                                         |
+|:------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Watchguard-SNMP-custom** host template. |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -88,11 +88,11 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Name                           | Unit  |
-|:-------------------------------|:------|
-| cpu.utilization.1m.percentage  | %     |
-| cpu.utilization.5m.percentage  | %     |
-| cpu.utilization.15m.percentage | %     |
+| Name                           | Unit |
+|:-------------------------------|:-----|
+| cpu.utilization.1m.percentage  | %    |
+| cpu.utilization.5m.percentage  | %    |
+| cpu.utilization.15m.percentage | %    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -221,8 +221,8 @@ yum install centreon-pack-network-watchguard-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Watchguard SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+2. Whatever the license type (*online* or *offline*), install the **Watchguard  SNMP** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -274,14 +274,14 @@ yum install centreon-plugin-Network-Watchguard-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **Net-Watchguard-SNMP-custom** template to the host. 
+3. Apply the **Net-Watchguard-SNMP-custom** template to the host.
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro            | Description                                                                                                                                        | Default value | Mandatory |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -293,108 +293,108 @@ yum install centreon-plugin-Network-Watchguard-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cluster" label="Cluster">
 
-| Macro                        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCLUSTERSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}                           |                   |             |
-| CRITICALCLUSTERSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}                          |                   |             |
-| WARNINGMEMBERHEALTHHARDWARE  | Threshold                                                                                                                              |                   |             |
-| CRITICALMEMBERHEALTHHARDWARE | Threshold                                                                                                                              |                   |             |
-| WARNINGMEMBERHEALTHSYSTEM    | Threshold                                                                                                                              |                   |             |
-| CRITICALMEMBERHEALTHSYSTEM   | Threshold                                                                                                                              |                   |             |
-| WARNINGMEMBERSDETECTED       | Threshold                                                                                                                              |                   |             |
-| CRITICALMEMBERSDETECTED      | Threshold                                                                                                                              |                   |             |
-| WARNINGMEMBERSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{role\}, %\{serial\}               |                   |             |
-| CRITICALMEMBERSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{role\}, %\{serial\}              |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro                        | Description                                                                                                                                      | Default value | Mandatory |
+|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGCLUSTERSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}                                     |               |           |
+| CRITICALCLUSTERSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}                                    |               |           |
+| WARNINGMEMBERHEALTHHARDWARE  | Threshold                                                                                                                                        |               |           |
+| CRITICALMEMBERHEALTHHARDWARE | Threshold                                                                                                                                        |               |           |
+| WARNINGMEMBERHEALTHSYSTEM    | Threshold                                                                                                                                        |               |           |
+| CRITICALMEMBERHEALTHSYSTEM   | Threshold                                                                                                                                        |               |           |
+| WARNINGMEMBERSDETECTED       | Threshold                                                                                                                                        |               |           |
+| CRITICALMEMBERSDETECTED      | Threshold                                                                                                                                        |               |           |
+| WARNINGMEMBERSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{role\}, %\{serial\}                         |               |           |
+| CRITICALMEMBERSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{role\}, %\{serial\}                        |               |           |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING15MIN  | Threshold                                                                                                                              |                   |             |
-| CRITICAL15MIN | Threshold                                                                                                                              |                   |             |
-| WARNING1MIN   | Threshold                                                                                                                              |                   |             |
-| CRITICAL1MIN  | Threshold                                                                                                                              |                   |             |
-| WARNING5MIN   | Threshold                                                                                                                              |                   |             |
-| CRITICAL5MIN  | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro         | Description                                                                                                                                      | Default value | Mandatory |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING15MIN  | Threshold                                                                                                                                        |               |           |
+| CRITICAL15MIN | Threshold                                                                                                                                        |               |           |
+| WARNING1MIN   | Threshold                                                                                                                                        |               |           |
+| CRITICAL1MIN  | Threshold                                                                                                                                        |               |           |
+| WARNING5MIN   | Threshold                                                                                                                                        |               |           |
+| CRITICAL5MIN  | Threshold                                                                                                                                        |               |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
 
-| Macro        | Description                                                                                                                                                                                     | Default value     | Mandatory   |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           | .*                |             |
-| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' |                   |             |
-| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' |                   |             |
-| WARNING      | Warning threshold                                                                                                                                                                               | 80                |             |
-| CRITICAL     | Critical threshold                                                                                                                                                                              | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                          | --verbose         |             |
+| Macro        | Description                                                                                                                                                                                     | Default value | Mandatory |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTER       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           | .*            |           |
+| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' |               |           |
+| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' |               |           |
+| WARNING      | Warning threshold                                                                                                                                                                               | 80            |           |
+| CRITICAL     | Critical threshold                                                                                                                                                                              | 90            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                          | --verbose     |           |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'device'                                                                             | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| COMPONENT    | Which component to check. Can be: 'device'                                                                                                       | .*            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Ipsec-Tunnel" label="Ipsec-Tunnel">
 
-| Macro                    | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME               | Filter name (can be a regexp)                                                                                                          |                   |             |
-| WARNINGTUNNELSTOTAL      | Threshold                                                                                                                              |                   |             |
-| CRITICALTUNNELSTOTAL     | Threshold                                                                                                                              |                   |             |
-| WARNINGTUNNELTRAFFICIN   | Threshold                                                                                                                              |                   |             |
-| CRITICALTUNNELTRAFFICIN  | Threshold                                                                                                                              |                   |             |
-| WARNINGTUNNELTRAFFICOUT  | Threshold                                                                                                                              |                   |             |
-| CRITICALTUNNELTRAFFICOUT | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro                    | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERNAME               | Filter name (can be a regexp)                                                                                                                    |               |           |
+| WARNINGTUNNELSTOTAL      | Threshold                                                                                                                                        |               |           |
+| CRITICALTUNNELSTOTAL     | Threshold                                                                                                                                        |               |           |
+| WARNINGTUNNELTRAFFICIN   | Threshold                                                                                                                                        |               |           |
+| CRITICALTUNNELTRAFFICIN  | Threshold                                                                                                                                        |               |           |
+| WARNINGTUNNELTRAFFICOUT  | Threshold                                                                                                                                        |               |           |
+| CRITICALTUNNELTRAFFICOUT | Threshold                                                                                                                                        |               |           |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Policy-Usage" label="Policy-Usage">
 
-| Macro                      | Description                                                                                                                            | Default value     | Mandatory   |
-|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME                 | Filter policy name (can be a regexp)                                                                                                   |                   |             |
-| WARNINGCURRENTCONNECTIONS  | Threshold                                                                                                                              |                   |             |
-| CRITICALCURRENTCONNECTIONS | Threshold                                                                                                                              |                   |             |
-| WARNINGL2TRAFFIC           | Threshold                                                                                                                              |                   |             |
-| CRITICALL2TRAFFIC          | Threshold                                                                                                                              |                   |             |
-| WARNINGL3TRAFFIC           | Threshold                                                                                                                              |                   |             |
-| CRITICALL3TRAFFIC          | Threshold                                                                                                                              |                   |             |
-| WARNINGTOTALCONNECTIONS    | Threshold                                                                                                                              |                   |             |
-| CRITICALTOTALCONNECTIONS   | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                      | Description                                                                                                                                      | Default value | Mandatory |
+|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERNAME                 | Filter policy name (can be a regexp)                                                                                                             |               |           |
+| WARNINGCURRENTCONNECTIONS  | Threshold                                                                                                                                        |               |           |
+| CRITICALCURRENTCONNECTIONS | Threshold                                                                                                                                        |               |           |
+| WARNINGL2TRAFFIC           | Threshold                                                                                                                                        |               |           |
+| CRITICALL2TRAFFIC          | Threshold                                                                                                                                        |               |           |
+| WARNINGL3TRAFFIC           | Threshold                                                                                                                                        |               |           |
+| CRITICALL3TRAFFIC          | Threshold                                                                                                                                        |               |           |
+| WARNINGTOTALCONNECTIONS    | Threshold                                                                                                                                        |               |           |
+| CRITICALTOTALCONNECTIONS   | Threshold                                                                                                                                        |               |           |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="System" label="System">
 
-| Macro               | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCONNECTIONS  | Threshold                                                                                                                              |                   |             |
-| CRITICALCONNECTIONS | Threshold                                                                                                                              |                   |             |
-| WARNINGINTRAFFIC    | Threshold                                                                                                                              |                   |             |
-| CRITICALINTRAFFIC   | Threshold                                                                                                                              |                   |             |
-| WARNINGOUTTRAFFIC   | Threshold                                                                                                                              |                   |             |
-| CRITICALOUTTRAFFIC  | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro               | Description                                                                                                                                      | Default value | Mandatory |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGCONNECTIONS  | Threshold                                                                                                                                        |               |           |
+| CRITICALCONNECTIONS | Threshold                                                                                                                                        |               |           |
+| WARNINGINTRAFFIC    | Threshold                                                                                                                                        |               |           |
+| CRITICALINTRAFFIC   | Threshold                                                                                                                                        |               |           |
+| WARNINGOUTTRAFFIC   | Threshold                                                                                                                                        |               |           |
+| CRITICALOUTTRAFFIC  | Threshold                                                                                                                                        |               |           |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro          | Description                                                                                                                                                                                                                     | Default value     | Mandatory   |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                             | .*                |             |
-| WARNINGIN      | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALIN     | Threshold                                                                                                                                                                                                                       | 90                |             |
-| WARNINGOUT     | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALOUT    | Threshold                                                                                                                                                                                                                       | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                          | --verbose         |             |
+| Macro          | Description                                                                                                                                                         | Default value                                    | Mandatory |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:---------:|
+| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name | .*                                               |           |
+| WARNINGIN      | Threshold                                                                                                                                                           | 80                                               |           |
+| CRITICALIN     | Threshold                                                                                                                                                           | 90                                               |           |
+| WARNINGOUT     | Threshold                                                                                                                                                           | 80                                               |           |
+| CRITICALOUT    | Threshold                                                                                                                                                           | 90                                               |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} ne "up" |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose                                        |           |
 
 </TabItem>
 </Tabs>
@@ -418,7 +418,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--name \
 	--add-status \
 	--add-traffic \
-	--critical-status='' \
+	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' \
 	--warning-in-traffic='80' \
 	--critical-in-traffic='90' \
 	--warning-out-traffic='80' \
@@ -429,7 +429,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=13b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=61b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=71b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=68b/s;80;90;; 
 ```
 
 ### Troubleshooting

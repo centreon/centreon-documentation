@@ -21,6 +21,80 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 24.04.21
+
+Release date: `March 12, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed issue preventing borders and stroke colors from being displayed correctly on existing maps.
+
+</details>
+
+### 24.04.20
+
+Release date: `March 2, 2026`
+
+<details>
+  <summary>Enhancements</summary>
+
+- [Editor] Geometric resources can now be enlarged up to 84x84 pixels.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed the API documentation in case of "no content" responses.
+- [Editor] Fixed an inconsistency issue in the list of services when editing a widget.
+
+</details>
+
+### 24.04.19
+
+Release date: `January 27, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Added an automatic database connection retry to improve MAP resilience.
+- [API] Fixed the API documentation in case of "no content" responses.
+
+</details>
+
+### 24.04.18
+
+Release date: `December 16, 2025`
+
+<details>
+  <summary>Enhancements</summary>
+
+- [Geoviews] It is now possible to define geo coordinates for maps, and to display them in Geoviews.
+- [Library] Added the possibility to select a custom icon representing a Geoview.
+- [Server] Fixed issue preventing MAP Legacy from starting correctly.
+- [Server] Reduced JWT token lifetime default value to 1 day.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed issue preventing imgages from being updated.
+- [Geoviews] Fixed several issues in the edition modal.
+- [Geoviews] The service state (acknowledged, in downtime...) is now clearly indicated.
+- [MAP] Fixed an issue causing MAP sharing to fail when using MySQL as the SGBD.
+- [MAP Editor] Fixed an issue preventing to set white in light theme and black in dark theme as color for text, background and border. This fix is not retroactive.
+- [Translation] Restored translations from UI tooltips.
+- [Upgrade] Fixed issue with missing "SecurityPolicy" class.
+- [Viewer] Fixed the display of host groups, services and Business Activities icons.
+- [Viewer] Fixed the redirection link to Resource Status page when clicking on a meta service.
+- [Viewer] Link legend - Fixed position and colors.
+- [Viewer] The issue with label height being cropped while zooming on geometric resources has been fixed.
+- [Viewer] When hovering over a metric link, in and out metrics are now specifically displayed in the graphic.
+
+</details>
+
 ### 24.04.17
 
 Release date: `October 29, 2025`
@@ -241,7 +315,7 @@ Release date: `January 6, 2025`
 <details>
   <summary>Bug fixes</summary>
 
--	[Engine] Updated dependency.
+- [Engine] Updated dependency.
 - [Metric links, Gauge and Output widgets] Optimized metric selection.
 - [Metric links, Gauge and Output widgets] Ordered metrics alphabetically.
 - [Migration] Fixed an issue preventing identifiers from being generated during the migration process.
@@ -288,10 +362,10 @@ Release date: `December 2, 2024`
 <details>
   <summary>Bug fixes</summary>
 
--	[API] Fixed issue with the "centreon-map/api/beta/actuator/metrics" endpoint.
+- [API] Fixed issue with the "centreon-map/api/beta/actuator/metrics" endpoint.
 - [Legacy server] Fixed issue where ViewID couldn't be found when migrating from MAP Legacy.
 - [Legacy server] Fixed an issue preventing the states of resources (acknowledged, in downtime, etc.) from being up to date on maps.
--	[Server] Fixed boot failure that may occur when using service templates.
+- [Server] Fixed boot failure that may occur when using service templates.
 - [Server] Fixed Servicegroup status when configured using Service Templates or Hostgroup Services.
 - [Server] Improved the parsing of Broker events on creation and deletion of resources.
 
@@ -323,13 +397,13 @@ Release date: `October 7, 2024`
 <details>
   <summary>Bug fixes</summary>
 
--	[Dashboards] Fixed an issue that prevented different maps from being displayed in the same dashboard.
+- [Dashboards] Fixed an issue that prevented different maps from being displayed in the same dashboard.
 - [Diagnostic] Fixed the diagnostic results for the SELinux check.
 - [Editor] Removed the label from the Output widget as it was not used on the map.
 - [Migration] Fixed an issue that caused links to be positioned differently when migrating from MAP Legacy to MAP.
 - [Resource status] Fixed an issue where the status of BAs in maps was not aligned with their status in Resource status.
--	[Server] Fixed an issue that caused the migration from MAP Legacy to fail.
--	[Viewer] Fixed an issue that prevented disaknowledgments from being up-to-date.
+- [Server] Fixed an issue that caused the migration from MAP Legacy to fail.
+- [Viewer] Fixed an issue that prevented disaknowledgments from being up-to-date.
 
 </details>
 
@@ -347,8 +421,8 @@ Release date: `August 8, 2024`
 <details>
   <summary>Bug fixes</summary>
 
--	[ACL] Fixed an issue which caused user without creator role to be able to duplicate maps.
--	[BA] Fixed an issue causing the MAP server to crash at startup due to orphan KPIs.
+- [ACL] Fixed an issue which caused user without creator role to be able to duplicate maps.
+- [BA] Fixed an issue causing the MAP server to crash at startup due to orphan KPIs.
 - [Editor] Fixed an issue causing link labels not to be displayed in the editor.
 - [Map list] Fixed an issue that could prevent the map list from being displayed.
 - [Server] Fixed an issue causing an error when trying to save maps.
@@ -419,6 +493,43 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon BAM
+
+### 24.04.13
+
+Release date: `March 2, 2026`
+
+- No functional changes for this module in this version.
+
+### 24.04.12
+
+Release date: `December 16, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [BA diagram] Label width has been increased in order to display longer names. An ellipsis has also been added to indicate that a label is too long to be fully displayed.
+- [Indicators] You can now set the impact to 0 % when making changes to many items at once.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BA monitoring] Fixed display of KPI listing when Business Activity belongs to several Business Views.
+- [Dashboards] The Status Grid widget in condensed BV view now indicates the status of all BAs.
+- [Installation] BAM broker outputs are now deleted at uninstallation.
+- [Packaging] Fixed an installation issue caused by the upgrade script 24.10.7.
+- [Translation] Restored translations from UI tooltips.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed a vulnerability on axios for BAM.
+
+</details>
+
 
 ### 24.04.11
 
@@ -564,6 +675,57 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon MBI
+
+### 24.04.14
+
+Release date: `March 12, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed issue on rendering job for Hostgroups-\{Host,Service\}-Current-Events.
+
+</details>
+
+### 24.04.13
+
+Release date: `March 2, 2026`
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. More details on [our community platform The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+### 24.04.12
+
+Release date: `January 27, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Reporting] VMWare-Cluster-Performance-1 report - Fixed the file name export which was not taking the current hostgroup name.
+
+</details>
+
+### 24.04.11
+
+Release date: `December 16, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Custom Views] Optimized performance when retrieving ACLs in widgets.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Translation] Restored translations from UI tooltips.
+
+</details>
 
 ### 24.04.10
 
@@ -747,6 +909,50 @@ Release date: `April 30, 2024`
 
 ## Centreon Auto Discovery
 
+### 24.04.10
+
+Release date: `March 2, 2026`
+
+- No functional changes for this module in this version.
+
+### 24.04.9
+
+Release date: `January 27, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue that prevented the creation of a discovery job with a provider and without credentials.
+
+</details>
+
+### 24.04.8
+
+Release date: `December 16, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Discovery] Added logs for job creation/edition/deletion.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed SQL Error in service discovery with MySQL platform.
+- [Discovery] Fixed an issue where wrong parsing of cidr could cause host discovery fail.	
+- [Translation] Restored translations from UI tooltips.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] New install - Improved default Centreon Gorgone configuration.
+
+</details>
+
 ### 24.04.7
 
 Release date: `October 29, 2025`
@@ -854,6 +1060,35 @@ Release date: `April 30, 2024`
 
 ## Centreon License Manager
 
+### 24.04.7
+
+Release date: `March 2, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue where the registration of IT-100 token was not working.
+
+</details>
+
+### 24.04.6
+
+Release date: `December 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Translation] Restored translations from UI tooltips.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed a vulnerability on axios for licence manager.
+
+</details>
+
 ### 24.04.5
 
 Release date: `August 6, 2025`
@@ -916,6 +1151,31 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Anomaly Detection
+
+### 24.04.10
+
+Release date: `March 2, 2026`
+
+- No functional changes for this module in this version.
+
+### 24.04.9
+
+Release date: `December 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue with the database name that could not contain the characters “-” or “_” for Anomaly Detection.
+- [Translation] Translated configuration pages.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- Fixed a vulnerability on axios for Anomaly Detection.
+
+</details>
 
 ### 24.04.8
 
@@ -1013,6 +1273,25 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon IT Edition Extensions
+
+### 24.04.10
+
+Release date: `March 2, 2026`
+
+- No functional changes for this module in this version.
+
+### 24.04.9
+
+Release date: `December 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Playlists] Fixed error when modifying a dashboard, and then displaying it exclusively in a playlist.
+- [Playlists] Fixed issue with Single Metric widget configured with a meta-service.	
+	[Playlists] Fixed issue where some playlists were displayed twice in the listing.
+
+</details>
 
 ### 24.04.8
 
@@ -1120,6 +1399,24 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+
+### 24.04.7
+
+Release date: `December 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Monitoring Connectors] You can now access the **Monitoring Connectors** page using dedicated ACLs.
+- [translation] Restored translations from UI tooltips.
+
+</details>
+
+### 24.04.6
+
+Release date: `August 25, 2025`
+
+- No changes for this module in this version.
 
 ### 24.04.5
 

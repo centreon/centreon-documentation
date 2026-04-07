@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-hp-eva-cli
-title: HP EVA
+title: HP EVA Cli
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **HP EVA** connector through the
+The following monitoring connectors will be installed when you install the **HP EVA Cli** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **HP 
 
 ### Templates
 
-The Monitoring Connector **HP EVA** brings a host template:
+The Monitoring Connector **HP EVA Cli** brings a host template:
 
 * **HW-Storage-Hp-Eva-Cli-custom**
 
@@ -41,17 +41,17 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-| Name                | Unit |
-|:-------------------|:------|
-| battery.status     | N/A   |
-| disk.status     | N/A   |
-| disk-group.status     | N/A   |
-| fan.status     | N/A   |
-| system.status     | N/A   |
-| iomodule.status     | N/A   |
-| hardware.powersupply.diskshelf.voltage.volt     | V  |
-| hardware.temperature.diskshelf.celsius     | C   |
-| hardware.temperature.controller.celsius     | C   |
+| Name                                        | Unit |
+|:--------------------------------------------|:-----|
+| battery.status                              | N/A  |
+| disk.status                                 | N/A  |
+| disk-group.status                           | N/A  |
+| fan.status                                  | N/A  |
+| system.status                               | N/A  |
+| iomodule.status                             | N/A  |
+| hardware.powersupply.diskshelf.voltage.volt | V    |
+| hardware.temperature.diskshelf.celsius      | C    |
+| hardware.temperature.controller.celsius     | C    |
 
 </TabItem>
 <TabItem value="Storage-Usage" label="Storage-Usage">
@@ -166,13 +166,13 @@ yum install centreon-plugin-Hardware-Storage-Hp-Eva-Cli
 3. Apply the **HW-Storage-Hp-Eva-Cli-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                | Description                                                                                           | Default value     | Mandatory   |
-|:---------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| HPEVAMANAGERUSERNAME | Manager username                                                                                      |                   |             |
-| HPEVAMANAGERPASSWORD | Manager password                                                                                      |                   |             |
-| HPEVACOMMAND         | Command to get information (default: 'sssu\_linux\_x64'). Can be changed if you have output in a file | sssu\_linux\_x64  |             |
-| HPEVAMANAGERSYSTEM   | Manager system                                                                                        |                   |             |
-| HPEVACLIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).  |                   |             |
+| Macro                | Description                                                                                                                              | Default value     | Mandatory   |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| HPEVAMANAGERUSERNAME | Manager username                                                                                                                         |                   |             |
+| HPEVAMANAGERPASSWORD | Manager password                                                                                                                         |                   |             |
+| HPEVACOMMAND         | Command to get information. Can be changed if you have output in a file                                                                  | sssu\_linux\_x64  |             |
+| HPEVAMANAGERSYSTEM   | Manager system                                                                                                                           |                   |             |
+| HPEVACLIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 

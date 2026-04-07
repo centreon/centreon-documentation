@@ -15,10 +15,11 @@ Centreon depuis la version 24.04 vers la version 25.10.
 > De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
+> Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
 > Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 25.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
-> Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian 11, vous devez d'abord migrer en Debian 12 avant d'upgrader Centreon. Voir [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+> Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian 11, vous devez d'abord migrer en Debian 12 avant d'upgrader Centreon. Voir [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874). Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
 > Si vous utilisiez MySQL 8.0, prévoyez de [passer à MySQL 8.4](upgrade-mysql.md) avant la fin du support de la version 8.0, prévue fin avril 2026.
 
@@ -53,6 +54,12 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
 
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Supprimez les fichiers des dépôts :
 
    ```shell
@@ -74,6 +81,12 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
 
+   ```shell
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
+   dnf clean all --enablerepo=*
+   dnf update
+   ```
+
 2. Supprimez les fichiers des dépôts :
 
    ```shell
@@ -94,7 +107,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 2. Exécutez les commandes suivantes :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+rm -f /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -181,6 +195,12 @@ dnf module reset php
 ```shell
 dnf module enable php:8.2
 dnf distro-sync php\* --allowerasing
+```
+
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
+
+```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
@@ -199,6 +219,8 @@ dnf module reset php
 dnf module enable php:8.2
 ```
 
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
@@ -206,6 +228,8 @@ dnf module enable php:8.2
 systemctl stop php8.1-fpm
 systemctl disable php8.1-fpm
 ```
+
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php/8.2/fpm/conf.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
 
 </TabItem>
 </Tabs>
@@ -631,7 +655,7 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
 2. Si vous utilisiez des commandes personnalisées pour un collecteur (sur la page **Configuration > Collecteurs > Collecteurs**, dans la section **Monitoring Engine Information**), sachez qu'une nouvelle expression régulière de validation est désormais appliquée (`[a-zA-Z0-9\-\_]+`) : vos commandes personnalisées devront peut-être être adaptées. Sur le serveur central :
    * Pour identifier les commandes qui doivent être adaptées, exécutez :
-     ````shell
+     ```shell
      sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
      ```
    * Pour adapter automatiquement les commandes, exécutez :
@@ -642,16 +666,67 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
 3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+> À partir de la version 25.10, la substitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-découverte de services associées aux connecteurs. 
+> 
+> Si vous utilisez des commandes personnalisées qui contiennent de l'interpolation, vous devez les adapter de manière à ce qu'elles n'utilisent que des informations issues des macros.
+> 
+> Cette nouvelle règle est appliquée dans `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via le paramètre : `no_shell_interpretation: true`. Si vous aviez modifié ce fichier, votre version sera sauvegardée dans le même répertoire en tant que `41-autodiscovery.yaml.rpmnew` et devra être manuellement fusionnée pour intégrer ce paramètre.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+> À partir de la version 25.10, la substitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-découverte de services associées aux connecteurs. 
+> 
+> Si vous utilisez des commandes personnalisées qui contiennent de l'interpolation, vous devez les adapter de manière à ce qu'elles n'utilisent que des informations issues des macros.
+> 
+> Cette nouvelle règle est appliquée dans `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via le paramètre : `no_shell_interpretation: true`. Si vous aviez modifié ce fichier, votre version sera sauvegardée dans le même répertoire en tant que `41-autodiscovery.yaml.rpmnew` et devra être manuellement fusionnée pour intégrer ce paramètre.
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+   
+> À partir de la version 25.10, la substitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-découverte de services associées aux connecteurs. 
+> 
+> Si vous utilisez des commandes personnalisées qui contiennent de l'interpolation, vous devez les adapter de manière à ce qu'elles n'utilisent que des informations issues des macros.
+> 
+> Cette nouvelle règle est appliquée dans `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml` via le paramètre : `no_shell_interpretation: true`. Si vous aviez antérieurement modifié ce fichier, vous serez invité à résoudre les potentiels conflits entre les deux versions.
+
+</TabItem>
+</Tabs>
+
 4. Redémarrez les processus Centreon :
 
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 
-## Montée de version des Remote Servers
+## Montée de version des serveurs distants
 
-Cette procédure est identique à la montée de version d'un serveur Centreon
-Central.
+Cette procédure est identique à celle utilisée pour effectuer la montée de version d'un serveur Centreon Central, avec en plus la nécessité de récupérer la clé de déchiffrement à la fin.
+
+### Récupération de la clé de déchiffrement
+
+Exécutez le script suivant avec l'adresse IP du serveur central afin de permettre au serveur distant de recevoir et traiter des données chiffrées : 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Exemple:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
+
+Redémarrez **centengine**:
+
+```shell
+systemctl restart centengine
+```
 
 > En fin de mise à jour, la configuration doit être déployée depuis le serveur Central.
 
@@ -665,6 +740,8 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 ```
 
@@ -672,6 +749,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 ```
 
@@ -679,6 +758,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon*
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 apt update
 ```
@@ -753,19 +833,23 @@ systemctl restart centreon
 
 ### Récupération de la clé de déchiffrement
 
-Exécutez le script suivant afin de permettre au collecteur de recevoir et traiter des données chiffrées : 
+Exécutez le script suivant avec l'adresse IP correspondante afin de permettre au collecteur de recevoir et traiter des données chiffrées.
+
+L'adresse IP à utiliser varie selon les conditions suivantes :
+- Lorsque vous mettez à jour un collecteur lié directement au server central, utilisez l'adresse IP du serveur central.
+- Lorsque vous mettez à jour un collecteur lié à un serveur distant, utilisez l'adresse IP du serveur distant. Cependant, dans ce cas, confirmez d'abord que le server distant a la bonne clé. Vérifiez que la valeur de `app_secret` dans le fichier `/etc/centreon-engine/engine-context.json` du serveur distant est la même que pour le serveur central. Si ce n'est pas le cas, relancez le script avec l'adresse IP pour corriger le fichier .json.
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
 ```
 
-Example:
+Exemple:
 
 ``` shell
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> Vous devez utiliser le compte **admin** par défaut en tant que **\<API_ACCOUNT\>**.
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
 
 Redémarrez **centengine**:
 

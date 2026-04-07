@@ -56,6 +56,8 @@ Le statut d'une ressource peut avoir deux types :
     statut est confirmé, le processus de notification est enclenché
     (envoi d'un mail, SMS, …).
 
+La colonne **Tentatives** dans la page **Statut des ressources** indique le nombre d'essais réalisés pour confirmer un statut. Le type de statut est indiqué par une lettre (H ou S).
+
 Vous pouvez filtrer la page [Resources Status](resources-status.md) suivant le type de statut.
 
 ### Explication

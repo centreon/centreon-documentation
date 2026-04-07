@@ -4,6 +4,7 @@ title: Veeam CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 ## Connector dependencies
 
@@ -103,30 +104,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-### Network flow
-
-Only one TCP flow must be open from the host to the poller.
-
-| Source         | Destination | Protocol | Port | Purpose                                              |
-|----------------|-------------|----------|------|------------------------------------------------------|
-| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow |
-
-### System prerequisites on the poller
-
-> To be able to use the Centreon Monitoring agent, you must use a poller with at least version <!--`24.09.0` for Centreon Cloud users and version--> `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
-
-### Configure Engine
-
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
-
-### System prerequisites on the monitored host
-
-The installer can be downloaded from the [centreon-collect's releases page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
-
-#### Installing the Centreon Monitoring Agent
-
-The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in 
-[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
+<CMAprerequisites />
 
 ## Installing the monitoring connector
 
@@ -187,10 +165,12 @@ This connector relies on an integration supported by Centreon Engine and does no
 3. Apply the **App-Veeam-Centreon-Monitoring-Agent-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                | Description | Default value                     | Mandatory |
-|:---------------------|:------------|:----------------------------------|:---------:|
-| CENTREONAGENTPLUGINS |             | C:/Program Files/Centreon/Plugins |           |
-| SYSTEMLANGUAGE       |             | en                                |           |
+| Macro                | Description                                             | Default value                     | Mandatory |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:---------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X    |
+| VEEAM_VERSION        | Set the Veeam version to monitor                        | 12                                |           |
+
+> Adjust `VEEAM_VERSION` if you are using Veeam version 13 or later.
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -383,6 +363,7 @@ All generic options are listed here:
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  \<output\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-counters                          | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --veeam-version                            | The Veeam version to monitor (default: 12). Veeam version 13 and later require PowerShell 7 whereas earlier versions use PowerShell 5.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 #### Modes options
 

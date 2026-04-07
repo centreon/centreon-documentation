@@ -36,7 +36,7 @@ les notifications pourront être envoyées. En-dehors de ces périodes de temps,
 * **Langue par défaut** permet de définir la langue de l’interface Centreon pour cet utilisateur.
 * **Administrateur** définit si cet utilisateur est administrateur de la plateforme de supervision ou non. Un administrateur a tous les droits (lecture, écriture) et peut accéder à toutes les pages de l'interface.
 * **Clé d'auto-connexion** : permet de définir une clé de connexion pour l’utilisateur. L’utilisateur n’aura plus
-  besoin d’entrer son login et mot de passe mais utilisera directement cette clé pour se connecter. Syntaxe de connexion :
+  besoin d’entrer son login et mot de passe mais utilisera directement cette clé pour se connecter. Pour des raisons de sécurité, cette fonctionnalité n'est pas disponible pour les utilisateurs LDAP. Syntaxe de connexion :
 
     ```url
     http://[IP_DU_SERVER_CENTRAL]/index.php?autologin=1&useralias=[login_user]&token=[value_autologin]

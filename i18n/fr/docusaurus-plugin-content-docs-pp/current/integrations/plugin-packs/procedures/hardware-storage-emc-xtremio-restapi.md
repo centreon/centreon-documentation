@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-emc-xtremio-restapi
-title: EMC Xtremio
+title: EMC Xtremio Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Xtremio**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Xtremio Rest API**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **EMC Xtremio** apporte un modèle d'hôte :
+Le connecteur de supervision **EMC Xtremio Rest API** apporte un modèle d'hôte :
 
 * **HW-Storage-EMC-Xtremio-Restapi-custom**
 
@@ -45,21 +45,21 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Cluster-Health" label="Cluster-Health">
 
-| Nom          | Unité  |
-|:--------------|:------|
-| consistency-state         | N/A  |
-| shared-memory-efficiency-level    | N/A  |
-| free-ud-ssd-space-level   | N/A  |
-| vaai-tp-limit-crossing | N/A  |
-| shared-memory-in-use-ratio-level | N/A  |
-| sys-health-state | N/A  |
+| Nom                              | Unité |
+|:---------------------------------|:------|
+| consistency-state                | N/A   |
+| shared-memory-efficiency-level   | N/A   |
+| free-ud-ssd-space-level          | N/A   |
+| vaai-tp-limit-crossing           | N/A   |
+| shared-memory-in-use-ratio-level | N/A   |
+| sys-health-state                 | N/A   |
 
 </TabItem>
 <TabItem value="SSDs-Endurance" label="SSDs-Endurance">
 
-| Nom          | Unité  |
+| Nom           | Unité |
 |:--------------|:------|
-| ssd-endurence         | %  |
+| ssd-endurence | %     |
 
 </TabItem>
 <TabItem value="SSDs-Iops" label="SSDs-Iops">
@@ -81,23 +81,23 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="XenVS-CPU" label="XenVS-CPU">
 
-| Nom          | Unité  |
-|:--------------|:------|
-| cpu-usage         | %  |
+| Nom       | Unité |
+|:----------|:------|
+| cpu-usage | %     |
 
 </TabItem>
 <TabItem value="XenVS-State" label="XenVS-State">
 
-| Nom          | Unité  |
-|:--------------|:------|
-| xenv-status         | N/A  |
+| Nom         | Unité |
+|:------------|:------|
+| xenv-status | N/A   |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-Un identifiant et un mot de passe API sont nécessaires pour superviser EMC Xtremio via l'API REST.
+Un identifiant et un mot de passe API sont nécessaires pour superviser EMC Xtremio Rest API via l'API REST.
 
 ## Installer le connecteur de supervision
 
@@ -140,7 +140,7 @@ yum install centreon-pack-hardware-storage-emc-xtremio-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Xtremio**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Xtremio Rest API**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -194,11 +194,11 @@ yum install centreon-plugin-Hardware-Storage-Emc-Xtremio-Restapi
 3. Appliquez le modèle d'hôte **HW-Storage-EMC-Xtremio-Restatpi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro           | Description      | Valeur par défaut | Obligatoire |
-|:----------------|:-----------------|:------------------|:-----------:|
-| XTREMIOUSERNAME | Xtremio username |                   |      X      |
-| XTREMIOPASSWORD | Xtremio password |                   |       X     |
-| APIEXTRAOPTS    |                  |                   |             |
+| Macro           | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| XTREMIOUSERNAME | Xtremio username                                                                                                                                   |                   |      X      |
+| XTREMIOPASSWORD | Xtremio password                                                                                                                                   |                   |      X      |
+| APIEXTRAOPTS    | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 

@@ -10,4 +10,5 @@ Please include a short summary of the changes and what is the purpose of the PR.
 - [ ] 26.10.x 
 - [ ] Cloud
 - [ ] Monitoring Connectors
-- [ ] DEM
+- [ ] Experience Monitoring
+- [ ] Log Management

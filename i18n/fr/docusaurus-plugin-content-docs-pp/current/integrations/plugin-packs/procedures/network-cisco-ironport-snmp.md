@@ -409,7 +409,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--name \
 	--add-status \
 	--add-traffic \
-	--critical-status='' \
+	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' \
 	--warning-in-traffic='80' \
 	--critical-in-traffic='90' \
 	--warning-out-traffic='80' \
@@ -420,7 +420,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=61b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=21b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=36b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=25b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes
@@ -451,7 +451,7 @@ Le plugin apporte les modes suivants :
 | cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/cisco/ironport/snmp/mode/cpu.pm)]                | Net-Cisco-Ironport-Cpu-SNMP-custom                                                                                                                            |
 | hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/cisco/ironport/snmp/mode/hardware.pm)]      | Net-Cisco-Ironport-Hardware-Global-SNMP-custom                                                                                                                |
 | interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                        | Net-Cisco-Ironport-Traffic-Generic-Id-SNMP-custom<br />Net-Cisco-Ironport-Traffic-Generic-Name-SNMP-custom<br />Net-Cisco-Ironport-Traffic-Global-SNMP-custom |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]               | Used for service discovery                                                                                                                                    |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]               | Utilisé pour la découverte de services                                                                                                                        |
 | mail-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/cisco/ironport/snmp/mode/mailusage.pm)]   | Net-Cisco-Ironport-Mail-Usage-SNMP-custom                                                                                                                     |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/cisco/ironport/snmp/mode/memory.pm)]          | Net-Cisco-Ironport-Memory-SNMP-custom                                                                                                                         |
 | proxy-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/cisco/ironport/snmp/mode/proxyusage.pm)] | Net-Cisco-Ironport-Proxy-Usage-SNMP-custom                                                                                                                    |

@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon HA platform from version 23.04 to version 25.10.
 
-> If you were using Debian 11, you cannot upgrade your platform directly to version 25.10. You need to [migrate your platform to Debian 12](migrate/migrate-from-debian-to-debian.md) first, then reinstall HA. Contact Centreon Professional services to do so.
+> If you were using Debian 11, you cannot upgrade your platform directly to version 25.10. You need to [migrate your platform to Debian 12](migrate/migrate-from-debian-to-debian.md) first, then reinstall HA. Contact your Centreon sales representative to discuss any migration with HA.
 
 ## Prerequisites
 
@@ -41,9 +41,9 @@ systemctl stop cbd-sql
 
 Now, to perform the upgrade:
 
-> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-23-04.md) **until the "Post-upgrade actions" step included**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-23-04.md) **until the "Upgrade MariaDB" step included**.
 
-> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-23-04.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-23-04.md) **until the "Update your customized Apache configuration" step included**. Then, skip to the "Upgrade MariaDB" step and follow its instructions. **Do not follow "Finalizing the upgrade" and "Post-upgrade actions"**.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">

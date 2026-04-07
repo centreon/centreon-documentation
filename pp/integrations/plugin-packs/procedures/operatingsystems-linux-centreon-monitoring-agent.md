@@ -4,10 +4,31 @@ title: Linux CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 The **Linux CMA** connector supplies templates and commands to be used with the Centreon Monitoring Agent (CMA). This is an observability agent implementing the OpenTelemetry protocol.
 
-Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
+For more information about the Centreon Monitoring Agent itself:
+
+<Tabs groupId="version" queryString>
+<TabItem value="OnPrem" label="OnPrem">
+
+Read [the CMA documentation for Centreon OnPrem](/docs/cma).
+(This link redirects you to the latest version of the OnPrem documentation. Use the version selector in the upper right corner to switch to another version if necessary.)
+
+</TabItem>
+<TabItem value="Cloud" label="Cloud">
+
+Read [the CMA documentation for Centreon Cloud](/cloud/cma/cma-setup).
+
+</TabItem>
+</Tabs>
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Linux SSH** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
 ## Pack assets
 
@@ -22,14 +43,16 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="OS-Linux-Centreon-Monitoring-Agent-custom" label="OS-Linux-Centreon-Monitoring-Agent-custom">
 
-| Service Alias | Service Template                                 | Service Description                                                                                                                                  | Type of check |
-|:--------------|:-------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------| --- |
-| Cpu           | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs | native |
-| Load          | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Check the server load average                                                                                                                        | non-native |
-| Memory        | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Check the rate of the utilization of memory                                                                                                          | non-native |
-| Ntp           | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Check system time synchronization with an NTP server                                                                                                 | non-native |
-| Swap          | OS-Linux-Swap-Centreon-Monitoring-Agent-custom   | Check virtual memory usage                                                                                                                           | non-native |
-| Uptime        | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom | Time since the server has been working and available                                                                                                 | non-native |
+| Service Alias | Service Template                                         | Service Description                                                                                                                                  | Type of check |
+|:--------------|:---------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------| --- |
+| Cpu           | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom            | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs | native |
+| Load          | OS-Linux-Load-Centreon-Monitoring-Agent-custom           | Check the server load average                                                                                                                        | non-native |
+| Memory        | OS-Linux-Memory-Centreon-Monitoring-Agent-custom         | Check the rate of the utilization of memory                                                                                                          | non-native |
+| Ntp           | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom            | Check system time synchronization with an NTP server                                                                                                 | non-native |
+| Swap          | OS-Linux-Swap-Centreon-Monitoring-Agent-custom           | Check virtual memory usage                                                                                                                           | non-native |
+| Uptime        | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom         | Time since the server has been working and available                                                                                                 | non-native |
+| Custom-Script | OS-Linux-Custom-Script-Centreon-Monitoring-Agent-custom  | Check using a custom script                                                                                                                          | non-native |
+
 
 > The services listed above are created automatically when the **OS-Linux-Centreon-Monitoring-Agent-custom** host template is used.
 
@@ -65,7 +88,7 @@ The connector brings the following service templates (sorted by the host templat
 
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
@@ -241,6 +264,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 | *processes*#cpu-utilization                   | N/A   |
 | *processes*#disks-read                        | N/A   |
 | *processes*#disks-write                       | N/A   |
+| *processes*#open-files                        | N/A   |
+| *processes*#open-files-prct                   | N/A   |
 | processes.total.count                         | count |
 | processes.memory.usage.bytes                  | B     |
 | processes.cpu.utilization.percentage          | %     |
@@ -300,28 +325,16 @@ No metrics for this service.
 | system.uptime.seconds | s    |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+No metrics for this service.
+
+</TabItem>
 </Tabs>
 
 ## Prerequisites
 
-Only one TCP flow must be open from the host to the poller.
-
-| Source         | Destination | Protocol | Port | Purpose                                          |
-|----------------|-------------|----------|------|--------------------------------------------------|
-| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval OpenTelemetry data flow. |
-
-### System prerequisites for the poller
-
-> To be able to use the Centreon Monitoring Agent, you must use a poller with at least version <!--`24.09.0` for Centreon Cloud users and version--> `24.04.6` or `24.10.0` for OnPrem users of `centreon-engine`. The Centreon Monitoring agent will retrieve its configuration by connecting to Centreon Engine.
-
-### Configure poller/agent communication
-
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
-
-### System prerequisites for the monitored host
-
-The installation and configuration procedure of Centreon Monitoring Agent for Linux is detailed in
-[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host). (This includes installing the agent, and installing the plugins that will execute the non-native checks.)
+<CMAprerequisites />
 
 ## Installing the monitoring connector
 
@@ -698,6 +711,32 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+| Macro          | Description                                                                                          | Default value | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CUSTOMCHECK    | Name of the custom check to use                                                                      |               | X         |
+| ARG1           | Extra argument 1 to pass to the custom check command                                                 |               |           |
+| ARG2           | Extra argument 2 to pass to the custom check command                                                 |               |           |
+| ARG3           | Extra argument 3 to pass to the custom check command                                                 |               |           |
+| ARG4           | Extra argument 4 to pass to the custom check command                                                 |               |           |
+| ARG5           | Extra argument 5 to pass to the custom check command                                                 |               |           |
+| ARG6           | Extra argument 6 to pass to the custom check command                                                 |               |           |
+| ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
+| ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
+
+> Commands are defined in a dedicated file on the host.
+> The path to this file is provided in centagent.json using the custom_check_file parameter.
+> To update commands, edit the file and reload the agent.
+
+```cmd
+[custom_checks]
+check_echo = /usr/bin/echo "$ARG1$ $ARG2$"
+custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
+```
+
+</TabItem>
+
 </Tabs>
 
 3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
@@ -1119,13 +1158,42 @@ All available options for each service template are listed below:
 | --add-cpu                | Monitor CPU usage.                                                                                                                                                                                                                            |
 | --add-memory             | Monitor memory usage. It's inaccurate but it provides a trend.                                                                                                                                                                                |
 | --add-disk-io            | Monitor disk I/O.                                                                                                                                                                                                                             |
+| --add-open-files         | Monitor open file usage per process. This functionality requires that the `centreon_linux_sudoers` package be installed on the monitored host and configured in the sudoers file. Please refer to the notice below.                           |
 | --filter-command         | Filter process commands (regexp can be used).                                                                                                                                                                                                 |
 | --exclude-command        | Exclude process commands (regexp can be used).                                                                                                                                                                                                |
 | --filter-arg             | Filter process arguments (regexp can be used).                                                                                                                                                                                                |
 | --exclude-arg            | Exclude process arguments (regexp can be used).                                                                                                                                                                                               |
 | --filter-ppid            | Filter process ppid (regexp can be used).                                                                                                                                                                                                     |
 | --filter-state           | Filter process states (regexp can be used). You can use: 'zombie', 'dead', 'paging', 'stopped', 'InterrupibleSleep', 'running', 'UninterrupibleSleep'.                                                                                        |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'total-memory-usage', 'total-cpu-utilization', 'total-disks-read', 'total-disks-write', 'time', 'memory-usage', 'cpu-utilization', 'disks-read', 'disks-write'.                                                  |
+| --privileged-script-path         | This parameter allows specifying a custom path to the centreon\_plugin\_local\_process.pl script used for monitoring open file usage per process (default: '/usr/lib/centreon/plugins').                                              |
+| --warning-total                  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total                 | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-memory-usage     | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-memory-usage    | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-cpu-utilization  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-cpu-utilization | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-read       | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-read      | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-write      | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-write     | Thresholds.                                                                                                                                                                                                                           |
+| --warning-time                   | Thresholds.                                                                                                                                                                                                                           |
+| --critical-time                  | Thresholds.                                                                                                                                                                                                                           |
+| --warning-memory-usage           | Thresholds.                                                                                                                                                                                                                           |
+| --critical-memory-usage          | Thresholds.                                                                                                                                                                                                                           |
+| --warning-cpu-utilization        | Thresholds.                                                                                                                                                                                                                           |
+| --critical-cpu-utilization       | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-read             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-read            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-write            | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-write           | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-open-files            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files-prct        | Thresholds in percentage.                                                                                                                                                                                                             |
+| --critical-open-files-prct       | Thresholds in percentage.                                                                                                                                                                                                             |
+
+> To monitor open file usage per process, you need to install the `centreon-plugin-Operatingsystems-Linux-sudoers` package on each monitored host.
+> This package installs the `centreon_linux_local_process.pl` script and adds the `sudoersCentreonLinuxPlugins` file to the `sudoers` configuration.
+> Depending on the monitored hosts, this package will be installed with ```dnf install centreon-plugin-Operatingsystems-Linux-sudoers``` or ```apt install centreon-plugin-operatingsystems-linux-sudoers```.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">

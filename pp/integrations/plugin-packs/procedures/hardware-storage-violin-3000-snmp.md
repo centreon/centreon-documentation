@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-violin-3000-snmp
-title: Violin Memory 3000
+title: Violin Memory 3000 SNMP
 ---
 
 ## Prerequisites
