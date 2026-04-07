@@ -13,7 +13,7 @@ This chapter describes how to upgrade your Centreon platform from version 24.10 
 >
 > In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
+> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
 > If you were using MySQL 8.0, you may want to [upgrade to MySQL 8.4](upgrade-mysql.md) before the end of support for version 8.0. at the end of April 2026.
 
