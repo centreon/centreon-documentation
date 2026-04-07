@@ -51,7 +51,7 @@ Une fois démarrée, la sonde s'enregistre automatiquement et apparaît dans la 
 
 ## Étape 7 : Associer la zone à un parcours utilisateur
 
-1. Accédez à l'onglet **Parcours Utilisateur** de votre site. Sur le parcours que vous souhaitez exécuter depuis votre zone privée, cliquez sur les trois points à droite puis sur **Avancé**.
+1. Accédez l'onglet **Configuration** > **Parcours Utilisateur** de votre site. Sur le parcours que vous souhaitez exécuter depuis votre zone privée, cliquez sur les trois points à droite puis sur **Avancé**.
 
 2. Dans la fenêtre **Configuration avancée**, faites défiler jusqu'à la section **Zones de Monitoring Synthétique**. Votre zone privée apparaît sous Zones Privées. Sélectionnez-la.
 Cliquez sur Sauvegarder.

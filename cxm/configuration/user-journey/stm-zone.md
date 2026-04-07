@@ -51,12 +51,12 @@ Once launched, the probe is automatically saved and appears in the STM Zones lis
 
 ## Step 7: Associate the zone with a user journey
 
-1. Go to the **User Journeys** tab on your site. On the journey you want to run from your private zone, click on the three dots on the right, then click on **Advanced**.
+1. Go to **Configuration** > **User Journeys** tab. On the journey you want to run from your private zone, click on the three dots on the right, then click on **Advanced**.
 
 2. In the **Advanced configuration** window, scroll down to the **Synthetic Monitoring Zones** section. Your private zone appears under Private Zones. Select it.
 Click Save
 
-3. Your internal journey monitoring is now in place! You can analize it as a you would for a regular [user journey](../how-to-articles/user-journey-screen.md).
+3. Your internal journey monitoring is now in place! You can analyze it as you would for a regular [user journey](../how-to-articles/user-journey-screen.md).
 
 ## Troubleshooting
 
