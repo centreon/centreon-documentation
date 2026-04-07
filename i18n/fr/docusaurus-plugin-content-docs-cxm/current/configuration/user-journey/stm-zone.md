@@ -45,7 +45,7 @@ Username: \<username>
 Password: \<password>
 '''
 
-## Étape 6 : Démarrage de la sonde
+## Étape 6 : Démarrer la sonde
 
 Une fois démarrée, la sonde s'enregistre automatiquement et apparaît dans la liste des zones STM.
 

@@ -45,7 +45,7 @@ Username: \<username>
 Password: \<password>
 '''
 
-## Step 6: Launching the probe
+## Step 6: Launch the probe
 
 Once launched, the probe is automatically saved and appears in the STM Zones list.
 
