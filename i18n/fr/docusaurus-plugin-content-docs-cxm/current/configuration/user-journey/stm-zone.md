@@ -7,29 +7,27 @@ Une Zone de Monitoring Synthétique (STM) privée vous permet de superviser vos 
 
 ## Étape 1 : Ouvrir la page de l'organisation
 
-Depuis la **Vue Globale**, ouvrez le sélecteur de site en haut à gauche et ouvrez la page de votre organisation.
+- Depuis la **Vue Globale**, ouvrez le sélecteur de site en haut à gauche et ouvrez la page de votre organisation.
 
 ![image](../../assets/configuration/user-journey/organization-page.png)
 
 ## Étape 2 : Accéder à l'onglet Zones STM
 
-Dans la page de configuration de votre organisation, cliquez sur l'onglet **Zones de Monitoring Synthétique**.
+- Dans la page de configuration de votre organisation, cliquez sur l'onglet **Zones de Monitoring Synthétique**.
 
 ## Étape 3 : Créer une nouvelle zone STM
 
-Cliquez sur **+ Nouvelle Zone de Monitoring Synthétique**, donnez-lui un nom significatif (ex. : Paris Office), puis cliquez sur **+ Créer**.
-
+- Cliquez sur **+ Nouvelle Zone de Monitoring Synthétique**, donnez-lui un nom significatif (ex. : Paris Office), puis cliquez sur **+ Créer**.
 Votre nouvelle zone apparaît désormais dans la liste.
 
 ## Étape 4 : Associer une sonde
 
-Cliquez sur **Associer une sonde** depuis le bouton en haut à droite ou directement sur la ligne de votre zone.
+- Cliquez sur **Associer une sonde** depuis le bouton en haut à droite ou directement sur la ligne de votre zone.
 
 Une fenêtre s'ouvre avec 2 commandes Docker :
 
-la première sert à vous identifier au registry Centreon (voir [étape 5](#étape-5--obtenir-les-identifiants-docker-depuis-keeper))
-
-la seconde sert à lancer la sonde (voir [étape 6](#étape-6--démarrage-de-la-sonde))
+- la première sert à vous identifier au registry Centreon (voir [étape 5](#étape-5--obtenir-les-identifiants-docker-depuis-keeper)),
+- la seconde sert à lancer la sonde (voir [étape 6](#étape-6--démarrage-de-la-sonde)).
 
 ## Étape 5 : Obtenir les identifiants Docker depuis Keeper
 
@@ -39,11 +37,11 @@ Les identifiants vous sont transmis par Centreon via un lien sécurisé Keeper.
 
 2. Une fois les identifiants obtenus, connectez-vous au registre Docker :
 
-'''shell
+```shell
 docker login docker.centreon.com/centreon-dem-beta
 Username: \<username>
 Password: \<password>
-'''
+```
 
 ## Étape 6 : Démarrer la sonde
 
@@ -56,7 +54,7 @@ Une fois démarrée, la sonde s'enregistre automatiquement et apparaît dans la 
 2. Dans la fenêtre **Configuration avancée**, faites défiler jusqu'à la section **Zones de Monitoring Synthétique**. Votre zone privée apparaît sous Zones Privées. Sélectionnez-la.
 Cliquez sur Sauvegarder.
 
-3. Votre supervision de parcours interne est désormais en place ! Vous pouvez l'étudier de la même manière qu'un [parcours utilisateur](../how-to-articles/user-journey-screen.md) normal.
+3. Votre supervision de parcours interne est désormais en place ! Vous pouvez l'étudier de la même manière qu'un [parcours utilisateur](../../how-to-articles/user-journey-screen.md) normal.
 
 ## Dépannage de problèmes
 
