@@ -15,6 +15,7 @@ Centreon depuis la version 24.10 vers la version 25.10.
 > De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
+> Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
 > Si vous utilisiez MySQL 8.0, prévoyez de [passer à MySQL 8.4](upgrade-mysql.md) avant la fin du support de la version 8.0, prévue fin avril 2026.
 

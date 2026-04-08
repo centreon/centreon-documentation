@@ -31,13 +31,13 @@ Mesure globale d’un site Internet (score d’éco-conception et empreinte carb
 
 Enfin, au delà de l’utilisation de ces méthodes qui font aujourd’hui référence, CXM contribue à affiner ces méthodes de calculs par des échanges réguliers avec les professionnels de cette discipline, en particulier :
 
-- l’éco-système des signataires de [Planet’Tech Care](https://planet-techcare.green/) (dont CXM est membre actif)
+- l’éco-système des signataires de [Planet’Tech Care](https://planet-techcare.green/) (dont Centreon est membre actif)
 - le groupe de travail inter-entreprise [Boavizta](https://www.boavizta.org/)
 - l’association [La Fresque du Numérique](https://www.fresquedunumerique.org/)
 
 L’objectif de ces échanges est de faire avancer l’état de l’art sur la mesure d’impact du numérique, et de confronter les résultats avec d’autres professionnels pour s’assurer de la bonne cohérence des mesures prises par chacune des parties (cf. critères de Pertinence et Exactitude imposées par le GHG Protocol).
 
-Pour en savoir + sur la décarbonation du numérique et sur les outils de mesure qui en découlent, vous pouvez également [consulter cette interview](https://www.youtube.com/watch?v=UELsTjTDMag) de Laurent Eskenazi (cofondateur de Boavizta) et Guillaume Thibaux (cofondateur de CXM) pour BSmart TV.
+Pour en savoir + sur la décarbonation du numérique et sur les outils de mesure qui en découlent, vous pouvez également [consulter cette interview](https://www.youtube.com/watch?v=UELsTjTDMag) de Laurent Eskenazi (cofondateur de Boavizta) et Guillaume Thibaux (cofondateur de Quanta, devenu Centreon Experience Monitoring) pour BSmart TV.
 
 ## Les dimensions du calcul
 

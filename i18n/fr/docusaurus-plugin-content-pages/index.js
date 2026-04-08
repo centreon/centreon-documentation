@@ -53,7 +53,7 @@ const cards = [
     href: "cxm/getting-started/welcome/",
     links: [
       {
-        label: "Démarrer avec Centreon Digital Experience Monitoring",
+        label: "Démarrer avec Centreon Experience Monitoring",
         href: "cxm/getting-started/welcome/",
       },
       {
@@ -68,7 +68,7 @@ const cards = [
         label: "Sobriété numérique",
         href: "cxm/category/digital-sobriety/"
       },{
-        label: "Notes de release CXM",
+        label: "Notes de release Experience Monitoring",
         href: "cxm/release-notes/"
       },
     ],
@@ -82,7 +82,7 @@ const cards = [
         href: "logmanagement/getting-started/beta/",
       },
       {
-        label: "Bases de CLM",
+        label: "Bases de Centreon Log Management",
         href: "logmanagement/getting-started/concepts/",
       },
       {

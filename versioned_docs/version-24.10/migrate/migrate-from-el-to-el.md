@@ -14,6 +14,8 @@ This procedure only applies if the following conditions are met:
 
 All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
 
+> If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
+
 Be sure that you have fully backed up your environment for the following
 servers:
 
