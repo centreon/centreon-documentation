@@ -8,6 +8,12 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
 25.10 (c'est-à-dire le passage de 25.10.x à 25.10.y).
 
+> Lorsque vous effectuez la mise à jour de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
+>
+> Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon.
+>
+> De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
+
 ## Avant la mise à jour
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
