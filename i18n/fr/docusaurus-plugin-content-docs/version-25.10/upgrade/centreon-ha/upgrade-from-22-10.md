@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 22.10 vers la version 25.10.
 
-> Si vous utilisiez Debian 11, vous ne pouvez pas directement monter à la version 25.10. Vous devez [migrer votre platforme vers Debian 12](migrate/migrate-from-debian-to-debian.md) d'abord, puis réinstaller la HA. Contactez Centreon Professional services pour cela.
+> Si vous utilisiez Debian 11, vous ne pouvez pas directement monter à la version 25.10. Vous devez [migrer votre platforme vers Debian 12](migrate/migrate-from-debian-to-debian.md) d'abord, puis réinstaller la HA. Contactez votre représentant commercial Centreon pour discuter de toute migration avec la HA.
 
 ## Prérequis
 

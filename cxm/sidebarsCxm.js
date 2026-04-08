@@ -2,7 +2,7 @@ module.exports = {
   cxm: [
     {
       type: 'category',
-      label: 'Getting started with Centreon CXM',
+      label: 'Getting started with Centreon Experience Monitoring',
       link: {
         type: "doc",
         id: "getting-started/welcome"

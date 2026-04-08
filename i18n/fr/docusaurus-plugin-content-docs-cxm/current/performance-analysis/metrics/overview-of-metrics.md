@@ -3,7 +3,7 @@ id: overview-of-metrics
 title: Vue d'ensemble des métriques
 --- 
 
-Centreon CXM présente plusieurs métriques de performance, cette page les présente **très brièvement**. En cliquant sur chacun, vous accéderez à une page détaillant plus la métrique.
+Centreon Experience Monitoring présente plusieurs métriques de performance, cette page les présente **très brièvement**. En cliquant sur chacun, vous accéderez à une page détaillant plus la métrique.
 
 ## [Hero Time](./hero-time.md)
 

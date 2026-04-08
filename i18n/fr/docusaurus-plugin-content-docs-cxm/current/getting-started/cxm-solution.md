@@ -3,7 +3,7 @@ id: cxm-solution
 title: La solution CXM
 --- 
 
-**Centreon CXM (anciennement Quanta) est une plateforme de Digital Experience Monitoring conçue pour allier performance web et sobriété numérique.** Elle permet aux équipes tech, produit et métier de collaborer efficacement pour offrir des expériences digitales rapides et fiables tout en économisant les ressources matérielles.
+**Centreon Experience Monitoring (anciennement Quanta) est une plateforme de Digital Experience Monitoring conçue pour allier performance web et sobriété numérique.** Elle permet aux équipes tech, produit et métier de collaborer efficacement pour offrir des expériences digitales rapides et fiables tout en économisant les ressources matérielles.
 
 La solution combine plusieurs briques complémentaires :
 
