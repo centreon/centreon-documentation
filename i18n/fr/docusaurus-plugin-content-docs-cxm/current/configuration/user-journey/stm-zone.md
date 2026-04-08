@@ -33,11 +33,11 @@ la seconde sert à lancer la sonde (voir [étape 6](#étape-6--démarrage-de-la-
 
 ## Étape 5 : Obtenir les identifiants Docker depuis Keeper
 
-1. Les identifiants vous sont partagés par Centreon via un lien sécurisé Keeper.
+Les identifiants vous sont transmis par Centreon via un lien sécurisé Keeper.
 
-2. Contactez Centreon pour recevoir le lien Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
+1. Contactez Centreon pour recevoir le lien Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
 
-3. Une fois les identifiants obtenus, connectez-vous au registre Docker :
+2. Une fois les identifiants obtenus, connectez-vous au registre Docker :
 
 '''shell
 docker login docker.centreon.com/centreon-dem-beta
@@ -51,14 +51,14 @@ Une fois démarrée, la sonde s'enregistre automatiquement et apparaît dans la 
 
 ## Étape 7 : Associer la zone à un parcours utilisateur
 
-1. Accédez l'onglet **Configuration** > **Parcours Utilisateur** de votre site. Sur le parcours que vous souhaitez exécuter depuis votre zone privée, cliquez sur les trois points à droite puis sur **Avancé**.
+1. Accédez à l'onglet **Configuration** > **Parcours Utilisateur** de votre site. Sur le parcours que vous souhaitez exécuter depuis votre zone privée, cliquez sur les trois points à droite puis sur **Avancé**.
 
 2. Dans la fenêtre **Configuration avancée**, faites défiler jusqu'à la section **Zones de Monitoring Synthétique**. Votre zone privée apparaît sous Zones Privées. Sélectionnez-la.
 Cliquez sur Sauvegarder.
 
 3. Votre supervision de parcours interne est désormais en place ! Vous pouvez l'étudier de la même manière qu'un [parcours utilisateur](../how-to-articles/user-journey-screen.md) normal.
 
-## Troubleshooting
+## Dépannage de problèmes
 
 ### Ce nom de domaine n'est pas autorisé pour votre site
 

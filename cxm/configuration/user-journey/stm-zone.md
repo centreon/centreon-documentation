@@ -3,7 +3,7 @@ id: stm-zones
 title: Monitoring non-public user journeys
 ---
 
-A private Synthetic Monitoring Zone (STM) allows you to monitor your user journeys on internal domains or networks specific to your organisation using a probe deployed inside your infrastructure.
+A private Synthetic Monitoring Zone (STM) allows you to monitor your user journeys on internal domains or networks specific to your organization using a probe deployed inside your infrastructure.
 
 ## Step 1: Open the organization page
 
@@ -33,11 +33,11 @@ the second one is used to launch the probe (see [step 6](#step-6-launching-the-p
 
 ## Step 5: Obtain the Docker credentials from Keeper
 
-1. The credentials are sent to you by Centreon via a secure Keeper link.
+The credentials are sent to you by Centreon via a secure Keeper link.
 
-2. Contact Centreon to receive the Keeper link. Save the credentials in your own vault.
+1. Contact Centreon to receive the Keeper link. Save the credentials in your own vault.
 
-3. Once you have obtained the credentials, log in to the Docker registry:
+2. Once you have obtained the credentials, log in to the Docker registry:
 
 '''shell
 docker login docker.centreon.com/centreon-dem-beta
