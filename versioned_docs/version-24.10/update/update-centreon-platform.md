@@ -11,7 +11,7 @@ This chapter describes how to update your Centreon 24.10 platform (i.e. switch f
 >
 > All servers in your architecture must have the same version of Centreon.
 >
-> In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
+> In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo/#switching-versions-of-bbdo).
 
 ## Before you update
 

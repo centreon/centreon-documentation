@@ -12,7 +12,7 @@ Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
 >
 > Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon.
 >
-> De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
+> De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo/#changement-de-version-de-bbdo).
 
 ## Avant la mise à jour
 
