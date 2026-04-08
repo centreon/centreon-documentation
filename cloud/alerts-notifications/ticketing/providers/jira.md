@@ -21,9 +21,10 @@ title: Jira
 
 You need the following information
 
-- Jira address (also known as app token)
+- Jira address
+- Rest Api Resource (usually /rest/api/latest/)
 - Username
-- User token
+- password
 
 The aformentioned account must be able to at least be able to open a ticket through the **/issue API endpoint**
 
