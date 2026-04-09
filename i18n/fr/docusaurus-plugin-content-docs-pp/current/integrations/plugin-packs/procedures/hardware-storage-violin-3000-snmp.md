@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Violin Memory 3000** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                                  | Description                                                                                                          |
 |:----------------|:---------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|
-| Hardware-Global | HW-Storage-Violin-3000-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel (ventilateur, température, alarme du chassis, global fc, local fc, vimm) du stockage |
+| Hardware-Global | HW-Storage-Violin-3000-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel (ventilateur, température, alarme du châssis, global fc, local fc, vimm) du stockage |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Violin-3000-SNMP-custom** est utilisé.
 
@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                  | Modèle de service                                         | Description                                |
 |:-----------------------|:----------------------------------------------------------|:-------------------------------------------|
-| Hardware-Chassis-Alarm | HW-Storage-Violin-3000-Hardware-Chassis-Alarm-SNMP-custom | Contrôle les alarmes du chasis du stockage |
+| Hardware-Chassis-Alarm | HW-Storage-Violin-3000-Hardware-Chassis-Alarm-SNMP-custom | Contrôle les alarmes du châssis du stockage |
 | Hardware-Fan           | HW-Storage-Violin-3000-Hardware-Fan-SNMP-custom           | Contrôle les ventilateurs du stockage      |
 | Hardware-Global-Fc     | HW-Storage-Violin-3000-Hardware-Global-Fc-SNMP-custom     | Contrôle les 'global fc' du stockage       |
 | Hardware-Local-Fc      | HW-Storage-Violin-3000-Hardware-Local-Fc-SNMP-custom      | Contrôle les 'local fc' du stockage        |
@@ -163,7 +163,7 @@ Centreon vers la ressource supervisée.
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -200,7 +200,7 @@ yum install centreon-pack-hardware-storage-violin-3000-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Violin Memory 3000**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
