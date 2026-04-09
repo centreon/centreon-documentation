@@ -236,7 +236,7 @@ yum install centreon-pack-hardware-storage-quantum-dxi-ssh
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Quantum DXi Series** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
