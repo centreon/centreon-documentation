@@ -62,7 +62,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                              | Description                                                                         |
 |:---------------------------------------------|:------------------------------------------------------------------------------------|
-| HW-Storage-Lenovo-Iomega-SNMP-Disk-Name      | Discover the disk partitions and monitor space occupation                           |
+| HW-Storage-Lenovo-Iomega-SNMP-Disk-Name      | Découvre et supervise l'utilisation des disques.                           |
 | HW-Storage-Lenovo-Iomega-SNMP-Interface-Name | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -132,7 +132,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler vos équipements Lenovo Iomega, le SNMP v2 doit être configuré.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la [documentation officielle du constructeur](http://download.lenovo.com/nasupdate/manuals/px2-300d/px2-300d-4.1-en.pdf#page=69&zoom=100,72,90). 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers la ressource supervisée.
 Pour plus d'informations, vous pouvez vous référer à la documentation utilisateur officielle :
 http://download.lenovo.com/nasupdate/manuals/px2-300d/px2-300d-4.1-en.pdf#page=69&zoom=100,72,90
 
