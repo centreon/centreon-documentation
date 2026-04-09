@@ -1142,6 +1142,8 @@ mysql_secure_installation
 - Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
 - Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
+> Voir les procédures avancées pour [sécuriser votre plateforme MBI](../reporting/secure-your-mbi-platform.md).
+
 #### Commencer à configurer
 
 Vérifiez que la base de reporting est bien démarrée puis lancez les
