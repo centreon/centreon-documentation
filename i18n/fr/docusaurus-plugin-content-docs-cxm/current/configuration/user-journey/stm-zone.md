@@ -20,14 +20,14 @@ Une Zone de Monitoring Synthétique (STM) privée vous permet de superviser vos 
 - Cliquez sur **+ Nouvelle Zone de Monitoring Synthétique**, donnez-lui un nom significatif (ex. : Paris Office), puis cliquez sur **+ Créer**.
 Votre nouvelle zone apparaît désormais dans la liste.
 
-## Étape 4 : Associer une sonde
+## Étape 4 : Associer une sonde à une STM
 
-- Cliquez sur **Associer une sonde** depuis le bouton en haut à droite ou directement sur la ligne de votre zone.
+- Cliquez sur **Associer une sonde** à droite de votre zone. Vous pouvez également cliquer en haut à droite, dans ce cas-ci, assurez-vous de sélectionner la bonne zone dans la nouvelle fenêtre.
 
 Une fenêtre s'ouvre avec 2 commandes Docker :
 
 - la première sert à vous identifier au registry Centreon (voir [étape 5](#étape-5--obtenir-les-identifiants-docker-depuis-keeper)),
-- la seconde sert à lancer la sonde (voir [étape 6](#étape-6--démarrage-de-la-sonde)).
+- la seconde sert à lancer la sonde (voir [étape 6](#étape-6--démarrer-la-sonde)).
 
 ## Étape 5 : Obtenir les identifiants Docker depuis Keeper
 
@@ -35,7 +35,7 @@ Les identifiants vous sont transmis par Centreon via un lien sécurisé Keeper.
 
 1. Contactez Centreon pour recevoir le lien Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
 
-2. Une fois les identifiants obtenus, connectez-vous au registre Docker :
+2. Une fois les identifiants obtenus, connectez-vous au registry Docker Centreon :
 
 ```shell
 docker login docker.centreon.com/centreon-dem-beta
@@ -44,6 +44,8 @@ Password: \<password>
 ```
 
 ## Étape 6 : Démarrer la sonde
+
+Exécutez la deuxième commande obtenue à [l'étape 4](#étape-4--associer-une-sonde) pour démarrer la sonde.
 
 Une fois démarrée, la sonde s'enregistre automatiquement et apparaît dans la liste des zones STM.
 

@@ -20,14 +20,14 @@ A private Synthetic Monitoring Zone (STM) allows you to monitor your user journe
 - Click **+ New Synthetic Monitoring Zone**, give it a meaningful name (e.g., Paris Office), then click **+ Create**.
 Your new zone now appears in the list.
 
-## Step 4: Associate a probe
+## Step 4: Associate a probe to an STM
 
-- Click **Associate a probe** using the button in the top-right corner or directly on the line in your zone.
+- Click **Associate a probe** to the right of your zone. You can also click in the upper-right corner in which case, make sure the right zone to select the right zone in the new window.
 
 A window opens with two Docker commands:
 
 - the first one is used to log in to the Centreon registry (see [step 5](#step-5-obtain-the-docker-credentials-from-keeper)),
-- the second one is used to launch the probe (see [step 6](#step-6-launching-the-probe)).
+- the second one is used to launch the probe (see [step 6](#step-6-launch-the-probe)).
 
 ## Step 5: Obtain the Docker credentials from Keeper
 
@@ -35,7 +35,7 @@ The credentials are sent to you by Centreon via a secure Keeper link.
 
 1. Contact Centreon to receive the Keeper link. Save the credentials in your own vault.
 
-2. Once you have obtained the credentials, log in to the Docker registry:
+2. Once you have obtained the credentials, log in to the Centreon Docker registry:
 
 ```shell
 docker login docker.centreon.com/centreon-dem-beta
@@ -44,6 +44,8 @@ Password: \<password>
 ```
 
 ## Step 6: Launch the probe
+
+To launch the probe, execute the second command you obtained at [step 4](#step-4-associate-a-probe), if you had previously closed the window, you can simply open it again.
 
 Once launched, the probe is automatically saved and appears in the STM Zones list.
 
