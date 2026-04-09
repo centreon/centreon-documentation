@@ -131,8 +131,17 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To monitor your Lenovo Iomega, SNMP must be configured.
-The poller should be able to perform SNMP requests toward the Lenovo device over SNMP UDP/161 port.
+### SNMP Configuration
+
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the [official documentation from the manufacturer](http://download.lenovo.com/nasupdate/manuals/px2-300d/px2-300d-4.1-en.pdf#page=69&zoom=100,72,90). 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
+
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161
+
 
 ## Installing the monitoring connector
 

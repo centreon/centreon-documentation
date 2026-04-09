@@ -141,8 +141,6 @@ Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur
 Centreon vers la ressource supervisée.
-Pour plus d'informations, vous pouvez vous référer à la documentation utilisateur officielle :
-http://download.lenovo.com/nasupdate/manuals/px2-300d/px2-300d-4.1-en.pdf#page=69&zoom=100,72,90
 
 ## Installer le connecteur de supervision
 
