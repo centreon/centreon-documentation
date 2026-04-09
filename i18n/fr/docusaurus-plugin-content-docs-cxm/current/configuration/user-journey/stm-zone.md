@@ -1,6 +1,6 @@
 ---
 id: stm-zones
-title: Supervision de parcours utilisateur non-publics
+title: Superviser de parcours utilisateur non-publics
 ---
 
 Une Zone de Monitoring Synthétique (STM) privée vous permet de superviser vos parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation, via une sonde déployée dans votre infrastructure.
@@ -26,7 +26,7 @@ Votre nouvelle zone apparaît désormais dans la liste.
 
 Une fenêtre s'ouvre avec 2 commandes Docker :
 
-- la première sert à vous identifier au registry Centreon (voir [étape 5](#étape-5--obtenir-les-identifiants-docker-depuis-keeper)),
+- la première sert à vous identifier au registry Docker Centreon (voir [étape 5](#étape-5--obtenir-les-identifiants-docker-depuis-keeper)),
 - la seconde sert à lancer la sonde (voir [étape 6](#étape-6--démarrer-la-sonde)).
 
 ## Étape 5 : Obtenir les identifiants Docker depuis Keeper
