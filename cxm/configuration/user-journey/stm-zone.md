@@ -27,7 +27,7 @@ Your new zone now appears in the list.
 A window opens with two Docker commands:
 
 - the first one is used to log in to the Centreon Docker registry (see [step 5](#step-5-obtain-the-docker-credentials-from-keeper)),
-- the second one is used to launch the probe (see [step 6](#step-6-launch-the-probe)).
+- the second one is used to create and launch the probe (see [step 6](#step-6-launch-the-probe)).
 
 ## Step 5: Obtain the Docker credentials from Keeper
 
@@ -43,9 +43,9 @@ Username: \<username>
 Password: \<password>
 ```
 
-## Step 6: Launch the probe
+## Step 6: Create and launch the probe
 
-To launch the probe, execute the second command you obtained at [step 4](#step-4-associate-a-probe), if you had previously closed the window, you can simply open it again.
+To create and launch the probe, execute the second command you obtained at [step 4](#step-4-associate-a-probe), if you had previously closed the window, you can simply open it again.
 
 Once launched, the probe is automatically saved and appears in the STM Zones list.
 

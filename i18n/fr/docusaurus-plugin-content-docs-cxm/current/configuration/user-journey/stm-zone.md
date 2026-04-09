@@ -27,7 +27,7 @@ Votre nouvelle zone apparaît désormais dans la liste.
 Une fenêtre s'ouvre avec 2 commandes Docker :
 
 - la première sert à vous identifier au registry Docker Centreon (voir [étape 5](#étape-5--obtenir-les-identifiants-docker-depuis-keeper)),
-- la seconde sert à lancer la sonde (voir [étape 6](#étape-6--démarrer-la-sonde)).
+- la seconde sert à créer et lancer la sonde (voir [étape 6](#étape-6--démarrer-la-sonde)).
 
 ## Étape 5 : Obtenir les identifiants Docker depuis Keeper
 
@@ -43,9 +43,9 @@ Username: \<username>
 Password: \<password>
 ```
 
-## Étape 6 : Démarrer la sonde
+## Étape 6 : Créer et démarrer la sonde
 
-Exécutez la deuxième commande obtenue à [l'étape 4](#étape-4--associer-une-sonde) pour démarrer la sonde.
+Exécutez la deuxième commande obtenue à [l'étape 4](#étape-4--associer-une-sonde) pour créer la sonde et la démarrer.
 
 Une fois démarrée, la sonde s'enregistre automatiquement et apparaît dans la liste des zones STM.
 
