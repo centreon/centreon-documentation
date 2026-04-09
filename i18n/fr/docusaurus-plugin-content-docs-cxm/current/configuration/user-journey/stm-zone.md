@@ -5,6 +5,10 @@ title: Superviser de parcours utilisateur non-publics
 
 Une Zone de Monitoring Synthétique (STM) privée vous permet de superviser vos parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation, via une sonde déployée dans votre infrastructure.
 
+## Prérequis
+- Docker installé sur la machine qui exécutera les commandes.
+- Identifiants Docker fournis par Centroen (voir [l'étape 6](#étape-6--créer-et-démarrer-la-sonde))
+
 ## Étape 1 : Ouvrir la page de l'organisation
 
 - Depuis la **Vue Globale**, ouvrez le sélecteur de site en haut à gauche et ouvrez la page de votre organisation.

@@ -5,6 +5,10 @@ title: Monitoring non-public user journeys
 
 A private Synthetic Monitoring Zone (STM) allows you to monitor your user journeys on internal domains or networks specific to your organization using a probe deployed inside your infrastructure.
 
+## Prerequisites:
+- Docker is installed on the machine that will execute the commands.
+- Docker credentials provided by Centreon (see [step 6](#step-6-create-and-launch-the-probe)).
+
 ## Step 1: Open the organization page
 
 - From the **Global View**, open the site selector at the top left and open your organization’s page.
