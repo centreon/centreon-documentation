@@ -90,7 +90,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 ### Asterisk Manager Interface (AMI)
 
 In order to collect the necessary metrics and status, a user account with the
-"read" permission needs to be configured in the **/etc/asterisk/manager.conf file**.
+"read" permission needs to be configured in the **/etc/asterisk/manager.conf** file.
 More information in the [official documentation](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4817239).
 
 ## Installing the monitoring connector

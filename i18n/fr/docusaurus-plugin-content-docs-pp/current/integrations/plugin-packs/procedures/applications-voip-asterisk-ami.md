@@ -1,6 +1,6 @@
 ---
 id: applications-voip-asterisk-ami
-title: Asterisk VoIP Server
+title: Asterisk VoIP AMI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                            | Description                                    |
 |:----------------|:---------------------------------------------|:-----------------------------------------------|
 | Channel-Usage   | App-Voip-Asterisk-AMI-Channel-Usage-custom   | Contrôle le nombre d'appels et canaux en cours |
-| Sip-Peers-Usage | App-Voip-Asterisk-AMI-Sip-Peers-Usage-custom | Contrôle le statut des lien SIPs               |
+| Sip-Peers-Usage | App-Voip-Asterisk-AMI-Sip-Peers-Usage-custom | Contrôle le statut des liens SIP               |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-VoIP-Asterisk-AMI-custom** est utilisé.
 
@@ -91,8 +91,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ### Asterisk Manager Interface (AMI)
 
 Pour récuper les métriques et statuts du serveur Asterisk, un utilisateur avec
-les droits de lecture doit être configurer dans le fichier
-**/etc/asterisk/manager.conf file**. Plus d'informations dans la
+les droits de lecture doit être configuré dans le fichier
+**/etc/asterisk/manager.conf**. Plus d'informations dans la
 [documentation officielle](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4817239).
 
 ## Installer le connecteur de supervision
