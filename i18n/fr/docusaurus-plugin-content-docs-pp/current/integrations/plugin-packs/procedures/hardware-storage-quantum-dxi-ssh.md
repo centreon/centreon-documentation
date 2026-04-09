@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Quantum DXi Series** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -27,18 +27,18 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                  | Modèle de service                                        | Description                                                        |
 |:-----------------------|:---------------------------------------------------------|:-------------------------------------------------------------------|
-| Compaction             | HW-Storage-Quantum-Dxi-Compaction-SSH-custom             | Contrôle le status et les volumes du service de compactage         |
-| Dedupnas               | HW-Storage-Quantum-Dxi-Dedupnas-SSH-custom               | Contrôle le status et l'évolution de la déduplication vers les NAS |
+| Compaction             | HW-Storage-Quantum-Dxi-Compaction-SSH-custom             | Contrôle le statut et les volumes du service de compactage         |
+| Dedupnas               | HW-Storage-Quantum-Dxi-Dedupnas-SSH-custom               | Contrôle le statut et l'évolution de la déduplication vers les NAS |
 | Disk-Usage             | HW-Storage-Quantum-Dxi-Disk-Usage-SSH-custom             | Contrôle l'utilisation du disque                                   |
 | Health                 | HW-Storage-Quantum-Dxi-Health-SSH-custom                 | Contrôle la santé des services                                     |
 | Hostbus-Adapter-Status | HW-Storage-Quantum-Dxi-Hostbus-Adapter-Status-SSH-custom | Contrôle l'utilisation du disque                                   |
 | Memory                 | HW-Storage-Quantum-Dxi-Memory-SSH-custom                 | Contrôle l'utilisation de la mémoire                               |
-| Network                | HW-Storage-Quantum-Dxi-Network-SSH-custom                | Contrôle le status des ports réseau                                |
-| Reclamation            | HW-Storage-Quantum-Dxi-Reclamation-SSH-custom            | Contrôle le status et les volumes du service de reclamation        |
+| Network                | HW-Storage-Quantum-Dxi-Network-SSH-custom                | Contrôle le statut des ports réseau                                |
+| Reclamation            | HW-Storage-Quantum-Dxi-Reclamation-SSH-custom            | Contrôle le statut et les volumes du service de reclamation        |
 | Reduction              | HW-Storage-Quantum-Dxi-Reduction-SSH-custom              | Contrôle les statistiques du service de réduction                  |
-| Storage-Array-Status   | HW-Storage-Quantum-Dxi-Storage-Array-Status-SSH-custom   | Contrôle le status des baies de stockage                           |
-| System-Status          | HW-Storage-Quantum-Dxi-System-Status-SSH-custom          | Contrôle le status des composants matériels                        |
-| Throughput             | HW-Storage-Quantum-Dxi-Throughput-SSH-custom             | Contrôle le status et les volumes du service de reclamation        |
+| Storage-Array-Status   | HW-Storage-Quantum-Dxi-Storage-Array-Status-SSH-custom   | Contrôle le statut des baies de stockage                           |
+| System-Status          | HW-Storage-Quantum-Dxi-System-Status-SSH-custom          | Contrôle le statut des composants matériels                        |
+| Throughput             | HW-Storage-Quantum-Dxi-Throughput-SSH-custom             | Contrôle le statut et les volumes du service de reclamation        |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Quantum-Dxi-SSH-custom** est utilisé.
 
@@ -204,7 +204,7 @@ Deux méthodes de connexion SSH sont possibles :
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -241,7 +241,7 @@ yum install centreon-pack-hardware-storage-quantum-dxi-ssh
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Quantum DXi Series**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
