@@ -1,6 +1,6 @@
 ---
 id: applications-voip-asterisk-ami
-title: Asterisk VoIP Server
+title: Asterisk VoIP AMI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
