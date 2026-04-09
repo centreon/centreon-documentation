@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 According to your [use case](./getting-started/use-cases.md), you’ll either filter the log explorer for high-severity logs or rely on alert events for more complex situations.
 
-> To see logs in CLM, you first need to [configure an OpenTelemetry collector on each host you want to receive logs from](./collector/collector.md).
+> To see logs in Centreon Log Management (CLM), you first need to [configure an OpenTelemetry collector on each host you want to receive logs from](./collector/collector.md).
 
 ## Using the Log explorer page
 

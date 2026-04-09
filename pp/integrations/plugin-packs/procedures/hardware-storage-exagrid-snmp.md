@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-exagrid-snmp
-title: Exagrid
+title: Exagrid SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Exagrid** connector through the
+The following monitoring connectors will be installed when you install the **Exagrid SNMP** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Exa
 
 ### Templates
 
-The Monitoring Connector **Exagrid** brings a host template:
+The Monitoring Connector **Exagrid SNMP** brings a host template:
 
 * **HW-Storage-Exagrid-SNMP-custom**
 
@@ -65,7 +65,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation from the manufacturer/publisher. 
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
 Your resource may require a list of addresses authorized to query it to be set up. 
 Please ensure that the addresses of the Centreon pollers are included in this list.
 
@@ -115,7 +116,7 @@ yum install centreon-pack-hardware-storage-exagrid-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Exagrid** connector through
+2. Whatever the license type (*online* or *offline*), install the **Exagrid SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -187,15 +188,15 @@ yum install centreon-plugin-Hardware-Storage-Exagrid-Snmp
 <Tabs groupId="sync">
 <TabItem value="Server-Usage" label="Server-Usage">
 
-| Macro                 | Description                                                                                                                                          | Default value             | Mandatory   |
-|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
-| RETENTIONUSAGE        | Threshold                                                                                                                                            |                           |             |
-| WARNINGLANDINGUSAGE   | Threshold                                                                                                                                            |                           |             |
-| CRITICALLANDINGUSAGE  | Threshold                                                                                                                                            |                           |             |
-| WARNINGRETENTIONUSAGE | Threshold                                                                                                                                            |                           |             |
-| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /warning/i'). You can use the following variables: %\{status\} | %\{status\} =~ /warning/i |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /error/i'). You can use the following variables: %\{status\}  | %\{status\} =~ /error/i   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                   |                           |             |
+| Macro                 | Description                                                                                                                            | Default value             | Mandatory   |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
+| RETENTIONUSAGE        | Threshold                                                                                                                              |                           |             |
+| WARNINGLANDINGUSAGE   | Threshold                                                                                                                              |                           |             |
+| CRITICALLANDINGUSAGE  | Threshold                                                                                                                              |                           |             |
+| WARNINGRETENTIONUSAGE | Threshold                                                                                                                              |                           |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                          | %\{status\} =~ /warning/i |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                         | %\{status\} =~ /error/i   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                           |             |
 
 </TabItem>
 </Tabs>

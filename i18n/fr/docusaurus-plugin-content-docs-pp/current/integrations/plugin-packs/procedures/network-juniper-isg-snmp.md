@@ -1,13 +1,13 @@
 ---
 id: network-juniper-isg-snmp
-title: Juniper ISG
+title: Juniper ISG SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Juniper ISG** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Juniper ISG SNMP** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Juniper ISG** apporte un modèle d'hôte :
+Le connecteur de supervision **Juniper ISG SNMP** apporte un modèle d'hôte :
 
 * **Net-Juniper-Isg-SNMP-custom**
 
@@ -128,8 +128,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent SNMP
-sur la ressource comme indiqué sur la documentation officielle du constructeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -179,7 +181,7 @@ yum install centreon-pack-network-juniper-isg-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper ISG**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper ISG SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -235,8 +237,8 @@ yum install centreon-plugin-Network-Juniper-Isg-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -249,52 +251,52 @@ yum install centreon-plugin-Network-Juniper-Isg-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.                                                      |                   |             |
-| CRITICAL     | Critical threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.                                                     |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold in percent (1min,5min,15min)                                                                                                   |                   |             |
+| CRITICAL     | Critical threshold in percent (1min,5min,15min)                                                                                                  |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'module', 'temperature'            | .*                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'fan', 'psu', 'module', 'temperature'                                                                          | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent                                                                       |                   |             |
-| CRITICAL     | Critical threshold in percent                                                                      |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold in percent                                                                                                                     |                   |             |
+| CRITICAL     | Critical threshold in percent                                                                                                                    |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Macro          | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGFAILED  | Threshold                                                                                          |                   |             |
-| CRITICALFAILED | Threshold                                                                                          |                   |             |
-| WARNINGUSAGE   | Threshold                                                                                          |                   |             |
-| CRITICALUSAGE  | Threshold                                                                                          |                   |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGFAILED  | Threshold                                                                                                                                        |                   |             |
+| CRITICALFAILED | Threshold                                                                                                                                        |                   |             |
+| WARNINGUSAGE   | Threshold                                                                                                                                        |                   |             |
+| CRITICALUSAGE  | Threshold                                                                                                                                        |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro          | Description                                                                                                                                                                                                                     | Valeur par défaut | Obligatoire |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                             | .*                |             |
-| WARNINGIN      | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALIN     | Threshold                                                                                                                                                                                                                       | 90                |             |
-| WARNINGOUT     | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALOUT    | Threshold                                                                                                                                                                                                                       | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                              | --verbose         |             |
+| Macro          | Description                                                                                                                                                         | Valeur par défaut                                | Obligatoire |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
+| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name | .*                                               |             |
+| WARNINGIN      | Threshold                                                                                                                                                           | 80                                               |             |
+| CRITICALIN     | Threshold                                                                                                                                                           | 90                                               |             |
+| WARNINGOUT     | Threshold                                                                                                                                                           | 80                                               |             |
+| CRITICALOUT    | Threshold                                                                                                                                                           | 90                                               |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} ne "up" |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                    | --verbose                                        |             |
 
 </TabItem>
 </Tabs>
@@ -320,7 +322,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--name \
 	--add-status \
 	--add-traffic \
-	--critical-status='' \
+	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' \
 	--warning-in-traffic='80' \
 	--critical-in-traffic='90' \
 	--warning-out-traffic='80' \
@@ -331,7 +333,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=40742b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=6680b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=20119b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=39675b/s;;;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=55b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=10b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=48b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=26b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes
@@ -362,7 +364,7 @@ Le plugin apporte les modes suivants :
 | cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/cpu.pm)]           | Net-Juniper-Isg-Cpu-SNMP-custom             |
 | hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/hardware.pm)] | Net-Juniper-Isg-Hardware-Global-SNMP-custom |
 | interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                    | Net-Juniper-Isg-Traffic-Global-SNMP-custom  |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]           | Used for service discovery                  |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]           | Utilisé pour la découverte de services      |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/memory.pm)]     | Net-Juniper-Isg-Memory-SNMP-custom          |
 | sessions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/sessions.pm)] | Net-Juniper-Isg-Sessions-SNMP-custom        |
 
@@ -452,13 +454,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --component          | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'module', 'temperature'.                                                                                                                                  |
 | --filter             | Exclude some parts (example: --filter=psu --filter=module) You can also exclude items from specific instances: --filter=fan,1                                                                                             |
-| --absent-problem     | Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.      |
 | --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                                |
 | --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='psu,WARNING,^(?!(active)$)' |
 | --warning            | Set warning threshold for temperatures (syntax: type,instance,threshold) Example: --warning='temperature,.*,30'                                                                                                           |
 | --critical           | Set critical threshold for temperatures (syntax: type,instance,threshold) Example: --critical='temperature,.*,40'                                                                                                         |
-| --warning-count-*    | Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                              |
-| --critical-count-*   | Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

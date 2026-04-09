@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-emc-celerra-ssh
-title: EMC Celerra
+title: EMC Celerra SSH
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Celerra**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Celerra SSH**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -41,9 +41,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Getreason" label="Getreason">
 
-| Nom   | Unité |
-|:--------|:-----|
-| status | N/A  |
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
 
 </TabItem>
 </Tabs>
@@ -102,7 +102,7 @@ yum install centreon-pack-hardware-storage-emc-celerra-ssh
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Celerra**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Celerra SSH**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -161,8 +161,8 @@ yum install centreon-plugin-Hardware-Storage-Emc-Celerra-Ssh
 | SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          |                   |             |
 | SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
 | SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
-| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | libssh            |             |
-| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli, plink and libssh                                                                                             | libssh            |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                  |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -174,9 +174,9 @@ yum install centreon-plugin-Hardware-Storage-Emc-Celerra-Ssh
 <Tabs groupId="sync">
 <TabItem value="Getreason" label="Getreason">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'controlstation', 'datamover'                    | .*                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'controlstation', 'datamover'                                                                                  | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>

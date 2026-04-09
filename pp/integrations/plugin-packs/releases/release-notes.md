@@ -8,6 +8,52 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+### March
+
+> **Warning:**  As you may notice, almost all monitoring connectors will appear as updated in the Monitoring Connector Manager.
+> Most of them have been reissued for technical reasons. If you do not find them in the tabs below, there will be no changes except that the required plugin version will be available for Debian 13 and EL10 to prepare the future availability of Centreon on these platforms.
+> Also notice that Monitoring Connectors for EL7 will be archived soon since this platform is no longer supported.
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Aviat Networks SNMP**](../procedures/network-aviat-snmp.md) - Initial release.
+- [**Kairos SNMP**](../procedures/network-kairos-snmp.md) - Initial release.
+- [**Veeam ONE Rest API**](../procedures/applications-veeam-vone-restapi.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**HAProxy SNMP**](../procedures/applications-haproxy-snmp.md) - Allow compatibility with version 17 OIDs.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Added the number and percent of open files per process in process mode.
+- [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - Allow compatibility with version 13.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Allow compatibility with version 13.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Allow compatibility with version 13.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Allow compatibility with version 13.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Allow compatibility with version 13.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Add certificates mode.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Handle extended thresholds on CMA native checks.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed a `No peers detected` error with `--ntp-mode=ntpq`.
+- [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - Fixed edge cases size calculation in database mode.
+- [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Fixed edge cases size calculation in database mode.
+- [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - Fixed edge cases size calculation in database mode.
+- [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Replaced obsolete '\C' pattern in regular expressions in Cpu, Psu and Temperature.
+- [**SecurActive SNMP**](../procedures/network-securactive-snmp.md) - Fixed the **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.
+- [**Splunk API**](../procedures/applications-monitoring-splunk-api.md) - Fixed the **App-Monitoring-Splunk-Api-String-Value** command that used a wrong mode.
+- [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Fixed host ID macro in **Virt-VMWare8-VM-Restapi-Network-Throughput** command.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - The temporary files are now deleted when the execution ends.
+
+</TabItem>
+</Tabs>
+
 ### February
 
 <Tabs groupId="sync">
@@ -44,7 +90,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-cxm-restapi.md) - The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases. 
 - [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as `updates` and `pending-reboot` modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)). 
 - [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fixed a mix-up between `data-write-ops` and `data-write-bytes` for the **Fsx-DataUsage** service (issue [#5944](https://github.com/centreon/centreon-plugins/issues/5944)).
@@ -60,7 +106,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**Apache CXF**](../procedures/applications-apache-cxf-jmx.md) - Initial release.
-- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - Initial release.
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-cxm-restapi.md) - Initial release.
 - [**Microsoft SCCM CMA**](../procedures/applications-sccm-cma.md) - Initial release.
 - [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md) - Initial release ([Issue 5551](https://github.com/centreon/centreon-plugins/issues/5551)).
 
@@ -75,7 +121,7 @@ import TabItem from '@theme/TabItem';
 - [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Added an option to the **connected-users** mode to filter by database name ([PR 5195](https://github.com/centreon/centreon-plugins/pull/5195)).
 - [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - Added the **snapmirrorlag** service template.
 - [**Nutanix**](../procedures/virtualization-nutanix-snmp.md) - Added support of Nutanix 6.10 (fixes 'No disk found' error in **disk-usage**_ service template).
-- [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Deprecated, replaced by [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md).
+- [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Deprecated, replaced by [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-cxm-restapi.md).
 - [**VMware VCSA Rest API**](../procedures/applications-vmware-vcsa-restapi.md) - Deprecated, replaced by [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md).
 
 </TabItem>
@@ -186,7 +232,7 @@ import TabItem from '@theme/TabItem';
 
 - [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - Fixed localized time calculation using the ` timezone` option.
 - [**Azure ServiceBus**](../procedures/cloud-azure-integration-servicebus.md) - Fixed an issue in metric configuration in **namespaces** mode.
-- [**Centreon DEM (formerly Quanta) Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Handle empty table returns.
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Handle empty table returns.
 - [**Comet P8000 Sensor SNMP**](../procedures/hardware-sensors-comet-p8000-snmp.md) - Removed 'geist' from connector name.
 - [**Dell Compellent Nsclient NRPE**](../procedures/hardware-storage-dell-compellent-api.md) - Made NSClient and NRPE usage more explicit.
 - [**Dell iDRAC SNMP**](../procedures/hardware-servers-dell-idrac-snmp.md) - Fixed ready status for `pdisk.state` in **hardware** mode.

@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-hp-p2000-xmlapi
-title: HP P2000
+title: HP P2000 XML API
 ---
 
 ## Prerequisites

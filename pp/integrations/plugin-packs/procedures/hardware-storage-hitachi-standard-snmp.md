@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-hitachi-standard-snmp
-title: Hitachi Standard
+title: Hitachi Standard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Hitachi Standard** brings a host template:
+The Monitoring Connector **Hitachi Standard SNMP** brings a host template:
 
 * **HW-Storage-Hitachi-Standard-SNMP-custom**
 
@@ -44,11 +44,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name       | Unit |
-|:------------------|:-----|
-| component.status  | N/A  |
-| dkc.status        | N/A  |
-| dku.status        | N/A  |
+| Name             | Unit |
+|:-----------------|:-----|
+| component.status | N/A  |
+| dkc.status       | N/A  |
+| dku.status       | N/A  |
 
 </TabItem>
 </Tabs>
@@ -111,7 +111,7 @@ yum install centreon-pack-hardware-storage-hitachi-standard-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Hitachi Standard** connector through
+2. Whatever the license type (*online* or *offline*), install the **Hitachi Standard SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -185,7 +185,7 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Standard-Snmp
 
 | Macro        | Description                                                                                                                            | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'component', 'dkc', 'dku'                                                            | .*                |             |
+| COMPONENT    | Which component to check. Can be: 'component', 'dkc', 'dku'                                                                            | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>

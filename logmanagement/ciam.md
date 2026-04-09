@@ -35,8 +35,8 @@ Your administrator has invited you to Centreon CIAM; you have received an email 
 2. Enter your password, and then click **Continue**. The Centreon CIAM site opens.
 3. In the top right corner of the screen, click the profile icon, and then click **Edit profile**. You can then fill in your details.
 
-## Accessing CLM
+## Accessing Centreon Log Management
 
-To open CLM, log in to the CIAM. In the **Applications** page, click the tile you want:
+To open Centreon Log Management, log in to the CIAM. In the **Applications** page, click the tile you want:
 
 ![image](./assets/ciam.png)

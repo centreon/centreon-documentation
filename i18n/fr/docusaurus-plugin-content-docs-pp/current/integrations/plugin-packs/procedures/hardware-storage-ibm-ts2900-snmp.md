@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-ibm-ts2900-snmp
-title: IBM TS2900
+title: IBM TS2900 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **IBM TS2900**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **IBM TS2900 SNMP**
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **IBM TS2900** apporte un modèle d'hôte :
+Le connecteur de supervision **IBM TS2900 SNMP** apporte un modèle d'hôte :
 
 * **HW-Storage-IBM-TS2900-SNMP-custom**
 
@@ -51,13 +51,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Nom              | Unité |
-|:----------------------|:------|
-| robotStatus | N/A   |
-| contState    | N/A   |
-| contPowerStatus    | N/A   |
-| magStatus    | N/A   |
-| driveStatus    | N/A   |
+| Nom             | Unité |
+|:----------------|:------|
+| robotStatus     | N/A   |
+| contState       | N/A   |
+| contPowerStatus | N/A   |
+| magStatus       | N/A   |
+| driveStatus     | N/A   |
 
 </TabItem>
 </Tabs>
@@ -66,7 +66,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée.
 Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
@@ -118,7 +119,7 @@ yum install centreon-pack-hardware-storage-ibm-ts2900-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IBM TS2900**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IBM TS2900 SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -188,10 +189,10 @@ yum install centreon-plugin-Hardware-Storage-Ibm-Ts2900-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'robot', 'drive', 'ctrl', 'ctrlpower', 'magazine' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).  | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'robot', 'drive', 'ctrl', 'ctrlpower', 'magazine'                                                              | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 </Tabs>

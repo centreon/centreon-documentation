@@ -5,7 +5,7 @@ title: Use cases
 
 <!-- évaluer un nombre de lignes de logs basé sur un pattern, seuil fixe (ou anomaly detection). -->
 
-Centreon Log Management enables you to detect and resolve a wide variety of issues in an IT system, ranging from minor errors to major incidents. Many typical CLM use cases focus on root cause analysis. Here are a few concrete examples of what CLM can help you detect from analyzing missing logs, unexpected log types, or unusual log volumes.
+Centreon Log Management (CLM) enables you to detect and resolve a wide variety of issues in an IT system, ranging from minor errors to major incidents. Many typical CLM use cases focus on root cause analysis. Here are a few concrete examples of what CLM can help you detect from analyzing missing logs, unexpected log types, or unusual log volumes.
 
 ## Integration and communication issues between services
 
