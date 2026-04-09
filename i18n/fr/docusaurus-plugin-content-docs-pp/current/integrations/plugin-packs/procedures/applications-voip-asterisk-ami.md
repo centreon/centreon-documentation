@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                            | Description                                    |
 |:----------------|:---------------------------------------------|:-----------------------------------------------|
 | Channel-Usage   | App-Voip-Asterisk-AMI-Channel-Usage-custom   | Contrôle le nombre d'appels et canaux en cours |
-| Sip-Peers-Usage | App-Voip-Asterisk-AMI-Sip-Peers-Usage-custom | Contrôle le statut des liens SIP               |
+| Sip-Peers-Usage | App-Voip-Asterisk-AMI-Sip-Peers-Usage-custom | Contrôle l'utilisation des pairs SIP               |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-VoIP-Asterisk-AMI-custom** est utilisé.
 
