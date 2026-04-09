@@ -39,7 +39,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias      | Modèle de service                               | Description                                                                                                               | Découverte |
 |:-----------|:------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|:----------:|
 | Disks      | HW-Storage-Lenovo-Iomega-Disks-SNMP-custom      | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques | X          |
-| Interfaces | HW-Storage-Lenovo-Iomega-Interfaces-SNMP-custom | Contrôle le traffic réseau de plusieurs interfaces réseau                                                                 | X          |
+| Interfaces | HW-Storage-Lenovo-Iomega-Interfaces-SNMP-custom | Contrôle le trafic réseau de plusieurs interfaces réseau                                                                 | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -133,7 +133,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ## Prérequis
 
 Afin de contrôler vos équipements Lenovo Iomega, le SNMP v2 doit être configuré.
-Pour plus d'information, vous pouvez vous référer à la documentation utilisateur officiel :
+Pour plus d'informations, vous pouvez vous référer à la documentation utilisateur officielle :
 http://download.lenovo.com/nasupdate/manuals/px2-300d/px2-300d-4.1-en.pdf#page=69&zoom=100,72,90
 
 ## Installer le connecteur de supervision

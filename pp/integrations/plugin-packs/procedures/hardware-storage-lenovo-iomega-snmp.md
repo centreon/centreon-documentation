@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                              | Service Description                                                                                                                                |
 |:--------------|:----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | HW-Storage-Lenovo-Iomega-Cpu-SNMP-custom      | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Cpu           | HW-Storage-Lenovo-Iomega-Cpu-SNMP-custom      | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
 | Hardware      | HW-Storage-Lenovo-Iomega-Hardware-SNMP-custom | Check hardware                                                                                                                                     |
 | Memory        | HW-Storage-Lenovo-Iomega-Memory-custom        | Check memory                                                                                                                                                   |
 
@@ -37,8 +37,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                | Service Description                                                                           | Discovery  |
 |:--------------|:------------------------------------------------|:----------------------------------------------------------------------------------------------|:----------:|
-| Disks         | HW-Storage-Lenovo-Iomega-Disks-SNMP-custom      | Check the rate of free space on disks. For each checks the mount point of disks will appear | X          |
-| Interfaces    | HW-Storage-Lenovo-Iomega-Interfaces-SNMP-custom | Check traffic of multiple network interfaces                                                  | X          |
+| Disks         | HW-Storage-Lenovo-Iomega-Disks-SNMP-custom      | Check the rate of free space on disks. For each check, the mount point of disks will appear | X          |
+| Interfaces    | HW-Storage-Lenovo-Iomega-Interfaces-SNMP-custom | Check traffic for multiple network interfaces                                                  | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -131,8 +131,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To monitor your Lenovo Iomega, the SNMP must be configured.
-The Poller should be able to perform SNMP requests toward the Lenovo device over SNMP UDP/161 port.
+To monitor your Lenovo Iomega, SNMP must be configured.
+The poller should be able to perform SNMP requests toward the Lenovo device over SNMP UDP/161 port.
 
 ## Installing the monitoring connector
 
