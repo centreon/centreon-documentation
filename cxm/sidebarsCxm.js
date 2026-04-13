@@ -54,7 +54,8 @@ module.exports = {
       type: 'category',
       label: 'Analyze user experience: Real User Monitoring (RUM)',
       link: {
-        type: 'generated-index',
+        type: "doc",
+        id: "rum/rum"
       },
       items: [
          { type: 'doc', id: 'installation/real-user-monitoring-installation' },
