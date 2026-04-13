@@ -2608,6 +2608,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hitachi-eseries-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hitachi-hcp-snmp'
         },
         {
