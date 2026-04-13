@@ -357,7 +357,6 @@ yum install centreon-plugin-Applications-Pvx-Restapi
 | PVXCUSTOMMODE      | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | PVX_AUTH_SERVICE_URL | Authentication service URL                                                                                                                                                                                                                                                                      | /api/v1/auth/login |           |
 | PVX_USE_AUTH_SERVICE | Three authentication methods are supported: legacy username/password, API key, and username/password via the authentication server. Starting with Accedian Skylight version 17 and later authentication must be performed via the authentication server using this --use-auth-service parameter | 0                  |           |
-
 | PVXAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
