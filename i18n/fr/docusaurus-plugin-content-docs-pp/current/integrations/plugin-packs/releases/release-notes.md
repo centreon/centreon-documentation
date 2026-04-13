@@ -46,7 +46,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Zscaler ZDX Api**](../procedures/applications-monitoring-zscaler-zdx-api.md) - Added new authentication method.
+- [**Zscaler ZDX Api**](../procedures/applications-monitoring-zscaler-zdx-api.md) - The former authentication method is no longer supported. Only OneAPI is now supported.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
