@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Hitachi E Series**](../procedures/hardware-storage-hitachi-eseries-cma.md) - Initial release.
+- [**Hitachi E Series CMA**](../procedures/hardware-storage-hitachi-eseries-cma.md) - Initial release.
 - [**Linux Libvirt SSH**](../procedures/virtualization-linux-libvirt-ssh.md) - Initial release.
 - [**Palo Alto firewall API**](../procedures/network-firewalls-paloalto-standard-api.md) - Initial release.
 
