@@ -24,3 +24,9 @@ Once RUM is [configured](../installation/real-user-monitoring-installation.md), 
 By default, RUM data is presented as averages. You can use percentiles to focus on specific segments of the data.
 
 ![image](../assets/percentiles.png)
+
+Percentiles from 10ile to 95ile shows the distribution from "fast/low" to "slow/high" values:
+
+10ile = only display best-case experiences
+50ile = display typical user experience (median)
+95ile = only display slowest experiences.
