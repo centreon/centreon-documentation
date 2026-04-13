@@ -247,6 +247,8 @@ yum install
 
 | Macro               | Description                                                                                                                                      | Default value          | Mandatory |
 |:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
+| INCLUDE_PID         | Filter pools by PID (regexp)                                                                                                                     |                        |           |
+| EXCLUDE_PID         | Exclude pools by PID (regexp)                                                                                                                    |                        |           |
 | CRITICAL_STATUS     | Critical threshold for pool status                                                                                                               | %\{status\} ne "POLN"' |           |
 | WARNING_STATUS      | Warning threshold for pool status                                                                                                                |                        |           |
 | WARNING_USAGE       | Warning threshold in bytes for pool space usage                                                                                                  |                        |           |
@@ -282,7 +284,6 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--mode=quorum \
 	--timeout="45" \
 	--instance-id="" \
-	--command-path="$_HOSTCOMMAND_PATH"  \
 	--query-id="" \
 	--warning-status='' \
 	--critical-status='%\{status\} ne "NORMAL"' 
