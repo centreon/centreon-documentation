@@ -25,8 +25,8 @@ By default, RUM data is presented as averages. You can use percentiles to focus 
 
 ![image](../assets/percentiles.png)
 
-Percentiles from 10ile to 95ile shows the distribution from "fast/low" to "slow/high" values:
+Percentiles from 10ile to 95ile show the distribution from "fast/low" to "slow/high" values:
 
-10ile = only display best-case experiences
-50ile = display typical user experience (median)
-95ile = only display slowest experiences.
+* 10ile = only display best-case experiences
+* 50ile = display typical user experience (median)
+* 95ile = only display slowest experiences.
