@@ -1,64 +1,55 @@
 ---
 id: stm-zones
-title: Monitoring non-public user journeys
+title: Monitoring non-public user journeys (closed beta)
 ---
 
 A private Synthetic Monitoring Zone (STM) allows you to monitor your user journeys on internal domains or networks specific to your organization using a probe deployed inside your infrastructure.
 
 ## Prerequisites:
-- Docker is installed on the machine that will execute the commands.
-- Docker credentials provided by Centreon (see [step 6](#step-6-create-and-launch-the-probe)).
 
-## Step 1: Open the organization page
+- A machine inside your infrastructure to host the probe. The machine must be able to access the application you will monitor.
+- Docker credentials provided by Centreon (see [step 6](#step-6-create-and-launch-the-probe)). The credentials are sent by Centreon using a secure Keeper link. Save these credentials in your own safe.
+- A **user journey** configured on the internal application to monitor.
+
+## Step 1: Create a new STM zone
 
 - From the **Global View**, open the site selector at the top left and open your organization’s page.
 
 ![image](../../assets/configuration/user-journey/organization-page.png)
 
-## Step 2: Access the STM Zones tab
-
 - On your organization’s configuration page, click the **Synthetic Monitoring Zones** tab.
 
-## Step 3: Create a new STM zone
-
-- Click **+ New Synthetic Monitoring Zone**, give it a meaningful name (e.g., Paris Office), then click **+ Create**.
+- Click **+ New Synthetic Monitoring Zone**. Give it a meaningful name (e.g., Paris Office) then click **+ Create**.
 Your new zone now appears in the list.
 
-## Step 4: Associate a probe to an STM
+## Step 2: Associate a probe to an STM
 
-- Click **Associate a probe** to the right of your zone. You can also click in the upper-right corner in which case, make sure the right zone to select the right zone in the new window.
+- Click **Associate a probe** to the right of your zone.
 
-A window opens with two Docker commands:
+A window opens with 2 Docker commands:
 
-- the first one is used to log in to the Centreon Docker registry (see [step 5](#step-5-obtain-the-docker-credentials-from-keeper)),
-- the second one is used to create and launch the probe (see [step 6](#step-6-launch-the-probe)).
-
-## Step 5: Obtain the Docker credentials from Keeper
-
-The credentials are sent to you by Centreon via a secure Keeper link.
-
-1. Contact Centreon to receive the Keeper link. Save the credentials in your own vault.
-
-2. Once you have obtained the credentials, log in to the Centreon Docker registry:
+- Use the first command to log into the Centreon Docker registry with [the credentials provided by Centreon](#prerequisites)
 
 ```shell
 docker login docker.centreon.com/centreon-dem-beta
-Username: \<username>
-Password: \<password>
 ```
 
-## Step 6: Create and launch the probe
+Enter your username and password when prompted.
 
-To create and launch the probe, execute the second command you obtained at [step 4](#step-4-associate-a-probe), if you had previously closed the window, you can simply open it again.
+- The second command is used to create and launch the probe (see [step 3](#step-3-create-and-launch-the-probe))
 
-Once launched, the probe is automatically saved and appears in the STM Zones list.
+## Step 3: Create and launch the probe
 
-## Step 7: Associate the zone with a user journey
+To create and launch the probe, execute the second command you obtained at [step 2](#step-2-associate-a-probe-to-an-stm), if you had previously closed the window, you can simply open it again.
+
+Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** liste.
+
+## Step 4: Associate the zone with a user journey
 
 1. Go to **Configuration** > **User Journeys** tab. On the journey you want to run from your private zone, click on the three dots on the right, then click on **Advanced**.
 
-2. In the **Advanced configuration** window, scroll down to the **Synthetic Monitoring Zones** section. Your private zone appears under Private Zones. Select it.
-Click Save
+2. In the **Advanced configuration** window, scroll down to the **Synthetic Monitoring Zones** section. Your private zone appears under **Private Zones**. Select it.
+Click **Save**
 
 3. Your internal journey monitoring is now in place! You can analyze it as you would for a regular [user journey](../../how-to-articles/user-journey-screen.md).
 
