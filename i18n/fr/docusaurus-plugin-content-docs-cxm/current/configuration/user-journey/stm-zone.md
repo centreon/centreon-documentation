@@ -3,11 +3,12 @@ id: stm-zones
 title: Superviser de parcours utilisateur non-publics
 ---
 
-Une Zone de Monitoring Synthétique (STM) privée vous permet de superviser vos parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation, via une sonde déployée dans votre infrastructure.
+Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser vos parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation, via une sonde déployée dans votre infrastructure.
 
 ## Prérequis
-- Docker installé sur la machine qui exécutera les commandes.
-- Identifiants Docker fournis par Centroen (voir [l'étape 6](#étape-6--créer-et-démarrer-la-sonde))
+
+- Une machine située dans votre infrastructure devra héberger une sonde. Elle devra pouvoir accéder à l'application à superviser.
+- Identifiants Docker fournis par Centreon (voir [l'étape 6](#étape-6--créer-et-démarrer-la-sonde)). Les identifiants vous sont transmis par Centreon via un lien sécurisé Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
 
 ## Étape 1 : Ouvrir la page de l'organisation
 
@@ -24,7 +25,7 @@ Une Zone de Monitoring Synthétique (STM) privée vous permet de superviser vos 
 - Cliquez sur **+ Nouvelle Zone de Monitoring Synthétique**, donnez-lui un nom significatif (ex. : Paris Office), puis cliquez sur **+ Créer**.
 Votre nouvelle zone apparaît désormais dans la liste.
 
-## Étape 4 : Associer une sonde à une STM
+## Étape 4 : Associer une sonde à une zone STM
 
 - Cliquez sur **Associer une sonde** à droite de votre zone. Vous pouvez également cliquer en haut à droite, dans ce cas-ci, assurez-vous de sélectionner la bonne zone dans la nouvelle fenêtre.
 
