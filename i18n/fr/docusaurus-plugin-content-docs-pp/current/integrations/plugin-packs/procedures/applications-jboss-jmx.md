@@ -46,6 +46,18 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 </Tabs>
 
+### Règles de découverte
+
+#### Découverte de services
+
+| Nom de la règle          | Description                                         |
+|:-------------------------|:----------------------------------------------------|
+| App-Jboss-Jmx-Datasource | Découvre les datasources supervise leur utilisation |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
+
 ### Métriques & statuts collectés
 
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
