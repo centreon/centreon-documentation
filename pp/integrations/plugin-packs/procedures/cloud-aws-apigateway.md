@@ -203,13 +203,13 @@ yum install centreon-plugin-Cloud-Aws-Apigateway-Api
 
 | Macro         | Description                                                                                                                              | Default value     | Mandatory   |
 |:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| API_GATEWAY_TYPE | The type of the API gateway (Can be: `REST`, `HTTP`, `WebSocket`). Used to set the correct dimension instance (`ApiName` or `ApiId`)  | REST              |             |
+| API_GATEWAY_TYPE | The type of the API gateway (can be: `REST`, `HTTP`, `WebSocket`). Used to set the correct dimension instance (`ApiName` or `ApiId`)  | REST              |             |
 | AWSACCESSKEY  | Set AWS access key                                                                                                                       |                   | X           |
 | AWSASSUMEROLE | Set Amazon Resource Name of the role to be assumed                                                                                       |                   |             |
 | AWSCUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option               | awscli            |             |
 | AWSREGION     | Set the region name (required)                                                                                                           | us-east-1         | X           |
 | AWSSECRETKEY  | Set AWS secret key                                                                                                                       |                   | X           |
-| DIMENSION_VALUE | Can be the `APIName` or the `ApiId` value (Required) depending by the --api-gateway-type (can be defined multiple times)               |                   | X           |
+| DIMENSION_VALUE | Can be the `APIName` or the `ApiId` value (required) depending by the --api-gateway-type (can be defined multiple times)               |                   | X           |
 | PROXYURL      | Proxy URL if any                                                                                                                         |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
