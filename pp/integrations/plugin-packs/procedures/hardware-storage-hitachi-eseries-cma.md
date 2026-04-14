@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-hitachi-eseries-cma
-title: Hitachi E Series
+title: Hitachi E Series CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
