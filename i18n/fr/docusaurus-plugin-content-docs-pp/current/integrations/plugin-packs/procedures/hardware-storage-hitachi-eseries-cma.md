@@ -16,7 +16,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Hitachi E Series** apporte un modèle d'hôte :
+Le connecteur de supervision **Hitachi E Series CMA** apporte un modèle d'hôte :
 
 * **HW-Storage-Hitachi-Eseries-CMA-custom**
 
