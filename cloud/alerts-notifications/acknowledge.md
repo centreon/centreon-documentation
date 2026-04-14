@@ -29,6 +29,15 @@ of disk.
 > corrected; this can only take effect when the check returns to its
 > nominal state.
 
+### Specific behavior for Business Activities
+
+> If you are using the **Business Activity Monitoring** module, acknowledgments apply only to the specific object (BA or KPI).
+
+Acknowledgements apply to Business Activities (BAs) as follows:
+- Acknowledgements do not propagate between parent and child BAs.
+- Acknowledging a KPI (service) does not acknowledge the BA that depends on it.
+- Acknowledging a BA does not acknowledge its underlying KPIs.
+
 ### Practice
 
 To acknowledge an alert:

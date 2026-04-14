@@ -416,6 +416,15 @@ Expression booléenne :
     soumettre des états aux différents services permettant de simuler
     une situation et voir le retour de l'expression
 
+## Comportement spécifique aux acquittements d'une alerte
+
+> Les acquittements d'une alerte s'appliquent uniquement à l'objet concerné (activité métier ou KPI).
+
+Les acquittements s'appliquent aux activités métier (BA) comme suit :
+- Les acquittements ne se propagent pas entre les activités métier parentes et filles.
+- L'acquittement d'un KPI (service) n'entraîne pas l'acquittement de l'activité métier qui en dépend.
+- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents.
+
 ## Les vues métier
 
 *Business Views - BV*
