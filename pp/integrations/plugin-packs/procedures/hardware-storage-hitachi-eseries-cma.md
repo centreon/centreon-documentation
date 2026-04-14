@@ -133,7 +133,7 @@ yum install centreon-pack-hardware-storage-hitachi-eseries-cma
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Hitachi E Series** connector through
+2. Whatever the license type (*online* or *offline*), install the **Hitachi E Series CMA** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
