@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:------------|:---------------------------------------------|:-----------------------------------------|
 | Environment | Net-PaloAlto-Standard-Environment-Api-custom | Contrôle les composants matériels        |
 | Ha          | Net-PaloAlto-Standard-Ha-Api-custom          | Contrôle la haute disponibilité          |
-| Ipsec       | Net-PaloAlto-Standard-Ipsec-Api-custom       | Contrôle l                               |
+| Ipsec       | Net-PaloAlto-Standard-Ipsec-Api-custom       | Contrôle l'état des tunnels VPN IPSec    |
 | Licenses    | Net-PaloAlto-Standard-Licenses-Api-custom    | Contrôle les licences de fonctionnalités |
 | System      | Net-PaloAlto-Standard-System-Api-custom      | Contrôle le système                      |
 
@@ -262,10 +262,10 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Api
 | EXCLUDE_TUNNEL_NAME    | Exclude tunnel names (regexp)                                                                                                                    |                   |             |
 | INCLUDE_GATEWAY_NAME   | Include gateway names (regexp)                                                                                                                   |                   |             |
 | EXCLUDE_GATEWAY_NAME   | Exclude gateway names (regexp)                                                                                                                   |                   |             |
-| WARNING_ENCRYPTION     |                                                                                                                                                  |                   |             |
-| CRITICAL_ENCRYPTION    |                                                                                                                                                  |                   |             |
-| WARNING_GATEWAY        |                                                                                                                                                  |                   |             |
-| CRITICAL_GATEWAY       |                                                                                                                                                  |                   |             |
+| WARNING_ENCRYPTION     | Define the condition for WARNING status based on tunnel encryption state. Available variables: %\{enc\}, %\{name\}                               |                   |             |
+| CRITICAL_ENCRYPTION    | Define the condition for CRITICAL status based on tunnel encryption state. Available variables: %\{enc\}, %\{name\}                              |                   |             |
+| WARNING_GATEWAY        | Define the condition for WARNING status based on gateway. Available variables: %\{gateway\}, %\{name\}                                           |                   |             |
+| CRITICAL_GATEWAY       | Define the condition for CRITICAL status based on gateway. Available variables: %\{gateway\}, %\{name\}                                          |                   |             |
 | WARNING_REMAIN_TIME    | Warning threshold for tunnel remain time in seconds                                                                                              |                   |             |
 | CRITICAL_REMAIN_TIME   | Critical threshold for tunnel remain time in seconds                                                                                             |                   |             |
 | WARNING_TUNNELS_COUNT  | Warning threshold for tunnels count                                                                                                              |                   |             |
@@ -292,16 +292,16 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Api
 
 | Macro                       | Description                                                                                                                                      | Valeur par défaut             | Obligatoire |
 |:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
-| CRITICAL_CERTIFICATE_STATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{cert\_status\}                             | %\{cert\_status\} !~ /Valid/i |             |
 | WARNING_CERTIFICATE_STATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{cert\_status\}                              |                               |             |
-| WARNING_OPERATIONAL_MODE    |                                                                                                                                                  |                               |             |
-| CRITICAL_OPERATIONAL_MODE   |                                                                                                                                                  |                               |             |
-| WARNING_SOFTWARE_VERSION    |                                                                                                                                                  |                               |             |
-| CRITICAL_SOFTWARE_VERSION   |                                                                                                                                                  |                               |             |
+| CRITICAL_CERTIFICATE_STATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{cert\_status\}                             | %\{cert\_status\} !~ /Valid/i |             |
+| WARNING_OPERATIONAL_MODE    | Define the condition for WARNING status based on operational mode. Available variable: %\{operational_mode\}                                     |                               |             |
+| CRITICAL_OPERATIONAL_MODE   | Define the condition for CRITICAL status based on operational mode. Available variables: %\{operational_mode\}                                   |                               |             |
+| WARNING_SOFTWARE_VERSION    | Define the condition for WARNING status based on software version. Available variable: %\{sw_version\}                                           |                               |             |
+| CRITICAL_SOFTWARE_VERSION   | Define the condition for CRITICAL status based on software version. Available variable: %\{sw_version\}                                          |                               |             |
 | WARNING_UPTIME              | Warning threshold for uptime in seconds                                                                                                          |                               |             |
 | CRITICAL_UPTIME             | Critical threshold for uptime in seconds                                                                                                         |                               |             |
-| WARNING_WILDFIRE_MODE       |                                                                                                                                                  |                               |             |
-| CRITICAL_WILDFIRE_MODE      |                                                                                                                                                  |                               |             |
+| WARNING_WILDFIRE_MODE       | Define the condition for WARNING status based on WildFire mode status. Available variable: %\{wildfire_mode\}                                    |                               |           |
+| CRITICAL_WILDFIRE_MODE      | Define the condition for CRITICAL status based on WildFire mode status. Available variable: %\{wildfire_mode\}                                   |                               |           |
 | EXTRA_OPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                               |             |
 
 </TabItem>

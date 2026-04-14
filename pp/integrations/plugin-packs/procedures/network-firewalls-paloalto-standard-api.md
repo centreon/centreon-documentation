@@ -263,10 +263,10 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Api
 | EXCLUDE_TUNNEL_NAME    | Exclude tunnel names (regexp)                                                                                                                    |               |           |
 | INCLUDE_GATEWAY_NAME   | Include gateway names (regexp)                                                                                                                   |               |           |
 | EXCLUDE_GATEWAY_NAME   | Exclude gateway names (regexp)                                                                                                                   |               |           |
-| WARNING_ENCRYPTION     |                                                                                                                                                  |               |           |
-| CRITICAL_ENCRYPTION    |                                                                                                                                                  |               |           |
-| WARNING_GATEWAY        |                                                                                                                                                  |               |           |
-| CRITICAL_GATEWAY       |                                                                                                                                                  |               |           |
+| WARNING_ENCRYPTION     | Define the condition for WARNING status based on tunnel encryption state. Available variables: %\{enc\}, %\{name\}                               |               |           |
+| CRITICAL_ENCRYPTION    | Define the condition for CRITICAL status based on tunnel encryption state. Available variables: %\{enc\}, %\{name\}                              |               |           |
+| WARNING_GATEWAY        | Define the condition for WARNING status based on gateway. Available variables: %\{gateway\}, %\{name\}                                           |               |           |
+| CRITICAL_GATEWAY       | Define the condition for CRITICAL status based on gateway. Available variables: %\{gateway\}, %\{name\}                                          |               |           |
 | WARNING_REMAIN_TIME    | Warning threshold for tunnel remain time in seconds                                                                                              |               |           |
 | CRITICAL_REMAIN_TIME   | Critical threshold for tunnel remain time in seconds                                                                                             |               |           |
 | WARNING_TUNNELS_COUNT  | Warning threshold for tunnels count                                                                                                              |               |           |
@@ -293,16 +293,16 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Api
 
 | Macro                       | Description                                                                                                                                      | Default value                 | Mandatory |
 |:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
-| CRITICAL_CERTIFICATE_STATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{cert\_status\}                             | %\{cert\_status\} !~ /Valid/i |           |
 | WARNING_CERTIFICATE_STATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{cert\_status\}                              |                               |           |
-| WARNING_OPERATIONAL_MODE    |                                                                                                                                                  |                               |           |
-| CRITICAL_OPERATIONAL_MODE   |                                                                                                                                                  |                               |           |
-| WARNING_SOFTWARE_VERSION    |                                                                                                                                                  |                               |           |
-| CRITICAL_SOFTWARE_VERSION   |                                                                                                                                                  |                               |           |
+| CRITICAL_CERTIFICATE_STATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{cert\_status\}                             | %\{cert\_status\} !~ /Valid/i |           |
+| WARNING_OPERATIONAL_MODE    | Define the condition for WARNING status based on operational mode. Available variable: %\{operational_mode\}                                     |                               |           |
+| CRITICAL_OPERATIONAL_MODE   | Define the condition for CRITICAL status based on operational mode. Available variables: %\{operational_mode\}                                   |                               |           |
+| WARNING_SOFTWARE_VERSION    | Define the condition for WARNING status based on software version. Available variable: %\{sw_version\}                                           |                               |           |
+| CRITICAL_SOFTWARE_VERSION   | Define the condition for CRITICAL status based on software version. Available variable: %\{sw_version\}                                          |                               |            |
 | WARNING_UPTIME              | Warning threshold for uptime in seconds                                                                                                          |                               |           |
 | CRITICAL_UPTIME             | Critical threshold for uptime in seconds                                                                                                         |                               |           |
-| WARNING_WILDFIRE_MODE       |                                                                                                                                                  |                               |           |
-| CRITICAL_WILDFIRE_MODE      |                                                                                                                                                  |                               |           |
+| WARNING_WILDFIRE_MODE       | Define the condition for WARNING status based on WildFire mode status. Available variable: %\{wildfire_mode\}                                    |                               |           |
+| CRITICAL_WILDFIRE_MODE      | Define the condition for CRITICAL status based on WildFire mode status. Available variable: %\{wildfire_mode\}                                   |                               |           |
 | EXTRA_OPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |                               |           |
 
 </TabItem>
