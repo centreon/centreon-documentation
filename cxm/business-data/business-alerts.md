@@ -19,7 +19,7 @@ Because this data comes from Google Analytics, it is processed with a default 4-
 1. Go to **Settings > Alerting**.
 2. In the **Business alerts** section, click **Add a business alert**, then select the alert type you want ([**Alert on conversion rate**](#conversion-rate-alerts) or [**Alerts on pageviews/mn**](#page-view-alerts)).
 3. Name your alert and define which users should receive it. Select email, SMS or Slack.
-4. If you want to define another notification channel than email, SMS or Slack, define the webhook to be used.
+4. If you want to define another notification channel than email, SMS or Slack, define the webhook to be used. This type of notifications are not linked to a user.
 5. Hover over the alert's tile. 2 buttons appear:
 
    * **Configure this alert's planning**: define the time periods during which alerts should be sent.
