@@ -2050,6 +2050,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-firewalls-paloalto-standard-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-paloalto-standard-snmp'
         },
         {
