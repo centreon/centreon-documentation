@@ -117,24 +117,26 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
 </TabItem>
 <TabItem value="PBX-Role" label="PBX-Role">
 
-Coming soon
+Only the status is reported.
 
 </TabItem>
 <TabItem value="State" label="State">
 
-Coming soon
+Only stringified status is reported.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Name                  | Unit |
-|:----------------------|:-----|
-| swap.usage.bytes      | B    |
-| swap.free.bytes       | B    |
-| swap.usage.percentage | %    |
+| Name                  | Unit  |
+|:----------------------|:------|
+| swap.usage.bytes      | B     |
+| swap.free.bytes       | B     |
+| swap.usage.percentage | %     |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -265,9 +267,9 @@ yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                                                                        | Default value | Mandatory |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+| Macro            | Description                                                                                                                              | Default value | Mandatory |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -279,11 +281,11 @@ yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                                                                      | Default value | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNING      | Warning threshold average CPU utilization                                                                                                        | 80            |           |
-| CRITICAL     | Critical threshold average CPU utilization                                                                                                       | 90            |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold average CPU utilization                                                                                              | 80            |           |
+| CRITICAL     | Critical  threshold average CPU utilization                                                                                            | 90            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Disk-Generic-Id" label="Disk-Generic-Id">
@@ -324,70 +326,70 @@ yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 </TabItem>
 <TabItem value="Domain-Usage" label="Domain-Usage">
 
-| Macro                   | Description                                                                                                                                      | Default value | Mandatory |
-|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| IPDOMAINE               | Filter by domain (regexp can be used)                                                                                                            |               |           |
-| WARNINGCACOVERRUN       | Threshold                                                                                                                                        |               |           |
-| CRITICALCACOVERRUN      | Threshold                                                                                                                                        |               |           |
-| CRITICALCACUSAGE        | Threshold                                                                                                                                        | 90            |           |
-| WARNINGCACUSAGE         | Threshold                                                                                                                                        | 80            |           |
-| WARNINGCONFERENCEUSAGE  | Threshold                                                                                                                                        |               |           |
-| CRITICALCONFERENCEUSAGE | Threshold                                                                                                                                        |               |           |
-| WARNINGCONFOUTOFORDER   | Threshold                                                                                                                                        |               |           |
-| CRITICALCONFOUTOFORDER  | Threshold                                                                                                                                        |               |           |
-| WARNINGDSPOUTOFSERVICE  | Threshold                                                                                                                                        |               |           |
-| CRITICALDSPOUTOFSERVICE | Threshold                                                                                                                                        |               |           |
-| WARNINGDSPOVERRUN       | Threshold                                                                                                                                        |               |           |
-| CRITICALDSPOVERRUN      | Threshold                                                                                                                                        |               |           |
-| WARNINGDSPUSAGE         | Threshold                                                                                                                                        |               |           |
-| CRITICALDSPUSAGE        | Threshold                                                                                                                                        |               |           |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
+| Macro                   | Description                                                                                                                            | Default value | Mandatory |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| IPDOMAINE               | Filter by domain (regexp can be used)                                                                                                  |               |           |
+| WARNINGCACOVERRUN       | Threshold                                                                                                                              |               |           |
+| CRITICALCACOVERRUN      | Threshold                                                                                                                              |               |           |
+| CRITICALCACUSAGE        | Threshold                                                                                                                              | 90            |           |
+| WARNINGCACUSAGE         | Threshold                                                                                                                              | 80            |           |
+| WARNINGCONFERENCEUSAGE  | Threshold                                                                                                                              |               |           |
+| CRITICALCONFERENCEUSAGE | Threshold                                                                                                                              |               |           |
+| WARNINGCONFOUTOFORDER   | Threshold                                                                                                                              |               |           |
+| CRITICALCONFOUTOFORDER  | Threshold                                                                                                                              |               |           |
+| WARNINGDSPOUTOFSERVICE  | Threshold                                                                                                                              |               |           |
+| CRITICALDSPOUTOFSERVICE | Threshold                                                                                                                              |               |           |
+| WARNINGDSPOVERRUN       | Threshold                                                                                                                              |               |           |
+| CRITICALDSPOVERRUN      | Threshold                                                                                                                              |               |           |
+| WARNINGDSPUSAGE         | Threshold                                                                                                                              |               |           |
+| CRITICALDSPUSAGE        | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                                                                      | Default value | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| CRITICAL     | Threshold in bytes                                                                                                                               | 90            |           |
-| WARNING      | Threshold in bytes                                                                                                                               | 80            |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CRITICAL     | Threshold                                                                                                                              | 90            |           |
+| WARNING      | Threshold                                                                                                                              | 80            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="PBX-Role" label="PBX-Role">
 
-| Macro        | Description                                                                                                                                      | Default value | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="State" label="State">
 
-| Macro        | Description                                                                                                                                      | Default value | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro        | Description                                                                                                                                      | Default value | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| CRITICAL     | Threshold in percentage                                                                                                                          | 90            |           |
-| WARNING      | Threshold in percentage                                                                                                                          | 80            |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CRITICAL     | Threshold                                                                                                                              | 90            |           |
+| WARNING      | Threshold                                                                                                                              | 80            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Trunks" label="Trunks">
 
-| Macro                       | Description                                                                                                                                      | Default value              | Mandatory |
-|:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:---------:|
-| TRUNKNAME                   | Filter by trunk name (regexp can be used)                                                                                                        | .*                         |           |
-| WARNINGCHANNELOUTOFSERVICE  | Threshold                                                                                                                                        |                            |           |
-| CRITICALCHANNELOUTOFSERVICE | Threshold                                                                                                                                        |                            |           |
-| WARNINGCHANNELUSAGE         | Threshold                                                                                                                                        |                            |           |
-| CRITICALCHANNELUSAGE        | Threshold                                                                                                                                        |                            |           |
-| CRITICALTRUNKSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{trunkstatus\}                              | %\{trunkstatus\} =~ /oos/i |           |
-| WARNINGTRUNKSTATUS          | Define the conditions to match for the status to be WARNING You can use the following variables: %\{trunkstatus\}                                |                            |           |
-| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose                  |           |
+| Macro                       | Description                                                                                                                            | Default value              | Mandatory |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:---------:|
+| TRUNKNAME                   | Filter by trunk name (regexp can be used)                                                                                              | .*                         |           |
+| WARNINGCHANNELOUTOFSERVICE  | Threshold                                                                                                                              |                            |           |
+| CRITICALCHANNELOUTOFSERVICE | Threshold                                                                                                                              |                            |           |
+| WARNINGCHANNELUSAGE         | Threshold                                                                                                                              |                            |           |
+| CRITICALCHANNELUSAGE        | Threshold                                                                                                                              |                            |           |
+| CRITICALTRUNKSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{trunkstatus\}                    | %\{trunkstatus\} =~ /oos/i |           |
+| WARNINGTRUNKSTATUS          | Define the conditions to match for the status to be WARNING You can use the following variables: %\{trunkstatus\}                      |                            |           |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                  |           |
 
 </TabItem>
 </Tabs>
