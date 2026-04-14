@@ -8,7 +8,7 @@ Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser
 ## Prérequis
 
 - Une machine située dans votre infrastructure devra héberger une sonde. Elle devra pouvoir accéder à l'application à superviser.
-- Les identifiants Docker fournis par Centreon (voir [l'étape 6](#étape-6--créer-et-démarrer-la-sonde)). Les identifiants vous sont transmis par Centreon via un lien sécurisé Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
+- Les identifiants Docker fournis par Centreon. Les identifiants vous sont transmis par Centreon via un lien sécurisé Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
 - Un **parcours utilisateur** configuré sur l'application interne à superviser.
 
 ## Étape 1 : Créer une nouvelle zone STM
@@ -40,7 +40,7 @@ Puis entrez votre identifiant et mot de passe lorsqu'ils vous sont demandés.
 
 ## Étape 3 : Créer et démarrer la sonde
 
-Exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-une-zone-stm) pour créer la sonde et la démarrer.
+Exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-une-zone-stm) pour créer la sonde et la démarrer. 
 
 Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de monitoring synthétique**.
 
