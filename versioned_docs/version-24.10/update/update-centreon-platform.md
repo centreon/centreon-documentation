@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes how to update your Centreon 24.10 platform (i.e. switch from version 24.10.x to version 24.10.y).
 
-> When you update your central server, make sure you also update all your remote servers and your pollers.
+> After updating your central server, make sure you also update all your remote servers and your pollers.
 >
 > All servers in your architecture must have the same major version of Centreon and, if possible, the same minor version as well.
 >

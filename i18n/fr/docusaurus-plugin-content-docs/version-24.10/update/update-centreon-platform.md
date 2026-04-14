@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
 24.10 (c'est-à-dire le passage de 24.10.x à 24.10.y).
 
-> Lorsque vous effectuez la mise à jour de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
+> Après avoir effectué la mise à jour de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
 >
 > Dans votre architecture, tous les serveurs doivent avoir la même version majeure de Centreon et, si possible, la même version mineure.
 >
