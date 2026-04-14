@@ -15,6 +15,9 @@ puts them in cache. Loging out or waiting 10 hours will flush the cache.
 
 This connector is (at least) compatible with the following Glpi versions:
 
+  - 11
+  - 10
+  - 9.5
   - 9.4
   - 9.3
   - 9.2
