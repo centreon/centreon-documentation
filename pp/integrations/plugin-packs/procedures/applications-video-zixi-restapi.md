@@ -90,8 +90,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The Zixi Broadcaster must be installed, running, and reachable from the Centreon poller using the configured port
-API access must be enabled and valid credentials must be available to authenticate requests from the poller
+The Zixi Broadcaster must be installed, running, and reachable from the Centreon poller using the configured port.
+API access must be enabled and valid credentials must be available to authenticate requests from the poller.
 
 ## Installing the monitoring connector
 
@@ -284,12 +284,12 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--password='password' \
 	--port='4444'  \
 	--filter-counters='' \
-	--warning-disk-usage='80' \
-	--critical-disk-usage='90' \
-	--warning-memory-usage='80' \
-	--critical-memory-usage='90' \
-	--warning-cpu-load='80' \
-	--critical-cpu-load='90'
+	--warning-disk-usage='' \
+	--critical-disk-usage='' \
+	--warning-memory-usage='' \
+	--critical-memory-usage='' \
+	--warning-cpu-load='' \
+	--critical-cpu-load=''
 ```
 
 The expected command output is shown below:

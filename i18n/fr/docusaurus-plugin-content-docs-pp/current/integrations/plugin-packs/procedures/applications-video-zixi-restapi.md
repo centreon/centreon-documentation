@@ -91,8 +91,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Le Zixi Broadcaster doit être installé, en cours d’exécution et accessible depuis le collecteur Centreon via le port configuré
-L’accès à l’API doit être activé et des identifiants valides doivent être disponibles pour authentifier les requêtes depuis le collecteur
+Le Zixi Broadcaster doit être installé, en cours d’exécution et accessible depuis le collecteur Centreon via le port configuré.
+L’accès à l’API doit être activé et des identifiants valides doivent être disponibles pour authentifier les requêtes depuis le collecteur.
 
 ## Installer le connecteur de supervision
 
@@ -285,12 +285,12 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--password='password' \
 	--port='4444'  \
 	--filter-counters='' \
-	--warning-disk-usage='80' \
-	--critical-disk-usage='90' \
-	--warning-memory-usage='80' \
-	--critical-memory-usage='90' \
-	--warning-cpu-load='80' \
-	--critical-cpu-load='90'
+	--warning-disk-usage='' \
+	--critical-disk-usage='' \
+	--warning-memory-usage='' \
+	--critical-memory-usage='' \
+	--warning-cpu-load='' \
+	--critical-cpu-load=''
 ```
 
 La commande devrait retourner un message de sortie similaire à :
