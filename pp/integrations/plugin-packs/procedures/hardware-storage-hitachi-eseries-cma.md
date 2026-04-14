@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                  | Service Description                                        |
 |:--------------|:--------------------------------------------------|:-----------------------------------------------------------|
-| Efficiency    | HW-Storage-Hitachi-Eseries-Efficiency-CMA-custom  | Check Hitachi E Series system efficiency via raidcom       |
+| Efficiency    | HW-Storage-Hitachi-Eseries-Efficiency-CMA-custom  | Check Hitachi E Series system efficiency (raidcom)         |
 | Pair-Status   | HW-Storage-Hitachi-Eseries-Pair-Status-CMA-custom | Check Hitachi E Series pairs status (pairdisplay)          |
 | Path-Status   | HW-Storage-Hitachi-Eseries-Path-Status-CMA-custom | Check Hitachi E Series path status (raidcom)               |
 | Pool          | HW-Storage-Hitachi-Eseries-Pool-CMA-custom        | Check Hitachi E Series pool status and capacity (raidcom)  |
@@ -86,7 +86,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-For monitoring Hitachi E-Series storage arrays this connector relies on the CCI (Command Control Interface) software which must be installed and configured in accordance with the [official Hitachi documentation](https://docs.hitachivantara.com).
+For monitoring Hitachi E-Series storage arrays, this connector relies on the CCI (Command Control Interface) software which must be installed and configured in accordance with the [official Hitachi documentation](https://docs.hitachivantara.com).
 
 <CMAprerequisites />
 
@@ -191,10 +191,10 @@ yum install
 
 | Macro                        | Description                                                                                                                                        | Default value                     | Mandatory |
 |:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|:---------:|
-| CENTREON_AGENT_PLUGINS       |                                                                                                                                                    | C:/Program Files/Centreon/Plugins |           |
-| COMMAND_PATH                 |                                                                                                                                                    |                                   |           |
+| CENTREON_AGENT_PLUGINS       | Path where the centreon_plugins.exe plugin can be found                                                                                            | C:/Program Files/Centreon/Plugins |           |
+| COMMAND_PATH                 | Command path                                                                                                                                       |                                   |           |
 | INSTANCE_ID                  |                                                                                                                                                    |                                   |           |
-| TIMEOUT                      |                                                                                                                                                    | 45                                |           |
+| TIMEOUT                      | Timeout time for command execution                                                                                                                 | 45                                |           |
 | CENTREON_AGENT_EXTRA_OPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |                                   |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
