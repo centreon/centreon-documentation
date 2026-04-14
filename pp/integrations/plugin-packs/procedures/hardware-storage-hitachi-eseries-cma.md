@@ -16,7 +16,7 @@ The following monitoring connectors will be installed when you install the **Hit
 
 ### Templates
 
-The Monitoring Connector **Hitachi E Series** brings a host template:
+The Monitoring Connector **Hitachi E Series CMA** brings a host template:
 
 * **HW-Storage-Hitachi-Eseries-CMA-custom**
 
