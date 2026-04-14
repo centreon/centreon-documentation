@@ -8,7 +8,7 @@ import CMAprerequisites from './_cma-prerequisites.mdx';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Hitachi E Series** connector through the
+The following monitoring connectors will be installed when you install the **Hitachi E Series CMA** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
