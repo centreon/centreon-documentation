@@ -8,7 +8,7 @@ import CMAprerequisites from './_cma-prerequisites.mdx';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Hitachi E Series** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Hitachi E Series CMA** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
