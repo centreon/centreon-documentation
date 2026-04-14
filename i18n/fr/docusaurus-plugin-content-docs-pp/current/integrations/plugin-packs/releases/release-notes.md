@@ -20,28 +20,28 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**AIX SNMP**](../procedures/operatingsystems-aix-snmp.md) - Handle unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
-- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Combine two filters in **listmetrics** mode, from community contribution [PR 4743](https://github.com/centreon/centreon-plugins/pull/4743).
-- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - Added possibility to change the instance dimension, based on community contribution [PR 4843](https://github.com/centreon/centreon-plugins/pull/4843).
-- [**Amazon CloudWatch**](../procedures/cloud-aws-cloudwatch.md) - Combine two filters in **listmetrics** mode, from community contribution [PR 4743](https://github.com/centreon/centreon-plugins/pull/4743).
-- [**Arkoon SNMP**](../procedures/network-firewalls-arkoon-snmp.md) - Handle unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
-- [**Aruba Standard SNMP**](../procedures/network-switchs-aruba-standard-snmp.md) - **License** mode now handle new status ES, from community contribution [PR 5922](https://github.com/centreon/centreon-plugins/pull/5922).
-- [**Dell Me4 Rest API**](../procedures/hardware-storage-dell-me4-restapi.md) - Enhance compatibility with Dell SAN for **interfaces** mode, based on community contribution [PR 5912](https://github.com/centreon/centreon-plugins/pull/5912).
-- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added option in **sdwan** mode to filter by interface name (from a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-network-fortinet-fortigate-snmp-plugin-mode-sdwan-interface-filter-3023)). Handle more than one VPN phase 2 connection status in **vpn** mode (issue [#4337](https://github.com/centreon/centreon-plugins/issues/4337)). Added service discovery for **sdwan** (based on a [The Watch idea](https://thewatch.centreon.com/ideas/fortigate-s-sdwan-service-discovery-5071)) and **vpn** (based on a [The Watch idea](https://thewatch.centreon.com/ideas/network-fortinet-fortigate-snmp-plugin-mode-vpn-service-discovery-3910)) modes.
-- [**FreeBSD SNMP**](../procedures/operatingsystems-freebsd-snmp.md) - Handle unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
-- [**HTTP Server**](../procedures/applications-protocol-http.md) - Handle nested json path in **collection** mode (issue [#5118](https://github.com/centreon/centreon-plugins/issues/5118) & [The Watch issue](https://thewatch.centreon.com/infra-monitoring-data-collection-6/http-data-collection-path-depth-3639)).
-- [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - Extend Huawei network devices with GPON ONT module monitoring, from community contribution [PR 5675](https://github.com/centreon/centreon-plugins/pull/5675).
+- [**AIX SNMP**](../procedures/operatingsystems-aix-snmp.md) - Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Combined two filters in **listmetrics** mode, from community contribution (PR [#4743](https://github.com/centreon/centreon-plugins/pull/4743)).
+- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - Added possibility to change the instance dimension, based on community contribution (PR [#4843](https://github.com/centreon/centreon-plugins/pull/4843)).
+- [**Amazon CloudWatch**](../procedures/cloud-aws-cloudwatch.md) - Combined two filters in **listmetrics** mode, from community contribution (PR [#4743](https://github.com/centreon/centreon-plugins/pull/4743)).
+- [**Arkoon SNMP**](../procedures/network-firewalls-arkoon-snmp.md) - Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [**Aruba Standard SNMP**](../procedures/network-switchs-aruba-standard-snmp.md) - **License** mode now handles new status ES, from community contribution (PR [#5922](https://github.com/centreon/centreon-plugins/pull/5922)).
+- [**Dell Me4 Rest API**](../procedures/hardware-storage-dell-me4-restapi.md) - Enhanced compatibility with Dell SAN for **interfaces** mode, based on community contribution (PR [#5912](https://github.com/centreon/centreon-plugins/pull/5912)).
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added option in **sdwan** mode to filter by interface name (from a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-network-fortinet-fortigate-snmp-plugin-mode-sdwan-interface-filter-3023)). Handled more than one VPN phase 2 connection status in **vpn** mode (issue [#4337](https://github.com/centreon/centreon-plugins/issues/4337)). Added service discovery for **sdwan** (based on a [The Watch idea](https://thewatch.centreon.com/ideas/fortigate-s-sdwan-service-discovery-5071)) and **vpn** modes (based on a [The Watch idea](https://thewatch.centreon.com/ideas/network-fortinet-fortigate-snmp-plugin-mode-vpn-service-discovery-3910)).
+- [**FreeBSD SNMP**](../procedures/operatingsystems-freebsd-snmp.md) - Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Handled nested json path in **collection** mode (issue [#5118](https://github.com/centreon/centreon-plugins/issues/5118) & [The Watch issue](https://thewatch.centreon.com/infra-monitoring-data-collection-6/http-data-collection-path-depth-3639)).
+- [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - Extended Huawei network devices with GPON ONT module monitoring, from community contribution (PR [#5675](https://github.com/centreon/centreon-plugins/pull/5675)).
 - [**JBoss Server**](../procedures/applications-jboss-jmx.md) - Added service discovery rule for Datasources.
 - [**Linux SNMP v3**](../procedures/operatingsystems-linux-snmpv3.md) - Added `--force-rfc` option to allow choosing a specific RFC in **tcpcon** mode (issue [#5693](https://github.com/centreon/centreon-plugins/issues/5693)).
 - [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) - Added `--force-rfc` option to allow choosing a specific RFC in **tcpcon** mode (issue [#5693](https://github.com/centreon/centreon-plugins/issues/5693)).
-- [**Mac SNMP**](../procedures/operatingsystems-mac-snmp.md) - Handle unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [**Mac SNMP**](../procedures/operatingsystems-mac-snmp.md) - Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
 - [**PVX**](../procedures/applications-pvx-restapi.md) - Authentication to API now requires a bearer header.
-- [**Qnap**](../procedures/hardware-storage-qnap-snmp.md) - Handle unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [**Qnap**](../procedures/hardware-storage-qnap-snmp.md) - Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
 - [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Improved cache naming and **job** mode filtering, from a [The Watch idea](https://thewatch.centreon.com/ideas/code-optimization-for-mode-apps-backup-rubrik-restapi-mode-jobs-4911) (issue [#5865](https://github.com/centreon/centreon-plugins/issues/5865)).
-- [**Solaris SNMP**](../procedures/operatingsystems-solaris-snmp.md) - Handle unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
-- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - Handle unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
-- Enhance debugging of CLI plugins.
-- Improve NTP offset options documentation.
+- [**Solaris SNMP**](../procedures/operatingsystems-solaris-snmp.md) - Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- Enhanced debugging of CLI plugins.
+- Improved NTP offset options documentation.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -55,10 +55,10 @@ import TabItem from '@theme/TabItem';
 - [**Amazon CloudWatch**](../procedures/cloud-aws-cloudwatch.md) - Fixed **get-alarms** mode to handle multiple alarms (issue [#5731](https://github.com/centreon/centreon-plugins/issues/5731)).
 - [**Awa JMX**](../procedures/applications-awa-jmx.md) - Fixed the plugin dependencies.
 - [**Cassandra**](../procedures/applications-databases-cassandra-jmx.md) - Fixed the plugin dependencies.
-- [**Exagrid SNMP**](../procedures/hardware-storage-exagrid-snmp.md) - Fixed landing_used calculation to prevent negative values in **server-usage** mode, from community contribution [PR 5863](https://github.com/centreon/centreon-plugins/pull/5863).
+- [**Exagrid SNMP**](../procedures/hardware-storage-exagrid-snmp.md) - Fixed landing_used calculation to prevent negative values in **server-usage** mode, from community contribution (PR [#5863](https://github.com/centreon/centreon-plugins/pull/5863)).
 - [**Hibernate**](../procedures/applications-hibernate-jmx.md) - Fixed the plugin dependencies.
-- [**HP Ilo XMLAPI**](../procedures/hardware-servers-hp-ilo-xmlapi.md) - Fixed ILO3 incorrect thresholds temperature in **hardware** mode.
-- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Handle exceptions in refresh.
+- [**HP Ilo XMLAPI**](../procedures/hardware-servers-hp-ilo-xmlapi.md) - Fixed ILO3 incorrect temperature thresholds in **hardware** mode.
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Handled exceptions in refresh.
 - [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fixed host discovery macros (issue [#The Watch](https://thewatch.centreon.com/infra-monitoring-product-how-to-21/tutorial-connect-centreon-with-ekara-by-ip-label-to-track-users-digital-experience-and-infrastructure-and-applications-health-736)).
 - [**JBoss Server**](../procedures/applications-jboss-jmx.md) - Fixed the plugin dependencies.
 - [**JMX value**](../procedures/applications-protocol-jmx.md) - Fixed the plugin dependencies.
