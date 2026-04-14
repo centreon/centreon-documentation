@@ -39,7 +39,7 @@ You don't need to do anything - data appears automatically on the **Network data
 
 ## Run a load test
 
-You don't need to install anything to be able to run load tests.
+You don't need to install anything to be able to run load tests. You just need to configure a user journey.
 
 <!--
 ## Adding events markers to your graphs
