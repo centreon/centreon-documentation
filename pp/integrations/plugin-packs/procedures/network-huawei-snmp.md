@@ -64,12 +64,12 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                                     | Description                                                   |
-|:----------------------------------------------|:--------------------------------------------------------------|
-| Net-Huawei-SNMP-Gpon-Ont-Ethernet-Port-Serial | Discover network interfaces and monitor bandwidth utilization |
-| Net-Huawei-SNMP-Gpon-Ont-Health-Serial        |                                                               |
-| Net-Huawei-SNMP-Gpon-Ont-Traffic-Serial       |                                                               |
-| Net-Huawei-SNMP-Traffic-Name                  | Discover network interfaces and monitor bandwidth utilization |
+| Rule name                                     | Description                                                      |
+|:----------------------------------------------|:-----------------------------------------------------------------|
+| Net-Huawei-SNMP-Gpon-Ont-Ethernet-Port-Serial | Discover and monitor the status of an Ethernet port on GPON ONT  |
+| Net-Huawei-SNMP-Gpon-Ont-Health-Serial        | Discover and monitor performance data for GPON ONT               |
+| Net-Huawei-SNMP-Gpon-Ont-Traffic-Serial       | Discover and monitor traffic on GPON ONT                         |
+| Net-Huawei-SNMP-Traffic-Name                  | Discover network interfaces and monitor bandwidth utilization    |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -366,14 +366,14 @@ yum install centreon-plugin-Network-Huawei-Snmp
 | OIDFILTER                 | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                            | ifname                                                    |           |
 | OIDDISPLAY                | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                   | ifname                                                    |           |
 | INTERFACENAME             | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                                                           |           |
-| WARNINGBIASCURRENT        | Thresholds in C\<mA\>                                                                                                                                                  |                                                           |           |
-| CRITICALBIASCURRENT       | Thresholds in C\<mA\>                                                                                                                                                  |                                                           |           |
+| WARNINGBIASCURRENT        | Thresholds in `mA`                                                                                                                                                  |                                                           |           |
+| CRITICALBIASCURRENT       | Thresholds in `mA`                                                                                                                                                  |                                                           |           |
 | WARNINGINDISCARD          | Thresholds                                                                                                                                                          |                                                           |           |
 | CRITICALINDISCARD         | Thresholds                                                                                                                                                          |                                                           |           |
 | WARNINGINERROR            | Thresholds                                                                                                                                                          |                                                           |           |
 | CRITICALINERROR           | Thresholds                                                                                                                                                          |                                                           |           |
-| WARNINGINPUTPOWER         | Thresholds in C\<dBm\>                                                                                                                                                 |                                                           |           |
-| CRITICALINPUTPOWER        | Thresholds in C\<dBm\>                                                                                                                                                 |                                                           |           |
+| WARNINGINPUTPOWER         | Thresholds in `dBm`                                                                                                                                                 |                                                           |           |
+| CRITICALINPUTPOWER        | Thresholds in `dBm`                                                                                                                                                 |                                                           |           |
 | WARNINGINTRAFFIC          | Thresholds                                                                                                                                                          |                                                           |           |
 | CRITICALINTRAFFIC         | Thresholds                                                                                                                                                          |                                                           |           |
 | WARNINGMODULETEMPERATURE  | Thresholds in °C                                                                                                                                                    |                                                           |           |
@@ -382,8 +382,8 @@ yum install centreon-plugin-Network-Huawei-Snmp
 | CRITICALOUTDISCARD        | Thresholds                                                                                                                                                          |                                                           |           |
 | WARNINGOUTERROR           | Thresholds                                                                                                                                                          |                                                           |           |
 | CRITICALOUTERROR          | Thresholds                                                                                                                                                          |                                                           |           |
-| WARNINGOUTPUTPOWER        | Thresholds in C\<dBm\>                                                                                                                                                 |                                                           |           |
-| CRITICALOUTPUTPOWER       | Thresholds in C\<dBm\>                                                                                                                                                 |                                                           |           |
+| WARNINGOUTPUTPOWER        | Thresholds in `dBm`                                                                                                                                                 |                                                           |           |
+| CRITICALOUTPUTPOWER       | Thresholds in `dBm`                                                                                                                                                 |                                                           |           |
 | WARNINGOUTTRAFFIC         | Thresholds                                                                                                                                                          |                                                           |           |
 | CRITICALOUTTRAFFIC        | Thresholds                                                                                                                                                          |                                                           |           |
 | CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |           |
