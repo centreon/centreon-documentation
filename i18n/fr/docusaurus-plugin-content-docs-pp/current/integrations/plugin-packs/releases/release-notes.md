@@ -59,7 +59,7 @@ import TabItem from '@theme/TabItem';
 - [**Hibernate**](../procedures/applications-hibernate-jmx.md) - Fixed the plugin dependencies.
 - [**HP Ilo XMLAPI**](../procedures/hardware-servers-hp-ilo-xmlapi.md) - Fixed ILO3 incorrect temperature thresholds in **hardware** mode.
 - [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Handled exceptions in refresh.
-- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fixed host discovery macros (issue [#The Watch](https://thewatch.centreon.com/infra-monitoring-product-how-to-21/tutorial-connect-centreon-with-ekara-by-ip-label-to-track-users-digital-experience-and-infrastructure-and-applications-health-736)).
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fixed host discovery macros (based on a community feedback on [The Watch](https://thewatch.centreon.com/infra-monitoring-product-how-to-21/tutorial-connect-centreon-with-ekara-by-ip-label-to-track-users-digital-experience-and-infrastructure-and-applications-health-736)).
 - [**JBoss Server**](../procedures/applications-jboss-jmx.md) - Fixed the plugin dependencies.
 - [**JMX value**](../procedures/applications-protocol-jmx.md) - Fixed the plugin dependencies.
 - [**JVM JMX**](../procedures/applications-jvm-jmx.md) - Fixed the plugin dependencies.
@@ -68,7 +68,7 @@ import TabItem from '@theme/TabItem';
 - [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Fixed latency values in **cluster** mode (issue [#5929](https://github.com/centreon/centreon-plugins/issues/5929)).
 - [**Oracle UCP JMX**](../procedures/applications-oracle-ucp-jmx.md) - Fixed the plugin dependencies.
 - [**Peoplesoft**](../procedures/applications-peoplesoft-jmx.md) - Fixed the plugin dependencies.
-- [**Redis Database**](../procedures/applications-databases-redis.md) - Fixed an issue leading to returned value more than 1000 % in **cpu** mode  (issue [#4311](https://github.com/centreon/centreon-plugins/issues/4311)).
+- [**Redis Database**](../procedures/applications-databases-redis.md) - Fixed an issue leading to a returned value of more than 1000 % in **cpu** mode  (issue [#4311](https://github.com/centreon/centreon-plugins/issues/4311)).
 - [**Solr**](../procedures/applications-solr-jmx.md) - Fixed the plugin dependencies.
 - [**Tomcat JMX**](../procedures/applications-webservers-tomcat-jmx.md) - Fixed the plugin dependencies.
 - [**Weblogic Server**](../procedures/applications-weblogic-jmx.md) - Fixed the plugin dependencies.
