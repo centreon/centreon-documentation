@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias     | Service Template                       | Service Description        |
 |:------------------|:---------------------------------------|:---------------------------|
 | Nginx-Connections | App-Webserver-Nginx-Connections-custom | Check current connections  |
-| Nginx-Requests    | App-Webserver-Nginx-Requests-custom    | Check request informations |
+| Nginx-Requests    | App-Webserver-Nginx-Requests-custom    | Check request information |
 
 > The services listed above are created automatically when the **App-Webserver-Nginx-ServerStatus-custom** host template is used.
 
@@ -63,15 +63,14 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Warning: The following procedure is an example. Cannot be applied on all context.
+Warning: The following procedure is an example and cannot be applied in all contexts.
 
 The module allows the generation of a live Nginx report, available on a dedicated web page. This report is used to generate statistics in Centreon.
 To activate this module, you have to open your nginx configuration file:
 
     $ vi /etc/nginx/nginx.conf
 
-and check that if not already configured, add the followings lines in 'server'
-bracket:
+and add the followings lines in 'server' ( (if not already configured):
 
     server \{
         ...
@@ -84,7 +83,7 @@ bracket:
         ...
     \}
 
-Make sure you are allowing Pollers to access this URL.
+Make sure you allow pollers to access this URL.
 
 You can check the validity of your configuration using:
 
@@ -96,7 +95,7 @@ Nginx must be reloaded to take this modification into account:
 
     $ /etc/init.d/nginx reload
 
-You can now check the result by accessing the URL
+You can now check the result by accessing this URL:
 
     http://\<nginx_address\>/nginx_status
 

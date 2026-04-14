@@ -66,13 +66,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Remarque: La procédure suivante est un exemple et ne peut pas être appliquée dans tous les contextes.
 
-Le module permet de générer un rapport Nginx et de le rendre disponible sur une page web dédiée. Ce rapport est utilisé pour générer des statistiques dans Centreon..
+Le module permet de générer un rapport Nginx et de le rendre disponible sur une page web dédiée. Ce rapport est utilisé pour générer des statistiques dans Centreon.
 
 Pour activer ce module, vous devez ouvrir votre fichier de configuration nginx.
 
     $ vi /etc/nginx/nginx.conf
 
-and ajouter les lignes suivantes dans la parenthèse 'server':
+et ajouter les lignes suivantes dans la parenthèse 'server':
 
     server \{
         ...
