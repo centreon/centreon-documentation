@@ -8,7 +8,7 @@ A private Synthetic Monitoring Zone (STM) allows you to monitor your user journe
 ## Prerequisites:
 
 - A machine inside your infrastructure to host the probe. The machine must be able to access the application you will monitor.
-- Docker credentials provided by Centreon (see [step 6](#step-6-create-and-launch-the-probe)). The credentials are sent by Centreon using a secure Keeper link. Save these credentials in your own safe.
+- The Docker credentials provided by Centreon (see [step 6](#step-6-create-and-launch-the-probe)). The credentials are sent by Centreon using a secure Keeper link. Save these credentials in your own safe.
 - A **user journey** configured on the internal application to monitor.
 
 ## Step 1: Create a new STM zone
@@ -51,7 +51,7 @@ Refresh the page: once launched, the probe is automatically saved and appears to
 2. In the **Advanced configuration** window, scroll down to the **Synthetic Monitoring Zones** section. Your private zone appears under **Private Zones**. Select it.
 Click **Save**
 
-3. Your internal journey monitoring is now in place! You can analyze it as you would for a regular [user journey](../../how-to-articles/user-journey-screen.md).
+3. After a few seconds, the probe will have executed its first check and your internal journey monitoring will be operational! You can analyze it as you would for a regular [user journey](../../how-to-articles/user-journey-screen.md).
 
 ## Troubleshooting
 
