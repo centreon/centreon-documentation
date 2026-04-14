@@ -39,11 +39,11 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias   | Modèle de service                        | Description                                                              |
 |:--------|:-----------------------------------------|:-------------------------------------------------------------------------|
-| Cpu     | Virt-Linux-Libvirt-Vm-Cpu-CMA-custom     | Contrôler l                                                              |
-| Disk-Io | Virt-Linux-Libvirt-Vm-Disk-Io-CMA-custom | Contrôler les statistiques d                                             |
-| Memory  | Virt-Linux-Libvirt-Vm-Memory-CMA-custom  | Contrôler l                                                              |
+| Cpu     | Virt-Linux-Libvirt-Vm-Cpu-CMA-custom     | Contrôler l'utilisation CPU des machines virtuelles                      |
+| Disk-Io | Virt-Linux-Libvirt-Vm-Disk-Io-CMA-custom | Contrôler les statistiques d'E/S disque des machines virtuelles          |
+| Memory  | Virt-Linux-Libvirt-Vm-Memory-CMA-custom  | Contrôler l'utilisation mémoire des machines virtuelles                  |
 | Network | Virt-Linux-Libvirt-Vm-Network-CMA-custom | Contrôler les statistiques des interfaces réseau des machines virtuelles |
-| Status  | Virt-Linux-Libvirt-Vm-Status-CMA-custom  | Contrôler l                                                              |
+| Status  | Virt-Linux-Libvirt-Vm-Status-CMA-custom  | Contrôler l'état des machines virtuelles                                 |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-Linux-Libvirt-VM-CMA-custom** est utilisé.
 
@@ -126,7 +126,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Ce connecteur vous permet de superviser libvirt via le client virsh.
 
-Veuillez vous référer à la [documentation libvirt](https://libvirt.org/manpages/virsh.html) pour avoir plus d’informations sur l'utilisation de ce client.
+Veuillez vous référer à la [documentation libvirt](https://libvirt.org/manpages/virsh.html) pour plus d’informations sur l'utilisation de ce client.
 
 <CMAprerequisites />
 

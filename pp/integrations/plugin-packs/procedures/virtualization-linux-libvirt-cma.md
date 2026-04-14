@@ -125,7 +125,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 This connector allows you to monitor libvirt through the virsh client.
 
-Please refer to the [libvirt documentation](https://libvirt.org/manpages/virsh.html) for more information on how to use this client.This connector allows you to monitor libvirt through the virsh client.
+Please refer to the [libvirt documentation](https://libvirt.org/manpages/virsh.html) for more information on how to use this client.
 
 <CMAprerequisites />
 
