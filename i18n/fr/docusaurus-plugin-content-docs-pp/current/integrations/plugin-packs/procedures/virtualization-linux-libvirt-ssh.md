@@ -147,7 +147,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Ce connecteur vous permet de superviser libvirt via le client virsh.
 
-Veuillez vous référer à la [documentation libvirt](https://libvirt.org/manpages/virsh.html) pour avoir plus d’informations sur l'utilisation de ce client.
+Veuillez vous référer à la [documentation libvirt](https://libvirt.org/manpages/virsh.html) pour plus d’informations sur l'utilisation de ce client.
 
 ### Configuration SSH
 
