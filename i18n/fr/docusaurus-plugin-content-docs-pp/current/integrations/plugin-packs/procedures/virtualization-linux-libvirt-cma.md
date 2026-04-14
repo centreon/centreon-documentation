@@ -27,10 +27,10 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Virt-Linux-Libvirt-Hypervisor-CMA-custom" label="Virt-Linux-Libvirt-Hypervisor-CMA-custom">
 
-| Alias       | Modèle de service                                    | Description |
-|:------------|:-----------------------------------------------------|:------------|
-| Pool-Status | Virt-Linux-Libvirt-Hypervisor-Pool-Status-CMA-custom | Contrôler l |
-| Volume      | Virt-Linux-Libvirt-Hypervisor-Volume-CMA-custom      | Contrôler l |
+| Alias       | Modèle de service                                    | Description                                                      |
+|:------------|:-----------------------------------------------------|:-----------------------------------------------------------------|
+| Pool-Status | Virt-Linux-Libvirt-Hypervisor-Pool-Status-CMA-custom | Contrôler l'état et l'utilisation des pools de stockage libvirt  |
+| Volume      | Virt-Linux-Libvirt-Hypervisor-Volume-CMA-custom      | Contrôler l'allocation des volumes de stockage libvirt           |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-Linux-Libvirt-Hypervisor-CMA-custom** est utilisé.
 
