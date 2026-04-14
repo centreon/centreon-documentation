@@ -340,8 +340,8 @@ yum install centreon-plugin-Operatingsystems-Aix-Snmp
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Time offset warning threshold (in seconds)                                                         | -5:5              |             |
-| CRITICAL     | Time offset critical Threshold (in seconds)                                                        | -10:10            |             |
+| WARNING      | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. | -5:5              |             |
+| CRITICAL     | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. | -10:10            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -629,8 +629,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                         |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------|
 | --oid             | Override default OID.                                                                                               |
-| --warning-offset  | Time offset warning threshold (in seconds).                                                                         |
-| --critical-offset | Time offset critical Threshold (in seconds).                                                                        |
+| --warning-offset  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --ntp-hostname    | Set the ntp hostname (if not set, localtime is used).                                                               |
 | --ntp-port        | Set the ntp port (default: 123).                                                                                    |
 | --timezone        | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.    |

@@ -365,8 +365,8 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 | NTPADDR        | Set the ntp port (default: 123)                                                                    |                   |             |
 | NTPPORT        | Set the ntp port (default: 123)                                                                    |                   |             |
 | TIMEZONE       |                                                                                                    |                   |             |
-| WARNINGOFFSET  | Time offset warning threshold (in seconds)                                                         |                   |             |
-| CRITICALOFFSET | Time offset critical Threshold (in seconds)                                                        |                   |             |
+| WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |                   |             |
+| CRITICALOFFSET | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -662,8 +662,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                         |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------|
 | --oid             | Override default OID.                                                                                               |
-| --warning-offset  | Time offset warning threshold (in seconds).                                                                         |
-| --critical-offset | Time offset critical Threshold (in seconds).                                                                        |
+| --warning-offset  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --ntp-hostname    | Set the ntp hostname (if not set, localtime is used).                                                               |
 | --ntp-port        | Set the ntp port (default: 123).                                                                                    |
 | --timezone        | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.    |
