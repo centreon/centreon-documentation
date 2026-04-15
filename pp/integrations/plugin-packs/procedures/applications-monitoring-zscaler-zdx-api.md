@@ -32,7 +32,7 @@ This host template doesn't have any associated services.
 
 | Service Alias    | Service Template                                  | Service Description                                    | Discovery |
 |:-----------------|:--------------------------------------------------|:-------------------------------------------------------|:---------:|
-| Global-App-Stats | App-Monitoring-Zscaler-Zdx-Application-Api-custom | Monitors the statistics of one or several applications |     X     |
+| Global-App-Stats | App-Monitoring-Zscaler-Zdx-Application-Api-custom | Monitors the statistics of one or several applications | X         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -183,15 +183,16 @@ yum install centreon-plugin-Applications-Monitoring-Zscaler-Zdx-Api
 3. Apply the **App-Monitoring-Zscaler-Zdx-Api-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                 | Description                                                                                                                                            | Default value    | Mandatory |
-|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:---------:|
-| ZDX_API_PROTO         | Specify http if needed                                                                                                                                 | https            |           |
-| ZDX_API_PORT          | API port                                                                                                                                               | 443              |           |
-| ZDX_API_KEY_ID        | Key ID (see [here](https://help.zscaler.com/zdx/managing-zdx-api-keys) for more details)                                                               | API\_KEY\_ID     |           |
-| ZDX_API_KEY_SECRET    | Key secret (see [here](https://help.zscaler.com/zdx/managing-zdx-api-keys) for more details)                                                           | API\_KEY\_SECRET |           |
-| ZDX_API_PATH          | API URL path                                                                                                                                           | /v1              |           |
-| ZDX_APPLICATION_ID    | Define the `appid` to monitor. Using this option is recommended to monitor one app because it will only retrieves the data related to the targeted app | APPLICATION\_ID  |           |
-| ZDX_API_EXTRA_OPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).               |                  |           |
+| Macro                 | Description                                                                                                                                                                                      | Default value            | Mandatory |
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------:|
+| ZDX_API_PROTO         | Specify http if needed                                                                                                                                                                           | https                    |           |
+| ZDX_API_PORT          | API port                                                                                                                                                                                         | 443                      |           |
+| ZDX_API_AUTH_URL      | Authentication URL (or FQDN) to get a token from (mandatory).  Depends on your Zscaler customer name.  Example: `https://company-name.zslogin.net/oauth2/v1/token` or `company-name.zslogin.net` | company-name.zslogin.net |           |
+| ZDX_API_CLIENT_ID     | Client ID for OneAPI authentication (see https://help.zscaler.com/zidentity/understanding-oneapi-authentication for more details)                                                                | CLIENT\_ID               |           |
+| ZDX_API_CLIENT_SECRET | Client secret for OneAPI authentication (see https://help.zscaler.com/zidentity/understanding-oneapi-authentication for more details)                                                            | CLIENT\_SECRET           |           |
+| ZDX_API_PATH          | API URL path                                                                                                                                                                                     | /zdx/v1                  |           |
+| ZDX_APPLICATION_ID    | Define the `appid` to monitor. Using this option is recommended to monitor one app because it will only retrieves the data related to the targeted app                                           |                          |           |
+| ZDX_API_EXTRA_OPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                         |                          |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -209,7 +210,7 @@ yum install centreon-plugin-Applications-Monitoring-Zscaler-Zdx-Api
 | INCLUDE_APPLICATION_NAME | Regular expression to include applications to monitor by their name. Using this option is not recommended to monitor one app because it will first retrieve the list of all apps and then filter to get the targeted app                                                                                   |               |           |
 | EXCLUDE_APPLICATION_NAME | Regular expression to exclude applications to monitor by their name. Using this option is not recommended to monitor one app because it will first retrieve the list of all apps and then filter to get the targeted app                                                                                   |               |           |
 | LOCATION_ID              | Narrows the stats calculation to only one location given by its id. Statistics such as page fetch time, total users and score will be the average value for this location                                                                                                                                  |               |           |
-| INCLUDE_LOCATION_NAME    | Narrows the stats calculation to several locations filtered by their name using this parameter as a regular expression to include them. Using this option is not recommended to filter one location because it will first retrieve the list of all locations and then filter to get the targeted location. |               |           |
+| INCLUDE_LOCATION_NAME    | Narrows the stats calculation to several locations filtered by their name using this parameter as a regular expression to include them. Using this option is not recommended to filter one location because it will first retrieve the list of all locations and then filter to get the targeted location  |               |           |
 | EXCLUDE_LOCATION_NAME    | Narrows the stats calculation to several locations filtered by their name using this parameter as a regular expression to exclude them. Using this option is not recommended to filter one location because it will first retrieve the list of all locations and then filter to get the targeted location. |               |           |
 | WARNING_PAGE_FETCH_TIME  | Threshold in ms                                                                                                                                                                                                                                                                                            |               |           |
 | CRITICAL_PAGE_FETCH_TIME | Threshold in ms                                                                                                                                                                                                                                                                                            |               |           |
@@ -238,10 +239,11 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--api-path='/v1' \
-	--key-id='api-key-id' \
-	--key-secret='api-key-secret' \
-	--application-id='app-id' \
+	--api-path='/zdx/v1' \
+	--auth-url='company-name.zslogin.net' \
+	--client-id='XXXXXX' \
+	--client-secret='XXXXXX' \
+	--application-id=''  \
 	--include-application-name='' \
 	--exclude-application-name='' \
 	--location-id='' \
@@ -260,7 +262,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All apps are ok | 'application1#application.total-users.count'=53003;;;0; 'application2#application.total-users.count'=83628;;;0; 'application1#application.page-fetch-time.milliseconds'=61218ms;;;0; 'application2#application.page-fetch-time.milliseconds'=8467ms;;;0; 
+OK: All apps are ok | 'application1#application.total-users.count'=43499;;;0; 'application2#application.total-users.count'=97966;;;0; 'application1#application.page-fetch-time.milliseconds'=49017ms;;;0; 'application2#application.page-fetch-time.milliseconds'=26561ms;;;0; 
 ```
 
 ### Troubleshooting
