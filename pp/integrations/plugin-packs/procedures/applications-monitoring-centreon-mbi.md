@@ -260,13 +260,13 @@ apt install nagios-nrpe-plugin centreon-plugin-operatingsystems-linux-snmp
 3. Apply the **App-Monitoring-Centreon-MBI-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                                                                        | Default value       | Mandatory |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:---------:|
-| NRPECLIENT       | Name of the plugin to use to talk with the NRPE daemon                                                                                             | check_centreon_nrpe |           |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | -u -m 8192          |           |
-| NRPEPORT         | TCP port the NRPE daemon is listening to                                                                                                           | 5666                |           |
-| NRPETIMEOUT      | Command timeout                                                                                                                                    | 30                  |           |
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles)  |                     |           |
+| Macro            | Description                                                                                                                                        | Default value | Mandatory |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| NRPECLIENT       | Name of the plugin to use to talk with the NRPE daemon                                                                                             | check_nrpe    |           |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | -u -2 -P 8192 |           |
+| NRPEPORT         | TCP port the NRPE daemon is listening to                                                                                                           | 5666          |           |
+| NRPETIMEOUT      | Command timeout                                                                                                                                    | 30            |           |
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles)  |               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
