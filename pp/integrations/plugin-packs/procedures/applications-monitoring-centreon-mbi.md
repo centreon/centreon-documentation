@@ -94,6 +94,82 @@ The configuration of SNMP on a Linux server is detailed in [the *Linux SNMP* Mon
 
 The monitoring server must be able to reach the UDP/161 (SNMP) and TCP/5666 (NRPE) ports of the reporting server.
 
+### NRPE agent installation & configuration
+
+1. Install the agent on the Centreon MBI reporting server.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf -y install epel-release
+dnf -y install nrpe
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf -y install nrpe
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt -y install nagios-nrpe-server
+```
+
+</TabItem>
+</Tabs>
+
+2. Modify the NRPE agent configuration file `/etc/nagios/nrpe.cfg`
+
+- Replace line `allowed_hosts=127.0.0.1,::1` with `allowed_hosts=POLLER_IP_ADDRESS`
+- Uncomment the line containing “nasty_metachars.”
+- Add the following lines :
+
+```
+command[check_partitions]=/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --partitions 2>/dev/null
+command[check_db]=/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content 2>/dev/null
+command[check_jobs]=/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --jobs 2>/dev/null
+```
+
+3. Add the user centreon-engine to the centreonBI group : 
+
+```bash
+usermod -aG centreonBI centreon-engine 
+```
+
+4. Restart and enable the daemon : 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+systemctl restart nrpe
+systemctl enable nrpe
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+systemctl restart nrpe
+systemctl enable nrpe
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+systemctl restart nagios-nrpe-server
+systemctl enable nagios-nrpe-server
+```
+
+</TabItem>
+</Tabs>
+
 ## Installing the monitoring connector
 
 ### Pack
@@ -169,14 +245,7 @@ dnf install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install nagios-plugins-nrpe centreon-plugin-operatingsystems-linux-snmp
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install nagios-plugins-nrpe centreon-plugin-Operatingsystems-Linux-Snmp
+apt install nagios-nrpe-plugin centreon-plugin-operatingsystems-linux-snmp
 ```
 
 </TabItem>
