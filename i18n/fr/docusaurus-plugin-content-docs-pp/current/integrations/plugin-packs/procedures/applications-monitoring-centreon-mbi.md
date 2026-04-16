@@ -97,7 +97,7 @@ Le serveur de surveillance doit pouvoir atteindre les ports UDP/161 (SNMP) et TC
 
 ### Installation et configuration de l'agent NRPE
 
-1. Install the agent on the Centreon MBI reporting server.
+1. Installez l'agent sur le serveur de reporting Centreon MBI.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -124,11 +124,11 @@ apt -y install nagios-nrpe-server
 </TabItem>
 </Tabs>
 
-2. Modify the NRPE agent configuration file `/etc/nagios/nrpe.cfg`
+2. Modifiez le fichier de configuration de l'agent NRPE `/etc/nagios/nrpe.cfg`
 
-- Replace line `allowed_hosts=127.0.0.1,::1` with `allowed_hosts=POLLER_IP_ADDRESS`
-- Uncomment the line containing “nasty_metachars.”
-- Add the following lines :
+- Remplacez la ligne `allowed_hosts=127.0.0.1,::1` par `allowed_hosts=POLLER_IP_ADDRESS` (en remplaçant `POLLER_IP_ADDRESS` par l'adresse du poller concerné).
+- Décommentez la ligne contenant `nasty_metachars`
+- Ajoutez les lignes suivantes :
 
 ```
 command[check_partitions]=/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --partitions 2>/dev/null
@@ -136,13 +136,13 @@ command[check_db]=/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-conten
 command[check_jobs]=/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --jobs 2>/dev/null
 ```
 
-3. Add the user centreon-engine to the centreonBI group : 
+3. Ajoutez l'utilisateur centreon-engine au groupe centreonBI :
 
 ```bash
 usermod -aG centreonBI centreon-engine 
 ```
 
-4. Restart and enable the daemon : 
+4. Redémarrez et activez le daemon :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
