@@ -87,9 +87,89 @@ Pas de métriques pour ce service.
 
 ## Prérequis
 
-### Configuration SNMP de l'équipement
+### Configuration SNMP de l'équipement et flux réseau
+
+La configuration de SNMP sur un serveur Linux est expliquée dans [la page de documentation du connecteur de supervision Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md#configuration-du-serveur-snmp).
+
+### Flux réseau
 
 Le serveur de surveillance doit pouvoir atteindre les ports UDP/161 (SNMP) et TCP/5666 (NRPE) du serveur de rapport.
+
+### Installation et configuration de l'agent NRPE
+
+1. Install the agent on the Centreon MBI reporting server.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf -y install epel-release
+dnf -y install nrpe
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf -y install nrpe
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt -y install nagios-nrpe-server
+```
+
+</TabItem>
+</Tabs>
+
+2. Modify the NRPE agent configuration file `/etc/nagios/nrpe.cfg`
+
+- Replace line `allowed_hosts=127.0.0.1,::1` with `allowed_hosts=POLLER_IP_ADDRESS`
+- Uncomment the line containing “nasty_metachars.”
+- Add the following lines :
+
+```
+command[check_partitions]=/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --partitions 2>/dev/null
+command[check_db]=/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content 2>/dev/null
+command[check_jobs]=/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --jobs 2>/dev/null
+```
+
+3. Add the user centreon-engine to the centreonBI group : 
+
+```bash
+usermod -aG centreonBI centreon-engine 
+```
+
+4. Restart and enable the daemon : 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+systemctl restart nrpe
+systemctl enable nrpe
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+systemctl restart nrpe
+systemctl enable nrpe
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+systemctl restart nagios-nrpe-server
+systemctl enable nagios-nrpe-server
+```
+
+</TabItem>
+</Tabs>
 
 ## Installer le connecteur de supervision
 
