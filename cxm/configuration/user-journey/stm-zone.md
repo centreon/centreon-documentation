@@ -3,7 +3,7 @@ id: stm-zones
 title: Monitoring non-public user journeys (closed beta)
 ---
 
-A private Synthetic Monitoring Zone (STM) allows you to monitor your user journeys on internal domains or networks specific to your organization using a probe deployed inside your infrastructure.
+A private Synthetic Monitoring Zone (STM Zone) allows you to monitor your user journeys on internal domains or networks specific to your organization using a probe deployed inside your infrastructure.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ docker login docker.centreon.com/centreon-dem-beta
 
 1. To create and launch the probe, execute the second command you obtained at [step 2](#step-2-associate-a-probe-to-an-stm).
 
-2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** liste.
+2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list.
 
 ## Step 4: Associate the zone with a user journey
 
@@ -45,6 +45,6 @@ docker login docker.centreon.com/centreon-dem-beta
 
 2. On the journey you want to run from your private zone, click on the three dots on the right, then click on **Advanced**.
 
-3. In the **Advanced configuration** window, scroll down to the **Synthetic Monitoring Zones** section. Your private zone appears under **Private Zones**. Select it and click **Save**
+3. In the **Advanced configuration** window, scroll down to the **Synthetic Monitoring Zones** section. Your private zone appears under **Private Zones**. Select it and click **Save**.
 
 After a short while, the probe will have executed its first check and your internal journey monitoring will be operational. You can analyze it just like a regular [user journey](../../how-to-articles/user-journey-screen.md).

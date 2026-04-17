@@ -39,7 +39,7 @@ docker login docker.centreon.com/centreon-dem-beta
 
 1. Exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-une-zone-stm) pour créer la sonde et la démarrer. 
 
-2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de monitoring synthétique**.
+2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**.
 
 ## Étape 4 : Associer la zone à un parcours utilisateur
 
@@ -49,4 +49,4 @@ docker login docker.centreon.com/centreon-dem-beta
 
 3. Dans la fenêtre **Configuration avancée**, faites défiler jusqu'à la section **Zones de Monitoring Synthétique**. Votre zone privée apparaît sous **Zones Privées**. Sélectionnez-la et cliquez sur **Sauvegarder**.
 
-Après un bref délai, la sonde aura réalisé son premier contrôle et votre supervision de parcours interne sera alors opérationnel. Vous pouvez l'étudier de la même manière qu'un [parcours utilisateur](../../how-to-articles/user-journey-screen.md) normal.
+Après un bref délai, la sonde aura réalisé son premier contrôle et votre supervision de parcours interne sera alors opérationnelle. Vous pouvez l'étudier de la même manière qu'un [parcours utilisateur](../../how-to-articles/user-journey-screen.md) normal.
