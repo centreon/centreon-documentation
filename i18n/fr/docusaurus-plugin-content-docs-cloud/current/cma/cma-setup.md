@@ -658,8 +658,8 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```bash
-dnf install dnf-plugins-core
-dnf install epel-release
+dnf install -y dnf-plugins-core
+dnf install -y epel-release
 dnf config-manager --set-enabled crb
 
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
@@ -718,6 +718,11 @@ EOF
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
+
+> NB: sur certaines images docker minimalistes, il peut être nécessaire d'installer ce paquet :
+> ```bash
+> dnf install procps-ng
+> ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
