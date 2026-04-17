@@ -774,6 +774,13 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 </Tabs>
 
+3. Create the directory needed for the plugins cache:
+
+```bash
+mkdir -p /var/lib/centreon/centplugins
+chown centreon-monitoring-agent: /var/lib/centreon/centplugins
+```
+
 ### Configuring multiple agent instances on the same host
 
 #### General principle

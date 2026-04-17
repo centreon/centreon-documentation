@@ -761,6 +761,13 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 </Tabs>
 
+3. Créez le répertoire nécessaire au cache des plugins :
+
+```bash
+mkdir -p /var/lib/centreon/centplugins
+chown centreon-monitoring-agent: /var/lib/centreon/centplugins
+```
+
 ### Mettre à jour une configuration existante
 
 <Tabs groupId="sync">
