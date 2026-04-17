@@ -421,9 +421,8 @@ Expression booléenne :
 > Les acquittements d'une alerte s'appliquent uniquement à l'objet concerné (activité métier ou KPI).
 
 Les acquittements s'appliquent aux activités métier (BA) comme suit :
-- Les acquittements ne se propagent pas entre les activités métier parentes et filles.
-- L'acquittement d'un KPI (service) n'entraîne pas l'acquittement de l'activité métier qui en dépend.
-- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents.
+- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un méta-service).
+- L'acquittement d'un KPI n'entraîne pas l'acquittement de l'activité métier qui en dépend.
 
 ## Les vues métier
 
