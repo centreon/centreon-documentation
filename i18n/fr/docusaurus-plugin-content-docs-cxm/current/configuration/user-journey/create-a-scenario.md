@@ -43,7 +43,7 @@ Cliquez sur les 3 points et sur *Configurer* pour entrer en mode édition/créat
 
 ## Créer un parcours
 
-> Si le site que vous souhaitez superviser est interne à votre organisation, vous devrez créer une [zone STM](stm-zone.md) en plus du parcours utilisateur.
+> Si le site que vous souhaitez superviser est interne à votre organisation, vous devrez créer une [zone STM](stm-zones.md) en plus du parcours utilisateur.
 
 En bas de la page d’édition, vous trouverez un bouton pour créer un nouveau parcours:
 

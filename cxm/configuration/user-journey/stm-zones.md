@@ -35,7 +35,7 @@ docker login docker.centreon.com/centreon-dem-beta
 
 ## Step 3: Create and launch the probe
 
-1. To create and launch the probe, execute the second command you obtained at [step 2](#step-2-associate-a-probe-to-an-stm).
+1. To create and launch the probe, execute the second command you obtained at [step 2](#step-2-associate-a-probe-to-the-stm-zone).
 
 2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list.
 
