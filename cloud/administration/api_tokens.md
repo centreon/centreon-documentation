@@ -3,6 +3,9 @@ id: api-tokens
 title: API tokens
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Using an API token, a third-party application can call the Centreon API to perform actions in Centreon (webhooks).
 
 A token is linked to one [Centreon user](../users/users.md) and is valid only for a certain period of time. API calls will be executed according to the [rights assigned to this user](../users/users.md#user-roles). A specific user can have several tokens.
@@ -30,3 +33,37 @@ Users with the **Administrator** role can:
 
 * Disable a valid API token using the **Enabled/Disabled** switch to the right of the line. The token can still be reenabled later.
 * Delete a token using the **Delete** button.
+
+## Using a token in the Centreon MAP API
+
+- You need to know the URL of the MAP server in order to use MAP APIs. It looks like the following:
+  
+  <Tabs groupId="sync">
+  <TabItem value="HTTP" label="HTTP">
+  
+  ```
+  http://serverURL:8081/_centreon/centreon-map/api/latest/
+  ```
+  
+  </TabItem>
+  
+  <TabItem value="HTTPS" label="HTTPS">
+  
+  ```
+  https://serverURL:9443/_centreon/centreon-map/api/latest/
+  ```
+  
+  </TabItem>
+  </Tabs>
+
+- Then update the header with a Centreon token:
+  
+  ```
+  Headers {
+      Content-Type = application/json
+      X-client-version =  25.09.0
+      Authorization = Bearer \{jwtToken\}
+  }
+  ```
+
+  Replace ``Authorization = Bearer \{jwtToken\}`` with ``X-AUTH-TOKEN = your-centreon-token``. Ensure the token is not revoked or expired.

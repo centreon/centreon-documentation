@@ -19,16 +19,207 @@ If you have feature requests or want to report a bug, please go to our
 
 > Read more about version 24.04 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-04/).
 
-
 <ExpandCollapseAll />
 
 ## Centreon Web
+
+### 24.04.25
+
+Release date: `February 25, 2026`
+
+<details>
+<summary>Bug fixes</summary>
+
+- [Custom Views] Fixed an issue that caused an SQL error when renaming a widget.
+- [Downtimes] Fixed an issue when filtering downtimes by service name.
+- [Performance Graph] Fixed an issue with the legend not reflecting changes to the displayed timeframe.
+- [UI Notifications] Fixed an issue with LDAP/local users not being able to see the “UI Notifications” panel.
+
+</details>
+
+<details>
+<summary>Security fixes</summary>
+
+This release contains security fixes. More details on [our community platform The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+### 24.04.24
+
+Release date: `February 23, 2026`
+
+This release contains security fixes. More details on [our community platform The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+### 24.04.23
+
+Release date: `February 11, 2026`
+
+<details>
+<summary>Bug fixes</summary>
+
+- [Administration] Fixed a blocking issue that caused some LDAP users to be unable to log in.
+
+</details>
+
+### 24.04.22
+
+Release date: `January 19, 2026`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Custom Views] Optimized performance when retrieving ACLs in widgets.
+
+</details>
+
+<details>
+<summary>Bug fixes</summary>
+
+- [CLAPI] Fixed an issue with the APPLYTPL command taking a long time to take effect.
+- [Dashboards] Resource Table widget - Fixed link to the Resource Status page
+- [Users] Fixed an issue preventing users from being created when an autologin key was used.
+
+</details>
+
+<details>
+<summary>Security fixes</summary>
+
+- [Security] Fixed a vulnerability in Images parameters.
+- [Security] Fixed a vulnerability in LDAP configuration.
+- [Security] Fixed a vulnerability in Virtual Metrics.
+- [Security] Fixed a vulnerability in Hostgroups notifications.
+
+</details>
+
+### 24.04.21
+
+Release date: `January 15, 2026`
+
+<details>
+<summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded PHP dependency onelogin/php-saml.
+
+</details>
+
+### 24.04.20
+
+Release date: `December 31, 2025`
+
+<details>
+
+<summary>Security fixes</summary>
+
+- [Security] Fixed an issue with CLAPI Import.
+
+</details>
+
+### 24.04.19
+
+Release date: `December 15, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added "missing configuration" change logs for host categories configuration.
+- [Authentication] Password change attempts (both successful and unsuccessful) are now logged in a dedicated log file.
+- [Authentication] When editing a contact, users authenticated by an IdP no longer see the password editing fields.
+- [Configuration] The "Deploy Service" action from the hosts list now triggers a "Conf Changed" flag for the related poller in the pollers list.
+- [Configuration] Fixed an issue with database partitioning on Amazon Aurora RDS. The next update may take a bit longer for some users while the system catches up.
+- [Configuration] Removed obsolete gorgone error message from configuration generation log.
+- [Custom Views] Optimized performance when retrieving ACLs in widgets.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed an issue where users could lose their DN during an LDAP connection.
+- [Configuration] Fixed an issue in Dashboards that caused no service categories to be displayed after filtering by host category.
+- [Core] Fixed an issue where log level wasn't taken into account in token removal script.
+- [Core] Fixed an issue with API routes.
+- [Configuration] Fixed an issue preventing users from disabling a meta-service.
+- [Dashboards] Fixed an issue preventing resource table widgets from being updated properly.
+- [Host groups] Fixed an issue occurring while checking for illegal characters on host group name.
+- [Packaging] Updated permissions of token purge log file.
+- [Translation] Fixed an issue where the menu language was automatically set to FR when the "Detection by browser" option was selected.
+- [Translations] Fixed an issue where translations were not displayed correctly.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Enhanced security on password DOM storage in login page.
+- [Security] Fixed an RCE on poller reload page.
+- [Security] Secured backup script to prevent command injections.
+- [Vulnerability] Fixed an issue on Broken Access Control in Administration Parameters Endpoint.
+- [Vulnerability] Fixed IDOR vulnerability on Custom Views.
+- [Vulnerability] Fixed XSS vulnerability in the ACL Menus Access page.
+- [Vulnerability] Fixed XSS vulnerability in Configuration > Hosts > hostgroups.
+- [Vulnerability] Fixed XSS vulnerability in the Recurrent Downtimes page.
+- [Vulnerability] Fixed XSS vulnerability in the Hosts Configuration page.
+
+</details>
+
+### 24.04.18
+
+Release date: `September 24, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Custom Views] "Global Health" and "Top 10" widgets: improved display and fixed an issue with MySQL8.
+- [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the **Administration > Parameters > Centreon UI** menu.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API v1] Fixed an issue affecting the creation of services by CLAPI by non-administrator users.
+- [Authentication] LDAP users with no email can now authenticate to Centreon with LDAP auto import.
+- [Configuration] Fixed a circular dependency issue for service template inheritance (interface + API).
+- [Configuration] Fixed a display issue affecting the command information window.
+- [Configuration] Fixed an issue on "configuration changed" flag which was not updated when changing extended info using CLAPI.
+- [Configuration] Fixed an issue where non explicit error messages were displayed when saving host configuration when geographic coordinates were too long.
+- [Configuration] Fixed an issue where host aliases were not handling quotes in inputs properly.
+- [Configuration] Increased contact_pager property to allow for longer tokens (e.g. Microsoft Teams tokens)
+- [Configuration] The creation of metaservices no longer fails for users with several ACL rules on resources.
+- [Custom Views] Host Monitoring- fixed the export functionality for all resources.
+- [Event Logs] Fixed an issue where pagination was not working properly.
+- Fixed an issue where the service deployment endpoint was adding the command line to the service.
+- [Packaging] Removed obsolete dependencies for database-related Centreon packages.
+- [Resource Status] Default values for monitoring options are now also applied to non-admin users.
+- [Resources Status] Fixed an issue on the notification tab where the same user was displayed multiple times.
+- [Resource Status] Fixed an issue preventing the selection of multiple resources when using advanced filters.
+- [Resource Status] Fixed an error that occurred when displaying metrics for a metaservice.
+- [Resource Status] Fixed the notification tab to display the contact defined on the service template rather than on the host.
+- [Resource Status] Fixed an issue where the notification icon was not displayed in the corresponding column in the Resource Status page.
+- [Resource Status] The pipe “|” character is now handled correctly in the command section of a resource.
+- [Resource Status] View by host: fixed an issue preventing resources from being displayed when filtering on a resource that had no metrics.
+- [Update] Fixed an issue on modules routes which were no longer up to date.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Authentication] Fixed an issue that prevented users logged in via OIDC from logging out of the interface.	
+- [Security] The current password is now required when modifying a user password.
+- [Vulnerability] Enhanced security on login page.
+- [Vulnerability] Fixed insecure direct object reference allowing private widget retrieval.
+- [Vulnerability] Securized poller configuration commands to avoid RCE vulnerability.
+- [Vulnerability] Fixed multiple XSS vulnerabilities.
+- [Vulnerability] Upgraded select2 dependency.
+
+</details>
 
 ### 24.04.17
 
 Release date: `August 21, 2025`
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] The current password is now required when modifying a user's password.
@@ -39,8 +230,8 @@ Release date: `August 21, 2025`
 
 Release date: `August 6, 2025`
 
-<details>
-  <summary>Bug fixes</summary>
+<details open>
+  <summary>Enhancements</summary>
 
 - [Resource Status] Optimized legend rendering in graphs.
 - [Authentication] Improved SAML configuration by adding a "Requested Authentication Context" parameter.
@@ -595,6 +786,54 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.18
+
+Release date: `February 25, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed an issue where the broker cache would not be updated.
+
+</details>
+
+### 24.04.17
+
+Release date: `January 19, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Updated logrotate configuration to match packaging permissions.
+- [Packaging] Added logrotate to dependencies.
+
+</details>
+
+### 24.04.16
+
+Release date: `December 15, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed some issues on RRD error messages.
+
+</details>
+
+### 24.04.15
+
+Release date: `September 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a segfault on Broker that was occurring when Engine stopped or was restarted, when Engine's version was older than 24.04.
+- [Core] Fixed the compatibility of Engine with older versions of the Linux kernel.
+- [Engine] Engine no longer crashes when users delete a host during downtime notification.
+- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a broker update. 
+
+</details>
+
 ### 24.04.14
 
 Release date: `August 6, 2025`
@@ -825,6 +1064,61 @@ Release date: `April 30, 2024`
 
 ## Centreon Gorgone
 
+### 24.04.14
+
+Release date: `February 25, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed an issue with the gorgoned logrotate configuration file.
+
+</details>
+
+### 24.04.13
+
+Release date: `January 19, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Updated logrotate configuration to match packaging permissions.
+- [Packaging] Added logrotate to dependencies.
+
+</details>
+
+### 24.04.12
+
+Release date: `December 15, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed Gorgone whitelist to allow NRPE service discovery.
+
+</details>
+
+### 24.04.11
+
+Release date: `September 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed centreontrapd configuration file permissions applied when exporting poller configuration.
+- [Gorgone] Gorgone now raises an error if the ETL configuration file doesn't exist.
+- [MBI] Fixed a bug in MBI where a hostname with a semicolon broke database insertion.	
+- [MBI] Fixed an issue where the ETL would never finish executing if some service templates were referencing themselves.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to make discovery commands less permissive.
+
+</details>
+
 ### 24.04.10
 
 Release date: `August 11, 2025`
@@ -956,6 +1250,12 @@ Release date: `April 30, 2024`
 
 ## Centreon High Availability
 
+### 24.04.2
+
+Release date: `December 15, 2025`
+
+- No changes for this module in this version.
+
 ### 24.04.1
 
 Release date: `August 6, 2025`
@@ -979,6 +1279,36 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon DSM
+
+### 24.04.8
+
+Release date: `December 15, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue with dsmd daemon being stuck on start.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed XSS vulnerability in the Extensions Dynamic Services Configure page.
+
+</details>
+
+### 24.04.7
+
+Release date: `September 24, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] SQL files are now correctly packaged in **centreon-dsm**.
+- [Packaging] Updated permissions for DSM purge log file.
+
+</details>
 
 ### 24.04.6
 
@@ -1066,6 +1396,62 @@ Release date: `April 30, 2024`
 
 ## Centreon Open Tickets
 
+### 24.04.8
+
+Release date: `February 25, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Open Ticket] For enhanced security, two new configuration parameters have been introduced: 'SSL Verify Peer' and 'Certificate Authority Info'.
+
+</details>
+
+### 24.04.7
+
+Release date: `February 23, 2026`
+
+This release contains security fixes. More details on [our community platform The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+### 24.04.6
+
+Release date: `January 19, 2026`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [BREAKING CHANGE] [Open Tickets] Defining a custom command linked to a rule is no longer possible due to security concerns.
+
+</details>
+
+### 24.04.5
+
+Release date: `December 15, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [GLPI] Fixed group retrieval when using versions 9.5 and above.
+- [Custom Views] Optimized performance when retrieving ACLs in widgets.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue preventing tickets from being closed when the corresponding resource had its status changed since the opening of the ticket.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Open Tickets] Fixed an issue that exposed the password when using EasyVista.
+- [Vulnerability] Fixed SQL injection in the notification rules.
+- [Vulnerability] Fixed XSS vulnerability in notification rules.
+
+</details>
+
 ### 24.04.4
 
 Release date: `March 10, 2025`
@@ -1129,6 +1515,37 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon AWIE
+
+### 24.04.4
+
+Release date: `January 26, 2026`
+
+<details>
+
+<summary>Bug fixes</summary>
+
+- [AWIE] Fixed an issue with the configuration import/export page that resulted in the "Uncaught ReferenceError: submitForm is not defined" message.
+
+</details>
+
+### 24.04.3
+
+Release date: `December 31, 2025`
+
+<details>
+
+<summary>Security fixes</summary>
+
+- [Security] Fixed an issue with AWIE Export Module.
+- [Security] Fixed an issue with CLAPI Import.
+
+</details>
+
+### 24.04.2
+
+Release date: `December 15, 2025`
+
+- No changes for this module in this version.
 
 ### 24.04.1
 

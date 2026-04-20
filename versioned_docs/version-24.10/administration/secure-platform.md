@@ -44,14 +44,13 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 Centreon developed SELinux rules in order to strengthen the control of
 components by the operating system.
 
-> These rules are currently in **beta mode** and can be activated.
-> You can activate them by following this procedure. If you detect a problem,
+> To activate these rules, follow this procedure. If you detect a problem,
 > you can disable SELinux globally and send us your feedback in
-> order to improve our rules on [Github](https://github.com/centreon/centreon).
+> order to improve our rules on our community platform [The Watch](https://thewatch.centreon.com/).
 
 ### SELinux Overview
 
-Security Enhanced Linux (SELinux) provides an additional layer of system security. SELinux fundamentally answers the
+Security Enhanced Linux (SELinux) provides an additional layer of system security for EL environments. SELinux fundamentally answers the
 question: `May <subject> do <action> to <object>?`, for example: May a web server access files in users' home
 directories?
 
@@ -179,45 +178,7 @@ Depending on the type of server, install the packages with the following command
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   apt install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   apt install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+SELinux concerns only EL environments.
 
 </TabItem>
 </Tabs>
@@ -703,11 +664,12 @@ dnf install mod_ssl mod_security openssl
   
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
 
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
@@ -719,11 +681,12 @@ dnf install mod_ssl mod_security openssl
   
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
 
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
@@ -740,11 +703,12 @@ systemctl restart apache2
 
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
 
 ```shell
 cp centreon7.key /etc/ssl/private/
 cp centreon7.crt /etc/ssl/certs/
+cp ca_demo.crt /etc/ssl/certs/
 ```
 
 </TabItem>
@@ -1070,11 +1034,19 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
+Edit the **/etc/php.d/50-centreon.ini** file:
+
+* Make sure that the `expose_php` parameter is disabled:
 
 ```phpconf
 expose_php = Off
 ```
+
+* Add the path to the CA certificate that was used to sign the server's certificate:
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -1088,11 +1060,19 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
+Edit the **/etc/php.d/50-centreon.ini** file:
+
+* Make sure that the `expose_php` parameter is disabled:
 
 ```phpconf
 expose_php = Off
 ```
+
+* Add the path to the CA certificate that was used to sign the server's certificate:
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
@@ -1108,9 +1088,12 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Edit the **/etc/php/8.2/mods-available/centreon.ini** file and turn off the **expose_php** parameter:
+Edit the **/etc/php/8.2/mods-available/centreon.ini** file and add the following lines:
 
-> This was done during the installation process.
+```text
+openssl.cafile=/etc/ssl/certs/ca_demo.crt
+curl.cainfo=/etc/ssl/certs/ca_demo.crt
+```
 
 </TabItem>
 </Tabs>
@@ -1462,7 +1445,7 @@ dnf install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1470,13 +1453,13 @@ dnf install nghttp2
 
 4. Update the method used by the apache multi-process module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
-   Comment the following line:
+   Find the following line and comment it by adding the "#" character as below:
 
    ```shell
-   LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   #LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
    ```
 
-   Uncomment the following line:
+   Find the following line and uncomment it by removing the "#" character as below:
 
    ```shell
    LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1504,7 +1487,7 @@ dnf install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1512,13 +1495,13 @@ dnf install nghttp2
 
 4. Update the method used by the apache multi-process module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
-   Comment the following line:
+   Find the following line and comment it by adding the "#" character as below:
 
    ```shell
-   LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   #LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
    ```
 
-   Uncomment the following line:
+   Find the following line and uncomment it by removing the "#" character as below:
 
    ```shell
    LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1546,7 +1529,7 @@ apt install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1569,6 +1552,10 @@ systemctl restart apache2
 
 </TabItem>
 </Tabs>
+
+## Add your certificate to your browser
+
+If you use a certificate that is not provided by a trusted authority, you must import the CA certificate into your browser.
 
 ## User authentication
 
@@ -1668,3 +1655,33 @@ Centreon event logs are available in the following directories:
 ## Backing up the platform
 
 Centreon offers to save the configuration of the platform. To do this, go to the [**Administration > Parameters > Backup**](./backup.md) menu.
+
+## Using antivirus software on your Centreon platform
+
+This section applies if you are using antivirus/EDR software to scan a Centreon Infra Monitoring platform (central server, remote server, poller, MAP or MBI server). This includes Business modules.
+
+Here is a list of services and directories that should be excluded from antivirus scanning.
+
+### Services to be excluded
+
+* centengine
+* cbd
+* centreontrapd
+* gorgoned
+* php-fpm
+* httpd
+
+If you are using one of these connectors, exclude the following services:
+
+* vmware: centreon_vmware
+* as400: centreon-as400
+
+### Directories to be excluded
+
+* /etc/centreon*
+* /var/log/centreon*
+* /var/lib/centreon*
+* /var/cache/centreon*
+* /usr/share/centreon*
+* /var/spool/centreon*
+* /var/lib/mysql

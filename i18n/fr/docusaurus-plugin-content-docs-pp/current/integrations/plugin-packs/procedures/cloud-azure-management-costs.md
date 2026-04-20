@@ -53,9 +53,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle                | Description                                       |
-|:-------------------------------|:--------------------------------------------------|
-| Cloud-Azure-Management-Budgets | Découvre les budgets et contrôle leur utilisation |
+| Nom de la règle                | Description                                             |
+|:-------------------------------|:--------------------------------------------------------|
+| Cloud-Azure-Management-Budgets | Découvre les budgets Azure et supervise leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -224,14 +224,14 @@ yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
 3. Appliquez le modèle d'hôte **Cloud-Azure-Management-Costs-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires. Par exemple, pour ce connecteur, **AZURECUSTOMMODE** (valeurs possibles : **api** ou **azcli**). En effet, il existe plusieurs modes de communication avec l'équipement supervisé : soit l'outil en ligne de commande azcli, soit une interrogation directe de l'api.
 
-| Macro             | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AZURECLIENTID     | Set Azure client ID                                                                                                                                |                   |      X      |
-| AZURECLIENTSECRET | Set Azure client secret                                                                                                                            |                   |      X      |
-| AZURESUBSCRIPTION | Set Azure subscription ID                                                                                                                          |                   |      X      |
-| AZURETENANT       | Set Azure tenant ID                                                                                                                                |                   |      X      |
-| PROXYURL          | Proxy URL. Example: http://my.proxy:3128                                                                                                           |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro             | Description                                                                                                                                | Valeur par défaut | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| AZURECLIENTID     | Set Azure client ID                                                                                                                        |                   |      X      |
+| AZURECLIENTSECRET | Set Azure client secret                                                                                                                    |                   |      X      |
+| AZURESUBSCRIPTION | Set Azure subscription ID                                                                                                                  |                   |      X      |
+| AZURETENANT       | Set Azure tenant ID                                                                                                                        |                   |      X      |
+| PROXYURL          | Proxy URL. Eg: http://my.proxy:3128                                                                                                        |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 > Deux méthodes peuvent être utilisées pour définir l'authentification :
 >
@@ -248,14 +248,14 @@ yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
 <Tabs groupId="sync">
 <TabItem value="Budget" label="Budget">
 
-| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| LOOKUPDAYS   | Days backward to look up                                                                                                                         | 30                |             |
-| UNITS        | Unit of thresholds('%', 'count')                                                                                                                 | %                 |             |
-| BUDGETNAME   | Set budget name                                                                                                                                  |                   |      X      |
-| WARNINGCOST  | Set warning threshold for cost)                                                                                                                  |                   |             |
-| CRITICALCOST | Define the conditions to match for the status to be CRITICAL                                                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| LOOKUPDAYS   | Days backward to look up                                                                                                                 | 30                |             |
+| UNITS        | Unit of thresholds  ('%', 'count')                                                                                                       | %                 |             |
+| BUDGETNAME   | Set budget name                                                                                                                          |                   |      X      |
+| WARNINGCOST  | Set warning threshold for cost)                                                                                                          |                   |             |
+| CRITICALCOST | Define the conditions to match for the status to be CRITICAL                                                                             |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Costs-Explorer-Resource-Group" label="Costs-Explorer-Resource-Group">
@@ -263,73 +263,73 @@ yum install centreon-plugin-Cloud-Azure-Management-Costs-Api
 | Macro                      | Description                                                                                                                                                                                                                                                                         | Valeur par défaut | Obligatoire |
 |:---------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | LOOKUPDAYS                 | Days backward to look up                                                                                                                                                                                                                                                            | 30                |             |
-| AZURERESOURCEGROUP         | Set resource group (optional).  If you don't, you get costs for the whole subscription.  You can specify multiple resource groups. You will get results for each one of the resource groups specified. Example: --resource-group=MYRESOURCEGROUP1 --resource-group=MYRESOURCEGROUP2 |                   |             |
+| AZURERESOURCEGROUP         | Set resource group (Optional).  If you don't, you get costs for the whole subscription.  You can specify multiple resource groups. You will get results for each one of the resource groups specified. Example: --resource-group=MYRESOURCEGROUP1 --resource-group=MYRESOURCEGROUP2 |                   |             |
 | WARNINGRESOURCEGROUPCOSTS  | Set warning threshold for resource groups costs                                                                                                                                                                                                                                     |                   |             |
 | CRITICALRESOURCEGROUPCOSTS | Set critical threshold for resource groups costs                                                                                                                                                                                                                                    |                   |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                    | --verbose         |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                            | --verbose         |             |
 
 </TabItem>
 <TabItem value="Costs-Explorer-Subscription" label="Costs-Explorer-Subscription">
 
-| Macro                     | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| LOOKUPDAYS                | Days backward to look up                                                                                                                         | 30                |             |
-| WARNINGSUBSCRIPTIONCOSTS  | Set warning threshold for subscription costs                                                                                                     |                   |             |
-| CRITICALSUBSCRIPTIONCOSTS | Set critical threshold for subscription costs                                                                                                    |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro                     | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| LOOKUPDAYS                | Days backward to look up                                                                                                                 | 30                |             |
+| WARNINGSUBSCRIPTIONCOSTS  | Set warning threshold for subscription costs                                                                                             |                   |             |
+| CRITICALSUBSCRIPTIONCOSTS | Set critical threshold for subscription costs                                                                                            |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hybrid-Benefits-Compliance" label="Hybrid-Benefits-Compliance">
 
-| Macro               | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXCLUDENAME         | Exclude resource from check (can be a regexp)                                                                                                    |                   |             |
-| WARNINGELASTICPOOL  | Threshold                                                                                                                                        |                   |             |
-| CRITICALELASTICPOOL | Threshold                                                                                                                                        |                   |             |
-| WARNINGRESOURCES    | Threshold                                                                                                                                        |                   |             |
-| CRITICALRESOURCES   | Threshold                                                                                                                                        |                   |             |
-| WARNINGSQLDATABASE  | Threshold                                                                                                                                        |                   |             |
-| CRITICALSQLDATABASE | Threshold                                                                                                                                        |                   |             |
-| WARNINGSQLVM        | Threshold                                                                                                                                        |                   |             |
-| CRITICALSQLVM       | Threshold                                                                                                                                        |                   |             |
-| WARNINGVM           | Threshold                                                                                                                                        |                   |             |
-| CRITICALVM          | Threshold                                                                                                                                        |                   |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro               | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXCLUDENAME         | Exclude resource from check (Can be a regexp)                                                                                            |                   |             |
+| WARNINGELASTICPOOL  | Threshold                                                                                                                                |                   |             |
+| CRITICALELASTICPOOL | Threshold                                                                                                                                |                   |             |
+| WARNINGRESOURCES    | Threshold                                                                                                                                |                   |             |
+| CRITICALRESOURCES   | Threshold                                                                                                                                |                   |             |
+| WARNINGSQLDATABASE  | Threshold                                                                                                                                |                   |             |
+| CRITICALSQLDATABASE | Threshold                                                                                                                                |                   |             |
+| WARNINGSQLVM        | Threshold                                                                                                                                |                   |             |
+| CRITICALSQLVM       | Threshold                                                                                                                                |                   |             |
+| WARNINGVM           | Threshold                                                                                                                                |                   |             |
+| CRITICALVM          | Threshold                                                                                                                                |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Orphan-Resources" label="Orphan-Resources">
 
-| Macro                        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXCLUDENAME                  | Exclude resource from check (can be a regexp)                                                                                                    |                   |             |
-| WARNINGORPHANEDMANAGEDDISKS  | Threshold                                                                                                                                        |                   |             |
-| CRITICALORPHANEDMANAGEDDISKS | Threshold                                                                                                                                        |                   |             |
-| WARNINGORPHANEDNICS          | Threshold                                                                                                                                        |                   |             |
-| CRITICALORPHANEDNICS         | Threshold                                                                                                                                        |                   |             |
-| WARNINGORPHANEDNSGS          | Threshold                                                                                                                                        |                   |             |
-| CRITICALORPHANEDNSGS         | Threshold                                                                                                                                        |                   |             |
-| WARNINGORPHANEDPUBLICIPS     | Threshold                                                                                                                                        |                   |             |
-| CRITICALORPHANEDPUBLICIPS    | Threshold                                                                                                                                        |                   |             |
-| WARNINGORPHANEDRESOURCES     | Threshold                                                                                                                                        |                   |             |
-| CRITICALORPHANEDRESOURCES    | Threshold                                                                                                                                        |                   |             |
-| WARNINGORPHANEDROUTETABLES   | Threshold                                                                                                                                        |                   |             |
-| CRITICALORPHANEDROUTETABLES  | Threshold                                                                                                                                        |                   |             |
-| WARNINGORPHANEDSNAPSHOTS     | Threshold                                                                                                                                        |                   |             |
-| CRITICALORPHANEDSNAPSHOTS    | Threshold                                                                                                                                        |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro                        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXCLUDENAME                  | Exclude resource from check (Can be a regexp)                                                                                            |                   |             |
+| WARNINGORPHANEDMANAGEDDISKS  | Threshold                                                                                                                                |                   |             |
+| CRITICALORPHANEDMANAGEDDISKS | Threshold                                                                                                                                |                   |             |
+| WARNINGORPHANEDNICS          | Threshold                                                                                                                                |                   |             |
+| CRITICALORPHANEDNICS         | Threshold                                                                                                                                |                   |             |
+| WARNINGORPHANEDNSGS          | Threshold                                                                                                                                |                   |             |
+| CRITICALORPHANEDNSGS         | Threshold                                                                                                                                |                   |             |
+| WARNINGORPHANEDPUBLICIPS     | Threshold                                                                                                                                |                   |             |
+| CRITICALORPHANEDPUBLICIPS    | Threshold                                                                                                                                |                   |             |
+| WARNINGORPHANEDRESOURCES     | Threshold                                                                                                                                |                   |             |
+| CRITICALORPHANEDRESOURCES    | Threshold                                                                                                                                |                   |             |
+| WARNINGORPHANEDROUTETABLES   | Threshold                                                                                                                                |                   |             |
+| CRITICALORPHANEDROUTETABLES  | Threshold                                                                                                                                |                   |             |
+| WARNINGORPHANEDSNAPSHOTS     | Threshold                                                                                                                                |                   |             |
+| CRITICALORPHANEDSNAPSHOTS    | Threshold                                                                                                                                |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Tags-Compliance" label="Tags-Compliance">
 
-| Macro                       | Description                                                                                                                                                                                                                                                                                                                                                                  | Valeur par défaut | Obligatoire |
-|:----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TAGS                        | Can be multiple. Allow you to specify tags that should be present. All tags must match a resource's configuration to make it a compliant one.  What you cannot do:   - specifying the same key in different options: --tags='Environment =\> Prod' --tags='Environment =\> Dev'  What you can do:  - check for multiple value for a single key: --tags='Environment =\> Dev\ |Prod' - check for a key, without minding about its value: --tags='Version' - combine the two: --tags='Environment =\> Dev\|Prod' --tags='Version' |                   | X           |
-| EXCLUDENAME                 | Exclude resource from check (can be a regexp)                                                                                                                                                                                                                                                                                                                                |                   |             |
-| WARNINGUNCOMPLIANTRESOURCE  | Threshold                                                                                                                                                                                                                                                                                                                                                                    |                   |             |
-| CRITICALUNCOMPLIANTRESOURCE | Threshold                                                                                                                                                                                                                                                                                                                                                                    |                   |             |
-| WARNINGUNCOMPLIANTVMS       | Threshold                                                                                                                                                                                                                                                                                                                                                                    |                   |             |
-| CRITICALUNCOMPLIANTVMS      | Threshold                                                                                                                                                                                                                                                                                                                                                                    |                   |             |
-| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).              *                                                                                                                                                                                                              | --verbose         |             |
+| Macro                       | Description                                                                                                                                                                                                                                                                                                                                                               | Valeur par défaut | Obligatoire |
+|:----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TAGS                        | Can be multiple. Allow you to specify tags that should bepresent. All tags must match a resource's configuration to make it a compliant one.  What you cannot do:  - specifying the same key in different options: --tags='Environment =\> Prod' --tags='Environment =\> Dev'  What you can do: - check for multiple value for a single key: --tags='Environment =\> Dev\ |Prod' - check for a key, without minding about its value: --tags='Version' - combine the two: --tags='Environment =\> Dev\|Prod' --tags='Version' |                   | X           |
+| EXCLUDENAME                 | Exclude resource from check (Can be a regexp)                                                                                                                                                                                                                                                                                                                             |                   |             |
+| WARNINGUNCOMPLIANTRESOURCE  | Threshold                                                                                                                                                                                                                                                                                                                                                                 |                   |             |
+| CRITICALUNCOMPLIANTRESOURCE | Threshold                                                                                                                                                                                                                                                                                                                                                                 |                   |             |
+| WARNINGUNCOMPLIANTVMS       | Threshold                                                                                                                                                                                                                                                                                                                                                                 |                   |             |
+| CRITICALUNCOMPLIANTVMS      | Threshold                                                                                                                                                                                                                                                                                                                                                                 |                   |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                                                                                                                  | --verbose         |             |
 
 </TabItem>
 </Tabs>

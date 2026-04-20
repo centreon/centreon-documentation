@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Azure Resource** connector through the
-**Configuration > Connecteurs > Connecteurs de supervision** menu:
+**Configuration > Connectors > Monitoring connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets

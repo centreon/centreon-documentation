@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-ibm-ts3500-snmp
-title: IBM TS3500
+title: IBM TS3500 SNMP
 ---
 
 ## Prerequisites
