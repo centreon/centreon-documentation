@@ -253,6 +253,7 @@ jobs:
           pnpm build
         env:
           NODE_OPTIONS: --max_old_space_size=16000
+          DOCUSAURUS_PERF_LOGGER: true
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
