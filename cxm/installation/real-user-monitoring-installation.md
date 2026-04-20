@@ -1,6 +1,6 @@
 ---
 id: real-user-monitoring-installation
-title: Installing RUM
+title: Setting up RUM
 ---
 
 Real User Monitoring (RUM) requires inserting a JavaScript tag into your site's pages.
@@ -37,7 +37,7 @@ Real User Monitoring (RUM) requires inserting a JavaScript tag into your site's 
 
 ## GDPR considerations
 
-Although CXM uses a cookie, **no consent is required.**
+Although Experience Monitoring uses a cookie, **no consent is required.**
 
 The CNIL (French data protection authority) exempts certain cookies from requiring consent under these conditions:
 
@@ -47,6 +47,6 @@ The CNIL (French data protection authority) exempts certain cookies from requiri
 - they are not transmitted to third parties
 - they do not enable tracking a user's browsing across other websites.
 
-**CXM meets these conditions.**
+**Experience Monitoring meets these conditions.**
 
 You can find CNIL's recommendations on [this page](https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience).
