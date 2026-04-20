@@ -52,7 +52,7 @@ module.exports = {
     {
       collapsed: true,
       type: 'category',
-      label: 'Analyze user experience: Real User Monitoring (RUM)',
+      label: 'Real User Monitoring (RUM)',
       link: {
         type: "doc",
         id: "rum/rum"

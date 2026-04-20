@@ -21,13 +21,13 @@ Real User Monitoring (RUM) requires inserting a JavaScript tag into your site's 
 
 ### Using GTM to add a Centreon RUM tag to your pages
 
-1. Create a new tag: sign in to your GTM account and select the container for your website. Click "Add a new tag."
+1. Create a new tag: sign in to your GTM account and select the container for your website. Click **Add a new tag**.
 
 2. Configure the tag:
 
-   1. Select "Custom HTML Tag" as the tag type.
+   1. Select **Custom HTML Tag** as the tag type.
    2. Paste the script provided into the HTML field.
-   3. Ensure the script type is correctly set to "JavaScript" if required. GTM usually handles this automatically, but it's good to check.
+   3. Ensure the script type is correctly set to **JavaScript** if required. GTM usually handles this automatically, but it's good to check.
 
 3. Set triggers: choose when you want the script to execute. You can apply it to all pages or to specific pages depending on your needs. Triggers allow precise control over when the script runs.
 

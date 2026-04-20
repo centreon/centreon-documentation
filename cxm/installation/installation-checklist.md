@@ -13,7 +13,7 @@ However, depending on the security level on your site, you may need to allow our
 
 ## Real User Monitoring (RUM)
 
-Real User Monitoring installs like any marketing tag: by inserting a JavaScript tag into your site's HEAD element. For the full procedure and installation instructions, see: [Install Real User Monitoring](./real-user-monitoring-installation.md).
+Real User Monitoring installs like any marketing tag: by inserting a JavaScript tag into your site's HEAD element. For the full procedure and installation instructions, see [Setting up RUM](./real-user-monitoring-installation.md).
 
 ## Digital sobriety
 

@@ -3,23 +3,20 @@ id: rum-intro
 title: What is Real User Monitoring?
 ---
 
-Called “RUM” among insiders, Real User Monitoring consists of observing and analyzing the experience perceived by real users, directly from their browsers, regardless which one they use.
+RUM lets you analyze the actual experience of users on your site - and see what is happening on your site in real time.
 
 ![image](../assets/getting-started/rum-1.png)
 
-It's important to note that:
+## How does it work?
 
-- this feature requires adding an **external tag** to the page, which is designed to be loaded **asynchronously** and to be **extremely lightweight** so it doesn't slow the user's browsing on the site.
-- the type of data sent by the browser via the Experience Monitoring tag and the way Experience Monitoring stores these elements in its database ensure **the Experience Monitoring tag is excluded from the scope of GDPR**. Indeed, the figures sent through the tag are purely technical and **not personally identifiable**. The Experience Monitoring dashboard allows observing site behavior for different browser types (Chrome, Mobile Safari, EDGE, ...) but without any possibility to identify a unique user.
+RUM works via [a lightweight, asynchronous tag added to the page](../installation/real-user-monitoring-installation.md), which doesn't slow the user's browsing on the site. The data collected is purely technical (no personal identifiers), making it GDPR-compliant, and allows segmentation by browser type without tracking individual users.
 
-Once this tag is in place, Experience Monitoring can record the experience perceived by all users, which provides a very precise view of key performance metrics (e.g., TTFB, Speed Index, full page load time, etc.).
+## What are the main benefits?
 
-The **key benefits** provided by RUM are:
+* Objective performance measurement: since it's measured from real users' browsers, issues specific to certain browsers or devices (e.g., poor performance on Safari) are immediately visible and quantifiable by traffic impact.
 
-- an **objective** view of performance because it is measured **by the users themselves**. Example: if the site is mostly visited by users on Safari and the site's code runs particularly poorly on that browser, it will be immediately visible that a problem **on that specific browser** impacts a large portion of the site's traffic.
+   ![image](../assets/getting-started/rum-2.png)
 
-![image](../assets/getting-started/rum-2.png)
+* Exhaustive page coverage: unlike [Synthetic Monitoring](../getting-started/synthetic-monitoring.md) which only tests predefined pages or journeys, RUM automatically captures performance metrics (TTFB, Speed Index, full page load time, etc.) on every single page visit, building a real-time, comprehensive view of performance across the entire site.
 
-- an **exhaustive** view of performance for **all pages** visited by users. This is a major difference compared to [Synthetic Monitoring](../getting-started/synthetic-monitoring.md), which measures certain reference pages or journeys. Conversely, the RUM data collector will record performance metrics (TTFB, Speed Index, etc.) **every time a click is made** on the site. The result is the construction of a cross-cutting, real-time view of the most visited pages with their respective performance scores:
-
-![image](../assets/getting-started/rum-3.png)
+   ![image](../assets/getting-started/rum-3.png)
