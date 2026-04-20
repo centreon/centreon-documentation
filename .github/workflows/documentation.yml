@@ -266,14 +266,7 @@ jobs:
         env:
           CACHE_KEY_SUFFIX: "${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}"
         run: |
-          # for key in "docusaurus-build-$CACHE_KEY_SUFFIX" "docusaurus-rspack-$CACHE_KEY_SUFFIX"; do
-          #   curl \
-          #     -X DELETE \
-          #     -H "Accept: application/vnd.github.v3+json" \
-          #     -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          #     https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=$key
-          # done
-          for key in "docusaurus-build-$CACHE_KEY_SUFFIX" "docusaurus-rspack-${{ matrix.environment }}-staging"; do
+          for key in "docusaurus-build-$CACHE_KEY_SUFFIX" "docusaurus-rspack-$CACHE_KEY_SUFFIX"; do
             curl \
               -X DELETE \
               -H "Accept: application/vnd.github.v3+json" \
@@ -288,16 +281,6 @@ jobs:
           path: |
             build
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
-
-      - name: Store rspack cache
-        # only store cache for staging branch builds because it is too big (~1.2GB)
-        # if: github.ref_name == 'staging' && github.event_name != 'pull_request'
-        uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
-        with:
-          path: |
-            ./node_modules/.cache
-          key: docusaurus-rspack-${{ matrix.environment }}-staging
-          # key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
