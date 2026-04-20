@@ -37,7 +37,7 @@ docker login docker.centreon.com/centreon-dem-beta
 
 ## Étape 3 : Créer et démarrer la sonde
 
-1. Exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-une-zone-stm) pour créer la sonde et la démarrer. 
+1. Exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-la-zone-stm) pour créer la sonde et la démarrer. 
 
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**.
 
