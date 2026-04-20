@@ -36,7 +36,7 @@ Click the three dots and choose **Configure** to enter edit/create mode.
 
 ## Create a journey
 
-> Note that if the site you wish to monitor is internal to your organization, you will need to create an [STM zone](stm-zone.md) in addition to the user journey.
+> Note that if the site you wish to monitor is internal to your organization, you will need to create an [STM zone](stm-zones.md) in addition to the user journey.
 
 At the bottom of the edit page, you'll find a button to create a new journey:
 
