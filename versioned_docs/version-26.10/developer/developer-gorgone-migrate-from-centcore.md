@@ -10,7 +10,7 @@ You need to build a configuration file based on **/etc/centreon/conf.pm**.
 - If using packages, execute the following command:
 
 ```shell
-$ perl /usr/local/bin/gorgone_config_init.pl
+$ perl /usr/bin/gorgone_config_init.pl
 2019-09-30 11:00:00 - INFO - file '/etc/centreon-gorgone/config.yaml' created success
 ```
 
