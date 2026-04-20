@@ -3,17 +3,17 @@ id: install-system-agents
 title: Install System Agents
 ---
 
-To add, modify, or delete a server in CXM, you must have “Admin” or “Owner” permissions on your Organization. Ask your administrator or CXM support to grant you the correct rights ([support@quanta.io](mailto:support@quanta.io)).
+To add, modify, or delete a server in Experience Monitoring, you must have **Admin** or **Owner** permissions on your organization. Ask your administrator or support to grant you the correct rights.
 
-At this time, it is not possible to link a server to multiple sites, whether within the same Organization or not.
+At this time, it is not possible to link a server to multiple sites, whether within the same organization or not.
 
 Sending information to the CXM application requires installing the CXM agent on all servers you wish to monitor.
 
-> System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](../cxm-ip-addresses.md).
+> System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](#endpoint-addresses-for-server-agents).
 
 ## Get the Token
 
-To install CXM System Agents, you will need your **auto-registration token**. It is available in *Configuration > System.*
+To install CXM System Agents, you will need your **auto-registration token**. It is available in **Configuration > System**.
 
 See where to find the token in this video:
 
@@ -224,3 +224,13 @@ quanta_token: [...] <- insert here the token corresponding to your site
 You can now install application modules to get metrics on your Apache, Nginx, MySQL, Varnish, Magento systems, etc.
 
 If in doubt, refer to the [installation checklist](../installation-checklist.md).
+
+## Endpoint addresses for server agents
+
+If you use server agents (the “System” section in CXM), each of your servers regularly sends data (once per minute) to the CXM service.
+
+This is outbound HTTPS traffic (port 443) and is often allowed by default. However, if your firewall rules are strict and you need to allow specific destinations for CXM, list the following destination IP addresses:
+
+- 52.215.166.110
+- 52.215.179.235
+- 52.215.180.

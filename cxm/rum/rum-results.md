@@ -9,6 +9,10 @@ Once RUM is [configured](../installation/real-user-monitoring-installation.md), 
 
 [Experience monitoring metrics](../performance-analysis/metrics/overview-of-metrics.md) and digital sobriety data(../digital-sobriety/) are detailed in each tab, and presented as visuals, graphs or tables - aggregated according to different criteria.
 
+* An overview of the situation over the last 30 minutes (**LIVE** section). Typical use case: A colleague or customer service reports that the site is slow. Go to the **Live** view to immediately check if the data differs from normal.
+
+   > Warning: Only the **Live** section displays the last 30 minutes. All other data on the page is set to the time period defined in the filter (blue box in the top-right corner). If the user doesyou do not pay attention to the selected time period, you may end up looking at aggregated data that does not match what you are looking for.
+
 * **Most visited pages**:
    * In the **Summary & Live** tab, a treemap shows a graphical view of your most visited pages. Clicking a URL in the treemap displays detailed data for this URL (under the table), in the **URLs** tab.
    * For a detailed table of all URLs, use the **URLs** tab.
@@ -18,6 +22,10 @@ Once RUM is [configured](../installation/real-user-monitoring-installation.md), 
   * Check the **Countries** and **Cities** tabs to see more detailed aggregated data.
 * **Digital sobriety data**: aggregated eco-design score and CO<sub>2</sub> emissions are included in all tabs.
 * **System data**: view information about your users' browsers and operating systems in the **Browser** and **OS** tabs. The **Global view** tab shows a donut chart of total browser usage.
+
+![image](../assets/rum_more_details.png)
+
+
 
 ## Filtering RUM data
 

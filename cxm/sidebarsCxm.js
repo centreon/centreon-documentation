@@ -58,10 +58,10 @@ module.exports = {
         id: "rum/rum"
       },
       items: [
-         { type: 'doc', id: 'installation/real-user-monitoring-installation' },
-         { type: 'doc', id: 'rum/rum-results' },
-         { type: 'doc', id: 'rum/rum-improve' },
-         { type: 'doc', id: 'how-to-articles/rum-blocked-by-csp' },          
+        { type: 'doc', id: 'installation/real-user-monitoring-installation' },
+        { type: 'doc', id: 'rum/rum-results' },
+        { type: 'doc', id: 'rum/rum-improve' },
+        { type: 'doc', id: 'how-to-articles/rum-blocked-by-csp' },
       ],
     },
     {
@@ -98,9 +98,21 @@ module.exports = {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-
+        {
+          type: 'category',
+          label: 'Installation',
+          collapsed: true,
+          items: [
+            { type: 'doc', id: 'installation/servers/install-system-agents' },
+            { type: 'doc', id: 'installation/servers/cloud-configuration-of-agents' },
+            { type: 'doc', id: 'installation/servers/add-advanced-metrics' },
+            { type: 'doc', id: 'installation/servers/install-php-magento-orocommerce-profiler' },
+            { type: 'doc', id: 'how-to-articles/faq' },
+          ],
+        },
+        { type: 'doc', id: 'performance-analysis/system-tab-indicators' },
       ],
+
     },
     {
       collapsed: true,

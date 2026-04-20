@@ -23,6 +23,12 @@ Digital sobriety scores are calculated from STM and RUM data. If STM and RUM are
 
 To correlate your business data with other Experience Monitoring data, you need to [link your Google Analytics or Matomo account to Experience Monitoring](../configuration/configure-google-analytics.md).
 
+In the **Business data** page:
+
+* The **Journey and revenues** tab contains data only if you have configured a [user journey](#user-journeyssynthetic-monitoring-stm).
+
+* The **Infratructure cost/click** contains data only if you have configured an agent collecting [system data](#system-data-monitor-the-health-of-your-host-server).
+
 ## System data: monitor the health of your host server
 
 To monitor the health of your host server, you need to install a system agent on it. Additional modules can be added depending on the level of detail you need or your license allows.
