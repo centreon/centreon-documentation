@@ -69,7 +69,9 @@ const config = {
       rspackPersistentCache: false,
       ssgWorkerThreads: false,
       mdxCrossCompilerCache: false,
+      gitEagerVcs: true,
     },
+    experimental_vcs: 'git-eager',
   },
 
   title: 'Centreon Documentation',
