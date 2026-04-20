@@ -229,6 +229,15 @@ jobs:
             --config.blockExoticSubdeps=true
         shell: bash
 
+      - name: Restore rspack cache
+        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: |
+            ./node_modules/.cache
+          key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+          restore-keys: |
+            docusaurus-rspack-${{ matrix.environment }}-staging
+
       - name: Build documentation
         run: pnpm build
         env:
@@ -245,7 +254,14 @@ jobs:
         env:
           CACHE_KEY_SUFFIX: "${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}"
         run: |
-          for key in "docusaurus-build-$CACHE_KEY_SUFFIX" "docusaurus-rspack-$CACHE_KEY_SUFFIX"; do
+          # for key in "docusaurus-build-$CACHE_KEY_SUFFIX" "docusaurus-rspack-$CACHE_KEY_SUFFIX"; do
+          #   curl \
+          #     -X DELETE \
+          #     -H "Accept: application/vnd.github.v3+json" \
+          #     -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          #     https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=$key
+          # done
+          for key in "docusaurus-build-$CACHE_KEY_SUFFIX" "docusaurus-rspack-${{ matrix.environment }}-staging"; do
             curl \
               -X DELETE \
               -H "Accept: application/vnd.github.v3+json" \
@@ -255,11 +271,21 @@ jobs:
         shell: bash
 
       - name: Store docusaurus build in cache
-        uses: actions/cache/save@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: |
             build
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+
+      - name: Store rspack cache
+        # only store cache for staging branch builds because it is too big (~1.2GB)
+        # if: github.ref_name == 'staging' && github.event_name != 'pull_request'
+        uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: |
+            ./node_modules/.cache
+          key: docusaurus-rspack-${{ matrix.environment }}-staging
+          # key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}

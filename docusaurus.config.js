@@ -10,60 +10,44 @@ const versions = (() => {
     return [archivedVersion];
   }
   if (process.env.VERSIONS !== undefined) {
-    const splittedVersions = process.env.VERSIONS.split(',');
-    if (process.env.VERSIONS.trim() === '' || splittedVersions.length === 0) {
-      return availableVersions.slice(0,1);
+    const splittedVersions = process.env.VERSIONS.split(',').filter(v => v.trim());
+    if (!splittedVersions.length) {
+      return availableVersions.slice(0, 1);
     }
     return splittedVersions;
   }
   return availableVersions;
 })();
 
-const pp = (() => {
-  if (archivedVersion) {
-    return false;
-  }
-  if (process.env.PP !== undefined && process.env.PP === '0') {
-    return false;
-  }
-  return true;
-})();
+const isFeatureEnabled = (envVar) => {
+  if (archivedVersion) return false;
+  return process.env[envVar] !== '0';
+};
 
-const cloud = (() => {
-  if (archivedVersion) {
-    return false;
-  }
-  if (process.env.CLOUD !== undefined && process.env.CLOUD === '0') {
-    return false;
-  }
-  return true;
-})();
-
-const cxm = (() => {
-  if (archivedVersion) {
-    return false;
-  }
-  if (process.env.CXM !== undefined && process.env.CXM === '0') {
-    return false;
-  }
-  return true;
-})();
-
-const logmanagement = (() => {
-  if (archivedVersion) {
-    return false;
-  }
-  if (process.env.LOGMANAGEMENT !== undefined && process.env.LOGMANAGEMENT === '0') {
-    return false;
-  }
-  return true;
-})();
+const pp = isFeatureEnabled('PP');
+const cloud = isFeatureEnabled('CLOUD');
+const cxm = isFeatureEnabled('CXM');
+const logmanagement = isFeatureEnabled('LOGMANAGEMENT');
 
 const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
 
 if (versions.length == 0 && !pp && !cloud && !cxm && !logmanagement) {
   throw new Error('Nothing is selected for build');
 }
+
+const buildDocPlugin = (id, sidebarFile) => [
+  '@docusaurus/plugin-content-docs',
+  {
+    id,
+    path: id,
+    routeBasePath: id,
+    sidebarPath: `./${id}/${sidebarFile}`,
+    breadcrumbs: true,
+    editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+    editLocalizedFiles: true,
+    showLastUpdateTime: true,
+  },
+];
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
@@ -76,20 +60,21 @@ const config = {
       removeLegacyPostBuildHeadAttribute: true,
       useCssCascadeLayers: true,
     },
-    experimental_faster: {
+    faster: {
       swcJsLoader: true,
       swcJsMinimizer: true,
       swcHtmlMinimizer: true,
       lightningCssMinimizer: true,
       rspackBundler: true,
-      rspackPersistentCache: false,
+      rspackPersistentCache: true,
       ssgWorkerThreads: false,
       mdxCrossCompilerCache: false,
+      gitEagerVcs: true,
     },
+    experimental_vcs: 'git-eager',
   },
 
   title: 'Centreon Documentation',
-  tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl,
   onBrokenLinks: archivedVersion || !cloud || !pp || !cxm ? 'log' : 'throw',
@@ -135,7 +120,6 @@ const config = {
       ({
         docs: {
           breadcrumbs: true,
-          admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
           showLastUpdateTime: true,
@@ -172,10 +156,6 @@ const config = {
           trackingID: 'G-BGL69N5GPJ',
           anonymizeIP: true,
         },
-        googleAnalytics: {
-          trackingID: 'UA-8418698-13',
-          anonymizeIP: true,
-        },
       }),
     ],
   ],
@@ -191,126 +171,28 @@ const config = {
         docsDir: ["i18n", "versioned_docs", "cloud", "pp", "cxm", "logmanagement"],
         explicitSearchResultPath: true,
         useAllContextsWithNoSearchContext: true,
-        // searchContextByPaths: [
-        //   {
-        //     label: {
-        //       en: "monitoring connectors",
-        //       fr: "connecteurs de supervision",
-        //     },
-        //     path: "pp"
-        //   },
-        //   {
-        //     label: "cloud",
-        //     path: "cloud",
-        //   },
-        //   // {
-        //   //   label: "onPrem",
-        //   //   path: "i18n",
-        //   // },
-        //   // {
-        //   //   label: "onPrem",
-        //   //   path: "versioned_docs",
-        //   // },
-        // ],
         language: ["en", "fr"],
       }),
     ],
   ],
 
-  plugins: (() => {
-    let plugins = [
-      [
-        '@docusaurus/plugin-ideal-image',
-        {
-          quality: 70,
-          max: 1030, // max resized image's size.
-          min: 640, // min resized image's size. if original is lower, use that size.
-          steps: 2, // the max number of images generated between min and max (inclusive)
-          // Use false to debug, but it incurs huge perf costs
-          disableInDev: true,
-        },
-      ],
-      'docusaurus-plugin-image-zoom',
-    ];
-
-    if (cloud) {
-      plugins = [
-        ...plugins,
-        [
-          '@docusaurus/plugin-content-docs',
-          {
-            id: 'cloud',
-            path: 'cloud',
-            routeBasePath: 'cloud',
-            sidebarPath: './cloud/sidebarsCloud.js',
-            breadcrumbs: true,
-            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-            editLocalizedFiles: true,
-            showLastUpdateTime: true,
-          },
-        ],
-      ];
-    }
-
-    if (pp) {
-      plugins = [
-        ...plugins,
-        [
-          '@docusaurus/plugin-content-docs',
-          {
-            id: 'pp',
-            path: 'pp',
-            routeBasePath: 'pp',
-            sidebarPath: './pp/sidebarsPp.js',
-            breadcrumbs: true,
-            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-            editLocalizedFiles: true,
-            showLastUpdateTime: true,
-          },
-        ],
-      ];
-    }
-
-    if (cxm) {
-      plugins = [
-        ...plugins,
-        [
-          '@docusaurus/plugin-content-docs',
-          {
-            id: 'cxm',
-            path: 'cxm',
-            routeBasePath: 'cxm',
-            sidebarPath: './cxm/sidebarsCxm.js',
-            breadcrumbs: true,
-            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-            editLocalizedFiles: true,
-            showLastUpdateTime: true,
-          },
-        ],
-      ];
-    }
-
-    if (logmanagement) {
-      plugins = [
-        ...plugins,
-        [
-          '@docusaurus/plugin-content-docs',
-          {
-            id: 'logmanagement',
-            path: 'logmanagement',
-            routeBasePath: 'logmanagement',
-            sidebarPath: './logmanagement/sidebarsLogmanagement.js',
-            breadcrumbs: true,
-            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-            editLocalizedFiles: true,
-            showLastUpdateTime: true,
-          },
-        ],
-      ];
-    }
-
-    return plugins;
-  })(),
+  plugins: [
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 70,
+        max: 1030,
+        min: 640,
+        steps: 2,
+        disableInDev: true,
+      },
+    ],
+    'docusaurus-plugin-image-zoom',
+    ...(cloud ? [buildDocPlugin('cloud', 'sidebarsCloud.js')] : []),
+    ...(pp ? [buildDocPlugin('pp', 'sidebarsPp.js')] : []),
+    ...(cxm ? [buildDocPlugin('cxm', 'sidebarsCxm.js')] : []),
+    ...(logmanagement ? [buildDocPlugin('logmanagement', 'sidebarsLogmanagement.js')] : []),
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -321,7 +203,6 @@ const config = {
           light: 'rgb(255, 255, 255)',
           dark: 'rgb(0, 0, 61)'
         },
-        config: {}
       },
 
       prism: {
@@ -378,70 +259,42 @@ const config = {
             ];
           }
 
-          let items = [];
-
-          const defaultPageId = versions.sort().reverse()[0].match(/(21\.10|22\.04)/)
+          const defaultPageId = [...versions].sort().reverse()[0].match(/(21\.10|22\.04)/)
             ? 'getting-started/installation-first-steps'
             : 'getting-started/welcome';
 
-          items = [
-            ...items,
+          const leftItems = [
             {
               type: 'doc',
               docId: defaultPageId,
               position: 'left',
               label: 'Infra Monitoring OnPrem'
             },
+            ...(cloud ? [{
+              to: '/cloud/getting-started/welcome',
+              label: 'Infra Monitoring Cloud',
+              position: 'left',
+              activeBaseRegex: '/cloud/',
+            }] : []),
+            ...(pp ? [{
+              to: '/pp/integrations/plugin-packs/getting-started/introduction',
+              label: 'Monitoring Connectors',
+              position: 'left',
+              activeBaseRegex: '/pp/',
+            }] : []),
+            ...(cxm ? [{
+              to: '/cxm/getting-started/welcome',
+              label: 'Centreon Experience Monitoring',
+              position: 'left',
+              activeBaseRegex: '/cxm/',
+            }] : []),
+            ...(logmanagement ? [{
+              to: '/logmanagement/getting-started/welcome',
+              label: 'Centreon Log Management BETA',
+              position: 'left',
+              activeBaseRegex: '/logmanagement/',
+            }] : []),
           ];
-
-          if (cloud) {
-            items = [
-              ...items,
-              {
-                to: '/cloud/getting-started/welcome',
-                label: 'Infra Monitoring Cloud',
-                position: 'left',
-                activeBaseRegex: '/cloud/',
-              },
-            ];
-          }
-
-          if (pp) {
-            items = [
-              ...items,
-              {
-                to: '/pp/integrations/plugin-packs/getting-started/introduction',
-                label: 'Monitoring Connectors',
-                position: 'left',
-                activeBaseRegex: '/pp/',
-              },
-            ];
-          }
-
-          if (cxm) {
-            items = [
-              ...items,
-              {
-                to: '/cxm/getting-started/welcome',
-                label: 'Centreon Experience Monitoring',
-                position: 'left',
-                activeBaseRegex: '/cxm/',
-              },
-            ];
-          }
-
-          if (logmanagement) {
-            items = [
-              ...items,
-              {
-                to: '/logmanagement/getting-started/welcome',
-                label: 'Centreon Log Management BETA',
-                position: 'left',
-                activeBaseRegex: '/logmanagement/',
-              },
-            ];
-          }
-
 
           return [
             {
@@ -479,7 +332,7 @@ const config = {
               type: 'localeDropdown',
               position: 'right',
             },
-            ...items,
+            ...leftItems,
           ];
         })(),
       },
@@ -521,4 +374,3 @@ const config = {
 };
 
 export default config;
-
