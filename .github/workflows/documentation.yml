@@ -239,7 +239,16 @@ jobs:
             docusaurus-rspack-${{ matrix.environment }}-staging
 
       - name: Build documentation
-        run: pnpm build
+        run: |
+          (while true; do
+            MEM=$(free -h | awk '/^Mem:/{printf "RAM: %s/%s", $3, $2}')
+            CPU=$(top -bn1 | awk '/^%Cpu/{printf "CPU: %.1f%%", 100-$8}')
+            echo "$(date '+%H:%M:%S') | $MEM | $CPU"
+            sleep 5
+          done) &
+          MONITOR_PID=$!
+          trap "kill $MONITOR_PID 2>/dev/null || true" EXIT
+          pnpm build
         env:
           NODE_OPTIONS: --max_old_space_size=16000
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
