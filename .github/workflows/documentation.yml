@@ -243,7 +243,9 @@ jobs:
           (while true; do
             MEM=$(free -h | awk '/^Mem:/{printf "RAM: %s/%s", $3, $2}')
             CPU=$(top -bn1 | awk '/^%Cpu/{printf "CPU: %.1f%%", 100-$8}')
-            echo "$(date '+%H:%M:%S') | $MEM | $CPU"
+            GIT=$(pgrep -c git 2>/dev/null || echo 0)
+            NODE=$(pgrep -c node 2>/dev/null || echo 0)
+            echo "$(date '+%H:%M:%S') | $MEM | $CPU | git procs: $GIT | node procs: $NODE"
             sleep 5
           done) &
           MONITOR_PID=$!
@@ -251,7 +253,6 @@ jobs:
           pnpm build
         env:
           NODE_OPTIONS: --max_old_space_size=16000
-          DEBUG: docusaurus*
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
