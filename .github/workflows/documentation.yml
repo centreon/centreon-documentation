@@ -229,31 +229,10 @@ jobs:
             --config.blockExoticSubdeps=true
         shell: bash
 
-      - name: Restore rspack cache
-        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
-        with:
-          path: |
-            ./node_modules/.cache
-          key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
-          restore-keys: |
-            docusaurus-rspack-${{ matrix.environment }}-staging
-
       - name: Build documentation
-        run: |
-          (while true; do
-            MEM=$(free -h | awk '/^Mem:/{printf "RAM: %s/%s", $3, $2}')
-            CPU=$(top -bn1 | awk '/^%Cpu/{printf "CPU: %.1f%%", 100-$8}')
-            GIT=$(pgrep -c git 2>/dev/null || echo 0)
-            NODE=$(pgrep -c node 2>/dev/null || echo 0)
-            echo "$(date '+%H:%M:%S') | $MEM | $CPU | git procs: $GIT | node procs: $NODE"
-            sleep 5
-          done) &
-          MONITOR_PID=$!
-          trap "kill $MONITOR_PID 2>/dev/null || true" EXIT
-          pnpm build
+        run: pnpm build
         env:
           NODE_OPTIONS: --max_old_space_size=16000
-          DOCUSAURUS_PERF_LOGGER: true
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
