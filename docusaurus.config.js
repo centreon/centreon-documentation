@@ -66,7 +66,7 @@ const config = {
       swcHtmlMinimizer: true,
       lightningCssMinimizer: true,
       rspackBundler: true,
-      rspackPersistentCache: true,
+      rspackPersistentCache: false,
       ssgWorkerThreads: false,
       mdxCrossCompilerCache: false,
     },

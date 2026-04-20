@@ -216,7 +216,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
-          node-version: 22
+          node-version: 24
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
@@ -229,14 +229,14 @@ jobs:
             --config.blockExoticSubdeps=true
         shell: bash
 
-      - name: Restore rspack cache
-        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
-        with:
-          path: |
-            ./node_modules/.cache
-          key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
-          restore-keys: |
-            docusaurus-rspack-${{ matrix.environment }}-staging
+      # - name: Restore rspack cache
+      #   uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+      #   with:
+      #     path: |
+      #       ./node_modules/.cache
+      #     key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+      #     restore-keys: |
+      #       docusaurus-rspack-${{ matrix.environment }}-staging
 
       - name: Build documentation
         run: |
@@ -289,15 +289,15 @@ jobs:
             build
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
-      - name: Store rspack cache
-        # only store cache for staging branch builds because it is too big (~1.2GB)
-        # if: github.ref_name == 'staging' && github.event_name != 'pull_request'
-        uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
-        with:
-          path: |
-            ./node_modules/.cache
-          key: docusaurus-rspack-${{ matrix.environment }}-staging
-          # key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+      # - name: Store rspack cache
+      #   # only store cache for staging branch builds because it is too big (~1.2GB)
+      #   # if: github.ref_name == 'staging' && github.event_name != 'pull_request'
+      #   uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+      #   with:
+      #     path: |
+      #       ./node_modules/.cache
+      #     key: docusaurus-rspack-${{ matrix.environment }}-staging
+      #     # key: docusaurus-rspack-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
