@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **MongoDB** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                 | Modèle de service                           | Description                                                     | Découverte |
 |:----------------------|:--------------------------------------------|:----------------------------------------------------------------|:----------:|
-| Collection-Statistics | App-DB-Mongodb-Collection-Statistics-custom | Contrôle les statistiques des collections, par bases de données |     X      |
+| Collection-Statistics | App-DB-Mongodb-Collection-Statistics-custom | Contrôle les statistiques des collections, par base de données |     X      |
 | Connection-Time       | App-DB-Mongodb-Connection-Time-custom       | Contrôle le temps de connexion à l'instance                     |            |
 | Connections           | App-DB-Mongodb-Connections-custom           | Contrôle le nombre de connexions                                |            |
 | Database-Statistics   | App-DB-Mongodb-Database-Statistics-custom   | Contrôle les statistiques des bases de données                  |     X      |
@@ -56,7 +56,7 @@ Le connecteur apporte les modèles de service suivants
 | Nom de la règle                      | Description                                                              |
 |:-------------------------------------|:-------------------------------------------------------------------------|
 | App-DB-Mongodb-Collection-Statistics | Découvre les bases de données et supervise l'utilisation des collections |
-| App-DB-Mongodb-Database-Statistics   | Découvre les bases de données et supervise l'utilisation                 |
+| App-DB-Mongodb-Database-Statistics   | Découvre les bases de données et en supervise l'utilisation                 |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -162,7 +162,7 @@ Voici la liste des privilèges utilisateur nécessaires par service :
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -199,7 +199,7 @@ yum install centreon-pack-applications-databases-mongodb
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **MongoDB**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -384,8 +384,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=database::mongodb::plugin \
 	--mode=replication-status \
 	--hostname=10.0.0.1 \
-	--username='' \
-	--password='' \
+	--username='XXX' \
+	--password='XXX' \
 	--port='27017' \
 	--protocol='mongodb'  \
 	--warning-status='' \
@@ -434,7 +434,7 @@ Le plugin apporte les modes suivants :
 | connection-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mongodb/mode/connectiontime.pm)]             | App-DB-Mongodb-Connection-Time-custom       |
 | connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mongodb/mode/connections.pm)]                    | App-DB-Mongodb-Connections-custom           |
 | database-statistics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mongodb/mode/databasestatistics.pm)]     | App-DB-Mongodb-Database-Statistics-custom   |
-| list-databases [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mongodb/mode/listdatabases.pm)]               | Used for service discovery                  |
+| list-databases [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mongodb/mode/listdatabases.pm)]               | Utilisé pour la découverte de services                  |
 | queries [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mongodb/mode/queries.pm)]                            | App-DB-Mongodb-Queries-custom               |
 | replication-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mongodb/mode/replicationstatus.pm)]       | App-DB-Mongodb-Replication-Status-custom    |
 
