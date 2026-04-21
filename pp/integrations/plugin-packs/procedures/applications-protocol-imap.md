@@ -65,7 +65,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The remote server must have an IMAP service running and available.
+You must have an IMAP service running and available.
 
 ## Installing the monitoring connector
 
