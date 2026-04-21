@@ -13,9 +13,9 @@ This chapter describes how to upgrade your Centreon platform from version 24.04 
 >
 > In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
+> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
-> Version 24.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+> Version 24.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
 > If you were using MySQL 8.0, you may want to [upgrade to MySQL 8.4](upgrade-mysql.md) before the end of support for version 8.0. at the end of April 2026.
 
@@ -51,7 +51,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 1. Update your Centreon 24.04 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el8/centreon-24.04-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -79,7 +79,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 1. Update your Centreon 24.04 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el9/centreon-24.04-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

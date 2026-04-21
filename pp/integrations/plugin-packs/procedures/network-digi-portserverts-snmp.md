@@ -1,6 +1,6 @@
 ---
 id: network-digi-portserverts-snmp
-title: Digi PortServers TS
+title: Digi PortServers TS SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

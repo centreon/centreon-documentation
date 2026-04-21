@@ -5,6 +5,12 @@ title: Linux SSH
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Linux SSH** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
 ## Pack assets
 
 ### Templates
@@ -74,7 +80,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Cmd-Return" label="Cmd-Return">
@@ -264,6 +270,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 | *processes*#cpu-utilization                   | N/A   |
 | *processes*#disks-read                        | N/A   |
 | *processes*#disks-write                       | N/A   |
+| *processes*#open-files                        | N/A   |
+| *processes*#open-files-prct                   | N/A   |
 | processes.total.count                         | count |
 | processes.memory.usage.bytes                  | B     |
 | processes.cpu.utilization.percentage          | %     |
@@ -339,17 +347,22 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SSH configuration
 
-A user is required to query the resource by SSH. There is no need for root or sudo
-privileges. There are two possible ways to log in through SSH, either by
-exchanging the SSH key from **centreon-engine** user to the target resource, or by
-setting your unique user and password directly in the host macros.
+Using this connector requires creating a user on the monitored resource, which
+will be used by the Centreon poller to authenticate and execute SSH requests.
+No sudo or root privileges are required; a 'simple' user is enough.
+
+Two SSH connection methods are possible:
+* exchanging the public SSH key of the **centreon-engine** user of the Centreon poller (recommended)
+* defining your user and password directly in the host macros.
+
+You must also configure the connection with the **centreon-gorgone** user if you intend
+to use the service discovery rules of this connector.
 
 ## Installing the monitoring connector
 
 ### Pack
 
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -440,7 +453,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **OS-Linux-SSH-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
@@ -620,8 +633,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 | FILTERSTATE     | Filter peer state (can be a regexp)                                                                                                                                             |               |           |
 | EXCLUDESTATE    | Filter by peer state (can be a regexp)                                                                                                                                          |               |           |
 | UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |               |           |
-| WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                                        |               |           |
-| CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                                       |               |           |
+| WARNINGOFFSET   | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |               |           |
+| CRITICALOFFSET  | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |               |           |
 | WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                                  |               |           |
 | CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                                 |               |           |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |               |           |
@@ -1139,8 +1152,8 @@ All available options for each service template are listed below:
 | --filter-state     | Filter peer state (can be a regexp).                                                                                                                                   |
 | --warning-peers    | Warning threshold minimum amount of NTP-Server                                                                                                                         |
 | --critical-peers   | Critical threshold minimum amount of NTP-Server                                                                                                                        |
-| --warning-offset   | Warning threshold offset deviation value in milliseconds                                                                                                               |
-| --critical-offset  | Critical threshold offset deviation value in milliseconds                                                                                                              |
+| --warning-offset   | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset  | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --warning-stratum  | Warning threshold.                                                                                                                                                     |
 | --critical-stratum | Critical threshold.                                                                                                                                                    |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}     |
@@ -1238,13 +1251,42 @@ All available options for each service template are listed below:
 | --add-cpu                | Monitor cpu usage.                                                                                                                                                                                                                            |
 | --add-memory             | Monitor memory usage. It's inaccurate but it provides a trend.                                                                                                                                                                                |
 | --add-disk-io            | Monitor disk I/O.                                                                                                                                                                                                                             |
+| --add-open-files         | Monitor open file usage per process. This functionality requires that the `centreon_linux_sudoers` package be installed on the monitored host and configured in the sudoers file. Please refer to the notice below.                           |
 | --filter-command         | Filter process commands (regexp can be used).                                                                                                                                                                                                 |
 | --exclude-command        | Exclude process commands (regexp can be used).                                                                                                                                                                                                |
 | --filter-arg             | Filter process arguments (regexp can be used).                                                                                                                                                                                                |
 | --exclude-arg            | Exclude process arguments (regexp can be used).                                                                                                                                                                                               |
 | --filter-ppid            | Filter process ppid (regexp can be used).                                                                                                                                                                                                     |
 | --filter-state           | Filter process states (regexp can be used). You can use: 'zombie', 'dead', 'paging', 'stopped', 'InterrupibleSleep', 'running', 'UninterrupibleSleep'.                                                                                        |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'total-memory-usage', 'total-cpu-utilization', 'total-disks-read', 'total-disks-write', 'time', 'memory-usage', 'cpu-utilization', 'disks-read', 'disks-write'.                                                  |
+| --privileged-script-path         | This parameter allows specifying a custom path to the centreon\_plugin\_local\_process.pl script used for monitoring open file usage per process (default: '/usr/lib/centreon/plugins').                                              |
+| --warning-total                  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total                 | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-memory-usage     | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-memory-usage    | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-cpu-utilization  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-cpu-utilization | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-read       | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-read      | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-write      | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-write     | Thresholds.                                                                                                                                                                                                                           |
+| --warning-time                   | Thresholds.                                                                                                                                                                                                                           |
+| --critical-time                  | Thresholds.                                                                                                                                                                                                                           |
+| --warning-memory-usage           | Thresholds.                                                                                                                                                                                                                           |
+| --critical-memory-usage          | Thresholds.                                                                                                                                                                                                                           |
+| --warning-cpu-utilization        | Thresholds.                                                                                                                                                                                                                           |
+| --critical-cpu-utilization       | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-read             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-read            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-write            | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-write           | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-open-files            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files-prct        | Thresholds in percentage.                                                                                                                                                                                                             |
+| --critical-open-files-prct       | Thresholds in percentage.                                                                                                                                                                                                             |
+
+> To monitor open file usage per process, you need to install the `centreon-plugin-Operatingsystems-Linux-sudoers` package on each monitored host.
+> This package installs the `centreon_linux_local_process.pl` script and adds the `sudoersCentreonLinuxPlugins` file to the `sudoers` configuration.
+> Depending on the monitored hosts, this package will be installed with ```dnf install centreon-plugin-Operatingsystems-Linux-sudoers``` or ```apt install centreon-plugin-operatingsystems-linux-sudoers```.
 
 </TabItem>
 <TabItem value="Quota" label="Quota">

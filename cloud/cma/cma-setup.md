@@ -113,6 +113,8 @@ This step is performed on the poller.
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
+> These commands need to be adapted depending on the OS.
+
 Run the following commands:
 
 ```bash
@@ -304,6 +306,8 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 > When using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 > $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
+For remote pollers : 
+
 ```json
 {
   "log_level":"info",
@@ -406,7 +410,7 @@ The CMA installer can be executed in 2 modes:
 > When using the **Central** poller, the value of **Poller endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 > $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
-   * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317. For example, 192.168.45.32:4317.
+   * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA's listening port, usually 4317 for remote pollers. For example, 192.168.45.32:4317.
 
 </TabItem>
 <TabItem value="Poller connects to agent" label="Poller connects to agent">
@@ -429,7 +433,7 @@ You can display a list of arguments with the following command line:
 centreon-monitoring-agent.exe /VERYSILENT /HELP
 ```
 
-> When using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> When using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 > $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Available parameters are : 
@@ -439,7 +443,7 @@ Available parameters are :
 |/COMPONENTS| Components to install. "agent", "plugins" or "agent,plugins"  |X |
 |/AGENTINSTANCE| Agent instance name (service name). If omitted, the installer auto-generates a name (e.g., CentreonMonitoringAgent) |  |
 |/HOST                 | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                          | X |
-|/ENDPOINT                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode (/REVERSE=true), it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) , you must choose the interface (all interfaces: 0.0.0.0) and the port (usually 4317) on which the agent will accept connections from the poller. 
+|/ENDPOINT                 | IP address or DNS name of the poller the agent will connect to. In case of poller-initiated connection mode (/REVERSE=true), it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port), you must choose the interface (all interfaces: 0.0.0.0) and the port (usually 4317 for remote poller) on which the agent will accept connections from the poller. 
 | X|
 |/TOKEN| Authentication token | X |
 |/PLUGINSRC| Source of installation for Centreon plugins. "auto": via the internet, "embedded": local version. Default: "auto" || 
@@ -454,6 +458,7 @@ Available parameters are :
 |/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Default: "error"| if /LOGTYPE=file |
 |/MAXFILESIZE| Maximum size of the log file before rotation, in MB. Default: 10. If /LOGTYPE=file | |
 |/MAXNUMBER| Maximum number of log files. Both of these parameters are required for log rotation to be enabled. Default: 3. If /LOGTYPE=file | |
+|/CUSTOMCHECKFILE| Path to custom commands file, if you have one. | |
 |/VERSION| Version of centagent.exe |  |                                                                                                                                                                                                                                                      
                                                                                          
 If **/PLUGINSRC=auto** and the download fails, the installer will automatically switch to **embedded** mode.
@@ -461,6 +466,9 @@ If **/PLUGINSRC=auto** and the download fails, the installer will automatically 
 Silent mode execution errors and the output of /VERSION are written to ./installer_output.log.
 
 *Command examples*
+
+> When using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Minimal command (required parameters):
 
@@ -650,6 +658,71 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```bash
+dnf install dnf-plugins-core
+dnf install epel-release
+dnf config-manager --set-enabled crb
+
+cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
+[centreon-plugins-stable]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-stable-noarch]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/noarch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+EOF
+```
+
+2. Install the plugin:
+
+```bash
+dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
+```
+
+</TabItem>
 <TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 ```bash
@@ -793,6 +866,9 @@ It will be used as the service name and registry key.
 
 Each time the service is run, a new instance is created with an incremental name such as ‘CentreonMonitoringAgent1’, ‘CentreonMonitoringAgent2’.
 If you want to give the service a different name (the name must be unique), use the **/AGENTINSTANCE** parameter. This name will be used as the service name and registry key.
+
+> When using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 ```shell
 centreon-monitoring-agent-xxx.exe /VERYSILENT /AGENTINSTANCE="ServiceName"  /COMPONENTS=agent,plugins /HOST=host_1 /ENDPOINT=localhost:4317 /TOKEN=token_value 

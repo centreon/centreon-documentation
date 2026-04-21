@@ -128,6 +128,8 @@ This step is performed on the poller.
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
+> These commands need to be adapted depending on the OS.
+
 Run the following commands:
 
 ```bash
@@ -460,6 +462,7 @@ Available parameters are :
 |/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Default: "error"| if /LOGTYPE=file |
 |/MAXFILESIZE| Maximum size of the log file before rotation, in MB. Default: 10. If /LOGTYPE=file | |
 |/MAXNUMBER| Maximum number of log files. Both of these parameters are required for log rotation to be enabled. Default: 3. If /LOGTYPE=file | |
+|/CUSTOMCHECKFILE| Path to custom commands file, if you have one. | |
 |/VERSION| Version of centagent.exe |  |                                                                                                                                                                                                                                                      
                                                                                          
 If **/PLUGINSRC=auto** and the download fails, the installer will automatically switch to **embedded** mode.
@@ -642,6 +645,71 @@ module_hotfixes=1
 [centreon-plugins-unstable-noarch]
 name=Centreon plugins repository. (UNSUPPORTED)
 baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+EOF
+```
+
+2. Install the plugin:
+
+```bash
+dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```bash
+dnf install dnf-plugins-core
+dnf install epel-release
+dnf config-manager --set-enabled crb
+
+cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
+[centreon-plugins-stable]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-stable-noarch]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/noarch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/noarch/
 enabled=0
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
