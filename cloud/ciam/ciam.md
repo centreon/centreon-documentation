@@ -1,6 +1,6 @@
 ---
 id: ciam
-title: Using Centreon CIAM
+title: Using the user portal (CIAM)
 ---
 
 ## What is Centreon CIAM?
@@ -37,6 +37,7 @@ An organization covers a scope of resources you want to monitor. For instance, y
 1. Go to **Users**, and then click **Invite user**.
 2. Fill in the email(s) and select the role the users will have in the CIAM and in Centreon Cloud (see [User roles](../users#user-roles)).
 3. Click **Invite**. They will receive an email with the following subject line: **You've been invited to join `<organization>`'s Centreon account**. Your email address will be visible in this email.
+   As long as it hasn't been accepted, you can cancel an invitation or resend it through the **Users > Invitations** page.
 
 ## I am a Centreon user
 

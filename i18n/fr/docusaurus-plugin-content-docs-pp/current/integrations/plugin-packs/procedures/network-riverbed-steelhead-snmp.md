@@ -1,6 +1,6 @@
 ---
 id: network-riverbed-steelhead-snmp
-title: Riverbed SteelHead
+title: Riverbed SteelHead SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

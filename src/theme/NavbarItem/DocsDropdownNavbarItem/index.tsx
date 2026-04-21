@@ -10,7 +10,7 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
     if (item.type === 'doc') {
       sections.push({
         ...item,
-        label: 'IT Infrastructure Monitoring',
+        label: 'Infrastructure Monitoring',
         initials: 'IM',
         color: '#0c00ff',
         activeBaseRegex: 'cloud|pp|docs/',
@@ -24,11 +24,11 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
         initials: 'LM',
         color:  '#611485ff'
       });
-    } else if ('to' in item && item.to && item.to.includes('dem')) {
+    } else if ('to' in item && item.to && item.to.includes('cxm')) {
       sections.push({
         ...item,
-        label: 'Digital Experience Monitoring',
-        initials: 'DM',
+        label: 'Experience Monitoring',
+        initials: 'XM',
         color:  '#259788ff'
       });
     }

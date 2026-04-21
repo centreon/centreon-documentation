@@ -8,7 +8,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Step 1: Configure Centreon
 
-This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/25.10/).)
+This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/26.10/).)
 
 ### Install the Monitoring Connector you need (OnPrem version)
 
@@ -31,12 +31,6 @@ In the case of a Cloud platform, these connectors are already installed.
 </Tabs>
 
 3. If you want to monitor a [CMA-supported application](cma.md#applications-you-can-monitor-with-cma), install the corresponding connector on your central server.
-
-### Update the Centreon Monitoring Agent connector
-
-1. Go to **Configuration > Commands > Connectors**.
-
-2. Update the Centreon Monitoring Agent connector in the following way: in the **Used by command** field, type **Centreon-Monitoring-Agent** and then click **Select all**.
 
 ### Create an authentication token
 
@@ -133,6 +127,8 @@ This step is performed on the poller.
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
+
+> These commands need to be adapted depending on the OS.
 
 Run the following commands:
 
@@ -240,7 +236,7 @@ Install the Centreon repository and agent using the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
 dnf install  centreon-monitoring-agent
 ```
 
@@ -249,19 +245,28 @@ dnf install  centreon-monitoring-agent
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
+dnf install  compat-openssl11 centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 1. Execute the following commands:
 
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -286,7 +291,7 @@ apt install centreon-monitoring-agent
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
-echo "deb https://packages.centreon.com/ubuntu-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/ubuntu-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -457,6 +462,7 @@ Available parameters are :
 |/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Default: "error"| if /LOGTYPE=file |
 |/MAXFILESIZE| Maximum size of the log file before rotation, in MB. Default: 10. If /LOGTYPE=file | |
 |/MAXNUMBER| Maximum number of log files. Both of these parameters are required for log rotation to be enabled. Default: 3. If /LOGTYPE=file | |
+|/CUSTOMCHECKFILE| Path to custom commands file, if you have one. | |
 |/VERSION| Version of centagent.exe |  |                                                                                                                                                                                                                                                      
                                                                                          
 If **/PLUGINSRC=auto** and the download fails, the installer will automatically switch to **embedded** mode.
@@ -653,7 +659,72 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```bash
+dnf install dnf-plugins-core
+dnf install epel-release
+dnf config-manager --set-enabled crb
+
+cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
+[centreon-plugins-stable]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-stable-noarch]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/noarch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+EOF
+```
+
+2. Install the plugin:
+
+```bash
+dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl

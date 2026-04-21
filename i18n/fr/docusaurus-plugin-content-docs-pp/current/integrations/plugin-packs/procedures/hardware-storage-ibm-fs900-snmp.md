@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-ibm-fs900-snmp
-title: IBM FlashSystem 900
+title: IBM FlashSystem 900 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **IBM FlashSystem 900** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **IBM FlashSystem 900 SNMP** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **IBM FlashSystem 900** apporte un modèle d'hôte :
+Le connecteur de supervision **IBM FlashSystem 900 SNMP** apporte un modèle d'hôte :
 
 * **HW-Storage-IBM-FS900-SNMP-custom**
 
@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:----------------|:-------------------------------------------------|:-----------------------------------------------|
 | Arrays-Status   | HW-Storage-IBM-FS900-Arrays-Status-SNMP-custom   | Contrôle le statut de l'espace de stockage     |
 | Arrays-Usage    | HW-Storage-IBM-FS900-Arrays-Usage-SNMP-custom    | Contrôle l'utilisation de l'espace de stockage |
-| FC-Usage        | HW-Storage-IBM-FS900-FC-Usage-SNMP-custom        | Contrôle l'utilisation des "fibre channels"      |
+| FC-Usage        | HW-Storage-IBM-FS900-FC-Usage-SNMP-custom        | Contrôle l'utilisation des "fibre channels"    |
 | Hardware-Global | HW-Storage-IBM-FS900-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel                |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-IBM-FS900-SNMP-custom** est utilisé.
@@ -165,7 +165,7 @@ yum install centreon-pack-hardware-storage-ibm-fs900-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IBM FlashSystem 900**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IBM FlashSystem 900 SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin

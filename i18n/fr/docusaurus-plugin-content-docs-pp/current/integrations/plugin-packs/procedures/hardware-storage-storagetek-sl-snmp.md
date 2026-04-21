@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-storagetek-sl-snmp
-title: Storagetek SL
+title: Storagetek SL SNMP
 ---
 
 ## Prerequisites

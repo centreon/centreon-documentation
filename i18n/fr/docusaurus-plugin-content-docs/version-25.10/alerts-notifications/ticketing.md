@@ -67,7 +67,8 @@ Pour utiliser **Open Ticket**, vous devez l'ajouter à un tableau de bord.
 2. Renseignez les propriétés.
 
 3. Définissez les paramètres de vos tickets dans la section **Gestion des tickets**.
-   - Définissez si vous souhaitez afficher les **Ressources sans ticket** ou les **Ressources liées à un ticket**.
+   - Dans **Règle (fournisseur de tickets)**, vous pouvez choisir d'afficher les **Ressources sans ticket** ou les **Ressources liés à un ticket**.
+   - Dans **Afficher les boutons de création de tickets**, vous pouvez **Activer la création de tickets pour les hôtes** et **Activer la création de tickets pour les services**.
 
 4. Enregistrez vos modifications.
 

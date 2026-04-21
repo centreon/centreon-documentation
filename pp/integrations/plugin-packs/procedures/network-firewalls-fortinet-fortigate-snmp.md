@@ -76,6 +76,8 @@ More information about discovering hosts automatically is available on the [dedi
 | Net-Fortinet-Fortigate-SNMP-Switch-Name  | Discover switches and monitor their usage through the Fortigate Switch Controller |
 | Net-Fortinet-Fortigate-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization                     |
 | Net-Fortinet-Fortigate-SNMP-Vdom-Name    | Discover virtual domains and monitor their status and usage                       |
+| Net-Fortinet-Fortigate-SNMP-SDWan-Name   | Discover and monitor SD-WAN link status and performance                           |
+| Net-Fortinet-Fortigate-SNMP-Vpn-Name     | Discover and monitor VPN tunnel status and connectivity                           |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -508,9 +510,14 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 
 | Macro              | Description                                                                                                                                               | Default value        | Mandatory |
 |:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:---------:|
-| FILTERVDOMAIN      | Filter sd-wan links by vdom name (can be a regexp)                                                                                                        |                      |           |
-| FILTERLINKNAME     | Filter sd-wan links by name (can be a regexp)                                                                                                             |                      |           |
-| FILTERLINKID       | Filter sd-wan links by ID (can be a regexp)                                                                                                               |                      |           |
+| INCLUDE_VDOMAIN        | Filter sd-wan links by vdom name (can be a regexp)                                                                                               |                      |             |
+| EXCLUDE_VDOMAIN        | Exclude sd-wan links by vdom name (can be a regexp)                                                                                              |                      |             |
+| INCLUDE_LINK_NAME      | Filter sd-wan links by name (can be a regexp)                                                                                                    |                      |             |
+| EXCLUDE_LINK_NAME      | Exclude sd-wan links by name (can be a regexp)                                                                                                   |                      |             |
+| INCLUDE_INTERFACE_NAME | Filter sd-wan links by interface name (can be a regexp)                                                                                          |                      |             |
+| EXCLUDE_INTERFACE_NAME | Exclude sd-wan links by interface name (can be a regexp)                                                                                         |                      |             |
+| INCLUDE_LINK_ID        | Filter sd-wan links by ID (can be a regexp)                                                                                                      |                      |             |
+| EXCLUDE_LINK_ID        | Exclude sd-wan links by ID (can be a regexp)                                                                                                     |                      |             |
 | WARNINGJITTER      | Threshold                                                                                                                                                 |                      |           |
 | CRITICALJITTER     | Threshold                                                                                                                                                 |                      |           |
 | WARNINGLATENCY     | Threshold                                                                                                                                                 |                      |           |
@@ -609,8 +616,12 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 
 | Macro              | Description                                                                                                                            | Default value | Mandatory |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| FILTER             | Threshold                                                                                                                              | .*            |           |
-| VDOMAIN            | Threshold                                                                                                                              |               |           |
+| INCLUDE_VDOMAIN    | Filter by virtual domain names (regexp)                                                                                                |               |           |
+| EXCLUDE_VDOMAIN    | Exclude by virtual domain names (regexp)                                                                                               |               |           |
+| INCLUDE_VPN_PHASE1 | Filter by VPN phase 1 names (regexp)                                                                                                   |               |           |
+| EXCLUDE_VPN_PHASE1 | Exclude by VPN phase 1 names (regexp)                                                                                                  |               |           |
+| INCLUDE_VPN_PHASE2 | Filter by VPN phase 2 names (regexp)                                                                                                   |               |           |
+| EXCLUDE_VPN_PHASE2 | Exclude by VPN phase 2 names (regexp)                                                                                                  |               |           |
 | WARNINGSESSIONS    | Threshold                                                                                                                              |               |           |
 | CRITICALSESSIONS   | Threshold                                                                                                                              |               |           |
 | WARNINGTRAFFICIN   | Threshold                                                                                                                              |               |           |
@@ -1087,7 +1098,12 @@ All available options for each service template are listed below:
 | Option            | Description                                                                                                                                                             |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                             |
-| --filter-*        |   Filter name with regexp. Can be ('vdomain', 'vpn')                                                                                                                    |
+| --include-vdomain              | Filter by virtual domain names (regexp).                                                                                                                   |
+| --exclude-vdomain              | Exclude by virtual domain names (regexp).                                                                                                                  |
+| --include-vpn-phase1           | Filter by VPN phase 1 names (regexp).                                                                                                                      |
+| --exclude-vpn-phase1           | Exclude by VPN phase 1 names (regexp).                                                                                                                     |
+| --include-vpn-phase2           | Filter by VPN phase 2 names (regexp).                                                                                                                      |
+| --exclude-vpn-phase2           | Exclude by VPN phase 2 names (regexp).                                                                                                                     |
 | --warning-*       |   Warning on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out', 'ipsec-tunnels-count')                                                      |
 | --critical-*      |   Critical on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out', 'ipsec-tunnels-count'))                                                    |
 | --warning-status  |   Define the conditions to match for the status to be WARNING. Use "%\{state\}" as a special variable. Useful to be notified when tunnel is up "%\{state\} eq 'up'"     |

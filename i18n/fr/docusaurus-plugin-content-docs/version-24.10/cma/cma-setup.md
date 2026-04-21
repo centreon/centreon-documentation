@@ -32,12 +32,6 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 3. Si vous souhaitez superviser une [application supportée par CMA](cma.md#applications-supervisables-par-cma), installez le connecteur correspondant sur votre serveur central.
 
-### Mettez à jour le connecteur Centreon Monitoring Agent
-
-1. Allez à la page **Configuration > Commandes > Connecteurs**.
-
-2. Mettez à jour le connecteur **Centreon Monitoring Agent** de la façon suivante : dans le champ **Utilisé par la commande**, entrez **Centreon-Monitoring-Agent** puis cliquez sur  **Select all**.
-
 ### Créez un jeton d'authentification
 
 Cette étape ne s'applique que pour les plateformes OnPrem. Pour Centreon Cloud, un jeton est fourni par défaut à la page **Administration > Jetons d'authentification**.
@@ -132,6 +126,8 @@ Cette étape s'effectue sur le collecteur.
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+
+> Ces commandes doivent être adaptées selon le système d'exploitation.
 
 Exécutez les commandes suivantes :
 
@@ -253,7 +249,16 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el10/centreon-24.10.repo
+dnf install  compat-openssl11 centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 1. Exécutez les commandes suivantes :
 
@@ -640,7 +645,72 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```bash
+dnf install dnf-plugins-core
+dnf install epel-release
+dnf config-manager --set-enabled crb
+
+cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
+[centreon-plugins-stable]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-stable-noarch]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/noarch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+EOF
+```
+
+2. Installez le plugin :
+
+```bash
+dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl

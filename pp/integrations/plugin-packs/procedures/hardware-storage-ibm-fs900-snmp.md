@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-ibm-fs900-snmp
-title: IBM FlashSystem 900
+title: IBM FlashSystem 900 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **IBM FlashSystem 900** connector through the
+The following monitoring connectors will be installed when you install the **IBM FlashSystem 900 SNMP** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **IBM
 
 ### Templates
 
-The Monitoring Connector **IBM FlashSystem 900** brings a host template:
+The Monitoring Connector **IBM FlashSystem 900 SNMP** brings a host template:
 
 * **HW-Storage-IBM-FS900-SNMP-custom**
 
@@ -24,12 +24,12 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-IBM-FS900-SNMP-custom" label="HW-Storage-IBM-FS900-SNMP-custom">
 
-| Service Alias   | Service Template                                 | Service Description        |
-|:----------------|:-------------------------------------------------|:---------------------------|
-| Arrays-Status   | HW-Storage-IBM-FS900-Arrays-Status-SNMP-custom   | Check the status of the arrays        |
-| Arrays-Usage    | HW-Storage-IBM-FS900-Arrays-Usage-SNMP-custom    | Check array usage         |
-| FC-Usage        | HW-Storage-IBM-FS900-FC-Usage-SNMP-custom        | Check fibre channel usage |
-| Hardware-Global | HW-Storage-IBM-FS900-Hardware-Global-SNMP-custom | Check all hardware         |
+| Service Alias   | Service Template                                 | Service Description            |
+|:----------------|:-------------------------------------------------|:-------------------------------|
+| Arrays-Status   | HW-Storage-IBM-FS900-Arrays-Status-SNMP-custom   | Check the status of the arrays |
+| Arrays-Usage    | HW-Storage-IBM-FS900-Arrays-Usage-SNMP-custom    | Check array usage              |
+| FC-Usage        | HW-Storage-IBM-FS900-FC-Usage-SNMP-custom        | Check fibre channel usage      |
+| Hardware-Global | HW-Storage-IBM-FS900-Hardware-Global-SNMP-custom | Check all hardware             |
 
 > The services listed above are created automatically when the **HW-Storage-IBM-FS900-SNMP-custom** host template is used.
 
@@ -164,7 +164,7 @@ yum install centreon-pack-hardware-storage-ibm-fs900-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **IBM FlashSystem 900** connector through
+2. Whatever the license type (*online* or *offline*), install the **IBM FlashSystem 900 SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin

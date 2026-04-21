@@ -232,7 +232,7 @@ Aucune ligne concernant CMA ne doit être retournée.
 
 ## Vérifications dans Centreon
 
-L'hôte et les services configurés doivent remonter un statut et des métriques.
+À la page **Supervision > Statut des ressources**, vérifiez que toutes les ressources sont à jour. L'hôte et les services configurés doivent remonter un statut et des métriques.
 
 ## Emplacement des logs collecteur et agent
 

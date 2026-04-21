@@ -43,14 +43,26 @@ module.exports = {
     {
           "collapsed": true,
           "type": "category",
-          "label": "Sending logs to CLM",
+          "label": "Sending logs to Centreon Log Management",
           "link": {
             "type": "generated-index",
           },
           items: [
         {
           type: 'doc',
+          id: 'collector/opentelemetry-collector'
+        },
+        {
+          type: 'doc',
+          id: 'collector/collector-simple'
+        },
+        {
+          type: 'doc',
           id: 'collector/collector'
+        },
+        {
+          type: 'doc',
+          id: 'collector/collector-troubleshooting'
         }
        ]
     },
@@ -109,6 +121,11 @@ module.exports = {
        ]
     },
     {
+          type: 'doc',
+          id: 'api',
+          label: 'API'
+    },
+    {
           "collapsed": true,
           "type": "category",
           "label": "Resources",
@@ -120,7 +137,7 @@ module.exports = {
           type: 'doc',
           id: 'resources/glossary'
         }
-       ]
+      ]
     }
   ]
 }

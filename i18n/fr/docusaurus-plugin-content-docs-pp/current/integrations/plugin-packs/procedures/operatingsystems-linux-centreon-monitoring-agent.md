@@ -24,6 +24,12 @@ Lisez [la documentation CMA pour Centreon Cloud](/cloud/cma/cma-setup).
 </TabItem>
 </Tabs>
 
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Linux SSH**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision**  :
+* [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
@@ -38,14 +44,15 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="OS-Linux-Centreon-Monitoring-Agent-custom" label="OS-Linux-Centreon-Monitoring-Agent-custom">
 
-| Alias  | Modèle de service                                | Description                                                                                                                                                               | Type de contrôle |
-|:-------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
-| Cpu    | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif |
-| Load   | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Contrôle de la charge serveur                                                                                                                                             |non natif |
-| Memory | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |non natif |
-| Ntp    | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |non natif |
-| Swap   | OS-Linux-Swap-Centreon-Monitoring-Agent-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |non natif |
-| Uptime | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |non natif |
+| Alias  | Modèle de service                                                | Description                                                                                                                                                               | Type de contrôle |
+|:-------|:-----------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
+| Cpu    | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom                    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif |
+| Load   | OS-Linux-Load-Centreon-Monitoring-Agent-custom                   | Contrôle de la charge serveur                                                                                                                                             |non natif |
+| Memory | OS-Linux-Memory-Centreon-Monitoring-Agent-custom                 | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |non natif |
+| Ntp    | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom                    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |non natif |
+| Swap   | OS-Linux-Swap-Centreon-Monitoring-Agent-custom                   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |non natif |
+| Uptime | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom                 | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |non natif |
+| Custom-Script | OS-Linux-Custom-Script-Centreon-Monitoring-Agent-custom   | Contrôle permettant d'exécuter un script personnalisé sur l'hôte supervisé                                                                                                |non natif |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom** est utilisé.
 
@@ -81,7 +88,7 @@ Le connecteur apporte les modèles de service suivants
 
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
@@ -257,6 +264,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | *processes*#cpu-utilization                   | N/A   |
 | *processes*#disks-read                        | N/A   |
 | *processes*#disks-write                       | N/A   |
+| *processes*#open-files                        | count |
+| *processes*#open-files-prct                   | %     |
 | processes.total.count                         | count |
 | processes.memory.usage.bytes                  | B     |
 | processes.cpu.utilization.percentage          | %     |
@@ -314,6 +323,11 @@ Pas de métrique pour ce service.
 | Nom                   | Unité |
 |:----------------------|:------|
 | system.uptime.seconds | s     |
+
+</TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+Pas de métrique pour ce service.
 
 </TabItem>
 </Tabs>
@@ -566,8 +580,8 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXCLUDEPEERNAME  | Exclude by peer name (can be a regexp)                                                                                                                                          |                              |             |
 | FILTERPEERSTATE  | Filter peer state (can be a regexp)                                                                                                                                             | .*                           |             |
 | EXCLUDEPEERSTATE | Exclude by peer state (can be a regexp)                                                                                                                                         |                              |             |
-| WARNINGOFFSET    | Warning threshold offset deviation value in milliseconds                                                                                                                        |                              |             |
-| CRITICALOFFSET   | Critical threshold offset deviation value in milliseconds                                                                                                                       |                              |             |
+| WARNINGOFFSET    | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |                              |             |
+| CRITICALOFFSET   | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |                              |             |
 | WARNINGPEERS     | Warning threshold minimum amount of NTP-Server                                                                                                                                  |                              |             |
 | CRITICALPEERS    | Critical threshold minimum amount of NTP-Server                                                                                                                                 |                              |             |
 | WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
@@ -696,6 +710,32 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+| Macro          | Description                                                                                          | Default value | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CUSTOMCHECK    | Name of the custom check to use                                                                      |               | X         |
+| ARG1           | Extra argument 1 to pass to the custom check command                                                 |               |           |
+| ARG2           | Extra argument 2 to pass to the custom check command                                                 |               |           |
+| ARG3           | Extra argument 3 to pass to the custom check command                                                 |               |           |
+| ARG4           | Extra argument 4 to pass to the custom check command                                                 |               |           |
+| ARG5           | Extra argument 5 to pass to the custom check command                                                 |               |           |
+| ARG6           | Extra argument 6 to pass to the custom check command                                                 |               |           |
+| ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
+| ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
+
+> Les commandes sont définies dans un fichier dédié sur l'hôte.
+> Le chemin d'accès à ce fichier est fourni dans centagent.json à l'aide du paramètre custom_check_file.
+> Pour mettre à jour les commandes, modifiez le fichier et rechargez l'agent.
+
+```cmd
+[custom_checks]
+check_echo = /usr/bin/echo "$ARG1$ $ARG2$"
+custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
+```
+
+</TabItem>
+
 </Tabs>
 
 3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
@@ -1040,8 +1080,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-state     | Filter peer state (can be a regexp).                                                                                                                                   |
 | --warning-peers    | Warning threshold minimum amount of NTP-Server                                                                                                                         |
 | --critical-peers   | Critical threshold minimum amount of NTP-Server                                                                                                                        |
-| --warning-offset   | Warning threshold offset deviation value in milliseconds                                                                                                               |
-| --critical-offset  | Critical threshold offset deviation value in milliseconds                                                                                                              |
+| --warning-offset   | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset  | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --warning-stratum  | Warning threshold.                                                                                                                                                     |
 | --critical-stratum | Critical threshold.                                                                                                                                                    |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}     |
@@ -1119,13 +1159,42 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --add-cpu                | Monitor CPU usage.                                                                                                                                                                                                                            |
 | --add-memory             | Monitor memory usage. It's inaccurate but it provides a trend.                                                                                                                                                                                |
 | --add-disk-io            | Monitor disk I/O.                                                                                                                                                                                                                             |
+| --add-open-files         | Monitor open file usage per process. This functionality requires that the `centreon_linux_sudoers` package be installed on the monitored host and configured in the sudoers file. Please refer to the notice below.                           |
 | --filter-command         | Filter process commands (regexp can be used).                                                                                                                                                                                                 |
 | --exclude-command        | Exclude process commands (regexp can be used).                                                                                                                                                                                                |
 | --filter-arg             | Filter process arguments (regexp can be used).                                                                                                                                                                                                |
 | --exclude-arg            | Exclude process arguments (regexp can be used).                                                                                                                                                                                               |
 | --filter-ppid            | Filter process ppid (regexp can be used).                                                                                                                                                                                                     |
 | --filter-state           | Filter process states (regexp can be used). You can use: 'zombie', 'dead', 'paging', 'stopped', 'InterrupibleSleep', 'running', 'UninterrupibleSleep'.                                                                                        |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'total-memory-usage', 'total-cpu-utilization', 'total-disks-read', 'total-disks-write', 'time', 'memory-usage', 'cpu-utilization', 'disks-read', 'disks-write'.                                                  |
+| --privileged-script-path         | This parameter allows specifying a custom path to the centreon\_plugin\_local\_process.pl script used for monitoring open file usage per process (default: '/usr/lib/centreon/plugins').                                              |
+| --warning-total                  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total                 | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-memory-usage     | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-memory-usage    | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-cpu-utilization  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-cpu-utilization | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-read       | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-read      | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-write      | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-write     | Thresholds.                                                                                                                                                                                                                           |
+| --warning-time                   | Thresholds.                                                                                                                                                                                                                           |
+| --critical-time                  | Thresholds.                                                                                                                                                                                                                           |
+| --warning-memory-usage           | Thresholds.                                                                                                                                                                                                                           |
+| --critical-memory-usage          | Thresholds.                                                                                                                                                                                                                           |
+| --warning-cpu-utilization        | Thresholds.                                                                                                                                                                                                                           |
+| --critical-cpu-utilization       | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-read             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-read            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-write            | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-write           | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-open-files            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files-prct        | Thresholds in percentage.                                                                                                                                                                                                             |
+| --critical-open-files-prct       | Thresholds in percentage.                                                                                                                                                                                                             |
+
+> To monitor open file usage per process, you need to install the `centreon-plugin-Operatingsystems-Linux-sudoers` package on each monitored host.
+> This package installs the `centreon_linux_local_process.pl` script and adds the `sudoersCentreonLinuxPlugins` file to the `sudoers` configuration.
+> Depending on the monitored hosts, this package will be installed with ```dnf install centreon-plugin-Operatingsystems-Linux-sudoers``` or ```apt install centreon-plugin-operatingsystems-linux-sudoers```.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">

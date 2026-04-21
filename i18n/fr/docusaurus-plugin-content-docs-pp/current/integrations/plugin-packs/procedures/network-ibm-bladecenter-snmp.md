@@ -1,6 +1,6 @@
 ---
 id: network-ibm-bladecenter-snmp
-title: IBM Bladecenter Switch
+title: IBM Bladecenter Switch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **IBM BladeCenter Switch** apporte un modèle d'hôte :
+Le connecteur de supervision **IBM BladeCenter Switch SNMP** apporte un modèle d'hôte :
 
 * **Net-IBM-Bladecenter-SNMP-custom**
 
@@ -65,7 +65,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Métrique                      | Unité |
+| Nom                      | Unité |
 |:------------------------------|:------|
 | cpu.utilization.1m.percentage | %     |
 | cpu.utilization.5m.percentage | %     |
@@ -73,7 +73,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Environment" label="Environment">
 
-| Métrique                     | Unité   |
+| Nom                    | Unité   |
 |:-----------------------------|:--------|
 | hardware.temperature.celsius | C |
 | faultled                     | N/A        |
@@ -81,7 +81,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Memory Usage" label="Memory Usage">
 
-| Métrique                | Unité |
+| Nom                | Unité |
 |:------------------------|:------|
 | memory.usage.bytes      | B     |
 | memory.free.bytes       | B     |
@@ -90,7 +90,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Packet-Errors-*" label="Packet-Errors-*">
 
-| Métrique                                                  | Unité |
+| Nom                                                  | Unité |
 |:----------------------------------------------------------|:------|
 | *interface_name*#status                                   | N/A   |
 | *interface_name*#interface.packets.in.discard.percentage  | %     |
@@ -103,7 +103,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Métrique                              | Unité |
+| Nom                             | Unité |
 |:--------------------------------------|:------|
 | storage.partitions.count              | count |
 | *disk_name*#storage.space.usage.bytes | B     |
@@ -114,7 +114,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Time" label="Time">
 
-| Métrique            | Unité |
+| Nom            | Unité |
 |:--------------------|:------|
 | time.offset.seconds | s     |
 
@@ -123,7 +123,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-| Métrique                                             | Unité |
+| Nom                                            | Unité |
 |:-----------------------------------------------------|:------|
 | *interface_name*#status                              | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
@@ -134,7 +134,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Métrique              | Unité |
+| Nom              | Unité |
 |:----------------------|:------|
 | system.uptime.seconds | s     |
 
@@ -145,11 +145,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Pour utiliser ce connecteur de supervision, vous devez configurer le service SNMP sur le serveur IBM
-BladeCenter. Une description complète est disponible sur le site officiel de Cisco:
-
-* Avec l'interface Web de BladeCenter : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp
-* Avec l'interface en ligne de commande : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.advmgtmod.doc%2Fkp1bc_bc_cli_snmp
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la [documentation officielle](https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp). 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseaux
 
@@ -199,7 +198,7 @@ yum install centreon-pack-network-ibm-bladecenter-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IBM BladeCenter Switch**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IBM BladeCenter Switch SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -282,7 +281,7 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 
 | Macro        | Description                                                                                                     | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'faultled', 'temperature'                                     | .*                |             |
+| COMPONENT    | Which component to check. Can be: 'faultled', 'temperature'                                     | .*                |             |
 | WARNING      | Set warning threshold for temperatures (syntax: type,regexp,threshold) Example: --warning='temperature,.*,30'   |                   |             |
 | CRITICAL     | Set critical threshold for temperatures (syntax: type,regexp,threshold) Example: --critical='temperature,.*,40' |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).              | --verbose         |             |
@@ -366,8 +365,8 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 | NTPADDR        | Set the ntp port (default: 123)                                                                    |                   |             |
 | NTPPORT        | Set the ntp port (default: 123)                                                                    |                   |             |
 | TIMEZONE       |                                                                                                    |                   |             |
-| WARNINGOFFSET  | Time offset warning threshold (in seconds)                                                         |                   |             |
-| CRITICALOFFSET | Time offset critical Threshold (in seconds)                                                        |                   |             |
+| WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |                   |             |
+| CRITICALOFFSET | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -663,8 +662,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                         |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------|
 | --oid             | Override default OID.                                                                                               |
-| --warning-offset  | Time offset warning threshold (in seconds).                                                                         |
-| --critical-offset | Time offset critical Threshold (in seconds).                                                                        |
+| --warning-offset  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --ntp-hostname    | Set the ntp hostname (if not set, localtime is used).                                                               |
 | --ntp-port        | Set the ntp port (default: 123).                                                                                    |
 | --timezone        | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.    |
