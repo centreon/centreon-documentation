@@ -633,8 +633,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 | FILTERSTATE     | Filter peer state (can be a regexp)                                                                                                                                             |               |           |
 | EXCLUDESTATE    | Filter by peer state (can be a regexp)                                                                                                                                          |               |           |
 | UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |               |           |
-| WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                                        |               |           |
-| CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                                       |               |           |
+| WARNINGOFFSET   | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |               |           |
+| CRITICALOFFSET  | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |               |           |
 | WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                                  |               |           |
 | CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                                 |               |           |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |               |           |
@@ -1152,8 +1152,8 @@ All available options for each service template are listed below:
 | --filter-state     | Filter peer state (can be a regexp).                                                                                                                                   |
 | --warning-peers    | Warning threshold minimum amount of NTP-Server                                                                                                                         |
 | --critical-peers   | Critical threshold minimum amount of NTP-Server                                                                                                                        |
-| --warning-offset   | Warning threshold offset deviation value in milliseconds                                                                                                               |
-| --critical-offset  | Critical threshold offset deviation value in milliseconds                                                                                                              |
+| --warning-offset   | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset  | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --warning-stratum  | Warning threshold.                                                                                                                                                     |
 | --critical-stratum | Critical threshold.                                                                                                                                                    |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}     |

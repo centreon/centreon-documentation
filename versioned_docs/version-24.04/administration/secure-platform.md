@@ -659,7 +659,7 @@ Now that you have your self-signed certificate, you can perform the following pr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install mod_ssl mod_security openssl
+dnf install mod_ssl openssl
 ```
   
 2. Install your certificates:
@@ -676,7 +676,7 @@ cp ca_demo.crt /etc/pki/tls/certs/
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install mod_ssl mod_security openssl
+dnf install mod_ssl openssl
 ```
   
 2. Install your certificates:
@@ -695,7 +695,6 @@ cp ca_demo.crt /etc/pki/tls/certs/
 ```shell
 curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
 apt update
-apt install libapache2-mod-security2
 a2enmod ssl
 a2enmod security2
 systemctl restart apache2
@@ -1544,6 +1543,105 @@ a2enmod http2
 ```
 
 5. Restart the Apache process to take the new configuration into account:
+
+```shell
+systemctl restart apache2
+```
+
+</TabItem>
+</Tabs>
+
+## Activate mod_security
+
+**mod_security** is a security module for Apache that acts as a web application firewall (WAF).
+
+1. Install **mod_security** :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install mod_security
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install mod_security
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt install libapache2-mod-security2
+```
+
+</TabItem>
+</Tabs>
+
+2. Edit the following file and adjust the settings as you want:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+/etc/httpd/conf.d/mod_security.conf
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+/etc/httpd/conf.d/mod_security.conf
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+/etc/modsecurity/mod_security.conf
+```
+
+</TabItem>
+</Tabs>
+
+We recommend the following configuration:
+
+```text
+    SecResponseBodyAccess Off
+    SecDebugLog /var/log/httpd/modsec_debug.log
+    SecDebugLogLevel 0
+    SecAuditEngine RelevantOnly
+    SecAuditLogRelevantStatus "^(?:5|4(?!01|4))"
+    SecAuditLogParts ABJDEFHZ
+    SecAuditLogType Serial
+    SecAuditLog /var/log/httpd/modsec_audit.log
+    SecArgumentSeparator &
+    SecCookieFormat 0
+    SecTmpDir /var/lib/mod_security
+    SecDataDir /var/lib/mod_security
+```
+
+3. Restart Apache :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 systemctl restart apache2
