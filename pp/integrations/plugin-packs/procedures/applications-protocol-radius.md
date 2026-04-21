@@ -55,7 +55,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 For this Monitoring Connector you will need :
 
 * A RADIUS server
-* An username and password used for authentication
+* A username and password used for authentication
 * The RADIUS server secret
 
 ## Installing the monitoring connector
