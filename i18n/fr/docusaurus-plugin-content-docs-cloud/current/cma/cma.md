@@ -66,6 +66,9 @@ L'agent peut être installé sur et superviser les OS suivants :
    * [**Linux**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent)
    * [**Windows**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent).
    * [**Microsoft SCCM**](/pp/integrations/plugin-packs/procedures/applications-sccm-cma)
+   * [**Linux Libvirt**](/pp/integrations/plugin-packs/procedures/virtualization-linux-libvirt-cma)
+   * [**Hitachi E Series**](/pp/integrations/plugin-packs/procedures/hardware-storage-hitachi-eseries-cma)
+
 
 * Vous pouvez également [développer vos propres plugins](cma-custom.md).
 
