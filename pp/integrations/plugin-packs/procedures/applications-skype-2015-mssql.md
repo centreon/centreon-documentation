@@ -209,7 +209,7 @@ yum install centreon-plugin-Applications-Skype-2015-Mssql
 
 ### Using a host template provided by the connector
 
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
+1. Log into Centreon and add a new host through **Configuration > Hosts > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **App-Skype-2015-Mssql-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
