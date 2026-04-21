@@ -727,7 +727,7 @@ module.exports = {
       "items": [
     {
       "type": "link",
-      "href": "https://docs-api.centreon.com/api/centreon-web/cloud/",
+      "href": "https://docs-api.centreon.com/api/centreon-web-cloud/",
       "label": "Centreon Cloud API"
     },
     {
