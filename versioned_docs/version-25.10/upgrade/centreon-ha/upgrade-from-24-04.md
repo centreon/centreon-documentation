@@ -157,35 +157,50 @@ You should have a result like this:
 ```
 
 ### Modifying php service version on Debian
-On Debian the php service contain the version of the package, so we need to change this value in the cluster configuration.
-No needed in EL distributions because the servicename is "php-fpm" only.
-To do this we'll use the cibadmin tool to modify the configuration and reimport it.
+
+On Debian, the php service contains the version of the package, so we need to change this value in the cluster configuration.
+This is not needed for EL distributions because the servicename is **php-fpm** only.
+Use the **cibadmin** tool to modify the configuration and reimport it.
+
 <Tabs groupId="sync">
     <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
+        
         <Tabs groupId="sync">
             <TabItem value="Debian 12" label="Debian 12">
+                
                 Update the name of the service in the xml configuration file.
+                
                 ```bash
                 sed -i.bak 's#php8.1#php8.2#' export_cluster.xml
                 ```
+                
                 Then reimport de cluster configuration.
+                
                 ```bash
                 cibadmin -R --xml-file export_cluster.xml
                 ```
             </TabItem>
         </Tabs>
+        
     </TabItem>
+    
     <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+    
         <Tabs groupId="sync">
             <TabItem value="Debian 12" label="Debian 12">
+                
                 Update the name of the service in the xml configuration file.
+                
                 ```bash
                 sed -i.bak 's#php8.1#php8.2#' export_cluster.xml
                 ```
+                
                 Then reimport de cluster configuration.
+                
                 ```bash
                 cibadmin -R --xml-file export_cluster.xml
                 ```
+            
             </TabItem>
         </Tabs>
     </TabItem>
@@ -314,13 +329,13 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-First extract all contraint IDs:
+1. First, extract all constraint IDs:
 
 ```bash
 pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
 ```
 
-You should have a similar result:
+The results should look like this:
 
 ```text
 order-centreon-ms_mysql-clone-mandatory
@@ -328,7 +343,7 @@ colocation-ms_mysql-clone-centreon-INFINITY
 colocation-centreon-ms_mysql-clone-INFINITY
 ```
 
-and delete **all** constraints, **adapt IDs with your own**
+2. Delete **all** constraints (replace the IDs with your own).
 
 ```bash
 pcs constraint delete order-centreon-ms_mysql-clone-mandatory
@@ -336,13 +351,13 @@ pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 ```
 
-Verify if all constraint are well deleted:
+3. Check that all constraints have been correctly deleted:
 
 ```bash
 pcs constraint
 ```
 
-You should have a result like this:
+The results should look like this:
 
 ```text
 Location Constraints:
@@ -351,7 +366,7 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-If it's OK, then recreate only needed constraints
+4. If the results are OK, then recreate only the constraints you need.
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
@@ -365,13 +380,13 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
-First extract all contraint IDs:
+1. First, extract all constraint IDs:
 
 ```bash
 pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
 ```
 
-You should have a similar result depending of your host names:
+You should have a similar result depending on your host names:
 
 ```text
 location-cbd_rrd-clone-cc-ha-bdd1-alma8--INFINITY
@@ -387,7 +402,7 @@ colocation-ms_mysql-clone-vip_mysql-INFINITY
 colocation-centreon-vip-INFINITY
 ```
 
-and delete **all** constraints, **adapt IDs with your own**
+2. Delete all constraints (replace the IDs with your own):
 
 ```bash
 pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1-alma8--INFINITY
@@ -396,13 +411,13 @@ pcs constraint delete location-centreon-cc-ha-bdd1-alma8--INFINITY
 ...
 ```
 
-Verify if all constraint are well deleted:
+3. Check that all constraints have been correctly deleted:
 
 ```bash
 pcs constraint
 ```
 
-You should have a result like this:
+The results should look like this:
 
 ```text
 Location Constraints:
@@ -411,7 +426,7 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-If it's OK, then recreate only needed constraints.
+4. If the results are OK, then recreate only the constraints you need.
 
 In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
@@ -423,7 +438,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 <TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
-First extract all contraint IDs:
+1. First, extract all constraint IDs:
 
 ```bash
 pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
@@ -445,7 +460,7 @@ colocation-ms_mysql-clone-vip_mysql-INFINITY
 colocation-centreon-vip-INFINITY
 ```
 
-and delete **all** constraints, **adapt IDs with your own**
+2. Delete all constraints (replace the IDs with your own).
 
 ```bash
 pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1-alma9--INFINITY
@@ -454,13 +469,13 @@ pcs constraint delete location-centreon-cc-ha-bdd1-alma9--INFINITY
 ...
 ```
 
-Verify if all constraint are well deleted:
+3. Check that all constraints have been correctly deleted:
 
 ```bash
 pcs constraint
 ```
 
-You should have a result like this:
+The results should look like this:
 
 ```text
 Location Constraints:
@@ -469,9 +484,9 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-If it's OK, then recreate only needed constraints.
+4. If the results are OK, then recreate only the constraints you need.
 
-In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
+In order to glue the Primary Database role with the Virtual IP, define a mutual constraint:
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
@@ -481,7 +496,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-First extract all contraint IDs:
+1. First, extract all constraint IDs:
 
 ```bash
 pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
@@ -503,7 +518,7 @@ colocation-ms_mysql-clone-vip_mysql-INFINITY
 colocation-centreon-vip-INFINITY
 ```
 
-and delete **all** constraints, **adapt IDs with your own**
+2. Delete all constraints (replace the IDs with your own).
 
 ```bash
 pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1--INFINITY
@@ -512,13 +527,13 @@ pcs constraint delete location-centreon-cc-ha-bdd1--INFINITY
 ...
 ```
 
-Verify if all constraint are well deleted:
+3. Check that all constraints have been correctly deleted:
 
 ```bash
 pcs constraint
 ```
 
-You should have a result like this:
+The results should look like this:
 
 ```text
 Location Constraints:
@@ -527,9 +542,9 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-If it's OK, then recreate only needed constraints.
+4. If the results are OK, then recreate only the constraints you need.
 
-In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
+In order to glue the Primary Database role with the Virtual IP, define a mutual constraint:
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
@@ -539,7 +554,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 </Tabs>
 
-Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
+Then recreate the constraint that prevents Centreon processes to run on database nodes and vice-versa:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
