@@ -61,7 +61,7 @@ La configuraiton du proxy est nécessaire pour bénéficier de l'offre Centreon 
 
 Renseigner les différents champs:
 
-- **URL du proxy web**
+- **URL du proxy web** (l'URL doit inclure le protocole, http:// ou https://)
 - **Port d'accès au proxy internet**
 - **Proxy user**
 - **Proxy password**
