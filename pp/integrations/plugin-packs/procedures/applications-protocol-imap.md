@@ -214,11 +214,11 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::protocols::imap::plugin \
 	--mode=search-message \
 	--hostname=10.0.0.1 \
-	--username='IMAPUSERNAME' \
-	--password='IMAPPASSWORD'  \
+	--username='XXXX' \
+	--password='XXXX'  \
 	--warning=''  \
 	--critical='' \
-	--search=''
+	--search='xxxxxx'
 ```
 
 The expected command output is shown below:

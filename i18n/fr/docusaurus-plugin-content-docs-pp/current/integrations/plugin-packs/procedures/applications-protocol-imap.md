@@ -66,7 +66,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-The remote server must have an IMAP service running and available.
+Le serveur distant doit avoir un service IMAP démaré et disponible.
 
 ## Installer le connecteur de supervision
 
@@ -215,8 +215,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::protocols::imap::plugin \
 	--mode=search-message \
 	--hostname=10.0.0.1 \
-	--username='IMAPUSERNAME' \
-	--password='IMAPPASSWORD'  \
+	--username='XXXX' \
+	--password='XXXX'  \
 	--warning=''  \
 	--critical='' \
 	--search='xxxxxx'
