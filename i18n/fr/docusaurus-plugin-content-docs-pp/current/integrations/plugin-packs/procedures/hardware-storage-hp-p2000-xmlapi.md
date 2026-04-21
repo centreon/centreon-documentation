@@ -132,7 +132,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Un compte doit être créé sur le P2000 surveillé.
+Un compte doit être créé sur le P2000 supervisé.
 
 ## Installer le connecteur de supervision
 
@@ -372,11 +372,11 @@ Le plugin apporte les modes suivants :
 
 | Mode                                                                                                                              | Modèle de service associé                                                                                      |
 |:----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------|
-| controllers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/controllers.pm)]   | Not used in this Monitoring Connector                                                                          |
+| controllers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/controllers.pm)]   | Non-utilisé dans ce connecteur de supervision                                                                          |
 | health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/health.pm)]             | HW-Storage-Hp-P2000-Health-Xmlapi-custom                                                                       |
-| list-volumes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/listvolumes.pm)]  | Used for service discovery                                                                                     |
-| ntp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/ntp.pm)]                   | Not used in this Monitoring Connector                                                                          |
-| time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/time.pm)]                 | Not used in this Monitoring Connector                                                                          |
+| list-volumes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/listvolumes.pm)]  | Utilisé pour le service de découverte                                                                                     |
+| ntp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/ntp.pm)]                   | Non-utilisé dans ce connecteur de supervision                                                                          |
+| time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/time.pm)]                 | Non-utilisé dans ce connecteur de supervision                                                                          |
 | vdisks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/vdisks.pm)]             | HW-Storage-Hp-P2000-Vdisks-Xmlapi-custom                                                                       |
 | volume-stats [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/hp/p2000/xmlapi/mode/volumesstats.pm)] | HW-Storage-Hp-P2000-Volume-Stats-Global-Xmlapi-custom<br />HW-Storage-Hp-P2000-Volume-Stats-Name-Xmlapi-custom |
 
