@@ -171,7 +171,7 @@ yum install centreon-plugin-Hardware-Servers-Fujitsu-Snmp
 
 ### Using a host template provided by the connector
 
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
+1. Log into Centreon and add a new host through **Configuration > Hosts > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **HW-Server-Fujitsu-SNMP-custom** template to the host.
 
