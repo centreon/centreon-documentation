@@ -71,7 +71,7 @@ import TabItem from '@theme/TabItem';
 - [**Redis Database**](../procedures/applications-databases-redis.md) - Fixed an issue leading to a returned value of more than 1000 % in **cpu** mode  (issue [#4311](https://github.com/centreon/centreon-plugins/issues/4311)).
 - [**Solr**](../procedures/applications-solr-jmx.md) - Fixed the plugin dependencies.
 - [**Tomcat JMX**](../procedures/applications-webservers-tomcat-jmx.md) - Fixed the plugin dependencies.
-- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Fixed a regression causing an "Undefined subroutine" error
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Fixed a regression causing an "Undefined subroutine" error.
 - [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Fixed a regression causing an "Undefined subroutine" error.
 - [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Fixed a regression causing an "Undefined subroutine" error.
 - [**Weblogic Server**](../procedures/applications-weblogic-jmx.md) - Fixed the plugin dependencies.
