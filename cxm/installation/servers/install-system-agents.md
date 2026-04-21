@@ -3,17 +3,20 @@ id: install-system-agents
 title: Install System Agents
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Sending information to the Experience Monitoring application requires installing the Experience Monitoring agent on all servers you wish to monitor.
+
 To add, modify, or delete a server in Experience Monitoring, you must have **Admin** or **Owner** permissions on your organization. Ask your administrator or support to grant you the correct rights.
 
 At this time, it is not possible to link a server to multiple sites, whether within the same organization or not.
-
-Sending information to the CXM application requires installing the CXM agent on all servers you wish to monitor.
 
 > System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](#endpoint-addresses-for-server-agents).
 
 ## Get the Token
 
-To install CXM System Agents, you will need your **auto-registration token**. It is available in **Configuration > System**.
+To install Experience Monitoring System Agents, you will need your **auto-registration token**. It is available in **Configuration > System**.
 
 See where to find the token in this video:
 
@@ -25,33 +28,37 @@ See where to find the token in this video:
 
 ### Installation for Debian
 
-To install the CXM agent:
+To install the Experience Monitoring agent:
 
 1. Add the following line to the **/etc/apt/sources.list.d/quanta.list** file.
- 
-*For Buster (versions 10.*)*
+
+   <Tabs groupId="debian">
+   <TabItem value="Buster (versions 10.*)" label="Buster (versions 10.*)">
 
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] http://apt.quanta.io/debian buster main
     ```
 
-    *For Bullseye (versions 11.*)*
+   </TabItem>
+   <TabItem value="Bullseye (versions 11.*)" label="Bullseye (versions 11.*)">
 
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/debian bullseye main
     ```
 
-    *For Bookworm (versions 12.*)*
+   </TabItem>
+   <TabItem value="Bookworm (versions 12.*)" label="Bookworm (versions 12.*)">
 
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/debian bookworm main
     ```
 
-    If unsure of your version, you can read the **/etc/debian_version** file.
+   </TabItem>
+   </Tabs>
 
-    ### `BETA` Version
+   If unsure of your version of Debian, you can read the **/etc/debian_version** file.
 
-> To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
+   > To use the **BETA** version of the agent, simply replace `main` at the end of the line with `beta`.
 
 2. Download and add the **GPG** key for our repository:
 
@@ -71,35 +78,39 @@ To install the CXM agent:
     apt install quanta-agent
     ```
 
-You will be prompted for the token during installation, and system data should appear in CXM within a minute.
+   You will be prompted for the token during installation, and system data should appear in Experience Monitoring within a minute.
 
 ### Installation for Ubuntu
 
-To install the CXM agent:
+To install the Experience Monitoring agent:
 
 1. Add the following line to the **/etc/apt/sources.list.d/quanta.list** file.
 
-*For Jammy*
+   <Tabs groupId="debian">
+   <TabItem value="Jammy" label="Jammy">
 
-    ```bash
-    deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu jammy main
-    ```
+   ```bash
+   deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu jammy main
+   ```
 
-    *For Kinetic*
+   </TabItem>
+   <TabItem value="Kinetic" label="Kinetic">
 
-    ```bash
-    deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu kinetic main
-    ```
+   ```bash
+   deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu kinetic main
+   ```
 
-    *For Lunar*
+   </TabItem>
+   <TabItem value="Lunar" label="Lunar">
 
-    ```bash
-    deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu lunar main
-    ```
+   ```bash
+   deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu lunar main
+   ```
 
-    ### `BETA` Version
+   </TabItem>
+   </Tabs>
 
-> To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
+   > To use the **BETA** version of the agent, simply replace `main` at the end of the line with `beta`.
 
 2. Download and add the **GPG** key for our repository:
 
@@ -119,7 +130,7 @@ To install the CXM agent:
     apt install quanta-agent
     ```
 
-You will be prompted for the token during installation, and system data should appear in CXM within a minute.
+   You will be prompted for the token during installation, and system data should appear in Experience Monitoring within a minute.
 
 ### Installation for CentOS / RHEL
 
@@ -128,11 +139,11 @@ You will be prompted for the token during installation, and system data should a
 - Centos 7
 - Centos 8 Stream
 
-To install the CXM agent:
+To install the Experience Monitoring agent:
 
 1. Create the repository configuration file **/etc/yum.repos.d/quanta.repo**. You can download the configuration file available here: [https://rpm.quanta.io/quanta-centos-repo.txt](https://rpm.quanta.io/quanta-centos-repo.txt)
 
-   > To use the **BETA** version, simply replace the line `baseurl=http://rpm.quanta.io/centos/$releasever/main` with `baseurl=http://rpm.quanta.io/centos/$releasever/beta`.
+   > To use the **BETA**  of the agent, simply replace the line `baseurl=http://rpm.quanta.io/centos/$releasever/main` with `baseurl=http://rpm.quanta.io/centos/$releasever/beta`.
 
 2. Install the **GPG** key for our repository:
 
@@ -170,17 +181,17 @@ To install the CXM agent:
     systemctl enable quanta-agent
     ```
 
-You should see system data appear in CXM within a minute.
+You should see system data appear in Experience Monitoring within a minute.
 
 ### Installation for Docker and Autoscaling Systems
 
-The use of the CXM agent is fully compatible with containerized infrastructures, but **it requires a slight variation in the installation process**.
+The use of the Experience Monitoring agent is fully compatible with containerized infrastructures, but **it requires a slight variation in the installation process**.
 
 [Configuration of our agents for the cloud](cloud-configuration-of-agents.md)
 
 #### Explanation
 
-The **hostid** is an internal parameter that allows CXM to uniquely identify a server. Each server must have a unique **hostid**, which is automatically configured by the installation script (using the MAC address of the first network interface without `:` characters).
+The **hostid** is an internal parameter that allows Experience Monitoring to uniquely identify a server. Each server must have a unique **hostid**, which is automatically configured by the installation script (using the MAC address of the first network interface without `:` characters).
 
 However, in the case of Docker containers, the configuration prevents the installation script from finding this value. In autoscaling systems (like AWS ASG or Azure Scale Set), the image copy also duplicates the **hostid**.
 
@@ -196,7 +207,7 @@ The agent is **only compatible with Linux**.
 
 ## Modifying an Existing Installation
 
-If you want to modify the configuration of a CXM agent **already installed** on one of your servers, you will find its configuration in the **/etc/quanta/agent.yml** file. It contains the main connection information, including the CXM token corresponding to the relevant site. Access to this file can be useful if you monitor multiple sites with the same CXM account and wish to specify the correct token to associate each server with its hosted site (e.g., for separate production and pre-production servers).
+If you want to modify the configuration of a Experience Monitoring agent **already installed** on one of your servers, you will find its configuration in the **/etc/quanta/agent.yml** file. It contains the main connection information, including the Experience Monitoring token corresponding to the relevant site. Access to this file can be useful if you monitor multiple sites with the same Experience Monitoring account and wish to specify the correct token to associate each server with its hosted site (e.g., for separate production and pre-production servers).
 
 Here is an excerpt from the **/etc/quanta/agent.yml** file:
 
@@ -227,9 +238,9 @@ If in doubt, refer to the [installation checklist](../installation-checklist.md)
 
 ## Endpoint addresses for server agents
 
-If you use server agents (the “System” section in CXM), each of your servers regularly sends data (once per minute) to the CXM service.
+If you use server agents (the “System” section in Experience Monitoring), each of your servers regularly sends data (once per minute) to the Experience Monitoring service.
 
-This is outbound HTTPS traffic (port 443) and is often allowed by default. However, if your firewall rules are strict and you need to allow specific destinations for CXM, list the following destination IP addresses:
+This is outbound HTTPS traffic (port 443) and is often allowed by default. However, if your firewall rules are strict and you need to allow specific destinations for Experience Monitoring, list the following destination IP addresses:
 
 - 52.215.166.110
 - 52.215.179.235
