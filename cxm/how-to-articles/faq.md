@@ -1,9 +1,9 @@
 ---
 id: faq
-title: FAQ
+title: Agent FAQ
 ---
 
-## Which firewall ports should be opened for the CXM agent?
+## Which firewall ports should be opened for the Experience Monitoring agent?
 
 To ensure the agent works, outgoing HTTPS connections [to our IP addresses](../installation/cxm-ip-addresses.md) must be allowed.
 
@@ -49,7 +49,7 @@ For Varnish, the "instance" parameter is also used as the Varnish instance name,
 
 We recommend installing the agent on all servers in your infrastructure. However, if you can't on some servers (e.g., on a database) and still want to monitor MySQL, you can change the **host** parameter in the agent configuration (**/etc/quanta/modules.d/service.yml**).
 
-## My server is shared between several sites, each with a CXM subscription. How can data be visible on both sites?
+## My server is shared between several sites, each with an Experience Monitoring subscription. How can data be visible on both sites?
 
 To link a server to multiple sites, you can specify several tokens (one per site) in **/etc/quanta/agent.yml**, separated by commas, e.g., "quanta_token: tokensite1,tokensite2".
 
@@ -57,54 +57,48 @@ The server will be created on both sites and system data will be sent to both.
 
 There are some limitations if both sites use the PHP module:
 
-- Magento events will be sent to both sites, regardless of which site generated them.
-- Information in the Magento section of the CXM interface will be from one site or the other (and may not be correct).
+- PHP events will be sent to both sites, regardless of which site generated them.
+- Information in the PHP section of the Experience Monitoring interface will be from one site or the other (and may not be correct).
 
-## I already installed the Magento module, how does the update work?
+## Do I need to create my server in Experience Monitoring?
 
-The update is automatic; when we receive the first metrics from the new PHP extension, we stop querying the old Magento module. When a scenario uses the new PHP module, you will see a "new module" flag in your scenario configuration.
+No, creation is automatic the first time we receive data. If your server already existed in Experience Monitoring, its configuration will be updated automatically.
 
-We recommend uninstalling the old module once the new one is installed.
+You must manually delete the server in Experience Monitoring if you remove it from your infrastructure.
 
-## Do I need to create my server in CXM?
-
-No, creation is automatic the first time we receive data. If your server already existed in CXM, its configuration will be updated automatically.
-
-You must manually delete the server in CXM if you remove it from your infrastructure.
-
-# I'm concerned about my server's security, can you explain how the CXM agent and PHP module work?
+## I'm concerned about my server's security, can you explain how the Experience Monitoring agent and PHP module work?
 
 We care as much as you do about the security of our tools. Here is a technical description:
 
 All packages we provide are signed with a GPG key you must install in your package system to verify their origin.
 
-### CXM agent
+### Experience Monitoring agent
 
-The CXM agent is a background service (daemon) on your server that performs several operations:
+The Experience Monitoring agent is a background service (daemon) on your server that performs several operations:
 
 - It collects system data by reading files in **/proc**.
 - It collects data on active services (Apache, Nginx, Varnish, Memcached, Redis, MySQL), usually via a service connection. No privileged user is ever needed for the agent to access this data.
 - It receives data from the PHP module via a Unix socket (permissions are configurable).
-- It sends collected data to CXM via secure HTTPS (using a proxy is possible).
+- It sends collected data to Experience Monitoring via secure HTTPS (using a proxy is possible).
 
-All CXM agent modules can be disabled independently.
+All Experience Monitoring agent modules can be disabled independently.
 
 The agent starts as root for initialization (socket opening, config loading, etc.) but switches to a standard user for all collection operations (user and group are configurable).
 
-Data collected by the agent is stored in memory before being sent to CXM and is never stored elsewhere.
+Data collected by the agent is stored in memory before being sent to Experience Monitoring and is never stored elsewhere.
 
-### PHP module
+### PHP profiler
 
-The PHP module is a PHP extension (dynamic library) loaded by PHP during execution.
+The PHP profiler is a PHP extension (dynamic library) loaded by PHP during execution.
 
 It collects data only:
 
 - When you perform actions in your back office
 - During requests made by our probes (identified by a specific header).
 
-The module does not alter application behavior; it only collects profiling information about Magento.
+The module does not alter application behavior; it only collects profiling information about PHP.
 
-The module also has an "xhprof" mode (full execution profiling), which works similarly but is never activated by CXM without user action.
+The module also has an "xhprof" mode (full execution profiling), which works similarly but is never activated by Experience Monitoring without user action.
 
 Data is sent to the agent via the designated Unix socket and is never stored or sent elsewhere.
 

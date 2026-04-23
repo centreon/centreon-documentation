@@ -16,3 +16,7 @@ Memory stores short-term information. For example, it is the resource that cause
 The disk stores long-term information; this is where assets such as images are kept.
 
 Like memory, disk usage should not vary dramatically over time and is not typically a factor that would cause large increases in load times or make your site unavailable.
+
+## Correlate system data and business data
+
+If you have configured [Business data](../getting-started/business-view.md), in the **Business data** page, the **Infrastructure cost/click** tab correlates your system data and your business data.
