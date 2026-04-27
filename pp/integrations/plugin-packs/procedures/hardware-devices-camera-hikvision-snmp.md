@@ -257,8 +257,8 @@ yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 | NTPHOSTNAME    | Set the ntp hostname (if not set, localtime is used)                                                                                   |               |           |
 | NTPPORT        | Set the ntp port (default: 123)                                                                                                        |               |           |
 | TIMEZONE       | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'                        |               |           |
-| WARNINGOFFSET  | Time offset warning threshold (in seconds)                                                                                             |               |           |
-| CRITICALOFFSET | Time offset critical Threshold (in seconds)                                                                                            |               |           |
+| WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |               |           |
+| CRITICALOFFSET | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |               |           |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
@@ -418,8 +418,8 @@ All available options for each service template are listed below:
 | Option            | Description                                                                                                           |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------|
 | --oid             |   Override default OID.                                                                                               |
-| --warning-offset  |   Time offset warning threshold (in seconds).                                                                         |
-| --critical-offset |   Time offset critical Threshold (in seconds).                                                                        |
+| --warning-offset  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --ntp-hostname    |   Set the ntp hostname (if not set, localtime is used).                                                               |
 | --ntp-port        |   Set the ntp port (default: 123).                                                                                    |
 | --timezone        |   Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.    |

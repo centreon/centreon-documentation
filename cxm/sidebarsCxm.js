@@ -67,6 +67,7 @@ module.exports = {
           items: [
             { type: 'doc', id: 'configuration/user-journey/create-a-scenario' },
             { type: 'doc', id: 'configuration/user-journey/user-journey-best-practices' },
+            { type: 'doc', id: 'configuration/user-journey/stm-zones' },
           ],
         },
         {

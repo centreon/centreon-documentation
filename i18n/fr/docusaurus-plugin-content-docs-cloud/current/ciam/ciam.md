@@ -1,6 +1,6 @@
 ---
 id: ciam
-title: Utiliser le site Centreon CIAM
+title: Utiliser le portail utilisateur (CIAM)
 ---
 
 ## Qu'est-ce que Centreon CIAM?
@@ -37,6 +37,7 @@ Une organisation correspond à un périmètre d'équipements à superviser. Par 
 1. À la page **Users**, cliquez sur **Invite user**.
 2. Renseignez les emails des utilisateurs que vous souhaitez inviter, et sélectionnez le rôle à leur attribuer dans le CIAM et dans Centreon Cloud (voir [Rôles des utilisateurs](../users/users.md#rôles-des-utilisateurs)).
 3. Cliquez sur **Invite**. Les personnes recevront un email intitulé **You've been invited to join `<organization>`'s Centreon account**. Votre adresse email sera visible dans cet email.
+   Tant que celle-ci n'a pas été acceptée, vous pouvez annuler ou renvoyer une invitation à la page **Users > Invitations**.
 
 ## Je suis un utilisateur Centreon
 
