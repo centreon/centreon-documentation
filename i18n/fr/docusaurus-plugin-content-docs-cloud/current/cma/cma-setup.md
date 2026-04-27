@@ -61,7 +61,7 @@ Un jeton est fourni par défaut à la page **Administration > Jetons d'authentif
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 5. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
-6. Sélectionnez **Créer les hôtes automatiquement** si vous souhaitez que le collecteur vérifie si les connexions entrantes proviennent d'hôtes connus ou non. Si aucun hôte de la liste ne porte le même hostname, l'hôte et ses services seront créés. Le modèle **OS-Windows-Centreon-Monitoring-Agent-custom** ou **OS-Linux-Centreon-Monitoring-Agent-custom** sera alors appliqué.
+6. Sélectionnez **Créer les hôtes automatiquement** si vous souhaitez que le collecteur vérifie si les connexions entrantes proviennent d'hôtes connus ou non. Si aucun hôte de la liste ne porte le même hostname, l'hôte et ses services seront créés. Le modèle **OS-Windows-Centreon-Monitoring-Agent-custom** ou **OS-Linux-Centreon-Monitoring-Agent-custom** sera alors appliqué. Ces valeurs peuvent être modifiées sur l'hôte, en utilisant le paramètre **host_template** dans la base de registre ou le fichier **centagent.json**.
 7. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
    > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
 8. Cliquez sur **Sauvegarder**.

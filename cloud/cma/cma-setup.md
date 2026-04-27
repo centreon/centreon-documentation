@@ -60,7 +60,7 @@ A default token is provided on the **Administration > Authentication token** pag
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 5. In the **Parameters** section, select the poller(s) that will receive data from the agent.
-6. Select **Create hosts automatically** if you want the poller to check whether incoming connections are from known hosts or not. If no host in the list of hosts has the same hostname, the host and its services will be created. Either the **OS-Windows-Centreon-Monitoring-Agent-custom** or the **OS-Linux-Centreon-Monitoring-Agent-custom** template will be applied.
+6. Select **Create hosts automatically** if you want the poller to check whether incoming connections are from known hosts or not. If no host in the list of hosts has the same hostname, the host and its services will be created. Either the **OS-Windows-Centreon-Monitoring-Agent-custom** or the **OS-Linux-Centreon-Monitoring-Agent-custom** template will be applied. These values can be modified on the host, using the **host_template** parameter in the registry or the **centagent.json** configuration file.
 7. In the **OTLP Receiver** section, enter the paths to the certificate files. See the [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
    > If you are configuring multiple pollers at the same time, make sure that all certificate files have the same name.
 8. Click **Save**.
