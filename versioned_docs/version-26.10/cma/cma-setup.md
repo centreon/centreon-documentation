@@ -64,7 +64,45 @@ This step only applies to OnPrem platforms. For Centreon Cloud, a default token 
 
 * Expiration takes effect immediately, without requiring any user action.
 
+### Configure poller/agent communication
+
+1. Go to the **Configuration > Pollers > Agent configurations** page, then click **Add**.
+2. In the window that opens, select the **Centreon Monitoring Agent** agent type. Additional fields will appear.
+3. Select the connection direction (default: the agent connects to the poller).
+4. Select encryption mode
+
+<Tabs groupId="sync">
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
+
+5. In the **Parameters** section, select the poller(s) that will receive data from the agent.
+6. Select **Create hosts automatically** if you want the poller to check whether incoming connections are from known hosts or not. If no host in the list of hosts has the same hostname, the host and its services will be created. Either the **OS-Windows-Centreon-Monitoring-Agent-custom** or the **OS-Linux-Centreon-Monitoring-Agent-custom** template will be applied. These values can be modified on the host, using the **host_template** parameter in the registry or the **centagent.json** configuration file.
+7. In the **OTLP Receiver** section, enter the paths to the certificate files. See [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
+   > If you are configuring multiple pollers at the same time, make sure that all certificate files have the same name.
+8. Click **Save**.
+9. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+</TabItem>
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
+
+5. In the **Parameters** section, select the poller that will connect to the agents.
+6. In the **Monitored Hosts** section, select the host you created earlier. Its IP address will be displayed, and a default port will be entered. Change this information if necessary.
+7. Enter the paths to the certificate files. See the [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
+8. Select the authentication token you created earlier. You can also create a token from this screen.
+9. Add the host.
+10. Repeat the operation for each host to be linked to this poller. To configure many hosts, we recommend using the dedicated APIs.
+11. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+</TabItem>
+</Tabs>
+
+This configuration is deployed on the poller in the **/etc/centreon-engine/otl_server.json** file. Please note that this file should not be edited manually as it is overwritten each time the configuration is deployed.
+
 ### Create the host and services
+
+This section applies:
+
+* if the poller initiates the connection to the agent
+* if the agent initiates the connection ro the poller but the option **Create hosts automatically** is not selected.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
@@ -84,38 +122,6 @@ Create the services associated with the host template.
 
 </TabItem>
 </Tabs>
-
-### Configure poller/agent communication
-
-1. Go to the **Configuration > Pollers > Agent configurations** page, then click **Add**.
-2. In the window that opens, select the **Centreon Monitoring Agent** agent type. Additional fields will appear.
-3. Select the connection direction (default: the agent connects to the poller).
-4. Select encryption mode
-
-<Tabs groupId="sync">
-<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
-
-5. In the **Settings** section, select the poller(s) that will receive data from the agent.
-6. In the **OTLP Receiver** section, enter the paths to the certificate files. See [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
-   > If you are configuring multiple pollers at the same time, make sure that all certificate files have the same name.
-7. Click **Save**.
-8. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
-</TabItem>
-<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
-
-5. In the **Parameters** section, select the poller that will connect to the agents.
-6. In the **Monitored Hosts** section, select the host you created earlier. Its IP address will be displayed, and a default port will be entered. Change this information if necessary.
-7. Enter the paths to the certificate files. See the [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
-8. Select the authentication token you created earlier. You can also create a token from this screen.
-9. Add the host.
-10. Repeat the operation for each host to be linked to this poller. To configure many hosts, we recommend using the dedicated APIs.
-11. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
-</TabItem>
-</Tabs>
-
-This configuration is deployed on the poller in the **/etc/centreon-engine/otl_server.json** file. Please note that this file should not be edited manually as it is overwritten each time the configuration is deployed.
 
 ## Step 2: Prepare the poller
 
