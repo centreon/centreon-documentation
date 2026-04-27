@@ -34,20 +34,39 @@ module.exports = {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'configuration/configuration-checklist' },
+             {
+          collapsed: true,
+          type: 'category',
+          label: 'Understanding metric concepts',
+          link: {
+            type: 'doc',
+            id: 'performance-analysis/metrics/overview-of-metrics',
+          },
+          items: [
+            { type: 'doc', id: 'performance-analysis/metrics/hero-time' },
+            { type: 'doc', id: 'performance-analysis/metrics/time-to-first-byte' },
+            { type: 'doc', id: 'performance-analysis/metrics/speed-index' },
+            { type: 'doc', id: 'performance-analysis/metrics/on-load' },
+            { type: 'doc', id: 'performance-analysis/metrics/largest-contentful-paint' },
+            { type: 'doc', id: 'performance-analysis/metrics/total-blocking-time' },
+            { type: 'doc', id: 'performance-analysis/metrics/cumulative-layout-shift' },
+          ],
+        },
+        { type: 'doc', id: 'performance-analysis/basic-actions/navigate-in-cxm' },
+        {
+          collapsed: true,
+          type: 'category',
+          label: 'Understanding graphs',
+          link: {
+        type: 'generated-index',
+          },
+          items: [
+            { type: 'doc', id: 'how-to-articles/using-charts' },
+            { type: 'doc', id: 'installation/monitor-production-events' },
 
       ],
     },
-    {
-      type: 'category',
-      label: 'Simulate user journeys: Synthetic Monitoring (STM)',
-      link: {
-        type: 'generated-index',
-      },
-      items: [
-        { type: 'doc', id: 'performance-analysis/network-tab-indicators' },
-
-      ],
+    ],
     },
     {
       collapsed: true,
