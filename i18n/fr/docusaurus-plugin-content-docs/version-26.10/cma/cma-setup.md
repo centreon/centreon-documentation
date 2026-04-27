@@ -34,8 +34,6 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 ### Créez un jeton d'authentification
 
-Cette étape ne s'applique que pour les plateformes OnPrem. Pour Centreon Cloud, un jeton est fourni par défaut à la page **Administration > Jetons d'authentification**.
-
 1. Allez à la page **Administration > Jetons d'authentification**.
 
 2. Créez un jeton de type **Centreon Monitoring Agent**.
@@ -63,7 +61,45 @@ Cette étape ne s'applique que pour les plateformes OnPrem. Pour Centreon Cloud,
 
 * L'expiration est prise en compte immédiatement, sans nécessiter d'action utilisateur.
 
+### Configurez la communication collecteur/agent
+
+1. Allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter**.
+2. Dans la fenêtre qui s'ouvre, sélectionnez le type d'agent **Centreon Monitoring Agent**. Des champs supplémentaires apparaissent.
+3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
+4. Sélectionnez le mode de chiffrement
+
+<Tabs groupId="sync">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+
+5. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
+6. Sélectionnez **Créer les hôtes automatiquement** si vous souhaitez que le collecteur vérifie si les connexions entrantes proviennent d'hôtes connus ou non. Si aucun hôte de la liste ne porte le même hostname, l'hôte et ses services seront créés. Le modèle **OS-Windows-Centreon-Monitoring-Agent-custom** ou **OS-Linux-Centreon-Monitoring-Agent-custom** sera alors appliqué. Ces valeurs peuvent être modifiées sur l'hôte, en utilisant le paramètre **host_template** dans la base de registre ou le fichier **centagent.json**.
+7. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
+   > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
+8. Cliquez sur **Sauvegarder**.
+9. [Déployez la configuration en redémarrant le moteur de collecte](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+</TabItem>
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+
+5. Dans la section **Paramètres**, sélectionnez le collecteur qui se connectera aux agents. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
+6. Dans la section **Hôtes supervisés**, sélectionnez l'hôte créé précédemment. Son adresse IP s'affiche, et un port par défaut est renseigné. Modifiez ces informations si nécessaire.
+7. Renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
+8. Sélectionnez le jeton d'authentification créé précédemment. Il est aussi possible de créer un jeton depuis cet écran.
+9. Ajoutez l'hôte.
+10. Répétez l'opération pour chaque hôte devant être lié à ce collecteur. Pour configurer de fortes volumétries, il est recommandé de passer par les API dédiées.
+11. [Déployez la configuration en redémarrant le moteur de collecte](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+</TabItem>
+</Tabs>
+
+Cette configuration est déployée sur le collecteur dans le fichier **/etc/centreon-engine/otl_server.json**. Attention, ce fichier ne doit pas être édité à la main car il est écrasé à chaque déploiement de la configuration.
+
 ### Créez l'hôte et les services
+
+Cette section s'applique :
+
+* si le collecteur établit la connexion avec l'agent
+* si l'agent établit la connexion avec le collecteur, mais que l'option **Créer les hôtes automatiquement** n'est pas sélectionnée.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
@@ -83,38 +119,6 @@ Créez les services associés au modèle d'hôte.
 
 </TabItem>
 </Tabs>
-
-### Configurez la communication collecteur/agent
-
-1. Allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter**.
-2. Dans la fenêtre qui s'ouvre, sélectionnez le type d'agent **Centreon Monitoring Agent**. Des champs supplémentaires apparaissent.
-3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
-4. Sélectionnez le mode de chiffrement
-
-<Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
-
-5. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
-6. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
-   > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
-7. Cliquez sur **Sauvegarder**.
-8. [Déployez la configuration en redémarrant le moteur de collecte](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
-</TabItem>
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
-
-5. Dans la section **Paramètres**, sélectionnez le collecteur qui se connectera aux agents. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
-6. Dans la section **Hôtes supervisés**, sélectionnez l'hôte créé précédemment. Son adresse IP s'affiche, et un port par défaut est renseigné. Modifiez ces informations si nécessaire.
-7. Renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
-8. Sélectionnez le jeton d'authentification créé précédemment. Il est aussi possible de créer un jeton depuis cet écran.
-9. Ajoutez l'hôte.
-10. Répétez l'opération pour chaque hôte devant être lié à ce collecteur. Pour configurer de fortes volumétries, il est recommandé de passer par les API dédiées.
-11. [Déployez la configuration en redémarrant le moteur de collecte](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
-</TabItem>
-</Tabs>
-
-Cette configuration est déployée sur le collecteur dans le fichier **/etc/centreon-engine/otl_server.json**. Attention, ce fichier ne doit pas être édité à la main car il est écrasé à chaque déploiement de la configuration.
 
 ## Étape 2 : Préparez le collecteur
 
