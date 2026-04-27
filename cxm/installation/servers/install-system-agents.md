@@ -63,8 +63,6 @@ At this time, it is not possible to link a server to multiple sites, whether wit
 
    If unsure of your version of Debian, you can read the **/etc/debian_version** file.
 
-   > To use the **BETA** version of the agent, simply replace `main` at the end of the line with `beta`.
-
 2. Download and add the **GPG** key for our repository:
 
     ```bash
@@ -116,8 +114,6 @@ To install the Experience Monitoring agent:
    </TabItem>
    </Tabs>
 
-   > To use the **BETA** version of the agent, simply replace `main` at the end of the line with `beta`.
-
 2. Download and add the **GPG** key for our repository:
 
     ```bash
@@ -149,8 +145,6 @@ To install the Experience Monitoring agent:
 To install the Experience Monitoring agent:
 
 1. Create the repository configuration file **/etc/yum.repos.d/quanta.repo**. You can download the configuration file available here: [https://rpm.quanta.io/quanta-centos-repo.txt](https://rpm.quanta.io/quanta-centos-repo.txt)
-
-   > To use the **BETA**  of the agent, simply replace the line `baseurl=http://rpm.quanta.io/centos/$releasever/main` with `baseurl=http://rpm.quanta.io/centos/$releasever/beta`.
 
 2. Install the **GPG** key for our repository:
 
