@@ -34,9 +34,6 @@ In the case of a Cloud platform, these connectors are already installed.
 
 ### Create an authentication token
 
-This step only applies to OnPrem platforms. For Centreon Cloud, a default token is provided on the **Administration > Authentication token** page.
-
-
 1. Go to **Administration > Authentication tokens**.
 
 2. Create a token with the **Centreon Monitoring Agent** type.
