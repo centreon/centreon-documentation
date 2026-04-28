@@ -192,3 +192,8 @@ OK: Received 1 DHCPOFFER(s), max lease time = 600 sec.
 
 Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
 for Centreon Plugins typical issues.
+
+### Available options
+
+Here is a complete list of available options for [Nagios check_dhcp Plugin](https://nagios-plugins.org/doc/man/check_dhcp.html).
+
