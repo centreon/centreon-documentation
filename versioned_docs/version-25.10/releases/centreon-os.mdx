@@ -30,8 +30,8 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- Added examples for the usage of AND / OR in API documentation.
-- Dedicated token & agent configuration are created when deploying/upgrading a platform.
+- [Install/Upgrade] If a dedicated token & agent configuration do not yet exist when when droing a fresh install/upgrading a platform, they will now be automatically created.
+- [Pollers] If a dedicated token & agent configuration do not yet exist when when a new poller is added, they will now be automatically created.
 - [API] Added a new endpoint to GET Host Template.
 - [API] Added a new endpoint to GET Host.
 - [API] Added a new endpoint to GET Service Template.
@@ -39,30 +39,29 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 - [API] Added a new endpoint to GET and DELETE medias.
 - [API] Added a new endpoint to GET and UPDATE Service Category.
 - [API] Added a new endpoint to GET and UPDATE Service Groups.
-- [Authentication] Improved special characters list.
-- [Configuration] Enhanced hosts selection in hostgroups creation.
-- [Performance] Improved SQL query construction for better performance in Resource Status.
-- [Performance] Removed deprecated row-counting method and removed an unnecessary SQL join to optimize queries in Resource Status.
+- [Authentication] Specified the list of special characters accepted when creating a password
+- [Configuration] Improved host selection when creating hostgroups: search results are no longer reset when a host is added and clicking "Select all" no longer removes previously selected hosts.
+- [Performance] Improved the SQL query construction for better performance in Resource Status.
+- [Performance] Removed the deprecated row-counting method and removed an unnecessary SQL join to optimize queries in Resource Status.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue on host edition/creation API.
-- Fixed an issue where `otel_server` block was added to `otl_server.json` when only 'Connection initiated by poller' was active.
-- [ACL] Fixed issue with ressources access and host group.
-- [API] Fixed Acknowledgements API Documentation.
-- [API] Fixed an issue where adding a host or service doesn't trigger ACL recalculation.
-- [Administration] Fixed an issue where unlocking a locked contact fails with SQL syntax error.
-- [Authentication] Fixed SAML authentication failure. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
-- [CEIP] Fixed an issue where database name was hardcoded.
-- [Configuration] Fixed an issue where exporting the configuration was slower on 25.10.
-- [Configuration] Fixed an issue where unlinking a host template from a host does not unlink it from the service by host page.
+- [API] Fixed an issue with host edition/creation making API calls.
+- [API] Fixed an issue where `otel_server` block was added to `otl_server.json` when only 'Connection initiated by poller' was active in TLS mode.
+- [ACL] Fixed an issue that allowed users to see hosts belonging to hostgroups they had lost access to.
+- [API] Fixed an issue where adding a host or a service wouldn't trigger an ACL recalculation.
+- [Administration] Fixed an issue where unlocking a locked contact would fail with an SQL syntax error.
+- [Authentication] Fixed an issue with SAML authentication that caused several API call failure messages and a error 500. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
+- [CEIP] Fixed an issue where database name was hardcoded, causing multiple SQL errors.
+- [Configuration] Fixed an issue that caused exporting the configuration to be slower on 25.10.
+- [Configuration] Fixed an issue where unlinking a host template from a host did not unlink it from the service by host page.
 - [Dashboards] Duplicate entries are now removed from the metric selection.
 - [Event Logs] Fixed an issue in filter dropdowns where the service list failed to update based on the selected host.
 - [Graph] Legend names now display correctly instead of showing the "Default" placeholder.
-- [Login] Fixed an issue on login autofill when using Safari.
+- [Login] Fixed an issue on login autofill when using Safari that caused the the username field to remain empty.
 - [Remote server] Fixed an issue where tasks were not correctly imported.
 - [Upgrade 24.10.x] Fixed missing column 'parameters' in additional_connector_configuration.
 - [WEB] Fixed console error from css MIME type.
@@ -81,7 +80,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue where moving a service between hosts caused duplicate configuration entries.
+- [Services] Fixed an issue where moving a service between hosts would create duplicate configuration entries.
 - [Performance] Improved ticket management performance in the Resource Table widget in dashboards.
 
 </details>
