@@ -278,7 +278,7 @@ You will need at least 12 GB of RAM in order to use the [following file](../asse
 
 > If you want to use a different directory than `/var/lib/mysql/`, edit the **datadir** and **tmpdir** variables in the centreon.cnf file.
 
-Make sure you have a **tmp** folder in **/var/lib/mysql**.
+Make sure a **tmp** folder is created inside the same partition as **/var/lib/mysql**.
 
 > Do not set these MariaDB optimizations on your monitoring server.
 
