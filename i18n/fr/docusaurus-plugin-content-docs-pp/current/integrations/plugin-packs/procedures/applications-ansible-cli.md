@@ -4,7 +4,9 @@ title: Ansible
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Ansible Tower** 
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 ## Contenu du pack
 
 ### Modèles
