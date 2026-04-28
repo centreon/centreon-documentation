@@ -667,6 +667,10 @@ module.exports = {
           "id": "integrations/stream-connectors-cloud"
         },
         {
+          "type": "doc",
+          "id": "integrations/mcp-server"
+        },
+        {
           "type": "category",
           "label": "ITSM",
           "link": {
