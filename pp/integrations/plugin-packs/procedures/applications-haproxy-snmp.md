@@ -81,9 +81,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To use this pack, the SNMP service must be properly configured on your HAProxy
-server. HAProxy provides an official documentation to achieve this:
-https://www.haproxy.com/documentation/hapee/latest/observability/metrics/snmp/
+### SNMP Configuration
+The SNMP service must be configured and activated on the host. Please refer to the [official documentation](https://www.haproxy.com/documentation/hapee/latest/observability/metrics/snmp/). 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
+
+### Network flow
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
