@@ -25,6 +25,66 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 ## April 28, 2026
 
+### Centreon Web 25.10.11
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Install/Upgrade] If a dedicated token & agent configuration do not yet exist when when droing a fresh install/upgrading a platform, they will now be automatically created.
+- [Pollers] If a dedicated token & agent configuration do not yet exist when when a new poller is added, they will now be automatically created.
+- [API] Added a new endpoint to GET Host Template.
+- [API] Added a new endpoint to GET Host.
+- [API] Added a new endpoint to GET Service Template.
+- [API] Added a new endpoint to GET Services.
+- [API] Added a new endpoint to GET and DELETE medias.
+- [API] Added a new endpoint to GET and UPDATE Service Category.
+- [API] Added a new endpoint to GET and UPDATE Service Groups.
+- [Authentication] Specified the list of special characters accepted when creating a password
+- [Configuration] Improved host selection when creating hostgroups: search results are no longer reset when a host is added and clicking "Select all" no longer removes previously selected hosts.
+- [Performance] Improved the SQL query construction for better performance in Resource Status.
+- [Performance] Removed the deprecated row-counting method and removed an unnecessary SQL join to optimize queries in Resource Status.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue with host edition/creation making API calls.
+- [API] Fixed an issue where `otel_server` block was added to `otl_server.json` when only 'Connection initiated by poller' was active in TLS mode.
+- [ACL] Fixed an issue that allowed users to see hosts belonging to hostgroups they had lost access to.
+- [API] Fixed an issue where adding a host or a service wouldn't trigger an ACL recalculation.
+- [Administration] Fixed an issue where unlocking a locked contact would fail with an SQL syntax error.
+- [Authentication] Fixed an issue with SAML authentication that caused several API call failure messages and a error 500. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
+- [CEIP] Fixed an issue where database name was hardcoded, causing multiple SQL errors.
+- [Configuration] Fixed an issue that caused exporting the configuration to be slower on 25.10.
+- [Configuration] Fixed an issue where unlinking a host template from a host did not unlink it from the service by host page.
+- [Dashboards] Duplicate entries are now removed from the metric selection.
+- [Event Logs] Fixed an issue in filter dropdowns where the service list failed to update based on the selected host.
+- [Graph] Legend names now display correctly instead of showing the "Default" placeholder.
+- [Login] Fixed an issue on login autofill when using Safari that caused the the username field to remain empty.
+- [Remote server] Fixed an issue where tasks were not correctly imported.
+- [Upgrade 24.10.x] Fixed missing column 'parameters' in additional_connector_configuration.
+- [WEB] Fixed console error from css MIME type.
+
+</details>
+
+### Centreon Open Tickets 25.10.6
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [ITSM] Ivanti ITSM is now officially supported.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Services] Fixed an issue where moving a service between hosts would create duplicate configuration entries.
+- [Performance] Improved ticket management performance in the Resource Table widget in dashboards.
+
+</details>
+
 ### Centreon Collect 25.10.5
 
 <details open>
