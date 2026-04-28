@@ -31,7 +31,6 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- N/a.
 - [Authentication] JWT token is no longer generated at each page refresh.
 - [Viewer] When clicking on a Business Activity, you will now be redirected to the new version of the BA monitoring page.
 
@@ -64,22 +63,15 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 ### Centreon MBI 25.10.5
 
-<details open>
-  <summary>Enhancements</summary>
-
-- N/a.
-
-</details>
-
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed a critical error when updating CBIS.
-- Resolved MySQL backup failures on Debian distributions.
 - [Config] The granularity value is now correctly applied to hide unused tables during partition monitoring.
-- [Reports] Resolved an issue where report downloads would fail when using the `@DAY@, @PUBLICATIONDATE@ or @PUBLICATIONDATETIME@` variables.
+- [Reports] Resolved an issue where report downloads would fail when using the `@DAY@`, `@PUBLICATIONDATE@` or `@PUBLICATIONDATETIME@` variable.
+- [Reports] Fixed a critical error when updating CBIS.
 - [Scheduler] Fixed an issue causing the generation of duplicate reports.
 - [Server] Fixed issue preventing the update to a recent version.
+- [Server] Resolved MySQL backup failures on Debian distributions.
 
 </details>
 
