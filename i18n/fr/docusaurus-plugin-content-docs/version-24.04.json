@@ -224,7 +224,7 @@
     "description": "The label for category Before you start in sidebar docs"
   },
   "sidebar.docs.category.Before you start.link.generated-index.description": {
-    "message": "Ce que vous devez savoir avant d'installer votre plateforme Centreon.",
+    "message": "Ce que vous devez savoir avant d'installer votre plateforme Centreon Infra Monitoring.",
     "description": "The generated-index page description for category Before you start in sidebar docs"
   },
   "sidebar.docs.category.First steps with Centreon": {
@@ -270,6 +270,10 @@
   "sidebar.docs.category.Completing your Centreon HA setup": {
     "message": "Finaliser votre installation Centreon HA",
     "description": "The label for category Completing your Centreon HA setup in sidebar docs"
+  },
+  "sidebar.docs.category.Completing your Centreon HA setup.link.generated-index.description": {
+    "message": "Votre plateforme HA a été installée par Centreon Professional Services. Que pouvez-vous faire ensuite ?",
+    "description": "The generated-index page description for category Completing your Centreon HA setup in sidebar docs"
   },
   "sidebar.docs.category.Operating Centreon HA": {
     "message": "Faire fonctionner Centreon HA",

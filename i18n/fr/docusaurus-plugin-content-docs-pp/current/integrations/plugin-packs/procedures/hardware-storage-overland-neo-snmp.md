@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-overland-neo-snmp
-title: Overland Neo
+title: Overland Neo SNMP
 ---
 
 ## Prerequisites

@@ -6,7 +6,7 @@ title: Donner accès aux rapports et tâches dans Centreon
 * Les administrateurs peuvent voir et modifier toutes les tâches (créées par tous les utilisateurs de la plateforme) et peuvent voir tous les rapports générés.
 * Par défaut, les utilisateurs non administrateurs ne peuvent voir aucune tâche ni aucun rapport généré. Si vous souhaitez permettre à un utilisateur de télécharger un rapport depuis l'interface Centreon et/ou de modifier des tâches, vous devez d'abord [associer un groupe de tâches à une règle ACL MBI](#préparer-les-acls), puis [associer le groupe de tâches à la tâche que vous souhaitez partager](#utiliser-un-groupe-de-tâches-dans-la-définition-dune-tâche).
 
-Une option beaucoup plus simple consiste à envoyer le rapport généré à cet utilisateur par email ou à copier le rapport sur un serveur auquel il a accès, à l'aide d'une [règle de publication](https://docs-next-int.centreon.com/fr/docs/reporting/reports-publication-rule/).
+Une option beaucoup plus simple consiste à envoyer le rapport généré à cet utilisateur par email ou à copier le rapport sur un serveur auquel il a accès, à l'aide d'une [règle de publication](reports-publication-rule.md).
 
 Notez que les données incluses dans le rapport dépendent des ACL **de la personne qui crée la tâche**. Il incombe à l'utilisateur qui crée la tâche de s'assurer que les ressources incluses dans le rapport sont autorisées pour les utilisateurs avec lesquels il souhaite partager le rapport.
 
@@ -21,4 +21,4 @@ Notez que les données incluses dans le rapport dépendent des ACL **de la perso
 
 ## Utiliser un groupe de tâches dans la définition d'une tâche
 
-Lorsque vous [créez une tâche](https://docs-next-int.centreon.com/fr/docs/reporting/generate-reports.md) (à la page **Reporting > Monitoring Business Intelligence > Jobs**) vous pouvez lier un groupe de tâches à votre tâche pour appliquer les ACLs que vous avez défini. Cela se fait dans la section **Configuration de la tâche planifiée** de l'onglet **Configuration**.
+Lorsque vous [créez une tâche](./generating-reports.md) (à la page **Reporting > Monitoring Business Intelligence > Jobs**) vous pouvez lier un groupe de tâches à votre tâche pour appliquer les ACLs que vous avez défini. Cela se fait dans la section **Configuration de la tâche planifiée** de l'onglet **Configuration**.

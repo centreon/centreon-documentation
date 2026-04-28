@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-juniper-srx-snmp
-title: Juniper SRX
+title: Juniper SRX SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

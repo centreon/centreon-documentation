@@ -1,6 +1,6 @@
 ---
 id: network-loadbalancers-kemp-snmp
-title: Kemp Loadbalancer
+title: Kemp Loadbalancer SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

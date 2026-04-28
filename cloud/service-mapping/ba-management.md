@@ -252,8 +252,6 @@ status switches.
 The BA is managed through the
 `Configuration > Business Activity > Business Activity` menu.
 
-![image](../assets/service-mapping/guide/business-activity-listing.png)
-
 You have inline actions and global actions to delete, duplicate,
 enable/disable the BA and massively change thresholds.
 
@@ -331,15 +329,13 @@ There are several ways to create an indicator:
 To add an indicator, click the **Add a KPI** link, which takes you to the
 following form.
 
-**Regular Mode**:
+**Simple mode**:
 
 ![image](../assets/service-mapping/guide/kpi_standard.png)
 
 **Advanced mode**:
 
-To be able to manually define an impact:
-
-![image](../assets/service-mapping/guide/kpi_advanced.png)
+To be able to manually define an impact.
 
 | Column          | Description                                                                                                          |
 | ------------------------- | ----------------------------------------------------------------------------- |
@@ -361,7 +357,7 @@ you to a data entry form.
 
 | Column                            | Description                                                                           |
 | --------------------------------- | ------------------------------------------------------------------------------------- |
-| Configuration Mode                | Configuration mode: Standard or Advanced                                              |
+| Configuration Mode                | Configuration mode: Regular or Advanced                                              |
 | Object Type                       | Type of object from which the indicators will be loaded                               |
 | Hosts, Host Groups, Service group | Depending on the selected object type, a list of objects will be automatically loaded |
 | Linked Business Activity          | BA related to indicators                                                              |
@@ -405,6 +401,14 @@ Logical expression:
 6.  Enter simulation mode, thus allowing the user to simulate the statuses of
     the defined services
 
+## Specific behavior for acknowledgements
+
+> Acknowledgments apply only to the specific object (BA or KPI).
+
+Acknowledgements apply to Business Activities (BAs) as follows:
+- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or meta-services).
+- Acknowledging a KPI does not acknowledge the BA that depends on it.
+
 ## Business View (BV)
 
 ### Definition
@@ -433,8 +437,9 @@ menu.
 | ----------- | ------------------------------------------------------------------------------------ |
 | Name        | Business view name                                                                   |
 | Description | Brief description of BV                                                              |
-| Displayed   | The BV is either displayed or not displayed on the Centreon BAM screens (deprecated) |
-| Actions     | List of actions to be performed on the BV (modification/display)                     |
+| State   | The BV is either displayed or not displayed on the Centreon BAM screens (deprecated) |
+
+List of actions to be performed on the BV (modification/display).
 
 > Deleting a BV:
 >

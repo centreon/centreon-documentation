@@ -91,7 +91,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour la supervision, un utilisateur avec des droits de lecture sur l'[API](https://helpcenter.veeam.com/docs/backup/em_rest/em_web_api_reference.html?ver=120) Veeam Backup Enterprise Manager est nécessaire.
+Pour la supervision, un utilisateur avec des droits de lecture sur l'[API](https://helpcenter.veeam.com/docs/vbr/em_rest/em_web_api_reference.html) Veeam Backup Enterprise Manager est nécessaire.
 
 ## Installer le connecteur de supervision
 

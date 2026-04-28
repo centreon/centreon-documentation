@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-dell-md3000-smcli
-title: Dell MD3000
+title: Dell MD3000 SMcli
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Dell MD3000**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Dell MD3000 SMcli**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -25,8 +25,8 @@ Le connecteur apporte le modèle de service suivant
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-Dell-MD3000-Cli-custom" label="HW-Storage-Dell-MD3000-Cli-custom">
 
-| Alias         | Modèle de service                               | Description |
-|:--------------|:------------------------------------------------|:------------|
+| Alias         | Modèle de service                               | Description                                  |
+|:--------------|:------------------------------------------------|:---------------------------------------------|
 | Health-Status | HW-Storage-Dell-MD3000-Health-Status-Cli-custom | Contrôle l'état de santé global du stockage. |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Dell-MD3000-Cli-custom** est utilisé.
@@ -41,9 +41,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Health-Status" label="Health-Status">
 
-| Nom                                                        | Unité |
-|:-----------------------------------------------------------|:------|
-| health.status                                                     | N/A   |
+| Nom           | Unité |
+|:--------------|:------|
+| health.status | N/A   |
 
 
 </TabItem>
@@ -124,7 +124,7 @@ yum install centreon-pack-hardware-storage-dell-md3000-smcli
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dell MD3000**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dell MD3000 SMcli**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
