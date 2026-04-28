@@ -14,9 +14,7 @@ Cette procédure ne s'applique que dans les conditions suivantes :
 
 Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
 
-> En cas de migration d'une plateforme disposant du système de redondance
-> Centreon, il est nécessaire de contacter le
-> [support Centreon](https://support.centreon.com).
+> Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
 Avant toute chose, effectuez une sauvegarde de l’ensemble des serveurs de votre plateforme :
 
@@ -88,6 +86,8 @@ dnf update
    > Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur Centreon.
 
 ### Étape 3 : Récupérer les bases de données
+
+>Si vous utilisez une base de données distante, ignorez cette étape et passez directement à l'[étape 4](#étape-4--synchroniser-les-plugins).
 
 1. Sur l'ancien serveur, faitez un dump des bases de données :
 

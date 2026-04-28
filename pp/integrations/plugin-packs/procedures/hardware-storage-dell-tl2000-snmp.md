@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-dell-tl2000-snmp
-title: Dell TL2000
+title: Dell TL2000 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Dell TL2000** connector through the
+The following monitoring connectors will be installed when you install the **Dell TL2000 SNMP** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -50,7 +50,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="GlobalStatus" label="GlobalStatus">
 
-| Name   | Unit |
+| Name          | Unit |
 |:--------------|:-----|
 | global.status | N/A  |
 
@@ -61,7 +61,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher.
 Your resource may require a list of addresses authorized to query it to be set up.
 Please ensure that the addresses of the Centreon pollers are included in this list.
 
@@ -111,7 +112,7 @@ yum install centreon-pack-hardware-storage-dell-tl2000-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Dell TL2000** connector through
+2. Whatever the license type (*online* or *offline*), install the **Dell TL2000 SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

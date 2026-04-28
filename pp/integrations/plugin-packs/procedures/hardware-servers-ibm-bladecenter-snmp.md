@@ -1,6 +1,6 @@
 ---
 id: hardware-servers-ibm-bladecenter-snmp
-title: IBM BladeCenter
+title: IBM BladeCenter SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

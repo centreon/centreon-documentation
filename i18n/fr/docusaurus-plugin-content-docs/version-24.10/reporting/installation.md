@@ -337,6 +337,13 @@ apt install centreon-bi-server
 </TabItem>
 </Tabs>
 
+Vous devez ensuite donner des droits à l'utilisateur centreon dans la base de données du central :
+
+```shell
+GRANT TRIGGER ON centreon.* TO `centreon`@'%';
+GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
+```
+
 ### Activer l'extension
 
 Le menu **Administration > Extension > Gestionnaire** vous permet
@@ -610,14 +617,14 @@ apt update
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
@@ -650,7 +657,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Puis lancer l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
@@ -679,7 +686,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 Puis lancer l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
@@ -708,7 +715,7 @@ dnf config-manager --set-enabled 'powertools'
 Puis lancez l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
@@ -737,7 +744,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 Puis lancer l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
@@ -766,7 +773,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 Puis lancez l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
@@ -795,7 +802,7 @@ dnf config-manager --set-enabled 'crb'
 Puis lancer l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server mariadb-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server mariadb
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :

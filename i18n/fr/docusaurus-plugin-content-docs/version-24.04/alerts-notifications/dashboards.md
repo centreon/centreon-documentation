@@ -112,6 +112,9 @@ Vous utilisez la fonctionnalité Tableaux de bord avec un profil de **viewer** o
 
 1. Cliquez sur le bouton **partager** en bas à droite du tableau de bord.
 2. Dans la liste déroulante **Ajouter un contact**, sélectionnez l'utilisateur à ajouter.
+  > Seuls les utilisateurs remplissant les deux conditions suivantes sont affichés : 
+  >  - appartenir aux mêmes groupes d'accès que les vôtres,
+  >  - avoir accès au menu des Tableaux de bord (activable via les droits d'accès).
 3. Sélectionnez le profil **Viewer** ou **Editor**.
 4. Cliquez sur le bouton **+** pour l'ajouter.
 5. Répétez l'action pour chaque utilisateur que vous souhaitez ajouter.
@@ -169,6 +172,8 @@ La fenêtre **Droits d'accès de la liste de diffusion** s'affiche.
 Le menu d'action à trois points situé à la fin de la ligne de la liste de diffusion vous permet d'éditer les propriétés ou de supprimer la liste de diffusion.
 
 ## Liste des widgets
+
+> Notez que certains widgets nécessitent une licence spécifique.
 
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

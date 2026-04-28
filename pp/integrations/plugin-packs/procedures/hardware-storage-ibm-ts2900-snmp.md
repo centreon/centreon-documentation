@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-ibm-ts2900-snmp
-title: IBM TS2900
+title: IBM TS2900 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **IBM TS2900** connector through the
+The following monitoring connectors will be installed when you install the **IBM TS2900 SNMP** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **IBM
 
 ### Templates
 
-The Monitoring Connector **IBM TS2900** brings a host template:
+The Monitoring Connector **IBM TS2900 SNMP** brings a host template:
 
 * **HW-Storage-IBM-TS2900-SNMP-custom**
 
@@ -50,13 +50,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Name              | Unit |
-|:----------------------|:------|
-| robotStatus | N/A   |
-| contState    | N/A   |
-| contPowerStatus    | N/A   |
-| magStatus    | N/A   |
-| driveStatus    | N/A   |
+| Name            | Unit |
+|:----------------|:-----|
+| robotStatus     | N/A  |
+| contState       | N/A  |
+| contPowerStatus | N/A  |
+| magStatus       | N/A  |
+| driveStatus     | N/A  |
 
 </TabItem>
 </Tabs>
@@ -65,7 +65,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher.
 Your resource may require a list of addresses authorized to query it to be set up.
 Please ensure that the addresses of the Centreon pollers are included in this list.
 
@@ -117,7 +118,7 @@ yum install centreon-pack-hardware-storage-ibm-ts2900-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **IBM TS2900** connector through
+2. Whatever the license type (*online* or *offline*), install the **IBM TS2900 SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -189,10 +190,10 @@ yum install centreon-plugin-Hardware-Storage-Ibm-Ts2900-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'robot', 'drive', 'ctrl', 'ctrlpower', 'magazine' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).  | --verbose         |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'robot', 'drive', 'ctrl', 'ctrlpower', 'magazine'                                                    | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 </Tabs>

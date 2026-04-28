@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-qsan-nas-snmp
-title: QSAN NAS
+title: QSAN NAS SNMP
 ---
 
 ## Prerequisites

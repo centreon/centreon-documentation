@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-dell-md3000-smcli
-title: Dell MD3000
+title: Dell MD3000 SMcli
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Dell MD3000** connector through the
+The following monitoring connectors will be installed when you install the **Dell MD3000 SMcli** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -24,9 +24,9 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-Dell-MD3000-Cli-custom" label="HW-Storage-Dell-MD3000-Cli-custom">
 
-| Service Alias | Service Template                                | Service Description |
-|:--------------|:------------------------------------------------|:--------------------|
-| Health-Status | HW-Storage-Dell-MD3000-Health-Status-Cli-custom | Check storage health status.                    |
+| Service Alias | Service Template                                | Service Description          |
+|:--------------|:------------------------------------------------|:-----------------------------|
+| Health-Status | HW-Storage-Dell-MD3000-Health-Status-Cli-custom | Check storage health status. |
 
 > The services listed above are created automatically when the **HW-Storage-Dell-MD3000-Cli-custom** host template is used.
 
@@ -40,9 +40,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Health-Status" label="Health-Status">
 
-| Name                                                       | Unit |
-|:-----------------------------------------------------------|:------|
-| health.status                                              | N/A   |
+| Name          | Unit |
+|:--------------|:-----|
+| health.status | N/A  |
 
 </TabItem>
 </Tabs>
@@ -124,7 +124,7 @@ yum install centreon-pack-hardware-storage-dell-md3000-smcli
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Dell MD3000** connector through
+2. Whatever the license type (*online* or *offline*), install the **Dell MD3000 SMcli** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

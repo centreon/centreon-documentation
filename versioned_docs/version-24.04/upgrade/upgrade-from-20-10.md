@@ -81,7 +81,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/e
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
@@ -392,7 +392,8 @@ You must uninstall and then reinstall MariaDB to upgrade between major versions 
 3. Install the 10.11 version:
 
     ```shell
-    dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
+    dnf module enable -y mariadb:10.11
+    dnf install mariadb-server-10.11\* mariadb-10.11\*
     ```
 
 4. Start the MariaDB service:
@@ -482,9 +483,20 @@ with the following:
 
    Then you can upgrade all other commercial extensions.
 
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. If you were using custom commands for a poller (on the **Configuration > Pollers > Pollers** page, in the **Monitoring Engine Information** section), be aware that a new validation regex is now applied (`[a-zA-Z0-9\-\_]+`): your custom commands may need to be adapted. On the central server:
+   * To identify commands that must be adapted, run:
+     ```shell
+     sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
+     ```
+   * To adapt the commands automatically, run:
+     ```shell
+     sudo -u apache php /usr/share/centreon/bin/console w:m:c
+     ```
+     (You can also adapt them manually.)
 
-3. Restart the processes:
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Restart the processes:
 
    ```shell
    systemctl restart cbd centengine centreontrapd gorgoned

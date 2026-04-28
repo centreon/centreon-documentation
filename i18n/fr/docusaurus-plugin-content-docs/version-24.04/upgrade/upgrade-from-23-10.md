@@ -560,9 +560,20 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. Si vous utilisiez des commandes personnalisées pour un collecteur (sur la page **Configuration > Collecteurs > Collecteurs**, dans la section **Monitoring Engine Information**), sachez qu'une nouvelle expression régulière de validation est désormais appliquée (`[a-zA-Z0-9\-\_]+`) : vos commandes personnalisées devront peut-être être adaptées. Sur le serveur central :
+   * Pour identifier les commandes qui doivent être adaptées, exécutez :
+     ```shell
+     sudo -u apache php /usr/share/centreon/bin/console w:m:c --dry-run
+     ```
+   * Pour adapter automatiquement les commandes, exécutez :
+     ```shell
+     sudo -u apache php /usr/share/centreon/bin/console w:m:c
+     ```
+     (Vous pouvez également les adapter manuellement.)
 
-3. Redémarrez les processus Centreon :
+32. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+4. Redémarrez les processus Centreon :
 
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
@@ -589,6 +600,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
@@ -596,6 +608,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/e
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 ```
 

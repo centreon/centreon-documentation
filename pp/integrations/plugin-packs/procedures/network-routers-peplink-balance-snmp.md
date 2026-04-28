@@ -1,6 +1,6 @@
 ---
 id: network-routers-peplink-balance-snmp
-title: Peplink Balance
+title: Peplink Balance SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
