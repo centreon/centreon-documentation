@@ -1,17 +1,21 @@
 ---
 id: applications-ansible-cli
-title: Ansible
+title: Ansible CLI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Ansible Tower** 
+
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Ansible CLI** 
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Ansible** ne propose pas de modèle d'hôte.
+Le connecteur de supervision **Ansible CLI** ne propose pas de modèle d'hôte.
 
 ### Règles de découverte
 
@@ -19,18 +23,19 @@ Le connecteur de supervision **Ansible** ne propose pas de modèle d'hôte.
 
 | Nom de la règle | Description                                    |
 |:----------------|:-----------------------------------------------|
-| Ansible CLI     | Découvre les hôtes en Ansible en utilisant CLI |
+| Ansible CLI     | Découvre les hôtes Ansible en utilisant la CLI |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 ### Métriques & statuts collectés
 
-Pas de métriques et de status collectés pour ce connecteur de supervision.
+Pas de métriques et de statuts collectés pour ce connecteur de supervision.
 
 ## Prérequis
 
 Pour utiliser la découverte d'hôte de ce connecteur de supervision, vous devez être en mesure
-d'exécuter la commande CLI : 
+d'exécuter la commande CLI suivante :
+ 
 ```bash
 ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_STDOUT_CALLBACK=json ansible %(host_pattern) --module-name=setup
 ```
@@ -78,7 +83,7 @@ yum install centreon-pack-applications-ansible-cli
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Ansible Tower**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Ansible CLI**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -122,6 +127,11 @@ yum install centreon-plugin-Applications-Ansible-Cli
 
 </TabItem>
 </Tabs>
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles
 

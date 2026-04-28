@@ -1,15 +1,20 @@
 ---
 id: applications-ansible-cli
-title: Ansible
+title: Ansible CLI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the Ansible CLI connector through the Configuration > Connectors > Monitoring Connectors menu:
+* [Base Pack](./base-generic.md)
 
 ## Pack assets
 
 ### Templates
 
-**Ansible** monitoring connector doesn't have host template.
+The **Ansible CLI** monitoring connector doesn't have any host templates.
 
 ### Discovery rules
 
@@ -27,12 +32,13 @@ No metrics or status for this monitoring connector.
 
 ## Prerequisites
 
-To be able to execute this monitoring connector's host discovery, you should be able to execute the CLI command:
+To be able to execute this monitoring connector's host discovery, you should be able to execute the following CLI command:
+
 ```bash
 ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_STDOUT_CALLBACK=json ansible %(host_pattern) --module-name=setup
 ```
 
-## Installer le connecteur de supervision
+## Installing the monitoring connector
 
 ### Pack
 
@@ -75,7 +81,7 @@ yum install centreon-pack-applications-ansible-cli
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Ansible Tower** connector through
+2. Whatever the license type (*online* or *offline*), install the **Ansible CLI** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -121,6 +127,10 @@ yum install centreon-plugin-Applications-Ansible-Cli
 
 </TabItem>
 </Tabs>
+
+### Troubleshooting
+
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md) for Centreon Plugins typical issues.
 
 ### Available modes
 
