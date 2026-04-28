@@ -5,7 +5,9 @@ title: Serveur MCP Centreon
 
 > Le serveur MCP Centreon est fonctionnalité nouvelle et en rapide évolution. Durant ses phases initiales, la principale source de documentation sera le fichier README du [projet GitHub](https://github.com/centreon/centreon-mcp).
 
-Model Context Protocol (MCP) est un framework open-standard et open-source qui permet aux IA de s'intégrer à des outils externes tels que Centreon Infra Monitoring.
+## Qu'est-ce qu'un serveur MCP ?
+
+Model Context Protocol (MCP) est un framework open-standard et open-source qui permet aux IA de s'intégrer à des outils externes tels que Centreon Infra Monitoring. Un serveur MCP est un programme qui permet l'utilisation de MCP.
 
 Le serveur MCP Centreon est une fonctionnalité qui vous permet de connecter des assistants IA tels que ChatGPT ou Claude à votre plateforme Centreon Infra Monitoring. Cela vous permet de demander des informations ou d'effectuer des actions relatives à votre infrastructure via des prompts adressés à l'assistant IA. Par exemple, vous pouvez lui demander de planifier une plage de maintenance pour une ressource ou de vous afficher tous les hôtes avec un statut "Alerte".
 
