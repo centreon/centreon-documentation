@@ -13,14 +13,73 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 | Component | Releases |
 |------------|------------|
-| Centreon MAP | [25.10.4 (March 30, 2026)](#centreon-map-25104)<br/>[25.10.3 (February 26, 2026)](#centreon-map-25103) <br/> [25.10.2 (January 29, 2026)](#centreon-map-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-map-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-map-25100) |
-| Centreon BAM | [25.10.4 (March 30, 2026)](#centreon-bam-25104)<br/>[25.10.3 (February 26, 2026)](#centreon-bam-25103) <br/> [25.10.2 (January 29, 2026)](#centreon-bam-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-bam-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-bam-25100) |
-| Centreon MBI | [25.10.4 (March 30, 2026)](#centreon-mbi-25104)<br/>[25.10.3 (February 26, 2026)](#centreon-mbi-25102) <br/> [25.10.2 (January 29, 2026)](#centreon-mbi-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-mbi-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-mbi-25100) |
+| Centreon MAP | [25.10.5 (April 28, 2026)](#centreon-map-25105)<br/>[25.10.4 (March 30, 2026)](#centreon-map-25104)<br/>[25.10.3 (February 26, 2026)](#centreon-map-25103) <br/> [25.10.2 (January 29, 2026)](#centreon-map-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-map-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-map-25100) |
+| Centreon BAM | [25.10.5 (April 28, 2026)](#centreon-bam-25105)<br/>[25.10.4 (March 30, 2026)](#centreon-bam-25104)<br/>[25.10.3 (February 26, 2026)](#centreon-bam-25103) <br/> [25.10.2 (January 29, 2026)](#centreon-bam-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-bam-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-bam-25100) |
+| Centreon MBI | [25.10.5 (April 28, 2026)](#centreon-mbi-25105)<br/>[25.10.4 (March 30, 2026)](#centreon-mbi-25104)<br/>[25.10.3 (February 26, 2026)](#centreon-mbi-25102) <br/> [25.10.2 (January 29, 2026)](#centreon-mbi-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-mbi-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-mbi-25100) |
 | Centreon Auto Discovery |  [25.10.3 (February 26, 2026)](#centreon-auto-discovery-25103) <br/> [25.10.2 (January 29, 2026)](#centreon-auto-discovery-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-auto-discovery-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-auto-discovery-25100) |
 | Centreon License Manager | [25.10.3 (February 26, 2026)](#centreon-license-manager-25103) <br/> [25.10.2 (January 29, 2026)](#centreon-license-manager-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-license-manager-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-license-manager-25100) |
 | Centreon Anomaly Detection | [25.10.4 (March 30, 2026)](#centreon-anomaly-detection-25104)<br/>[25.10.3 (February 26, 2026)](#centreon-anomaly-detection-25103) <br/> [25.10.2 (January 29, 2026)](#centreon-anomaly-detection-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-anomaly-detection-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-anomaly-detection-25100) |
 | Centreon IT Edition Extensions | [25.10.4 (March 30, 2026)](#centreon-it-edition-extensions-25104)<br/>[25.10.3 (February 26, 2026)](#centreon-it-edition-extensions-25103) <br/> [25.10.2 (January 29, 2026)](#centreon-it-edition-extensions-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-it-edition-extensions-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-it-edition-extensions-25100) |
 | Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) | [25.10.3 (February 26, 2026)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-25103) <br/> [25.10.2 (January 29, 2026)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-25102) <br/> [25.10.1 (January 5, 2026)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-25101) <br/> [25.10.0 (November 4, 2025)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-25100) |
+
+</details>
+
+## April 28, 2026
+
+### Centreon MAP 25.10.5
+
+<details open>
+  <summary>Enhancements</summary>
+
+- N/a.
+- [Authentication] JWT token is no longer generated at each page refresh.
+- [Viewer] When clicking on a Business Activity, you will now be redirected to the new version of the BA monitoring page.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACL] Resolved a bug where tile icons on the homepage bypassed ACL restrictions. Visibility is now synchronized with user permissions.
+- [Config] Fixed an issue about lifetime of the JWT token.
+- [Editor] Fixed an issue preventing users from editing certain maps due to duplicate IDs.
+- [Metrics] Min and max default values have been rounded to two decimal points, to avoid layout breaking.
+- [Pie chart] When using percentage, metric values have been rounded to two decimal points to avoid layout breaking.
+- [Server] Improved startup robustness against database integrity issues.
+- [Viewer] Fixed an issue preventing the color of a single link from being updated.
+- [Viewer] Fixed an issue with service labels on shapes that were not correctly displayed when no resource was linked.
+- [Viewer] Fixed an issue with the display of the Gauge widget that was not updating correctly.
+- [Widgets] Fixed an issue preventing the background color of the Output widget from being edited.
+
+</details>
+
+### Centreon BAM 25.10.5
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Resolved an issue where the BA list was incorrectly limited to a single page.
+
+</details>
+
+### Centreon MBI 25.10.5
+
+<details open>
+  <summary>Enhancements</summary>
+
+- N/a.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a critical error when updating CBIS.
+- Resolved MySQL backup failures on Debian distributions.
+- [Config] The granularity value is now correctly applied to hide unused tables during partition monitoring.
+- [Reports] Resolved an issue where report downloads would fail when using the `@DAY@, @PUBLICATIONDATE@ or @PUBLICATIONDATETIME@` variables.
+- [Scheduler] Fixed an issue causing the generation of duplicate reports.
+- [Server] Fixed issue preventing the update to a recent version.
 
 </details>
 
