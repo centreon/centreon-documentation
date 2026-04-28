@@ -13,13 +13,76 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 | Component | Releases |
 |----------|----------|
-| **Centreon Web** | [25.10.10 (March 30, 2026)](#centreon-web-251010)<br/>[25.10.9 (February 25, 2026)](#centreon-web-25109)<br/>[25.10.8 (February 23, 2026)](#centreon-web-25108)<br/>[25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
+| **Centreon Web** | [25.10.11 (April 28, 2026)](#centreon-web-251011)<br/>[25.10.10 (March 30, 2026)](#centreon-web-251010)<br/>[25.10.9 (February 25, 2026)](#centreon-web-25109)<br/>[25.10.8 (February 23, 2026)](#centreon-web-25108)<br/>[25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
 | **Centreon Collect** | [25.10.4 (March 30, 2026)](#centreon-collect-25104)<br/>[25.10.3 (February 25, 2026)](#centreon-collect-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-collect-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-collect-25101) |
 | **Centreon Gorgone** |  [25.10.5 (March 30, 2026)](#centreon-gorgone-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-gorgone-25104)<br/>[25.10.3 (January 29, 2026)](#centreon-gorgone-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-gorgone-25102)<br/>[25.10.1 (November 17, 2025)](#centreon-gorgone-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-gorgone-25100) |
 | **Centreon Monitoring Agent** | [25.10.4 (March 30, 2026)](#centreon-monitoring-agent-25104)<br/>[25.10.3 (February 25, 2026)](#centreon-monitoring-agent-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-monitoring-agent-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-monitoring-agent-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-monitoring-agent-25100)  |
-| **Centreon Open Tickets** | [25.10.5 (March 30, 2026)](#centreon-open-tickets-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-open-tickets-25104)<br/>[25.10.3 (February 23, 2026)](#centreon-open-tickets-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
+| **Centreon Open Tickets** | [25.10.6 (April 28, 2026)](#centreon-open-tickets-25106)<br/>[25.10.5 (March 30, 2026)](#centreon-open-tickets-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-open-tickets-25104)<br/>[25.10.3 (February 23, 2026)](#centreon-open-tickets-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
 | **Centreon AWIE** | [25.10.5 (Febuary 25, 2026)](#centreon-awie-25105)<br/>[25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
 | **Centreon DSM** | [25.10.2 (February 25, 2026)](#centreon-dsm-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
+
+</details>
+
+## April 28, 2026
+
+### Centreon Web 25.10.11
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Added examples for the usage of AND / OR in API documentation.
+- Dedicated token & agent configuration are created when deploying/upgrading a platform.
+- [API] Added a new endpoint to GET Host Template.
+- [API] Added a new endpoint to GET Host.
+- [API] Added a new endpoint to GET Service Template.
+- [API] Added a new endpoint to GET Services.
+- [API] Added a new endpoint to GET and DELETE medias.
+- [API] Added a new endpoint to GET and UPDATE Service Category.
+- [API] Added a new endpoint to GET and UPDATE Service Groups.
+- [Authentication] Improved special characters list.
+- [Configuration] Enhanced hosts selection in hostgroups creation.
+- [Performance] Improved SQL query construction for better performance in Resource Status.
+- [Performance] Removed deprecated row-counting method and removed an unnecessary SQL join to optimize queries in Resource Status.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue on host edition/creation API.
+- Fixed an issue where `otel_server` block was added to `otl_server.json` when only 'Connection initiated by poller' was active.
+- [ACL] Fixed issue with ressources access and host group.
+- [API] Fixed Acknowledgements API Documentation.
+- [API] Fixed an issue where adding a host or service doesn't trigger ACL recalculation.
+- [Administration] Fixed an issue where unlocking a locked contact fails with SQL syntax error.
+- [Authentication] Fixed SAML authentication failure. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
+- [CEIP] Fixed an issue where database name was hardcoded.
+- [Configuration] Fixed an issue where exporting the configuration was slower on 25.10.
+- [Configuration] Fixed an issue where unlinking a host template from a host does not unlink it from the service by host page.
+- [Dashboards] Duplicate entries are now removed from the metric selection.
+- [Event Logs] Fixed an issue in filter dropdowns where the service list failed to update based on the selected host.
+- [Graph] Legend names now display correctly instead of showing the "Default" placeholder.
+- [Login] Fixed an issue on login autofill when using Safari.
+- [Remote server] Fixed an issue where tasks were not correctly imported.
+- [Upgrade 24.10.x] Fixed missing column 'parameters' in additional_connector_configuration.
+- [WEB] Fixed console error from css MIME type.
+
+</details>
+
+### Centreon Open Tickets 25.10.6
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Ivanti ITSM is now officially supported.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue where moving a service between hosts caused duplicate configuration entries.
+- [Performance] Improved ticket management performance in the Resource Table widget in dashboards.
 
 </details>
 
