@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias | Modèle de service  | Description                                                       |
 |:------|:-------------------|:------------------------------------------------------------------|
-| DHCP  | Infra-DHCP-custom  | Contrôle permettant de vérifier  la disponibilité du serveur DHCP |
+| DHCP  | Infra-DHCP-custom  | Contrôle permettant de vérifier la disponibilité du serveur DHCP |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Infra-DHCP-custom** est utilisé.
 
@@ -50,7 +50,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour utiliser le connecteur DHCP Server, assurez-vous que le serveur DHCP est accessible via le réseau et que l'interface locale (par exemple, eth0) est correctement configurée sur le poller Centreon.
+Pour utiliser le connecteur DHCP Server, assurez-vous que le serveur DHCP est accessible via le réseau.
 
 ## Installer le connecteur de supervision
 

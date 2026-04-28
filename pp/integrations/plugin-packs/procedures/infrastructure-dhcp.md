@@ -49,7 +49,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To use the DHCP Server connector, ensure the DHCP server is accessible over the network and the local interface (e.g., eth0) is correctly configured on the Centreon poller.
+To use the DHCP Server connector, ensure the DHCP server is accessible over the network.
 
 ## Installing the monitoring connector
 
