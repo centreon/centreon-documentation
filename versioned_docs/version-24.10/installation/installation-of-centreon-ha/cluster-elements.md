@@ -30,7 +30,7 @@ Centreon HA consists of a set of clustering tools on top of twin Centreon centra
 
 * Pollers, which do the actual monitoring.
 
-* A "central Virutal IP" to which the pollers send the collected data, so that the VIP can forward the data to the current active central node.
+* A "central Virtual IP" to which the pollers send the collected data, so that the VIP can forward the data to the current active central node.
 
 * A "database Virtual IP" to which the active central node sends the data, so that the VIP can forward the data to the current active database node.
 
