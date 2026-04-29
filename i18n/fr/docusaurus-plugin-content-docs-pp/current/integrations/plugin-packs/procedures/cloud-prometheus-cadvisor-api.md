@@ -106,6 +106,34 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Il est essentiel d'avoir Docker, un fichier de configuration Prometheus et des volumes Docker appropriés pour utiliser Prometheus avec cAdvisor.
 
+## 3. cAdvisor API
+
+**Page cible :** `cloud-cadvisor-api`
+
+---
+
+### Bonne pratique : nommer vos conteneurs
+
+cAdvisor identifie chaque conteneur par son nom. 
+Par défaut, Docker génère un nom aléatoire à chaque recréation de conteneur, ce qui amène Centreon 
+à créer de nouvelles métriques et un nouveau fichier RRD dans `/var/lib/centreon/metrics` à chaque changement, 
+entraînant une prolifération de données obsolètes.
+
+**Attribuez toujours un nom fixe à chaque conteneur supervisé :**
+
+```bash
+# Ligne de commande
+docker run -d --name mon-nginx nginx
+
+# Docker Compose
+services:
+  web:
+    image: nginx
+    container_name: mon-nginx
+```
+
+> Si vous utilisez Kubernetes, privilégiez des `StatefulSets` pour garantir des noms de pods stables (`mon-service-0`, `mon-service-1`, etc.), compatibles avec les filtres `--container` et `--pod` du connecteur.
+
 ## Installer le connecteur de supervision
 
 ### Pack
