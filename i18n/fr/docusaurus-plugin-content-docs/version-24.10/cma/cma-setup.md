@@ -10,7 +10,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 Cette étape s'effectue via l'interface du serveur central. (Il est également possible de réaliser ces étapes via [l'API Centreon Web](https://docs-api.centreon.com/api/centreon-web/24.10/).)
 
-### Installez le connecteur de supervision nécessaire (version onPrem)
+### Installez le connecteur de supervision nécessaire
 
 Sur votre serveur central, installez le connecteur de supervision qui fournira les modèles et les commandes qui vous permettront de configurer les hôtes et les services supervisés dans Centreon.
 Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
@@ -33,8 +33,6 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 3. Si vous souhaitez superviser une [application supportée par CMA](cma.md#applications-supervisables-par-cma), installez le connecteur correspondant sur votre serveur central.
 
 ### Créez un jeton d'authentification
-
-Cette étape ne s'applique que pour les plateformes OnPrem. Pour Centreon Cloud, un jeton est fourni par défaut à la page **Administration > Jetons d'authentification**.
 
 1. Allez à la page **Administration > Jetons d'authentification**.
 

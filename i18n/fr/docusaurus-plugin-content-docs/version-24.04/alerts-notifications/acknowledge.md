@@ -34,6 +34,14 @@ nominal après changement du disque.
 > dernier qui ne pourra être effective que lorsque le contrôle sera
 > revenu dans son état nominal.
 
+### Comportement spécifique aux activités métier
+
+> Si vous utilisez le module **Business Activity Monitoring**, les acquittements d'une alerte s'appliquent uniquement à l'objet concerné (activité métier ou KPI).
+
+Les acquittements s'appliquent aux activités métier (BA) comme suit :
+- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un méta-service).
+- L'acquittement d'un KPI n'entraîne pas l'acquittement de l'activité métier qui en dépend.
+
 ### En pratique
 
 Pour acquitter une alerte, plusieurs solutions sont possibles :

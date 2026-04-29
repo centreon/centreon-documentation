@@ -1515,6 +1515,10 @@
           "id": "developer/developer-widget"
         },
         {
+          "type": "doc",
+          "id": "developer/mcp-server"
+        },
+        {
           "type": "category",
           "label": "Centreon Broker",
           "link": {
