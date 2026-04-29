@@ -321,6 +321,39 @@ apt install wget gcc make unzip libaio1 libdbi-perl
 
 ###  Oracle instant client
 
+## Prerequisites
+
+### Oracle Instant Client
+
+The plugin requires **Oracle Instant Client** to be installed on the Centreon poller. 
+Certain versions of the Instant Client are mandatory for the plugin to work correctly depending on your Oracle database version.
+
+The table below summarizes the supported Client/Server combinations:
+
+| Client \ Server | 23ai | 21c      | 19c       | 18c | 12.2.0 | 12.1.0   | 11.2.0   |
+|-----------------|------|----------|-----------|-----|--------|----------|----------|
+| **23c** [^2]    | Yes  | Yes      | Yes       | No  | No     | No       | No       |
+| **21c**         | Yes  | Yes      | Yes       | Was | Was    | Yes [^3] | No       |
+| **19c**         | Yes  | Yes      | Yes       | Was | Was    | Yes [^3] | Yes [^1] |
+| **18c**         | No   | Was      | Was       | Was | Was    | Was      | Was      |
+| **12.2.0**      | No   | Was      | Was       | Was | Was    | Was      | Was      |
+| **12.1.0**      | No   | Yes [^3] | Yes [^3]  | Was | Was    | Yes [^3] | Yes [^3] |
+| **11.2.0**      | No   | No       | Yes [^1]  | Was | Was    | Yes [^3] | Yes [^1] |
+
+**Legend:**
+
+| Value   | Meaning                                                                                                                    |
+|---------|----------------------------------------------------------------------------------------------------------------------------|
+| **Yes** | Supported combination                                                                                                      |
+| **Was** | Was a supported combination, but one of the releases is no longer covered by Oracle support (fixes are no longer possible) |
+| **No**  | Has never been a supported combination                                                                                     |
+
+[^1]: Version 11.2.0.3 or 11.2.0.4 only.
+[^2]: 32-bit DB23c client is not available on any platform. However, you can use older 32-bit clients (e.g. 19c) with a DB23c server.
+[^3]: Version 12.1.0.2 only. For 11.2 interoperability, version 11.2.0.4 is required.
+
+> For more information, please refer to the [Oracle Instant Client official FAQ](https://www.oracle.com/database/technologies/faq-instant-client.html).
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
 
