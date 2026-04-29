@@ -1689,19 +1689,6 @@
     },
     {
       "type": "category",
-      "label": "Monitoring your platform",
-      "link": {
-        "type": "generated-index"
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "health/helios"
-        }
-      ]
-    },
-    {
-      "type": "category",
       "label": "Releases",
       "link": {
         "type": "generated-index"
