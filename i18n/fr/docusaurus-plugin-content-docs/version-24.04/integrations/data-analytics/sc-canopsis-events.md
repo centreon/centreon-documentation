@@ -26,8 +26,7 @@ dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-a
 
 ## Compatibilité
 
-Ce stream connector est conçu pour être compatible avec l'API v.4 de Canopsis, ce qui inclut les versions suivantes de **Canopsis** : 22.10, 
-23.04, 23.10 et 24.04.
+Ce stream connector est conçu pour être compatible avec l'API v.4 de Canopsis.
 
 ## Installation
 
