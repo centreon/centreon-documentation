@@ -464,7 +464,7 @@ Lire 4 registres d'un coup et calculer deux moyennes sur des paires :
 
 > Les métriques `phases.0`, `phases.1`, `phases.2`, `phases.3` sont créées automatiquement par `quantity: 4`. Le `pattern` filtre ensuite lesquelles entrent dans chaque `virtualcurve`.
 
-### Exemple complet — Supervision d'un générateur électrique (inspiré d'un cas de la communauté)[https://thewatch.centreon.com/infra-monitoring-data-collection-6/monitor-an-electric-generator-with-modbus-376]
+### Exemple complet — Supervision d'un générateur électrique [inspiré d'un cas de la communauté](https://thewatch.centreon.com/infra-monitoring-data-collection-6/monitor-an-electric-generator-with-modbus-376)
 
 Ce fichier monitore la tension batterie, le courant et la puissance d'un groupe électrogène. L'équipement renvoie des valeurs ×10 (ex : `230` = `23.0 V`).
 

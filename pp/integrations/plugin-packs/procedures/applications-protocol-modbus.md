@@ -464,7 +464,7 @@ Read 4 registers at once and calculate two averages over pairs:
 
 > The metrics `phases.0`, `phases.1`, `phases.2`, `phases.3` are created automatically by `quantity: 4`. The `pattern` then filters which ones are included in each `virtualcurve`.
 
-### Full example — Monitoring an electric generator (based on a [community use case](https://thewatch.centreon.com/infra-monitoring-data-collection-6/monitor-an-electric-generator-with-modbus-376))
+### Full example — Monitoring an electric generator [based on a community use case](https://thewatch.centreon.com/infra-monitoring-data-collection-6/monitor-an-electric-generator-with-modbus-376)
 
 This file monitors the battery voltage, current and power of a generator. The device returns values ×10 (e.g. `230` = `23.0 V`).
 
