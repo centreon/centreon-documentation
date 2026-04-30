@@ -202,7 +202,7 @@ This command must return results, showing that packets are exchanged between age
 
 ### Change the OpenTelemetry log level
 
-By default, the log level is **Error**.
+By default, the log level is **Error**. You may want to change this for debugging purposes.
 
 1. Go to **Configuration > Pollers > Engine Configuration**, then select the poller you want.
 2. In the **Log options** tab, in the **Debug Configuration** section, select the log level you want for OpenTelemetry logs.
@@ -210,6 +210,8 @@ By default, the log level is **Error**.
    The different log levels are: trace, debug, info, warning, error, critical, disabled.
 
 3. Restart the monitoring engine.
+
+> Remember to lower the log level once you've finished debugging, to avoid cluttering the poller with unnecessary logs.
 
 ### Check that the engine log file does not contain any errors
 
