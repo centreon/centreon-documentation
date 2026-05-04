@@ -40,19 +40,20 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue on host edition/creation API.
-- Fixed an issue where `otel_server` block was added to `otl_server.json` when only 'Connection initiated by poller' was active.
-- [ACL] Fixed issue with ressources access and host group.
-- [Administration] Fixed an issue where additional configuration wasn't updated after deleting user.
-- [Administration] Fixed an issue where unlocking a locked contact fails with SQL syntax error.
-- [Authentication] Fixed SAML authentication failure. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
-- [Configuration] Fixed an issue on additional configuration when changing vCenter name.
-- [Dashboards] Duplicate entries are now removed from the metric selection.
-- [Event Logs] Fixed an issue in filter dropdowns where the service list failed to update based on the selected host.
+- Fixed an issue where calling the host edition/creation API resulted in a "You are not authorized to access this resource" error.
+- Fixed an issue where an `otel_server` block was added to `otl_server.json` when only 'Connection initiated by poller' was active.
+- [ACL] Fixed an issue where ACL rights were not applied correctly to host groups, resulting in a "You are not authorized to access this resource" error.
+- [Administration] Fixed an issue where additional configurations weren't updated after deleting a user.
+- [Administration] Fixed an issue where unlocking a locked contact failed with an SQL syntax error.
+- [Authentication] Fixed SAML authentication failure.
+   > This update may affect custom SAML authentication configurations. If you changed any SAML settings from their default values, manually verify that your configuration still works as expected.
+- [Configuration] Fixed an issue where changing the name of a vCenter instance in an additional configuration was causing an error.
+- [Dashboards] The metric selection list no longer displays duplicate entries.
+- [Event Logs] Fixed an issue with filters where the service list failed to update after a host was selected.
 - [Graph] Legend names now display correctly instead of showing the "Default" placeholder.
 - [Remote server] Fixed an issue where tasks were not correctly imported.
-- [Trapsnmp] Fixed credentials exposure in centreontrapd.sdb.
-- [WEB] Fixed console error from css MIME type.
+- [Trapsnmp] Fixed the SQLite database setup for SNMPTrapD to only include custom macros for resources monitored by the poller.
+- [WEB] Fixed incorrect MIME type for CSS files, causing an error in the browser console.
 
 </details>
 
