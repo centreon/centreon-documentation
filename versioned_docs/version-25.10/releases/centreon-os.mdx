@@ -18,8 +18,8 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 | **Centreon Gorgone** |  [25.10.6 (April 28, 2026)](#centreon-gorgone-25106)<br/>[25.10.5 (March 30, 2026)](#centreon-gorgone-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-gorgone-25104)<br/>[25.10.3 (January 29, 2026)](#centreon-gorgone-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-gorgone-25102)<br/>[25.10.1 (November 17, 2025)](#centreon-gorgone-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-gorgone-25100) |
 | **Centreon Monitoring Agent** | [25.10.5 (April 28, 2026)](#centreon-monitoring-agent-25105)<br/>[25.10.4 (March 30, 2026)](#centreon-monitoring-agent-25104)<br/>[25.10.3 (February 25, 2026)](#centreon-monitoring-agent-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-monitoring-agent-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-monitoring-agent-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-monitoring-agent-25100)  |
 | **Centreon Open Tickets** | [25.10.6 (April 28, 2026)](#centreon-open-tickets-25106)<br/>[25.10.5 (March 30, 2026)](#centreon-open-tickets-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-open-tickets-25104)<br/>[25.10.3 (February 23, 2026)](#centreon-open-tickets-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
-| **Centreon AWIE** | [25.10.5 (Febuary 25, 2026)](#centreon-awie-25105)<br/>[25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
-| **Centreon DSM** | [25.10.2 (February 25, 2026)](#centreon-dsm-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
+| **Centreon AWIE** | [25.10.6 (April 28, 2026)](#centreon-awie-25106)<br/>[25.10.5 (Febuary 25, 2026)](#centreon-awie-25105)<br/>[25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
+| **Centreon DSM** | [25.10.3 (April 28, 2026)](#centreon-dsm-25103)<br/>[25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
 
 </details>
 
@@ -30,16 +30,17 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [Install/Upgrade] If a dedicated token & agent configuration do not yet exist when when droing a fresh install/upgrading a platform, they will now be automatically created.
+- [Install/Upgrade] If a dedicated token & agent configuration do not yet exist when doing a fresh install/upgrading a platform, they will now be automatically created.
 - [Pollers] If a dedicated token & agent configuration do not yet exist when when a new poller is added, they will now be automatically created.
 - [API] Added a new endpoint to GET Host Template.
 - [API] Added a new endpoint to GET Host.
 - [API] Added a new endpoint to GET Service Template.
 - [API] Added a new endpoint to GET Services.
+- [API] Added a new endpoint to GET Service Severities.
 - [API] Added a new endpoint to GET and DELETE medias.
 - [API] Added a new endpoint to GET and UPDATE Service Category.
 - [API] Added a new endpoint to GET and UPDATE Service Groups.
-- [Authentication] Specified the list of special characters accepted when creating a password
+- [Authentication] Specified the list of special characters accepted when creating a password.
 - [Configuration] Improved host selection when creating hostgroups: search results are no longer reset when a host is added and clicking "Select all" no longer removes previously selected hosts.
 - [Performance] Improved the SQL query construction for better performance in Resource Status.
 - [Performance] Removed the deprecated row-counting method and removed an unnecessary SQL join to optimize queries in Resource Status.
@@ -53,6 +54,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 - [API] Fixed an issue where `otel_server` block was added to `otl_server.json` when only 'Connection initiated by poller' was active in TLS mode.
 - [ACL] Fixed an issue that allowed users to see hosts belonging to hostgroups they had lost access to.
 - [API] Fixed an issue where adding a host or a service wouldn't trigger an ACL recalculation.
+- [MCP] Fixed an issue that resulted in an SQL syntax error when calling the 'GET' API endpoints with certain parameters.
 - [Administration] Fixed an issue where unlocking a locked contact would fail with an SQL syntax error.
 - [Authentication] Fixed an issue with SAML authentication that caused several API call failure messages and a error 500. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
 - [CEIP] Fixed an issue where database name was hardcoded, causing multiple SQL errors.
@@ -80,7 +82,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- [Services] Fixed an issue where moving a service between hosts would create duplicate configuration entries.
+- [Services] Fixed an issue where moving a service between hosts would leave remains of the old configuration in some tables used by Open Ticket.
 - [Performance] Improved ticket management performance in the Resource Table widget in dashboards.
 
 </details>
@@ -120,6 +122,14 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 - [CMA] The CMA agent can now retrieve the certificate automatically generated by the poller.
 
 </details>
+
+### Centreon AWIE 25.10.6
+
+- No functional changes for this module in this version.
+
+### Centreon DSM 25.10.3
+
+- No functional changes for this module in this version.
 
 ## March 30, 2026
 
