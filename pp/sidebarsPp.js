@@ -1986,6 +1986,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-sensors-messpc-ethernetbox-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-microsens-g6-snmp'
         },
         {
