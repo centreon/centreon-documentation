@@ -114,7 +114,7 @@ A few adjustments have been made to the Centreon Monitoring Agent configuration 
 
 **Collect**
 
-**Note:** Updating your poller and the Centreon Monitoring Agent will unlock the following features.
+**Note:** Updating your poller (as described [here](https://docs.centreon.com/docs/installation/poller-update-upgrade)) and the Centreon Monitoring Agent will unlock the following features.
 
 Thanks to the new version of the Centreon Monitoring Agent, you will be able to use autosigned certificates as CMA now allows insecure TLS connection mode. Security has still be reenforced by making usage of Centreon authentication tokens mandatory.
 
@@ -175,7 +175,7 @@ As the Centreon Monitoring Agent (CMA) is about to be generally available, enhan
 
 As a reminder, CMA collects metrics and computes statuses on the servers it monitors, and sends them to Centreon.
 Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
-More information about configuration is available in our [official documentation](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/).
+More information about configuration is available in our [official documentation](https://docs.centreon.com/cloud/cma/).
 
 This version adds the following enhancements to agent communication configuration:
 - A "no TLS" option was added for troubleshooting purposes (valid for a time-limited period).
@@ -217,7 +217,7 @@ In addition, a new, modern version of the BA monitoring page is now available. I
 The Beta version of the Centreon Monitoring Agent is now available for our Centreon Cloud customers.
 The Centreon Monitoring Agent (CMA) collects metrics and computes statuses on the servers it monitors, and sends them to Centreon. 
 Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
-More information about configuration is available in our [official documentation](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/) and in a dedicated [TheWatch group](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
+More information about configuration is available in our [official documentation](https://docs.centreon.com/cloud/cma/) and in a dedicated [TheWatch group](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
 
 **Centreon Dashboards**
 
@@ -251,7 +251,7 @@ Once a provider is configured, the module allows for an operator to create ticke
 Event handlers are optional system commands (scripts or executables) that are run whenever a resource status change occurs. 
 Define your event handler command in the Centreon interface and authorize it on your poller using whitelists.
 
-**Centreon Dashbaords**
+**Centreon Dashboards**
 
 As usual, we continue to make improvements to our dashboard feature. 
 You can now mark a dashboard as favorite for immediate access.
