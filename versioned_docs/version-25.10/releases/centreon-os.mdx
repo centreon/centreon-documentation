@@ -44,21 +44,18 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 - [Configuration] Improved host selection when creating hostgroups: search results are no longer reset when a host is added and clicking "Select all" no longer removes previously selected hosts.
 - [Performance] Improved the SQL query construction for better performance in Resource Status.
 - [Performance] Removed the deprecated row-counting method and removed an unnecessary SQL join to optimize queries in Resource Status.
-- [PHP] Replaced certain hardcoded sections to prevent future cookie issues.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [Installation] Fixed an issue with the unattended installation that then showed an error message when attempting to log in.
 - [API] Fixed an issue with host edition/creation making API calls.
 - [API] Fixed an issue where `otel_server` block was added to `otl_server.json` when only 'Connection initiated by poller' was active in TLS mode.
 - [ACL] Fixed an issue that allowed users to see hosts belonging to hostgroups they had lost access to.
 - [API] Fixed an issue where adding a host or a service wouldn't trigger an ACL recalculation.
 - [MCP] Fixed an issue that resulted in an SQL syntax error when calling the 'GET' API endpoints with certain parameters.
 - [Administration] Fixed an issue where unlocking a locked contact would fail with an SQL syntax error.
-- [Authentication] The feature parameter "Requested Authentication Context" is now disabled by default in SAML/SSO configurations.
 - [Authentication] Fixed an issue with SAML authentication that caused several API call failure messages and a error 500. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
 - [CEIP] Fixed an issue where database name was hardcoded, causing multiple SQL errors.
 - [Configuration] Fixed an issue that caused exporting the configuration to be slower on 25.10.
@@ -69,7 +66,6 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 - [Login] Fixed an issue on login autofill when using Safari that caused the the username field to remain empty.
 - [Remote server] Fixed an issue where tasks were not correctly imported.
 - [Upgrade 24.10.x] Fixed missing column 'parameters' in additional_connector_configuration.
-- [Upgrade 24.10.x] Fixed an issue when upgrading a remote server that resulted in an SQL error "Unable to insert event_script output for CMA".
 - [WEB] Fixed console error from css MIME type.
 
 </details>
