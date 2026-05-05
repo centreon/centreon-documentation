@@ -24,7 +24,7 @@ You need the following information
 - Username
 - Password
 
-The aformentioned account must be able to at least be able to open a ticket through the SOAP API action **MRWebServices**
+The aforementioned account must be able to at least be able to open a ticket through the SOAP API action **MRWebServices**
 
 Some tests commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
 
