@@ -7,7 +7,7 @@ title: ServiceNow
 
 | open ticket | close ticket (from Centreon to Service Now) | Handle custom fields |
 | -- | -- | -- |
-| ✓ | ✘ | ✓ |
+| ✓ | ✘ | ✘ |
 
 ## Prerequisites
 
@@ -50,35 +50,6 @@ This open ticket connector can retrieve the following information from your Serv
 - Assignment
 
 If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../mapping.md) from the Open Ticket module global documentation.
-
-## Service Now Custom fields
-
-Service Now allow their users to create custom fields for their tickets form. Since they are not standard, Open Ticket will only allow you to manually configure them. This requires a specific syntax and actions. This chapter is going to guide you through this configuration.
-
-### Add a custom field in the provider configuration
-
-- Add a new **Mapping ticket arguments** with the **+ Add a new entry** button.
-  - In the **Argument** field, select **Custom Service Now**
-  - In the **Value** field, write `{$select.opt_<your_field_name>.value}` where `<your_field_name>` must be replaced with the name of your custom field in Service Now. In the below picture, two custom fields from Service Now have been added, one that is called *u_city* and another called *u_country*.
-
-![architecture](../../../assets/alerts/ticketing/service-now/custom-fields-mapping-ticket-args.png)
-
-- Add a new **List** for your custom field with the **+Add a new entry** button.
-  - In the **Id** field you **must** keep the same syntax than before. So for a *u_city* custom field, the Id will be **opt_u_city**.
-  - In the **Label** field, feel free to be creative. It is up to you to find a meaningful label.
-  - In the **Type** field, select **Custom**
-  - The **Filters**, **Mandatory** and **Sort** parameters are optional.
-
-![archi](../../../assets/alerts/ticketing/service-now/custom-fields-lists.png)
-
-- Add new **Custom list definitions** for your custom field with the **+Add a new entry** button. This is where you set up the possible values for your fields.
-
-  - In the **Id** field you **must** keep the same syntax than before. So for a *u_city* custom field, the Id will be **opt_u_city**
-  - In the **Value** field, you **must** put the value that will be sent to Service Now.
-  - In the **Label** field, put a value that is meaningful for your users (or more human-readable if the value is some kind of internal id not meant for end users)
-  - The **Default** parameter is optional
-
-![architecture](../../../assets/alerts/ticketing/service-now/custom-fields-custom-lists-definition.png)
 
 ## Test commands
 
