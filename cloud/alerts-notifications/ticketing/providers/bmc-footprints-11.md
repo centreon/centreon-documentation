@@ -26,7 +26,7 @@ You need the following information
 
 The aforementioned account must be able to at least be able to open a ticket through the SOAP API action **MRWebServices**
 
-Some tests commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
 
 ## Sent data
 
