@@ -234,7 +234,7 @@ Your dedicated user is now working and can monitor your Windows server without r
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-edit.png)
 
-* In the **Group Policy Editor**, go to **Computer Configuration > Policies > Administrative Templates > Windows Components > Windows Remote Management (WinRM) > WinRM Service**.
+* In the **Group Policy Management Editor** menu, go to **Computer Configuration > Policies > Administrative Templates > Windows Components > Windows Remote Management (WinRM) > WinRM Service**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-winrm.png)
 
@@ -864,9 +864,9 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Fill in the following settings:
     * Action: **Start a program**
     * Program/script: **PowerShell.exe**
-    * Add argument: **-file C:\Windows\Temp\RootSDDL-Permision.ps1** <span style={{color:'#FF0000'}}>**@SERVICE_USERNAME@**</span>
+    * Add argument: **-file C:\Windows\Temp\RootSDDL-Permision.ps1** **@SERVICE_USERNAME@**
         * Adjust this parameter to match with the **File destination** setting previously configured.
-        * In our exemple the argument is **-file C:\Windows\Temp\RootSDDL-Permision.ps1<span style={{color:'#FF0000'}}> sa_centreon</span>**.
+        * In our exemple the argument is **-file C:\Windows\Temp\RootSDDL-Permision.ps1 **sa_centreon**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-2.png)
 
