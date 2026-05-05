@@ -999,7 +999,7 @@ systemctl restart crond
 
 Tout est maintenant configuré pour superviser vos serveurs Windows à l'aide de WSMAN avec un compte d'utilisateur de service, en utilisant un protocole chiffré de bout en bout.
 
-#### Résolution de problèmes & Limitations connues
+#### Résolution de problèmes & limitations connues
 
 ##### Échec du renouvellement du ticket Kerberos avec `No credentials cache found`
 
@@ -1058,8 +1058,6 @@ Si vous préférez conserver l'approche par renouvellement, définissez explicit
 ```
 
 > Attention : Assurez-vous que le chemin du fichier de cache correspond bien à la sortie de `klist` pour chaque utilisateur.
-
----
 
 ##### Erreur `Disk quota exceeded` lors de la supervision d'un grand nombre d'hôtes Windows
 
