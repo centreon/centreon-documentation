@@ -11,7 +11,7 @@ Make sure you have read [Centreon basics](concepts.md) before monitoring your fi
 
 To monitor a host in Centreon Cloud:
 
-1. Create the host with the **Add** button in **Configuration** > **Hosts** > **Hosts**.
+1. To create a host, go to **Configuration** > **Hosts** > **Hosts** and then click **Add**.
 2. Link the new host to the poller you want it to be monitored by.
 3. Link the new host to the correct template provided by a [Monitoring Connector](../monitoring/pluginpacks.md).
 4. [Export the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). The resource will appear in the **Monitoring > Resources status** page shortly, where you can track any changes in status.
