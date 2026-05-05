@@ -185,7 +185,24 @@ Néanmoins, la solution la plus optimale est l'utilisation d'un compte du domain
 
 ### Dépendances
 
-Il est nécessaire d'installer les paquets suivants: `freetds perl-DBD-Sybase unixODBC`.
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Il est nécessaire d'installer les paquets suivants : `freetds perl-DBD-Sybase unixODBC`.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Il est nécessaire d'installer les paquets suivants : `freetds perl-DBD-Sybase unixODBC`.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+Il est nécessaire d'installer les paquets suivants : `freetds libdbd-sybase-perl unixODBC`.
+Il est nécessaire d'installer les paquets suivants : `freetds libdbd-sybase-perl unixODBC`.
+
+</TabItem>
+</Tabs>
 
 ### Configuration de freetds
 
@@ -194,8 +211,24 @@ moins la version 8.0 pour un fonctionnement et une sécurité optimales. Pour ce
 décommenter la ligne `version = 4.2` et remplacer `4.2` par `8.0`. 
 
 Chemin du fichier: 
-- RedHat-like: /etc/freetds.conf
-- Debian 11: /etc/freetds/freetds.conf
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+`/etc/freetds.conf`
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+`/etc/freetds.conf`
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+`/etc/freetds/freetds.conf`
+
+</TabItem>
+</Tabs>
 
 ## Installer le connecteur de supervision
 
@@ -228,13 +261,6 @@ dnf install centreon-pack-applications-databases-mssql
 
 ```bash
 apt install centreon-pack-applications-databases-mssql
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-databases-mssql
 ```
 
 </TabItem>
@@ -273,13 +299,6 @@ dnf install centreon-plugin-Applications-Databases-Mssql
 
 ```bash
 apt install centreon-plugin-applications-databases-mssql
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Databases-Mssql
 ```
 
 </TabItem>
