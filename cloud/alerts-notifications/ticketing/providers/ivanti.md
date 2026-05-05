@@ -23,7 +23,7 @@ You need the following information
 
 - REST API key
 
-The aformentioned account must be able to at least be able to open a ticket through the **/incidents endpoint from the /HEAT/api/odata/businessobject API**.
+The aforementioned account must at least be able to open a ticket through the **/incidents endpoint from the /HEAT/api/odata/businessobject API**.
 
 The connector will also try to access the following API endpoints depending on the configuration of your open ticket rule.
 
@@ -31,11 +31,11 @@ The connector will also try to access the following API endpoints depending on t
 - /Employees
 - /standarduserteams
 
-Some tests commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
 
 ## Retrieved data
 
-This open ticket connector can retrieve the following informations from your Ivanti server
+This open ticket connector can retrieve the following information from your Ivanti server
 
 - Categories
 - Users
@@ -64,7 +64,7 @@ With the Ivanti connector, you can send fields that are not handled by the conne
 
 - Add a new **Mapping ticket arguments** with the **+ Add a new entry** button.
   - In the **Argument** field, select **Ivanti Custom Field**
-  - In the **Value** field, write `{$select._cf_<your_field_name>.value}` where `<your_field_name>` must be replaced by the name of your custom field in Ivanti. For exemple, a **city** custom field could become **\{$select._cf_city.value\}**
+  - In the **Value** field, write `{$select._cf_<your_field_name>.value}` where `<your_field_name>` must be replaced with the name of your custom field in Ivanti. For exemple, a **city** custom field could become **\{$select._cf_city.value\}**
 
 - Add a new **List** for your custom field with the **+Add a new entry** button.
   - In the **Id** field you **must** keep the same syntax than before. So for a **_cf_city** custom field, the Id will be **_cf_city**.
@@ -75,12 +75,12 @@ With the Ivanti connector, you can send fields that are not handled by the conne
 - Add a new **Custom list definitions** for your custom field with the **+Add a new entry** button. This is where you set up the possible values for your fields.
   - In the **Id** field you **must** keep the same syntax than before. So for a **_cf_city** custom field, the Id will be **_cf_city**
   - In the **Value** field, you usually put the value that will be sent to Ivanti. For a city field it can its Zip Code for example.
-  - In the **Label** field, put a value that is meaningful for your users (or more human readbale if the value is some kind of internal id not meant for end users). Therefore, in our example, it is going to be name of the city
+  - In the **Label** field, put a value that is meaningful for your users (or more human-readable if the value is some kind of internal id not meant for end users). Therefore, in our example, it is going to be name of the city
   - The **Default** parameter is optional
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between `<>` for example `<ivanti_address>` may become **my_ivanti.local**
+The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<ivanti_address>` may be replaced with **my_ivanti.local**
 
 If you are using the user/password authentication, replace the `--header 'Authorization: Bearer <token>'` part by `-u '<user>:<password>'`
 

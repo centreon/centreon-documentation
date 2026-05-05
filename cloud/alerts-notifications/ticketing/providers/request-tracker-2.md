@@ -32,11 +32,11 @@ The connector will also try to access the following API endpoints depending on t
 - /customfields
 - /customfield
 
-Some tests commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
 
 ## Retrieved data
 
-This open ticket connector can retrieve the following informations from your Glpi server
+This open ticket connector can retrieve the following information from your Glpi server
 
 - Custom fields
 - Queues
@@ -54,7 +54,7 @@ Those information are not retrieved from Request Tracker. They are configured in
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between `<>` for example `<rt_address>` may become **my_rt.local**
+The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<rt_address>` may be replaced with **my_rt.local**
 
 ### Get queues
 
@@ -85,7 +85,7 @@ curl 'https://<rt_address>/REST/2.0/customfield/<customfield_id>' \
 
 ### Open a ticket
 
-Keep in mind that the data in the below command is just an example and your Glpi server may ask you to add mandatory data
+Keep in mind that the data in the command down below is just an example and your Glpi server may ask you to add mandatory data
 
 ```bash
 curl --location 'https://<rt_address>/REST/2.0//Ticket' \

@@ -26,7 +26,7 @@ You need the following information
 - Username
 - password
 
-The aformentioned account must be able to at least be able to open a ticket through the **/issue API endpoint**
+The aforementioned account must at least be able to open a ticket through the **/issue API endpoint**
 
 The connector will also try to access the following API endpoints depending on the configuration of your open ticket rule.
 
@@ -35,11 +35,11 @@ The connector will also try to access the following API endpoints depending on t
 - /project
 - /user/search
 
-Some tests commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
 
 ## Retrieved data
 
-This open ticket connector can retrieve the following informations from your Jira server
+This open ticket connector can retrieve the following information from your Jira server
 
 - Priorities
 - Users
@@ -50,7 +50,7 @@ If you need more information regarding retrieved data from an open ticket connec
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between `<>` for example `<jira_address>` may become **my_jira.atlassian.net**
+The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<jira_address>` may be replaced with **my_jira.atlassian.net**
 
 ### Get Jira priorities
 
@@ -86,7 +86,7 @@ curl --location 'https://<jira_address>/<rest_api_resource>/project' \
 
 ### Open a ticket
 
-Keep in mind that the data in the below command is just an example and your Jira server may ask you to add mandatory data
+Keep in mind that the data in the command down below is just an example and your Jira server may ask you to add mandatory data
 
 ```bash
 curl --location 'https://<jira_address>/<rest_api_resource>/issue' \

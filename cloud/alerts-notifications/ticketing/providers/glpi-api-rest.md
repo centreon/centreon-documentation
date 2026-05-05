@@ -25,21 +25,21 @@ You need the following information
 - User token
 - Serveur address
 
-The aformentioned account must be able to at least be able to open a ticket through the **/Ticket API endpoint** and to authenticate itself through the **/initSession API endpoint**.
+The aforementioned account must at least be able to open a ticket through the **/Ticket API endpoint** and to authenticate itself through the **/initSession API endpoint**.
 
 The connector will also try to access the following API endpoints depending on the configuration of your open ticket rule.
 
 - /User
 - /Group
-- /getMyEtities
+- /getMyEntities
 - /Supplier
 - /itilCategory
 
-Some tests commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
 
 ## Retrieved data
 
-This open ticket connector can retrieve the following informations from your Glpi server
+This open ticket connector can retrieve the following information from your Glpi server
 
 - Entities
 - Users
@@ -62,7 +62,7 @@ Those information are not retrieved from Glpi. They are configured in your open 
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between `<>` for example `<glpi_address>` may become **my_glpi.local**
+The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<glpi_address>` may be replaced with **my_glpi.local**
 
 ### Get session token
 
@@ -125,7 +125,7 @@ curl --location 'https://<glpi_address>/<glpi_api_path>/itilCategory' \
 
 ### Open a ticket
 
-Keep in mind that the data in the below command is just an example and your Glpi server may ask you to add mandatory data
+Keep in mind that the data in the command down below is just an example and your Glpi server may ask you to add mandatory data
 
 ```bash
 curl --location 'https://<glpi_address>/<glpi_api_path>/Ticket' \

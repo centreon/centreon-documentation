@@ -23,7 +23,7 @@ You need the following information
 
 - the receiver email address
 
-Some tests commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
 
 ## Test commands
 

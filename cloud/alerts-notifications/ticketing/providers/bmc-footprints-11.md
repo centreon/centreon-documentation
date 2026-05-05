@@ -39,13 +39,13 @@ This open ticket connector can send the following information when opening a tic
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between `<>` for example `<footprints_address>` may become **my_footprints.local**
+The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<footprints_address>` may be replaced with **my_footprints.local**
 
 In the --data part of the curl command, all `<UPPER CASE>` information must be replaced with their appropriate values (therefore, `<TITLE>` may be replaced with "Test ticket" )
 
 ### Open a ticket
 
-Keep in mind that the data in the below command is just an example and your footprints server may ask you to add mandatory data
+Keep in mind that the data in the command down below is just an example and your footprints server may ask you to add mandatory data
 
 ```bash
 curl --location 'https://<footprints_address>/<footprints_action>' \

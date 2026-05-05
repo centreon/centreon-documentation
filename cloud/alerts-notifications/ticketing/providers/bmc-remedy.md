@@ -26,9 +26,9 @@ You need the following information
 - Username
 - Password
 
-The aformentioned account must be able to at least be able to open a ticket through the SOAP API endpoint **arsys/services/'ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS** with the **IncidentInterface_Create_WS** namespace
+The aforementioned account must at least be able to open a ticket through the SOAP API endpoint **arsys/services/'ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS** with the **IncidentInterface_Create_WS** namespace
 
-Some tests commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
 
 ## Sent data
 
@@ -41,13 +41,13 @@ This open ticket connector can send the following information when opening a tic
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between `<>` for example `<URL>` may become **http://127.0.0.1/arsys/services/ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS**
+The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<URL>` may be replaced with **http://127.0.0.1/arsys/services/ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS**
 
-In the --data part of the curl command, all `<UPPER CASE>` information must be replaced by their approriate values (therefore, `<TITLE>` must be replaced by "Test ticket" )
+In the --data part of the curl command, all `<UPPER CASE>` information must be replaced with their appropriate values (therefore, `<TITLE>` may be replaced with "Test ticket" )
 
 ### Open a ticket
 
-Keep in mind that the data in the below command is just an example and your footprints server may ask you to add mandatory data
+Keep in mind that the data in the command down below is just an example and your footprints server may ask you to add mandatory data
 
 ```bash
 curl --location 'https://<URL>' \
