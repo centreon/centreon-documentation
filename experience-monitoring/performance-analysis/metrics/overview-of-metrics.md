@@ -1,13 +1,13 @@
----
+﻿---
 id: overview-of-metrics
 title: Overview of metrics
 --- 
 
-CXM presents several performance metrics; this page describes them **very briefly**. Click any metric to open a dedicated page with more details.
+Experience Monitoring presents several performance metrics; this page describes them **very briefly**. Click any metric to open a dedicated page with more details.
 
 ## [Hero Time](./hero-time.md)
 
-Hero Time is a CXM-specific metric. It doesn't exist anywhere else. It measures the time the CXM probe takes from the start of the interaction until the success verification occurs (examples: the page is loaded, the cookie consent popup appears, etc.).
+Hero Time is a Experience Monitoring-specific metric. It doesn't exist anywhere else. It measures the time the Experience Monitoring probe takes from the start of the interaction until the success verification occurs (examples: the page is loaded, the cookie consent popup appears, etc.).
 
 Improving this metric means interactivity is better: clicks produce visible results faster.
 

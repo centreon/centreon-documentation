@@ -1,15 +1,15 @@
----
+﻿---
 id: configuration-checklist
-title: CXM configuration checklist
+title: Experience Monitoring configuration checklist
 ---
 
-This documentation assumes you have already installed the CXM solution. Refer to the installation page:
+This documentation assumes you have already installed the Experience Monitoring solution. Refer to the installation page:
 
-[CXM installation checklist](../installation/installation-checklist.md)
+[Experience Monitoring installation checklist](../installation/installation-checklist.md)
 
 ## Invite users and configure password expiration
 
-CXM licenses have no user count limits. We recommend inviting everyone involved in the project, regardless of their role. Go to the Organization page to invite users.
+Experience Monitoring licenses have no user count limits. We recommend inviting everyone involved in the project, regardless of their role. Go to the Organization page to invite users.
 
 User management is detailed here:
 
@@ -17,21 +17,21 @@ User management is detailed here:
 
 ## Configure CO<sub>2</sub> estimation
 
-To estimate CO<sub>2</sub>, CXM needs a few details. Follow the guide on this page:
+To estimate CO<sub>2</sub>, Experience Monitoring needs a few details. Follow the guide on this page:
 
 [Configure Digital Sobriety](./configure-digital-sobriety.md)
 
 ## Revenue tracking and missed revenue
 
-CXM can import revenue and conversion rates from your Google Analytics account to correlate them with site performance and availability.
+Experience Monitoring can import revenue and conversion rates from your Google Analytics account to correlate them with site performance and availability.
 
 To do so, you must grant read access to your Google Analytics account. This page explains how to set up that connection:
 
-[Configure Google Analytics with CXM](./configure-google-analytics.md)
+[Configure Google Analytics with Experience Monitoring](./configure-google-analytics.md)
 
 ## User journeys
 
-User journeys can be implemented by CXM support. Ask your sales contact or open a support request using the question mark in the bottom-right corner.
+User journeys can be implemented by Experience Monitoring support. Ask your sales contact or open a support request using the question mark in the bottom-right corner.
 
 Find the documentation for user journeys here:
 

@@ -1,4 +1,4 @@
----
+﻿---
 id: unable-to-connect
 title: Unable to connect
 --- 
@@ -13,15 +13,15 @@ An email will be sent to you allowing you to set a new password that you can use
 
 ## I forgot which email I used
 
-If you don't remember the email address you used to sign in to CXM, ask an administrator in your organization to check it in the "Organization" view in CXM as follows:
+If you don't remember the email address you used to sign in to Experience Monitoring, ask an administrator in your organization to check it in the "Organization" view in Experience Monitoring as follows:
 
 - Go to the **Configuration** tab (top right of the screen)
 - Select the relevant site
 - Open the **Organization** tab.
 
-## I don't have a CXM account
+## I don't have an Experience Monitoring account
 
-It is also possible you don't yet have an account. In that case, an administrator of your organization (within CXM) can send you an invitation by email. Instructions are available here:
+It is also possible you don't yet have an account. In that case, an administrator of your organization (within Experience Monitoring) can send you an invitation by email. Instructions are available here:
 
 [Manage users and rights](../configuration/manage-users-and-rights.md)
 
@@ -29,4 +29,4 @@ It is also possible you don't yet have an account. In that case, an administrato
 
 If you are still experiencing difficulties after trying the steps above, please contact our support team directly:
 
-[Contact CXM support](../getting-started/contact-support.md)
+[Contact Experience Monitoring support](../getting-started/contact-support.md)

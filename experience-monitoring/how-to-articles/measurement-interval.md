@@ -1,11 +1,11 @@
----
+﻿---
 id: measurement-interval
 title: Measurement interval
 --- 
 
 ## Definition
 
-The user-journey measurement interval determines how often CXM probes run on your site.
+The user-journey measurement interval determines how often Experience Monitoring probes run on your site.
 
 For example: if your measurement interval is 3 minutes, the probe will perform a full run of the journey every 3 minutes.
 

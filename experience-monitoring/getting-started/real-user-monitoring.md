@@ -1,4 +1,4 @@
----
+﻿---
 id: real-user-monitoring
 title: Real User Monitoring (RUM)
 ---
@@ -10,9 +10,9 @@ Called “RUM” among insiders, Real User Monitoring consists of observing and 
 It's important to note that:
 
 - this feature requires adding an **external tag** to the page, which is designed to be loaded **asynchronously** and to be **extremely lightweight** so it doesn't slow the user's browsing on the site.
-- the type of data sent by the browser via the CXM tag and the way CXM stores these elements in its database ensure **the CXM tag is excluded from the scope of GDPR**. Indeed, the figures sent through the tag are purely technical and **not personally identifiable**. The CXM dashboard allows observing site behavior for different browser types (Chrome, Mobile Safari, EDGE, ...) but without any possibility to identify a unique user.
+- the type of data sent by the browser via the Experience Monitoring tag and the way Experience Monitoring stores these elements in its database ensure **the Experience Monitoring tag is excluded from the scope of GDPR**. Indeed, the figures sent through the tag are purely technical and **not personally identifiable**. The Experience Monitoring dashboard allows observing site behavior for different browser types (Chrome, Mobile Safari, EDGE, ...) but without any possibility to identify a unique user.
 
-Once this tag is in place, CXM can record the experience perceived by all users **with or without sampling**, which provides a very precise view of key performance metrics (e.g., TTFB, Speed Index, full page load time, etc.).
+Once this tag is in place, Experience Monitoring can record the experience perceived by all users **with or without sampling**, which provides a very precise view of key performance metrics (e.g., TTFB, Speed Index, full page load time, etc.).
 
 The **key benefits** provided by RUM are:
 

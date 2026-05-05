@@ -1,4 +1,4 @@
----
+﻿---
 id: time-to-first-byte
 title: TTFB - Time To First Byte
 --- 
@@ -22,7 +22,7 @@ Long TTFB usually indicates the application isn't using a full-page cache (for e
 - cloud resource usage
 - the environmental footprint of the application.
 
-In CXM, TTFB is visible in synthetic User Journey analyses and in [Real User Monitoring](../../getting-started/real-user-monitoring.md).
+In Experience Monitoring, TTFB is visible in synthetic User Journey analyses and in [Real User Monitoring](../../getting-started/real-user-monitoring.md).
 
 ## Scoring
 

@@ -1,9 +1,9 @@
----
+﻿---
 id: add-advanced-metrics
 title: Add Advanced Metrics
 ---
 
-The CXM agent includes modules (or application agents) that allow you to collect system data from various components of your infrastructure, such as Apache, MySQL, Redis, Varnish, PostgreSQL, and more.
+The Experience Monitoring agent includes modules (or application agents) that allow you to collect system data from various components of your infrastructure, such as Apache, MySQL, Redis, Varnish, PostgreSQL, and more.
 
 > These application agents must be installed **after** installing the system agent. [Refer to the dedicated page to install the agent](./install-system-agents.md)
 
@@ -37,7 +37,7 @@ The CXM agent includes modules (or application agents) that allow you to collect
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in CXM within a few minutes.
+You should see metrics appear in Experience Monitoring within a few minutes.
 
 ## MySQL
 
@@ -68,7 +68,7 @@ You should see metrics appear in CXM within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in CXM within a few minutes.
+You should see metrics appear in Experience Monitoring within a few minutes.
 
 ## PostgreSQL
 
@@ -99,7 +99,7 @@ You should see metrics appear in CXM within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in CXM within a few minutes.
+You should see metrics appear in Experience Monitoring within a few minutes.
 
 ## Nginx
 
@@ -131,7 +131,7 @@ You should see metrics appear in CXM within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in CXM within a few minutes.
+You should see metrics appear in Experience Monitoring within a few minutes.
 
 ## Varnish
 
@@ -162,7 +162,7 @@ You should see metrics appear in CXM within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in CXM within a few minutes.
+You should see metrics appear in Experience Monitoring within a few minutes.
 
 ## Redis
 
@@ -199,7 +199,7 @@ You should see metrics appear in CXM within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in CXM within a few minutes.
+You should see metrics appear in Experience Monitoring within a few minutes.
 
 ## Memcached
 
@@ -224,6 +224,6 @@ You should see metrics appear in CXM within a few minutes.
     systemctl restart quanta-agent
     ```
 
-You should see metrics appear in CXM within a few minutes.
+You should see metrics appear in Experience Monitoring within a few minutes.
 
 > The PHP profiler must be installed separately. Refer to the dedicated page, [**Install the PHP / Magento / OroCommerce Profiler**](./install-php-magento-orocommerce-profiler.md)

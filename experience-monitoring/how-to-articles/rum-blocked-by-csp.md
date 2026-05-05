@@ -1,4 +1,4 @@
----
+﻿---
 id: rum-blocked-by-csp
 title: A strict Content Security Policy (CSP) blocks the RUM data collection
 ---
@@ -16,7 +16,7 @@ Your site uses a CSP that requires an update. This behavior is completely normal
 
 ## Issue - The RUM tag is blocked by a CSP
 
-CXM uses a script loaded from ``https://appstatic.quanta.io``, and then sends its performance metrics to ``https://rum-metrics.quanta.io``. 
+Experience Monitoring uses a script loaded from ``https://appstatic.quanta.io``, and then sends its performance metrics to ``https://rum-metrics.quanta.io``. 
 On the large majority of sites, this works automatically, including when the tag is installed via GTM, Axeptio or another manager. However, some sites implement an advanced Content Security Policy (CSP).
 
 This is a security mechanism that precisely defines:

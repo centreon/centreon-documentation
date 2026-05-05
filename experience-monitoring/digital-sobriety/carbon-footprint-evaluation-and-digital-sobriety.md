@@ -1,29 +1,29 @@
----
+﻿---
 id: carbon-footprint-evaluation-and-digital-sobriety
-title: Carbon footprint evaluation and digital sobriety approach in CXM
+title: Carbon footprint evaluation and digital sobriety approach in Experience Monitoring
 --- 
 
 Measuring the environmental footprint of digital activity for a website requires many factors and ongoing updates to calculation methods: the field is relatively new and the state of the art evolves rapidly.
 
-Although the domain is changing fast, CXM already aims to provide actionable measures that follow the principles of the [GHG Protocol](https://www.greenly.earth/blog-fr/ghg-protocol-quest-ce-que-cest-comment-ca-marche) (Relevance, Completeness, Consistency, Transparency, and Accuracy). These criteria are important to allow companies that wish to include their website impact in their corporate carbon accounting.
+Although the domain is changing fast, Experience Monitoring already aims to provide actionable measures that follow the principles of the [GHG Protocol](https://www.greenly.earth/blog-fr/ghg-protocol-quest-ce-que-cest-comment-ca-marche) (Relevance, Completeness, Consistency, Transparency, and Accuracy). These criteria are important to allow companies that wish to include their website impact in their corporate carbon accounting.
 
-To respect these principles and provide carbon impact estimates as close to reality as possible, CXM relies on several market-recognized algorithms:
+To respect these principles and provide carbon impact estimates as close to reality as possible, Experience Monitoring relies on several market-recognized algorithms:
 
 - The Digital Sobriety Score for eco-design scoring, represented as a per-page score out of 100:
     
-    ![Eco-design score measurement in CXM for a given user journey](../assets/digital-sobriety/carbon-footprint-1.png)
+    ![Eco-design score measurement in Experience Monitoring for a given user journey](../assets/digital-sobriety/carbon-footprint-1.png)
         
 - The [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/) method to estimate CO<sub>2</sub>eq emissions for downloading a page over the network:
     
     ![Carbon impact measurement (in CO<sub>2</sub>eq) performed via synthetic requests for a given user journey](../assets/digital-sobriety/carbon-footprint-2.png)
 
-- The open-source Boavizta impact database for manufacturing and end-of-life impact calculations for servers (measurement to be published in CXM in Q2 2023).
+- The open-source Boavizta impact database for manufacturing and end-of-life impact calculations for servers (measurement to be published in Experience Monitoring in Q2 2023).
 
-Depending on the feature—whether it measures the carbon impact of a specific user journey, weights per-page carbon impact by page traffic, or highlights pages with the greatest eco-design optimization potential—CXM will use one of these methods, always transparently.
+Depending on the feature—whether it measures the carbon impact of a specific user journey, weights per-page carbon impact by page traffic, or highlights pages with the greatest eco-design optimization potential—Experience Monitoring will use one of these methods, always transparently.
 
-  ![Global site measurement (eco-design score and carbon footprint) calculated based on real traffic in CXM's Real User Monitoring module](../assets/digital-sobriety/carbon-footprint-3.png)
+  ![Global site measurement (eco-design score and carbon footprint) calculated based on real traffic in Experience Monitoring's Real User Monitoring module](../assets/digital-sobriety/carbon-footprint-3.png)
 
-Beyond using established methods, CXM contributes to refining calculation methods through ongoing collaboration with industry professionals, notably:
+Beyond using established methods, Experience Monitoring contributes to refining calculation methods through ongoing collaboration with industry professionals, notably:
 
 - the ecosystem of [Planet'Tech Care](https://planet-techcare.green/) signatories (of which Centreon is an active member)
 - the cross-company working group [Boavizta](https://www.boavizta.org/en)
@@ -46,9 +46,9 @@ To measure a website's total carbon impact, two major dimensions must be conside
     - Network (routers, firewalls, 4G antennas, submarine fiber, etc.);
     - End-user devices (computer, tablet, or phone);
 
-As shown in the two-dimensional table below, CXM can measure emissions related to site "usage" across the entire chain (datacenter, network, and end-user devices). This measurement generally represents the largest portion of greenhouse gas emissions, and eco-design measures typically have the greatest impact on this metric when implemented.
+As shown in the two-dimensional table below, Experience Monitoring can measure emissions related to site "usage" across the entire chain (datacenter, network, and end-user devices). This measurement generally represents the largest portion of greenhouse gas emissions, and eco-design measures typically have the greatest impact on this metric when implemented.
 
-Here is the current functional scope of CXM:
+Here is the current functional scope of Experience Monitoring:
 
 |  | Scope 1 | Scope 2 | Scope 3 |  |
 | --- | --- | --- | --- | --- |

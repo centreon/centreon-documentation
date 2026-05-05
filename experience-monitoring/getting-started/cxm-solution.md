@@ -1,4 +1,4 @@
----
+﻿---
 id: cxm-solution
 title: The Centreon Experience Monitoring Solution
 ---
@@ -12,7 +12,7 @@ The solution combines several complementary components:
 - **Digital Sustainability Monitoring**: Continuous assessment of the carbon footprint and eco-design score of each page.
 - **Load Testing**: Validates the technical robustness of the site under high traffic conditions.
 
-CXM provides a clear and unified interface, enhanced by:
+Experience Monitoring provides a clear and unified interface, enhanced by:
 
 - **Dynamic graphs** to visualize loading times,
 - **Customizable and intelligent alerts**,

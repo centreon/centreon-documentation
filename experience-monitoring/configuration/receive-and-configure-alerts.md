@@ -1,4 +1,4 @@
----
+﻿---
 id: receive-and-configure-alerts
 title: Receive and configure alerts
 ---
@@ -7,7 +7,7 @@ Alerts are available **by email with all licenses**.
 
 Some licenses allow receiving alerts **by SMS, Slack, or webhooks** (Microsoft Teams, Google Chat, Mattermost...). To subscribe to this option, contact your sales representative or support:
 
-[Contact CXM support](../getting-started/contact-support.md)
+[Contact Experience Monitoring support](../getting-started/contact-support.md)
 
 ## Configure communication channels
 
@@ -53,7 +53,7 @@ Select how you want to be alerted (SMS/Email/Slack). Here are some example messa
 
 #### Webhook
 
-In addition to email or SMS alerts, CXM allows users to receive alerts via a **webhook**, giving greater flexibility for integrating with other tools and systems. When an incident is detected on a monitored web application, CXM can send an **HTTP POST** request to a URL specified by the user. This URL can be protected by htaccess, and the user can also define **custom headers** if needed.
+In addition to email or SMS alerts, Experience Monitoring allows users to receive alerts via a **webhook**, giving greater flexibility for integrating with other tools and systems. When an incident is detected on a monitored web application, Experience Monitoring can send an **HTTP POST** request to a URL specified by the user. This URL can be protected by htaccess, and the user can also define **custom headers** if needed.
 You can configure this URL by clicking the word “Webhook” for a newly created or existing alert, then clicking the “**+**” icon (**Create a webhook**):
 
 ![image](../assets/configuration/receive-and-configure-alerts-7.png)
@@ -103,13 +103,13 @@ Explanation of the data sent:
   - **`pending_expectations`**: List of checks that failed (e.g., a text test).
   - **`details`**: Additional information about the incident (e.g., a 50s wait).
   - **`current_url`**: The URL open in the browser at the time of the incident.
-- **`url`**: Direct link to the incident in the CXM interface.
+- **`url`**: Direct link to the incident in the Experience Monitoring interface.
 - **`settings_url`**: Link to the alert settings for the concerned site.
 - **`alert_status`**: Alert status (e.g., "error" for a critical error).
 - **`site_name`** and **`site_id`**: Name and ID of the affected site.
 - **`detected_at_clock`**: Unix timestamp of when the incident was detected.
 
-When the alert ends (when the site is back to normal), CXM will send a new “Recovery” webhook call indicating the issue has been resolved.
+When the alert ends (when the site is back to normal), Experience Monitoring will send a new “Recovery” webhook call indicating the issue has been resolved.
 The POST body sent when an **alert is resolved** also contains a **JSON payload** with detailed information, like this:
 
 ```json
@@ -134,11 +134,11 @@ Explanation of the data sent:
 - **`end_clock`**: Unix timestamp indicating when the incident ended (the moment the situation returned to normal).
 - **`duration`**: Total duration of the incident in seconds (e.g., **1380s** which is **23 minutes**).
 - **`journey_id`** and **`journey_name`**: ID and name of the user journey affected by the incident.
-- **`url`**: Direct link to the incident in the CXM interface to review the event timeline.
+- **`url`**: Direct link to the incident in the Experience Monitoring interface to review the event timeline.
 - **`settings_url`**: Link to the alert settings for the concerned site.
 - **`alert_status`**: Alert status, here `"recovery"` to indicate the incident is over.
 - **`site_name`** and **`site_id`**: Name and ID of the affected site.
-- **`detected_at_clock`**: Unix timestamp of the recovery detection, i.e., when CXM observed the problem was resolved.
+- **`detected_at_clock`**: Unix timestamp of the recovery detection, i.e., when Experience Monitoring observed the problem was resolved.
 
 With this feature, technical teams can **automate alert handling** by integrating alerts into their internal systems (Slack, monitoring tools, custom scripts, etc.) or external services (Zapier, PagerDuty, etc.).
 
@@ -162,7 +162,7 @@ Depending on the type of alert, you can control different thresholds:
 
 You will receive an alert for anomalies such as: error codes, site unavailable, excessively long load times (over 20 sec), etc.
 
-Each error is represented by red bars in CXM. To know exactly what happened, check the alert message you received — it explains the reason for the incident.
+Each error is represented by red bars in Experience Monitoring. To know exactly what happened, check the alert message you received — it explains the reason for the incident.
 
 ### Are there quotas on alerts?
 

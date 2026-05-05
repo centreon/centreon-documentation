@@ -1,11 +1,11 @@
----
+﻿---
 id: meaning-of-colors-in-graphs
 title: Meaning of green/yellow/red and gray bars in graphs
 --- 
 
 ## Preamble
 
-While browsing CXM graphs you may sometimes see colored bars or shaded areas — red or gray — indicating incomplete data. What do they mean?
+While browsing Experience Monitoring graphs you may sometimes see colored bars or shaded areas — red or gray — indicating incomplete data. What do they mean?
 
 ## Top summary bar
 
@@ -29,13 +29,13 @@ Hovering over segments in this top bar highlights matching segments in the chart
 
 Red vertical bars that appear on your scenarios highlight errors that occurred during execution.
 
-# To view the error details, hover over the red bar — CXM will show at which step the scenario stopped and why.
+# To view the error details, hover over the red bar — Experience Monitoring will show at which step the scenario stopped and why.
 
 Clicking the bar also often offers a screenshot of the page at the time of the error, which is useful to understand what happened.
 
 ### Gray bars
 
-You may also see gray bars on some CXM charts. These simply indicate that data could not be received at the measurement time.
+You may also see gray bars on some Experience Monitoring charts. These simply indicate that data could not be received at the measurement time.
 
 This typically happens for two main reasons:
 

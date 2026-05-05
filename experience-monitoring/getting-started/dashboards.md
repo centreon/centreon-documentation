@@ -1,15 +1,15 @@
----
+﻿---
 id: dashboards
 title: Dashboards
 ---
 
-Dashboards are a way to visualize CXM information at a glance.
+Dashboards are a way to visualize Experience Monitoring information at a glance.
 
 ## Use cases
 
 ### 1. Combine information from different sites or organizations
 
-In CXM, you can belong to multiple organizations, and each organization can include monitoring access for multiple web applications. In this context, dashboards let you display, on a single screen, any CXM cards to which you have access.
+In Experience Monitoring, you can belong to multiple organizations, and each organization can include monitoring access for multiple web applications. In this context, dashboards let you display, on a single screen, any Experience Monitoring cards to which you have access.
 
 Example of cards from two sites in two different organizations:
 
@@ -27,7 +27,7 @@ You can create dashboards and share them with your organization so everyone in y
 
 In your dashboard list, your private dashboards appear first. By clicking the lock icon you access sharing options to choose which organization to share it with.
 
-### 3. Aggregate data from different CXM screens
+### 3. Aggregate data from different Experience Monitoring screens
 
 Suppose you want to focus on your site's shopping cart. It's useful to have up-to-date information on that page coming from RUM measurements and User Journeys.
 

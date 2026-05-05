@@ -1,4 +1,4 @@
----
+﻿---
 id: digital-sobriety-score
 title: Digital Sobriety Score
 --- 
@@ -21,7 +21,7 @@ To support this transition and align digital activity with planetary limits, we 
 
 The Digital Sobriety Score is a general rating that measures the environmental footprint of a website or web application. It can be used without technical expertise while enabling digital and sustainability specialists to inspect the sub-indicators that compose the overall score in greater detail.
 
-With this unified score, CXM’s mission is to raise awareness and guide digital stakeholders toward more responsible choices by providing tools to compare and progressively improve the environmental impact of their current and future applications.
+With this unified score, Experience Monitoring’s mission is to raise awareness and guide digital stakeholders toward more responsible choices by providing tools to compare and progressively improve the environmental impact of their current and future applications.
 
 ## Introduction to the methodology
 
@@ -47,22 +47,22 @@ This grading captures a broad set of impacts while providing simplified visibili
 - implement action plans to make their applications more sustainable;
 - be guided on eco-design best practices when building new digital projects, whether developed internally or externally.
 
-As part of the Digital Sobriety Score, CXM commits to delivering actionable measures that respect the principles of the [GHG Protocol](https://www.greenly.earth/fr-fr/blog/guide-entreprise/ghg-protocol-quest-ce-que-cest-comment-ca-marche): Relevance, Completeness, Consistency, Transparency, and Accuracy.
+As part of the Digital Sobriety Score, Experience Monitoring commits to delivering actionable measures that respect the principles of the [GHG Protocol](https://www.greenly.earth/fr-fr/blog/guide-entreprise/ghg-protocol-quest-ce-que-cest-comment-ca-marche): Relevance, Completeness, Consistency, Transparency, and Accuracy.
 
-In other words, the calculation methods and measurement processes **will remain transparent and open** under a Creative Commons license ([CC BY-NC-ND 4.0 DEED](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr)), allowing teams — especially specialists in responsible digital practices — to compare CXM’s results with their own calculations and tools.
+In other words, the calculation methods and measurement processes **will remain transparent and open** under a Creative Commons license ([CC BY-NC-ND 4.0 DEED](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr)), allowing teams — especially specialists in responsible digital practices — to compare Experience Monitoring’s results with their own calculations and tools.
 
 This transparency enables stakeholders to:
 
-- perform their own Digital Sobriety Score measurements, including in contexts where CXM cannot directly access the application;
+- perform their own Digital Sobriety Score measurements, including in contexts where Experience Monitoring cannot directly access the application;
 - propose improvements to evolve the calculation method as research in GreenIT progresses.
 
 ## Calculation method
 
 Calculating the digital environmental footprint is a relatively new and evolving field. New information on the impacts of use, manufacturing, and end-of-life of digital equipment may emerge, so the algorithms estimating these impacts are expected to be refined over time.
 
-For this reason, CXM versions the calculation method to ensure its continued relevance and to allow users to benefit from improvements without impairing comparability between sites audited at different times.
+For this reason, Experience Monitoring versions the calculation method to ensure its continued relevance and to allow users to benefit from improvements without impairing comparability between sites audited at different times.
 
-Even without changes to measurement methods, median market values are likely to improve over time; CXM will naturally update the quantiles used for each parameter in the Digital Sobriety Score calculation to reflect market progress.
+Even without changes to measurement methods, median market values are likely to improve over time; Experience Monitoring will naturally update the quantiles used for each parameter in the Digital Sobriety Score calculation to reflect market progress.
 
 This document describes the calculation algorithm updated in April 2023 (**version 1.1**), which is the first public release.
 
@@ -81,9 +81,9 @@ Comparison of the two methods and their advantages:
 | --- | --- | --- |
 | Duration | 3 to 5 minutes | minimum of 7 days so collected data is sufficiently comprehensive |
 | Precision | Average based on the 10 most visited pages of the site | Considers 100% of pages, weighted by each page's share of total site traffic |
-| Installation required | None | Requires installing a Real User Monitoring tag (Note: CXM’s RUM tag enables full audits while remaining GDPR-compatible) |
-| Cost | Free on quanta.green | Requires a CXM subscription or another tool capable of calculating the Digital Sobriety Score |
-| Time-series comparison | Yes, but at quarterly precision (quanta.green stores scores for 3 months). After 3 months, a new analysis shows evolution over time. | Yes, in real time and historized automatically over multiple years in CXM |
+| Installation required | None | Requires installing a Real User Monitoring tag (Note: Experience Monitoring’s RUM tag enables full audits while remaining GDPR-compatible) |
+| Cost | Free on quanta.green | Requires an Experience Monitoring subscription or another tool capable of calculating the Digital Sobriety Score |
+| Time-series comparison | Yes, but at quarterly precision (quanta.green stores scores for 3 months). After 3 months, a new analysis shows evolution over time. | Yes, in real time and historized automatically over multiple years in Experience Monitoring |
 | Certification | The "Simple audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. | The "Full audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. |
 
 Because the site's carbon footprint calculation is thorough and reflects actual traffic, it can be included in a company's overall carbon inventory, giving more accurate data for the digital part.
@@ -166,11 +166,11 @@ To compute a site's average Eco-Design Score, there are two cases:
 
 ## Carbon Footprint (CF)
 
-A basic indicator for measuring an application's environmental footprint is the carbon footprint of accessing a web page or performing a click. For this evaluation, CXM implements a recognized and transparent algorithm: the [Sustainable Web Design method](https://sustainablewebdesign.org/calculating-digital-emissions/).
+A basic indicator for measuring an application's environmental footprint is the carbon footprint of accessing a web page or performing a click. For this evaluation, Experience Monitoring implements a recognized and transparent algorithm: the [Sustainable Web Design method](https://sustainablewebdesign.org/calculating-digital-emissions/).
 
 This method estimates a page’s carbon impact based on its weight and the carbon intensity of the electricity used by the hosting platform.
 
-Thanks to this method, the same web page accessed in France, Ireland, or the USA will have different impacts due to differences in electricity generation. To account for a host country’s electricity mix, CXM relies on the [Ember Climate](https://ember-climate.org/insights/research/global-electricity-review-2022/) dataset (also used by [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity)).
+Thanks to this method, the same web page accessed in France, Ireland, or the USA will have different impacts due to differences in electricity generation. To account for a host country’s electricity mix, Experience Monitoring relies on the [Ember Climate](https://ember-climate.org/insights/research/global-electricity-review-2022/) dataset (also used by [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity)).
 
 The resulting calculation, expressed in CO<sub>2</sub>eq, also allows distinguishing contributions from different scopes (datacenter, network, and end-user devices).
 
@@ -215,7 +215,7 @@ There are two cases:
 
 2. Full audit
 
-   Weight each page’s carbon footprint by its individual view count. Since CXM’s RUM tag tracks all page views in real time, CXM can perform these calculations for high precision.
+   Weight each page’s carbon footprint by its individual view count. Since Experience Monitoring’s RUM tag tracks all page views in real time, Experience Monitoring can perform these calculations for high precision.
 
 In both cases, you obtain the site's global carbon footprint for the selected period.
 
@@ -232,9 +232,9 @@ Each sub-indicator is weighted at 50% to balance low carbon footprints per click
 
 Note: While calculation methods and weightings are the same for simple and full audits, the simple audit considers only the site’s 10 main pages for Average EDS and Average CFPC. See the section "How is the Digital Sobriety Score calculated?" for more information.
 
-**Conditions for obtaining the CXM label**
+**Conditions for obtaining the Experience Monitoring label**
 
-CXM can issue a certified Digital Sobriety Score with a summary visual suitable for use on the site or in communications. This certificate is accompanied by a detailed report containing the measurements behind the overall score.
+Experience Monitoring can issue a certified Digital Sobriety Score with a summary visual suitable for use on the site or in communications. This certificate is accompanied by a detailed report containing the measurements behind the overall score.
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-4.png)
 
@@ -242,7 +242,7 @@ The report both proves the origin of the measurement and guides digital and resp
 
 To obtain a certified score:
 
-- a CXM Digital Sobriety license must be connected to the target site with Real User Monitoring enabled. The Digital Sobriety Score is then calculated in real time.
+- an Experience Monitoring Digital Sobriety license must be connected to the target site with Real User Monitoring enabled. The Digital Sobriety Score is then calculated in real time.
 - an expert analysis is carried out to produce the full report.
 
 The first certificate for a given site can be based on the previous 30 days of data. It is valid for one year and will be renewed with a certificate based on the following 12 months. From the second year onward, the certificate will reflect the site's full-year traffic and may include the change in score versus the previous year.
@@ -269,8 +269,8 @@ More information on calculations mentioned in this document:
 
 ## License
 
-The algorithm, calculation method, and quantiles used to produce the Digital Sobriety Score are published transparently and freely to serve the public without requiring CXM services. The license is [Creative Commons Attribution-NonCommercial-NoDerivatives 2.0 France (CC BY-NC-ND 2.0 FR)](https://creativecommons.org/licenses/by-nc-nd/2.0/fr/), which permits use by individuals, associations, and companies as long as it is not resold.
+The algorithm, calculation method, and quantiles used to produce the Digital Sobriety Score are published transparently and freely to serve the public without requiring Experience Monitoring services. The license is [Creative Commons Attribution-NonCommercial-NoDerivatives 2.0 France (CC BY-NC-ND 2.0 FR)](https://creativecommons.org/licenses/by-nc-nd/2.0/fr/), which permits use by individuals, associations, and companies as long as it is not resold.
 
 ## Appendix - Quantiles used
 
-To convert each measured value on a website into a score, **mapping tables are required**. So that anyone can calculate their own Digital Sobriety Score outside of [quanta.green](http://quanta.green) or CXM's services, the complete mapping tables are available on request via [hello@quanta.io](mailto:hello@quanta.io).
+To convert each measured value on a website into a score, **mapping tables are required**. So that anyone can calculate their own Digital Sobriety Score outside of [quanta.green](http://quanta.green) or Experience Monitoring's services, the complete mapping tables are available on request via [hello@quanta.io](mailto:hello@quanta.io).

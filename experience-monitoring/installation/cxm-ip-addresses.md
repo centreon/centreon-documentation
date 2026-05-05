@@ -1,13 +1,13 @@
----
+﻿---
 id: cxm-ip-addresses
-title: CXM IP addresses
+title: Experience Monitoring IP addresses
 ---
 
 ## Probe addresses
 
 Our probes can query your site on ports 80 (HTTP) and 443 (HTTPS) or use the ICMP protocol. For most publicly accessible sites no configuration is required; however, in some cases firewalls or bot protections like Imperva or reCaptcha may automatically block our visits.
 
-If that's the case, here is the list of IP addresses you should whitelist to allow CXM access:
+If that's the case, here is the list of IP addresses you should whitelist to allow Experience Monitoring access:
 
 - 18.200.8.204
 - 34.241.126.134
@@ -43,9 +43,9 @@ If that's the case, here is the list of IP addresses you should whitelist to all
 
 ## Endpoint addresses for server agents
 
-If you use server agents (the “System” section in CXM), each of your servers regularly sends data (once per minute) to the CXM service.
+If you use server agents (the “System” section in Experience Monitoring), each of your servers regularly sends data (once per minute) to the Experience Monitoring service.
 
-This is outbound HTTPS traffic (port 443) and is often allowed by default. However, if your firewall rules are strict and you need to allow specific destinations for CXM, list the following destination IP addresses:
+This is outbound HTTPS traffic (port 443) and is often allowed by default. However, if your firewall rules are strict and you need to allow specific destinations for Experience Monitoring, list the following destination IP addresses:
 
 - 52.215.166.110
 - 52.215.179.235

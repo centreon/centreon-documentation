@@ -1,4 +1,4 @@
----
+﻿---
 id: create-a-scenario
 title: Creation of a scenario ("User Journey")
 --- 
@@ -42,7 +42,7 @@ At the bottom of the edit page, you'll find a button to create a new journey:
 
 ![Action button in edit mode](../../assets/configuration/user-journey/create-scenario-5.png)
 
-CXM generates a new journey with a single step: navigating to the root of your domain.
+Experience Monitoring generates a new journey with a single step: navigating to the root of your domain.
 
 ## Activate the journey
 
@@ -69,7 +69,7 @@ There are 6 possible actions:
 
 Choose a URL to navigate to. This action is equivalent to entering a URL in the address bar and going there.
 
-The URL must be within the domain authorized for your CXM license.
+The URL must be within the domain authorized for your Experience Monitoring license.
 
 #### Click
 
@@ -88,7 +88,7 @@ If you search by text, the text must belong to a single HTML tag. Text that appe
 <p>Click quickly to see what comes next</p>
 ```
 
-By default, CXM will click the first occurrence found. You can choose to:
+By default, Experience Monitoring will click the first occurrence found. You can choose to:
 
 - click the first occurrence (default)
 - click the second, third, etc.
@@ -102,7 +102,7 @@ This action is useful if elements only load after the mouse has hovered over a p
 
 #### Fill out a form
 
-Filling out a form is possible in CXM. The probe relies on HTML standards.
+Filling out a form is possible in Experience Monitoring. The probe relies on HTML standards.
 
 **Form CSS selector**
 
@@ -114,7 +114,7 @@ Fields can be selected by their names (the **name** attribute), their placeholde
 
 **Submit the form**
 
-By default, CXM submits the form once filled. But you can modify this behavior. Your options are:
+By default, Experience Monitoring submits the form once filled. But you can modify this behavior. Your options are:
 
 - Submit automatically (default): equivalent to pressing Enter in a form
 - Disabled: do nothing once the form is filled
@@ -154,7 +154,7 @@ No content verification is performed.
 
 #### Find text
 
-> We recommend using CSS selectors because they are less sensitive to site changes. If you don't know how to create CSS selectors, contact your agency or CXM support (support@quanta.io or the question mark at the bottom-right in CXM) so we can help configure your journey.
+> We recommend using CSS selectors because they are less sensitive to site changes. If you don't know how to create CSS selectors, contact your agency or Experience Monitoring support (support@quanta.io or the question mark at the bottom-right in Experience Monitoring) so we can help configure your journey.
 
 This verification uses the same logic as the Click and Hover actions. If the text you search for exists on the page after the action, the verification passes.
 
@@ -190,7 +190,7 @@ Each step has actions, and the journey as a whole has configuration options to s
 
 ### Name
 
-Choose a name to identify this journey in reports and across CXM screens.
+Choose a name to identify this journey in reports and across Experience Monitoring screens.
 
 We recommend using distinct names and a numbering system. For example:
 
@@ -199,13 +199,13 @@ We recommend using distinct names and a numbering system. For example:
 
 ### PHP profiling
 
-> By default, CXM enables it when it receives PHP data.
+> By default, Experience Monitoring enables it when it receives PHP data.
 
-Allows enabling/disabling PHP profiling for this journey if you have the CXM system agent and the PHP module installed on your servers.
+Allows enabling/disabling PHP profiling for this journey if you have the Experience Monitoring system agent and the PHP module installed on your servers.
 
 You can find the agent installation procedure on this page:
 
-[CXM installation checklist](../../installation/installation-checklist.md)
+[Experience Monitoring installation checklist](../../installation/installation-checklist.md)
 
 ### Check SSL certificate
 
@@ -217,7 +217,7 @@ When a site is not secure, users may see a page similar to this:
 
 ![Example of an SSL failure page](../../assets/configuration/user-journey/create-scenario-8.png)
 
-By default, CXM considers the journey failed in case of such a security issue. Disable this option to ignore these errors.
+By default, Experience Monitoring considers the journey failed in case of such a security issue. Disable this option to ignore these errors.
 
 ### HTTP Basic authentication (.htaccess)
 
@@ -285,7 +285,7 @@ Choose how often the probe should run the journey.
 
 If the probe spends this time on a step, consider it failed. A timeout that's too short risks returning false positives. A timeout that's too long risks missing errors and alerts for slow loads.
 
-### Blacklisted URLs (exclude CXM from traffic measurement statistics)
+### Blacklisted URLs (exclude Experience Monitoring from traffic measurement statistics)
 
 By default we exclude the following providers:
 
