@@ -1,6 +1,6 @@
----
+﻿---
 id: errors-and-unavailability-front-end
-title: Comprendre les erreurs & indisponibilités dans CXM
+title: Comprendre les erreurs & indisponibilités dans Experience Monitoring
 --- 
 
 >Le HAR de toutes les étapes peut être trouvé sous le screenshot d’incident afin d’aider vos développeurs à comprendre d’où venait les incidents.
@@ -9,7 +9,7 @@ title: Comprendre les erreurs & indisponibilités dans CXM
 
 Le meilleur moyen pour déterminer l’anomalie est de vérifier la capture d’écran prise au moment de l’erreur, celle-ci est disponible en cliquant sur la partie rouge au dessus du scénario et en sélectionnant « Détails de l’incident »:
 
-Lorsque les sondes CXM détectent un incident sur votre scénario web, elles tentent d'enregistrer un screenshot de la page renvoyée pour vous permettre de diagnostiquer plus facilement.
+Lorsque les sondes Experience Monitoring détectent un incident sur votre scénario web, elles tentent d'enregistrer un screenshot de la page renvoyée pour vous permettre de diagnostiquer plus facilement.
 
 Vous pouvez visualiser ce screenshot en cliquant sur le graph dans la zone rouge et en sélectionnant l'option "voir le screenshot".
 
@@ -55,7 +55,7 @@ Cela peut venir de plusieurs problèmes:
 
 ### Code de retour invalide
 
-Lorsqu’une page web se charge, elle envoie un code pour confirmer qu’elle a été chargée correctement; le plus souvent le code 200. Ce code est vérifié par CXM lors de l’execution du scénario.
+Lorsqu’une page web se charge, elle envoie un code pour confirmer qu’elle a été chargée correctement; le plus souvent le code 200. Ce code est vérifié par Experience Monitoring lors de l’execution du scénario.
 
 Ainsi, si la page renvoie un code différent (404 pour page introuvable ou 503 service non disponible par exemple), le scénario se met en erreur en précisant le code obtenu.
 

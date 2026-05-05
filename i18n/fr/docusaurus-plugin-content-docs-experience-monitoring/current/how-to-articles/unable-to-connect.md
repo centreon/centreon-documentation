@@ -1,4 +1,4 @@
----
+﻿---
 id: unable-to-connect
 title: Connexion impossible
 --- 
@@ -15,15 +15,15 @@ Un mail vous sera alors envoyé vous permettant de configurer un nouveau mot de 
 
 ## Mail oublié
 
-Si vous avez oublié le mail que vous utilisez pour vous connecter à CXM, vous pouvez demander à un administrateur de votre organisation de le vérifier dans la vue "Organisation" accessible comme suit dans CXM :
+Si vous avez oublié le mail que vous utilisez pour vous connecter à Experience Monitoring, vous pouvez demander à un administrateur de votre organisation de le vérifier dans la vue "Organisation" accessible comme suit dans Experience Monitoring :
 
 - Se rendre dans l'onglet "Configuration"  ** (en haut à droite de l'écran)
 - Sélectionner le site concerné
 - Aller dans l'onglet  *Organisation*
 
-## Je n'ai pas de compte sur CXM
+## Je n'ai pas de compte sur Experience Monitoring
 
-Il est également possible que vous n'ayez pas encore de compte sur notre outil, auquel cas un administrateur de votre organisation (sur CXM) pourra vous envoyer une invitation par mail, si besoin, la démarche à suivre est disponible ici :
+Il est également possible que vous n'ayez pas encore de compte sur notre outil, auquel cas un administrateur de votre organisation (sur Experience Monitoring) pourra vous envoyer une invitation par mail, si besoin, la démarche à suivre est disponible ici :
 
 [Gérez vos utilisateurs et leurs droits](../configuration/manage-users-and-rights.md)
 
@@ -31,4 +31,4 @@ Il est également possible que vous n'ayez pas encore de compte sur notre outil,
 
 Si malgré cela vous éprouvez toujours des difficultés, n'hésitez pas à prendre directement contact avec notre support:
 
-[Contacter le support CXM](../getting-started/contact-support.md)
+[Contacter le support Experience Monitoring](../getting-started/contact-support.md)

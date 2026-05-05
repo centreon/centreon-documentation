@@ -1,9 +1,9 @@
----
+﻿---
 id: add-advanced-metrics
 title: Ajouter les métriques avancées
 --- 
 
-L'agent CXM dispose de modules (ou agents applicatifs), permettant de récupérer des données systèmes sur différents composants de votre infrastructure tels que vos services Apache, MySQL, Redis, Varnish, PostgreSQL, etc.
+L'agent Experience Monitoring dispose de modules (ou agents applicatifs), permettant de récupérer des données systèmes sur différents composants de votre infrastructure tels que vos services Apache, MySQL, Redis, Varnish, PostgreSQL, etc.
 
 
 Ces agents applicatifs sont à installer **après** l’installation de l’agent système. Référez-vous à la page dédiée pour [installer les agents systèmes](./install-system-agents.md).
@@ -38,7 +38,7 @@ Ces agents applicatifs sont à installer **après** l’installation de l’agen
     ```
     
 
-Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
+Vous devriez voir des métriques apparaître dans Experience Monitoring sous quelques minutes.
 
 ## MySQL
 
@@ -69,7 +69,7 @@ Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
+Vous devriez voir des métriques apparaître dans Experience Monitoring sous quelques minutes.
 
 ## PostgreSQL
 
@@ -100,7 +100,7 @@ Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
+Vous devriez voir des métriques apparaître dans Experience Monitoring sous quelques minutes.
 
 ## Nginx
 
@@ -132,7 +132,7 @@ Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
+Vous devriez voir des métriques apparaître dans Experience Monitoring sous quelques minutes.
 
 ## Varnish
 
@@ -149,7 +149,7 @@ Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
     yum install quanta-agent-varnish
     ```
     
-2. Si vous utilisez plusieurs instances Varnish, il faut indiquer pour quelle instance vous souhaitez remonter les données vers CXM en ajoutant les lignes suivantes à la fin du fichier **/etc/quanta/modules.d/varnish.yml**
+2. Si vous utilisez plusieurs instances Varnish, il faut indiquer pour quelle instance vous souhaitez remonter les données vers Experience Monitoring en ajoutant les lignes suivantes à la fin du fichier **/etc/quanta/modules.d/varnish.yml**
     
     ```
     varnish:
@@ -163,7 +163,7 @@ Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
+Vous devriez voir des métriques apparaître dans Experience Monitoring sous quelques minutes.
 
 ## Redis
 
@@ -187,7 +187,7 @@ Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
     auth: password
     ```
     
-4. Si vous utilisez plusieurs instances Redis, il faut indiquer pour quelle instance vous souhaitez remonter les données vers CXM en ajoutant les lignes suivantes à la fin du fichier **/etc/quanta/modules.d/redis.yml**
+4. Si vous utilisez plusieurs instances Redis, il faut indiquer pour quelle instance vous souhaitez remonter les données vers Experience Monitoring en ajoutant les lignes suivantes à la fin du fichier **/etc/quanta/modules.d/redis.yml**
     
     ```
     instance: nom_de_votre_instance
@@ -200,7 +200,7 @@ Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
+Vous devriez voir des métriques apparaître dans Experience Monitoring sous quelques minutes.
 
 ## Memcached
 
@@ -226,7 +226,7 @@ Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
     ```
     
 
-Vous devriez voir des métriques apparaître dans CXM sous quelques minutes.
+Vous devriez voir des métriques apparaître dans Experience Monitoring sous quelques minutes.
 
 >Le profileur PHP est à installer à part. Référez-vous à la page dédiée pour [installer le profiler PHP / Magento / OroCommerce](./install-php-magento-orocommerce-profiler.md).
 

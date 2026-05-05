@@ -1,4 +1,4 @@
----
+﻿---
 id: real-user-monitoring-installation
 title: Installer le Real User Monitoring
 --- 
@@ -6,7 +6,7 @@ title: Installer le Real User Monitoring
 ## Considérations RGPD
 
 
-Bien que CXM utilise un cookie, **aucun consentement n’est nécessaire.**
+Bien qu'Experience Monitoring utilise un cookie, **aucun consentement n’est nécessaire.**
 
 
 
@@ -18,7 +18,7 @@ La CNIL exempte de consentement les cookies sous certaines conditions:
 - ne pas transmettre les données à des tiers
 - ne pas permettre le suivi global de la navigation de la personne sur d’autres sites web
 
-**CXM répond à ces conditions.**
+**Experience Monitoring répond à ces conditions.**
 
 Vous pouvez retrouver les recommandations de la CNIL [sur cette page](https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience).
 

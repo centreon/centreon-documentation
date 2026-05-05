@@ -1,11 +1,11 @@
----
+﻿---
 id: how-alerts-work
-title: Comprendre le fonctionnement des alertes dans CXM
+title: Comprendre le fonctionnement des alertes dans Experience Monitoring
 --- 
 
 ## Préambule
 
-CXM peut vous alerter sur de nombreux sujets, si vous n'avez pas encore souscrit aux alertes, rendez-vous ici:
+Experience Monitoring peut vous alerter sur de nombreux sujets, si vous n'avez pas encore souscrit aux alertes, rendez-vous ici:
 
 [Recevoir et configurer les alertes](../../configuration/receive-and-configure-alerts.md)
 

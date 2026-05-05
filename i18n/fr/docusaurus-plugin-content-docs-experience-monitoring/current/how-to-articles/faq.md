@@ -1,9 +1,9 @@
----
+﻿---
 id: faq
 title: FAQ
 --- 
 
-## Quels sont les ports de firewall à ouvrir pour l'agent CXM ?
+## Quels sont les ports de firewall à ouvrir pour l'agent Experience Monitoring ?
 
 Il est nécessaire pour que l'agent fonctionne, d'autoriser en sortie les connections HTTPS [vers nos IPs](../installation/cxm-ip-addresses.md).
 
@@ -65,7 +65,7 @@ Pour varnish, le paramètre "instance" est également utilisé comme nom d'insta
 
 Nous recommandons d'installer l'agent sur l'ensemble des serveurs de votre infrastructure, néanmoins si vous ne pouvez pas le faire sur certains de vos serveurs (base de données par exemple) et que vous souhaitez tout de même monitorer le service MySQL, vous pouvez changer le paramètre **host** dans la configuration de l'agent (*/etc/quanta/modules.d/&lt;service&gt;.yml*)
 
-## Mon serveur est mutualisé entre plusieurs sites qui ont chacun un abonnement CXM, comment faire pour que les données soient visibles dans les 2 sites ?
+## Mon serveur est mutualisé entre plusieurs sites qui ont chacun un abonnement Experience Monitoring, comment faire pour que les données soient visibles dans les 2 sites ?
 
 Pour rattacher un serveur à plusieurs sites, vous pouvez renseigner dans le fichier de configuration */etc/quanta/agent.yml* plusieurs tokens (un pour chaque site) en les séparent par des virgules, cela donne par exemple "quanta_token: tokensite1,tokensite2".
 
@@ -74,7 +74,7 @@ Le serveur sera alors crée sur les 2 sites et les données système remonteront
 Il y a quelques limitations à ce système si vos 2 sites utilisent également le module PHP:
 
 - Les évènements Magento seront remontés sur les 2 sites, quelque soit le site qui les a généré.
-- Les informations qui remonteront dans la partie Magento de l'interface de configuration dans CXM seront celles de l'un ou l'autre site (et du coup ne seront pas forcément les bonnes).
+- Les informations qui remonteront dans la partie Magento de l'interface de configuration dans Experience Monitoring seront celles de l'un ou l'autre site (et du coup ne seront pas forcément les bonnes).
 
 ## J'ai déjà installé le module Magento auparavant, comment se passe la mise à jour ?
 
@@ -82,32 +82,32 @@ La mise à jour se fait de manière automatique, lorsque nous recevrons les prem
 
 Nous vous recommandons de désinstaller l'ancien module lorsque le nouveau est installé.
 
-## Ai-je besoin de créer mon serveur dans CXM ?
+## Ai-je besoin de créer mon serveur dans Experience Monitoring ?
 
-Non, la création est automatique et se fait la première fois que nous recevons des données. Si votre serveur existait déjà dans CXM sa configuration sera mise à jour automatiquement.
+Non, la création est automatique et se fait la première fois que nous recevons des données. Si votre serveur existait déjà dans Experience Monitoring sa configuration sera mise à jour automatiquement.
 
-Vous devrez néanmoins supprimer le serveur dans CXM manuellement si vous le retirez de votre infrastructure.
+Vous devrez néanmoins supprimer le serveur dans Experience Monitoring manuellement si vous le retirez de votre infrastructure.
 
-## Je suis concerné par la sécurité de mon serveur, pouvez-vous m'expliquer un peu plus en détail comment l'agent CXM et le module PHP fonctionnent ?
+## Je suis concerné par la sécurité de mon serveur, pouvez-vous m'expliquer un peu plus en détail comment l'agent Experience Monitoring et le module PHP fonctionnent ?
 
 Nous nous sentons tout aussi concernés que vous de la sécurité des outils que nous vous proposons, voici une description technique de leur fonctionnement.
 
 Tout les paquets que nous fournissons sont signés avec une clef GPG qu'il vous faut installer dans votre système de paquets et qui permet de vérifier la provenance de ces paquets.
 
-### L'agent CXM
+### L'agent Experience Monitoring
 
-L'agent CXM est un service qui tourne en tache de fond sur votre serveur (daemon) et qui effectue plusieurs opérations:
+L'agent Experience Monitoring est un service qui tourne en tache de fond sur votre serveur (daemon) et qui effectue plusieurs opérations:
 
 - Collecte de données système via lecture des fichiers présents dans */proc*.
 - Collecte de données sur les services actifs de votre server (Apache, Nginx, Varnish, Memcached, Redis, MySQL), via une connection au service généralement. Dans tout les cas, il n'est jamais nécéssaire de créer un utilisateur privilégié pour que l'agent puisse accéder à ces données.
 - Réception des données du module PHP via une socket Unix (les droits étant configurables si besoin)
-- Envoi des données collectées à CXM via le protocole sécurisé HTTPS (il est possible d'utiliser un proxy si besoin).
+- Envoi des données collectées à Experience Monitoring via le protocole sécurisé HTTPS (il est possible d'utiliser un proxy si besoin).
 
-Tout les modules de l'agent CXM sont désactivables indépendamment si vous le souhaitez.
+Tout les modules de l'agent Experience Monitoring sont désactivables indépendamment si vous le souhaitez.
 
 L'agent se lance en root pour sa phase d'initialisation (ouverture de sa socket, chargement de la configuration, etc) mais change en utilisateur standard pour toutes les opérations de collecte (l'utilisateur et le groupe sont configurables).
 
-Les données récoltées par l'agent sont stockées en mémoire avant d'être envoyées à CXM mais ne jamais stockées ailleurs.
+Les données récoltées par l'agent sont stockées en mémoire avant d'être envoyées à Experience Monitoring mais ne jamais stockées ailleurs.
 
 ### Le module PHP
 
@@ -120,7 +120,7 @@ Il collecte ses données uniquement:
 
 Le module n'altère pas le fonctionnement de l'application, il se contente de récupérer différentes informations de profiling sur le fonctionnement de Magento.
 
-Le module dispose également d'un mode "xhprof" (profiling complet de l'exécution), qui fonctionne sur le même principe mais n'est jamais activé par CXM sans action de l'utilisateur.
+Le module dispose également d'un mode "xhprof" (profiling complet de l'exécution), qui fonctionne sur le même principe mais n'est jamais activé par Experience Monitoring sans action de l'utilisateur.
 
 Les données sont transmises à l'agent via la socket Unix prévue à cet effet et ne seront jamais stockées ou envoyées autre part.
 

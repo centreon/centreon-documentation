@@ -1,4 +1,4 @@
----
+﻿---
 id: create-a-scenario
 title: Création d’un scénario (”Parcours Utilisateur”)
 --- 
@@ -51,7 +51,7 @@ En bas de la page d’édition, vous trouverez un bouton pour créer un nouveau 
 
 Bouton d’action en mode édition
 
-CXM génère un nouveau parcours avec une seule étape: la navigation vers la racine de votre nom de domaine.
+Experience Monitoring génère un nouveau parcours avec une seule étape: la navigation vers la racine de votre nom de domaine.
 
 ## Activer le parcours
 
@@ -85,7 +85,7 @@ Il existe 6 actions possibles:
 
 Choisissez une URL vers laquelle naviguer. Cette action est équivalente à entrer une URL dans la barre d’adresse et y aller.
 
-L’URL doit faire partie du domaine autorisé pour votre licence CXM.
+L’URL doit faire partie du domaine autorisé pour votre licence Experience Monitoring.
 
 #### Cliquer
 
@@ -104,7 +104,7 @@ Si vous cherchez un texte, celui-ci doit faire partie d’une seule balise HTML.
 <p>Cliquez vite pour découvrir la suite</p>
 ```
 
-Par défaut, CXM cliquera sur la première occurence détectée. Vous pouvez choisir de:
+Par défaut, Experience Monitoring cliquera sur la première occurence détectée. Vous pouvez choisir de:
 
 - cliquer sur la première occurence (par défaut)
 - cliquer sur la deuxième, la troisième, etc
@@ -118,7 +118,7 @@ Cette action est utile si des éléments ne se chargent pas tant que la souris n
 
 #### Remplir un formulaire
 
-La complétion d’un formulaire est possible dans CXM. La sonde s’appuie sur les standards HTML.
+La complétion d’un formulaire est possible dans Experience Monitoring. La sonde s’appuie sur les standards HTML.
 
 **Sélecteur CSS du formulaire**
 
@@ -130,7 +130,7 @@ Les champs peuvent être sélectionnés par leurs noms (attribut *name*), leurs 
 
 **Soumettre le formulaire**
 
-Par défaut, CXM envoie le formulaire une fois rempli. Mais vous pouvez modifier ce comportement. Vos options sont:
+Par défaut, Experience Monitoring envoie le formulaire une fois rempli. Mais vous pouvez modifier ce comportement. Vos options sont:
 
 - Soumettre automatiquement (par défaut): équivalent à taper la touche Entrée dans un formulaire
 - Désactivé: ne rien faire une fois le formulaire rempli
@@ -177,7 +177,7 @@ Aucune vérification du contenu n’est faite.
 
 
 >Nous vous recommandons d’utiliser des sélecteurs CSS car moins sensible aux changements du site.
->Si vous ne savez pas comment créer vos sélecteurs CSS, contactez votre agence ou le support CXM (support@quanta.io ou le point d’interrogation en bas à droite dans CXM) pour que nous vous configurions votre parcours.
+>Si vous ne savez pas comment créer vos sélecteurs CSS, contactez votre agence ou le support Experience Monitoring (support@quanta.io ou le point d’interrogation en bas à droite dans Experience Monitoring) pour que nous vous configurions votre parcours.
 
 
 
@@ -215,7 +215,7 @@ Chaque étape a des actions, et l’ensemble de parcours a des options de config
 
 ### Nom
 
-Choisissez un nom pour désigner ce parcours dans les rapports et dans les différents écrans de CXM.
+Choisissez un nom pour désigner ce parcours dans les rapports et dans les différents écrans d'Experience Monitoring.
 
 Nous vous recommandons d’utiliser des noms bien distincts, et d’utiliser un système de numérotation. Par exemple:
 
@@ -225,15 +225,15 @@ Nous vous recommandons d’utiliser des noms bien distincts, et d’utiliser un 
 ### Profilage PHP
 
 
->Par défaut, CXM l’active s’il reçoit des données PHP.
+>Par défaut, Experience Monitoring l’active s’il reçoit des données PHP.
 
 
 
-Permet d’activer / désactiver le profilage PHP sur ce parcours si vous avez l’agent système CXM et le module PHP installé sur vos serveurs.
+Permet d’activer / désactiver le profilage PHP sur ce parcours si vous avez l’agent système Experience Monitoring et le module PHP installé sur vos serveurs.
 
 Vous pouvez retrouver la procédure d’installation des agents sur cette page: 
 
-[Checklist d’installation de CXM](../../installation/installation-checklist.md)
+[Checklist d’installation d'Experience Monitoring](../../installation/installation-checklist.md)
 
 ### Vérifier le certificat SSL
 
@@ -247,7 +247,7 @@ Lorsque qu’un site n’est pas sécurisé, les clients peuvent voir un écran 
 
 Exemple de page d’échec SSL
 
-Par défaut, CXM considère que le parcours est en échec en cas de problème de sécurité de ce type. Désactivez l’option pour ignorer ces erreurs.
+Par défaut, Experience Monitoring considère que le parcours est en échec en cas de problème de sécurité de ce type. Désactivez l’option pour ignorer ces erreurs.
 
 ### Authentification HTTP Basic (.htaccess)
 
@@ -316,7 +316,7 @@ Choisissez tous les combien de temps la sonde doit passer sur le parcours
 
 Si la sonde passe ce temps sur une étape, la considérer en échec. Un temps trop court pose le risque d’avoir des faux positifs. Un temps trop grand pose le risque de ne pas avoir d’erreur et d’alertes pour des chargements lents.
 
-### URLs en liste noire (exclure CXM des statistiques de mesure de trafic)
+### URLs en liste noire (exclure Experience Monitoring des statistiques de mesure de trafic)
 
 
 Par défaut, nous excluons les fournisseurs suivants:

@@ -1,6 +1,6 @@
----
+﻿---
 id: cxm-solution
-title: La solution CXM
+title: La solution Experience Monitoring
 --- 
 
 **Centreon Experience Monitoring (anciennement Quanta) est une plateforme de Digital Experience Monitoring conçue pour allier performance web et sobriété numérique.** Elle permet aux équipes tech, produit et métier de collaborer efficacement pour offrir des expériences digitales rapides et fiables tout en économisant les ressources matérielles.
@@ -12,7 +12,7 @@ La solution combine plusieurs briques complémentaires :
 - **Monitoring de sobriété numérique** : évaluation continue de l’empreinte carbone et du score d’éco-conception de chaque page.
 - **Tests de montée en charge** : validation de la robustesse technique du site en conditions de trafic élevé.
 
-CXM fournit une interface claire et unifiée, enrichie par :
+Experience Monitoring fournit une interface claire et unifiée, enrichie par :
 
 - des **graphes dynamiques** pour visualiser les temps de chargement,
 - des **alertes personnalisables** et intelligentes,
@@ -21,4 +21,4 @@ CXM fournit une interface claire et unifiée, enrichie par :
 
 **Objectif : vous aider à améliorer l’expérience utilisateur, booster vos performances SEO, sécuriser vos pics de trafic et réduire concrètement votre impact environnemental.**
 
-Regarder la [vidéo de présentation de l'interface CXM (Quanta)](https://www.youtube.com/watch?v=ae_8gF-KFG8).
+Regarder la [vidéo de présentation de l'interface Experience Monitoring (Quanta)](https://www.youtube.com/watch?v=ae_8gF-KFG8).

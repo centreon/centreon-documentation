@@ -1,9 +1,9 @@
----
+﻿---
 id: monitor-production-events
 title: Suivre les événements de mise en production
 --- 
 
-Vous pouvez renseigner automatiquement vos déploiements de code ou modifications de configuration système dans CXM :
+Vous pouvez renseigner automatiquement vos déploiements de code ou modifications de configuration système dans Experience Monitoring :
 
 ![image](../assets/installation/monitor-prod-events-1.png)
 
@@ -23,7 +23,7 @@ Notre API s’enclenche via un simple appel HTTP sur l'URL *"https://app.quanta.
 
 ## Authentification et génération de token
 
-Vous devrez également spécifier un token API pour authentifier la requête. Ce token peut être généré dans la section "Intégrations" des paramètres de votre site dans CXM. Vous avez également la possibilité d'ajouter une icône personnalisée.
+Vous devrez également spécifier un token API pour authentifier la requête. Ce token peut être généré dans la section "Intégrations" des paramètres de votre site dans Experience Monitoring. Vous avez également la possibilité d'ajouter une icône personnalisée.
 
 ![image](../assets/installation/monitor-prod-events-1.png)
 

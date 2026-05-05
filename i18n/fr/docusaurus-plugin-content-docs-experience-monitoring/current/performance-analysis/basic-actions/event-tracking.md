@@ -1,6 +1,6 @@
----
+﻿---
 id: event-tracking
-title: Suivre et ajouter les évènements de son site dans CXM
+title: Suivre et ajouter les évènements de son site dans Experience Monitoring
 --- 
 
 
@@ -10,7 +10,7 @@ Cette page décrit comment ajouter vos propres commentaires via l’interface, m
 
 
 
-Vous avez la possibilité d'ajouter des évènements personnalisés dans CXM de manière à ajouter de l'information sur les différents graphes.
+Vous avez la possibilité d'ajouter des évènements personnalisés dans Experience Monitoring de manière à ajouter de l'information sur les différents graphes.
 
 Il est possible de remonter des évènements de différents types, et notamment:
 

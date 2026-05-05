@@ -1,15 +1,15 @@
----
+﻿---
 id: dashboards
 title: Les tableaux de bord
 --- 
 
-Les tableaux de bord sont un moyen de visualiser en un coup d’oeil des informations issues de CXM.
+Les tableaux de bord sont un moyen de visualiser en un coup d’oeil des informations issues d'Experience Monitoring.
 
 ## Cas d’usage
 
 ### 1. Regrouper des informations issues de sites ou d’organisation différentes
 
-Dans CXM, vous pouvez appartenir à plusieurs organisations, et chaque organisation peut contenir l'accès au monitoring de plusieurs applications web. Dans ce contexte, les tableaux de bord vous permettent d’afficher, sur un même écran, n’importe quelles cartes de CXM auxquelles vous avez accès.
+Dans Experience Monitoring, vous pouvez appartenir à plusieurs organisations, et chaque organisation peut contenir l'accès au monitoring de plusieurs applications web. Dans ce contexte, les tableaux de bord vous permettent d’afficher, sur un même écran, n’importe quelles cartes d'Experience Monitoring auxquelles vous avez accès.
 
 Exemple de cartes issues de 2 sites dans 2 organisations différentes :
 
@@ -27,7 +27,7 @@ Vous pouvez créer des tableaux de bord et les partager avec votre organisation 
 
 Dans la liste de vos tableaux de bord, vous verrez en premier vos tableaux de bord privés. En cliquant sur le cadenas, vous accédez aux options de partage pour choisir avec quelle organisation le partager.
 
-### 3. Agréger des données d’écran différents de CXM
+### 3. Agréger des données d’écran différents d'Experience Monitoring
 
 En imaginant que sur votre site, vous souhaitez vous concentrer sur le panier de votre site, il est intéressant d’avoir les informations à jour sur cette page venant des mesures faites par le RUM et les Parcours Utilisateurs.
 

@@ -1,13 +1,13 @@
----
+﻿---
 id: cxm-ip-addresses
-title: Les adresses IP de CXM
+title: Les adresses IP d'Experience Monitoring
 --- 
 
 ## Adresses des sondes
 
 Nos sondes peuvent interroger votre site sur les ports 80 (HTTP) et 443 (HTTPS) ou utiliser le protocole ICMP. Pour la plupart des sites ouverts au public aucun configuration ne sera nécessaire, néanmoins dans d’autres cas des pare-feux ou des protections contre les robots comme Imperva ou reCaptcha peuvent automatiquement bloquer nos visites.
 
-Si vous êtes dans ce cas, alors voici la liste des IPs devant être utilisées pour ajouter CXM en liste blanche :
+Si vous êtes dans ce cas, alors voici la liste des IPs devant être utilisées pour ajouter Experience Monitoring en liste blanche :
 
 - 18.200.8.204
 - 34.241.126.134
@@ -43,9 +43,9 @@ Si vous êtes dans ce cas, alors voici la liste des IPs devant être utilisées 
 
 ## Adresses des points de terminaisons pour les agents serveurs
 
-Si vous utilisez les agents serveurs (section “Système” dans CXM), alors chacun de vos serveurs envoi à fréquence régulière (une fois par minute) des données à destination de la solution CXM.
+Si vous utilisez les agents serveurs (section “Système” dans Experience Monitoring), alors chacun de vos serveurs envoi à fréquence régulière (une fois par minute) des données à destination de la solution Experience Monitoring.
 
-Il s’agit d’un **trafic sortant** en HTTPS (port 443) et donc assez souvent ouvert par défaut, mais si vos restrictions firewalls sont assez strictes et qu’il est nécessaire d’ajouter une autorisation spécifique pour l’usage de CXM, voici les adresses IP de destination à lister :
+Il s’agit d’un **trafic sortant** en HTTPS (port 443) et donc assez souvent ouvert par défaut, mais si vos restrictions firewalls sont assez strictes et qu’il est nécessaire d’ajouter une autorisation spécifique pour l’usage d'Experience Monitoring, voici les adresses IP de destination à lister :
 
 - 52.215.166.110
 - 52.215.179.235

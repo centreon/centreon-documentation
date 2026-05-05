@@ -1,4 +1,4 @@
----
+﻿---
 id: digital-sobriety-score
 title: Score de Sobriété Numérique
 --- 
@@ -9,7 +9,7 @@ Spécifications v1.1 (Avril 2023)
 
 ## Contexte : la raison d’être du Score de Sobriété Numérique
 
-Chez CXM, nous sommes convaincus que la transition écologique passe par une prise de conscience et une responsabilisation du secteur du numérique dans son impact environnemental.
+Chez Centreon, nous sommes convaincus que la transition écologique passe par une prise de conscience et une responsabilisation du secteur du numérique dans son impact environnemental.
 
 Aujourd’hui le numérique représente 4% des gaz à effet de serre à l’échelle mondiale avec une tendance **en hausse de +8% par an**. Or dans le même temps, l’accord de Paris pour le climat exige d’engager une baisse annuelle de nos émissions, tous secteurs confondus, **de -7%** :
 
@@ -21,7 +21,7 @@ Pour pouvoir accompagner cette transition du numérique et le rendre compatible 
 
 Le Score de Sobriété Numérique est une notation générale qui permet de mesurer l'empreinte environnementale d’un site internet ou d’une application web. Ce score peut être utilisé sans connaissance technique préalable, tout en permettant aux spécialistes du numérique et de la responsabilité environnementale des entreprises de suivre avec davantage de précisions l’ensemble des sous-indicateurs qui constituent le score global.
 
-Avec ce score unifié, CXM s’est donné pour mission de sensibiliser et d’accompagner l’ensemble des acteurs du numérique vers des choix plus responsables, en leur donnant les outils pour se comparer et améliorer progressivement l'impact environnemental de leurs applications actuelles et futures.
+Avec ce score unifié, Experience Monitoring s’est donné pour mission de sensibiliser et d’accompagner l’ensemble des acteurs du numérique vers des choix plus responsables, en leur donnant les outils pour se comparer et améliorer progressivement l'impact environnemental de leurs applications actuelles et futures.
 
 ## Introduction à la méthodologie
 
@@ -47,22 +47,22 @@ Cette notation a la vertu de prendre en compte le champ d’impacts le plus larg
 - de leur permettre de mettre en place un plan d’action visant à rendre leurs applications davantage soutenables.
 - d'être guidés sur le respect des bonnes pratiques d’éco-conception dès la construction de futurs projets numériques, que les développements soient menés par des équipes internes ou externes.
 
-Dans le cadre du Score de Sobriété Numérique, CXM s’engage à fournir des mesures actionnables permettant de respecter les principes du [GHG Protocol](https://www.greenly.earth/fr-fr/blog/guide-entreprise/ghg-protocol-quest-ce-que-cest-comment-ca-marche) : Pertinence, Exhaustivité, Permanence, Transparence et Exactitude.
+Dans le cadre du Score de Sobriété Numérique, Experience Monitoring s’engage à fournir des mesures actionnables permettant de respecter les principes du [GHG Protocol](https://www.greenly.earth/fr-fr/blog/guide-entreprise/ghg-protocol-quest-ce-que-cest-comment-ca-marche) : Pertinence, Exhaustivité, Permanence, Transparence et Exactitude.
 
-En d’autres termes, la méthode de calcul et les méthodes de mesures utilisées **resteront transparentes et ouvertes** sous licence Creative Commons ([CC BY-NC-ND 4.0 DEED](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr)), afin de permettre à toutes les équipes, et en particulier les plus spécialistes du numérique responsable, de comparer les résultats donnés par CXM avec leurs propres calculs et outils de mesure.
+En d’autres termes, la méthode de calcul et les méthodes de mesures utilisées **resteront transparentes et ouvertes** sous licence Creative Commons ([CC BY-NC-ND 4.0 DEED](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr)), afin de permettre à toutes les équipes, et en particulier les plus spécialistes du numérique responsable, de comparer les résultats donnés par Experience Monitoring avec leurs propres calculs et outils de mesure.
 
 Cette transparence permet à toutes les parties prenantes :
 
-- d’effectuer elles-même des mesures de Score de Sobriété Numérique, y compris dans des contextes où CXM ne pourrait pas avoir accès à leurs applications.
+- d’effectuer elles-même des mesures de Score de Sobriété Numérique, y compris dans des contextes où Experience Monitoring ne pourrait pas avoir accès à leurs applications.
 - de pouvoir suggérer des améliorations afin de faire évoluer positivement la méthode de calcul au fil de l’évolution des travaux de recherche dans le domaine du GreenIT.
 
 ## Méthode de calcul
 
 Le calcul de l'empreinte environnementale du numérique est un domaine relativement nouveau et en constante évolution. De nouvelles informations sur les impacts de l’usage, de la fabrication et de la fin de vie du matériel numérique peuvent apparaître, par conséquent les algorithmes de calcul de ces impacts sont amenés à s’affiner chaque année.
 
-Pour cette raison, CXM a décidé de “versionner” la méthode de calcul pour garantir sa pertinence, de permettre aux utilisateurs de bénéficier des évolutions, sans pénaliser ses capacités de comparaison entre sites ou applications ayant été préalablement audités.
+Pour cette raison, Experience Monitoring a décidé de “versionner” la méthode de calcul pour garantir sa pertinence, de permettre aux utilisateurs de bénéficier des évolutions, sans pénaliser ses capacités de comparaison entre sites ou applications ayant été préalablement audités.
 
-Sans modification des méthodes de mesures, il est également probable (et souhaitable !) que les valeurs médianes du marché s’améliorent d’année en année, ce qui amènera naturellement CXM à ajuster les quantiles utilisés pour chaque paramètre dans le calcul du Score de Sobriété Numérique.
+Sans modification des méthodes de mesures, il est également probable (et souhaitable !) que les valeurs médianes du marché s’améliorent d’année en année, ce qui amènera naturellement Experience Monitoring à ajuster les quantiles utilisés pour chaque paramètre dans le calcul du Score de Sobriété Numérique.
 
 Dans ce document, nous décrivons l’algorithme de calcul actualisé au mois d’Avril 2023 (**version 1.1**), qui est la première version publique.
 
@@ -81,9 +81,9 @@ Comparatif entre les 2 méthodes et de leurs avantages :
 | --- | --- | --- |
 | Durée | 3 à 5 minutes | minimum de 7 jours pour que les données collectées soient suffisamment exhaustives |
 | Précision | Moyenne basée sur les 10 pages les plus fréquentées du site | Prise en compte de 100% des pages avec une pondération précise de la représentation de chaque page sur le trafic total du site |
-| Installation nécessaire | Aucune | Nécessite l’installation d’un tag de Real User Monitoring (NB : le tag de Real User Monitoring de CXM permet l’audit complet sans être soumis à la RGPD) |
-| Coût nécessaire | Gratuit sur le site quanta.green | Nécessite une souscription à CXM ou autre outil capable de calculer le Score de Sobriété Numérique |
-| Comparaison dans le temps | Oui, mais avec une précision trimestrielle (le site quanta.green garde en mémoire le score pour 3 mois). Au bout de 3 mois une nouvelle analyse permet d’obtenir l’évolution dans le temps. | Oui, en temps réel et de façon historisée automatiquement sur plusieurs années dans CXM |
+| Installation nécessaire | Aucune | Nécessite l’installation d’un tag de Real User Monitoring (NB : le tag de Real User Monitoring d'Experience Monitoring permet l’audit complet sans être soumis à la RGPD) |
+| Coût nécessaire | Gratuit sur le site quanta.green | Nécessite une souscription à Experience Monitoring ou autre outil capable de calculer le Score de Sobriété Numérique |
+| Comparaison dans le temps | Oui, mais avec une précision trimestrielle (le site quanta.green garde en mémoire le score pour 3 mois). Au bout de 3 mois une nouvelle analyse permet d’obtenir l’évolution dans le temps. | Oui, en temps réel et de façon historisée automatiquement sur plusieurs années dans Experience Monitoring |
 | Certification | Certification “audit simple”, contenant un visuel récapitulatif pouvant être apposé sur le site concerné pour décrire son impact environnemental. | Certification “audit complet” contenant un visuel récapitulatif pouvant être apposé sur le site concerné pour décrire son impact environnemental. |
 
 Le calcul d’empreinte carbone du site étant exhaustif et représentatif de l’ensemble du trafic, il peut être repris dans un bilan carbone global d’entreprise pour apporter + de précision sur la partie numérique.
@@ -170,11 +170,11 @@ Pour calculer le score d’éco-conception moyen d’un site, il y a 2 cas de fi
 
 ## L’empreinte carbone (ou “CF” pour Carbon Footprint)
 
-Un indicateur de base pour mesurer l’empreinte environnementale d’une application est déjà de calculer l’empreinte carbone de l’accès à une page web ou bien d'un clic. Pour cette évaluation, CXM a implémenté un algorithme reconnu et transparent : [la méthode Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/).
+Un indicateur de base pour mesurer l’empreinte environnementale d’une application est déjà de calculer l’empreinte carbone de l’accès à une page web ou bien d'un clic. Pour cette évaluation, Experience Monitoring a implémenté un algorithme reconnu et transparent : [la méthode Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/).
 
 Cette méthode permet de mesurer l’impact carbone d’une page en fonction de son poids et de l’intensité carbone de l’électricité utilisée par la plateforme d’hébergement.
 
-Grâce à cette méthode, une même page web consultée en France, en Irlande ou aux USA n’aura pas le même impact du fait de la grande disparité des sources d’énergies électriques. Pour prendre en compte le mix électrique du pays d’hébergement, CXM se base sur la base de données [Ember Climate](https://ember-climate.org/insights/research/global-electricity-review-2022/) (plus connue comme la source du site [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity)).
+Grâce à cette méthode, une même page web consultée en France, en Irlande ou aux USA n’aura pas le même impact du fait de la grande disparité des sources d’énergies électriques. Pour prendre en compte le mix électrique du pays d’hébergement, Experience Monitoring se base sur la base de données [Ember Climate](https://ember-climate.org/insights/research/global-electricity-review-2022/) (plus connue comme la source du site [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity)).
 
 Le résultat qui en découle du calcul, exprimé en CO<sub>2</sub>eq permet également de distinguer la part des différents périmètres (centre de données, réseau et terminaux des utilisateurs).
 
@@ -224,7 +224,7 @@ Il y a là aussi, 2 cas de figure :
     
     Dans ce cas, il convient de **pondérer individuellement** l’empreinte carbone de chaque page. En effet, la fréquentation précise de chaque page, et leurs empreintes carbones (CF) respectives étant connues, il est bien plus précis de multiplier l’empreinte carbone de chaque page par le nombre de fois où ces pages ont été consultées sur une période donnée.
     
-    CXM peut réaliser ces mesures et calculs en temps réel en se basant sur les données de son tag de Real User Monitoring qui trace l’ensemble des pages vues par les internautes. Ces données amènent une précision importante dans l’évaluation de l’empreinte carbone globale du site.
+    Experience Monitoring peut réaliser ces mesures et calculs en temps réel en se basant sur les données de son tag de Real User Monitoring qui trace l’ensemble des pages vues par les internautes. Ces données amènent une précision importante dans l’évaluation de l’empreinte carbone globale du site.
     
 
 Dans les 2 cas, nous obtenons l’empreinte carbone globale de l’activité du site pour une période donnée.
@@ -242,9 +242,9 @@ Chacun de ces 2 sous-indicateurs compte pour 50% de la note globale, de sorte à
 
 NB : Bien que la méthode de calcul et les pondérations soient identiques dans le cas d’un audit simple ou d’un audit complet, il est à noter que dans le cas de l’audit simple les calculs de Score d’éco-conception moyen et de l’Empreinte carbone moyenne par clic ne prennent en compte que les 10 principales pages du site. Se référer au premier chapitre “Comment est calculé le Score de Sobriété Numérique” pour plus d’informations.
 
-**Condition d'obtention du label CXM**
+**Condition d'obtention du label Experience Monitoring**
 
-CXM permet de fournir un Score de Sobriété Numérique sous une forme certifiée contenant un visuel récapitulatif pouvant être utilisé sur le site lui-même et/ou dans d’autres communications. Ce certificat est accompagné d’un rapport plus détaillé et contenant l’ensemble des mesures clés ayant donné lieu au calcul du score global.
+Experience Monitoring permet de fournir un Score de Sobriété Numérique sous une forme certifiée contenant un visuel récapitulatif pouvant être utilisé sur le site lui-même et/ou dans d’autres communications. Ce certificat est accompagné d’un rapport plus détaillé et contenant l’ensemble des mesures clés ayant donné lieu au calcul du score global.
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-4.png)
 
@@ -252,10 +252,10 @@ Le rapport fourni sert à la fois à prouver l’origine de la mesure et du calc
 
 Pour obtenir un score certifié :
 
-- une licence CXM Sobriété Numérique doit être connectée au site concerné avec l’option Real User Monitoring. Le Score de Sobriété Numérique y est dans ce cas calculé en temps réel.
+- une licence Experience Monitoring Sobriété Numérique doit être connectée au site concerné avec l’option Real User Monitoring. Le Score de Sobriété Numérique y est dans ce cas calculé en temps réel.
 - une analyse est réalisée par un expert afin de rédiger le rapport complet.
 
-Le premier certificat généré pour un site donné peut être effectué en se basant sur les mesures des 30 derniers jours. Il est valable un an, et sera renouvelé par un certificat basé sur les mesures des 12 mois suivants. Ainsi, dès la 2ème année de certification, le Score de Sobriété Numérique délivré par CXM prendra en compte l’empreinte précise liée au trafic constaté pendant toute l’année.
+Le premier certificat généré pour un site donné peut être effectué en se basant sur les mesures des 30 derniers jours. Il est valable un an, et sera renouvelé par un certificat basé sur les mesures des 12 mois suivants. Ainsi, dès la 2ème année de certification, le Score de Sobriété Numérique délivré par Experience Monitoring prendra en compte l’empreinte précise liée au trafic constaté pendant toute l’année.
 
 Le certificat émis à partir de la 2ème année pourra par ailleurs faire figurer la variation de la note versus l’année précédente.
 
@@ -283,8 +283,8 @@ Plus d’information concernant certains des calculs évoqués dans ce document 
 
 ## Licence
 
-L’algorithme et la méthode de calcul, ainsi que les quantiles utilisées pour produire le Score de Sobriété Numérique sont communiquées de façon transparente et gratuite afin de servir au plus grand nombre sans nécessité d’utiliser les services de CXM. La licence utilisée est la [Creative Commons Attribution-NonCommercial-NoDerivatives 2.0 France (CC BY-NC-ND 2.0 FR)](https://creativecommons.org/licenses/by-nc-nd/2.0/fr/), qui autorise l’utilisation par tous, particuliers, associations et entreprise sans être revendus.
+L’algorithme et la méthode de calcul, ainsi que les quantiles utilisées pour produire le Score de Sobriété Numérique sont communiquées de façon transparente et gratuite afin de servir au plus grand nombre sans nécessité d’utiliser les services d'Experience Monitoring. La licence utilisée est la [Creative Commons Attribution-NonCommercial-NoDerivatives 2.0 France (CC BY-NC-ND 2.0 FR)](https://creativecommons.org/licenses/by-nc-nd/2.0/fr/), qui autorise l’utilisation par tous, particuliers, associations et entreprise sans être revendus.
 
 ## Annexe - Quantiles utilisés
 
-Pour traduire chacune des mesures réalisées sur un site Internet en score, **l’utilisation de tableaux de correspondance est nécessaire**. Afin que chacun puisse calculer son propre Score de Sobriété Numérique, en dehors du site [quanta.green](http://quanta.green) ou des services proposés par CXM, l’ensemble des tableaux de correspondance sont disponibles sur simple demande via [hello@quanta.io](mailto:hello@quanta.io).
+Pour traduire chacune des mesures réalisées sur un site Internet en score, **l’utilisation de tableaux de correspondance est nécessaire**. Afin que chacun puisse calculer son propre Score de Sobriété Numérique, en dehors du site [quanta.green](http://quanta.green) ou des services proposés par Experience Monitoring, l’ensemble des tableaux de correspondance sont disponibles sur simple demande via [hello@quanta.io](mailto:hello@quanta.io).

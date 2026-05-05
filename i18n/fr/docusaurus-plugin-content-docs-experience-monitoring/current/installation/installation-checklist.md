@@ -1,17 +1,17 @@
----
+﻿---
 id: installation-checklist
 title: Checklist d'installation
 --- 
 
-Cette liste couvre les besoins pour permettre le bon fonctionnement des différents modules de CXM sur un site donnée.
+Cette liste couvre les besoins pour permettre le bon fonctionnement des différents modules d'Experience Monitoring sur un site donnée.
 
 ## Parcours utilisateur
 
-Il n'y a **rien n’est à installer** puisque CXM vient se connecter à votre application comme le ferait n'importe quel internaute.
+Il n'y a **rien n’est à installer** puisqu'Experience Monitoring vient se connecter à votre application comme le ferait n'importe quel internaute.
 
 Néanmoins, en fonction du niveau de sécurité mis en place sur votre site, vous pourriez avoir besoin d’autoriser nos IPs pour éviter que votre système "anti-robot" ne bloque nos sondes. Si vous êtes dans ce cas, vous trouverez la procédure à suivre :
 
-[Les adresses IP de CXM](./cxm-ip-addresses.md)
+[Les adresses IP d'Experience Monitoring](./cxm-ip-addresses.md)
 
 ## Real User Monitoring
 
@@ -21,7 +21,7 @@ Le Real User Monitoring s’installe comme n'importe quel tag marketing : via l
 
 ## Agent système
 
-La partie système de CXM nécessite à minima l’installation des agents systèmes, puis l’ajout de modules selon le niveau de détails souhaité ou accessible dans votre licence.
+La partie système d'Experience Monitoring nécessite à minima l’installation des agents systèmes, puis l’ajout de modules selon le niveau de détails souhaité ou accessible dans votre licence.
 
 ### Installation minimale
 
@@ -44,6 +44,6 @@ Une fois l’agent installé, vous pouvez installer des modules supplémentaires
 
 ## Evénements automatiques
 
-Vous avez la possibilité d’ajouter des évènements manuellement dans l’interface mais également automatiquement par API. **C’est utile notamment que vous déployez une nouvelle version de votre site.** Nous recommandons dans tous les cas cette installation afin de garder trace de ces changements dans CXM.
+Vous avez la possibilité d’ajouter des évènements manuellement dans l’interface mais également automatiquement par API. **C’est utile notamment que vous déployez une nouvelle version de votre site.** Nous recommandons dans tous les cas cette installation afin de garder trace de ces changements dans Experience Monitoring.
 
 [Suivre automatiquement les événements de mise en production](./monitor-production-events.md)

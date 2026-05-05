@@ -1,4 +1,4 @@
----
+﻿---
 id: real-user-monitoring
 title: Le Real User Monitoring (ou RUM)
 --- 
@@ -10,9 +10,9 @@ Appelé “RUM” pour les intimes, le “Real User Monitoring” consiste à o
 Il est important de noter que :
 
 - cette fonctionnalité implique l’ajout d’un **tag externe** dans la page, qui est conçu pour être chargé de façon **asynchrone** et être **extrêmement léger dans son fonctionnement** afin de ne pas ralentir la navigation de l’internaute sur le site.
-- le type de données remontées par le navigateur grâce au tag CXM ainsi que la manière dont CXM enregistre ces éléments dans sa base de donnée garantissent **l’exclusion du tag CXM du périmètre de la GDPR**. En effet, les chiffres remontés via le tag sont purement techniques et **non nominatifs**. Le tableau de bord CXM permet d’observer le comportement du site pour différents type de navigateurs (Chrome, Safari Mobile, EDGE, ...) mais sans possibilité d'identifier un internaute unique.
+- le type de données remontées par le navigateur grâce au tag Experience Monitoring ainsi que la manière dont Experience Monitoring enregistre ces éléments dans sa base de donnée garantissent **l’exclusion du tag Experience Monitoring du périmètre de la GDPR**. En effet, les chiffres remontés via le tag sont purement techniques et **non nominatifs**. Le tableau de bord Experience Monitoring permet d’observer le comportement du site pour différents type de navigateurs (Chrome, Safari Mobile, EDGE, ...) mais sans possibilité d'identifier un internaute unique.
 
-Une fois ce tag mis en place, CXM est capable d’enregistrer l’expérience perçue par l’ensemble des internautes **avec ou sans échantillonnage** ce qui permet d’obtenir une vue très précise des métriques clés de performance (ex: TTFB, Speed Index, temps de chargement complet de la page, etc.)
+Une fois ce tag mis en place, Experience Monitoring est capable d’enregistrer l’expérience perçue par l’ensemble des internautes **avec ou sans échantillonnage** ce qui permet d’obtenir une vue très précise des métriques clés de performance (ex: TTFB, Speed Index, temps de chargement complet de la page, etc.)
 
 Les **bénéfices clés** apportés par le RUM sont :
 
