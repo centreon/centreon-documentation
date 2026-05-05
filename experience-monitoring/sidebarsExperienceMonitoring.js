@@ -1,5 +1,5 @@
 module.exports = {
-  cxm: [
+  'experience-monitoring': [
     {
       type: 'category',
       label: 'Getting started with Centreon Experience Monitoring',

@@ -39,7 +39,7 @@ const cloud = (() => {
   return true;
 })();
 
-const cxm = (() => {
+const experienceMonitoring = (() => {
   if (archivedVersion) {
     return false;
   }
@@ -61,7 +61,7 @@ const logmanagement = (() => {
 
 const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
 
-if (versions.length == 0 && !pp && !cloud && !cxm && !logmanagement) {
+if (versions.length == 0 && !pp && !cloud && !experienceMonitoring && !logmanagement) {
   throw new Error('Nothing is selected for build');
 }
 
@@ -92,13 +92,13 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl,
-  onBrokenLinks: archivedVersion || !cloud || !pp || !cxm ? 'log' : 'throw',
+  onBrokenLinks: archivedVersion || !cloud || !pp || !experienceMonitoring ? 'log' : 'throw',
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !cxm ? 'log' : 'throw',
+      onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !experienceMonitoring ? 'log' : 'throw',
     }
   },
-  onBrokenAnchors: archivedVersion || !cloud || !pp || !cxm ? 'log' : 'throw',
+  onBrokenAnchors: archivedVersion || !cloud || !pp || !experienceMonitoring ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -187,8 +187,8 @@ const config = {
       ({
         hashed: true,
         indexBlog: false,
-        docsRouteBasePath: ["docs", "cloud", "pp", "cxm", "logmanagement"],
-        docsDir: ["i18n", "versioned_docs", "cloud", "pp", "cxm", "logmanagement"],
+        docsRouteBasePath: ["docs", "cloud", "pp", "experience-monitoring", "logmanagement"],
+        docsDir: ["i18n", "versioned_docs", "cloud", "pp", "experience-monitoring", "logmanagement"],
         explicitSearchResultPath: true,
         useAllContextsWithNoSearchContext: true,
         // searchContextByPaths: [
@@ -271,16 +271,16 @@ const config = {
       ];
     }
 
-    if (cxm) {
+    if (experienceMonitoring) {
       plugins = [
         ...plugins,
         [
           '@docusaurus/plugin-content-docs',
           {
-            id: 'cxm',
-            path: 'cxm',
-            routeBasePath: 'cxm',
-            sidebarPath: './cxm/sidebarsCxm.js',
+            id: 'experience-monitoring',
+            path: 'experience-monitoring',
+            routeBasePath: 'experience-monitoring',
+            sidebarPath: './experience-monitoring/sidebarsExperienceMonitoring.js',
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
@@ -418,14 +418,14 @@ const config = {
             ];
           }
 
-          if (cxm) {
+          if (experienceMonitoring) {
             items = [
               ...items,
               {
-                to: '/cxm/getting-started/welcome',
+                to: '/experience-monitoring/getting-started/welcome',
                 label: 'Centreon Experience Monitoring',
                 position: 'left',
-                activeBaseRegex: '/cxm/',
+                activeBaseRegex: '/experience-monitoring/',
               },
             ];
           }
