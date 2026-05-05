@@ -106,12 +106,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Il est essentiel d'avoir Docker, un fichier de configuration Prometheus et des volumes Docker appropriés pour utiliser Prometheus avec cAdvisor.
 
-## 3. cAdvisor API
-
-**Page cible :** `cloud-cadvisor-api`
-
----
-
 ### Bonne pratique : nommer vos conteneurs
 
 cAdvisor identifie chaque conteneur par son nom. 

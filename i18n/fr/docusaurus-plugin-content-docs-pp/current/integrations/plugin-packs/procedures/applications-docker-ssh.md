@@ -82,12 +82,6 @@ Deux méthodes de connexion SSH sont possibles :
 * soit en copiant la clé SSH publique de l'utilisateur `centreon-engine` du collecteur Centreon à la ressource à superviser
 * soit en définissant votre utilisateur et votre mot de passe directement dans les macros d'hôtes.
 
-## 2. Docker SSH
-
-**Page cible :** `applications-docker-ssh`
-
----
-
 ### Bonne pratique : nommer vos conteneurs
 
 Par défaut, Docker génère un nom aléatoire à chaque recréation de conteneur. 
