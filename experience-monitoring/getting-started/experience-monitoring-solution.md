@@ -1,5 +1,5 @@
 ﻿---
-id: cxm-solution
+id: experience-monitoring-solution
 title: The Centreon Experience Monitoring Solution
 ---
 

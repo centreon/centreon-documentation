@@ -5,7 +5,7 @@ title: FAQ
 
 ## Which firewall ports should be opened for the Experience Monitoring agent?
 
-To ensure the agent works, outgoing HTTPS connections [to our IP addresses](../installation/cxm-ip-addresses.md) must be allowed.
+To ensure the agent works, outgoing HTTPS connections [to our IP addresses](../installation/experience-monitoring-ip-addresses.md) must be allowed.
 
 For package installation, your server must also be allowed to connect via HTTP to `apt.quanta.io`.
 

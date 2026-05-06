@@ -11,7 +11,7 @@ Il n'y a **rien n’est à installer** puisqu'Experience Monitoring vient se con
 
 Néanmoins, en fonction du niveau de sécurité mis en place sur votre site, vous pourriez avoir besoin d’autoriser nos IPs pour éviter que votre système "anti-robot" ne bloque nos sondes. Si vous êtes dans ce cas, vous trouverez la procédure à suivre :
 
-[Les adresses IP d'Experience Monitoring](./cxm-ip-addresses.md)
+[Les adresses IP d'Experience Monitoring](./experience-monitoring-ip-addresses.md)
 
 ## Real User Monitoring
 

@@ -5,7 +5,7 @@ title: FAQ
 
 ## Quels sont les ports de firewall à ouvrir pour l'agent Experience Monitoring ?
 
-Il est nécessaire pour que l'agent fonctionne, d'autoriser en sortie les connections HTTPS [vers nos IPs](../installation/cxm-ip-addresses.md).
+Il est nécessaire pour que l'agent fonctionne, d'autoriser en sortie les connections HTTPS [vers nos IPs](../installation/experience-monitoring-ip-addresses.md).
 
 Pour l'installation des paquets il faudra également autoriser votre serveur à se connecter en HTTP à apt.quanta.io
 

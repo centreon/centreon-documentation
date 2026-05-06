@@ -1,5 +1,5 @@
 ﻿---
-id: navigate-in-cxm
+id: navigate-in-experience-monitoring
 title: Navigate in Experience Monitoring
 ---
 

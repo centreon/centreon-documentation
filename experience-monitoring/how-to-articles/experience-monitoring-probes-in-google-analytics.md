@@ -1,5 +1,5 @@
 ﻿---
-id: cxm-probes-in-google-analytics
+id: experience-monitoring-probes-in-google-analytics
 title: Are Experience Monitoring probes counted in Google Analytics?
 --- 
 

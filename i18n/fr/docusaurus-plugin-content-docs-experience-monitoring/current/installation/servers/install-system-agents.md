@@ -10,7 +10,7 @@ A l’heure actuelle, il n’est pas possible de rattacher un serveur à plusieu
 La remontée d’information vers l’application Experience Monitoring nécessite l’installation d’un agent sur tous les serveurs que vous souhaitez surveiller. Pour ce faire, vous devez installer l’agent Experience Monitoring.
 
 
->Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur [la page dédiée](../cxm-ip-addresses.md)
+>Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur [la page dédiée](../experience-monitoring-ip-addresses.md)
 
 
 

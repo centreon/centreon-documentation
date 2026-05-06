@@ -8,7 +8,7 @@ module.exports = {
         id: "getting-started/welcome"
       },
       items: [
-       { type: 'doc', id: 'getting-started/cxm-solution' },
+       { type: 'doc', id: 'getting-started/experience-monitoring-solution' },
         { type: 'doc', id: 'getting-started/contact-support' },
         { type: 'doc', id: 'getting-started/synthetic-monitoring' },
         { type: 'doc', id: 'getting-started/real-user-monitoring' },
@@ -26,7 +26,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'installation/installation-checklist' },
-        { type: 'doc', id: 'installation/cxm-ip-addresses' },
+        { type: 'doc', id: 'installation/experience-monitoring-ip-addresses' },
         { type: 'doc', id: 'installation/real-user-monitoring-installation' },
         { type: 'doc', id: 'installation/monitor-production-events' },
         {
@@ -123,7 +123,7 @@ module.exports = {
             type: 'generated-index',
           },
           items: [
-            { type: 'doc', id: 'performance-analysis/basic-actions/navigate-in-cxm' },
+            { type: 'doc', id: 'performance-analysis/basic-actions/navigate-in-experience-monitoring' },
             { type: 'doc', id: 'performance-analysis/basic-actions/how-alerts-work' },
             { type: 'doc', id: 'performance-analysis/basic-actions/gray-areas-on-charts' },
             { type: 'doc', id: 'performance-analysis/basic-actions/event-tracking' },
@@ -156,7 +156,7 @@ module.exports = {
         { type: 'doc', id: 'how-to-articles/meaning-of-colors-in-graphs' },
         { type: 'doc', id: 'how-to-articles/seo-module' },
         { type: 'doc', id: 'how-to-articles/measurement-interval' },
-        { type: 'doc', id: 'how-to-articles/cxm-probes-in-google-analytics' },
+        { type: 'doc', id: 'how-to-articles/experience-monitoring-probes-in-google-analytics' },
         { type: 'doc', id: 'how-to-articles/faq' },
         { type: 'doc', id: 'how-to-articles/password-reset' },
         { type: 'doc', id: 'how-to-articles/using-charts' },

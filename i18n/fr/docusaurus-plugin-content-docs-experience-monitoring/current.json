@@ -4,7 +4,7 @@
     "description": "The label for version current"
   },
   "sidebar.experience-monitoring.category.Getting started with Centreon Experience Monitoring": {
-    "message": "Démarrer avec Centreon CXM",
+    "message": "Démarrer avec Centreon Experience Monitoring",
     "description": "The label for category Getting started in sidebar Experience Monitoring"
   },
   "sidebar.experience-monitoring.category.Installation": {

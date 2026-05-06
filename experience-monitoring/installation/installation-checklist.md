@@ -11,7 +11,7 @@ There is **nothing to install** because Experience Monitoring connects to your a
 
 However, depending on the security level on your site, you may need to allow our IP addresses so that your anti-bot system does not block our probes. If that's the case, you'll find the procedure here:
 
-[Experience Monitoring IP addresses](./cxm-ip-addresses.md)
+[Experience Monitoring IP addresses](./experience-monitoring-ip-addresses.md)
 
 ## Real User Monitoring
 

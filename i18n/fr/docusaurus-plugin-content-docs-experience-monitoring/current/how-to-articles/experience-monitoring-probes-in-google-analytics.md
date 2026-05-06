@@ -1,5 +1,5 @@
 ﻿---
-id: cxm-probes-in-google-analytics
+id: experience-monitoring-probes-in-google-analytics
 title: Les sondes Experience Monitoring sont-elles comptabilisées dans Google Analytics ?
 --- 
 
