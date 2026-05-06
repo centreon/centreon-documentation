@@ -371,7 +371,7 @@ apt update
 </TabItem>
 </Tabs>
 
-### Étape 2 : Installation
+## Étape 2 : Installation
 
 Cette section décrit comment installer un serveur central Centreon.
 
@@ -387,7 +387,7 @@ une base de données distante sur un serveur dédié.
   </TabItem>
 </Tabs>
 
-### Étape 3 : Configuration
+## Étape 3 : Configuration
 
 ### Nom du serveur
 
