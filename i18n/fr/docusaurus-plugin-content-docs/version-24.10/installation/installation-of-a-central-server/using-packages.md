@@ -403,6 +403,62 @@ Remplacez **new-server-name** par le nom que vous souhaitez. Exemple :
 hostnamectl set-hostname central
 ```
 
+### Définir le fuseau horaire de PHP
+
+Vous devez définir le fuseau horaire de PHP.
+
+> Remplacez **Europe/Paris** par votre fuseau horaire. Vous pouvez trouver la liste des
+> fuseaux horaires supportés [ici] (http://php.net/manual/en/timezones.php).
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Exécutez la commande suivante en tant que `root` :
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+Après avoir enregistré le fichier, redémarrez le service PHP-FPM :
+
+```shell
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Exécutez la commande suivante en tant que `root` :
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+Après avoir enregistré le fichier, redémarrez le service PHP-FPM :
+
+```shell
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php/8.2/mods-available/centreon.ini
+```
+
+> Celui-ci a été défini durant le processus d'installation en récupérant le fuseau horaire configuré sur le
+> système d'exploitation.
+
+Après avoir enregistré le fichier, redémarrez le service PHP-FPM :
+
+```shell
+systemctl restart php8.2-fpm
+```
+
+</TabItem>
+</Tabs>
+
 ### Démarrage des services au démarrage du système
 
 Pour que les services démarrent automatiquement au démarrage du système, exécutez les commandes suivantes
