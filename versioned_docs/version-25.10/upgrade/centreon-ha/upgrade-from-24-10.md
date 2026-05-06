@@ -40,7 +40,7 @@ rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon
                      "/etc/centreon/license.d", "/usr/share/centreon-broker/lua"],
 ```
 
-For MBI reports to still be downloadable later on, the lines must be updated like this: 
+For MBI reports to still be downloadable later on, the lines must be updated like this:
 
 ```shell
 rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
