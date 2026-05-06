@@ -38,7 +38,7 @@ OpenTelemetry logs aren't just text: they're data you can analyze. And Log Manag
 
 ## What does a log entry in OpenTelemetry format look like?
 
-A log entry in OpenTelemetry format always has a timestamp and a [service](../resources/glossary.md#service) name (for the service that produced the log). Usually, it also shows the log's [severity](../resources/glossary.md#severity): <span style={{color:'#1ebeb3'}}>**DEBUG**</span>, <span style={{color:'#1588d1'}}>**INFO**</span>, WARN (<span style={{color:'#ffca34'}}>**WARNING**</span> in Log Management), <span style={{color:'#fd9b27'}}>**ERROR**</span>, or <span style={{color:'#ff4a4a'}}>**FATAL**</span>. All the other information in the log depends on [how you have configured your OpenTelemetry Collector](../collector/collector.md).
+A log entry in OpenTelemetry format always has a timestamp and a [service](../resources/glossary.md#service) name (for the service that produced the log). Usually, it also shows the log's [severity](../resources/glossary.md#severity): typically, <span style={{color:'#1ebeb3'}}>**DEBUG**</span>, <span style={{color:'#1588d1'}}>**INFO**</span>, <span style={{color:'#ffca34'}}>**WARNING**</span>, <span style={{color:'#fd9b27'}}>**ERROR**</span>, or <span style={{color:'#ff4a4a'}}>**FATAL**</span>. All the other information in the log depends on [how you have configured your OpenTelemetry Collector](../collector/collector.md).
 
 Here is an example of a raw log entry sent by the Windows Event Viewer, collected by an OpenTelemetry collector, then converted to Log Management's internal syntax:
 
