@@ -567,7 +567,7 @@ Note:
 
 #### File presence check
 
-_“I want to trigger a CRITICAL alert if file is not present“  “I want to trigger a CRITICAL alert if file is present“_
+_“I want to trigger a CRITICAL alert if file is not present“_
 
 ```
 PATH= C:\Users\User\Documents\test
