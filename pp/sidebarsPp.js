@@ -774,7 +774,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-cxm-restapi'
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-experience-monitoring-restapi'
         },
         {
           type: 'doc',

@@ -1,5 +1,5 @@
 ﻿---
-id: cxm-ip-addresses
+id: experience-monitoring-ip-addresses
 title: Experience Monitoring IP addresses
 ---
 

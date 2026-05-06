@@ -43,7 +43,7 @@ const experienceMonitoring = (() => {
   if (archivedVersion) {
     return false;
   }
-  if (process.env.CXM !== undefined && process.env.CXM === '0') {
+  if (process.env.EXPERIENCEMONITORING !== undefined && process.env.EXPERIENCEMONITORING === '0') {
     return false;
   }
   return true;

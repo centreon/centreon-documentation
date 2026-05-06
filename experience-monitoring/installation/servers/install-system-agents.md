@@ -9,7 +9,7 @@ At this time, it is not possible to link a server to multiple sites, whether wit
 
 Sending information to the Experience Monitoring application requires installing the Experience Monitoring agent on all servers you wish to monitor.
 
-> System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](../cxm-ip-addresses.md).
+> System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](../experience-monitoring-ip-addresses.md).
 
 ## Get the Token
 
