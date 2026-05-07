@@ -2,105 +2,42 @@ module.exports = {
   'experience-monitoring': [
     {
       type: 'category',
-      label: 'Getting started with Centreon Experience Monitoring',
+      label: 'What can I do with Centreon Experience Monitoring?',
       link: {
         type: "doc",
         id: "getting-started/welcome"
       },
       items: [
-       { type: 'doc', id: 'getting-started/experience-monitoring-solution' },
-        { type: 'doc', id: 'getting-started/contact-support' },
+        { type: 'doc', id: 'getting-started/experience-monitoring-solution' },
         { type: 'doc', id: 'getting-started/synthetic-monitoring' },
         { type: 'doc', id: 'getting-started/real-user-monitoring' },
         { type: 'doc', id: 'getting-started/system-view' },
         { type: 'doc', id: 'getting-started/business-view' },
         { type: 'doc', id: 'getting-started/load-tests' },
-        { type: 'doc', id: 'getting-started/dashboards' },
       ],
     },
     {
       type: 'category',
-      label: 'Installation',
+      label: 'Setting up Experience Monitoring',
       link: {
         type: 'generated-index',
       },
       items: [
         { type: 'doc', id: 'installation/installation-checklist' },
-        { type: 'doc', id: 'installation/experience-monitoring-ip-addresses' },
-        { type: 'doc', id: 'installation/real-user-monitoring-installation' },
-        { type: 'doc', id: 'installation/monitor-production-events' },
-        {
-          collapsed: true,
-          type: 'category',
-          label: 'Servers and middleware',
-          link: {
-            type: 'generated-index',
-          },
-          items: [
-            { type: 'doc', id: 'installation/servers/install-system-agents' },
-            { type: 'doc', id: 'installation/servers/cloud-configuration-of-agents' },
-            { type: 'doc', id: 'installation/servers/add-advanced-metrics' },
-            { type: 'doc', id: 'installation/servers/install-php-magento-orocommerce-profiler' },
-          ],
-        },
+
       ],
     },
     {
       type: 'category',
-      label: 'Configuration',
+      label: 'Getting to know Experience Monitoring',
       link: {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'configuration/configuration-checklist' },
-        { type: 'doc', id: 'configuration/manage-users-and-rights' },
-        { type: 'doc', id: 'configuration/configure-digital-sobriety' },
-        { type: 'doc', id: 'configuration/configure-google-analytics' },
-        { type: 'doc', id: 'configuration/receive-and-configure-alerts' },
-        {
+             {
           collapsed: true,
           type: 'category',
-          label: 'User journey',
-          link: {
-            type: 'generated-index',
-          },
-          items: [
-            { type: 'doc', id: 'configuration/user-journey/create-a-scenario' },
-            { type: 'doc', id: 'configuration/user-journey/user-journey-best-practices' },
-            { type: 'doc', id: 'configuration/user-journey/stm-zones' },
-          ],
-        },
-        {
-          collapsed: true,
-          type: 'category',
-          label: 'Advanced configuration',
-          link: {
-            type: 'generated-index',
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'configuration/advanced-configuration/enable-disable-scenario-or-alert-via-api',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Performance analysis',
-      link: {
-        type: 'generated-index',
-      },
-      items: [
-        { type: 'doc', id: 'performance-analysis/network-tab-indicators' },
-        { type: 'doc', id: 'performance-analysis/system-tab-indicators' },
-        { type: 'doc', id: 'performance-analysis/speed-up-website-with-applications-or-server-configuration' },
-        { type: 'doc', id: 'performance-analysis/errors-and-unavailability-front-end' },
-        {
-          collapsed: true,
-          type: 'category',
-          label: 'Metric overview',
+          label: 'Understanding metric concepts',
           link: {
             type: 'doc',
             id: 'performance-analysis/metrics/overview-of-metrics',
@@ -115,26 +52,42 @@ module.exports = {
             { type: 'doc', id: 'performance-analysis/metrics/cumulative-layout-shift' },
           ],
         },
+        { type: 'doc', id: 'performance-analysis/basic-actions/navigate-in-experience-monitoring' },
         {
           collapsed: true,
           type: 'category',
-          label: 'Basic actions',
+          label: 'Understanding graphs',
           link: {
-            type: 'generated-index',
+        type: 'generated-index',
           },
           items: [
-            { type: 'doc', id: 'performance-analysis/basic-actions/navigate-in-experience-monitoring' },
-            { type: 'doc', id: 'performance-analysis/basic-actions/how-alerts-work' },
-            { type: 'doc', id: 'performance-analysis/basic-actions/gray-areas-on-charts' },
-            { type: 'doc', id: 'performance-analysis/basic-actions/event-tracking' },
-          ],
-        },
+            { type: 'doc', id: 'how-to-articles/using-charts' },
+            { type: 'doc', id: 'installation/monitor-production-events' },
+
+      ],
+    },
+    ],
+    },
+    {
+      collapsed: true,
+      type: 'category',
+      label: 'Real User Monitoring (RUM)',
+      link: {
+        type: "doc",
+        id: "rum/rum"
+      },
+      items: [
+        { type: 'doc', id: 'rum/rum-intro' },
+        { type: 'doc', id: 'installation/real-user-monitoring-installation' },
+        { type: 'doc', id: 'rum/rum-results' },
+        { type: 'doc', id: 'rum/rum-improve' },
+        { type: 'doc', id: 'how-to-articles/rum-blocked-by-csp' },
       ],
     },
     {
       collapsed: true,
       type: 'category',
-      label: 'Digital sobriety',
+      label: "Evaluate a site's digital sobriety",
       link: {
         type: 'generated-index',
       },
@@ -147,25 +100,102 @@ module.exports = {
     {
       collapsed: true,
       type: 'category',
-      label: 'How-to articles',
+      label: "Analyze a site's business data (Google Analytics/Matomo)",
       link: {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'how-to-articles/unable-to-connect' },
-        { type: 'doc', id: 'how-to-articles/meaning-of-colors-in-graphs' },
-        { type: 'doc', id: 'how-to-articles/seo-module' },
-        { type: 'doc', id: 'how-to-articles/measurement-interval' },
-        { type: 'doc', id: 'how-to-articles/experience-monitoring-probes-in-google-analytics' },
-        { type: 'doc', id: 'how-to-articles/faq' },
-        { type: 'doc', id: 'how-to-articles/password-reset' },
-        { type: 'doc', id: 'how-to-articles/using-charts' },
-        { type: 'doc', id: 'how-to-articles/user-journey-screen' },
-        { type: 'doc', id: 'how-to-articles/rum-blocked-by-csp' },
+        { type: 'doc', id: 'configuration/configure-google-analytics' },
+        { type: 'doc', id: 'business-data/business-data-results' },
+        { type: 'doc', id: 'business-data/business-alerts' },
+      ],
+    },
+    {
+      collapsed: true,
+      type: 'category',
+      label: 'Monitor the health of my host server',
+      link: {
+        type: 'generated-index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Installation',
+          collapsed: true,
+          items: [
+            { type: 'doc', id: 'installation/servers/install-system-agents' },
+            { type: 'doc', id: 'installation/servers/cloud-configuration-of-agents' },
+            { type: 'doc', id: 'installation/servers/add-advanced-metrics' },
+            { type: 'doc', id: 'installation/servers/install-php-magento-orocommerce-profiler' },
+            { type: 'doc', id: 'how-to-articles/faq' },
+          ],
+        },
+        { type: 'doc', id: 'performance-analysis/system-tab-indicators' },
+      ],
+
+    },
+    {
+      collapsed: true,
+      type: 'category',
+      label: "Check a site’s network performance",
+      link: {
+        type: 'generated-index',
+      },
+      items: [
+        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+
+      ],
+    },
+    {
+      collapsed: true,
+      type: 'category',
+      label: 'Run a load test',
+      link: {
+        type: 'generated-index',
+      },
+      items: [
+        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+
+      ],
+    },
+    {
+      collapsed: true,
+      type: 'category',
+      label: 'Dashboards and exports',
+      link: {
+        type: 'generated-index',
+      },
+      items: [
+        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+
+      ],
+    },
+    {
+      collapsed: true,
+      type: 'category',
+      label: 'Troubleshooting',
+      link: {
+        type: 'generated-index',
+      },
+      items: [
+        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+
       ],
     },
     {
       type: 'doc', id: 'release-notes'
-    }
+    },
+    {
+      collapsed: true,
+      type: 'category',
+      label: 'Resources',
+      link: {
+        type: 'generated-index',
+      },
+      items: [
+        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+
+      ],
+    },
   ],
 };

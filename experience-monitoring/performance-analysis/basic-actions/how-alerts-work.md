@@ -52,25 +52,3 @@ Examples:
 You can also trigger an alert when a scenario exceeds a fixed duration you set.
 
 By default, these alerts are sent when the deviation occurs at least 15 times within a 25-minute window. They are marked as resolved once the deviation stops for at least 20 out of those 25 minutes.
-
-## Business data alerts
-
-> Available by default on Business and Full licenses; optional on other plans.
-
-Scenarios help detect many site issues, but it's difficult to cover every possible anomaly with a scenario. Business alerting monitors the impact (for example drops in traffic or conversion) rather than a predefined list of causes.
-
-Business alerts detect abnormal drops in traffic or conversion and let you analyze precisely when those drops occurred.
-
-Because this data comes from Google Analytics, it is processed with a default 4-hour delay (GA data is refined over time).
-
-### Conversion rate alerts
-
-This checks whether your conversion rate average over a given period (2 hours by default) is lower compared to the same period historically (daily, weekly, or monthly baselines).
-
-By default this alert triggers when the conversion rate drops by 30% compared to the usual value. A resolution notification is sent when the metric returns to 75% of the usual conversion rate.
-
-You can also set a fixed conversion-rate threshold below which you want to be alerted.
-
-### Page view alerts
-
-This works the same way as conversion-rate alerts but is applied to page views per minute.

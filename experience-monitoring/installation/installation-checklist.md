@@ -1,49 +1,54 @@
-﻿---
+---
 id: installation-checklist
-title: Experience Monitoring Installation checklist
+title: Experience Monitoring installation checklist
 ---
 
-This list covers the requirements to ensure proper operation of Experience Monitoring's different modules for a given site.
+This list shows the requirements needed for Centreon Experience Monitoring's features to run properly on a given site. (Bear in mind that some features may not be included in your license.)
 
-## User journeys
+## User journeys/Synthetic monitoring (STM)
 
-There is **nothing to install** because Experience Monitoring connects to your application just like any regular user.
+There is nothing to install because Experience Monitoring connects to your application just like any regular user.
 
-However, depending on the security level on your site, you may need to allow our IP addresses so that your anti-bot system does not block our probes. If that's the case, you'll find the procedure here:
+However, depending on the security level on your site, you may need to allow our IP addresses so that your anti-bot system does not block our probes. If that's the case, you'll [find the procedure here](./experience-monitoring-ip-addresses.md).
 
-[Experience Monitoring IP addresses](./experience-monitoring-ip-addresses.md)
+## Real User Monitoring (RUM)
 
-## Real User Monitoring
+Real User Monitoring installs like any marketing tag: by inserting a JavaScript tag into your site's HEAD element. For the full procedure and installation instructions, see [Setting up RUM](./real-user-monitoring-installation.md).
 
-Real User Monitoring installs like any marketing tag: by inserting a JavaScript tag. For the full procedure and installation instructions, see:
+## Digital sobriety
 
-[Install Real User Monitoring](./real-user-monitoring-installation.md)
+Digital sobriety scores are calculated from STM and RUM data. If STM and RUM are properly installed and configured, no additional installation is required.
 
-## System agent
+## Analyze a site's business data (Google Analytics/Matomo)
 
-Experience Monitoring's system functionality requires at minimum the installation of system agents, then adding modules depending on the level of detail required or allowed by your license.
+To correlate your business data with other Experience Monitoring data, you need to [link your Google Analytics or Matomo account to Experience Monitoring](../configuration/configure-google-analytics.md).
 
-### Minimal installation
+In the **Business data** page:
 
-To install the system agents, follow the detailed procedure here:
+* The **Journey and revenues** tab contains data only if you have configured a [user journey](#user-journeyssynthetic-monitoring-stm).
 
-[Install system agents](./servers/install-system-agents.md)
+* The **Infratructure cost/click** contains data only if you have configured an agent collecting [system data](#system-data-monitor-the-health-of-your-host-server).
 
-### Installation for advanced metrics
+## System data: monitor the health of your host server
 
-After the agent is installed, you can install additional modules:
+To monitor the health of your host server, you need to install a system agent on it. Additional modules can be added depending on the level of detail you need or your license allows.
 
-- Application agents for Apache, MySQL, Varnish, … to obtain information specific to those services:
-    
-    [Add advanced metrics](./servers/add-advanced-metrics.md)
-    
-- The profiler, compatible with any PHP application such as Magento or OroCommerce:
-    
-    [Install the PHP / Magento / OroCommerce profiler](./servers/install-php-magento-orocommerce-profiler.md)
-    
+* [Install the system agent](./servers/install-system-agents.md) to retrieve basic information about your server.
+* After the agent is installed, you can install additional modules:
 
-## Automatic events
+   * If your application runs on Apache, MySQL, Varnish (...), [install a dedicated agent](./servers/add-advanced-metrics.md) to collect data from those services.
+   * If you are using a PHP application (e.g. Magento or OroCommerce), [install the PHP profiler](./servers/install-php-magento-orocommerce-profiler.md).
 
-You can add events manually in the UI, or automatically via the API. **This is especially useful when you deploy a new version of your site.** We recommend setting this up so changes are recorded in Experience Monitoring.
+## Check a site's network performance
 
-[Automatically track production deployment events](./monitor-production-events.md)
+You don't need to do anything - data appears automatically on the **Network data** page.
+
+## Run a load test
+
+You don't need to install anything to be able to run load tests. You just need to configure a user journey.
+
+<!--
+## Adding events markers to your graphs
+
+To help you analyze Experience Monitoring data and explain changes in behavior, you can [add event markers to graphs manually (or automatically via the API)](./monitor-production-events.md). The typical use case is deploying a new version of your site.
+-->

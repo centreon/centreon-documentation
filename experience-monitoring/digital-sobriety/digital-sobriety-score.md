@@ -1,4 +1,4 @@
-﻿---
+---
 id: digital-sobriety-score
 title: Digital Sobriety Score
 --- 
@@ -82,7 +82,7 @@ Comparison of the two methods and their advantages:
 | Duration | 3 to 5 minutes | minimum of 7 days so collected data is sufficiently comprehensive |
 | Precision | Average based on the 10 most visited pages of the site | Considers 100% of pages, weighted by each page's share of total site traffic |
 | Installation required | None | Requires installing a Real User Monitoring tag (Note: Experience Monitoring’s RUM tag enables full audits while remaining GDPR-compatible) |
-| Cost | Free on quanta.green | Requires an Experience Monitoring subscription or another tool capable of calculating the Digital Sobriety Score |
+| Cost | Free on quanta.green | Requires a Experience Monitoring subscription or another tool capable of calculating the Digital Sobriety Score |
 | Time-series comparison | Yes, but at quarterly precision (quanta.green stores scores for 3 months). After 3 months, a new analysis shows evolution over time. | Yes, in real time and historized automatically over multiple years in Experience Monitoring |
 | Certification | The "Simple audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. | The "Full audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. |
 
@@ -242,7 +242,7 @@ The report both proves the origin of the measurement and guides digital and resp
 
 To obtain a certified score:
 
-- an Experience Monitoring Digital Sobriety license must be connected to the target site with Real User Monitoring enabled. The Digital Sobriety Score is then calculated in real time.
+- a Experience Monitoring Digital Sobriety license must be connected to the target site with Real User Monitoring enabled. The Digital Sobriety Score is then calculated in real time.
 - an expert analysis is carried out to produce the full report.
 
 The first certificate for a given site can be based on the previous 30 days of data. It is valid for one year and will be renewed with a certificate based on the following 12 months. From the second year onward, the certificate will reflect the site's full-year traffic and may include the change in score versus the previous year.
