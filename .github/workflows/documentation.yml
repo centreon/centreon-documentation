@@ -236,7 +236,7 @@ jobs:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
-          experience_monitoring: ${{ matrix.experience_monitoring }}
+          EXPERIENCEMONITORING: ${{ matrix.experience_monitoring }}
           LOGMANAGEMENT: ${{ matrix.logmanagement }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
