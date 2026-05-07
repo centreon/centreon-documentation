@@ -56,7 +56,7 @@ jobs:
               - 'cloud/**'
               - 'i18n/**/docusaurus-plugin-content-docs-cloud/**'
             experienceMonitoring:
-              - 'experienceMonitoring/**'
+              - 'experience-monitoring/**'
               - 'i18n/**/docusaurus-plugin-content-docs-experience-monitoring/**'
             logmanagement:
               - 'logmanagement/**'
