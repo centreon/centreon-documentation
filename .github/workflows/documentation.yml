@@ -27,7 +27,7 @@ jobs:
       build_next_version: ${{ steps.filters.outputs.build_next_version }}
       build_pp: ${{ steps.filters.outputs.build_pp }}
       build_cloud: ${{ steps.filters.outputs.build_cloud }}
-      build_experienceMonitoring: ${{ steps.filters.outputs.build_experienceMonitoring }}
+      build_experience_monitoring: ${{ steps.filters.outputs.build_experience_monitoring }}
       build_logmanagement: ${{ steps.filters.outputs.build_logmanagement }}
 
     steps:
@@ -55,7 +55,7 @@ jobs:
             cloud:
               - 'cloud/**'
               - 'i18n/**/docusaurus-plugin-content-docs-cloud/**'
-            experienceMonitoring:
+            experience-monitoring:
               - 'experience-monitoring/**'
               - 'i18n/**/docusaurus-plugin-content-docs-experience-monitoring/**'
             logmanagement:
@@ -82,7 +82,7 @@ jobs:
             }
             let build_pp = '1';
             let build_cloud = '1';
-            let build_experienceMonitoring = '1';
+            let build_experience_monitoring = '1';
             let build_logmanagement = '1';
 
             if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
@@ -94,8 +94,8 @@ jobs:
                 build_cloud = '0';
               }
 
-              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.experienceMonitoring }} === false) {
-                build_experienceMonitoring = '0';
+              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.experience_monitoring }} === false) {
+                build_experience_monitoring = '0';
               }
 
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.logmanagement }} === false) {
@@ -121,7 +121,7 @@ jobs:
 
               if (
                 build_versions.length === 0 &&
-                (build_pp === '1' || build_cloud === '1' || build_experienceMonitoring === '1' || build_logmanagement === '1')
+                (build_pp === '1' || build_cloud === '1' || build_experience_monitoring === '1' || build_logmanagement === '1')
               ) {
                 build_versions.push(available_versions[0]);
               }
@@ -131,7 +131,7 @@ jobs:
             console.log(`next version will${build_next_version === null ? ' not' : ''} be built`);
             console.log(`pp section will${build_pp === '0' ? ' not' : ''} be built`);
             console.log(`cloud section will${build_cloud === '0' ? ' not' : ''} be built`);
-            console.log(`experienceMonitoring section will${build_experienceMonitoring === '0' ? ' not' : ''} be built`);
+            console.log(`experience_monitoring section will${build_experience_monitoring === '0' ? ' not' : ''} be built`);
             console.log(`logmanagement section will${build_logmanagement === '0' ? ' not' : ''} be built`);
 
             const build_environments = [];
@@ -147,7 +147,7 @@ jobs:
             core.exportVariable('build_next_version', build_next_version);
             core.exportVariable('build_pp', build_pp);
             core.exportVariable('build_cloud', build_cloud);
-            core.exportVariable('build_experienceMonitoring', build_experienceMonitoring);
+            core.exportVariable('build_experience_monitoring', build_experience_monitoring);
             core.exportVariable('build_logmanagement', build_logmanagement);
 
       - name: Manage versions to build
@@ -167,7 +167,7 @@ jobs:
             core.exportVariable('build_next_version', require('./nextVersion.json').version);
             core.exportVariable('build_pp', '1');
             core.exportVariable('build_cloud', '1');
-            core.exportVariable('build_experienceMonitoring', '1');
+            core.exportVariable('build_experience_monitoring', '1');
             core.exportVariable('build_logmanagement', '1');
 
       - name: Manage versions to build
@@ -180,7 +180,7 @@ jobs:
             core.setOutput('build_next_version', '${{ env.build_next_version }}');
             core.setOutput('build_pp', '${{ env.build_pp }}');
             core.setOutput('build_cloud', '${{ env.build_cloud }}');
-            core.setOutput('build_experienceMonitoring', '${{ env.build_experienceMonitoring }}');
+            core.setOutput('build_experience_monitoring', '${{ env.build_experience_monitoring }}');
             core.setOutput('build_logmanagement', '${{ env.build_logmanagement }}');
 
   build:
@@ -197,7 +197,7 @@ jobs:
             next_version: ${{ needs.get-versions.outputs.build_next_version }}
             pp: ${{ needs.get-versions.outputs.build_pp }}
             cloud: ${{ needs.get-versions.outputs.build_cloud }}
-            experienceMonitoring: ${{ needs.get-versions.outputs.build_experienceMonitoring }}
+            experience_monitoring: ${{ needs.get-versions.outputs.build_experience_monitoring }}
             logmanagement: ${{ needs.get-versions.outputs.build_logmanagement }}
 
     name: Build ${{ matrix.environment }}
@@ -236,7 +236,7 @@ jobs:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
-          experienceMonitoring: ${{ matrix.experienceMonitoring }}
+          experience_monitoring: ${{ matrix.experience_monitoring }}
           LOGMANAGEMENT: ${{ matrix.logmanagement }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
