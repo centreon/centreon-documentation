@@ -7,7 +7,7 @@ Make sure you have read [Centreon basics](concepts.md) before monitoring your fi
 
 ## Monitoring a host
 
-> We recommend installing the [Centreon Monitoring Agent (CMA)](../cma/cma.md), a piece of software that monitors the host it is installed on, collecting metrics and computing statuses to send to Centreon. When you install CMA, a host is automatically created for it.
+> We recommend installing the [Centreon Monitoring Agent (CMA)](../cma/cma.md), a piece of software that monitors the host it is installed on, collecting metrics and computing statuses to send to Centreon. When you install CMA, you can choose to have a host automatically created for it.
 
 To monitor a host in Centreon Cloud:
 
