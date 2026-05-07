@@ -41,7 +41,7 @@ A label for a set of services. Example: **e-commerce site.** -->
 
 Across most tools and platforms, logs are presented using log levels like INFO or ERROR — the format end users are most familiar with. In OpenTelemetry, this information is managed using two attributes: [SeverityNumber](https://opentelemetry.io/docs/specs/otel/logs/data-model/#field-severitynumber) (the severity's ID) and SeverityText (the severity's label). One **SeverityText** value corresponds to several **SeverityNumbers**.
 
-Tyical severity texts are <span style={{color:"#4a8c6f"}}>**TRACE**</span>, <span style={{color:"#1ebeb3"}}>**DEBUG**</span>, <span style={{color:"#1588d1"}}>**INFO**</span>, <span style={{color:"#ffca34"}} >**WARNING**</span>, <span style={{color:"#fd9b27"}}>**ERROR**</span>, or <span style={{color:"#ff4a4a"}}>**FATAL**</span> severity.
+Tyical severity texts are <span style={{color:"#4a8c6f"}}>**TRACE**</span>, <span style={{color:"#1ebeb3"}}>**DEBUG**</span>, <span style={{color:"#1588d1"}}>**INFO**</span>, <span style={{color:"#ffca34"}} >**WARNING**</span>, <span style={{color:"#fd9b27"}}>**ERROR**</span>, or <span style={{color:"#ff4a4a"}}>**FATAL**</span>.
 
 Here is the range of severity numbers that Log Management takes into account (the descriptions are those of the OpenTelemetry documentation):
 
