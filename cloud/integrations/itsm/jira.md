@@ -46,7 +46,7 @@ This open ticket connector can retrieve the following information from your Jira
 - Type of issues
 - Projects
 
-If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../mapping.md) from the Open Ticket module global documentation.
+If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket module global documentation.
 
 ## Test commands
 

@@ -5,13 +5,13 @@ title: BMC Footprints 11
 
 ## Features information
 
-| open ticket | close ticket (from Centreon to BMC Footprints) | Handle custom fields |
+| Open ticket | Close ticket (from Centreon to BMC Footprints) | Handle custom fields |
 | -- | -- | -- |
 | ✓ | ✘ | ✘ |
 
 ## Prerequisites
 
-### Network Flow
+### Network flow
 
 | Source | Destination | Protocol/Port |
 | -- | -- | -- |
@@ -19,18 +19,18 @@ title: BMC Footprints 11
 
 ### Account
 
-You need the following information
+You need the following information:
 
 - Username
 - Password
 
-The aforementioned account must be able to at least be able to open a ticket through the SOAP API action **MRWebServices**
+The aforementioned account must be able to open a ticket through the SOAP API action **MRWebServices**.
 
-Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands).
 
-## Sent data
+## Data sent
 
-This open ticket connector can send the following information when opening a ticket
+This open ticket connector can send the following information when opening a ticket:
 
 - Project ID
 - Priority
@@ -39,13 +39,13 @@ This open ticket connector can send the following information when opening a tic
 
 ## Test commands
 
-The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<footprints_address>` may be replaced with **my_footprints.local**
+The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<footprints_address>` may be replaced with **my_footprints.local**.
 
-In the --data part of the curl command, all `<UPPER CASE>` information must be replaced with their appropriate values (therefore, `<TITLE>` may be replaced with "Test ticket" )
+In the --data part of the curl command, all `<UPPER CASE>` information must be replaced with their appropriate values (therefore, `<TITLE>` may be replaced with "Test ticket").
 
 ### Open a ticket
 
-Keep in mind that the data in the command down below is just an example and your footprints server may ask you to add mandatory data
+Keep in mind that the data in the command below is just an example and your footprints server may ask you to add mandatory data.
 
 ```bash
 curl --location 'https://<footprints_address>/<footprints_action>' \
@@ -69,7 +69,7 @@ curl --location 'https://<footprints_address>/<footprints_action>' \
                 soapenc:arrayType="xsd:string[1]" xsi:type="soapenc:Array">
                 <item xsi:type="xsd:string"><ASSIGNEE></item>
             </assignees>
-            <projfields><<PROJECT_NAME> xsi:type="xsd:string"><PROJECT_VALUE></<PROJECT_NAME></projfields>
+            <projfields><PROJECT_NAME> xsi:type="xsd:string"><PROJECT_VALUE></<PROJECT_NAME></projfields>
           
             <status xsi:type="xsd:string"><STATUS></status>
             <projectID xsi:type="xsd:int"><PROJECT_ID></projectID>

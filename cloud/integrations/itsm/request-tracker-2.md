@@ -41,7 +41,7 @@ This open ticket connector can retrieve the following information from your Glpi
 - Custom fields
 - Queues
 
-If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../mapping.md) from the Open Ticket module global documentation.
+If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket module global documentation.
 
 ## Additionnal data
 
@@ -50,7 +50,7 @@ This open ticket connector can also send the following information when opening 
 - Requestor
 - Cc
 
-Those information are not retrieved from Request Tracker. They are configured in your open ticket rule as [custom lists](../mapping.md#custom-list-definition)
+Those information are not retrieved from Request Tracker. They are configured in your open ticket rule as [custom lists](../../alerts-notifications/ticketing/mapping.md#custom-list-definition)
 
 ## Test commands
 

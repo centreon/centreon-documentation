@@ -3,11 +3,11 @@ id: bmc-remedy
 title: BMC Remedy
 ---
 
-> This provider is called BMC ITSM in the Centreon web interface
+> This provider is called **BMC ITSM** in the Centreon web interface.
 
 ## Features information
 
-| open ticket | close ticket (from Centreon to BMC Remedy) | Handle custom fields |
+|Open ticket | Close ticket (from Centreon to BMC Remedy) | Handle custom fields |
 | -- | -- | -- |
 | ✓ | ✘ | ✘ |
 
@@ -21,13 +21,12 @@ title: BMC Remedy
 
 ### Account
 
-You need the following information
+You need the following information.
 
 - Username
 - Password
 
-The aforementioned account must at least be able to open a ticket through the SOAP API endpoint **arsys/services/'ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS** with the **IncidentInterface_Create_WS** namespace
-
+The aforementioned account must be able to open a ticket through the SOAP API endpoint **arsys/services/'ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS** with the **IncidentInterface_Create_WS** namespace.
 Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
 
 ## Sent data

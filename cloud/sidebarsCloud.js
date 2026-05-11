@@ -432,56 +432,6 @@ module.exports = {
             },
             {
               "type": "category",
-              "label": "Providers",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/easyvista-rest"
-                },
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/glpi-api-rest"
-                },
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/bmc-remedy"
-                },
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/service-now"
-                },
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/bmc-footprints-11"
-                },
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/itop"
-                },
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/bmc-footprints-11"
-                },
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/mail"
-                },
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/jira"
-                },
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/request-tracker-2"
-                },
-                {
-                  "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/serena-itsm"
-                }
-              ]
-            },
-            {
-              "type": "category",
               "label": "Customizing tickets",
               "link": {
                 "type": "doc",
@@ -687,11 +637,23 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "integrations/itsm/bmc-footprints-11"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/bmc-remedy"
+            },
+            {
+              "type": "doc",
               "id": "integrations/itsm/ot-easyvista"
             },
             {
               "type": "doc",
               "id": "integrations/itsm/ot-easyvista-rest-api"
+            },
+             {
+              "type": "doc",
+              "id": "integrations/itsm/easyvista-rest"
             },
             {
               "type": "doc",
@@ -703,11 +665,31 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "integrations/itsm/glpi-api-rest"
+            },
+            {
+              "type": "doc",
               "id": "integrations/itsm/ot-itop"
             },
             {
               "type": "doc",
+              "id": "integrations/itsm/itop"
+            },
+             {
+              "type": "doc",
+              "id": "integrations/itsm/ivanti"
+            },
+            {
+              "type": "doc",
               "id": "integrations/itsm/ot-jira"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/jira"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/mail"
             },
             {
               "type": "doc",
@@ -719,7 +701,23 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "integrations/itsm/request-tracker-2"
+            },
+             {
+              "type": "doc",
+              "id": "integrations/itsm/serena-itsm"
+            },
+            {
+              "type": "doc",
               "id": "integrations/itsm/ot-servicenow"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/service-now"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/simple"
             }
           ]
         },

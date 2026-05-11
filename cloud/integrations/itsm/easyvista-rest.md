@@ -42,13 +42,13 @@ This open ticket connector can retrieve the following information from your Easy
 
 - Assets
 
-If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../mapping.md) from the Open Ticket module global documentation.
+If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket module global documentation.
 
 ## Assets
 
 Every information sent to Easy vista comes from Centreon apart from assets. To be able to retrieve them, you will need to use the following syntax in the **Filter field** of the **Lists definition**. It must be set as follows: **search=field1:value1,field2:value2**. For more information please refer to the [Easy vista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20See%20a%20list%20of%20assets/)
 
-![architecture](../../../assets/alerts/ticketing/easy-vista-rest/filters.png)
+![architecture](../../assets/alerts/ticketing/easy-vista-rest/filters.png)
 
 ## Easy vista Custom fields
 
@@ -60,7 +60,7 @@ Easy vista allow their users to create custom fields for their tickets form. Sin
   - In the **Argument** field, select **Custom Field**
   - In the **Value** field, write `{$select.e_<your_field_name>.value}` where `<your_field_name>` must be replaced with the name of your custom field in Easy vista. For example, a **city** custom field could become **\{$select.e_city.value\}**
 
-![arg list](../../../assets/alerts/ticketing/easy-vista-rest/custom_field.png)
+![arg list](../../assets/alerts/ticketing/easy-vista-rest/custom_field.png)
 
 - Add a new **List** for your custom field with the **+Add a new entry** button.
   - In the **Id** field you **must** keep the same syntax than before. So for a *e_city* custom field, the Id will be **e_city**.
@@ -68,7 +68,7 @@ Easy vista allow their users to create custom fields for their tickets form. Sin
   - In the **Type** field, select **Custom**
   - The **Filters**, **Mandatory** and **Sort** parameters are optional.
 
-![list](../../../assets/alerts/ticketing/easy-vista-rest/custom_type.png)
+![list](../../assets/alerts/ticketing/easy-vista-rest/custom_type.png)
 
 - Add new **Custom list definitions** for your custom field with the **+Add a new entry** button. This is where you set up the possible values for your fields.
   - In the **Id** field you **must** keep the same syntax than before. So for a *e_city* custom field, the Id will be **e_city**
@@ -78,13 +78,13 @@ Easy vista allow their users to create custom fields for their tickets form. Sin
 
 As explained in the example down below, in the **Mapping ticket arguments** you could also use `{$select.e_<your_field_name>.placeholder}` instead of `{$select.e_<your_field_name>.value}` if you wish to send the name of the city instead of the zip code.
 
-![custom list](../../../assets/alerts/ticketing/easy-vista-rest/custom_list.png)
+![custom list](../../assets/alerts/ticketing/easy-vista-rest/custom_list.png)
 
 ## CI parameter
 
-It is possible to send the CI field to Easy Vista. When configured (see [custom lists](../mapping.md#custom-list-definition) for more information) it will send either the name of the host or a selected hostgroup when you tick the "Use hostgroup name as CI". When you open a ticket on multiple hosts in one go, only groups in which both hosts belong can be selected. Still in the multiple hosts selection, you will be forced to select one of the host names as CI if you are not using the host group feature.
+It is possible to send the CI field to Easy Vista. When configured (see [custom lists](../../alerts-notifications/ticketing/mapping.md#custom-list-definition) for more information) it will send either the name of the host or a selected hostgroup when you tick the "Use hostgroup name as CI". When you open a ticket on multiple hosts in one go, only groups in which both hosts belong can be selected. Still in the multiple hosts selection, you will be forced to select one of the host names as CI if you are not using the host group feature.
 
-![custom list](../../../assets/alerts/ticketing/easy-vista-rest/openticket_demo.gif)
+![custom list](../../assets/alerts/ticketing/easy-vista-rest/openticket_demo.gif)
 
 ## Test commands
 
