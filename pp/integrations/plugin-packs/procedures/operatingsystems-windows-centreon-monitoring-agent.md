@@ -523,7 +523,7 @@ You can combine with WARNING/CRITICAL to require multiple matches before changin
 - "size > 50M"                            # File larger than 50 MB
 - "extension == '.bak'"                   # Backup files
 - "size > 200M && extension == '.dll'"    # Large DLLs
-- "count <= 0"                            # No file found
+- "count &lt;= 0"                            # No file found
 
 
 #### File age check
@@ -582,7 +582,7 @@ PATTERN= myfile.txt
 MAXDEPTH= -1,
 DETAILSYNTAX= {filename}: {size}
 WARNINGSTATUS=
-CRITICALSTATUS= count<0
+CRITICALSTATUS= count < 0
 WARNING=
 CRITICAL= 0
 ```
@@ -595,7 +595,7 @@ PATTERN= myfile.txt
 MAXDEPTH= -1,
 DETAILSYNTAX= {filename}: {size}
 WARNINGSTATUS=
-CRITICALSTATUS= count>0
+CRITICALSTATUS= count > 0
 WARNING=
 CRITICAL= 0
 ```
