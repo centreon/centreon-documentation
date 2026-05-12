@@ -1,11 +1,11 @@
 ---
-id: bmc-remedy
+id: ot-bmc-remedy
 title: BMC Remedy
 ---
 
 > This provider is called **BMC ITSM** in the Centreon web interface.
 
-## Features information
+## Feature information
 
 |Open ticket | Close ticket (from Centreon to BMC Remedy) | Handle custom fields |
 | -- | -- | -- |
@@ -13,7 +13,7 @@ title: BMC Remedy
 
 ## Prerequisites
 
-### Network Flow
+### Network flow
 
 | Source | Destination | Protocol/Port |
 | -- | -- | -- |
@@ -21,17 +21,17 @@ title: BMC Remedy
 
 ### Account
 
-You need the following information.
+You need the following information:
 
 - Username
 - Password
 
 The aforementioned account must be able to open a ticket through the SOAP API endpoint **arsys/services/'ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS** with the **IncidentInterface_Create_WS** namespace.
-Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands](#test-commands) section.
 
-## Sent data
+## Data sent
 
-This open ticket connector can send the following information when opening a ticket
+This open ticket provider can send the following information when opening a ticket:
 
 - Action
 - Status
@@ -40,13 +40,13 @@ This open ticket connector can send the following information when opening a tic
 
 ## Test commands
 
-The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<URL>` may be replaced with **http://127.0.0.1/arsys/services/ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS**
+The curl commands listed below must be run from your central server. You need to replace all elements between `<>`. For example `<URL>` may be replaced with `http://127.0.0.1/arsys/services/ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS`.
 
-In the --data part of the curl command, all `<UPPER CASE>` information must be replaced with their appropriate values (therefore, `<TITLE>` may be replaced with "Test ticket" )
+In the **--data** part of the curl command, all `<UPPER CASE>` information must be replaced with their appropriate values (therefore, `<TITLE>` may be replaced with "Test ticket" )
 
 ### Open a ticket
 
-Keep in mind that the data in the command down below is just an example and your footprints server may ask you to add mandatory data
+Keep in mind that the data in the command below is just an example and your footprints server may ask you to add mandatory data.
 
 ```bash
 curl --location 'https://<URL>' \

@@ -3,15 +3,15 @@ id: glpi-api-rest
 title: GlpiApiRest
 ---
 
-## Features information
+## Feature information
 
-| open ticket | close ticket (from Centreon to Glpi) | Handle custom fields |
+| Open ticket | Close ticket (from Centreon to Glpi) | Handle custom fields |
 | -- | -- | -- |
 | ✓ | ✓ | ✘ |
 
 ## Prerequisites
 
-### Network Flow
+### Network flow
 
 | Source | Destination | Protocol/Port |
 | -- | -- | -- |
@@ -19,15 +19,15 @@ title: GlpiApiRest
 
 ### Account
 
-You need the following information
+You need the following information:
 
-- Api token (also known as app token)
+- API token (also known as app token)
 - User token
 - Serveur address
 
 The aforementioned account must at least be able to open a ticket through the **/Ticket API endpoint** and to authenticate itself through the **/initSession API endpoint**.
 
-The connector will also try to access the following API endpoints depending on the configuration of your open ticket rule.
+The connector will also try to access the following API endpoints depending on the configuration of your open ticket rule:
 
 - /User
 - /Group
@@ -35,11 +35,11 @@ The connector will also try to access the following API endpoints depending on t
 - /Supplier
 - /itilCategory
 
-Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands](#test-commands) section.
 
 ## Retrieved data
 
-This open ticket connector can retrieve the following information from your Glpi server
+This open ticket connector can retrieve the following information from your Glpi server:
 
 - Entities
 - Users
@@ -47,24 +47,24 @@ This open ticket connector can retrieve the following information from your Glpi
 - Suppliers
 - ITIL categories
 
-If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket module global documentation.
+> If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket global documentation.
 
-## Additionnal data
+## Additional data
 
-This open ticket connector can also send the following information when opening a ticket
+This open ticket connector can also send the following information when opening a ticket:
 
 - Urgency
 - Impact
 - Priority
 - Group and User role
 
-Those information are not retrieved from Glpi. They are configured in your open ticket rule as [custom lists](../../alerts-notifications/ticketing/mapping.md#custom-list-definition)
+Those information are not retrieved from Glpi. They are configured in your open ticket rule as [custom lists](../../alerts-notifications/ticketing/mapping.md#custom-list-definition).
 
 ## Test commands
 
-The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<glpi_address>` may be replaced with **my_glpi.local**
+The curl commands listed below must be run from your central server. You need to replace all elements between `<>` for example `<glpi_address>` may be replaced with `my_glpi.local`.
 
-### Get session token
+### Get a session token
 
 ```bash
 curl --location 'https://<glpi_address>/<glpi_api_path>/initSession' \

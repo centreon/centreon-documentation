@@ -12,13 +12,6 @@ about your monitoring alerts.
 
 ![architecture](../../assets/integrations/open-tickets/ot-easyvista-architecture.png)
 
-## Compatibility
-
-This integration is (at least) compatible with the following EasyVista
-versions:
-
-**To be determined**
-
 ## Requirements
 
 Before going any further, make sure that you correctly setup

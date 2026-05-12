@@ -1,17 +1,44 @@
 ---
-id: bmc-footprints-11
+id: ot-bmc-footprints-11
 title: BMC Footprints 11
 ---
 
-BMC Footprints 11 open-tickets provider uses the BMC Footprints SOAP API to open incidents about your monitoring alerts.
+## How it works
 
-## Features information
+BMC Footprints 11 open-tickets provider uses the BMC Footprints SOAP API to open
+incidents about your monitoring alerts.
+
+![architecture](../../assets/integrations/open-tickets/ot-bmc-footprint-architecture.png)
+
+## Compatibility
+
+This integration is (at least) compatible with the following BMC Footprints
+versions:
+
+  - 11.x
+
+## Feature information
 
 | Open ticket | Close ticket (from Centreon to BMC Footprints) | Handle custom fields |
 | -- | -- | -- |
 | ✓ | ✘ | ✘ |
 
-## Prerequisites
+## Requirements
+
+Before going any further, make sure that you correctly setup
+[centreon-open-ticket](../../alerts-notifications/ticketing.md)
+into your Centreon instance.
+
+This provider requires the following parameters:
+
+| Parameter       | Example of value        |
+| --------------- | ----------------------- |
+| Address         | 10.11.12.13             |
+| Webservice Path | /MRcgi/MRWebServices.pl |
+| Action          | /MRWebServices          |
+| Username        | centreon                |
+| Password        | MyPassword              |
+| Timeout         | 60                      |
 
 ### Network flow
 
@@ -27,12 +54,11 @@ You need the following information:
 - Password
 
 The aforementioned account must be able to open a ticket through the SOAP API action **MRWebServices**.
-
-Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands).
+Some test commands that you can run from your Centreon central server are available in the [Test commands](#test-commands) section.
 
 ## Data sent
 
-This open ticket connector can send the following information when opening a ticket:
+This open ticket provider can send the following information when opening a ticket:
 
 - Project ID
 - Priority
@@ -41,9 +67,9 @@ This open ticket connector can send the following information when opening a tic
 
 ## Test commands
 
-The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<footprints_address>` may be replaced with **my_footprints.local**.
+The curl commands listed below must be run from your central server. You need to replace all elements between `<>`. For example `<footprints_address>` may be replaced with `my_footprints.local`.
 
-In the --data part of the curl command, all `<UPPER CASE>` information must be replaced with their appropriate values (therefore, `<TITLE>` may be replaced with "Test ticket").
+In the **--data** part of the curl command, all `<UPPER CASE>` information must be replaced with their appropriate values (therefore, `<TITLE>` may be replaced with "Test ticket").
 
 ### Open a ticket
 
@@ -83,3 +109,7 @@ curl --location 'https://<footprints_address>/<footprints_action>' \
 </soap:Envelope>
 '
 ```
+
+## Possibilities
+
+As of now, the provider is able to open a ticket.

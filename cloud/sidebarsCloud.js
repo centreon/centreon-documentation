@@ -633,15 +633,11 @@ module.exports = {
           "items": [
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-bmc-footprints"
+              "id": "integrations/itsm/ot-bmc-footprints-11"
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/bmc-footprints-11"
-            },
-            {
-              "type": "doc",
-              "id": "integrations/itsm/bmc-remedy"
+              "id": "integrations/itsm/ot-bmc-remedy"
             },
             {
               "type": "doc",
@@ -651,10 +647,6 @@ module.exports = {
               "type": "doc",
               "id": "integrations/itsm/ot-easyvista-rest-api"
             },
-             {
-              "type": "doc",
-              "id": "integrations/itsm/easyvista-rest"
-            },
             {
               "type": "doc",
               "id": "integrations/itsm/ot-glpi"
@@ -662,10 +654,6 @@ module.exports = {
             {
               "type": "doc",
               "id": "integrations/itsm/ot-glpi-restapi"
-            },
-            {
-              "type": "doc",
-              "id": "integrations/itsm/glpi-api-rest"
             },
             {
               "type": "doc",
