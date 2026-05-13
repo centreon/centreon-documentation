@@ -334,7 +334,7 @@ The NRPE protocol uses the TCP port 5666.
 ### System prerequisites
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 1. Install the agent.
 
@@ -389,7 +389,7 @@ reboot
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
 name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/$basearch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/stable/$basearch/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -397,7 +397,7 @@ module_hotfixes=1
 
 [centreon-plugins-stable-noarch]
 name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/noarch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/stable/noarch/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -405,7 +405,7 @@ module_hotfixes=1
 
 [centreon-plugins-testing]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/$basearch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/testing/$basearch/
 enabled=0
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -413,7 +413,7 @@ module_hotfixes=1
 
 [centreon-plugins-testing-noarch]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/noarch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/testing/noarch/
 enabled=0
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -421,7 +421,7 @@ module_hotfixes=1
 
 [centreon-plugins-unstable]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/$basearch/ 
+baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/unstable/$basearch/
 enabled=0 
 gpgcheck=1 
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
@@ -429,7 +429,7 @@ module_hotfixes=1
  
 [centreon-plugins-unstable-noarch] 
 name=Centreon plugins repository. (UNSUPPORTED) 
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/noarch/ 
+baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/unstable/noarch/
 enabled=0 
 gpgcheck=1 
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
@@ -444,108 +444,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-1. Install the agent.
-
-```bash
-dnf -y install nrpe
-dnf -y config-manager --set-enabled 'crb'
-mkdir -p /var/lib/centreon/centplugins/
-chown nrpe: /var/lib/centreon/centplugins/
-```
-
-2. Change the IP address for the`allowed_hosts parameter in` **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
-
-```bash 
-sed -i 's/dont_blame_nrpe=0/dont_blame_nrpe=1/' /etc/nagios/nrpe.cfg 
-sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nagios/nrpe.cfg 
-``` 
-
-3. Add the definition of the `check_centreon_plugins` command:
- 
-```bash
-cat >/etc/nrpe.d/centreon-commands.cfg <<'EOF'
-command[check_centreon_plugins]=/usr/lib/centreon/plugins/centreon_linux_local.pl --plugin=$ARG1$ --mode=$ARG2$ $ARG3$
-EOF
-```
-
-4. Restart the service to apply the new configuration:
-
-```bash
-systemctl restart nrpe
-systemctl enable nrpe
-```
-
-5. To monitor **systemd-journal**, run the following commands:
-
-```bash
-usermod -a -G systemd-journal nrpe
-systemctl restart nrpe
-```
-
-6. Add the Centreon plugins' repository:
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-EOF
-```
-
-7. Install the plugin :
-
-```bash
-dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 1. Add the Centreon plugins' repository:
 
@@ -611,21 +510,14 @@ If the platform uses an *offline* license, install the package on the **central 
 with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```bash
 dnf install centreon-pack-operatingsystems-linux-nrpe4
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install centreon-pack-operatingsystems-linux-nrpe4
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 ```bash
 apt install centreon-pack-operatingsystems-linux-nrpe4
@@ -649,21 +541,14 @@ the **Configuration > Connectors > Monitoring Connectors** menu.
 Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```bash
 dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install nagios-plugins-nrpe
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 ```bash
 apt install nagios-nrpe-plugin
