@@ -389,7 +389,7 @@ reboot
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
 name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/stable/$basearch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/stable/$basearch/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -397,7 +397,7 @@ module_hotfixes=1
 
 [centreon-plugins-stable-noarch]
 name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/stable/noarch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/stable/noarch/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -405,7 +405,7 @@ module_hotfixes=1
 
 [centreon-plugins-testing]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/testing/$basearch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/testing/$basearch/
 enabled=0
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -413,7 +413,7 @@ module_hotfixes=1
 
 [centreon-plugins-testing-noarch]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/testing/noarch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/testing/noarch/
 enabled=0
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -421,7 +421,7 @@ module_hotfixes=1
 
 [centreon-plugins-unstable]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/unstable/$basearch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/unstable/$basearch/
 enabled=0 
 gpgcheck=1 
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
@@ -429,7 +429,7 @@ module_hotfixes=1
  
 [centreon-plugins-unstable-noarch] 
 name=Centreon plugins repository. (UNSUPPORTED) 
-baseurl=https://packages.centreon.com/rpm-plugins/el$(rpm -E %{rhel})/unstable/noarch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/unstable/noarch/
 enabled=0 
 gpgcheck=1 
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
