@@ -1,7 +1,19 @@
 ---
-id: request-tracker-2
+id: ot-request-tracker-2
 title: Request Tracker 2
 ---
+
+## How it works
+
+The Request Tracker 2 provider uses the REST API of Request Tracker to retrieve
+data in order to open a ticket.
+
+![architecture](../../assets/integrations/open-tickets/ot-request-tracker2-architecture.png)
+
+## Compatibility
+
+This connector requires at least the version 2.0 of the REST API of Request
+Tracker
 
 ## Feature information
 
@@ -9,7 +21,20 @@ title: Request Tracker 2
 | -- | -- | -- |
 | ✓ | ✘ | ✓ |
 
-## Prerequisites
+## Requirements
+
+Before going any further, make sure that you correctly setup
+[centreon-open-ticket](../../alerts-notifications/ticketing.md)
+into your Centreon instance
+
+Our provider requires the following parameters:
+
+| Parameter | Example of value             |
+| --------- | ---------------------------- |
+| Address   | 192.168.0.7                  |
+| token     | xxxxxxxxxxxxxxxxxxxxxxxxxxxx |
+| Path      | /REST/2.0/                   |
+| Timeout   | 60                           |
 
 ### Network flow
 

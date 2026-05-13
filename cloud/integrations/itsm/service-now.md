@@ -3,15 +3,15 @@ id: service-now
 title: ServiceNow
 ---
 
-## Features information
+## Feature information
 
-| open ticket | close ticket (from Centreon to Service Now) | Handle custom fields |
+| Open ticket | Close ticket (from Centreon to Service Now) | Handle custom fields |
 | -- | -- | -- |
 | ✓ | ✘ | ✘ |
 
 ## Prerequisites
 
-### Network Flow
+### Network flow
 
 | Source | Destination | Protocol/Port |
 | -- | -- | -- |
@@ -19,7 +19,7 @@ title: ServiceNow
 
 ### Account
 
-You need the following information
+You need the following information:
 
 - Client ID
 - Client secret
@@ -29,17 +29,17 @@ You need the following information
 
 The aforementioned account must at least be able to open a ticket through the **Service Now Table REST API**. This is a POST action into the **incident table**.
 
-The connector will also try to access the following tables from the API depending on the configuration of your open ticket rule.
+The connector will also try to access the following tables from the API depending on the configuration of your open ticket rule:
 
 - sys_user table
 - sys_user_group table
 - sys_choice
 
-Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands](#test-commands) section.
 
 ## Retrieved data
 
-This open ticket connector can retrieve the following information from your Service Now instance
+This open ticket connector can retrieve the following information from your Service Now instance:
 
 - Categories
 - Subcategories
@@ -49,11 +49,11 @@ This open ticket connector can retrieve the following information from your Serv
 - Assignment Group
 - Assignment
 
-If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket module global documentation.
+> If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket global documentation.
 
 ## Test commands
 
-The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<server_address>` may be replaced with **service-now.com**
+The curl commands listed below must be run from your central server. You need to replace everything between `<>`. For example `<server_address>` may be replaced with `service-now.com`.
 
 ### Get oauth tokens
 

@@ -3,15 +3,15 @@ id: jira
 title: Jira
 ---
 
-## Features information
+## Feature information
 
-| open ticket | close ticket (from Centreon to Jira) | Handle custom fields |
+| Open ticket | Close ticket (from Centreon to Jira) | Handle custom fields |
 | -- | -- | -- |
 | ✓ | ✘ | ✘ |
 
 ## Prerequisites
 
-### Network Flow
+### Network flow
 
 | Source | Destination | Protocol/Port |
 | -- | -- | -- |
@@ -19,38 +19,38 @@ title: Jira
 
 ### Account
 
-You need the following information
+You need the following information:
 
 - Jira address
-- Rest Api Resource (usually /rest/api/latest/)
+- Rest Api Resource (usually `/rest/api/latest/`)
 - Username
-- password
+- Password
 
-The aforementioned account must at least be able to open a ticket through the **/issue API endpoint**
+The aforementioned account must at least be able to open a ticket through the **/issue API endpoint**.
 
-The connector will also try to access the following API endpoints depending on the configuration of your open ticket rule.
+The connector will also try to access the following API endpoints depending on the configuration of your open ticket rule:
 
 - /priority
 - /issuetype
 - /project
 - /user/search
 
-Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands](#test-commands) section.
 
 ## Retrieved data
 
-This open ticket connector can retrieve the following information from your Jira server
+This open ticket connector can retrieve the following information from your Jira server:
 
 - Priorities
 - Users
 - Type of issues
 - Projects
 
-If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket module global documentation.
+> If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket global documentation.
 
 ## Test commands
 
-The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<jira_address>` may be replaced with **my_jira.atlassian.net**
+The curl commands listed below must be run from your central server. You need to replace all elements between `<>` for example `<jira_address>` may be replaced with `my_jira.atlassian.net`.
 
 ### Get Jira priorities
 
@@ -86,7 +86,7 @@ curl --location 'https://<jira_address>/<rest_api_resource>/project' \
 
 ### Open a ticket
 
-Keep in mind that the data in the command down below is just an example and your Jira server may ask you to add mandatory data
+Keep in mind that the data in the command below is just an example and your Jira server may ask you to add mandatory data.
 
 ```bash
 curl --location 'https://<jira_address>/<rest_api_resource>/issue' \

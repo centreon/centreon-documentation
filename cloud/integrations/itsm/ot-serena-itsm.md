@@ -1,17 +1,19 @@
 ---
-id: serena-itsm
+id: ot-serena-itsm
 title: Serena ITSM
 ---
 
-## Features information
+The Serena ITSM Open Tickets provider uses the Serena ITSM server to open incidents about your monitoring alerts.
 
-| open ticket | close ticket (from Centreon to Serena ITSM) | Handle custom fields |
+## Feature information
+
+| Open ticket | Close ticket (from Centreon to Serena ITSM) | Handle custom fields |
 | -- | -- | -- |
 | ✓ | ✘ | ✘ |
 
 ## Prerequisites
 
-### Network Flow
+### Network flow
 
 | Source | Destination | Protocol/Port |
 | -- | -- | -- |
@@ -19,18 +21,18 @@ title: Serena ITSM
 
 ### Account
 
-You need the following information
+You need the following information:
 
 - Username
 - Password
 
-The aformentioned account must at least be able to open a ticket through the SOAP API endpoint **gsoap/gsoap_ssl.dll?XXXXXX** Where **XXXXXX** is the namespace that will be used.
+The aforementioned account must at least be able to open a ticket through the SOAP API endpoint **gsoap/gsoap_ssl.dll?XXXXXX**, where **XXXXXX** is the namespace that will be used.
 
-Some test commands that you can run from your Centreon central server are available in the [Test commands chapter](#test-commands)
+Some test commands that you can run from your Centreon central server are available in the [Test commands](#test-commands) section.
 
-## Sent data
+## Data sent
 
-This open ticket connector can send the following information when opening a ticket
+This open ticket connector can send the following information when opening a ticket:
 
 - Project ID
 - Category
@@ -39,13 +41,13 @@ This open ticket connector can send the following information when opening a tic
 
 ## Test commands
 
-The Curl commands listed below must be run from your central server. You need to replace everything between `<>` for example `<URL>` may be replaced with **http://127.0.0.1//gsoap/gsoap_ssl.dll?XXXXXX**
+The curl commands listed below must be run from your central server. You need to replace all elements between `<>`. For example `<URL>` may be replaced with `http://127.0.0.1//gsoap/gsoap_ssl.dll?XXXXXX`.
 
-In the --data part of the curl command, all `<UPPER CASE>` information must be replaced with their appropriate values (therefore, `<TITLE>` must be replaced by "Test ticket")
+In the **--data part** of the curl command, all `<UPPER CASE>` information must be replaced with their appropriate values (therefore, `<TITLE>` must be replaced by "Test ticket").
 
 ### Open a ticket
 
-Keep in mind that the data in the command down below is just an example and your footprints server may ask you to add mandatory data
+Keep in mind that the data in the command below is just an example and your footprints server may ask you to add mandatory data.
 
 ```bash
 curl --location 'https://<URL>' \

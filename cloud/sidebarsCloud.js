@@ -661,11 +661,7 @@ module.exports = {
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/itop"
-            },
-             {
-              "type": "doc",
-              "id": "integrations/itsm/ivanti"
+              "id": "integrations/itsm/ot-ivanti"
             },
             {
               "type": "doc",
@@ -673,11 +669,7 @@ module.exports = {
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/jira"
-            },
-            {
-              "type": "doc",
-              "id": "integrations/itsm/mail"
+              "id": "integrations/itsm/ot-mail"
             },
             {
               "type": "doc",
@@ -685,15 +677,11 @@ module.exports = {
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-request-tracker-restapi"
+              "id": "integrations/itsm/ot-request-tracker-2"
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/request-tracker-2"
-            },
-             {
-              "type": "doc",
-              "id": "integrations/itsm/serena-itsm"
+              "id": "integrations/itsm/ot-serena-itsm"
             },
             {
               "type": "doc",
@@ -701,11 +689,7 @@ module.exports = {
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/service-now"
-            },
-            {
-              "type": "doc",
-              "id": "integrations/itsm/simple"
+              "id": "integrations/itsm/ot-simple"
             }
           ]
         },
