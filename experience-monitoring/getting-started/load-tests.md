@@ -1,28 +1,39 @@
 ﻿---
 id: load-tests
-title: Load Tests
+title: Load tests
 ---
 
-This section allows analysis of how the platform hosting your web application behaves under conditions of heavy traffic. To access it, open the main menu and select **Load Tests**.
+Load tests allow you to simulate how your website handles peaks of heavy traffic following a previously configured user journey. 
+When launched, the load test will progressively increase traffic on the site according the steps you determined, recording load times and errors.
+This highlights bottlenecks that can then be optimized to improve the overall performance of the website.
 
-Performing a Load Test (often abbreviated “LT”) consists of launching a large number of web browsers in parallel directly from Experience Monitoring and having them interact with a website to deliberately "stress" the platform and the web application.
+>Note that load tests generate real traffic on the website, thus impacting live users if performed on a production website. Load tests can also be performed in test environments.
 
-![image](../assets/getting-started/load-tests-1.png)
+> For better results, we recommend having a Google Analytics or Matomo account linked.
 
-With just a few clicks, it's possible to reproduce the conditions of a day of **very high traffic** in order to intentionally analyze the site's behavior under those conditions.
+## Prerequisites
 
-Depending on the needs, a Load Test can serve **three main objectives**:
+- A configured user journey
+- An available load test. [Contact Centreon](https://www.centreon.com/contact/) to acquire load tests.
 
-- **measure the site's capacity** on its current architecture or on a planned/future architecture (in that case, the test is performed in a pre-production or a “future prod” environment).
+## Running a load test
 
-Example conclusion: “*During the load test performed on the production site MonSite.com, we observed 1,450 page views per minute before user experience degradation, equivalent to 43,500 unique visitors per hour. Compared with the site's Google Analytics history, the load test exceeded last January's sales traffic peak by a factor of 4.5 while preserving a comfortable browsing experience.*”
+1. From the **Load tests** page, click the **Run a load test** button.
 
-- **identify the bottleneck(s)** primarily responsible for reaching the capacity limit. Identifying these bottlenecks will provide strong guidance for optimization efforts that increase capacity.
+2. Select the user journey that will be used for the test and if the test should wait for the onLoad. Only pages included in the user journey will be tested.
 
-Example conclusion: “*We observe that the add-to-cart function and the delivery selection are the steps whose times increase the fastest. Just before failure, they reach average load times of 18 and 34 seconds respectively. Optimizing them would save resources and increase capacity.*”
+3. Give a name to the test.
 
-- **analyze the disruption's symptoms under overload and the nature of any 'crash'** to guide DEV and OPS teams in improving the site's operational reliability.
+4. Determine whether the test will be run as soon as possible or scheduled for later.
 
-Example conclusion: “*Near the limit, several 503 errors (internal server errors) were detected on the webservice MonSiteEcommerce.com/reloadBasket.php, making cart display inoperative in the user's browser; a few minutes later, delivery selection had [...]*”
+5. Determine the minimum time dedicated to each step of the test.
 
-Offered with or without expert support, Experience Monitoring's load tests are billed separately. For more information, contact your sales representative or the Experience Monitoring by Centreon sales team at [sales@quanta.io](mailto:sales@quanta.io).
+6. Determine the number of concurrent users that will be simulated at different timeframes since the start of the test. You can add more steps to test to better control the rise in concurrent users.
+Note that the number of concurrent users created for each step must always be higher than the previous step.
+
+7. Determine the failure conditions that will determine when the test will automatically stop. Tests can also be manually stopped.
+
+8. Check the two acknowdlgment boxes and start the test.
+
+## Manually stopping a test
+
