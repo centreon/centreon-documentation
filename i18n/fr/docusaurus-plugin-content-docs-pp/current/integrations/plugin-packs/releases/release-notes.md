@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 - [**HTTP Server**](../procedures/applications-protocol-http.md) - added boolean2integer function to **collection** mode  based on community contribution [PR 5218](https://github.com/centreon/centreon-plugins/pull/5218).
 - [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - added a way to handle missing fans in **hardware** mode.
 - [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - added `include-status` and `exclude-status` options in **node-usage** mode.
-- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - added EL10 and Debian13 prerequisites.
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) -  added EL 10 and Debian 13 support.
 - [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - added EL10 and Debian13 prerequisites.
 - Vmware connector - added filtering in **stat-connectors** mode based on community contribution [PR 55143](https://github.com/centreon/centreon-plugins/pull/5143).
 
