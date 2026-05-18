@@ -40,7 +40,7 @@ This host template doesn't have any associated services.
 
 | Service Alias           | Service Template                             | Service Description   |
 |:------------------------|:---------------------------------------------|:----------------------|
-| Cloudwatchlogs-Get-Logs | Cloud-Aws-Cloudwatchlogs-Get-Logs-Api-custom | Check Cloudwatch logs |
+| Cloudwatchlogs-Get-Logs | Cloud-Aws-Cloudwatchlogs-Get-Logs-Api-custom | Check CloudWatch logs |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
