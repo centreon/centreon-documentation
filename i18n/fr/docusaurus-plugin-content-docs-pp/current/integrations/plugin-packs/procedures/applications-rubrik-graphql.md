@@ -54,9 +54,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle             | Description |
-|:----------------------------|:------------|
-| App-Rubrik-Graphql-Job-Name |             |
+| Nom de la règle             | Description                              |
+|:----------------------------|:-----------------------------------------|
+| App-Rubrik-Graphql-Job-Name | Découvre les jobs et supervise le statut |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
