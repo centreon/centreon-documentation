@@ -5,7 +5,7 @@ title: Explorer et analyser les logs
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Selon votre [cas d'usage](./getting-started/use-cases.md), vous pouvez soit filtrer Log explorer pour afficher les journaux à haut niveau de sévérité, soit vous baser sur les évènements d'alerte (alert events) pour les situations plus complexes.
+Selon votre [cas d'usage](./getting-started/use-cases.md), vous pouvez soit filtrer Log explorer pour afficher les logs à haut niveau de sévérité, soit vous baser sur les évènements d'alerte (alert events) pour les situations plus complexes.
 
 > Pour afficher des logs dans Centreon Log Management, vous devez d'abord [configurer un collecteur OpenTelemetry sur chaque hôte dont vous souhaitez recevoir les logs](./collector/collector.md).
 
@@ -13,11 +13,31 @@ Selon votre [cas d'usage](./getting-started/use-cases.md), vous pouvez soit filt
 
 La page **Log explorer** page vous permet de rechercher et de filtrer les logs afin que vous puissiez investiguer les problèmes et effectuer une analyse de leurs causes profondes.
 
+### Période de temps
+
 * Utilisez la liste **Time period** en haut à droite de la page pour sélectionner la plage de logs à afficher.
-* Utilisez la barre de recherche pour filtrer vos logs à l'aide de [requêtes](query-syntax.md). Vous pouvez enrichir votre recherche avec du contexte supplémentaire (attributs) afin d'affiner les résultats et d'identifier la cause profonde des problèmes.
-* Développez les logs pour afficher les détails de leurs attributs.
 * Naviguez dans vos données à l'aide de la chronologie : cliquez et faites glisser votre souris sur le graphique pour sélectionner une nouvelle plage de temps.
-<!--filters-->
+
+### Rechercher des logs
+
+Utilisez la barre de recherche pour filtrer vos logs. La barre de recherche propose deux modes (utilisez le bouton à droite pour sélectionner celui de votre choix) :
+
+* En mode requête, vous saisissez directement votre recherche en utilisant la [syntaxe de requête](query-syntax.md).
+* En mode **Query builder**, des blocs vous permettent de construire votre recherche étape par étape : ajoutez un bloc, sélectionnez des noms d'attributs et des valeurs, puis des éléments de syntaxe tels que AND, OR et NOT.
+
+   * Cliquez sur le signe + dans la barre de recherche pour ajouter un bloc vide.
+   * Ajoutez automatiquement un bloc prérempli en cliquant sur le signe + à gauche d'une valeur d'attribut dans le panneau **Filtres**.
+
+   ![image](../logmanagement/assets/log_explorer_full.png)
+
+Dans les deux cas, vous devez cliquer sur le bouton **Search** pour lancer la recherche.
+
+### Informations détaillées sur les logs
+
+Cliquez sur un log pour afficher toutes les informations associées dans le panneau **Log details**, y compris l'entrée brute de log.
+
+* Vous pouvez ouvrir plusieurs logs dans le panneau.
+* La barre de recherche regarde dans les noms et les valeurs des attributs.
 
 ## Utiliser la page Alert events
 
