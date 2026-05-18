@@ -27,7 +27,7 @@ import TabItem from '@theme/TabItem';
 - [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - added `include-status` and `exclude-status` options in **node-usage** mode.
 - [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) -  added EL 10 and Debian 13 support.
 - [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - added EL10 and Debian13 prerequisites.
-- Vmware connector - added filtering in **stat-connectors** mode based on community contribution [PR 55143](https://github.com/centreon/centreon-plugins/pull/5143).
+- Vmware connector plugin - added filtering in **stat-connectors** mode based on community contribution [PR 55143](https://github.com/centreon/centreon-plugins/pull/5143).
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
