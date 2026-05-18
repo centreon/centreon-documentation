@@ -32,7 +32,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - changed NRPE client/options.
+- [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - changed default values for `NRPEEXTRAOPTIONS` and `NRPECLIENT`.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
