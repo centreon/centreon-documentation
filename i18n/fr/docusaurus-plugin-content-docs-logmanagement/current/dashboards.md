@@ -44,6 +44,12 @@ Utilisez ce widget pour insérer des titres, des informations ou des liens dans 
 
 ![image](./assets/widget_generic_text.png)
 
+### Log viewer
+
+Utilisez ce widget pour afficher la liste des logs correspondant à une requête spécifique au cours des n dernières minutes. Cliquez sur **Show in context** à droite pour afficher un lg dans la page **Log explorer**, ainsi que les logs des 2 minutes précédentes et suivantes correspondant à la requête.
+
+![image](./assets/widget_log_viewer.png)
+
 ### Metrics graph
 
 Ici, "metrics" désigne le nombre d'entrées de logs correspondant à une requête spécifique, ou le rapport obtenu en divisant une requête par une autre requête. Le nombre de logs obtenu peut être ventilé en fonction d'un autre paramètre. Dans l'exemple ci-dessous, chaque barre représente le nombre de logs INFO et ERROR pour un service pendant une période donnée.
