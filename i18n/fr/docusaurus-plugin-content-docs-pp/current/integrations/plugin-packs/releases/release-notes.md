@@ -43,6 +43,7 @@ import TabItem from '@theme/TabItem';
 - [**Docker**](../procedures/applications-docker-restapi.md) - fixed memory usage calculation in **container-usage** mode.
 - [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - fixed unknown status returned if no trunk is configured in **trunks** mode.
 - [**HAProxy Web**](../procedures/applications-haproxy-web.md) - added missing `--credentials` option.
+- Opentickets API - notification plugin now handle http timeout.
 - [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - fixed host macro `ESXNAME` default value.
 - [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - plugin can now recover from a corrupted cache.
 - [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - plugin can now recover from a corrupted cache.
