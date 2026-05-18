@@ -46,7 +46,7 @@ Utilisez ce widget pour insérer des titres, des informations ou des liens dans 
 
 ### Log viewer
 
-Utilisez ce widget pour afficher la liste des logs correspondant à une requête spécifique au cours des n dernières minutes. Cliquez sur **Show in context** à droite pour afficher un lg dans la page **Log explorer**, ainsi que les logs des 2 minutes précédentes et suivantes correspondant à la requête.
+Utilisez ce widget pour afficher la liste des logs correspondant à une requête spécifique au cours des n dernières minutes. Cliquez sur **Show in context** à droite pour afficher un log dans la page **Log explorer**, ainsi que les logs des 2 minutes précédentes et suivantes correspondant à la requête.
 
 ![image](./assets/widget_log_viewer.png)
 
