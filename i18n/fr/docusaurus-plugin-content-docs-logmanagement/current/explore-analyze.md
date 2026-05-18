@@ -28,7 +28,7 @@ Utilisez la barre de recherche pour filtrer vos logs. La barre de recherche prop
    * Cliquez sur le signe + dans la barre de recherche pour ajouter un bloc vide.
    * Ajoutez automatiquement un bloc prérempli en cliquant sur le signe + à gauche d'une valeur d'attribut dans le panneau **Filtres**.
 
-   ![image](../logmanagement/assets/log_explorer_full.png)
+   ![image](../assets/log_explorer_full.png)
 
 Dans les deux cas, vous devez cliquer sur le bouton **Search** pour lancer la recherche.
 
