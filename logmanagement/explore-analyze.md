@@ -28,7 +28,7 @@ Use the search bar to filter your logs. The search bar has two modes (use the sw
    * Click the plus sign in the search bar to add a blank block.
    * Add a pre-filled block automatically by clicking the plus sign to the left of an attribute value in the **Filters** panel.
 
-   ![image](../logmanagement/assets/log_explorer_full.png)
+   ![image](../assets/log_explorer_full.png)
 
 In both cases, you need to click the **Search** button to launch the search.
 
