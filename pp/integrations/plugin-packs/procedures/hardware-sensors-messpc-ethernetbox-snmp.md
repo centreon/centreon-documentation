@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                  | Service Description                                  |
 |:--------------|:--------------------------------------------------|:-----------------------------------------------------|
-| Sensors       | HW-Sensors-Messpc-Ethernetbox-Sensors-SNMP-custom | Check all sensors of equipment                       |
+| Sensors       | HW-Sensors-Messpc-Ethernetbox-Sensors-SNMP-custom | Check all sensors of the device |
 | Uptime        | HW-Sensors-Messpc-Ethernetbox-Uptime-SNMP-custom  | Time since the system has been working and available |
 
 > The services listed above are created automatically when the **HW-Sensors-Messpc-Ethernetbox-SNMP-custom** host template is used.
