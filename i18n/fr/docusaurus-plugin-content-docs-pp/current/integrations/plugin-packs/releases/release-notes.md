@@ -15,19 +15,19 @@ import TabItem from '@theme/TabItem';
 
 - [**MessPC Ehternetbox SNMP**](../procedures/hardware-sensors-messpc-ethernetbox-snmp.md) - Initial release, based on community contribution [PR 6044](https://github.com/centreon/centreon-plugins/pull/6044).
 - [**Rubrik Security Cloud GraphQL API**](../procedures/applications-rubrik-graphql.md) - Initial release.
-- [**Westermo Standard SNMP**](../procedures/network-westermo-standard-snmp.md) - Initial release, from a community contribution [PR 5696](https://github.com/centreon/centreon-plugins/pull/5696).
+- [**Westermo Standard SNMP**](../procedures/network-westermo-standard-snmp.md) - Initial release, based on community contribution [PR 5696](https://github.com/centreon/centreon-plugins/pull/5696).
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - added centreonvault support to **metaservice** mode.
-- [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - added MAC Address normalization in **vpc** mode.
+- [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - added MAC address normalization in **vpc** mode.
 - [**HTTP Server**](../procedures/applications-protocol-http.md) - added boolean2integer function to **collection** mode  based on community contribution [PR 5218](https://github.com/centreon/centreon-plugins/pull/5218).
 - [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - added a way to handle missing fans in **hardware** mode.
 - [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - added `include-status` and `exclude-status` options in **node-usage** mode.
 - [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - added EL10 and Debian13 prerequisites.
 - [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - added EL10 and Debian13 prerequisites.
-- Vmware connector - added filtering in **stat-connectors** mode from a community contribution [PR 55143](https://github.com/centreon/centreon-plugins/pull/5143).
+- Vmware connector - added filtering in **stat-connectors** mode based on community contribution [PR 55143](https://github.com/centreon/centreon-plugins/pull/5143).
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -41,16 +41,16 @@ import TabItem from '@theme/TabItem';
 - [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - changed `FILESYSTEM` host macro to `AWSFILESYSTEM`.
 - [**Cisco DNA Center Rest API**](../procedures/applications-cisco-dnac-restapi.md) - fixed wrong api-password macro in commands.
 - [**Docker**](../procedures/applications-docker-restapi.md) - fixed memory usage calculation in **container-usage** mode.
-- [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - fixed unknown status returned if no trunk is configured in **trunks** mode.
+- [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - fixed unknown status returned if no trunk was configured in **trunks** mode.
 - [**HAProxy Web**](../procedures/applications-haproxy-web.md) - added missing `--credentials` option.
-- Opentickets API - notification plugin now handle http timeout.
+- Opentickets API -  the notification plugin now handles HTTP timeout.
 - [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - fixed host macro `ESXNAME` default value.
 - [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - plugin can now recover from a corrupted cache.
 - [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - plugin can now recover from a corrupted cache.
 - [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - plugin can now recover from a corrupted cache.
-- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - fixed uninitialized values warnings in **job-status** mode.
-- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - fixed uninitialized values warnings in **job-status** mode.
-- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - fixed uninitialized values warnings in **job-status** mode.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - fixed warnings about uninitialized values in **job-status** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - fixed warnings about uninitialized values in **job-status** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - fixed warnings about uninitialized values in **job-status** mode.
 
 </TabItem>
 </Tabs>
