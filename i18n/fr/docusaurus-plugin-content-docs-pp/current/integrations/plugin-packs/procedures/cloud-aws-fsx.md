@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias         | Modèle de service                  | Description                                                |
 |:--------------|:-----------------------------------|:-----------------------------------------------------------|
 | Fsx-DataUsage | Cloud-Aws-Fsx-Datausage-Api-custom | Contrôle les métriques liées au système de fichiers FSx     |
-| Fsx-Freespace | Cloud-Aws-Fsx-Freespace-Api-custom | Contrôle l'espace disponible sur un système de fichier FSx |
+| Fsx-Freespace | Cloud-Aws-Fsx-Freespace-Api-custom | Contrôle l'espace disponible sur un système de fichiers FSx |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-Fsx-custom** est utilisé.
 
