@@ -586,6 +586,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-rubrik-graphql'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-rudder-restapi'
         },
         {
