@@ -263,10 +263,10 @@ apt install nagios-nrpe-plugin centreon-plugin-operatingsystems-linux-snmp
 | Macro            | Description                                                                                                                                        | Default value | Mandatory |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | NRPECLIENT       | Name of the plugin to use to talk with the NRPE daemon                                                                                             | check_nrpe    |           |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | -u -2 -P 8192 |           |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). | -u -2 -P 8192 |           |
 | NRPEPORT         | TCP port the NRPE daemon is listening to                                                                                                           | 5666          |           |
 | NRPETIMEOUT      | Command timeout                                                                                                                                    | 30            |           |
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles)  |               |           |
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options)  |               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -280,21 +280,21 @@ apt install nagios-nrpe-plugin centreon-plugin-operatingsystems-linux-snmp
 
 | Macro        | Description                                                                                                                                     | Default value | Mandatory |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options) |               |           |
 
 </TabItem>
 <TabItem value="DWH-partitions" label="DWH-partitions">
 
 | Macro        | Description                                                                                                                                     | Default value | Mandatory |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options) |               |           |
 
 </TabItem>
 <TabItem value="failed-jobs" label="failed-jobs">
 
 | Macro        | Description                                                                                                                                     | Default value | Mandatory |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options) |               |           |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -306,7 +306,7 @@ apt install nagios-nrpe-plugin centreon-plugin-operatingsystems-linux-snmp
 | TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'                                 |               |           |
 | WARNING      | Time offset warning threshold (in seconds)                                                                                                      | -1:1          |           |
 | CRITICAL     | Time offset critical Threshold (in seconds)                                                                                                     | -2:2          |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options) |               |           |
 
 </TabItem>
 <TabItem value="proc-cbis" label="proc-cbis">
@@ -318,7 +318,7 @@ apt install nagios-nrpe-plugin centreon-plugin-operatingsystems-linux-snmp
 | PROCESSPATH  | Filter process path                                                                                                                             |               |           |
 | CRITICAL     | Critical threshold of matching processes count                                                                                                  | 1:            |           |
 | WARNING      | Warning threshold of matching processes count                                                                                                   |               |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) | --memory      |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options) | --memory      |           |
 
 
 </TabItem>
@@ -331,7 +331,7 @@ apt install nagios-nrpe-plugin centreon-plugin-operatingsystems-linux-snmp
 | PROCESSPATH  | Filter process path                                                                                                                             |               |           |
 | CRITICAL     | Critical threshold of matching processes count                                                                                                  | 1:            |           |
 | WARNING      | Warning threshold of matching processes count                                                                                                   |               |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) | --memory      |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options) | --memory      |           |
 
 </TabItem>
 </Tabs>
