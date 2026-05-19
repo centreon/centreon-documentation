@@ -28,7 +28,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:---------------------------------------------------------------------|:---------------------|
 | Alarms        | HW-Storage-Purestorage-Flasharray-Legacy-Alarms-Restapi-custom       | Check alarms         |
 | Hardware      | HW-Storage-Purestorage-Flasharray-Legacy-Hardware-Restapi-custom     | Check hardware state |
-| Volume-Usage  | HW-Storage-Purestorage-Flasharray-Legacy-Volume-Usage-Restapi-custom | Check volumes usage  |
+| Volume-Usage  | HW-Storage-Purestorage-Flasharray-Legacy-Volume-Usage-Restapi-custom | Check volume usage  |
 
 > The services listed above are created automatically when the **HW-Storage-Purestorage-Flasharray-Legacy-Restapi-custom** host template is used.
 
