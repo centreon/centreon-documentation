@@ -46,7 +46,7 @@ Use this widget to insert titles, information or links into your dashboards. Use
 
 ### Log viewer
 
-Use this widget to display the list of logs matching a specific query in the last n minutes. Click ** Show in context** on the right to display the log in the **Log explorer** page, along with the previous and next 2 minutes of logs that match the query.
+Use this widget to display the list of logs matching a specific query in the last n minutes. In the resulting table, click ** Show in context** on the right to display the log in the **Log explorer** page, along with the previous and next 2 minutes of logs that match the query.
 
 ![image](./assets/widget_log_viewer.png)
 
