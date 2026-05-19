@@ -819,7 +819,7 @@ custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
 Test that the plugin is able to monitor your Windows server by using a command like this one (replace the sample values by yours):
 
 ```cmd
-"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin os::windows::local::plugin --mode sessions --language='fr' --timeout='30' --use-new-perfdata
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin os::windows::local::plugin --mode sessions --language=fr --timeout=30 --use-new-perfdata
 ```
 
 > NB: This command cannot be run on the pollers, it must be launched directly on the Windows host.
