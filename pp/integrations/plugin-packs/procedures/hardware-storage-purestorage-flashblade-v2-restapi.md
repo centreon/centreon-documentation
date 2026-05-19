@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Pure Storage FlashBlade Rest API v2** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -118,7 +118,7 @@ This account must have at least a "read only" access to the storage array.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -154,7 +154,7 @@ yum install centreon-pack-hardware-storage-purestorage-flashblade-v2-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Pure Storage FlashBlade Rest API v2** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -297,7 +297,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--mode=arrays \
 	--hostname='10.0.0.1' \
 	--api-version='2.4' \
-	--api-token='' \
+	--api-token='xxxxx' \
 	--proto='' \
 	--port=''  \
 	--filter-id='' \
