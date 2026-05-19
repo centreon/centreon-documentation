@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Pure Storage FlashArray Legacy Rest API** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -75,14 +75,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Le Pack utilise l'ancienne API. Vous pouvez tester le Pack [Pure Storage FlashArray Rest API v2](hardware-storage-purestorage-flasharray-v2-restapi.md) plus récent.
 
-Vous devez configurer un utilisateur pouvant se connecter à la baie de stockage. Cet utilisateur doit avoir au moins un accès "en lecture seule" à la baie de stockage.
+Vous devez configurer un utilisateur pouvant se connecter au moins en lecture seule à la baie de stockage.
 
 ## Installer le connecteur de supervision
 
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -238,8 +238,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--mode=volume-usage \
 	--hostname=10.0.0.1 \
 	--api-path='/api/1.11' \
-	--username='' \
-	--password=''  \
+	--username='XXXX' \
+	--password='XXXX'  \
 	--filter-name='' \
 	--units='%' \
 	--warning-usage='' \
@@ -261,7 +261,7 @@ Volume 'PURE-2' usage total: 3.91 TB used: 304.82 GB (7.61%) free: 3.61 TB (92.3
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
