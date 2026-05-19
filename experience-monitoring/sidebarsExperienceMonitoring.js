@@ -8,12 +8,12 @@ module.exports = {
         id: "getting-started/welcome"
       },
       items: [
-        { type: 'doc', id: 'getting-started/experience-monitoring-solution' },
+        { type: 'doc', id: 'getting-started/experience-monitoring' },
         { type: 'doc', id: 'getting-started/synthetic-monitoring' },
         { type: 'doc', id: 'getting-started/real-user-monitoring' },
         { type: 'doc', id: 'getting-started/digital-sobriety' },
         { type: 'doc', id: 'getting-started/system-view' },
-        { type: 'doc', id: 'getting-started/network-view' },
+        { type: 'doc', id: 'getting-started/network-data' },
         { type: 'doc', id: 'getting-started/business-view' },
         { type: 'doc', id: 'getting-started/load-tests' },
       ],
