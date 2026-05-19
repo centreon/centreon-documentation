@@ -158,6 +158,8 @@ La valeur **true** doit être retournée.
 
 ## Vérifications sur le collecteur
 
+Vous devez effectuer ces vérifications sur chaque collecteur qui reçoit des données provenant des agents CMA.
+
 ### Vérifiez que le serveur est en écoute et que des paquets sont échangés
 
 <Tabs groupId="sync">
@@ -202,23 +204,18 @@ tcpdump -i any port 4317
 
 Elle doit retourner des résultats, indiquant que des paquets circulent entre l'agent et le collecteur.
 
-### Activez les logs OpenTelemetry
+### Modifier le niveau de log d'OpenTelemetry
 
-1. Éditez le fichier de configuration du moteur de supervision :
+Par défaut, le niveau de log est **Error**. Vous pouvez le modifier à des fins de débuggage.
 
-   ```bash
-   /etc/centreon-engine/centengine.cfg
-   ```
-
-2. Ajoutez la ligne suivante :
-
-   ```bash
-   log_level_otl=trace
-   ```
+1. À la page **Configuration > Collecteurs > Configuration du moteur de collecte**, sélectionnez le collecteur souhaité.
+2. Dans l'onglet **Options des logs**, dans la section **Configuration de débogage**, sélectionnez le niveau de log souhaité pour les logs OpenTelemetry.
 
    Les différents niveaux de log sont : trace, debug, info, warning, error, critical, disabled.
 
 3. Redémarrez le moteur de supervision.
+
+> N'oubliez pas de baisser le niveau de log une fois le débuggage terminé, afin d'éviter d'encombrer le collecteur avec des logs inutiles.
 
 ### Vérifiez que le fichier de log engine ne contient pas d'erreur
 
@@ -236,8 +233,8 @@ Aucune ligne concernant CMA ne doit être retournée.
 
 ## Emplacement des logs collecteur et agent
 
-* Logs du collecteur : `/var/log/centreon-engine/centengine.log`
+* Vous trouverez les journaux du moteur pour chaque collecteur ici : `/var/log/centreon-engine/centengine.log`.
 
-* Logs de l'agent : 
+* Sur chaque hôte supervisé par CMA, les journaux de l'agent se trouvent ici :
    * Linux : par défaut, `/var/log/centreon-monitoring-agent/centagent.log` (cet emplacement de log est configurable dans **/etc/centreon-monitoring-agent/centagent.json**)
    * Windows : l'emplacement est celui que vous avez défini lors de l'installation de l'agent (par défaut, dans l'observateur d'évènements Windows).

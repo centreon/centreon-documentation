@@ -1,4 +1,4 @@
----
+﻿---
 id: collector-troubleshooting
 title: Dépanner votre installation
 ---
@@ -12,7 +12,7 @@ Vérifiez l'état de votre collecteur sur l'hôte dont vous souhaitez recevoir l
 journalctl -u otelcol-contrib.service
 ```
 
-Si vous ne recevez pas les journaux attendus dans CLM, vérifiez que l'utilisateur **otelcol-contrib** dispose des droits suffisants pour lire les fichiers requis, en fonction du type de receiver. Exemple :
+Si vous ne recevez pas les journaux attendus dans Log Management, vérifiez que l'utilisateur **otelcol-contrib** dispose des droits suffisants pour lire les fichiers requis, en fonction du type de receiver. Exemple :
 
 ```shell
 ls -l /var/log/messages

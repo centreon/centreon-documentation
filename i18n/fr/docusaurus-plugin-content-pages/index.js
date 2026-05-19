@@ -50,26 +50,26 @@ const cards = [
   },
   {
     title: "Experience Monitoring",
-    href: "cxm/getting-started/welcome/",
+    href: "experience-monitoring/getting-started/welcome/",
     links: [
       {
         label: "Démarrer avec Centreon Experience Monitoring",
-        href: "cxm/getting-started/welcome/",
+        href: "experience-monitoring/getting-started/welcome/",
       },
       {
         label: "Le Monitoring Synthétique (STM)",
-        href: "cxm/getting-started/synthetic-monitoring/",
+        href: "experience-monitoring/getting-started/synthetic-monitoring/",
       },
       {
         label: "Le Real User Monitoring (RUM)",
-        href: "cxm/getting-started/real-user-monitoring/",
+        href: "experience-monitoring/getting-started/real-user-monitoring/",
       },
       {
         label: "Sobriété numérique",
-        href: "cxm/category/digital-sobriety/"
+        href: "experience-monitoring/category/digital-sobriety/"
       },{
         label: "Notes de release Experience Monitoring",
-        href: "cxm/release-notes/"
+        href: "experience-monitoring/release-notes/"
       },
     ],
   },

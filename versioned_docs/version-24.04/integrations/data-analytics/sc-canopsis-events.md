@@ -25,8 +25,7 @@ you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-cano
 
 ## Compatibility
 
-This stream connector is designed to be compatible with Canopsis' API v.4, this include the following versions of **Canopsis** : 22.10, 
-23.04, 23.10 and 24.04.
+This stream connector is designed to be compatible with Canopsis' API v.4.
 
 ## Installation
 

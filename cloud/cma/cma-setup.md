@@ -49,42 +49,22 @@ A default token is provided on the **Administration > Authentication token** pag
 
 * Expiration takes effect immediately, without requiring any user action.
 
-### Create the host and services
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
-
-> Depending on the desired connection direction, the host's “Address” field will have no impact (connection initiated by the agent) or will be retrieved when the host is selected in the agent configuration (connection initiated by the poller).
-
-Create the services associated with the host template.
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Windows-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
-
-Create the services associated with the host template.
-
-</TabItem>
-</Tabs>
-
 ### Configure poller/agent communication
 
 1. Go to the **Configuration > Pollers > Agent configurations** page, then click **Add**.
 2. In the window that opens, select the **Centreon Monitoring Agent** agent type. Additional fields will appear.
 3. Select the connection direction (default: the agent connects to the poller).
-4. Select encryption mode
+4. Select an encryption mode.
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
-5. In the **Settings** section, select the poller(s) that will receive data from the agent.
-6. In the **OTLP Receiver** section, enter the paths to the certificate files. See [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
+5. In the **Parameters** section, select the poller(s) that will receive data from the agent.
+6. Select **Create hosts automatically** if you want the poller to check whether incoming connections are from known hosts or not. If no host in the list of hosts has the same hostname, the host and its services will be created. Either the **OS-Windows-Centreon-Monitoring-Agent-custom** or the **OS-Linux-Centreon-Monitoring-Agent-custom** template will be applied. These values can be modified on the host, using the **host_template** parameter in the registry or the **centagent.json** configuration file.
+7. In the **OTLP Receiver** section, enter the paths to the certificate files. See the [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
    > If you are configuring multiple pollers at the same time, make sure that all certificate files have the same name.
-7. Click **Save**.
-8. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration.md).
+8. Click **Save**.
+9. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 </TabItem>
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
@@ -101,6 +81,32 @@ Create the services associated with the host template.
 </Tabs>
 
 This configuration is deployed on the poller in the **/etc/centreon-engine/otl_server.json** file. Please note that this file should not be edited manually as it is overwritten each time the configuration is deployed.
+
+### Create the host and services
+
+This section applies:
+
+* if the poller initiates the connection to the agent
+* if the agent initiates the connection ro the poller but the option **Create hosts automatically** is not selected.
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+
+> Depending on the desired connection direction, the host's **Address** field will have no impact (connection initiated by the agent) or will be retrieved when the host is selected in the agent configuration (connection initiated by the poller).
+
+Create the services associated with the host template.
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Windows-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+
+Create the services associated with the host template.
+
+</TabItem>
+</Tabs>
 
 ## Step 2: Prepare the poller
 

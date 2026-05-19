@@ -10,7 +10,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/24.10/).)
 
-### Install the Monitoring Connector you need (OnPrem version)
+### Install the Monitoring Connector you need
 
 On your central server, install the monitoring connector which will provide the templates and commands you need to configure the hosts and services monitored in Centreon. 
 In the case of a Cloud platform, these connectors are already installed.
@@ -33,9 +33,6 @@ In the case of a Cloud platform, these connectors are already installed.
 3. If you want to monitor a [CMA-supported application](cma.md#applications-you-can-monitor-with-cma), install the corresponding connector on your central server.
 
 ### Create an authentication token
-
-This step only applies to OnPrem platforms. For Centreon Cloud, a default token is provided on the **Administration > Authentication token** page.
-
 
 1. Go to **Administration > Authentication tokens**.
 

@@ -809,7 +809,7 @@ Vous pouvez tester que le plugin parvient bien à superviser votre serveur Windo
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```cmd
-"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin os::windows::local::plugin --mode sessions --language='fr' --timeout='30' --use-new-perfdata
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin os::windows::local::plugin --mode sessions --language=fr --timeout=30 --use-new-perfdata
 ```
 
 > NB : Cette commande ne peut pas s'exécuter sur les collecteurs, il faut la lancer directement sur le serveur Windows.

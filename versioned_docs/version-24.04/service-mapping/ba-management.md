@@ -412,6 +412,14 @@ Logical expression:
 6.  Enter simulation mode, thus allowing the user to simulate the statuses of
     the defined services
 
+## Specific behavior for acknowledgements
+
+> Acknowledgments apply only to the specific object (BA or KPI).
+
+Acknowledgements apply to Business Activities (BAs) as follows:
+- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or meta-services).
+- Acknowledging a KPI does not acknowledge the BA that depends on it.
+
 ## Business View (BV)
 
 ### Definition

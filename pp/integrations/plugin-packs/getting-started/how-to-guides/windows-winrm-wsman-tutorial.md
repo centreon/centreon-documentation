@@ -994,6 +994,117 @@ systemctl restart crond
 
 Everything is now configured to monitor your Windows servers using WSMAN with a service user account, with an end-to-end encrypted protocol.
 
+#### Troubleshooting & Known Limitations
+
+##### Kerberos ticket renewal failing with `No credentials cache found`
+
+When using the recommended cron job to renew Kerberos tickets, you may encounter the following error:
+
+```bash
+kinit: No credentials cache found while renewing credentials
+```
+
+This happens because the cron job runs in a minimal environment where the `KRB5CCNAME` variable is not set,
+so `kinit -R` cannot locate the credentials cache used by the `centreon-engine` and `centreon-gorgone` processes.
+
+###### Diagnosis
+
+First, identify the actual location of the credentials cache for each user:
+
+```bash
+sudo -u centreon-engine klist
+sudo -u centreon-gorgone klist
+```
+
+The output will show the cache path, for example:
+
+```
+Credentials cache: FILE:/tmp/krb5cc_994
+```
+
+###### Fix — Option 1: Force full ticket reinitialisation every 9 hours (recommended)
+
+Instead of relying on `kinit -R` (ticket renewal), replace the cron with a full re-authentication using the keytab
+file. This avoids any dependency on an existing cache and is more resilient:
+
+```bash
+cat <<EOF > /etc/cron.d/kerberos
+# ########################################
+#
+# Cron Configuration for Kerberos
+#
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+############################ Reinitialize ticket every 9h
+0 */9 * * *  centreon-engine kinit -k -t /etc/centreon-engine/@USERNAME@.keytab @USERNAME@
+0 */9 * * *  centreon-gorgone kinit -k -t /etc/centreon-gorgone/@USERNAME@.keytab @USERNAME@
+EOF
+```
+
+> Replace `@USERNAME@` with your actual service account name (e.g. `ServiceMonitor`).
+
+###### Fix — Option 2: Set `KRB5CCNAME` explicitly in the cron
+
+If you prefer to keep the renewal approach, explicitly define the cache path in the cron:
+
+```bash
+0 */9 * * *  centreon-engine KRB5CCNAME=FILE:/tmp/krb5cc_centreon-engine kinit -R
+0 */9 * * *  centreon-gorgone KRB5CCNAME=FILE:/tmp/krb5cc_centreon-gorgone kinit -R
+```
+
+> Warning: Make sure the cache file path matches the output of `klist` for each user.
+
+---
+
+##### `Disk quota exceeded` when monitoring a large number of Windows hosts
+
+When monitoring **more than ~100 Windows hosts**, you may observe the error `Disk quota exceeded` during Kerberos
+token regeneration. This causes monitoring to stop for all affected hosts.
+
+###### Root cause
+
+Each Kerberos authentication generates temporary files (credential caches, tickets) in `/tmp` or in the home
+directory of the `centreon-engine` / `centreon-gorgone` service accounts. If a disk quota is enforced on these
+users, it can be exceeded when many hosts are monitored simultaneously.
+
+###### Diagnosis
+
+Check the disk quota for the service accounts:
+
+```bash
+quota -u centreon-engine
+quota -u centreon-gorgone
+```
+
+Check for accumulated cache files:
+
+```bash
+ls -lah /tmp/krb5*
+df -h /tmp
+```
+
+###### Resolution
+
+**1. Clean up stale cache files** in `/tmp`:
+
+```bash
+find /tmp -name 'krb5*' -user centreon-engine -delete
+find /tmp -name 'krb5*' -user centreon-gorgone -delete
+```
+
+**2. Increase or remove the disk quota** for these service accounts (requires root):
+
+```bash
+edquota -u centreon-engine
+edquota -u centreon-gorgone
+```
+
+**3. Redirect the Kerberos cache** to a dedicated directory with sufficient space by setting `KRB5CCNAME`
+in the environment of the Centreon services.
+
+> These service accounts are system users and typically do not require strict disk quotas. It is generally
+> safe to set a higher limit or remove the quota entirely for `centreon-engine` and `centreon-gorgone`.
+
 ### How to test your configuration from your Centreon poller
 
 ```bash

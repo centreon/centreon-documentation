@@ -1,11 +1,11 @@
----
+﻿---
 id: use-cases
 title: Use cases
 ---
 
 <!-- évaluer un nombre de lignes de logs basé sur un pattern, seuil fixe (ou anomaly detection). -->
 
-Centreon Log Management (CLM) enables you to detect and resolve a wide variety of issues in an IT system, ranging from minor errors to major incidents. Many typical CLM use cases focus on root cause analysis. Here are a few concrete examples of what CLM can help you detect from analyzing missing logs, unexpected log types, or unusual log volumes.
+Centreon Log Management enables you to detect and resolve a wide variety of issues in an IT system, ranging from minor errors to major incidents. Many typical Log Management use cases focus on root cause analysis. Here are a few concrete examples of what Log Management can help you detect from analyzing missing logs, unexpected log types, or unusual log volumes.
 
 ## Integration and communication issues between services
 
@@ -25,7 +25,7 @@ For example, if expected data is not received or sent correctly between differen
 
 ### Synchronization issues
 
-Errors in the processing of message queues or asynchronous events can be identified by CLM. You can detect these by filtering the log explorer on the service name (service_name:"synchronization service").
+Errors in the processing of message queues or asynchronous events can be identified by Log Management. You can detect these by filtering the log explorer on the service name (service_name:"synchronization service").
 
 ## Server or infrastructure issues
 
@@ -61,7 +61,7 @@ Exceptions or errors in an application's code, such as null pointer exceptions, 
 
 ### Database connection failure
 
-If an application fails to connect to a database, CLM can report relevant error messages. You would typically detect these in the log explorer.
+If an application fails to connect to a database, Log Management can report relevant error messages. You would typically detect these in the log explorer.
 
 ### Configuration errors
 
@@ -83,7 +83,7 @@ Conflicts between different versions of software, tools, or libraries can be ide
 
 ### Failed batch processes or automated jobs
 
-If an automated job or batch script fails, CLM can display the associated errors.
+If an automated job or batch script fails, Log Management can display the associated errors.
 
 Examples:
 
@@ -140,7 +140,7 @@ Logs can reveal attempts to gain unauthorized access to sensitive systems or app
 
 ## Network issues
 
-<!-- * **Network failures**: CLM can capture error messages related to network connectivity issues (e.g., failed connections to remote servers). -->
+<!-- * **Network failures**: Log Management can capture error messages related to network connectivity issues (e.g., failed connections to remote servers). -->
 
 ### Timeout errors
 
