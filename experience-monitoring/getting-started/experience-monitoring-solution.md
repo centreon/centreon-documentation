@@ -1,5 +1,5 @@
 ---
-id: experience-monitoring
+id: experience-monitoring-solution
 title: What can I do with Experience Monitoring?
 ---
 
