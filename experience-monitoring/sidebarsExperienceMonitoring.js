@@ -8,7 +8,7 @@ module.exports = {
         id: "getting-started/welcome"
       },
       items: [
-        { type: 'doc', id: 'getting-started/experience-monitoring' },
+        { type: 'doc', id: 'getting-started/experience-monitoring-solution' },
         { type: 'doc', id: 'getting-started/synthetic-monitoring' },
         { type: 'doc', id: 'getting-started/real-user-monitoring' },
         { type: 'doc', id: 'getting-started/digital-sobriety' },
