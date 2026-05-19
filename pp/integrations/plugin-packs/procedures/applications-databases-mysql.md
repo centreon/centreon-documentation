@@ -47,8 +47,8 @@ The connector brings the following service templates (sorted by the host templat
 | MariaDB-Replication  | App-DB-MySQL-MariaDB-Replication-custom          | Check the state of the replication between two databases                                           |
 | Password-Expiration  | App-DB-MySQL-Password-Expiration-custom          | Check user password expiration                                                                     |
 | Qcache-Hitrate       | App-DB-MySQL-Qcache-Hitrate-custom               | Check query cache hitrate                                                                          |
-| Sql-Statement        | App-DB-MySQL-Sql-Statement-Generic-custom        | Check allowing to execute a custom SQL request with a digital answer                               |
-| Sql-Statement-String | App-DB-MySQL-Sql-Statement-String-Generic-custom | Check allowing to execute a custom SQL request with a string answer                                |
+| Sql-Statement        | App-DB-MySQL-Sql-Statement-Generic-custom        | Check allowing to execute a custom SQL request with a numerical result                             |
+| Sql-Statement-String | App-DB-MySQL-Sql-Statement-String-Generic-custom | Check allowing to execute a custom SQL request with a string result                                |
 | Uptime               | App-DB-MySQL-Uptime-custom                       | This check indicates the operation time since the server is running. This time in given in minutes |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
