@@ -35,5 +35,5 @@ Note that the number of concurrent users created for each step must always be hi
 
 8. Check the two acknowdlgment boxes and start the test.
 
-## Manually stopping a test
+### Manually stopping a test
 

@@ -11,7 +11,9 @@ module.exports = {
         { type: 'doc', id: 'getting-started/experience-monitoring-solution' },
         { type: 'doc', id: 'getting-started/synthetic-monitoring' },
         { type: 'doc', id: 'getting-started/real-user-monitoring' },
+        { type: 'doc', id: 'getting-started/digital-sobriety' },
         { type: 'doc', id: 'getting-started/system-view' },
+        { type: 'doc', id: 'getting-started/network-view' },
         { type: 'doc', id: 'getting-started/business-view' },
         { type: 'doc', id: 'getting-started/load-tests' },
       ],
@@ -194,6 +196,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+        { type: 'doc', id: 'experience-monitoring-glossary' },
 
       ],
     },
