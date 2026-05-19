@@ -21,8 +21,8 @@ For a simple product (no need to choose size or color), the probe will simply cl
 
 In this case, the expected success verifications are multiple:
 
-- A request to **/add-to-cart?id=my-item-id** must be made and succeed
-- The popup must appear
+- A request to **/add-to-cart?id=my-item-id** must be made and succeed.
+- The popup must appear.
 - The number in the cart must update.
 
 The probe clicks "Add to cart." The request to **/add-to-cart?id=my-item-id** is initiated. Hero Time continues while the request is pending because the server hasn't responded yet.
