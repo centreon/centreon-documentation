@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-ibm-ds3000-smcli
-title: IBM DS3000
+title: IBM DS3000 SMcli
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

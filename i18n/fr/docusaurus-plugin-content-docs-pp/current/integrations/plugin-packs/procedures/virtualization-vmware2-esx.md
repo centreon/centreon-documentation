@@ -402,7 +402,7 @@ make pure_install
 - Installation du paquet et d'outils nécessaires
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Installation du SDK
@@ -422,7 +422,7 @@ make pure_install
 - Installation du paquet et d'outils nécessaires
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Installation du SDK
@@ -639,12 +639,12 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 3. Appliquez le modèle d'hôte **Virt-VMWare2-ESX-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                      | Description                                                                                           | Valeur par défaut | Obligatoire |
-|:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                          | default           |             |
-| CENTREONVMWAREHOST         | Connector hostname (required)                                                                         | localhost         |             |
-| ESXNAME                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                   |                   |             |
+| Macro                      | Description                                                                                                                                | Valeur par défaut | Obligatoire |
+|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                                                             | 5700              |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                                                             | default           |             |
+| CENTREONVMWAREHOST         | Connector hostname (required)                                                                                                              | localhost         |             |
+| ESXNAME                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                              | .*                |      X      |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.

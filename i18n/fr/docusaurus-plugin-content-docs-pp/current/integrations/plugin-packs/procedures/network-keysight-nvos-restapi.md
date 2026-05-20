@@ -331,8 +331,8 @@ yum install centreon-plugin-Network-Keysight-Nvos-Restapi
 | NTPPORT           | Set the NTP port (default: 123)                                                                                                                  |                                    |             |
 | CRITICALNTPSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                     | %\{status\} !~ /in\_reach\|in\_sync/ |             |
 | WARNINGNTPSTATUS  | Define the conditions to match for the status to be WARNING                                                                                      |                                    |             |
-| WARNINGOFFSET     | Define the time offset (in seconds) that will trigger a WARNING status                                                                           |                                    |             |
-| CRITICALOFFSET    | Define the time offset (in seconds) that will trigger a CRITICAL status                                                                          |                                    |             |
+| WARNINGOFFSET     | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |                                    |             |
+| CRITICALOFFSET    | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |                                    |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                          |             |
 
 </TabItem>
@@ -535,8 +535,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --unknown-ntp-status  |   Define the conditions to match for the status to be UNKNOWN.                                                                                                   |
 | --warning-ntp-status  |   Define the conditions to match for the status to be WARNING.                                                                                                   |
 | --critical-ntp-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /in\_reach\|in\_sync/i') You can use the following variables: %\{status\}   |
-| --warning-offset      |   Define the time offset (in seconds) that will trigger a WARNING status.                                                                                        |
-| --critical-offset     |   Define the time offset (in seconds) that will trigger a CRITICAL status.                                                                                       |
+| --warning-offset      | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset     | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --ntp-hostname        |   Set the NTP hostname (if not set, localtime is used).                                                                                                          |
 | --ntp-port            |   Set the NTP port (default: 123).                                                                                                                               |
 | --timezone            |   Override the timezone of distant equipment. Can use format: 'Europe/London' or '+0100'.                                                                        |

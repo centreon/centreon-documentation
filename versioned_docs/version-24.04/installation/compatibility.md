@@ -48,3 +48,5 @@ Bear in mind that IT Edition and Business Edition modules do not work yet on uns
 | MySQL    | 8.0     |
 
 > You can use another DBMS based on MySQL, but it will only be supported by the community.
+
+> For databases, what matters is the engine and version. You can run the database on the central server, remotely as a single node or cluster, or use a managed cloud database service — the choice is yours. Centreon cannot test every possible configuration, but in addition to local and remote databases, we also support AWS RDS (with a MySQL engine).  

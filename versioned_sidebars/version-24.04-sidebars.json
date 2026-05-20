@@ -785,6 +785,10 @@
                 },
                 {
                   "type": "doc",
+                  "id": "graph-views/map-web-backup-restore"
+                },
+                {
+                  "type": "doc",
                   "id": "graph-views/map-web-known-issues"
                 },
                 {
@@ -889,6 +893,7 @@
         {
           "type": "category",
           "label": "Guide",
+          "key": "reporting-guide",
           "link": {
             "type": "generated-index"
           },
@@ -922,6 +927,7 @@
         {
           "type": "category",
           "label": "Administrate",
+          "key": "reporting-administrate",
           "link": {
             "type": "generated-index"
           },
@@ -1435,10 +1441,6 @@
         },
         {
           "type": "doc",
-          "id": "developer/developer-translate-centreon"
-        },
-        {
-          "type": "doc",
           "id": "developer/developer-widget"
         },
         {
@@ -1595,19 +1597,6 @@
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
             }
           ]
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Monitoring your platform",
-      "link": {
-        "type": "generated-index"
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "health/helios"
         }
       ]
     },
