@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-fujitsu-eternus-dx-ssh
-title: Fujitsu Eternus DX
+title: Fujitsu Eternus DX SSH
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Fujitsu Eternus DX** connector through the
+The following monitoring connectors will be installed when you install the **Fujitsu Eternus DX SSH** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Fuj
 
 ### Templates
 
-The Monitoring Connector **Fujitsu Eternus DX** brings a host template:
+The Monitoring Connector **Fujitsu Eternus DX SSH** brings a host template:
 
 * **HW-Storage-Fujitsu-Eternus-DX-SSH-custom**
 
@@ -24,14 +24,14 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-Fujitsu-Eternus-DX-SSH-custom" label="HW-Storage-Fujitsu-Eternus-DX-SSH-custom">
 
-| Service Alias | Service Template                                       | Service Description                             |
-|:--------------|:-------------------------------------------------------|:------------------------------------------------|
+| Service Alias | Service Template                                       | Service Description                       |
+|:--------------|:-------------------------------------------------------|:------------------------------------------|
 | Cpu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Cpu-custom           | Check the CPU utilization rate of the bay |
-| Physical-Disk | HW-Storage-Fujitsu-Eternus-DX-SSH-Physical-Disk-custom | Check the state of the disks                    |
-| Port-Stats    | HW-Storage-Fujitsu-Eternus-DX-SSH-Port-Stats-custom    | Check the state of the ports                    |
-| Psu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Psu-custom           | Check the state of the power supply             |
-| Raid-Groups   | HW-Storage-Fujitsu-Eternus-DX-SSH-Raid-Groups-custom   | Check the disk capacity                                                |
-| Volume-Stats  | HW-Storage-Fujitsu-Eternus-DX-SSH-Stats-custom         | Check the global health of the bay                                                |
+| Physical-Disk | HW-Storage-Fujitsu-Eternus-DX-SSH-Physical-Disk-custom | Check the state of the disks              |
+| Port-Stats    | HW-Storage-Fujitsu-Eternus-DX-SSH-Port-Stats-custom    | Check the state of the ports              |
+| Psu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Psu-custom           | Check the state of the power supply       |
+| Raid-Groups   | HW-Storage-Fujitsu-Eternus-DX-SSH-Raid-Groups-custom   | Check the disk capacity                   |
+| Volume-Stats  | HW-Storage-Fujitsu-Eternus-DX-SSH-Stats-custom         | Check the global health of the bay        |
 
 > The services listed above are created automatically when the **HW-Storage-Fujitsu-Eternus-DX-SSH-custom** host template is used.
 
@@ -54,9 +54,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Physical-Disk" label="Physical-Disk">
 
-| Name                                          | Unit  |
-|:----------------------------------------------|:------|
-| disk-status                | N/A  |
+| Name        | Unit  |
+|:------------|:------|
+| disk-status | N/A  |
 
 </TabItem>
 <TabItem value="Port-Stats" label="Port-Stats">
@@ -73,9 +73,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Psu" label="Psu">
 
-| Name                                          | Unit  |
-|:----------------------------------------------|:------|
-| hardware.powersupply.power.watt                | W  |
+| Name                            | Unit  |
+|:--------------------------------|:------|
+| hardware.powersupply.power.watt | W  |
 
 </TabItem>
 <TabItem value="Raid-Groups" label="Raid-Groups">
@@ -168,7 +168,7 @@ yum install centreon-pack-hardware-storage-fujitsu-eternus-dx-ssh
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Fujitsu Eternus DX** connector through
+2. Whatever the license type (*online* or *offline*), install the **Fujitsu Eternus DX SSH** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -229,8 +229,8 @@ yum install centreon-plugin-Hardware-Storage-Fujitsu-Eternus-Dx-Ssh
 | SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          | centreon          |             |
 | SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
 | SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
-| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | libssh            |             |
-| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli, plink and libssh                                                                                             | libssh            |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                            |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 

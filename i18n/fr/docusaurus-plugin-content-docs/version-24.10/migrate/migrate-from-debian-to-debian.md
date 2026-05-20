@@ -7,13 +7,11 @@ import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
-Cette procédure ne s'applique que si vous souhaitez migrer de Debian 11 vers Debian 12, sur des serveurs différents. (Si vous souhaitez simplement monter de version l'OS de votre machine hôte, consultez [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874?tid=3874&fid=21)).
+Cette procédure ne s'applique que si vous souhaitez migrer de Debian 11 vers Debian 12, sur des serveurs différents.
 
 Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
 
-> En cas de migration d'une plateforme disposant du système de redondance
-> Centreon, il est nécessaire de contacter le
-> [support Centreon](https://support.centreon.com).
+> Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
 Avant toute chose, effectuez une sauvegarde de l’ensemble des serveurs de votre plateforme :
 

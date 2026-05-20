@@ -3,13 +3,16 @@ id: api-tokens
 title: Jetons d'API
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Avec un jeton d'application, une application tierce peut faire des appels à l'API Centreon afin de réaliser des actions dans Centreon (webhooks).
 
 Un jeton est lié à un [utilisateur Centreon](../users/users.md) et a une durée de validité. Les appels API seront exécutés en fonction des [droits assignés à cet utilisateur](../users/users.md#rôles-des-utilisateurs). Un même utilisateur peut avoir plusieurs jetons.
 
 ## Qui peut créer des jetons d'API ?
 
-[Les utilisateurs ayant un rôle **Administrator**](../users/users.md#rôles-des-utilisateurs) ont accès à la page **Administration > Jetons d'API** et peuvent :
+[Les utilisateurs ayant un rôle **Administrator**](../users/users.md#rôles-des-utilisateurs) ont accès à la page **Administration > Jetons d'authentification** et peuvent :
 * créer des jetons d'API pour leur propre usage.
 * voir les jetons créés par d'autres utilisateurs.
 * créer des jetons pour d'autres utilisateurs, ou les désactiver ou les supprimer.
@@ -18,7 +21,7 @@ Un jeton est lié à un [utilisateur Centreon](../users/users.md) et a une duré
 
 1. Allez à la page **Administration > Jetons d'API**.
 2. Cliquer sur **Ajouter**. Une fenêtre pop-up apparaît.
-3. Remplissez les champs demandés puis cliquez sur **Créer un nouveau jeton**. Un champ **Jeton** apparaît dans la fenêtre. Vous pouvez cliquer sur l'icône en forme d'oeil pour afficher le jeton si vous le souhaitez. 
+3. Remplissez les champs demandés, sélectionnez **API** dans la liste **Type**, puis cliquez sur **Créer un nouveau jeton**. Un champ **Jeton** apparaît dans la fenêtre. Vous pouvez cliquer sur l'icône en forme d'œil pour afficher le jeton si vous le souhaitez. 
 4. Copiez le jeton à l'aide du bouton "copie" à droite du champ. Stockez le jeton avec soin : vous ne pourrez pas l'afficher une deuxième fois.
 5. Cliquez sur **Fermer**.
 
@@ -30,3 +33,37 @@ Les utilisateurs ayant le rôle **Administrator** peuvent :
 
 * Désactiver un jeton d'API valide en utilisant le switch **Activé/Désactivé** à droite de la ligne. Le jeton pourra être réactivé si besoin.
 * Supprimer totalement un jeton en utilisant le bouton **Supprimer**.
+
+## Utiliser un jeton dans l'API de Centreon MAP
+
+- Vous devez connaître l'URL du serveur MAP pour pouvoir utiliser les API de MAP. Voici à quoi elle ressemble :
+  
+  <Tabs groupId="sync">
+  <TabItem value="HTTP" label="HTTP">
+  
+  ```
+  http://serverURL:8081/_centreon/centreon-map/api/latest/
+  ```
+  
+  </TabItem>
+  
+  <TabItem value="HTTPS" label="HTTPS">
+  
+  ```
+  https://serverURL:9443/_centreon/centreon-map/api/latest/
+  ```
+  
+  </TabItem>
+  </Tabs>
+
+- Ensuite, mettez le header à jour avec un jeton Centreon :
+  
+  ```
+  Headers {
+      Content-Type = application/json
+      X-client-version =  25.09.0
+      Authorization = Bearer \{jwtToken\}
+  }
+  ```
+  
+  Remplacer ``Authorization = Bearer \{jwtToken\}`` par ``X-AUTH-TOKEN = your-centreon-token``. Assurez-vous que le jeton n'est pas révoqué ou expiré.

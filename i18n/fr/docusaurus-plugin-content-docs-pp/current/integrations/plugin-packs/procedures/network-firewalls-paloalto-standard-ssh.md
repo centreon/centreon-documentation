@@ -40,12 +40,21 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Environment" label="Environment">
 
-Coming soon
+| Nom                          | Unité |
+|:-----------------------------|:------|
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
+| hardware.temperature.celsius | C     |
+| hardware.voltage.status      | N/A   |
+| hardware.voltage.count       | count |
+| hardware.voltage.volt        | V     |
 
 </TabItem>
 <TabItem value="Ha" label="Ha">
 
-| Métrique                    | Unité |
+| Nom                         | Unité |
 |:----------------------------|:------|
 | sync-status                 | N/A   |
 | *member*~member-status      | N/A   |
@@ -54,7 +63,7 @@ Coming soon
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Métrique               | Unité |
+| Nom                    | Unité |
 |:-----------------------|:------|
 | interfaces.total.count | count |
 | *interface*#status     | N/A   |
@@ -62,7 +71,7 @@ Coming soon
 </TabItem>
 <TabItem value="Ipsec" label="Ipsec">
 
-| Métrique                  | Unité |
+| Nom                       | Unité |
 |:--------------------------|:------|
 | tunnels.ipsec.total.count | count |
 | *tunnels*#status          | N/A   |
@@ -70,7 +79,7 @@ Coming soon
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Métrique          | Unité |
+| Nom               | Unité |
 |:------------------|:------|
 | *features*#status | N/A   |
 
@@ -79,7 +88,7 @@ Coming soon
 </TabItem>
 <TabItem value="System" label="System">
 
-| Métrique                                 | Unité |
+| Nom                                      | Unité |
 |:-----------------------------------------|:------|
 | status                                   | N/A   |
 | system.antivirus.lastupdate.time.seconds | s     |
@@ -205,8 +214,8 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 | SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          |                   |             |
 | SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
 | SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
-| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | sshcli            |             |
-| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli, plink and libssh                                                                                             | sshcli            |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                  |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -218,74 +227,74 @@ yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 <Tabs groupId="sync">
 <TabItem value="Environment" label="Environment">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'voltage'                  | .*                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'psu', 'temperature', 'voltage'                                                                                | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Ha" label="Ha">
 
-| Macro                | Description                                                                                                                                                                          | Valeur par défaut                                   | Obligatoire |
-|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-----------:|
-| UNKNOWNLINKSTATUS    | Define the conditions to match for the status to be UNKNOWN (default: ''). Can use special variables like: %\{status\}, %\{display\}                                                     |                                                     |             |
-| UNKNOWNSYNCSTATUS    | Define the conditions to match for the status to be UNKNOWN (default: ''). Can use special variables like: %\{enabled\}, %\{status\}                                                     |                                                     |             |
-| UNKNOWNMEMBERSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: ''). Can use special variables like: %\{state\}, %\{stateLast\}                                                    |                                                     |             |
-| CRITICALLINKSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} ne "up"'). Can use special variables like: %\{status\}, %\{display\}                                   | %\{status\} ne "up"                                   |             |
-| WARNINGLINKSTATUS    | Define the conditions to match for the status to be WARNING (default: ''). Can use special variables like: %\{status\}, %\{display\}                                                     |                                                     |             |
-| CRITICALMEMBERSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} ne %\{stateLast\}'). Can use special variables like: %\{state\}, %\{stateLast\}                           | %\{state\} ne %\{stateLast\}                            |             |
-| WARNINGMEMBERSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). Can use special variables like: %\{state\}, %\{stateLast\}                                                    |                                                     |             |
-| CRITICALSYNCSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%\{enabled\} eq "yes" and %\{status\} ne "synchronized"'). Can use special variables like: %\{enabled\}, %\{status\} | %\{enabled\} eq "yes" and %\{status\} ne "synchronized" |             |
-| WARNINGSYNCSTATUS    | Define the conditions to match for the status to be WARNING (default: ''). Can use special variables like: %\{enabled\}, %\{status\}                                                     |                                                     |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                   | --verbose                                           |             |
+| Macro                | Description                                                                                                                                      | Valeur par défaut                                       | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
+| UNKNOWNLINKSTATUS    | Define the conditions to match for the status to be UNKNOWN. Can use special variables like: %\{status\}, %\{display\}                           |                                                         |             |
+| UNKNOWNSYNCSTATUS    | Define the conditions to match for the status to be UNKNOWN. Can use special variables like: %\{enabled\}, %\{status\}                           |                                                         |             |
+| UNKNOWNMEMBERSTATUS  | Define the conditions to match for the status to be UNKNOWN. Can use special variables like: %\{state\}, %\{stateLast\}                          |                                                         |             |
+| CRITICALLINKSTATUS   | Define the conditions to match for the status to be CRITICAL. Can use special variables like: %\{status\}, %\{display\}                          | %\{status\} ne "up"                                     |             |
+| WARNINGLINKSTATUS    | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{status\}, %\{display\}                           |                                                         |             |
+| CRITICALMEMBERSTATUS | Define the conditions to match for the status to be CRITICAL. Can use special variables like: %\{state\}, %\{stateLast\}                         | %\{state\} ne %\{stateLast\}                            |             |
+| WARNINGMEMBERSTATUS  | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{state\}, %\{stateLast\}                          |                                                         |             |
+| CRITICALSYNCSTATUS   | Define the conditions to match for the status to be CRITICAL. Can use special variables like: %\{enabled\}, %\{status\}                          | %\{enabled\} eq "yes" and %\{status\} ne "synchronized" |             |
+| WARNINGSYNCSTATUS    | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{enabled\}, %\{status\}                           |                                                         |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                               |             |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro          | Description                                                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME     | Filter interface name (can be a regexp)                                                                                                                                          |                   |             |
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\}                      |                   |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} ne "active"'). You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\} | %\{state\} ne "up"  |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\}                      |                   |             |
-| WARNINGTOTAL   | Thresholds                                                                                                                                                                       |                   |             |
-| CRITICALTOTAL  | Thresholds                                                                                                                                                                       |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                               | --verbose         |             |
+| Macro          | Description                                                                                                                                           | Valeur par défaut  | Obligatoire |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
+| FILTERNAME     | Filter interface name (can be a regexp)                                                                                                               |                    |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\}  |                    |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\} | %\{state\} ne "up" |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\}  |                    |             |
+| WARNINGTOTAL   | Thresholds                                                                                                                                            |                    |             |
+| CRITICALTOTAL  | Thresholds                                                                                                                                            |                    |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      | --verbose          |             |
 
 </TabItem>
 <TabItem value="Ipsec" label="Ipsec">
 
-| Macro              | Description                                                                                                                                                                                                                             | Valeur par défaut                                       | Obligatoire |
-|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{ike_phase1_state\}, %\{state\}, %\{monitor_status\}, %\{display\}                                                                       |                                                         |             |
-| WARNINGIPSECTOTAL  | Thresholds                                                                                                                                                                                                                              |                                                         |             |
-| CRITICALIPSECTOTAL | Thresholds                                                                                                                                                                                                                              |                                                         |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{ike_phase1_state\} eq "down" or %\{state\} ne "active"'). You can use the following variables: %\{ike_phase1_state\}, %\{state\}, %\{monitor_status\}, %\{display\} | %\{ike_phase1_state\} eq "down" or %\{state\} ne "active" |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ike_phase1_state\}, %\{state\}, %\{monitor_status\}, %\{display\}                                                                       |                                                         |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                      | --verbose                                               |             |
+| Macro              | Description                                                                                                                                                             | Valeur par défaut                                         | Obligatoire |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-----------:|
+| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{ike_phase1_state\}, %\{state\}, %\{monitor_status\}, %\{display\}  |                                                           |             |
+| WARNINGIPSECTOTAL  | Thresholds                                                                                                                                                              |                                                           |             |
+| CRITICALIPSECTOTAL | Thresholds                                                                                                                                                              |                                                           |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ike_phase1_state\}, %\{state\}, %\{monitor_status\}, %\{display\} | %\{ike_phase1_state\} eq "down" or %\{state\} ne "active" |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ike_phase1_state\}, %\{state\}, %\{monitor_status\}, %\{display\}  |                                                           |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                        | --verbose                                                 |             |
 
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Macro          | Description                                                                                                                                                             | Valeur par défaut   | Obligatoire |
-|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| FILTERFEATURE  | Filter license by feature (can be a regexp)                                                                                                                             | .*                  |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. (default: '%\{expired\} eq "yes"'). Can use special variables like: %\{expired\}, %\{expiry_days\}, %\{feature\} | %\{expired\} eq "yes" |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{expired\}, %\{expiry_days\}, %\{feature\}                                    |                     |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                      |                     |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut     | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
+| FILTERFEATURE  | Filter license by feature (can be a regexp)                                                                                                      | .*                    |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. Can use special variables like: %\{expired\}, %\{expiry_days\}, %\{feature\}       | %\{expired\} eq "yes" |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{expired\}, %\{expiry_days\}, %\{feature\}        |                       |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                       |             |
 
 </TabItem>
 <TabItem value="System" label="System">
 
-| Macro                | Description                                                                                                                                              | Valeur par défaut          | Obligatoire |
-|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| WARNINGAVUPDATE      | Thresholds                                                                                                                                               |                            |             |
-| CRITICALAVUPDATE     | Thresholds                                                                                                                                               |                            |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%\{oper_mode\} !~ /normal/i'). You can use the following variables: %\{oper_mode\} | %\{oper_mode\} !~ /normal/i |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{oper_mode\}                            |                            |             |
-| WARNINGTHREATUPDATE  | Thresholds                                                                                                                                               |                            |             |
-| CRITICALTHREATUPDATE | Thresholds                                                                                                                                               |                            |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                       |                            |             |
+| Macro                | Description                                                                                                                                      | Valeur par défaut           | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| WARNINGAVUPDATE      | Thresholds                                                                                                                                       |                             |             |
+| CRITICALAVUPDATE     | Thresholds                                                                                                                                       |                             |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{oper_mode\}                                | %\{oper_mode\} !~ /normal/i |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{oper_mode\}                                 |                             |             |
+| WARNINGTHREATUPDATE  | Thresholds                                                                                                                                       |                             |             |
+| CRITICALTHREATUPDATE | Thresholds                                                                                                                                       |                             |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                             |             |
 
 </TabItem>
 </Tabs>
@@ -418,7 +427,7 @@ Les options génériques sont listées ci-dessous :
 | --ssh-priv-key                             | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --sshcli-command                           | ssh command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --sshcli-path                              | ssh command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no'). The default option is --sshcli-options='-o=LogLevel=ERROR' which hides the SSH banner. If you override this parameter, make sure to append '-o=LogLevel=ERROR' to your new value to maintain this behavior. This parameter can be used multiple times and multiple options can be specified in the same parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --plink-command                            | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --plink-path                               | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --plink-option                             | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -452,19 +461,19 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --failback-file          | Fall back on a local file if Redis connection fails.                                                                                                                                                                                          |
 | --memexpiration          | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
 | --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix       | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-suffix       | Define a suffix to customize the statefile name.                                                                                                                                                                                |
 | --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
 | --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
-| --unknown-sync-status    | Define the conditions to match for the status to be UNKNOWN (default: ''). Can use special variables like: %\{enabled\}, %\{status\}                                                                                                              |
-| --warning-sync-status    | Define the conditions to match for the status to be WARNING (default: ''). Can use special variables like: %\{enabled\}, %\{status\}                                                                                                              |
+| --unknown-sync-status    | Define the conditions to match for the status to be UNKNOWN. Can use special variables like: %\{enabled\}, %\{status\}                                                                                                              |
+| --warning-sync-status    | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{enabled\}, %\{status\}                                                                                                              |
 | --critical-sync-status   | Define the conditions to match for the status to be CRITICAL (default: '%\{enabled\} eq "yes" and %\{status\} ne "synchronized"'). Can use special variables like: %\{enabled\}, %\{status\}                                                          |
-| --unknown-member-status  | Define the conditions to match for the status to be UNKNOWN (default: ''). Can use special variables like: %\{state\}, %\{stateLast\}                                                                                                             |
-| --warning-member-status  | Define the conditions to match for the status to be WARNING (default: ''). Can use special variables like: %\{state\}, %\{stateLast\}                                                                                                             |
+| --unknown-member-status  | Define the conditions to match for the status to be UNKNOWN. Can use special variables like: %\{state\}, %\{stateLast\}                                                                                                             |
+| --warning-member-status  | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{state\}, %\{stateLast\}                                                                                                             |
 | --critical-member-status | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} ne %\{stateLast\}'). Can use special variables like: %\{state\}, %\{stateLast\}                                                                                    |
-| --unknown-link-status    | Define the conditions to match for the status to be UNKNOWN (default: ''). Can use special variables like: %\{status\}, %\{display\}                                                                                                              |
-| --warning-link-status    | Define the conditions to match for the status to be WARNING (default: ''). Can use special variables like: %\{status\}, %\{display\}                                                                                                              |
+| --unknown-link-status    | Define the conditions to match for the status to be UNKNOWN. Can use special variables like: %\{status\}, %\{display\}                                                                                                              |
+| --warning-link-status    | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{status\}, %\{display\}                                                                                                              |
 | --critical-link-status   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} ne "up"'). Can use special variables like: %\{status\}, %\{display\}                                                                                            |
 
 </TabItem>
@@ -473,8 +482,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                                                                                                                        |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name            | Filter interface name (can be a regexp).                                                                                                                                           |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\}                        |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\}                        |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\}                        |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\}                        |
 | --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} ne "active"'). You can use the following variables: %\{state\}, %\{type\}, %\{ha_state\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'total'.                                                                                                                                                       |
 
@@ -510,14 +519,14 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --failback-file          | Fall back on a local file if Redis connection fails.                                                                                                                                                                                          |
 | --memexpiration          | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
 | --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix       | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-suffix       | Define a suffix to customize the statefile name.                                                                                                                                                                                |
 | --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
 | --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^status$'                                                                                                                                                        |
 | --timezone               | Timezone options. Default is 'GMT'.                                                                                                                                                                                                           |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{oper_mode\}                                                                                                                 |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{oper_mode\}                                                                                                                 |
 | --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{oper_mode\} !~ /normal/i'). You can use the following variables: %\{oper_mode\}                                                                                      |
 | --warning-* --critical-* | Thresholds. Can be: 'av-update' (s), 'threat-update' (s), 'sessions-traffic' (b/s), 'sessions-total-active'.                                                                                                                                  |
 

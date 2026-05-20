@@ -37,10 +37,10 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                      | Service Description   | Discovery  |
-|:--------------|:--------------------------------------|:----------------------|:----------:|
-| Interfaces    | Net-Denyall-Interfaces-SNMP-custom    | Check interfaces      | X          |
-| Reverse-Proxy | Net-Denyall-Reverse-Proxy-SNMP-custom | Check reverse proxies | X          |
+| Service Alias | Service Template                      | Service Description   | Discovery |
+|:--------------|:--------------------------------------|:----------------------|:---------:|
+| Interfaces    | Net-Denyall-Interfaces-SNMP-custom    | Check interfaces      |     X     |
+| Reverse-Proxy | Net-Denyall-Reverse-Proxy-SNMP-custom | Check reverse proxies |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -76,25 +76,25 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Name                                       | Unit  |
-|:-------------------------------------------|:------|
-| cpu.utilization.percentage                 | %     |
-| *cpu_core*#core.cpu.utilization.percentage | %     |
+| Name                                       | Unit |
+|:-------------------------------------------|:-----|
+| cpu.utilization.percentage                 | %    |
+| *cpu_core*#core.cpu.utilization.percentage | %    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Name                                                      | Unit  |
-|:----------------------------------------------------------|:------|
-| status                                                    | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
-| *interface_name*#interface.packets.in.discard.percentage  | %     |
-| *interface_name*#interface.packets.in.error.percentage    | %     |
-| *interface_name*#interface.packets.out.discard.percentage | %     |
-| *interface_name*#interface.packets.out.error.percentage   | %     |
+| Name                                                      | Unit |
+|:----------------------------------------------------------|:-----|
+| status                                                    | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
+| *interface_name*#interface.packets.in.discard.percentage  | %    |
+| *interface_name*#interface.packets.in.error.percentage    | %    |
+| *interface_name*#interface.packets.out.discard.percentage | %    |
+| *interface_name*#interface.packets.out.error.percentage   | %    |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -111,29 +111,29 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Name                    | Unit  |
-|:------------------------|:------|
-| memory.usage.bytes      | B     |
-| memory.free.bytes       | B     |
-| memory.usage.percentage | %     |
-| memory.buffer.bytes     | B     |
-| memory.cached.bytes     | B     |
-| memory.shared.bytes     | B     |
-| swap.usage.bytes        | B     |
-| swap.free.bytes         | B     |
-| swap.usage.percentage   | %     |
+| Name                    | Unit |
+|:------------------------|:-----|
+| memory.usage.bytes      | B    |
+| memory.free.bytes       | B    |
+| memory.usage.percentage | %    |
+| memory.buffer.bytes     | B    |
+| memory.cached.bytes     | B    |
+| memory.shared.bytes     | B    |
+| swap.usage.bytes        | B    |
+| swap.free.bytes         | B    |
+| swap.usage.percentage   | %    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Reverse-Proxy" label="Reverse-Proxy">
 
-| Name                                           | Unit  |
-|:-----------------------------------------------|:------|
-| status                                         | N/A   |
-| *rps*~reverse_proxy.cpu.utilization.percentage | %     |
-| *rps*~reverse_proxy.memory.usage.bytes         | B     |
-| requests                                       | N/A   |
+| Name                                           | Unit |
+|:-----------------------------------------------|:-----|
+| status                                         | N/A  |
+| *rps*~reverse_proxy.cpu.utilization.percentage | %    |
+| *rps*~reverse_proxy.memory.usage.bytes         | B    |
+| requests                                       | N/A  |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
@@ -151,11 +151,11 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Name                  | Unit  |
-|:----------------------|:------|
-| swap.usage.bytes      | B     |
-| swap.free.bytes       | B     |
-| swap.usage.percentage | %     |
+| Name                  | Unit |
+|:----------------------|:-----|
+| swap.usage.bytes      | B    |
+| swap.free.bytes       | B    |
+| swap.usage.percentage | %    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -277,9 +277,9 @@ yum install centreon-plugin-Network-Denyall-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro            | Description                                                                                                                              | Default value | Mandatory |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -291,117 +291,117 @@ yum install centreon-plugin-Network-Denyall-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro           | Description                                                                                                                            | Default value                | Mandatory   |
-|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| WARNINGAVERAGE  | Warning threshold average CPU utilization                                                                                              |                              |             |
-| CRITICALAVERAGE | Critical  threshold average CPU utilization                                                                                            |                              |             |
-| WARNINGCORE     | Warning thresholds for each CPU core                                                                                                   |                              |             |
-| CRITICALCORE    | Critical thresholds for each CPU core                                                                                                  |                              |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --use-new-perfdata |             |
+| Macro           | Description                                                                                                                            | Default value                | Mandatory |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:---------:|
+| WARNINGAVERAGE  | Warning threshold average CPU utilization                                                                                              |                              |           |
+| CRITICALAVERAGE | Critical  threshold average CPU utilization                                                                                            |                              |           |
+| WARNINGCORE     | Warning thresholds for each CPU core                                                                                                   |                              |           |
+| CRITICALCORE    | Critical thresholds for each CPU core                                                                                                  |                              |           |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --use-new-perfdata |           |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                               | Default value                                         | Mandatory   |
-|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                  | ifname                                                |             |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                         | ifname                                                |             |
-| INTERFACENAME      | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.  To filter on interface names, see --name    |                                                       |             |
-| WARNINGINDISCARD   | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALINDISCARD  | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGINERROR     | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALINERROR    | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGINTRAFFIC   | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALINTRAFFIC  | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGOUTDISCARD  | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALOUTDISCARD | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGOUTERROR    | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALOUTERROR   | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}  |                                                       |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                    | --verbose --no-skipped-counters --use-new-perfdata    |             |
+| Macro              | Description                                                                                                                                                       | Default value                                      | Mandatory   |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
+| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                          | ifname                                             |             |
+| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                 | ifname                                             |             |
+| INTERFACENAME      | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.  To filter on interface names, see --name            |                                                    |             |
+| WARNINGINDISCARD   | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALINDISCARD  | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGINERROR     | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALINERROR    | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGINTRAFFIC   | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALINTRAFFIC  | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGOUTDISCARD  | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALOUTDISCARD | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGOUTERROR    | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALOUTERROR   | Threshold                                                                                                                                                         |                                                    |             |
+| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                         |                                                    |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\   |dormant/ |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}  |                                                    |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                            | --verbose --no-skipped-counters --use-new-perfdata |             |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold (1min,5min,15min)                                                                                                    |                   |             |
-| CRITICAL     | Critical threshold (1min,5min,15min)                                                                                                   |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold (1min,5min,15min)                                                                                                    |               |           |
+| CRITICAL     | Critical threshold (1min,5min,15min)                                                                                                   |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro             | Description                                                                                                                            | Default value                | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| WARNINGBUFFER     | Threshold                                                                                                                              |                              |             |
-| CRITICALBUFFER    | Threshold                                                                                                                              |                              |             |
-| WARNINGCACHED     | Threshold                                                                                                                              |                              |             |
-| CRITICALCACHED    | Threshold                                                                                                                              |                              |             |
-| WARNINGSHARED     | Threshold                                                                                                                              |                              |             |
-| CRITICALSHARED    | Threshold                                                                                                                              |                              |             |
-| WARNINGSWAP       | Threshold                                                                                                                              |                              |             |
-| CRITICALSWAP      | Threshold                                                                                                                              |                              |             |
-| WARNINGSWAPFREE   | Threshold                                                                                                                              |                              |             |
-| CRITICALSWAPFREE  | Threshold                                                                                                                              |                              |             |
-| WARNINGSWAPPRCT   | Threshold                                                                                                                              |                              |             |
-| CRITICALSWAPPRCT  | Threshold                                                                                                                              |                              |             |
-| WARNINGUSAGE      | Threshold                                                                                                                              |                              |             |
-| CRITICALUSAGE     | Threshold                                                                                                                              |                              |             |
-| WARNINGUSAGEFREE  | Threshold                                                                                                                              |                              |             |
-| CRITICALUSAGEFREE | Threshold                                                                                                                              |                              |             |
-| WARNINGUSAGEPRCT  | Threshold                                                                                                                              |                              |             |
-| CRITICALUSAGEPRCT | Threshold                                                                                                                              |                              |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --use-new-perfdata |             |
+| Macro             | Description                                                                                                                            | Default value                | Mandatory |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:---------:|
+| WARNINGBUFFER     | Threshold                                                                                                                              |                              |           |
+| CRITICALBUFFER    | Threshold                                                                                                                              |                              |           |
+| WARNINGCACHED     | Threshold                                                                                                                              |                              |           |
+| CRITICALCACHED    | Threshold                                                                                                                              |                              |           |
+| WARNINGSHARED     | Threshold                                                                                                                              |                              |           |
+| CRITICALSHARED    | Threshold                                                                                                                              |                              |           |
+| WARNINGSWAP       | Threshold                                                                                                                              |                              |           |
+| CRITICALSWAP      | Threshold                                                                                                                              |                              |           |
+| WARNINGSWAPFREE   | Threshold                                                                                                                              |                              |           |
+| CRITICALSWAPFREE  | Threshold                                                                                                                              |                              |           |
+| WARNINGSWAPPRCT   | Threshold                                                                                                                              |                              |           |
+| CRITICALSWAPPRCT  | Threshold                                                                                                                              |                              |           |
+| WARNINGUSAGE      | Threshold                                                                                                                              |                              |           |
+| CRITICALUSAGE     | Threshold                                                                                                                              |                              |           |
+| WARNINGUSAGEFREE  | Threshold                                                                                                                              |                              |           |
+| CRITICALUSAGEFREE | Threshold                                                                                                                              |                              |           |
+| WARNINGUSAGEPRCT  | Threshold                                                                                                                              |                              |           |
+| CRITICALUSAGEPRCT | Threshold                                                                                                                              |                              |           |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --use-new-perfdata |           |
 
 </TabItem>
 <TabItem value="Reverse-Proxy" label="Reverse-Proxy">
 
-| Macro                  | Description                                                                                                                            | Default value        | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| FILTERUID              | Filter reverse proxy by UID (can be a regexp)                                                                                          |                      |             |
-| WARNINGCPUUTILIZATION  | Threshold                                                                                                                              |                      |             |
-| CRITICALCPUUTILIZATION | Threshold                                                                                                                              |                      |             |
-| WARNINGMEMORYUSAGE     | Threshold                                                                                                                              |                      |             |
-| CRITICALMEMORYUSAGE    | Threshold                                                                                                                              |                      |             |
-| WARNINGREQUESTS        | Threshold                                                                                                                              |                      |             |
-| CRITICALREQUESTS       | Threshold                                                                                                                              |                      |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{uid\}                   | %\{status\} =~ /down/i |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{uid\}                    |                      |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose            |             |
+| Macro                  | Description                                                                                                                            | Default value          | Mandatory |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
+| FILTERUID              | Filter reverse proxy by UID (can be a regexp)                                                                                          |                        |           |
+| WARNINGCPUUTILIZATION  | Threshold                                                                                                                              |                        |           |
+| CRITICALCPUUTILIZATION | Threshold                                                                                                                              |                        |           |
+| WARNINGMEMORYUSAGE     | Threshold                                                                                                                              |                        |           |
+| CRITICALMEMORYUSAGE    | Threshold                                                                                                                              |                        |           |
+| WARNINGREQUESTS        | Threshold                                                                                                                              |                        |           |
+| CRITICALREQUESTS       | Threshold                                                                                                                              |                        |           |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{uid\}               | %\{status\} =~ /down/i |           |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{uid\}                |                        |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |           |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Macro          | Description                                                                                                                            | Default value                | Mandatory   |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| OIDFILTER      | Choose OID used to filter storage (values: hrStorageDescr, hrFSMountPoint)                                                             | hrStorageDescr               |             |
-| OIDDISPLAY     | Choose OID used to display storage (values: hrStorageDescr, hrFSMountPoint)                                                            | hrStorageDescr               |             |
-| UNITS          | Units of thresholds (default: '%') ('%', 'B')                                                                                          | %                            |             |
-| FILTERSTORAGE  | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                  |                              |             |
-| WARNINGACCESS  | Warning threshold                                                                                                                      |                              |             |
-| CRITICALACCESS | Critical threshold. Check if storage is readOnly: --critical-access=readOnly                                                           |                              |             |
-| WARNINGCOUNT   | Warning threshold                                                                                                                      |                              |             |
-| CRITICALCOUNT  | Critical threshold                                                                                                                     |                              |             |
-| WARNINGUSAGE   | Warning threshold                                                                                                                      |                              |             |
-| CRITICALUSAGE  | Critical threshold                                                                                                                     |                              |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --use-new-perfdata |             |
+| Macro          | Description                                                                                                                            | Default value                | Mandatory |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:---------:|
+| OIDFILTER      | Choose OID used to filter storage (values: hrStorageDescr, hrFSMountPoint)                                                             | hrStorageDescr               |           |
+| OIDDISPLAY     | Choose OID used to display storage (values: hrStorageDescr, hrFSMountPoint)                                                            | hrStorageDescr               |           |
+| UNITS          | Units of thresholds  ('%', 'B')                                                                                                        | %                            |           |
+| FILTERSTORAGE  | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                  | .*                           |           |
+| WARNINGACCESS  | Warning threshold                                                                                                                      |                              |           |
+| CRITICALACCESS | Critical threshold. Check if storage is readOnly: --critical-access=readOnly                                                           |                              |           |
+| WARNINGCOUNT   | Warning threshold                                                                                                                      |                              |           |
+| CRITICALCOUNT  | Critical threshold                                                                                                                     |                              |           |
+| WARNINGUSAGE   | Warning threshold                                                                                                                      |                              |           |
+| CRITICALUSAGE  | Critical threshold                                                                                                                     |                              |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --use-new-perfdata |           |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro             | Description                                                                                                                            | Default value                | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| WARNINGUSAGE      | Threshold                                                                                                                              |                              |             |
-| CRITICALUSAGE     | Threshold                                                                                                                              |                              |             |
-| WARNINGUSAGEFREE  | Threshold                                                                                                                              |                              |             |
-| CRITICALUSAGEFREE | Threshold                                                                                                                              |                              |             |
-| WARNINGUSAGEPRCT  | Threshold                                                                                                                              |                              |             |
-| CRITICALUSAGEPRCT | Threshold                                                                                                                              |                              |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --use-new-perfdata |             |
+| Macro             | Description                                                                                                                            | Default value                | Mandatory |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:---------:|
+| WARNINGUSAGE      | Threshold                                                                                                                              |                              |           |
+| CRITICALUSAGE     | Threshold                                                                                                                              |                              |           |
+| WARNINGUSAGEFREE  | Threshold                                                                                                                              |                              |           |
+| CRITICALUSAGEFREE | Threshold                                                                                                                              |                              |           |
+| WARNINGUSAGEPRCT  | Threshold                                                                                                                              |                              |           |
+| CRITICALUSAGEPRCT | Threshold                                                                                                                              |                              |           |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --use-new-perfdata |           |
 
 </TabItem>
 </Tabs>
@@ -512,7 +512,7 @@ All generic options are listed here:
 | --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
