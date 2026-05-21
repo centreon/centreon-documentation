@@ -68,7 +68,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 * centreon-modules, if you are using Centreon Business Edition.
 
 </TabItem>
-<Tabs>
+</Tabs>
 
 ## Upgrade the Centreon Central server
 

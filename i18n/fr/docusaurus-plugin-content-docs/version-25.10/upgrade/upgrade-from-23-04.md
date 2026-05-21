@@ -71,7 +71,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 * centreon-modules, if you are using Centreon Business Edition.
 
 </TabItem>
-<Tabs>
+</Tabs>
 
 ## Montée de version du serveur Centreon Central
 
