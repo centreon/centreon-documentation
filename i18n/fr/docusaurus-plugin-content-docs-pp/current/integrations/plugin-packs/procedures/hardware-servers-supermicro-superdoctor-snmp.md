@@ -3,11 +3,6 @@ id: hardware-servers-supermicro-superdoctor-snmp
 title: Supermicro SuperDoctor SNMP
 ---
 import Tabs from '@theme/Tabs';
----
-id: hardware-servers-supermicro-superdoctor-snmp
-title: Supermicro SuperDoctor SNMP
----
-import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
