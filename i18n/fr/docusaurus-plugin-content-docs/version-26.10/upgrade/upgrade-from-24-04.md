@@ -55,7 +55,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -82,7 +82,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
+   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el9/centreon-24.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

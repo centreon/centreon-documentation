@@ -66,7 +66,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04.repo
 ```
 
 > If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
@@ -351,7 +351,7 @@ Run the following command on the dedicated DBMS server:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -523,7 +523,7 @@ Run the following command:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>

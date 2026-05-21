@@ -46,7 +46,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 3. Installez le nouveau dépôt :
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -64,7 +64,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/e
 3. Installez le nouveau dépôt :
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el9/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -601,7 +601,7 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -609,7 +609,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/e
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el9/centreon-24.04.repo
 ```
 
 </TabItem>
