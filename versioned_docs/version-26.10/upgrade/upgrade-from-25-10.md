@@ -27,6 +27,40 @@ servers:
 - Central server
 - Database server
 
+### Check the repositories
+
+Before upgrading your Centreon platform, make sure the following package repositories are enabled:
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+* bullseye, bullseye-updates, bullseye-backports and bullseye security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<Tabs>
+
 ## Upgrade the Centreon Central server
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.

@@ -39,6 +39,40 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
 
+### Vérifier les dépôts
+
+Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+* bullseye, bullseye-updates, bullseye-backports and bullseye security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<Tabs>
+
 ## Montée de version du serveur Centreon Central
 
 Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian 11, vous devez d'abord migrer en Debian 12 avant d'upgrader Centreon. Voir [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).

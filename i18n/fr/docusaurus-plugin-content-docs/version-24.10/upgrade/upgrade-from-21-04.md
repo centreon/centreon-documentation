@@ -35,6 +35,40 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
 
+### Vérifier les dépôts
+
+Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+* bullseye, bullseye-updates, bullseye-backports and bullseye security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<Tabs>
+
 ### Mettre à jour la clé de signature RPM
 
 > Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.

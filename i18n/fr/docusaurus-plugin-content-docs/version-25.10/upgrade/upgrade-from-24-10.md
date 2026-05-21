@@ -30,6 +30,40 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
+### Vérifier les dépôts
+
+Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+* bullseye, bullseye-updates, bullseye-backports and bullseye security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<Tabs>
+
 ## Montée de version du serveur Centreon Central
 
 > Lorsque vous lancez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.

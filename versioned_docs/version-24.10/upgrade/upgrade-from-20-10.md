@@ -48,6 +48,40 @@ servers:
 
 If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
 
+### Check the repositories
+
+Before upgrading your Centreon platform, make sure the following package repositories are enabled:
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+* bullseye, bullseye-updates, bullseye-backports and bullseye security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<Tabs>
+
 ### Update the RPM signing key
 
 > For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation) to remove the old key and install the new one.
