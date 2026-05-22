@@ -92,7 +92,7 @@ To use this pack, the SNMP service must be properly configured on your device.
 
 ### Network flow
 
-The target equipment must be reachable from the Centreon Poller on the UDP/161 SNMP
+The target equipment must be reachable from the Centreon poller on the UDP/161 SNMP
 port.
 
 ## Installing the monitoring connector
