@@ -44,6 +44,12 @@ Use this widget to insert titles, information or links into your dashboards. Use
 
 ![image](./assets/widget_generic_text.png)
 
+### Log viewer
+
+Use this widget to display the list of logs matching a specific query in the last n minutes. In the resulting table, click ** Show in context** on the right to display the log in the **Log explorer** page, along with the previous and next 2 minutes of logs that match the query.
+
+![image](./assets/widget_log_viewer.png)
+
 ### Metrics graph
 
 Here, "metrics" means the number of log entries that match a specific query, or the ratio obtained by dividing a query by another query. The resulting number of logs can be broken down according to another parameter. In the example below, each bar represents the number of INFO and ERROR logs for a service for a given period.
