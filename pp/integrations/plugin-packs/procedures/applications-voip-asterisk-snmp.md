@@ -70,7 +70,7 @@ server. Asterisk provides an [official documentation](https://wiki.asterisk.org/
 
 ### Network flow
 
-The Asterisk server must be reachable from the Centreon Poller on the UDP/161 SNMP
+The Asterisk server must be reachable from the Centreon poller on the UDP/161 SNMP
 port.
 
 ## Installing the monitoring connector
