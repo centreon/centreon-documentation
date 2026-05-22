@@ -42,7 +42,9 @@ Click a log to see all related information in the **Log details** panel, includi
 ### Rearranging columns
 
 * Use the **Search and add column** button at the top right of the results to choose which columns/attributes you want to display.
+
    ![image](assets/column-management.png)
+  
 * The **Time** column is always displayed first and cannot be unpinned. You can pin one other column in second position.
 
 ## Using the Alert events page
