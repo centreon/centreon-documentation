@@ -231,6 +231,9 @@ def migrate_docs() -> None:
                 rel = src_file.relative_to(src_root)
                 if rel.parts[0] == "assets":
                     continue
+                # Skip root index — each version has a hand-crafted homepage (index.mdx)
+                if rel == Path("index.md") or rel == Path("index.mdx"):
+                    continue
                 original = src_file.read_text(encoding="utf-8")
                 # Source .mdx files are always MDX; .md files are MDX if they have JSX imports
                 is_mdx = src_file.suffix == ".mdx" or bool(HAS_JSX.search(original))
