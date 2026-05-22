@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **NetApp Ontap OnCommand API** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -27,8 +27,8 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias               | Service Template                                                        | Service Description                             | Discovery |
 |:----------------------------|:------------------------------------------------------------------------|:------------------------------------------------|:---------:|
 | Aggregate-Usage-Global      | HW-Storage-NetApp-Ontap-Aggregate-Usage-Global-Oncommandapi-custom      | Check usage of one or several aggregates        |           |
-| Cluster-Io-Global           | HW-Storage-NetApp-Ontap-Cluster-Io-Global-Oncommandapi-custom           | Check IO usage of one or several cluster        |           |
-| Cluster-Status-Global       | HW-Storage-NetApp-Ontap-Cluster-Status-Global-Oncommandapi-custom       | Check status of one or several cluster          |           |
+| Cluster-Io-Global           | HW-Storage-NetApp-Ontap-Cluster-Io-Global-Oncommandapi-custom           | Check IO usage of one or several clusters       |           |
+| Cluster-Status-Global       | HW-Storage-NetApp-Ontap-Cluster-Status-Global-Oncommandapi-custom       | Check status of one or several clusters         |           |
 | Disk-Failed                 | HW-Storage-NetApp-Ontap-Disk-Failed-Oncommandapi-custom                 | Check number of failed and pre-failed disks     |           |
 | Lun-Online                  | HW-Storage-NetApp-Ontap-Lun-Online-Oncommandapi-custom                  | Check LUNs connection state                     |           |
 | Node-Failover-Status-Global | HW-Storage-NetApp-Ontap-Node-Failover-Status-Global-Oncommandapi-custom | Check failover state of one or several nodes    |           |
@@ -48,10 +48,10 @@ The connector brings the following service templates (sorted by the host templat
 |:-----------------------------|:-------------------------------------------------------------------------|:----------------------------------------------|
 | Aggregate-Raid-Status-Global | HW-Storage-NetApp-Ontap-Aggregate-Raid-Status-Global-Oncommandapi-custom | Check raid state of one or several aggregates |
 | Aggregate-Status-Global      | HW-Storage-NetApp-Ontap-Aggregate-Status-Global-Oncommandapi-custom      | Check state of one or several aggregates      |
-| Cluster-Usage-Global         | HW-Storage-NetApp-Ontap-Cluster-Usage-Global-Oncommandapi-custom         | Check usage of one or several cluster         |
+| Cluster-Usage-Global         | HW-Storage-NetApp-Ontap-Cluster-Usage-Global-Oncommandapi-custom         | Check usage of one or several clusters         |
 | Disk-Spare                   | HW-Storage-NetApp-Ontap-Disk-Spare-Oncommandapi-custom                   | Check number of spare disks and their state   |
-| FC-Port-Status-Global        | HW-Storage-NetApp-Ontap-Fc-Port-Status-Global-Oncommandapi-custom        | Check status of one or several FC port        |
-| Lun-Alignment                | HW-Storage-NetApp-Ontap-Lun-Alignment-Oncommandapi-custom                | Check LUNs alignment problem                  |
+| FC-Port-Status-Global        | HW-Storage-NetApp-Ontap-Fc-Port-Status-Global-Oncommandapi-custom        | Check status of one or several FC ports       |
+| Lun-Alignment                | HW-Storage-NetApp-Ontap-Lun-Alignment-Oncommandapi-custom                | Check LUNs alignment problems                  |
 | Lun-Usage-Global             | HW-Storage-NetApp-Ontap-Lun-Usage-Global-Oncommandapi-custom             | Check LUNs usage                              |
 | Snapmirror-Status-Global     | HW-Storage-NetApp-Ontap-Snapmirror-Status-Global-Oncommandapi-custom     | Check state of one or several snapmirror      |
 
@@ -286,7 +286,7 @@ as possible here as it will save time to everybody.*
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -322,7 +322,7 @@ yum install centreon-pack-hardware-storage-netapp-ontap-oncommandapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **NetApp Ontap OnCommand API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

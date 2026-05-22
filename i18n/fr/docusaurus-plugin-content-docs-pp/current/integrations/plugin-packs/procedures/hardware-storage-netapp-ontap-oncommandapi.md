@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **NetApp Ontap OnCommand API** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -27,10 +27,10 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                       | Modèle de service                                                       | Description                                             | Découverte |
 |:----------------------------|:------------------------------------------------------------------------|:--------------------------------------------------------|:----------:|
-| Aggregate-Usage-Global      | HW-Storage-NetApp-Ontap-Aggregate-Usage-Global-Oncommandapi-custom      | Contrôle l'utilisation d'un ou plusieurs aggrégats      |            |
-| Cluster-Io-Global           | HW-Storage-NetApp-Ontap-Cluster-Io-Global-Oncommandapi-custom           | Contrôle l'utilisation des IO d'un ou plusieurs cluster |            |
-| Cluster-Status-Global       | HW-Storage-NetApp-Ontap-Cluster-Status-Global-Oncommandapi-custom       | Contrôle le statut d'un ou plusieurs cluster            |            |
-| Disk-Failed                 | HW-Storage-NetApp-Ontap-Disk-Failed-Oncommandapi-custom                 | Contrôle le nombre de disque en échec et en pré-échec   |            |
+| Aggregate-Usage-Global      | HW-Storage-NetApp-Ontap-Aggregate-Usage-Global-Oncommandapi-custom      | Contrôle l'utilisation d'un ou plusieurs agrégats      |            |
+| Cluster-Io-Global           | HW-Storage-NetApp-Ontap-Cluster-Io-Global-Oncommandapi-custom           | Contrôle l'utilisation des IO d'un ou plusieurs clusters |            |
+| Cluster-Status-Global       | HW-Storage-NetApp-Ontap-Cluster-Status-Global-Oncommandapi-custom       | Contrôle le statut d'un ou plusieurs clusters            |            |
+| Disk-Failed                 | HW-Storage-NetApp-Ontap-Disk-Failed-Oncommandapi-custom                 | Contrôle le nombre de disques en échec et en pré-échec   |            |
 | Lun-Online                  | HW-Storage-NetApp-Ontap-Lun-Online-Oncommandapi-custom                  | Contrôle l'état de connexion des LUNs                   |            |
 | Node-Failover-Status-Global | HW-Storage-NetApp-Ontap-Node-Failover-Status-Global-Oncommandapi-custom | Contrôle l'état du failover d'un ou plusieurs noeuds    |            |
 | Node-Hardware-Status-Global | HW-Storage-NetApp-Ontap-Node-Hardware-Status-Global-Oncommandapi-custom | Contrôle l'état matériel d'un ou plusieurs noeuds       |            |
@@ -47,11 +47,11 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                        | Modèle de service                                                        | Description                                              |
 |:-----------------------------|:-------------------------------------------------------------------------|:---------------------------------------------------------|
-| Aggregate-Raid-Status-Global | HW-Storage-NetApp-Ontap-Aggregate-Raid-Status-Global-Oncommandapi-custom | Contrôle l'état du raid d'un ou plusieurs aggrégats      |
-| Aggregate-Status-Global      | HW-Storage-NetApp-Ontap-Aggregate-Status-Global-Oncommandapi-custom      | Contrôle l'état d'un ou plusieurs aggrégats              |
-| Cluster-Usage-Global         | HW-Storage-NetApp-Ontap-Cluster-Usage-Global-Oncommandapi-custom         | Contrôle l'utilisation d'un ou plusieurs cluster         |
+| Aggregate-Raid-Status-Global | HW-Storage-NetApp-Ontap-Aggregate-Raid-Status-Global-Oncommandapi-custom | Contrôle l'état du raid d'un ou plusieurs agrégats      |
+| Aggregate-Status-Global      | HW-Storage-NetApp-Ontap-Aggregate-Status-Global-Oncommandapi-custom      | Contrôle l'état d'un ou plusieurs agrégats              |
+| Cluster-Usage-Global         | HW-Storage-NetApp-Ontap-Cluster-Usage-Global-Oncommandapi-custom         | Contrôle l'utilisation d'un ou plusieurs clusters         |
 | Disk-Spare                   | HW-Storage-NetApp-Ontap-Disk-Spare-Oncommandapi-custom                   | Contrôle le nombre de disque de spare et leur état       |
-| FC-Port-Status-Global        | HW-Storage-NetApp-Ontap-Fc-Port-Status-Global-Oncommandapi-custom        | Contrôle le statut d'une ou plusieurs port fibre channel |
+| FC-Port-Status-Global        | HW-Storage-NetApp-Ontap-Fc-Port-Status-Global-Oncommandapi-custom        | Contrôle le statut d'une ou plusieurs port fibre channels |
 | Lun-Alignment                | HW-Storage-NetApp-Ontap-Lun-Alignment-Oncommandapi-custom                | Contrôle les problèmes d'alignement des LUNs             |
 | Lun-Usage-Global             | HW-Storage-NetApp-Ontap-Lun-Usage-Global-Oncommandapi-custom             | Contrôle l'utilisation des LUNs                          |
 | Snapmirror-Status-Global     | HW-Storage-NetApp-Ontap-Snapmirror-Status-Global-Oncommandapi-custom     | Contrôle l'état d'un ou plusieurs snapmirror             |
@@ -286,7 +286,7 @@ as possible here as it will save time to everybody.*
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -323,7 +323,7 @@ yum install centreon-pack-hardware-storage-netapp-ontap-oncommandapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **NetApp Ontap OnCommand API**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -697,7 +697,7 @@ OK: All snap mirrors usage are ok | 'snapmirrors1#last-transfer-duration'=79100s
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
