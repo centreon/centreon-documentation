@@ -27,9 +27,9 @@ Utilisez la barre de recherche pour filtrer vos logs. La barre de recherche prop
    * Saisissez directement votre recherche en utilisant la [syntaxe de requête](query-syntax.md).
    * Cliquez sur le bouton **Ask AI** à droite dans la barre de recherche. Saisissez votre requête avec vos propres mots dans le champ qui s'affiche, puis cliquez sur **Apply and search**. Cela générera une requête avec la syntaxe correcte.
 
-   > Les réponses de l'IA peuvent être inexactes ou incomplètes. Vérifiez toujours les résultats.
+      > Les réponses de l'IA peuvent être inexactes ou incomplètes. Vérifiez toujours les résultats.
 
-   ![image](assets/ask-ai.png)
+      ![image](assets/ask-ai.png)
 
 * En mode **Query builder**, des blocs vous permettent de construire votre recherche étape par étape : ajoutez un bloc, sélectionnez des noms d'attributs et des valeurs, puis des éléments de syntaxe tels que AND, OR et NOT.
 
