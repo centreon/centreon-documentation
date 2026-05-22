@@ -39,6 +39,12 @@ Cliquez sur un log pour afficher toutes les informations associées dans le pann
 * Vous pouvez ouvrir plusieurs logs dans le panneau.
 * La barre de recherche regarde dans les noms et les valeurs des attributs.
 
+### Réorganiser les colonnes
+
+* Utilisez le bouton **Search and add column** en haut à droite des résultats pour choisir les colonnes/attributs que vous souhaitez afficher.
+   ![image](assets/column-management.png)
+* La colonne **Time** s'affiche toujours en premier et ne peut pas être désépinglée. Vous pouvez épingler une seule autre colonne en deuxième position.
+
 ## Utiliser la page Alert events
 
 Sur la page [**Alert events**](alerts.md#afficher-tous-les-évènements-dalerte), les [évènements d'alerte](./resources/glossary.md#évènement-dalertestatut-dalerte) indiquent ce qui se passe en temps réel et vous permettent de réagir rapidement aux incidents. (Pour obtenir des évènements d'alerte, vous devez d'abord créer des [règles d'alerte](alerts.md).)
