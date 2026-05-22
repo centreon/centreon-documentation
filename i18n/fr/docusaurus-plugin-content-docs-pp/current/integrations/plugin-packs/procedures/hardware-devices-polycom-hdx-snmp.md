@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du Connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Polycom HDX SNMP** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -32,7 +32,7 @@ Le connecteur apporte les modèles de service suivants
 | Load                   | HW-Device-Polycom-Hdx-Load-SNMP-custom          | Contrôle de la charge serveur                                              |
 | Memory                 | HW-Device-Polycom-Hdx-Memory-SNMP-custom        | Contrôle du taux d'utilisation de la mémoire RAM                           |
 | Uptime                 | HW-Device-Polycom-Hdx-Uptime-SNMP-custom        | Contrôle l'uptime du HDX                                                   |
-| ViewStation-Statistics | HW-Device-Polycom-Hdx-VS-Statistics-SNMP-custom | Contrôle les statistiques d'un équipement HDX VS lors des visioconferences |
+| ViewStation-Statistics | HW-Device-Polycom-Hdx-VS-Statistics-SNMP-custom | Contrôle les statistiques d'un équipement HDX VS lors des visioconférences |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Device-Polycom-Hdx-SNMP-custom** est utilisé.
 
@@ -151,7 +151,7 @@ Sur l'équipement Polycom HDX, configurez et activez l'agent SNMP en suivant ces
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -188,7 +188,7 @@ yum install centreon-pack-hardware-devices-polycom-hdx-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Polycom HDX SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
