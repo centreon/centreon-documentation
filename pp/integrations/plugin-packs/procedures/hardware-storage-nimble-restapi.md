@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Nimble Storage Rest API** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -96,7 +96,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### Nimble Rest API configuration
 
-Make sure you can reach Nimble device over its API. Read Prerequistes of the [official HPE documentation](https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_51x.whz/jun1455055569904).
+Make sure you can reach Nimble device over its API. Read the Prerequistes section of the [official HPE documentation](https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_51x.whz/jun1455055569904).
 
 ## Installing the monitoring connector
 
@@ -104,7 +104,7 @@ Make sure you can reach Nimble device over its API. Read Prerequistes of the [of
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -140,7 +140,7 @@ yum install centreon-pack-hardware-storage-nimble-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Nimble Storage Rest API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -281,7 +281,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--port='5392' \
 	--proto='https' \
 	--api-username='' \
-	--api-password=''  \
+	--api-username='XXXX' \
+	--api-password='XXXX'  \
 	--filter-name='' \
 	--warning-status='%\{space\_usage\_level\} =~ /warning/' \
 	--critical-status='%\{state\} !~ /online/i || %\{space\_usage\_level\} =~ /critical/' \
