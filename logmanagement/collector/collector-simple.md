@@ -1,4 +1,4 @@
----
+﻿---
 id: collector-simple
 title: Simple collector configurations
 ---
@@ -12,7 +12,7 @@ Here are two examples of simple configurations. If you want to collect many type
 
 1. On a Windows machine, [install the OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.147.0/otelcol-contrib_0.147.0_windows_x64.msi).
 
-2. In Centreon Log Management (CLM), [generate a token to authenticate the host to your CLM platform](../administration/tokens.md).
+2. In Centreon Log Management, [generate a token to authenticate the host to your Log Management platform](../administration/tokens.md).
 
 3. On your Windows machine, edit the **config.yaml** file that was created in the directory where you installed OpenTelemetry Collector. By default, it is located here:
 
@@ -27,7 +27,7 @@ Here are two examples of simple configurations. If you want to collect many type
    # SPDX-License-Identifier: Apache-2.0
 
    exporters:
-     otlphttp/centreon: # The exporter that will send logs to CLM
+     otlphttp/centreon: # The exporter that will send logs to Log Management
        endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp"
        headers:
          "X-Api-Key": "mytoken" ## Replace mytoken by your actual token
@@ -129,7 +129,7 @@ In the following example, we receive data from three different sources on the sa
 # SPDX-License-Identifier: Apache-2.0
 
 exporters:
-  otlphttp/centreon: # The exporter that will send logs to CLM
+  otlphttp/centreon: # The exporter that will send logs to Log Management
     endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp"
     headers:
       "X-Api-Key": "mytoken" ## Replace mytoken by your actual token

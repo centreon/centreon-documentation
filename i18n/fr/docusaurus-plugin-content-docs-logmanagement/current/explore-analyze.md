@@ -1,4 +1,4 @@
----
+﻿---
 id: explore-analyze
 title: Explorer et analyser les logs
 ---
@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Selon votre [cas d'usage](./getting-started/use-cases.md), vous pouvez soit filtrer Log explorer pour afficher les journaux à haut niveau de sévérité, soit vous baser sur les évènements d'alerte (alert events) pour les situations plus complexes.
 
-> Pour afficher des logs dans Centreon Log Management (CLM), vous devez d'abord [configurer un collecteur OpenTelemetry sur chaque hôte dont vous souhaitez recevoir les logs](./collector/collector.md).
+> Pour afficher des logs dans Centreon Log Management, vous devez d'abord [configurer un collecteur OpenTelemetry sur chaque hôte dont vous souhaitez recevoir les logs](./collector/collector.md).
 
 ## Utiliser la page Log explorer
 
