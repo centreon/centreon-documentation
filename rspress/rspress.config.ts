@@ -35,7 +35,7 @@ export default defineConfig({
         lang: 'en',
         label: 'English',
         nav: [
-          { text: 'Getting Started', link: '/26.10/getting-started/welcome' },
+          { text: 'Getting Started', link: '/getting-started/welcome' },
         ],
         outlineTitle: 'On this page',
         prevPageText: 'Previous',
@@ -45,7 +45,7 @@ export default defineConfig({
         lang: 'fr',
         label: 'Français',
         nav: [
-          { text: 'Démarrer', link: '/fr/26.10/getting-started/welcome' },
+          { text: 'Démarrer', link: '/fr/getting-started/welcome' },
         ],
         outlineTitle: 'Sur cette page',
         prevPageText: 'Précédent',

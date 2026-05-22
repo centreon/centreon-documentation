@@ -190,13 +190,21 @@ def generate_sidebar() -> None:
         fr_src = SOURCES["fr"][version]
         fr_labels = json.loads(FR_LABELS_PATH[version].read_text(encoding="utf-8"))
 
-        # EN sidebar (default lang → no /en/ prefix)
-        en_prefix = f"/{version}"
-        sidebar_data[f"/{version}/"] = _build_items(top_items, en_src, en_prefix, None)
+        is_default = version == VERSIONS[0]  # 26.10 is the default version
 
-        # FR sidebar
-        fr_prefix = f"/fr/{version}"
-        sidebar_data[f"/fr/{version}/"] = _build_items(top_items, fr_src, fr_prefix, fr_labels)
+        # EN sidebar
+        # For the default version, use no version prefix in links so that the rspress
+        # version-switcher (replaceVersion) can correctly rewrite /getting-started/foo
+        # → /25.10/getting-started/foo. If links include /26.10/, the switcher produces
+        # /25.10/26.10/... because it only strips the prefix when current != default.
+        en_prefix = "" if is_default else f"/{version}"
+        en_key = "/" if is_default else f"/{version}/"
+        sidebar_data[en_key] = _build_items(top_items, en_src, en_prefix, None)
+
+        # FR sidebar (same logic — FR default routes live at /fr/... without version)
+        fr_prefix = "/fr" if is_default else f"/fr/{version}"
+        fr_key = "/fr/" if is_default else f"/fr/{version}/"
+        sidebar_data[fr_key] = _build_items(top_items, fr_src, fr_prefix, fr_labels)
 
     out = ROOT / "src" / "sidebar.ts"
     out.parent.mkdir(parents=True, exist_ok=True)
