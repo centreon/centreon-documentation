@@ -22,7 +22,15 @@ The **log explorer** page allows you to search and filter logs so you can invest
 
 Use the search bar to filter your logs. The search bar has two modes (use the switch on the right to select the one you want):
 
-* In query mode, you type your search directly using the [query syntax](query-syntax.md).
+* In query mode:
+
+   * Type your search directly using the [query syntax](query-syntax.md).
+   * Click the **Ask AI** button to the right of the search bar. Write a query with your own words in the field that appears, then click **Apply and search**. This will generate a query with the correct syntax.
+
+   > AI responses may be inaccurate or incomplete. Always check the results.
+
+   ![image](assets/ask-ai.png)
+
 * In **Query builder** mode, blocks lets you build your search step by step - you add a block, then you select attribute names and values and select syntax elements like AND, OR, and NOT.
 
    * Click the plus sign in the search bar to add a blank block.
