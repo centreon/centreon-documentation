@@ -24,7 +24,7 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
         initials: 'LM',
         color:  '#611485ff'
       });
-    } else if ('to' in item && item.to && item.to.includes('cxm')) {
+    } else if ('to' in item && item.to && item.to.includes('experience-monitoring')) {
       sections.push({
         ...item,
         label: 'Experience Monitoring',
