@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias         | Modèle de service             | Description                                              |
 |:--------------|:------------------------------|:---------------------------------------------------------|
-| Varnish-Stats | App-Varnish-Stats-NRPE-custom | Contrôle permettant de vérifier les statistiques varnish |
+| Varnish-Stats | App-Varnish-Stats-NRPE-custom | Contrôle permettant de vérifier les statistiques Varnish |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Varnish-NRPE-custom** est utilisé.
 
