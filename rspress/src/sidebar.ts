@@ -5470,6 +5470,126 @@ export const sidebar: Sidebar = {
       ]
     }
   ],
+  "/logmanagement/": [
+    {
+      "text": "Getting started with Centreon Log Management",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Beta",
+          "link": "/logmanagement/getting-started/beta"
+        },
+        {
+          "text": "Observability",
+          "link": "/logmanagement/getting-started/observability"
+        },
+        {
+          "text": "Concepts",
+          "link": "/logmanagement/getting-started/concepts"
+        },
+        {
+          "text": "Use Cases",
+          "link": "/logmanagement/getting-started/use-cases"
+        }
+      ],
+      "link": "/logmanagement/getting-started/welcome"
+    },
+    {
+      "text": "Managing users",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Using Centreon CIAM",
+          "link": "/logmanagement/ciam"
+        }
+      ]
+    },
+    {
+      "text": "Sending logs to Centreon Log Management",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "How an OpenTelemetry collector works",
+          "link": "/logmanagement/collector/opentelemetry-collector"
+        },
+        {
+          "text": "Copyright 2025 Centreon.",
+          "link": "/logmanagement/collector/collector-simple"
+        },
+        {
+          "text": "Collector",
+          "link": "/logmanagement/collector/collector"
+        },
+        {
+          "text": "Troubleshooting your installation",
+          "link": "/logmanagement/collector/collector-troubleshooting"
+        }
+      ]
+    },
+    {
+      "text": "Exploring and analyzing logs",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Explore Analyze",
+          "link": "/logmanagement/explore-analyze"
+        },
+        {
+          "text": "Query syntax",
+          "link": "/logmanagement/query-syntax"
+        },
+        {
+          "text": "Creating dashboards",
+          "link": "/logmanagement/dashboards"
+        }
+      ]
+    },
+    {
+      "text": "Managing alerts",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Alert Events",
+          "link": "/logmanagement/alert-events"
+        }
+      ]
+    },
+    {
+      "text": "Administration",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Keeping track of storage usage",
+          "link": "/logmanagement/administration/storage-usage"
+        },
+        {
+          "text": "Tokens",
+          "link": "/logmanagement/administration/tokens"
+        }
+      ]
+    },
+    {
+      "text": "API",
+      "link": "/logmanagement/api"
+    },
+    {
+      "text": "Resources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Glossary",
+          "link": "/logmanagement/resources/glossary"
+        }
+      ]
+    }
+  ],
   "/fr/25.10/": [
     {
       "text": "Démarrer avec Centreon OnPrem",
@@ -10935,6 +11055,126 @@ export const sidebar: Sidebar = {
         {
           "text": "Glossaire des concepts Centreon",
           "link": "/fr/cloud/resources/glossary"
+        }
+      ]
+    }
+  ],
+  "/fr/logmanagement/": [
+    {
+      "text": "Démarrer avec Centreon Log Management",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Beta",
+          "link": "/fr/logmanagement/getting-started/beta"
+        },
+        {
+          "text": "Observability",
+          "link": "/fr/logmanagement/getting-started/observability"
+        },
+        {
+          "text": "Concepts",
+          "link": "/fr/logmanagement/getting-started/concepts"
+        },
+        {
+          "text": "Use Cases",
+          "link": "/fr/logmanagement/getting-started/use-cases"
+        }
+      ],
+      "link": "/fr/logmanagement/getting-started/welcome"
+    },
+    {
+      "text": "Gérer les utilisateurs",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Utiliser le site Centreon CIAM",
+          "link": "/fr/logmanagement/ciam"
+        }
+      ]
+    },
+    {
+      "text": "Envoyer des logs à Centreon Log Management",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Fonctionnement d'un collecteur OpenTelemetry",
+          "link": "/fr/logmanagement/collector/opentelemetry-collector"
+        },
+        {
+          "text": "Copyright 2025 Centreon",
+          "link": "/fr/logmanagement/collector/collector-simple"
+        },
+        {
+          "text": "Collector",
+          "link": "/fr/logmanagement/collector/collector"
+        },
+        {
+          "text": "Collector Troubleshooting",
+          "link": "/fr/logmanagement/collector/collector-troubleshooting"
+        }
+      ]
+    },
+    {
+      "text": "Explorer et analyser les logs",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Explore Analyze",
+          "link": "/fr/logmanagement/explore-analyze"
+        },
+        {
+          "text": "Syntaxe des requêtes",
+          "link": "/fr/logmanagement/query-syntax"
+        },
+        {
+          "text": "Créer des tableaux de bord",
+          "link": "/fr/logmanagement/dashboards"
+        }
+      ]
+    },
+    {
+      "text": "Gérer les alertes",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Alert Events",
+          "link": "/fr/logmanagement/alert-events"
+        }
+      ]
+    },
+    {
+      "text": "Administration",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Surveiller l’utilisation du stockage",
+          "link": "/fr/logmanagement/administration/storage-usage"
+        },
+        {
+          "text": "Tokens",
+          "link": "/fr/logmanagement/administration/tokens"
+        }
+      ]
+    },
+    {
+      "text": "API",
+      "link": "/fr/logmanagement/api"
+    },
+    {
+      "text": "Ressources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Glossary",
+          "link": "/fr/logmanagement/resources/glossary"
         }
       ]
     }

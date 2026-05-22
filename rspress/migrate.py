@@ -48,6 +48,11 @@ CLOUD_SOURCE_FR = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-cloud/cu
 CLOUD_SIDEBAR_JS = SOURCE_ROOT / "cloud" / "sidebarsCloud.js"
 CLOUD_FR_LABELS_PATH = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-cloud/current.json"
 
+LM_SOURCE_EN = SOURCE_ROOT / "logmanagement"
+LM_SOURCE_FR = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-logmanagement/current"
+LM_SIDEBAR_JS = SOURCE_ROOT / "logmanagement" / "sidebarsLogmanagement.js"
+LM_FR_LABELS_PATH = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-logmanagement/current.json"
+
 # ── MD content transformation ─────────────────────────────────────────────────
 
 _RE_DOCCARD_IMPORT = re.compile(r"^import DocCardList from '@theme/DocCardList';\n", re.MULTILINE)
@@ -274,6 +279,12 @@ def generate_sidebar() -> None:
     non_default_en["/cloud/"] = _build_items(cloud_items, CLOUD_SOURCE_EN, "/cloud", None, "sidebar.cloud.category.")
     non_default_fr["/fr/cloud/"] = _build_items(cloud_items, CLOUD_SOURCE_FR, "/fr/cloud", cloud_fr_labels, "sidebar.cloud.category.")
 
+    # logmanagement — single (non-versioned) tree
+    lm_items = _load_js_sidebar(LM_SIDEBAR_JS)
+    lm_fr_labels = json.loads(LM_FR_LABELS_PATH.read_text(encoding="utf-8"))
+    non_default_en["/logmanagement/"] = _build_items(lm_items, LM_SOURCE_EN, "/logmanagement", None, "sidebar.logmanagement.category.")
+    non_default_fr["/fr/logmanagement/"] = _build_items(lm_items, LM_SOURCE_FR, "/fr/logmanagement", lm_fr_labels, "sidebar.logmanagement.category.")
+
     sidebar_data = {**non_default_en, **non_default_fr, **default_en, **default_fr}
 
     out = ROOT / "src" / "sidebar.ts"
@@ -368,6 +379,11 @@ def migrate_cloud() -> None:
     _migrate_tree(CLOUD_SOURCE_FR, DOCS_ROOT / "fr" / "cloud", "fr/cloud", CLOUD_SOURCE_EN)
 
 
+def migrate_logmanagement() -> None:
+    _migrate_tree(LM_SOURCE_EN, DOCS_ROOT / "en" / "logmanagement", "en/logmanagement", None)
+    _migrate_tree(LM_SOURCE_FR, DOCS_ROOT / "fr" / "logmanagement", "fr/logmanagement", LM_SOURCE_EN)
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -377,6 +393,8 @@ if __name__ == "__main__":
     migrate_pp()
     print("Migrating cloud…")
     migrate_cloud()
+    print("Migrating log management…")
+    migrate_logmanagement()
     print("Generating sidebar…")
     generate_sidebar()
     print("\nDone.")

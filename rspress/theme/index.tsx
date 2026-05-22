@@ -8,6 +8,7 @@ const DEFAULT_VERSION = '26.10';
 const VERSIONS = ['26.10', '25.10'] as const;
 const PP_ENTRY = '/pp/integrations/plugin-packs/getting-started/introduction';
 const CLOUD_ENTRY = '/cloud/getting-started/welcome';
+const LOGMGMT_ENTRY = '/logmanagement/getting-started/welcome';
 
 type Lang = 'en' | 'fr';
 
@@ -158,7 +159,9 @@ function VersionAwareNav() {
   const infraLink = `${langPrefix}/${version}/getting-started/welcome`;
   const cloudLink = `${langPrefix}${CLOUD_ENTRY}`;
   const ppLink = `${langPrefix}${PP_ENTRY}`;
+  const logMgmtLink = `${langPrefix}${LOGMGMT_ENTRY}`;
   const connectorLabel = lang === 'fr' ? 'Connecteurs de supervision' : 'Monitoring Connectors';
+  const logMgmtLabel = lang === 'fr' ? 'Log Management' : 'Log Management';
 
   return (
     <div className="rp-version-aware-nav">
@@ -170,6 +173,9 @@ function VersionAwareNav() {
       </Link>
       <Link href={ppLink} className="rp-nav-link">
         {connectorLabel}
+      </Link>
+      <Link href={logMgmtLink} className="rp-nav-link">
+        {logMgmtLabel}
       </Link>
       <VersionSelector />
       <LanguageSelector />
