@@ -39,6 +39,11 @@ Click a log to see all related information in the **Log details** panel, includi
 * You can open several logs in the panel.
 * The search bar will inspect attribute names and values.
 
+### Rearranging columns
+
+* Use the **Search and add column** button at the top right of the results to choose which columns/attributes you want to display.
+* The **Time** column is always displayed first and cannot be unpinned. You can pin one other column in second position.
+
 ## Using the Alert events page
 
 On the [**Alert events** page](alerts.md#viewing-all-alert-events), [alert events](./resources/glossary.md#alert-eventalert-status) show what's happening in real time and allow you to react quickly to incidents. (To get alert events, you need to create [alert rules](alerts.md) first.)
