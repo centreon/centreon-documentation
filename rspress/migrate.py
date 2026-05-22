@@ -48,6 +48,11 @@ _RE_BLANK_LINES = re.compile(r"\n{3,}")
 # Handles indented/non-indented fences and optional space before the language name
 _RE_CODE_FENCE_LANG = re.compile(r"^([ \t]*)([`~]{3,}) *(\w+)", re.MULTILINE)
 _RE_HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
+# Markdown image/link reference pointing into the version-root assets folder.
+# Some source files use the wrong number of `../` (e.g. `../assets/foo.png` from
+# a file at depth 3 where `../../assets/foo.png` is needed). We rewrite them all
+# to use the correct prefix based on the file's depth from its version root.
+_RE_ASSET_REF = re.compile(r"(!?\[[^\]]*\]\()(?:\.\./)+assets/([^)]+\))")
 
 HAS_JSX = re.compile(
     r"^import .* from '@theme/Tabs'|^import .* from '@theme/TabItem'",
@@ -69,7 +74,7 @@ def _normalize_lang(lang: str) -> str:
     return _LANG_ALIASES.get(lower, lower)
 
 
-def transform(content: str, is_mdx: bool = False) -> str:
+def transform(content: str, is_mdx: bool = False, depth: int = 1) -> str:
     content = _RE_DOCCARD_IMPORT.sub("", content)
     content = _RE_DOCCARD_USAGE.sub("", content)
     content = _RE_SITE_IMPORT.sub("", content)
@@ -80,6 +85,15 @@ def transform(content: str, is_mdx: bool = False) -> str:
     content = _RE_TABITEM_CLOSE.sub("</Tab>", content)
     # Decode %20 in image/link paths → hyphens (assets are renamed to remove spaces)
     content = re.sub(r'(\!\[.*?\]\([^)]*?)%20([^)]*?\))', lambda m: m.group(0).replace('%20', '-'), content)
+    # Normalize asset reference depth: every `../assets/...` link must use the
+    # right number of `../` for the file's location, regardless of what the
+    # source had. depth is the file's depth from its version root (e.g. 3 for
+    # version-X/monitoring/basic-objects/foo.md → needs `../../assets/...`).
+    asset_prefix = "../" * (depth - 1)
+    content = _RE_ASSET_REF.sub(
+        lambda m: f"{m.group(1)}{asset_prefix}assets/{m.group(2)}",
+        content,
+    )
     # Normalize code-fence language names (lowercase + alias map), handle indented fences
     content = _RE_CODE_FENCE_LANG.sub(
         lambda m: m.group(1) + m.group(2) + _normalize_lang(m.group(3)),
@@ -232,7 +246,12 @@ def migrate_docs() -> None:
         for version, src_root in versions.items():
             dst_root = DOCS_ROOT / lang / version
             dst_root.mkdir(parents=True, exist_ok=True)
+            # For FR, skip files that have no EN counterpart — they're stale
+            # leftovers (often with broken relative asset paths) and produce
+            # routes inconsistent with the navigation derived from the EN tree.
+            en_src = SOURCES["en"][version] if lang == "fr" else None
             count = 0
+            skipped = 0
 
             # Process both .md and .mdx source files
             for src_file in sorted(src_root.rglob("*.md")) + sorted(src_root.rglob("*.mdx")):
@@ -242,10 +261,18 @@ def migrate_docs() -> None:
                 # Skip root index — each version has a hand-crafted homepage (index.mdx)
                 if rel == Path("index.md") or rel == Path("index.mdx"):
                     continue
+                if en_src is not None:
+                    en_md = en_src / rel.parent / (rel.stem + ".md")
+                    en_mdx = en_src / rel.parent / (rel.stem + ".mdx")
+                    if not en_md.exists() and not en_mdx.exists():
+                        skipped += 1
+                        continue
                 original = src_file.read_text(encoding="utf-8")
                 # Source .mdx files are always MDX; .md files are MDX if they have JSX imports
                 is_mdx = src_file.suffix == ".mdx" or bool(HAS_JSX.search(original))
-                transformed = transform(original, is_mdx=is_mdx)
+                # depth = number of dir levels from version root (e.g. 'monitoring/foo.md' → 2)
+                depth = len(rel.parts)
+                transformed = transform(original, is_mdx=is_mdx, depth=depth)
                 out_ext = ".mdx" if is_mdx else ".md"
                 dst_file = dst_root / rel.parent / (src_file.stem + out_ext)
                 dst_file.parent.mkdir(parents=True, exist_ok=True)
@@ -261,9 +288,11 @@ def migrate_docs() -> None:
                 shutil.copytree(src_assets, dst_assets)
                 _rename_assets_with_spaces(dst_assets)
                 asset_count = sum(1 for _ in dst_assets.rglob("*") if _.is_file())
-                print(f"  {lang}/{version}: {count} md files, {asset_count} assets")
+                suffix = f", {skipped} orphan FR skipped" if skipped else ""
+                print(f"  {lang}/{version}: {count} md files, {asset_count} assets{suffix}")
             else:
-                print(f"  {lang}/{version}: {count} md files")
+                suffix = f", {skipped} orphan FR skipped" if skipped else ""
+                print(f"  {lang}/{version}: {count} md files{suffix}")
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────

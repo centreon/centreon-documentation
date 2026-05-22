@@ -28,28 +28,38 @@ export default defineConfig({
   // from MDX files. Dev mode works fine. To re-enable, images must be moved to public/
   // or served via absolute URLs.
   ssg: false,
+  search: {
+    versioned: true,
+  },
   themeConfig: {
     sidebar,
+    enableScrollToTop: true,
     locales: [
       {
         lang: 'en',
         label: 'English',
-        nav: [
-          { text: 'Getting Started', link: '/getting-started/welcome' },
-        ],
+        // Nav items are rendered by the custom VersionAwareNav component in theme/index.tsx
+        // so that "Infra Monitoring OnPrem" adapts to the current version.
+        nav: [],
         outlineTitle: 'On this page',
         prevPageText: 'Previous',
         nextPageText: 'Next',
+        editLink: {
+          docRepoBaseUrl: 'https://github.com/centreon/centreon-documentation/edit/main/rspress/docs',
+          text: 'Edit this page on GitHub',
+        },
       },
       {
         lang: 'fr',
         label: 'Français',
-        nav: [
-          { text: 'Démarrer', link: '/fr/getting-started/welcome' },
-        ],
+        nav: [],
         outlineTitle: 'Sur cette page',
         prevPageText: 'Précédent',
         nextPageText: 'Suivant',
+        editLink: {
+          docRepoBaseUrl: 'https://github.com/centreon/centreon-documentation/edit/main/rspress/docs',
+          text: 'Modifier cette page sur GitHub',
+        },
       },
     ],
   },
