@@ -24,7 +24,7 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Protocol-Telnet-custom" label="App-Protocol-Telnet-custom">
 
-This host template does not bring any service template.
+This host template does not bring any service templates.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
