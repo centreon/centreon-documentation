@@ -29,7 +29,10 @@ The connector brings the following service templates (sorted by the host templat
 | Eth           | Blockchain-Parity-Restapi-Eth-custom    | Check Parity Eth whith API       |
 | Info          | Blockchain-Parity-Restapi-Info-custom   | Get Parity information whith API |
 | Parity        | Blockchain-Parity-Restapi-Parity-custom | Check Parity whith API           |
-| Parity        | Blockchain-Parity-Restapi-Net-custom    | Check Parity net whith API       |
+| Eth           | Blockchain-Parity-Restapi-Eth-custom    | Check Parity Eth with API       |
+| Info          | Blockchain-Parity-Restapi-Info-custom   | Get Parity information with API |
+| Parity        | Blockchain-Parity-Restapi-Parity-custom | Check Parity with API           |
+| Parity        | Blockchain-Parity-Restapi-Net-custom    | Check Parity net with API       |
 
 > The services listed above are created automatically when the **Blockchain-Parity-Restapi-custom** host template is used.
 
@@ -76,7 +79,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To get data from the API, the Poller must be able to communicate with it over the
+To get data from the API, the poller must be able to communicate with it over the
 configured port (default: 8545).
 
 ## Installing the monitoring connector

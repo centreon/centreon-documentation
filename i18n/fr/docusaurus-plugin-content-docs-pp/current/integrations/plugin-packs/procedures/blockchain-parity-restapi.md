@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias  | Modèle de service                       | Description                                    |
 |:-------|:----------------------------------------|:-----------------------------------------------|
 | Eth    | Blockchain-Parity-Restapi-Eth-custom    | Contrôle l'état des métriques Ethereum par API |
-| Info   | Blockchain-Parity-Restapi-Info-custom   | Récupérer les Informations Parity par API      |
+| Info   | Blockchain-Parity-Restapi-Info-custom   | Récupérer les informations Parity par API      |
 | Parity | Blockchain-Parity-Restapi-Parity-custom | Contrôle l'état de Parity par API              |
 | Parity | Blockchain-Parity-Restapi-Net-custom    | Contrôle l'état du réseau Parity par API       |
 
@@ -78,7 +78,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Le Poller doit pouvoir communiquer avec le noeud Parity via le protocole HTTP et
+Le collecteur doit pouvoir communiquer avec le noeud Parity via le protocole HTTP et
 via le port configuré (par défaut: 8545).
 
 ## Installer le connecteur de supervision
