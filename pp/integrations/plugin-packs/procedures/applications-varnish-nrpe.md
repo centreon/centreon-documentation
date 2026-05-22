@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template              | Service Description |
 |:--------------|:------------------------------|:--------------------|
-| Varnish-Stats | App-Varnish-Stats-NRPE-custom | Check varnish stats |
+| Varnish-Stats | App-Varnish-Stats-NRPE-custom | Check Varnish stats |
 
 > The services listed above are created automatically when the **App-Varnish-NRPE-custom** host template is used.
 
