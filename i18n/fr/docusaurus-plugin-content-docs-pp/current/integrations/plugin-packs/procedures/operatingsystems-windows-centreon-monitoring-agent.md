@@ -492,6 +492,10 @@ Supported file metadata labels:
 - extension      (file extension, e.g. '.dll')
 - version        (for .exe/.dll files, string comparison)
 
+You can also add this result list filter in WARNINGSTATUS and CRITICALSTATUS:
+
+- count          number of items
+
 ### Warning and Critical Status
 
 Files matching the WARNINGSTATUS/CRITICALSTATUS filters are considered WARNING/CRITICAL.
@@ -506,6 +510,7 @@ You can combine with WARNING/CRITICAL to require multiple matches before changin
 - "size > 50M"                            # File larger than 50 MB
 - "extension == '.bak'"                   # Backup files
 - "size > 200M && extension == '.dll'"    # Large DLLs
+- "count &lt;= 0"                            # No file found
 
 #### File age check
 
@@ -559,29 +564,27 @@ _“I want to trigger a CRITICAL alert if file is not present“_
 
 ```
 PATH= C:\Users\User\Documents\test
-PATTERN= *.*
+PATTERN= myfile.txt
 MAXDEPTH= -1,
 DETAILSYNTAX= {filename}: {size}
 WARNINGSTATUS=
-CRITICALSTATUS= filename=myfile.txt
-WARNING=
-CRITICAL= 1:
-```
-
-_“I want to trigger a CRITICAL alert if file is present“_
-
-```
-PATH= C:\Users\User\Documents\test
-PATTERN= *.*
-MAXDEPTH= -1,
-DETAILSYNTAX= {filename}: {size}
-WARNINGSTATUS=
-CRITICALSTATUS= filename=myfile.txt
+CRITICALSTATUS= count < 0
 WARNING=
 CRITICAL= 0
 ```
 
-Limitation : le résultat renvoyé par path+pattern+filter ne peut pas être vide
+_“I want to trigger a CRITICAL alert if at least one file is present“_
+
+```
+PATH= C:\Users\User\Documents\test
+PATTERN= myfile.txt
+MAXDEPTH= -1,
+DETAILSYNTAX= {filename}: {size}
+WARNINGSTATUS=
+CRITICALSTATUS= count > 0
+WARNING=
+CRITICAL= 0
+```
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -806,7 +809,7 @@ Vous pouvez tester que le plugin parvient bien à superviser votre serveur Windo
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```cmd
-"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin os::windows::local::plugin --mode sessions --language='fr' --timeout='30' --use-new-perfdata
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin os::windows::local::plugin --mode sessions --language=fr --timeout=30 --use-new-perfdata
 ```
 
 > NB : Cette commande ne peut pas s'exécuter sur les collecteurs, il faut la lancer directement sur le serveur Windows.
