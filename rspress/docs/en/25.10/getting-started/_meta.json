@@ -1,0 +1,23 @@
+[
+  { "type": "file", "name": "welcome",                          "label": "Welcome" },
+  { "type": "file", "name": "which-install",                    "label": "Which installation?" },
+  { "type": "file", "name": "platform",                         "label": "Platform overview" },
+  { "type": "file", "name": "concepts",                         "label": "Key concepts" },
+  { "type": "file", "name": "interface",                        "label": "Discovering the interface" },
+  { "type": "file", "name": "first-supervision",                "label": "First supervision" },
+  { "type": "file", "name": "actions",                          "label": "Actions on resources" },
+  { "type": "file", "name": "analyze-resources-availability",   "label": "Analyze availability" },
+  { "type": "file", "name": "introduction-tutorials",           "label": "Tutorials" },
+  { "type": "file", "name": "it100",                            "label": "IT-100 free license" },
+  { "type": "file", "name": "autodisco-aws",                    "label": "Autodiscovery AWS" },
+  { "type": "file", "name": "monitor-linux-server-with-snmp",   "label": "Monitor Linux (SNMP)" },
+  { "type": "file", "name": "monitor-windows-server-with-snmp", "label": "Monitor Windows (SNMP)" },
+  { "type": "file", "name": "monitor-cisco-router-with-snmp",   "label": "Monitor Cisco (SNMP)" },
+  { "type": "file", "name": "monitor-printer-with-snmp",        "label": "Monitor Printer (SNMP)" },
+  { "type": "file", "name": "monitor-ups-with-snmp",            "label": "Monitor UPS (SNMP)" },
+  { "type": "file", "name": "mysql_tuto",                       "label": "Monitor MySQL" },
+  { "type": "file", "name": "model-it-services",                "label": "Model IT services" },
+  { "type": "file", "name": "create-dashboard",                 "label": "Create a dashboard" },
+  { "type": "file", "name": "create-custom-view",               "label": "Create a custom view" },
+  { "type": "file", "name": "create-graphical-view",            "label": "Create a graphical view" }
+]
