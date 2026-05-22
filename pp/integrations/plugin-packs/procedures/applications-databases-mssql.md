@@ -5,6 +5,12 @@ title: Microsoft SQL Server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Microsoft SQL Server** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
 ## Pack assets
 
 ### Templates
@@ -39,8 +45,8 @@ The connector brings the following service templates (sorted by the host templat
 | Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio-custom       | Check the "Data Buffer Cache Hit Ratio" of the server. No alerts by default |
 | Locks-Waits          | App-DB-MSSQL-Locks-Waits-custom          | Check locks-waits per second of the server                                  |
 | Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy-custom | Check the "Page Life Expectancy" of the server. No alerts by default        |
-| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Check allowing to execute a custom SQL request with a digital answer        |
-| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Check allowing to execute a custom SQL request with a string answer         |
+| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Check allowing to execute a custom SQL request with a numerical result      |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Check allowing to execute a custom SQL request with a string result         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -49,7 +55,7 @@ The connector brings the following service templates (sorted by the host templat
 
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Backup-Age" label="Backup-Age">
@@ -355,11 +361,14 @@ yum install centreon-plugin-Applications-Databases-Mssql
 </TabItem>
 <TabItem value="Connected-Users" label="Connected-Users">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
+| Macro           | Description                                                                                                                                    | Default value     | Mandatory   |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COUNTADMINUSERS | Count admin users (otherwise it's ignored)                                                                                                     | 0                 |             |
+| UNIQUSERS       | Count users with the same login name once                                                                                                      | 0                 |             |
+| DATABASENAME    | Filter connected users by database name (can be a regexp)                                                                                      |                   |             |
+| WARNING         | Warning threshold                                                                                                                              |                   |             |
+| CRITICAL        | Critical threshold                                                                                                                             |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                 | --verbose         |             |
 
 </TabItem>
 <TabItem value="Connection-Time" label="Connection-Time">
@@ -647,10 +656,14 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Connected-Users" label="Connected-Users">
 
-| Option                    | Description            |
-|:--------------------------|:-----------------------|
-| --warning-connected-user  | Warning threshold.     |
-| --critical-connected-user | Critical threshold.    |
+| Option                    | Description                                                                                                               |
+|:--------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters         | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --database-name           | Filter connected users by database name (can be a regexp).                                                                |
+| --uniq-users              | Count users with the same login name once.                                                                                |
+| --count-admin-users       | Count admin users (otherwise it's ignored).                                                                               |
+| --warning-connected-user  | Warning threshold.                                                                                                        |
+| --critical-connected-user | Critical threshold.                                                                                                       |
 
 </TabItem>
 <TabItem value="Connection-Time" label="Connection-Time">

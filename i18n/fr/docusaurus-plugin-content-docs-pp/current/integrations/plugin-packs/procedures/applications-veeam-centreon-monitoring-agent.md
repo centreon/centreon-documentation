@@ -1,13 +1,14 @@
 ---
 id: applications-veeam-centreon-monitoring-agent
-title: Veeam Centreon Monitoring Agent
+title: Veeam CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Veeam Centreon Monitoring Agent** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Veeam CMA** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +16,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Veeam Centreon Monitoring Agent** apporte un modèle d'hôte :
+Le connecteur de supervision **Veeam CMA** apporte un modèle d'hôte :
 
 * **App-Veeam-Centreon-Monitoring-Agent-custom**
 
@@ -104,27 +105,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-### Flux réseau
-
-Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
-
-| Source         | Destination | Protocole | Port | Objet                                                                       |
-|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
-| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
-
-### Prérequis système pour le collecteur
-
-> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la version--> `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent récupérera sa configuration en se connectant à Centreon Engine.
-
-### Configuration de la communication collecteur/agent
-
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
-
-### Prérequis système pour l'hôte à superviser
-
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur
-[cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte)
+<CMAprerequisites />
 
 ### Installer le connecteur de supervision
 
@@ -169,7 +150,7 @@ yum install centreon-pack-applications-veeam-centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Veeam Centreon Monitoring Agent**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Veeam CMA**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -188,7 +169,9 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | Macro                | Description                                             | Valeur par défaut                 | Obligatoire |
 |:---------------------|:--------------------------------------------------------|:----------------------------------|:-----------:|
 | CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X      |
-| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |             |
+| VEEAM_VERSION        | Set the Veeam version to monitor                        | 12                                |             |
+
+> Modifiez `VEEAM_VERSION` si vous utilisez Veeam version 13 ou une version plus récente.
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -382,6 +365,7 @@ Les options génériques sont listées ci-dessous :
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  \<output\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-counters                          | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --veeam-version                            | The Veeam version to monitor (default: 12). Veeam version 13 and later require PowerShell 7 whereas earlier versions use PowerShell 5.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 #### Options des modes
 

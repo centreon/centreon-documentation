@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-emc-isilon-snmp
-title: EMC Isilon
+title: EMC Isilon SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **EMC Isilon** connector through the
+The following monitoring connectors will be installed when you install the **EMC Isilon SNMP** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **EMC
 
 ### Templates
 
-The Monitoring Connector **EMC Isilon** brings a host template:
+The Monitoring Connector **EMC Isilon SNMP** brings a host template:
 
 * **HW-Storage-EMC-Isilon-SNMP-custom**
 
@@ -62,12 +62,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Name                | Unit |
-|:-------------------|:------|
-| disk.status     | N/A   |
-| fan.status     | N/A   |
-| power.status     | N/A   |
-| temperature.status     | N/A   |
+| Name               | Unit |
+|:-------------------|:-----|
+| disk.status        | N/A  |
+| fan.status         | N/A  |
+| power.status       | N/A  |
+| temperature.status | N/A  |
 
 </TabItem>
 </Tabs>
@@ -76,7 +76,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher.
 Your resource may require a list of addresses authorized to query it to be set up.
 Please ensure that the addresses of the Centreon pollers are included in this list.
 
@@ -126,7 +127,7 @@ yum install centreon-pack-hardware-storage-emc-isilon-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **EMC Isilon** connector through
+2. Whatever the license type (*online* or *offline*), install the **EMC Isilon SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -198,22 +199,22 @@ yum install centreon-plugin-Hardware-Storage-Emc-Isilon-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cluster-Usage" label="Cluster-Usage">
 
-| Macro            | Description                                                                                                                                                | Default value                  | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| WARNINGHEALTH    | Threshold                                                                                                                                                  |                                |             |
-| CRITICALHEALTH   | Threshold                                                                                                                                                  |                                |             |
-| WARNINGIFSUSAGE  | Threshold                                                                                                                                                  |                                |             |
-| CRITICALIFSUSAGE | Threshold                                                                                                                                                  |                                |             |
-| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /attn/). You can use the following variables: %\{status\}            | %\{status\} =~ /attn/          |             |
-| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /down\|invalid/'). You can use the following variables: %\{status\} | %\{status\} =~ /down\|invalid/ |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                         |                                |             |
+| Macro            | Description                                                                                                                            | Default value                  | Mandatory   |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| WARNINGHEALTH    | Threshold                                                                                                                              |                                |             |
+| CRITICALHEALTH   | Threshold                                                                                                                              |                                |             |
+| WARNINGIFSUSAGE  | Threshold                                                                                                                              |                                |             |
+| CRITICALIFSUSAGE | Threshold                                                                                                                              |                                |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                          | %\{status\} =~ /attn/          |             |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                         | %\{status\} =~ /down\|invalid/ |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                |             |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'disk', 'temperature', 'power'            | .*                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'fan', 'disk', 'temperature', 'power'                                                                | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -309,7 +310,7 @@ All generic options are listed here:
 | --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |

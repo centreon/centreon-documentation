@@ -19,6 +19,6 @@ If you do not update your poller, you may miss important security fixes or impro
 
 ## How often do you publish updates?
 
-We publish updates for pollers regularly, ususally once a month, but we recommend that you check the [Centreon OnPrem Collect release notes](/docs/releases/centreon-os#centreon-collect) every week.
+We publish updates for pollers regularly, ususally once a month, but we recommend that you check the [Centreon OnPrem Collect release notes](/docs/releases/centreon-os) every week.
 
 Note that any breaking changes would be announced directly in the Centreon Cloud interface.

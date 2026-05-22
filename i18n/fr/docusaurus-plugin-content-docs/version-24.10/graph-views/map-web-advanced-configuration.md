@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit les procédures avancées de configuration de votre système Centreon MAP.
 
+> Veuillez noter que les endpoints spécifiés dans cette page ont été mis à jour suite à la dépréciation de la version bêta. Depuis la version 24.10, `beta` est remplacé par `latest` dans les chemins d'accès.
+
 ## Superviser votre serveur Centreon MAP après installation
 
 Centreon fournit un [connecteur de supervision et un plugin](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator) pour superviser votre serveur Centreon MAP.
@@ -28,7 +30,7 @@ Pour superviser la JVM centreon-map, veuillez utiliser les valeurs de macro suiv
 | Nom                     | Valeur                                    |
 | :---------------------- | :---------------------------------------- |
 | ACTUATORCUSTOMMODE      | ```centreonmap```                         |
-| ACTUATORAPIURLPATH      | ```/centreon-map/api/beta```           |
+| ACTUATORAPIURLPATH      | ```/centreon-map/api/latest```           |
 | ACTUATORAPIUSERNAME     | Le nom d'utilisateur Api doit être défini |
 | ACTUATORAPIPASSWORD     | Le mot de passe Api doit être défini      |
 
@@ -44,14 +46,14 @@ Vous pouvez également vérifier l'URL suivante, qui indique si le serveur est o
 <TabItem value="HTTP" label="HTTP">
 
 ```shell
-http://<MAP_IP>:8080/centreon-map/api/beta/actuator/health.
+http://<MAP_IP>:8080/centreon-map/api/latest/actuator/health.
 ```
 
 </TabItem>
 <TabItem value="HTTPS" label="HTTPS">
 
 ```shell
-https://<MAP_IP>:8443/centreon-map/api/beta/actuator/health.
+https://<MAP_IP>:8443/centreon-map/api/latest/actuator/health.
 ```
 
 </TabItem>
@@ -97,5 +99,5 @@ Attendez que le service Centreon MAP ait fini de démarrer (~30 secondes à une 
 Vérifiez que votre serveur est opérationnel et accessible sur le nouveau port que vous avez défini, en entrant l'URL suivante dans votre navigateur web :
 
 ```shell
-http://<MAP_IP>:<NEW_PORT>/centreon-map/api/beta/actuator/health
+http://<MAP_IP>:<NEW_PORT>/centreon-map/api/latest/actuator/health
 ```

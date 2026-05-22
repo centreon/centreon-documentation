@@ -44,9 +44,9 @@ Donnez à vos deux widgets des titres parlants afin que vos utilisateurs sachent
 
 2. Dans les sections **Propriétés du widget** et **Paramètres des valeurs**, remplissez les propriétés à votre convenance. Vérifiez soigneusement les statuts, les états et les types d'état que vous souhaitez que le widget affiche. Pour assurer la cohérence de l'affichage des ressources, appliquez le même paramétrage aux deux widgets.
 
-3. Définissez les paramètres de vos tickets dans la section **Gestion des tickets** (y compris la **Règle** que vous avez créée à l'étape 1) :
-   * Dans le premier widget, pour créer une vue qui permettra aux utilisateurs d'ouvrir des tickets, sélectionnez **Ressources sans ticket**.
-   * Dans le deuxième widget, pour créer une vue qui permettra aux utilisateurs de voir tous les tickets ouverts et de les fermer, sélectionnez **Ressources liées à un ticket**.
+3. Définissez les paramètres de vos tickets dans la section **Gestion des tickets**.
+   - Dans **Règle (fournisseur de tickets)**, vous pouvez choisir d'afficher les **Ressources sans ticket** ou les **Ressources liés à un ticket**.
+   - Dans **Afficher les boutons de création de tickets**, vous pouvez **Activer la création de tickets pour les hôtes** et **Activer la création de tickets pour les services**.
 
 4. Enregistrez vos modifications.
 
