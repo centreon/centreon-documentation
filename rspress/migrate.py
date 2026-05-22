@@ -4,6 +4,7 @@
 import json
 import re
 import shutil
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -12,6 +13,7 @@ SOURCE_ROOT = ROOT.parent
 
 VERSIONS = ["26.10", "25.10"]
 
+# ── Sources for the versioned core docs ───────────────────────────────────────
 SOURCES: dict[str, dict[str, Path]] = {
     "en": {
         "26.10": SOURCE_ROOT / "versioned_docs/version-26.10",
@@ -33,6 +35,19 @@ FR_LABELS_PATH: dict[str, Path] = {
     "25.10": SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs/version-25.10.json",
 }
 
+# ── Standalone (non-versioned) docs: pp (Monitoring Connectors) and cloud ─────
+# These live outside versioned_docs/ in the Docusaurus repo and have a single
+# CommonJS sidebar file each.
+PP_SOURCE_EN = SOURCE_ROOT / "pp"
+PP_SOURCE_FR = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-pp/current"
+PP_SIDEBAR_JS = SOURCE_ROOT / "pp" / "sidebarsPp.js"
+PP_FR_LABELS_PATH = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-pp/current.json"
+
+CLOUD_SOURCE_EN = SOURCE_ROOT / "cloud"
+CLOUD_SOURCE_FR = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-cloud/current"
+CLOUD_SIDEBAR_JS = SOURCE_ROOT / "cloud" / "sidebarsCloud.js"
+CLOUD_FR_LABELS_PATH = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-cloud/current.json"
+
 # ── MD content transformation ─────────────────────────────────────────────────
 
 _RE_DOCCARD_IMPORT = re.compile(r"^import DocCardList from '@theme/DocCardList';\n", re.MULTILINE)
@@ -45,8 +60,11 @@ _RE_TABITEM_CLOSE = re.compile(r"</TabItem>")
 _RE_SITE_IMPORT = re.compile(r"^import \w+ from '@site/[^']*';\n", re.MULTILINE)
 _RE_SITE_COMPONENT = re.compile(r"^<[A-Z]\w* */>\n?", re.MULTILINE)
 _RE_BLANK_LINES = re.compile(r"\n{3,}")
-# Handles indented/non-indented fences and optional space before the language name
-_RE_CODE_FENCE_LANG = re.compile(r"^([ \t]*)([`~]{3,}) *(\w+)", re.MULTILINE)
+# Handles indented/non-indented fences and optional space before the language name.
+# Requires the rest of the line to contain no backticks, so inline triple-backtick
+# spans like ```rrdcached``` is not supported. don't get falsely treated as fence
+# openers. Trailing fence attributes (e.g. ```bash {1,3}) are preserved as-is.
+_RE_CODE_FENCE_LANG = re.compile(r"^([ \t]*)([`~]{3,}) *(\w+)([^`\n]*)$", re.MULTILINE)
 _RE_HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
 # Markdown image/link reference pointing into the version-root assets folder.
 # Some source files use the wrong number of `../` (e.g. `../assets/foo.png` from
@@ -61,11 +79,17 @@ HAS_JSX = re.compile(
 
 # Language aliases not bundled in rspress/shiki → map to a supported equivalent
 _LANG_ALIASES: dict[str, str] = {
-    "apacheconf": "bash",
-    "phpconf":    "bash",
-    "sql":        "text",  # rspress v2 beta shiki bundle omits sql
-    "xml":        "text",  # rspress v2 beta shiki bundle omits xml
-    "url":        "text",
+    "apacheconf":  "bash",
+    "phpconf":     "bash",
+    "commandline": "bash",
+    "cmd":         "bash",
+    "sql":         "text",  # rspress v2 beta shiki bundle omits sql
+    "xml":         "text",  # rspress v2 beta shiki bundle omits xml
+    "mysql":       "text",
+    "url":         "text",
+    "smarty":      "text",
+    "csv":         "text",
+    "txt":         "text",
 }
 
 
@@ -96,7 +120,7 @@ def transform(content: str, is_mdx: bool = False, depth: int = 1) -> str:
     )
     # Normalize code-fence language names (lowercase + alias map), handle indented fences
     content = _RE_CODE_FENCE_LANG.sub(
-        lambda m: m.group(1) + m.group(2) + _normalize_lang(m.group(3)),
+        lambda m: m.group(1) + m.group(2) + _normalize_lang(m.group(3)) + m.group(4),
         content,
     )
     # MDX doesn't support HTML comments — strip them
@@ -147,11 +171,22 @@ def get_doc_title(doc_id: str, src_root: Path) -> str:
 # ── Sidebar generation ────────────────────────────────────────────────────────
 
 
+def _load_js_sidebar(js_path: Path) -> list:
+    """Load a CommonJS sidebar file (`module.exports = { name: [...] }`) via node."""
+    code = (
+        f"const s = require({json.dumps(str(js_path.absolute()))});"
+        "process.stdout.write(JSON.stringify(Object.values(s)[0], null, 2))"
+    )
+    result = subprocess.run(["node", "-e", code], capture_output=True, text=True, check=True)
+    return json.loads(result.stdout)
+
+
 def _build_items(
     items: list,
     src_root: Path,
     prefix: str,
     fr_labels: dict | None,
+    fr_key_prefix: str = "sidebar.docs.category.",
 ) -> list:
     result = []
     for item in items:
@@ -171,10 +206,10 @@ def _build_items(
                 en_label = item.get("label", "")
                 label = en_label
                 if fr_labels:
-                    fr_key = f"sidebar.docs.category.{en_label}"
+                    fr_key = f"{fr_key_prefix}{en_label}"
                     label = fr_labels.get(fr_key, {}).get("message", en_label)
 
-                sub_items = _build_items(item.get("items", []), src_root, prefix, fr_labels)
+                sub_items = _build_items(item.get("items", []), src_root, prefix, fr_labels, fr_key_prefix)
                 group: dict = {
                     "text": label,
                     "collapsible": True,
@@ -188,37 +223,58 @@ def _build_items(
 
                 result.append(group)
 
-            # type "link" / "html" / unknown → skip
+            # type "link" / "html" / "generated-index" / unknown → skip
 
     return result
 
 
 def generate_sidebar() -> None:
-    sidebar_data: dict[str, list] = {}
+    # Separate dicts so we can control merge order: non-default version + pp + cloud
+    # entries must come BEFORE default-version ones (`/` and `/fr/`). rspress
+    # uses first-match for sidebar keys, so the `/` key would otherwise swallow
+    # /25.10/, /pp/, /cloud/ requests.
+    non_default_en: dict[str, list] = {}
+    non_default_fr: dict[str, list] = {}
+    default_en: dict[str, list] = {}
+    default_fr: dict[str, list] = {}
 
     for version in VERSIONS:
         sidebar_json = json.loads(SIDEBARS_PATH[version].read_text(encoding="utf-8"))
         top_items = sidebar_json["docs"]
-
         en_src = SOURCES["en"][version]
         fr_src = SOURCES["fr"][version]
         fr_labels = json.loads(FR_LABELS_PATH[version].read_text(encoding="utf-8"))
 
-        is_default = version == VERSIONS[0]  # 26.10 is the default version
-
-        # EN sidebar
-        # For the default version, use no version prefix in links so that the rspress
-        # version-switcher (replaceVersion) can correctly rewrite /getting-started/foo
-        # → /25.10/getting-started/foo. If links include /26.10/, the switcher produces
-        # /25.10/26.10/... because it only strips the prefix when current != default.
+        is_default = version == VERSIONS[0]  # 26.10
+        # Default version: links use no version prefix so the rspress version
+        # switcher (`replaceVersion`) can rewrite /getting-started/foo →
+        # /25.10/getting-started/foo. Embedding /26.10/ here would give
+        # /25.10/26.10/... because the switcher only strips when current != default.
         en_prefix = "" if is_default else f"/{version}"
         en_key = "/" if is_default else f"/{version}/"
-        sidebar_data[en_key] = _build_items(top_items, en_src, en_prefix, None)
-
-        # FR sidebar (same logic — FR default routes live at /fr/... without version)
         fr_prefix = "/fr" if is_default else f"/fr/{version}"
         fr_key = "/fr/" if is_default else f"/fr/{version}/"
-        sidebar_data[fr_key] = _build_items(top_items, fr_src, fr_prefix, fr_labels)
+
+        if is_default:
+            default_en[en_key] = _build_items(top_items, en_src, en_prefix, None)
+            default_fr[fr_key] = _build_items(top_items, fr_src, fr_prefix, fr_labels)
+        else:
+            non_default_en[en_key] = _build_items(top_items, en_src, en_prefix, None)
+            non_default_fr[fr_key] = _build_items(top_items, fr_src, fr_prefix, fr_labels)
+
+    # pp (Monitoring Connectors) — single (non-versioned) tree
+    pp_items = _load_js_sidebar(PP_SIDEBAR_JS)
+    pp_fr_labels = json.loads(PP_FR_LABELS_PATH.read_text(encoding="utf-8"))
+    non_default_en["/pp/"] = _build_items(pp_items, PP_SOURCE_EN, "/pp", None, "sidebar.pp.category.")
+    non_default_fr["/fr/pp/"] = _build_items(pp_items, PP_SOURCE_FR, "/fr/pp", pp_fr_labels, "sidebar.pp.category.")
+
+    # cloud — single (non-versioned) tree
+    cloud_items = _load_js_sidebar(CLOUD_SIDEBAR_JS)
+    cloud_fr_labels = json.loads(CLOUD_FR_LABELS_PATH.read_text(encoding="utf-8"))
+    non_default_en["/cloud/"] = _build_items(cloud_items, CLOUD_SOURCE_EN, "/cloud", None, "sidebar.cloud.category.")
+    non_default_fr["/fr/cloud/"] = _build_items(cloud_items, CLOUD_SOURCE_FR, "/fr/cloud", cloud_fr_labels, "sidebar.cloud.category.")
+
+    sidebar_data = {**non_default_en, **non_default_fr, **default_en, **default_fr}
 
     out = ROOT / "src" / "sidebar.ts"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -241,65 +297,86 @@ def _rename_assets_with_spaces(assets_dir: Path) -> None:
             f.rename(f.parent / new_name)
 
 
+def _migrate_tree(
+    src_root: Path,
+    dst_root: Path,
+    label: str,
+    en_src_for_filter: Path | None,
+    skip_root_index: bool = False,
+) -> None:
+    """Walk src_root, transform each md/mdx, write into dst_root preserving layout.
+
+    en_src_for_filter: when set, skip files that have no .md/.mdx counterpart in
+    that EN tree (orphan FR files with broken paths and no EN equivalent).
+    """
+    dst_root.mkdir(parents=True, exist_ok=True)
+    count = 0
+    skipped = 0
+
+    for src_file in sorted(src_root.rglob("*.md")) + sorted(src_root.rglob("*.mdx")):
+        rel = src_file.relative_to(src_root)
+        if rel.parts[0] == "assets":
+            continue
+        if skip_root_index and (rel == Path("index.md") or rel == Path("index.mdx")):
+            continue
+        if en_src_for_filter is not None:
+            en_md = en_src_for_filter / rel.parent / (rel.stem + ".md")
+            en_mdx = en_src_for_filter / rel.parent / (rel.stem + ".mdx")
+            if not en_md.exists() and not en_mdx.exists():
+                skipped += 1
+                continue
+        original = src_file.read_text(encoding="utf-8")
+        is_mdx = src_file.suffix == ".mdx" or bool(HAS_JSX.search(original))
+        # depth = number of path levels from version root (e.g. 'monitoring/foo.md' → 2)
+        depth = len(rel.parts)
+        transformed = transform(original, is_mdx=is_mdx, depth=depth)
+        out_ext = ".mdx" if is_mdx else ".md"
+        dst_file = dst_root / rel.parent / (src_file.stem + out_ext)
+        dst_file.parent.mkdir(parents=True, exist_ok=True)
+        dst_file.write_text(transformed, encoding="utf-8")
+        count += 1
+
+    src_assets = src_root / "assets"
+    dst_assets = dst_root / "assets"
+    suffix = f", {skipped} orphan FR skipped" if skipped else ""
+    if src_assets.exists():
+        if dst_assets.exists():
+            shutil.rmtree(dst_assets)
+        shutil.copytree(src_assets, dst_assets)
+        _rename_assets_with_spaces(dst_assets)
+        asset_count = sum(1 for _ in dst_assets.rglob("*") if _.is_file())
+        print(f"  {label}: {count} md files, {asset_count} assets{suffix}")
+    else:
+        print(f"  {label}: {count} md files{suffix}")
+
+
 def migrate_docs() -> None:
     for lang, versions in SOURCES.items():
         for version, src_root in versions.items():
             dst_root = DOCS_ROOT / lang / version
-            dst_root.mkdir(parents=True, exist_ok=True)
-            # For FR, skip files that have no EN counterpart — they're stale
-            # leftovers (often with broken relative asset paths) and produce
-            # routes inconsistent with the navigation derived from the EN tree.
             en_src = SOURCES["en"][version] if lang == "fr" else None
-            count = 0
-            skipped = 0
+            _migrate_tree(src_root, dst_root, f"{lang}/{version}", en_src, skip_root_index=True)
 
-            # Process both .md and .mdx source files
-            for src_file in sorted(src_root.rglob("*.md")) + sorted(src_root.rglob("*.mdx")):
-                rel = src_file.relative_to(src_root)
-                if rel.parts[0] == "assets":
-                    continue
-                # Skip root index — each version has a hand-crafted homepage (index.mdx)
-                if rel == Path("index.md") or rel == Path("index.mdx"):
-                    continue
-                if en_src is not None:
-                    en_md = en_src / rel.parent / (rel.stem + ".md")
-                    en_mdx = en_src / rel.parent / (rel.stem + ".mdx")
-                    if not en_md.exists() and not en_mdx.exists():
-                        skipped += 1
-                        continue
-                original = src_file.read_text(encoding="utf-8")
-                # Source .mdx files are always MDX; .md files are MDX if they have JSX imports
-                is_mdx = src_file.suffix == ".mdx" or bool(HAS_JSX.search(original))
-                # depth = number of dir levels from version root (e.g. 'monitoring/foo.md' → 2)
-                depth = len(rel.parts)
-                transformed = transform(original, is_mdx=is_mdx, depth=depth)
-                out_ext = ".mdx" if is_mdx else ".md"
-                dst_file = dst_root / rel.parent / (src_file.stem + out_ext)
-                dst_file.parent.mkdir(parents=True, exist_ok=True)
-                dst_file.write_text(transformed, encoding="utf-8")
-                count += 1
 
-            # Copy assets tree (renaming files with spaces → hyphens)
-            src_assets = src_root / "assets"
-            dst_assets = dst_root / "assets"
-            if src_assets.exists():
-                if dst_assets.exists():
-                    shutil.rmtree(dst_assets)
-                shutil.copytree(src_assets, dst_assets)
-                _rename_assets_with_spaces(dst_assets)
-                asset_count = sum(1 for _ in dst_assets.rglob("*") if _.is_file())
-                suffix = f", {skipped} orphan FR skipped" if skipped else ""
-                print(f"  {lang}/{version}: {count} md files, {asset_count} assets{suffix}")
-            else:
-                suffix = f", {skipped} orphan FR skipped" if skipped else ""
-                print(f"  {lang}/{version}: {count} md files{suffix}")
+def migrate_pp() -> None:
+    _migrate_tree(PP_SOURCE_EN, DOCS_ROOT / "en" / "pp", "en/pp", None)
+    _migrate_tree(PP_SOURCE_FR, DOCS_ROOT / "fr" / "pp", "fr/pp", PP_SOURCE_EN)
+
+
+def migrate_cloud() -> None:
+    _migrate_tree(CLOUD_SOURCE_EN, DOCS_ROOT / "en" / "cloud", "en/cloud", None)
+    _migrate_tree(CLOUD_SOURCE_FR, DOCS_ROOT / "fr" / "cloud", "fr/cloud", CLOUD_SOURCE_EN)
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    print("Migrating docs…")
+    print("Migrating versioned docs…")
     migrate_docs()
+    print("Migrating pp (Monitoring Connectors)…")
+    migrate_pp()
+    print("Migrating cloud…")
+    migrate_cloud()
     print("Generating sidebar…")
     generate_sidebar()
     print("\nDone.")

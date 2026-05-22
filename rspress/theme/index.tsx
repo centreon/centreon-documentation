@@ -7,7 +7,7 @@ export * from 'rspress/theme';
 const DEFAULT_VERSION = '26.10';
 const VERSIONS = ['26.10', '25.10'] as const;
 const PP_ENTRY = '/pp/integrations/plugin-packs/getting-started/introduction';
-const CLOUD_LINK = 'https://docs.centreon.com/cloud/getting-started/welcome';
+const CLOUD_ENTRY = '/cloud/getting-started/welcome';
 
 type Lang = 'en' | 'fr';
 
@@ -156,6 +156,7 @@ function VersionAwareNav() {
 
   const langPrefix = lang === 'fr' ? '/fr' : '';
   const infraLink = `${langPrefix}/${version}/getting-started/welcome`;
+  const cloudLink = `${langPrefix}${CLOUD_ENTRY}`;
   const ppLink = `${langPrefix}${PP_ENTRY}`;
   const connectorLabel = lang === 'fr' ? 'Connecteurs de supervision' : 'Monitoring Connectors';
 
@@ -164,9 +165,9 @@ function VersionAwareNav() {
       <Link href={infraLink} className="rp-nav-link">
         Infra Monitoring OnPrem
       </Link>
-      <a href={CLOUD_LINK} className="rp-nav-link" target="_blank" rel="noreferrer">
+      <Link href={cloudLink} className="rp-nav-link">
         Infra Monitoring Cloud
-      </a>
+      </Link>
       <Link href={ppLink} className="rp-nav-link">
         {connectorLabel}
       </Link>
