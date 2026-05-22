@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Overland Neo** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs  > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                                   | Description          |
 |:----------------|:----------------------------------------------------|:---------------------|
-| Hardware-Global | HW-Storage-Overland-Neo-Hardware-Global-SNMP-custom | Contrôle du matériel |
+| Hardware-Global | HW-Storage-Overland-Neo-Hardware-Global-SNMP-custom | Contrôle le matériel |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Overland-Neo-SNMP-custom** est utilisé.
 
@@ -95,7 +95,7 @@ Centreon vers la ressource supervisée.
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs  > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -132,7 +132,7 @@ yum install centreon-pack-hardware-storage-overland-neo-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Overland Neo**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs  > Connecteurs de supervision**.
 
 ### Plugin
 
