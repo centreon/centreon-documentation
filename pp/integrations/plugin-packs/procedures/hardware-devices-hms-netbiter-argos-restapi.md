@@ -90,7 +90,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To use the HMS Netbiter Argos RestAPI connector configure an account with API access using either a username and password or an access key on the Argos platform and ensure the system is reachable via HTTPS on port 443 with a valid SYSTEMID
+To use the HMS Netbiter Argos RestAPI connector configure an account with API access using either a username and password or an access key on the Argos platform and ensure the system is reachable via HTTPS on port 443 with a valid SYSTEMID.
 
 ## Installing the monitoring connector
 
