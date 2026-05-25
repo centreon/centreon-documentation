@@ -50,7 +50,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour utiliser le connecteur Protocol DHCP, assurez-vous que le serveur DHCP est accessible via le réseau et que l'interface locale (par exemple, eth0) est correctement configurée sur le poller Centreon.
+Pour utiliser le connecteur Protocol DHCP, assurez-vous que le serveur DHCP est accessible via le réseau et que l'interface locale (par exemple, eth0) est correctement configurée sur le collecteur Centreon.
 
 ## Installer le connecteur de supervision
 
