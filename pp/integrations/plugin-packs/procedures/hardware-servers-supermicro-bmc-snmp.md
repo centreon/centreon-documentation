@@ -59,8 +59,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To monitor your Supermicro, the Baseboard Management Controller must be configured (eg: https://www.supermicro.com/en/solutions/management-software/bmc-resources)
-The Poller should be able to perform SNMP requests toward the Lenovo device over SNMP UDP/161 port.
+To monitor your Supermicro, the Baseboard Management Controller must be configured (https://www.supermicro.com/en/solutions/management-software/bmc-resources)
+The poller should be able to perform SNMP requests toward the Lenovo device over SNMP UDP/161 port.
 
 ## Installing the monitoring connector
 
