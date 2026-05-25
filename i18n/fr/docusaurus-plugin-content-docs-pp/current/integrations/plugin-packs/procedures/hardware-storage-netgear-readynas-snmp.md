@@ -87,7 +87,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | hardware.temperature.count  | count  |
 | hardware.volume.count       | count  |
 | hardware.fan.speed.rpm      | rpm    |
-| hardware.temperature.<unit> | C or F |
+| hardware.temperature.\<unit\> | C or F |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
