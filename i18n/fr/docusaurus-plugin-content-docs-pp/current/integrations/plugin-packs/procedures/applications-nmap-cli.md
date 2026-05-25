@@ -115,10 +115,10 @@ yum install centreon-plugin-Applications-Nmap-Cli
 
 ## Ressources complémentaires
 
-Plusieurs articles existent pour vous aider à utiliser ce Pack : 
+Plusieurs articles existent pour vous aider à utiliser ce connecteur : 
 
 - [Comment configurer une tâche de découverte ?](https://thewatch.centreon.com/product-how-to-21/discovery-pack-speed-up-your-monitoring-and-make-it-more-reliable-using-the-new-nmap-discovery-tools-149)
-- [Comment améliorer la détection d'équipement et améliorer les propositions de Modèles associés ?](https://thewatch.centreon.com/product-how-to-21/network-discovery-nmap-snmp-how-does-it-work-and-how-can-you-help-162)
+- [Comment améliorer la détection d'équipements et améliorer les propositions de modèles associés ?](https://thewatch.centreon.com/product-how-to-21/network-discovery-nmap-snmp-how-does-it-work-and-how-can-you-help-162)
 
 ### Modes disponibles
 
