@@ -55,8 +55,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-The remote server must have a Telnet service running and available. You need to
-create a JSON scenario file. An example:
+Le serveur distant doit disposer d'un service Telnet en cours d'exécution et accessible. Vous devez
+créer un fichier de scénario au format JSON. Exemple :
 
     [
         \{"cmd": "open", "options": \{ "Host": "10.0.0.1", "Port": "23", "Timeout": "30" \} \},
