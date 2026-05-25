@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Amazon API Gateway** connector through the
+The following monitoring connectors will be installed when you install the **AWS Discover** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 * [Amazon API Gateway](./cloud-aws-apigateway.md)
@@ -58,7 +58,7 @@ No metrics or status for this monitoring connector.
 
 ### AWS Privileges
 
-Configure a service account (access/secret key combo)
+Configure a service account (access/secret key combo).
 The following rights have to be granted to the IAM role (accesskey/secretkey or AssumeRole):
 
 | AWS Privilege                  | 
@@ -71,7 +71,7 @@ The following rights have to be granted to the IAM role (accesskey/secretkey or 
 | ec2:DescribeVpnConnections     |
 | efs:DescribeFileSystems        |
 | elb:DescribeLoadBalancers      |
-| elbv2DdescribeLoadBalancers    |
+| elbv2:DdescribeLoadBalancers    |
 | fsx:DescribeFileSystems        |
 | kinesis:ListStreams            |
 | lambda:ListFunctions           |
@@ -222,7 +222,7 @@ Adjust the following settings:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-discoparameters.png)
 
-> All the fields of this form are optional
+> All the fields of this form are optional.
 
 - AWS Region : Set the region name
 - AWS Assume Role : Set arn of the role to be assumed if you are not using an **AWS credentials profile**
@@ -243,7 +243,7 @@ corresponding to the discovered AWS resources will be automatically set, like in
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-results.png)
 
 > Some discovered elements may come up without any predefined Host Template; this is usually due to one or several **mappers**
-> conditions that cannot be applied
+> conditions that cannot be applied.
 
 Just select the elements you want to add to the Centreon configuration and click on *save*. And... you're done !
 

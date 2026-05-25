@@ -61,7 +61,7 @@ Pas de métriques et de status collectés pour ce connecteur de supervision.
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key).
+Configurez un compte de service (via une combinaison d'access key et de secret key).
 Voici la liste des droits nécessaires pour pouvoir utiliser ce connecteur de supervision :
 
 | AWS Privilege                  | 
@@ -74,7 +74,7 @@ Voici la liste des droits nécessaires pour pouvoir utiliser ce connecteur de su
 | ec2:DescribeVpnConnections     |
 | efs:DescribeFileSystems        |
 | elb:DescribeLoadBalancers      |
-| elbv2DdescribeLoadBalancers    |
+| elbv2:DdescribeLoadBalancers    |
 | fsx:DescribeFileSystems        |
 | kinesis:ListStreams            |
 | lambda:ListFunctions           |
@@ -153,7 +153,7 @@ yum install centreon-pack-cloud-aws\*
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Amazon API Gateway**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **AWS Discover**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -214,7 +214,7 @@ les informations demandées comme ci-après :
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-credentials.png)
 
-> Tous les champs du formulaire *credentials* doivent être renseignés
+> Tous les champs du formulaire *credentials* doivent être renseignés.
 
 Cliquez sur *confirm* puis sur *suivant* pour afficher la page des paramètres de la découverte.
 
@@ -225,7 +225,7 @@ Renseignez si besoin les informations ci-après :
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-discoparameters.png)
 
 - AWS Region : Région où sont présentes les ressources AWS à découvrir (obligatoire)
-- AWS Assume Role : Role ARN à utiliser si le **profile d'authentification AWS** n'est pas à utilisé
+- AWS Assume Role : Role ARN à utiliser si le **profil d'authentification AWS** n'est pas utilisé
 
 ### Lancement de la découverte et affichage des résultats
 
@@ -242,11 +242,11 @@ AWS sont automatiquement appliqués:
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-results.png)
 
 > Certains éléments découverts peuvent ne pas avoir de modèle appliqué dans la liste des résultats si les conditions 
-> appliquées aux modificateurs ne peuvent s'appliquer
+> appliquées aux modificateurs ne peuvent s'appliquer.
 
 Sélectionnez les éléments que vous voulez ajouter dans Centreon et *Sauvegardez*.
 
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des Plugins Centreon.
+pour le diagnostic des erreurs communes des plugins Centreon.
