@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **RRDtool** apporte 0 modèle d'hôte.
+Le connecteur de supervision **RRDtool** n'apporte pas de modèle d'hôte.
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
