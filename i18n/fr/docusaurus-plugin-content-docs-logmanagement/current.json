@@ -19,9 +19,9 @@
     "message": "Explorer et analyser les logs",
     "description": "The label for category Exploring and analyzing logs in sidebar logmanagement"
   },
-    "sidebar.logmanagement.category.Managing alerts": {
-    "message": "Gérer les alertes",
-    "description": "The label for category Managing alerts in sidebar logmanagement"
+    "sidebar.logmanagement.category.Managing alerts and notifications": {
+    "message": "Gérer alertes et notifications",
+    "description": "The label for category Managing alerts and notifications in sidebar logmanagement"
   },
     "sidebar.logmanagement.category.Administration": {
     "message": "Administration",
