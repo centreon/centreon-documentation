@@ -127,7 +127,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Le serveur Firebird doit être installé, en cours d’exécution et accessible depuis le collecteur Centreon
+Le serveur Firebird doit être installé, en cours d’exécution et accessible depuis le collecteur Centreon.
 Assurez-vous que la base de données est accessible avec un utilisateur disposant des droits suffisants pour exécuter les requêtes nécessaires à la supervision.
 
 ## Installer le connecteur de supervision
