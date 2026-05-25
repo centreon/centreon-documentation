@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **RRD
 
 ### Templates
 
-The Monitoring Connector **RRDtool** brings 0 host template.
+The Monitoring Connector **RRDtool** brings no host templates.
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
