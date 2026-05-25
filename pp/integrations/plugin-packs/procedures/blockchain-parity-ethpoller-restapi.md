@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Ethpoller API** connector through the
-**Configuration > Connecteurs > Connecteurs de supervision** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -76,9 +76,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 ## Prerequisites
 
 To get data from the BCM/ETH Poller, deploy it within your Blockchain network thanks to
-IRT-Systemx's [official documentation](https://github.com/IRT-SystemX/bcm-poller#getting-started)
+IRT-Systemx's [official documentation](https://github.com/IRT-SystemX/bcm-poller#getting-started).
 
-To get data from the API, the Poller must be able to communicate with it over the configured port (default: 8000).
+To get data from the API, the poller must be able to communicate with it over the configured port (default: 8000).
 
 ## Installing the monitoring connector
 
@@ -88,7 +88,7 @@ The installation procedures for monitoring connectors are slightly different dep
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Connecteurs > Connecteurs de supervision** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -124,7 +124,7 @@ yum install centreon-pack-blockchain-parity-ethpoller-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Ethpoller API** connector through
-the **Configuration > Connecteurs > Connecteurs de supervision** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

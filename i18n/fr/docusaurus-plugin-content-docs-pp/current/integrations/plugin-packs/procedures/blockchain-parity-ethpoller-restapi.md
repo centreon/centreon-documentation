@@ -5,10 +5,6 @@ title: Parity Ethpoller API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Le BCM Poller expose collecte des données sur le comportement d'un réseau Blockchain
-basé sur les technologies Ethereum ou Hyperledger Fabric.
 
 ## Dépendances du connecteur de supervision
 
@@ -33,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias    | Modèle de service                           | Description                                |
 |:---------|:--------------------------------------------|:-------------------------------------------|
 | Disk     | Blockchain-Parity-Ethpoller-Disk-custom     | Contrôle l'état des disques Parity par API |
-| Stats    | Blockchain-Parity-Ethpoller-Stats-custom    | Affiche les statistiques de Parity with API |
+| Stats    | Blockchain-Parity-Ethpoller-Stats-custom    | Affiche les statistiques de Parity par API |
 | Tracking | Blockchain-Parity-Ethpoller-Tracking-custom | Suivi de Parity par API                    |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Blockchain-Parity-Ethpoller-Restapi-custom** est utilisé.
@@ -82,9 +78,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ## Prérequis
 
 Afin de récupérer des données, déployer le BCM Poller en suivant la documentation
-fournie par l'IRT-Systemx [ici](https://github.com/IRT-SystemX/bcm-poller#getting-started).
+fournie par IRT-Systemx [ici](https://github.com/IRT-SystemX/bcm-poller#getting-started).
 
-Le Collecteur Centreon doit pouvoir communiquer avec le BCM Poller au travers du port
+Le collecteur Centreon doit pouvoir communiquer avec le BCM Poller au travers du port
 configuré (par défaut: 8000).
 
 ## Installer le connecteur de supervision
