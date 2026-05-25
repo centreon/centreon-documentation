@@ -31,7 +31,7 @@ Le connecteur apporte les modèles de service suivants
 | Clusters-Usage       | HW-Device-Polycom-Dma-Clusters-Usage-SNMP-custom       | Contrôle les métriques et le statut des clusters DMA                         |
 | Conference-Manager   | HW-Device-Polycom-Dma-Conference-Manager-SNMP-custom   | Contrôle les métriques liées au gestionnaire de conférences et ses clusters |
 | Device-Registrations | HW-Device-Polycom-Dma-Device-Registrations-SNMP-custom | Contrôle le statut des équipements enregistrés                               |
-| Servers-Usage        | HW-Device-Polycom-Dma-Servers-Usage-SNMP-custom        | Contrôle les métriques systèmes liées aux serveurs                           |
+| Servers-Usage        | HW-Device-Polycom-Dma-Servers-Usage-SNMP-custom        | Contrôle les métriques système liées aux serveurs                           |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Device-Polycom-Dma-SNMP-custom** est utilisé.
 
