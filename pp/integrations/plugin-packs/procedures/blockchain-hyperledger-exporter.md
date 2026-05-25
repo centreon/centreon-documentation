@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                | Service Description             |
 |:--------------|:------------------------------------------------|:--------------------------------|
-| Channels      | Blockchain-Hyperledger-Exporter-Channels-custom | Check Parity channels whith API |
+| Channels      | Blockchain-Hyperledger-Exporter-Channels-custom | Check blockchain system |
 
 > The services listed above are created automatically when the **Blockchain-Hyperledger-Exporter-custom** host template is used.
 
@@ -52,7 +52,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The Hyperledger exporter must be installed, accessible from the Centreon poller via HTTP or HTTPS, and expose an API on a reachable URL and port from the poller.
+The Hyperledger exporter must be installed, accessible from the Centreon poller via HTTP or HTTPS, and expose an API on a URL and port reachable from the poller.
 
 ## Installing the monitoring connector
 
@@ -230,24 +230,24 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--timeout=''  \
 	--warning-gscd-total='' \
 	--critical-gscd-total='' \
-	--warning-gscd-time-le-0.005='$_SERVICEWARNINGGSCDTIMELE0.005$' \
-	--critical-gscd-time-le-0.005='$_SERVICECRITICALGSCDTIMELE0.005$' \
-	--warning-gscd-time-le-0.01='$_SERVICEWARNINGGSCDTIMELE0.01$' \
-	--critical-gscd-time-le-0.01='$_SERVICECRITICALGSCDTIMELE0.01$' \
-	--warning-gscd-time-le-0.025='$_SERVICEWARNINGGSCDTIMELE0.025$' \
-	--critical-gscd-time-le-0.025='$_SERVICECRITICALGSCDTIMELE0.025$' \
-	--warning-gscd-time-le-0.05='$_SERVICEWARNINGGSCDTIMELE0.05$' \
-	--critical-gscd-time-le-0.05='$_SERVICECRITICALGSCDTIMELE0.05$' \
-	--warning-gscd-time-le-0.1='$_SERVICEWARNINGGSCDTIMELE0.1$' \
-	--critical-gscd-time-le-0.1='$_SERVICECRITICALGSCDTIMELE0.1$' \
-	--warning-gscd-time-le-0.25='$_SERVICEWARNINGGSCDTIMELE0.25$' \
-	--critical-gscd-time-le-0.25='$_SERVICECRITICALGSCDTIMELE0.25$' \
-	--warning-gscd-time-le-0.5='$_SERVICEWARNINGGSCDTIMELE0.5$' \
-	--critical-gscd-time-le-0.5='$_SERVICECRITICALGSCDTIMELE0.5$' \
+	--warning-gscd-time-le-0.005='' \
+	--critical-gscd-time-le-0.005='' \
+	--warning-gscd-time-le-0.01='' \
+	--critical-gscd-time-le-0.01='' \
+	--warning-gscd-time-le-0.025='' \
+	--critical-gscd-time-le-0.025='' \
+	--warning-gscd-time-le-0.05='' \
+	--critical-gscd-time-le-0.05='' \
+	--warning-gscd-time-le-0.1='' \
+	--critical-gscd-time-le-0.1='' \
+	--warning-gscd-time-le-0.25='' \
+	--critical-gscd-time-le-0.25='' \
+	--warning-gscd-time-le-0.5='' \
+	--critical-gscd-time-le-0.5='' \
 	--warning-gscd-time-le-1='' \
 	--critical-gscd-time-le-1='' \
-	--warning-gscd-time-le-2.5='$_SERVICEWARNINGGSCDTIMELE2.5$' \
-	--critical-gscd-time-le-2.5='$_SERVICECRITICALGSCDTIMELE2.5$' \
+	--warning-gscd-time-le-2.5='' \
+	--critical-gscd-time-le-2.5='' \
 	--warning-gscd-time-le-5='' \
 	--critical-gscd-time-le-5='' \
 	--warning-gscd-time-le-10='' \
@@ -264,30 +264,30 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--critical-ledger-blockchain-height='' \
 	--warning-gpvd-total='' \
 	--critical-gpvd-total='' \
-	--warning-gpvd-time-le-0.005='$_SERVICEWARNINGGPVDTIMELE0.005$' \
-	--critical-gpvd-time-le-0.005='$_SERVICECRITICALGPVDTIMELE0.005$' \
-	--warning-gpvd-time-le-0.01='$_SERVICEWARNINGGPVDTIMELE0.01$' \
-	--critical-gpvd-time-le-0.01='$_SERVICECRITICALGPVDTIMELE0.01$' \
-	--warning-gpvd-time-le-0.025='$_SERVICEWARNINGGPVDTIMELE0.025$' \
-	--critical-gpvd-time-le-0.025='$_SERVICECRITICALGPVDTIMELE0.025$' \
-	--warning-gpvd-time-le-0.05='$_SERVICEWARNINGGPVDTIMELE0.05$' \
-	--critical-gpvd-time-le-0.05='$_SERVICECRITICALGPVDTIMELE0.05$' \
-	--warning-gpvd-time-le-0.1='$_SERVICEWARNINGGPVDTIMELE0.1$' \
-	--critical-gpvd-time-le-0.1='$_SERVICECRITICALGPVDTIMELE0.1$' \
-	--warning-gpvd-time-le-0.25='$_SERVICEWARNINGGPVDTIMELE0.25$' \
-	--critical-gpvd-time-le-0.25='$_SERVICECRITICALGPVDTIMELE0.25$' \
-	--warning-gpvd-time-le-0.5='$_SERVICEWARNINGGPVDTIMELE0.5$' \
-	--critical-gpvd-time-le-0.5='$_SERVICECRITICALGPVDTIMELE0.5$' \
+	--warning-gpvd-time-le-0.005='' \
+	--critical-gpvd-time-le-0.005='' \
+	--warning-gpvd-time-le-0.01='' \
+	--critical-gpvd-time-le-0.01='' \
+	--warning-gpvd-time-le-0.025='' \
+	--critical-gpvd-time-le-0.025='' \
+	--warning-gpvd-time-le-0.05='' \
+	--critical-gpvd-time-le-0.05='' \
+	--warning-gpvd-time-le-0.1='' \
+	--critical-gpvd-time-le-0.1='' \
+	--warning-gpvd-time-le-0.25='' \
+	--critical-gpvd-time-le-0.25='' \
+	--warning-gpvd-time-le-0.5='' \
+	--critical-gpvd-time-le-0.5='' \
 	--warning-gpvd-time-le-1='' \
 	--critical-gpvd-time-le-1='' \
-	--warning-gpvd-time-le-2.5='$_SERVICEWARNINGGPVDTIMELE2.5$' \
-	--critical-gpvd-time-le-2.5='$_SERVICECRITICALGPVDTIMELE2.5$' \
+	--warning-gpvd-time-le-2.5='' \
+	--critical-gpvd-time-le-2.5='' \
 	--warning-gpvd-time-le-5='' \
 	--critical-gpvd-time-le-5='' \
 	--warning-gpvd-time-le-10='' \
 	--critical-gpvd-time-le-10='' \
 	--warning-gpvd-time-le-infinite='' \
-	--critical-gpvd-time-le-infinite=''rn
+	--critical-gpvd-time-le-infinite=''
 ```
 
 The expected command output is shown below:

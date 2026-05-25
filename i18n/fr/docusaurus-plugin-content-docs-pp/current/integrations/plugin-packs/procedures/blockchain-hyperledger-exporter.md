@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias    | Modèle de service                               | Description                                 |
 |:---------|:------------------------------------------------|:--------------------------------------------|
-| Channels | Blockchain-Hyperledger-Exporter-Channels-custom | Contrôle l'état des channels Parity par API |
+| Channels | Blockchain-Hyperledger-Exporter-Channels-custom | Contrôle le système de blockchain |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Blockchain-Hyperledger-Exporter-custom** est utilisé.
 
@@ -288,7 +288,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--warning-gpvd-time-le-10='' \
 	--critical-gpvd-time-le-10='' \
 	--warning-gpvd-time-le-infinite='' \
-	--critical-gpvd-time-le-infinite=''rn
+	--critical-gpvd-time-le-infinite=''
 ```
 
 La commande devrait retourner un message de sortie similaire à :
