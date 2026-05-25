@@ -134,10 +134,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-### Configuration SNMP de l'équipement
+### Configuration SNMP
 
-La documentation officielle Polycom (en anglais, lien ci-dessous) détaille les étapes pour activer et configurer le service SNMP:
-https://documents.polycom.com/bundle/dma-ops-9-0/page/dma-ops-help/snmp/TOC_Configure_SNMP_Settings.htm
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle. Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
