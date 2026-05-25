@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                       | Description                                                  |
 |:--------------------------------------|:-------------------------------------------------------------|
-| App-Backupexec-Nscp-Restapi-Disk-Name | Découvre les disques et supervise le statut et l'utilisation |
+| App-Backupexec-Nscp-Restapi-Disk-Name | Découvre les disques et en supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -299,7 +299,7 @@ checking disk 'disk 2' [type: deduplicationDiskStorageDevice]
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
-des plugins basés sur HTTP/API si votre erreur ne correspond pas à l'un des cas suivants.
+des plugins basés sur HTTP/API.
 
 ### Modes disponibles
 

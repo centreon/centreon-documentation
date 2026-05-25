@@ -82,7 +82,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### Centreon NSClient++
 
-To monitor a resource through NSClient++ API, install the Centreon
+To monitor a resource through the NSClient++ API, install the Centreon
 packaged version of the NSClient++ agent on the resource you want to monitor. Follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
 and make sure that the **Webserver / RESTApi** configuration is correct.
 
@@ -94,7 +94,7 @@ The installation procedures for monitoring connectors are slightly different dep
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connectors Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
