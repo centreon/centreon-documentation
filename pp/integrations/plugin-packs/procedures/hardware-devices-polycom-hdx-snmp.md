@@ -143,6 +143,15 @@ On the Polycom device, enable and configure the SNMP agent:
     - Connect to the HDX Admin Web UI
     - Go to 'System > Manage > Credentials' 
     - Create new SNMP credentials specifying community and version
+The SNMP agent must be enabled and configured on the resource following this steps: 
+- Connect to the HDX Admin Web UI
+- Go to 'System > Manage > Credentials' 
+- Create new SNMP credentials specifying community and version
+
+Your resource may require a list of addresses authorized to query it to be set up. Please ensure that the addresses of the Centreon pollers are included in this list.
+
+### Network flow
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ### Network flows
 
