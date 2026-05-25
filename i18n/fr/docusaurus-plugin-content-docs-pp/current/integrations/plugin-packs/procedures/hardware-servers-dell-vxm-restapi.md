@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias   | Modèle de service                         | Description          |
 |:--------|:------------------------------------------|:---------------------|
-| Chassis | HW-Server-Dell-Vxm-Chassis-Restapi-custom | Contrôle les chassis |
+| Chassis | HW-Server-Dell-Vxm-Chassis-Restapi-custom | Contrôle les châssis |
 | Hosts   | HW-Server-Dell-Vxm-Hosts-Restapi-custom   | Contrôle les hôtes   |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Dell-Vxm-Restapi-custom** est utilisé.
