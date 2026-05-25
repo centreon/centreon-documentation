@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias           | Modèle de service                   | Description                              |
 |:----------------|:------------------------------------|:-----------------------------------------|
-| DHCP-Connection | App-Protocol-DHCP-Connection-custom | Contrôle de connection d'un serveur DHCP |
+| DHCP-Connection | App-Protocol-DHCP-Connection-custom | Contrôle la connexion à un serveur DHCP |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Protocol-DHCP-custom** est utilisé.
 
