@@ -55,7 +55,7 @@ Le connecteur apporte les modèles de service suivants
 | Nom de la règle                                     | Description                                                                         |
 |:----------------------------------------------------|:------------------------------------------------------------------------------------|
 | HW-Storage-Hp-Storeonce4-Restapi-Appliance-Hostname | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| HW-Storage-Hp-Storeonce4-Restapi-Store-Name         | Découvre les catalyst stores et supervise l'utilisation |
+| HW-Storage-Hp-Storeonce4-Restapi-Store-Name         | Découvre les catalyst stores et en supervise l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -107,7 +107,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Ce Pack supporte uniquement les versions 4.x des équipements HP StoreOnce.
+Ce connecteur supporte uniquement les versions 4.x des équipements HP StoreOnce.
 Pour la supervision, un utilisateur avec les droits en lecture est nécessaire. Référez-vous à la documentation officielle : https://hewlettpackard.github.io/storeonce-rest/index.html
 
 ## Installer le connecteur de supervision

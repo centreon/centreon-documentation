@@ -106,7 +106,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The Pack only supports the version 4.x of HP StoreOnce.
+The connector only supports version 4.x of HP StoreOnce.
 To monitor your HP StoreOnce, a user with read privileges is required. Please refer to their official documentation: https://hewlettpackard.github.io/storeonce-rest/index.html
 
 ## Installing the monitoring connector
