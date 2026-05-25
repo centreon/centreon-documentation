@@ -199,7 +199,6 @@ Il est nécessaire d'installer les paquets suivants : `freetds perl-DBD-Sybase u
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Il est nécessaire d'installer les paquets suivants : `freetds libdbd-sybase-perl unixODBC`.
-Il est nécessaire d'installer les paquets suivants : `freetds libdbd-sybase-perl unixODBC`.
 
 </TabItem>
 </Tabs>
