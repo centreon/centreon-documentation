@@ -122,7 +122,7 @@ This diagram outlines the Centreon version lifecycle policy until version 24.04:
 |----------------|--------------|---------------|---------------------|
 | Centreon 25.10 | 10/2025      | 04/2027       | Supported           |
 | Centreon 24.10 | 10/2024      | 10/2027       | Supported           |
-| Centreon 24.04 | 04/2024      | 04/2026       | Supported           |
+| Centreon 24.04 | 04/2024      | 04/2026       | No longer supported |
 | Centreon 23.10 | 10/2023      | 10/2025       | No longer supported |
 | Centreon 23.04 | 04/2023      | 04/2025       | No longer supported |
 | Centreon 22.10 | 10/2022      | 10/2024       | No longer supported |

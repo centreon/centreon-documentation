@@ -1,6 +1,6 @@
 [mysqld]
-datadir=/var/lib/mysql
-tmpdir = /var/lib/mysql/tmp
+#datadir=/var/lib/mysql
+#tmpdir = /var/lib/mysql/tmp
 port            = 3306
 
 max_heap_table_size=512M 

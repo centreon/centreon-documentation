@@ -8,6 +8,53 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+### May
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**MessPC Ehternetbox SNMP**](../procedures/hardware-sensors-messpc-ethernetbox-snmp.md) - Initial release, based on community contribution [PR 6044](https://github.com/centreon/centreon-plugins/pull/6044).
+- [**Rubrik Security Cloud GraphQL API**](../procedures/applications-rubrik-graphql.md) - Initial release.
+- [**Westermo Standard SNMP**](../procedures/network-westermo-standard-snmp.md) - Initial release, based on community contribution [PR 5696](https://github.com/centreon/centreon-plugins/pull/5696).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - added centreonvault support to **metaservice** mode.
+- [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - added MAC address normalization in **vpc** mode.
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - added boolean2integer function to **collection** mode  based on community contribution [PR 5218](https://github.com/centreon/centreon-plugins/pull/5218).
+- [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - added a way to handle missing fans in **hardware** mode.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - added `include-status` and `exclude-status` options in **node-usage** mode.
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) -  added EL 10 and Debian 13 support.
+- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - added EL10 and Debian13 prerequisites.
+- Vmware connector plugin - added filtering in **stat-connectors** mode based on community contribution [PR 55143](https://github.com/centreon/centreon-plugins/pull/5143).
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - changed default values for `NRPEEXTRAOPTIONS` and `NRPECLIENT`.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Amazon CloudWatch Logs**](../procedures/cloud-aws-cloudwatchlogs.md) - fixed issues with perl paws custom mode.
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - changed `FILESYSTEM` host macro to `AWSFILESYSTEM`.
+- [**Cisco DNA Center Rest API**](../procedures/applications-cisco-dnac-restapi.md) - fixed wrong api-password macro in commands.
+- [**Docker**](../procedures/applications-docker-restapi.md) - fixed memory usage calculation in **container-usage** mode.
+- [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - fixed unknown status returned if no trunk was configured in **trunks** mode.
+- [**HAProxy Web**](../procedures/applications-haproxy-web.md) - added missing `--credentials` option.
+- Opentickets API -  the notification plugin now handles HTTP timeout.
+- [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - fixed host macro `ESXNAME` default value.
+- [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - plugin can now recover from a corrupted cache.
+- [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - plugin can now recover from a corrupted cache.
+- [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - plugin can now recover from a corrupted cache.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - fixed warnings about uninitialized values in **job-status** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - fixed warnings about uninitialized values in **job-status** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - fixed warnings about uninitialized values in **job-status** mode.
+
+</TabItem>
+</Tabs>
+
 ### April
 
 <Tabs groupId="sync">
@@ -71,6 +118,9 @@ import TabItem from '@theme/TabItem';
 - [**Redis Database**](../procedures/applications-databases-redis.md) - Fixed an issue leading to a returned value of more than 1000 % in **cpu** mode  (issue [#4311](https://github.com/centreon/centreon-plugins/issues/4311)).
 - [**Solr**](../procedures/applications-solr-jmx.md) - Fixed the plugin dependencies.
 - [**Tomcat JMX**](../procedures/applications-webservers-tomcat-jmx.md) - Fixed the plugin dependencies.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Fixed a regression causing an "Undefined subroutine" error.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Fixed a regression causing an "Undefined subroutine" error.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Fixed a regression causing an "Undefined subroutine" error.
 - [**Weblogic Server**](../procedures/applications-weblogic-jmx.md) - Fixed the plugin dependencies.
 - [**Zookeeper**](../procedures/applications-zookeeper-jmx.md) - Fixed the plugin dependencies.
 
@@ -159,7 +209,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-cxm-restapi.md) - The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-experience-monitoring-restapi.md) - The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases. 
 - [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as `updates` and `pending-reboot` modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)). 
 - [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fixed a mix-up between `data-write-ops` and `data-write-bytes` for the **Fsx-DataUsage** service (issue [#5944](https://github.com/centreon/centreon-plugins/issues/5944)).
@@ -175,7 +225,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**Apache CXF**](../procedures/applications-apache-cxf-jmx.md) - Initial release.
-- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-cxm-restapi.md) - Initial release.
+- [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-experience-monitoring-restapi.md) - Initial release.
 - [**Microsoft SCCM CMA**](../procedures/applications-sccm-cma.md) - Initial release.
 - [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md) - Initial release ([Issue 5551](https://github.com/centreon/centreon-plugins/issues/5551)).
 
@@ -190,7 +240,7 @@ import TabItem from '@theme/TabItem';
 - [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Added an option to the **connected-users** mode to filter by database name ([PR 5195](https://github.com/centreon/centreon-plugins/pull/5195)).
 - [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - Added the **snapmirrorlag** service template.
 - [**Nutanix**](../procedures/virtualization-nutanix-snmp.md) - Added support of Nutanix 6.10 (fixes 'No disk found' error in **disk-usage**_ service template).
-- [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Deprecated, replaced by [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-cxm-restapi.md).
+- [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Deprecated, replaced by [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-experience-monitoring-restapi.md).
 - [**VMware VCSA Rest API**](../procedures/applications-vmware-vcsa-restapi.md) - Deprecated, replaced by [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md).
 
 </TabItem>

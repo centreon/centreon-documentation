@@ -1,4 +1,4 @@
----
+﻿---
 id: collector
 title: Full collector configuration (multiple log sources)
 ---
@@ -24,7 +24,7 @@ resource attributes -->
 * Generate [a token to authenticate the host to your Centreon Log Management platform](../administration/tokens.md).
 * The endpoint required to connect an OpenTelemetry Collector to your Centreon Log Management platform is `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs`.
 
-> CLM can process log batches up to 5 MiB in size. Beyond that, you will receive a 413 error. (If necessary, use [the **sending_queue.sizer.bytes** parameter in your exporter](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) to adjust the size of your batches.)
+> Log Management can process log batches up to 5 MiB in size. Beyond that, you will receive a 413 error. (If necessary, use [the **sending_queue.sizer.bytes** parameter in your exporter](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) to adjust the size of your batches.)
 
 ## Step 1: Install OpenTelemetry Collector on your host
 
@@ -90,7 +90,7 @@ https://github.com/open-telemetry/opentelemetry-collector-releases/releases/down
 2. In this file, enter the global log collection settings specific to this device. These will apply to all log sources for this device.
 
    * In **endpoint**, enter `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
-   * In **X-Api-Key**, enter the [token required to authenticate to your CLM platform](../administration/tokens.md).
+   * In **X-Api-Key**, enter the [token required to authenticate to your Log Management platform](../administration/tokens.md).
 
    Example:
 
