@@ -124,12 +124,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-Afin de contrôler votre équipement Huawei OceanStor, le SNMP doit être configuré.
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle. Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
