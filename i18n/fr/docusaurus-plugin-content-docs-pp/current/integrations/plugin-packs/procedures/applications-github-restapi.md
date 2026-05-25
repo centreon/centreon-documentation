@@ -1,20 +1,20 @@
 ---
 id: applications-github-restapi
-title: Github Rest API
+title: GitHub Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Github Rest API** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **GitHub Rest API** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
 
 Le connecteur **Github Rest API** ne fonctionne en l'état que sur des repo Github publiques. 
-Pour une utilisation sur des repo Github privés vous pouvez faire une demande d'amélioration via les idées The Watch.
+Pour une utilisation sur des dépôts GitHub privés vous pouvez faire une demande d'amélioration via les idées The Watch.
 
 ### Modèles
 
@@ -31,9 +31,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias         | Modèle de service                                   | Description                                                                      |
 |:--------------|:----------------------------------------------------|:---------------------------------------------------------------------------------|
-| Commits       | App-Github-Repository-Commits-Restapi-custom        | Trace le nombre de commit réalisés sur un dépôt github (via un fichier de cache) |
-| Issues        | App-Github-Repository-Issues-Restapi-custom         | Trace le nombre d'issue(s) ouverte sur un dépôt github                           |
-| Pull-Requests | App-Github-Repository-Pull-Resquests-Restapi-custom | Trace le nombre de PR ouvertes sur un dépôt github                               |
+| Commits       | App-Github-Repository-Commits-Restapi-custom        | Trace le nombre de commits réalisés sur un dépôt GitHub (via un fichier de cache) |
+| Issues        | App-Github-Repository-Issues-Restapi-custom         | Trace le nombre d'issues ouvertes sur un dépôt GitHub                           |
+| Pull-Requests | App-Github-Repository-Pull-Resquests-Restapi-custom | Trace le nombre de PRs ouvertes sur un dépôt GitHub |
 | Statistics    | App-Github-Repository-Statistics-Restapi-custom     | Requête et trace les statistiques d'un dépôt (stars, forks, watchers ..)         |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Github-Repository-Restapi-custom** est utilisé.
@@ -43,7 +43,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias         | Modèle de service                | Description                                            |
 |:--------------|:---------------------------------|:-------------------------------------------------------|
-| Github-Status | App-Github-Status-Restapi-custom | Contrôle le statut de la plateforme github via son API |
+| Github-Status | App-Github-Status-Restapi-custom | Contrôle le statut de la plateforme GitHub via son API |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Github-Restapi-custom** est utilisé.
 
@@ -96,14 +96,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Vérifiez que vous pouvez interoger l'API Github en vous référant à la [documentation officielle](https://docs.github.com/fr/rest/quickstart?apiVersion=2022-11-28&tool=curl).
+Vérifiez que vous pouvez interroger l'API GitHub en vous référant à la [documentation officielle](https://docs.github.com/fr/rest/quickstart?apiVersion=2022-11-28&tool=curl).
 
 ## Installer le connecteur de supervision
 
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -140,7 +140,7 @@ yum install centreon-pack-applications-github-restapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Github Rest API**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -304,7 +304,7 @@ OK: 273 forks - 60 watchers - 310 stars | 'forks'=273;;;0; 'watchers'=60;;;0; 's
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles

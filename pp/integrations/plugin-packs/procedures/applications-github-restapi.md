@@ -1,24 +1,24 @@
 ---
 id: applications-github-restapi
-title: Github Rest API
+title: GitHub Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Github Rest API** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+The following monitoring connectors will be installed when you install the **GitHub Rest API** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
 
-The **Github Rest API** connector currently only works on public Github repositories.
-To use it on private Github repositories, you can submit an improvement request via The Watch ideas.
+The **GitHub Rest API** connector currently only works on public GitHub repositories.
+To use it on private GitHub repositories, you can submit an improvement request via The Watch ideas.
 
 ### Templates
 
-The Monitoring Connector **Github** brings 2 host templates:
+The Monitoring Connector **GitHub** brings 2 host templates:
 
 * **App-Github-Repository-Restapi-custom**
 * **App-Github-Restapi-custom**
@@ -30,10 +30,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                    | Service Description                                                          |
 |:--------------|:----------------------------------------------------|:-----------------------------------------------------------------------------|
-| Commits       | App-Github-Repository-Commits-Restapi-custom        | Display commit activity on a github repository                               |
-| Issues        | App-Github-Repository-Issues-Restapi-custom         | Display number of issue on a github repository                               |
-| Pull-Requests | App-Github-Repository-Pull-Resquests-Restapi-custom | Display PR activity on a github repository                                   |
-| Statistics    | App-Github-Repository-Statistics-Restapi-custom     | Query and display your github repository statistics (stars, forks, watchers) |
+| Commits       | App-Github-Repository-Commits-Restapi-custom        | Display commit activity on a GitHub repository                               |
+| Issues        | App-Github-Repository-Issues-Restapi-custom         | Display number of issues on a GitHub repository                               |
+| Pull-Requests | App-Github-Repository-Pull-Resquests-Restapi-custom | Display PR activity on a GitHub repository                                   |
+| Statistics    | App-Github-Repository-Statistics-Restapi-custom     | Query and display your GitHub repository statistics (stars, forks, watchers) |
 
 > The services listed above are created automatically when the **App-Github-Repository-Restapi-custom** host template is used.
 
@@ -42,7 +42,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                 | Service Description                         |
 |:--------------|:---------------------------------|:--------------------------------------------|
-| Github-Status | App-Github-Status-Restapi-custom | Check status of github website and services |
+| Github-Status | App-Github-Status-Restapi-custom | Check status of the GitHub website and services |
 
 > The services listed above are created automatically when the **App-Github-Restapi-custom** host template is used.
 
@@ -95,7 +95,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Check that you can use the Github API by referring to the [official documentation](https://docs.github.com/fr/rest/quickstart?apiVersion=2022-11-28&tool=curl).
+Check that you can use the GitHub API by referring to the [official documentation](https://docs.github.com/fr/rest/quickstart?apiVersion=2022-11-28&tool=curl).
 
 ## Installing the monitoring connector
 
@@ -103,7 +103,7 @@ Check that you can use the Github API by referring to the [official documentatio
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -139,7 +139,7 @@ yum install centreon-pack-applications-github-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Github Rest API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
