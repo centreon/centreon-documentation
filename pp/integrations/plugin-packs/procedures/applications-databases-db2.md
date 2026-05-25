@@ -105,11 +105,11 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-### Install Plugin dependencies
+### Install plugin dependencies
 
 #### RPM
 
-In order to use this Pack, the `wget` command-line tool and the GNU Compiler Collection (`gcc`) are necessary.
+In order to use this connector, the `wget` command-line tool and the GNU Compiler Collection (`gcc`) are necessary.
 
 ```bash
 yum install -y gcc wget ksh
@@ -169,7 +169,7 @@ This user account must have the read permission on following tables:
 
 This user must have the permission to execute the `SYSPROC.GET_DBSIZE_INFO` procedure.
 
-Eventually, this user must have the authority `SYSMON`.
+This user must have the permission to execute the `SYSPROC.GET_DBSIZE_INFO` procedure and the `SYSMON` authority.
 
 ## Installing the monitoring connector
 

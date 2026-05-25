@@ -106,7 +106,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-### Installation des dépendances du Plugin
+### Installation des dépendances du plugin
 
 #### RPM
 
