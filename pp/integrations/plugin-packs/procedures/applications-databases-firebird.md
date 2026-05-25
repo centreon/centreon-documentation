@@ -126,7 +126,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The Firebird server must be installed, running, and reachable from the Centreon poller
+The Firebird server must be installed, running, and reachable from the Centreon poller.
 Make sure the database is accessible with a user that has sufficient privileges to execute the queries required for monitoring.
 
 ## Installing the monitoring connector
