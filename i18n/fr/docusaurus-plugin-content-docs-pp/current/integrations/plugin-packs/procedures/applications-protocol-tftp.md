@@ -32,7 +32,7 @@ Ce modèle d'hôte n'apporte pas de modèle de service.
 
 | Alias         | Modèle de service                 | Description                                                             |
 |:--------------|:----------------------------------|:------------------------------------------------------------------------|
-| TFTP-Commands | App-Protocol-TFTP-Commands-custom | Contrôle permettant d'exécuter une commande sur un serveur TFTP distant |
+| TFTP-Commands | App-Protocol-TFTP-Commands-custom | Contrôle permettant d'exécuter des commandes sur un serveur TFTP distant |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
