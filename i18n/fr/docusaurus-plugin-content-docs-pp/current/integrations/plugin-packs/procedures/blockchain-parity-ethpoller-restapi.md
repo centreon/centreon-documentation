@@ -77,7 +77,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de récupérer des données, déployer le BCM Poller en suivant la documentation
+Afin de récupérer des données, déployer le collecteur BCM/ETH en suivant la documentation
 fournie par IRT-Systemx [ici](https://github.com/IRT-SystemX/bcm-poller#getting-started).
 
 Le collecteur Centreon doit pouvoir communiquer avec le BCM Poller au travers du port
