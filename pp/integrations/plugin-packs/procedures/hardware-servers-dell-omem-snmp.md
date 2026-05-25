@@ -171,4 +171,3 @@ All available options for a given mode can be displayed by adding the
 
 Please find all the troubleshooting documentation for the Centreon Plugins
 in the [dedicated page](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
- 
