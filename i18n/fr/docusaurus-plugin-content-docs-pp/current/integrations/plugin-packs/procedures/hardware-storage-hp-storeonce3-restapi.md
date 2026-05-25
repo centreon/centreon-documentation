@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias            | Modèle de service                                        | Description                      |
 |:-----------------|:---------------------------------------------------------|:---------------------------------|
 | Cluster-Usage    | HW-Storage-Hp-Storeonce3-Cluster-Usage-Restapi-custom    | Contrôle l'état du cluster       |
-| Serviceset-Usage | HW-Storage-Hp-Storeonce3-Serviceset-Usage-Restapi-custom | Contrôle l'état des services sets |
+| Serviceset-Usage | HW-Storage-Hp-Storeonce3-Serviceset-Usage-Restapi-custom | Contrôle l'état des service sets |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Hp-Storeonce3-Restapi-custom** est utilisé.
 
@@ -93,7 +93,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Ce Pack supporte uniquement les versions 3.x des équipements HP StoreOnce.
+Ce connecteur supporte uniquement les versions 3.x des équipements HP StoreOnce.
 Pour la supervision, un utilisateur avec les droits en lecture est nécessaire. Référez-vous à la documentation officielle : https://support.hpe.com/hpesc/public/docDisplay?docId=c05273975
 
 ## Installer le connecteur de supervision
