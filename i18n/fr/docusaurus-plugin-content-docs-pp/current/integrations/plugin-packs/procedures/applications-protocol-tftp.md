@@ -59,7 +59,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Un serveur TFTP doit être déployé et accessible depuis le collecteur Centreon
+Un serveur TFTP doit être déployé et accessible depuis le collecteur Centreon.
 Le connecteur doit pouvoir établir une communication avec le service TFTP distant.
 
 ## Installer le connecteur de supervision
