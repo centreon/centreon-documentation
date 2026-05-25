@@ -86,7 +86,7 @@ The following rights have to be granted to the IAM role (accesskey/secretkey or 
 
 To interact with the Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources.
 
-> For now, it is not possible to use *paws* if you are using a proxy to reach the AWS Cloudwatch APIs.
+> Please note that you cannot use paws if you are connecting via a proxy.
 
 <Tabs groupId="sync">
 <TabItem value="perl-Paws-installation" label="perl-Paws-installation">
