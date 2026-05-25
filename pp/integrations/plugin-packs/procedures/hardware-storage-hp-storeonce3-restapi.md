@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-hp-storeonce3-restapi
-title: HP StoreOnce 3
+title: HP StoreOnce 3 Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **HP StoreOnce 3.x Rest API** connector through the
+The following monitoring connectors will be installed when you install the **HP StoreOnce 3 Rest API** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **HP 
 
 ### Templates
 
-The Monitoring Connector **HP StoreOnce 3.x Rest API** brings a host template:
+The Monitoring Connector **HP StoreOnce 3 Rest API** brings a host template:
 
 * **HW-Storage-Hp-Storeonce3-Restapi-custom**
 
@@ -138,7 +138,7 @@ yum install centreon-pack-hardware-storage-hp-storeonce3-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **HP StoreOnce 3.x Rest API** connector through
+2. Whatever the license type (*online* or *offline*), install the **HP StoreOnce 3 Rest API** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
