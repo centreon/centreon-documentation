@@ -14,7 +14,7 @@ The following monitoring connectors will be installed when you install the **Git
 ## Pack assets
 
 The **GitHub Rest API** connector currently only works on public GitHub repositories.
-To use it on private GitHub repositories, you can submit an improvement request via The Watch ideas.
+To use it on private GitHub repositories, you can submit an improvement request via [The Watch ideas](https://thewatch.centreon.com/ideas).
 
 ### Templates
 
