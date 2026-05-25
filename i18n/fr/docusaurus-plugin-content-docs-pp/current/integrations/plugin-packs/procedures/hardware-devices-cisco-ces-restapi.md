@@ -31,7 +31,7 @@ Le connecteur apporte les modèles de service suivants
 | Calls-Summary     | HW-Device-Cisco-Ces-Calls-Summary-Restapi-custom     | Contrôle l'historique des appels      |
 | Certificates      | HW-Device-Cisco-Ces-Certificates-Restapi-custom      | Contrôle l'expiration des certificats |
 | Components-Global | HW-Device-Cisco-Ces-Components-Global-Restapi-custom | Contrôle l'ensemble des composants    |
-| Diagnostics       | HW-Device-Cisco-Ces-Diagnostics-Restapi-custom       | Contrôle les messages de diagnostique |
+| Diagnostics       | HW-Device-Cisco-Ces-Diagnostics-Restapi-custom       | Contrôle les messages de diagnostic |
 | Peripherals       | HW-Device-Cisco-Ces-Peripherals-Restapi-custom       | Contrôle les périphériques connectés  |
 | Sessions          | HW-Device-Cisco-Ces-Sessions-Restapi-custom          | Contrôle les sessions                 |
 
