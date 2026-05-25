@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-**Azure Discover** monitoring connector doesn't have host template.
+The **Azure Discover** monitoring connector doesn't bring any host templates.
 
 ### Discovery rules
 
@@ -30,7 +30,7 @@ No metrics or status for this monitoring connector.
 
 Please find all the prerequisites needed for Centreon to get information from Azure on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-## Installer le connecteur de supervision
+## Installing the monitoring connector
 
 ### Pack
 
@@ -73,7 +73,7 @@ yum install centreon-pack-cloud-azure-management-discover
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Ansible Tower** connector through
+2. Whatever the license type (*online* or *offline*), install the **Azure Discover** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -124,10 +124,10 @@ yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 
 ### The Azure credentials have changed and the Plugin does not work anymore
 
-The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
+The plugin is using a cache file to keep connection information and avoid authenticating at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found in the 
 
 ### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

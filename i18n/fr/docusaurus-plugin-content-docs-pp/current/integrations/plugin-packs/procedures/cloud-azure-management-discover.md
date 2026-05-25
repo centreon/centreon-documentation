@@ -73,7 +73,7 @@ yum install centreon-pack-cloud-azure-management-discover
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Ansible Tower**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Azure Discover**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -122,9 +122,9 @@ yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 
 ### Les identifiants ont changé et la découverte ne fonctionne plus
 
-Le Plugin de découverte utilise un fichier de cache pour conserver les informations de connexion afin de ne pas 
-se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
-Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
+Le plugin de découverte utilise un fichier de cache pour conserver les informations de connexion afin de ne pas 
+se ré-authentifier à chaque appel. Si des informations sur le tenant, la souscription ou les 
+client ID / secret changent, il est nécessaire de supprimer le fichier de cache du plugin. 
 
 Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
 
