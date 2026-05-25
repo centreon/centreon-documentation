@@ -13,8 +13,8 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ## Contenu du pack
 
-Le connecteur **Github Rest API** ne fonctionne en l'état que sur des repo Github publiques. 
-Pour une utilisation sur des dépôts GitHub privés vous pouvez faire une demande d'amélioration via les idées The Watch.
+Le connecteur **Github Rest API** ne fonctionne en l'état que sur des dépôts GitHub publics.
+Pour une utilisation sur des dépôts GitHub privés vous pouvez faire une demande d'amélioration via les [idées The Watch](https://thewatch.centreon.com/ideas).
 
 ### Modèles
 
