@@ -55,7 +55,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 ## Prerequisites
 
 The remote server must have a Telnet service running and available. You need to
-create a JSON scenario file. An example:
+create a JSON scenario file. Here is an example:
 
     [
         \{"cmd": "open", "options": \{ "Host": "10.0.0.1", "Port": "23", "Timeout": "30" \} \},
