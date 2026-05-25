@@ -27,8 +27,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias              | Service Template                                | Service Description                                   |
 |:---------------------------|:------------------------------------------------|:------------------------------------------------------|
-| Tomcat-Applications-Global | App-Webserver-Tomcat-Applications-Global-custom | Check status of tomcat applications                   |
-| Tomcat-Connectors-Global   | App-Webserver-Tomcat-Connectors-Global-custom   | Check tomcat metrics (request count, error count,...) |
+| Tomcat-Applications-Global | App-Webserver-Tomcat-Applications-Global-custom | Check status of Tomcat applications                   |
+| Tomcat-Connectors-Global   | App-Webserver-Tomcat-Connectors-Global-custom   | Check Tomcat metrics (request count, error count,...) |
 | Tomcat-Memory              | App-Webserver-Tomcat-Memory-custom              | Check Tomcat memory                                   |
 
 > The services listed above are created automatically when the **App-Webserver-Tomcat6-Webmanager-custom** host template is used.
@@ -38,8 +38,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias              | Service Template                                | Service Description                                   |
 |:---------------------------|:------------------------------------------------|:------------------------------------------------------|
-| Tomcat-Applications-Global | App-Webserver-Tomcat-Applications-Global-custom | Check status of tomcat applications                   |
-| Tomcat-Connectors-Global   | App-Webserver-Tomcat-Connectors-Global-custom   | Check tomcat metrics (request count, error count,...) |
+| Tomcat-Applications-Global | App-Webserver-Tomcat-Applications-Global-custom | Check status of Tomcat applications                   |
+| Tomcat-Connectors-Global   | App-Webserver-Tomcat-Connectors-Global-custom   | Check Tomcat metrics (request count, error count,...) |
 | Tomcat-Memory              | App-Webserver-Tomcat-Memory-custom              | Check Tomcat memory                                   |
 
 > The services listed above are created automatically when the **App-Webserver-Tomcat7-Webmanager-custom** host template is used.
@@ -99,7 +99,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The Tomcat Manager application must be installed, running, and accessible from the Centreon poller using the defined protocol, port, and URL path
+The Tomcat Manager application must be installed, running, and accessible from the Centreon poller using the defined protocol, port, and URL.
 
 ## Installing the monitoring connector
 

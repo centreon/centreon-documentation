@@ -100,7 +100,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-L'application Tomcat Manager doit être installée, en cours d'exécution et accessible depuis le collecteur Centreon via le protocole, le port et le chemin d’URL définis
+L'application Tomcat Manager doit être installée, en cours d'exécution et accessible depuis le collecteur Centreon via le protocole, le port et l’URL définis.
 
 ## Installer le connecteur de supervision
 
