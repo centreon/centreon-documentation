@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias       | Service Template                                        | Service Description |
 |:--------------------|:--------------------------------------------------------|:--------------------|
 | System-Usage        | HW-Storage-Kaminario-System-Usage-Restapi-custom        | Check storage usage |
-| Volume-Usage-Global | HW-Storage-Kaminario-Volume-Usage-Global-Restapi-custom | Check volumes usage |
+| Volume-Usage-Global | HW-Storage-Kaminario-Volume-Usage-Global-Restapi-custom | Check volume usage |
 
 > The services listed above are created automatically when the **HW-Storage-Kaminario-Restapi-custom** host template is used.
 

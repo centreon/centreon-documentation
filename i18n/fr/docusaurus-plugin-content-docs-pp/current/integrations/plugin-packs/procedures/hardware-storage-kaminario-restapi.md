@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Kaminario RestAPI**
-depuis la page **<Configuration > Connecteurs > Connecteurs de supervision>** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -76,8 +76,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-La baie de stockage Kaminario doit être installée, opérationnelle et accessible via l’API REST depuis le collecteur Centreon
-Un compte utilisateur avec les autorisations nécessaires doit être disponible pour interroger l’API
+* La baie de stockage Kaminario doit être installée, opérationnelle et accessible via l’API REST depuis le collecteur Centreon.
+* Un compte utilisateur avec les autorisations nécessaires doit être disponible pour interroger l’API.
 
 ## Installer le connecteur de supervision
 
