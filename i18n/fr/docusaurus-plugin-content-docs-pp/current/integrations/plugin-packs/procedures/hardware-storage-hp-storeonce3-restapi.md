@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-hp-storeonce3-restapi
-title: HP StoreOnce 3
+title: HP StoreOnce 3 Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **HP StoreOnce 3.x Rest API**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **HP StoreOnce 3 Rest API**
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **HP StoreOnce 3.x Rest API** apporte un modèle d'hôte :
+Le connecteur de supervision **HP StoreOnce 3 Rest API** apporte un modèle d'hôte :
 
 * **HW-Storage-Hp-Storeonce3-Restapi-custom**
 
@@ -139,7 +139,7 @@ yum install centreon-pack-hardware-storage-hp-storeonce3-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HP StoreOnce 3.x Rest API**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HP StoreOnce 3 Rest API**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
