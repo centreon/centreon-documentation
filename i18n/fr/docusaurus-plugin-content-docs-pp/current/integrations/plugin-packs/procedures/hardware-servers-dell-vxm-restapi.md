@@ -41,7 +41,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle  | Description                |
 |:-----------------|:---------------------------|
-| Dell VxRail Host | Discover Dell VxRail Hosts |
+| Dell VxRail Host | Découvre les hôtes Dell VxRail |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
