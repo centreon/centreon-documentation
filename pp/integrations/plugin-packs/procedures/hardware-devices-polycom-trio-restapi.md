@@ -111,7 +111,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To use the Polycom Trio Rest API connector enable the REST API on the phone by setting apps.restapi.enabled="1" configure a custom administrator password through the web interface or a provisioning file ensure the phone is reachable on the network via port 443 using HTTPS and is running UC software version 5.8.0 or higher
+To use the Polycom Trio Rest API connector, enable the REST API on the phone by setting apps.restapi.enabled="1". Configure a custom administrator password through the web interface or a provisioning file. Ensure the phone is reachable on the network via port 443 using HTTPS and is running UC software version 5.8.0 or higher.
 
 ## Installing the monitoring connector
 

@@ -29,8 +29,8 @@ Le connecteur apporte les modèles de service suivants
 |:-----------------|:----------------------------------------------------|:----------------------------------------------------|
 | Calls-Rt         | HW-Device-Polycom-Trio-Calls-Rt-Restapi-custom      | Contrôle les appels audio/vidéo en temps réel       |
 | Calls-Summary    | HW-Device-Polycom-Trio-Calls-Summary-Restapi-custom | Contrôle l'historique des appels                    |
-| Device           | HW-Device-Polycom-Trio-Device-Restapi-custom        | Contrôle la mémoire, l'utilisation CPU et le status |
-| Network          | HW-Device-Polycom-Trio-Network-Restapi-custom       | Contrôle le traffic réseau                          |
+| Device           | HW-Device-Polycom-Trio-Device-Restapi-custom        | Contrôle la mémoire, l'utilisation CPU et le statut |
+| Network          | HW-Device-Polycom-Trio-Network-Restapi-custom       | Contrôle le trafic réseau                          |
 | Sip-Registration | HW-Device-Polycom-Trio-Registration-Restapi-custom  | Contrôle l'enregistrement SIP                       |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Device-Polycom-Trio-Restapi-custom** est utilisé.
