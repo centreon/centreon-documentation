@@ -133,14 +133,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-### Device Configuration
+### SNMP Configuration
 
-Configure the proper SNMP settings on your RealPresence DMA device according to Polycom official documentation:
-https://documents.polycom.com/bundle/dma-ops-9-0/page/dma-ops-help/snmp/TOC_Configure_SNMP_Settings.htm
+The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation. Your resource may require a list of addresses authorized to query it to be set up. Please ensure that the addresses of the Centreon pollers are included in this list.
 
-### Network flows
+### Network flow
 
-The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom RealPresence DMA device.
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
