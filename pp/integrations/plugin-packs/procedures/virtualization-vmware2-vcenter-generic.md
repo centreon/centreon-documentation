@@ -90,7 +90,7 @@ The connector brings the following service templates (sorted by the host templat
 |:----------------------------------------------|:-----------------------------------------------------------------------|
 | Virt-VMWare2-Datacenters-Alarm-Name           | Discover Datacenters and monitor their alarms                          |
 | Virt-VMWare2-Vcenter-Clusters-Status-Name     | Discover Clusters and monitor their status                             |
-| Virt-VMWare2-Vcenter-Datastores-Io-Name       | Discover Datastores and monitor their usages in Kbps                   |
+| Virt-VMWare2-Vcenter-Datastores-Io-Name       | Discover Datastores and monitor their usage in Kbps                   |
 | Virt-VMWare2-Vcenter-Datastores-Iops-Name     | Discover Datastores and monitor their average IOPs                     |
 | Virt-VMWare2-Vcenter-Datastores-Usage-Name    | Discover Datastores and monitor their usage                            |
 | Virt-VMWare2-Vcenter-Datastores-Vm-Count-Name | Discover Datastores and monitor virtual machines running/off/suspended |

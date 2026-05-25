@@ -69,7 +69,7 @@ Le connecteur apporte les modèles de service suivants
 | Vm-Device-Global              | Virt-VMWare2-Vm-Device-Global-custom              | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle                                                                    |            |
 | Vm-Limit-Global               | Virt-VMWare2-Vm-Limit-Global-custom               | Contrôle permettant de vérifier la définition de limites                                                                                             |            |
 | Vm-Memory-Global              | Virt-VMWare2-Vm-Memory-Global-custom              | Contrôle permettant de vérifier le taux d'utilisation mémoire des machines virtuelles                                                                |            |
-| Vm-Snapshot-Global            | Virt-VMWare2-Vm-Snapshot-Global-custom            | Contrôle permettant de vérifier l'âge des snapshosts sur plusieurs machine virtuelles                                                                |            |
+| Vm-Snapshot-Global            | Virt-VMWare2-Vm-Snapshot-Global-custom            | Contrôle permettant de vérifier l'âge des snapshots sur plusieurs machines virtuelles                                                                |            |
 | Vm-Status-Global              | Virt-VMWare2-Vm-Status-Global-custom              | Contrôle permettant de vérifier l'état global de plusieurs machines virtuelles                                                                       |            |
 | Vm-Swap-Global                | Virt-VMWare2-Vm-Swap-Global-custom                | Contrôle permettant de vérifier si les machines virtuelles swappent                                                                                  |            |
 | Vm-Thinprovisioning-Global    | Virt-VMWare2-Vm-Thinprovisioning-Global-custom    | Contrôle permettant de vérifier si une machine virtuelle possède un disque en mode 'thinprovisioning' ou non                                         |            |
@@ -89,11 +89,11 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                               | Description                                                                                        |
 |:----------------------------------------------|:---------------------------------------------------------------------------------------------------|
-| Virt-VMWare2-Datacenters-Alarm-Name           | Découvre des Datacenters et supervise ses alarmes                                                  |
+| Virt-VMWare2-Datacenters-Alarm-Name           | Découvre des Datacenters et supervise leurs alarmes                                                  |
 | Virt-VMWare2-Vcenter-Clusters-Status-Name     | Découvre des Clusters et supervise leur status                                                     |
-| Virt-VMWare2-Vcenter-Datastores-Io-Name       | Découvre des Datastores et supervise le taux d'utilisation en Kbps                                 |
-| Virt-VMWare2-Vcenter-Datastores-Iops-Name     | Découvre des Datastores et supervise les IOPs moyens                                               |
-| Virt-VMWare2-Vcenter-Datastores-Usage-Name    | Découvre des Datastores et supervise le taux d'utilisation                                         |
+| Virt-VMWare2-Vcenter-Datastores-Io-Name       | Découvre des Datastores et supervise leur taux d'utilisation en Kbps                                 |
+| Virt-VMWare2-Vcenter-Datastores-Iops-Name     | Découvre des Datastores et supervise leurs IOPs moyens                                               |
+| Virt-VMWare2-Vcenter-Datastores-Usage-Name    | Découvre des Datastores et supervise leur taux d'utilisation                                         |
 | Virt-VMWare2-Vcenter-Datastores-Vm-Count-Name | Découvre des Datastores et supervise le nombre de machines virtuelles allumées/éteintes/suspendues |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
