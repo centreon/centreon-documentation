@@ -323,13 +323,13 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Search-Message-Generic" label="Search-Message-Generic">
 
-| Option     | Description                                     |
-|:-----------|:------------------------------------------------|
-| --search   |   Set the search string (required)              |
-| --delete   |   Delete messages found                         |
-| --folder   |   Set IMAP folder (default: 'INBOX')            |
-| --warning  |   Warning threshold of number messages found    |
-| --critical |   Critical threshold of number message found    |
+| Option     | Description                                                                                                                                                                                                                                                                                                  |
+|:-----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --search   | Set the search string (required). The syntax is the one described in the perl library Mail::IMAPClient and in the RFC 9051. Common examples: All messages in the mailbox:--search='ALL' . Messages that contain the specified string in the envelope structure's SUBJECT field --search='SUBJECT "\<string\>"' |
+| --delete   | Delete messages found                                                                                                                                                                                                                                                                                        |
+| --folder   | Set IMAP folder (default: 'INBOX')                                                                                                                                                                                                                                                                           |
+| --warning  | Warning threshold of number messages found                                                                                                                                                                                                                                                                   |
+| --critical | Critical threshold of number message found                                                                                                                                                                                                                                                                   |
 
 </TabItem>
 </Tabs>
