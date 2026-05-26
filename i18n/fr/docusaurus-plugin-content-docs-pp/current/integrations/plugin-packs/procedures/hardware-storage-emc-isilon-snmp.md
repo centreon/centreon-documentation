@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-emc-isilon-snmp
-title: EMC Isilon
+title: EMC Isilon SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Isilon**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Isilon SNMP**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **EMC Isilon** apporte un modèle d'hôte :
+Le connecteur de supervision **EMC Isilon SNMP** apporte un modèle d'hôte :
 
 * **HW-Storage-EMC-Isilon-SNMP-custom**
 
@@ -65,10 +65,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 | Nom                | Unité |
 |:-------------------|:------|
-| disk.status     | N/A   |
-| fan.status     | N/A   |
-| power.status     | N/A   |
-| temperature.status     | N/A   |
+| disk.status        | N/A   |
+| fan.status         | N/A   |
+| power.status       | N/A   |
+| temperature.status | N/A   |
 
 </TabItem>
 </Tabs>
@@ -127,7 +127,7 @@ yum install centreon-pack-hardware-storage-emc-isilon-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Isilon**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Isilon SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -197,22 +197,22 @@ yum install centreon-plugin-Hardware-Storage-Emc-Isilon-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cluster-Usage" label="Cluster-Usage">
 
-| Macro            | Description                                                                                                                                                | Valeur par défaut              | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| WARNINGHEALTH    | Threshold                                                                                                                                                  |                                |             |
-| CRITICALHEALTH   | Threshold                                                                                                                                                  |                                |             |
-| WARNINGIFSUSAGE  | Threshold                                                                                                                                                  |                                |             |
-| CRITICALIFSUSAGE | Threshold                                                                                                                                                  |                                |             |
-| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /attn/). You can use the following variables: %\{status\}            | %\{status\} =~ /attn/          |             |
-| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /down\|invalid/'). You can use the following variables: %\{status\} | %\{status\} =~ /down\|invalid/ |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                         |                                |             |
+| Macro            | Description                                                                                                                                      | Valeur par défaut              | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| WARNINGHEALTH    | Threshold                                                                                                                                        |                                |             |
+| CRITICALHEALTH   | Threshold                                                                                                                                        |                                |             |
+| WARNINGIFSUSAGE  | Threshold                                                                                                                                        |                                |             |
+| CRITICALIFSUSAGE | Threshold                                                                                                                                        |                                |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                    | %\{status\} =~ /attn/          |             |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                   | %\{status\} =~ /down\|invalid/ |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                |             |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'disk', 'temperature', 'power'            | .*                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'fan', 'disk', 'temperature', 'power'                                                                          | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -310,7 +310,7 @@ Les options génériques sont listées ci-dessous :
 | --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |

@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-synology-snmp
-title: Synology
+title: Synology SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Synology** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Synology SNMP** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Synology** apporte un modèle d'hôte :
+Le connecteur de supervision **Synology SNMP** apporte un modèle d'hôte :
 
 * **HW-Storage-Synology-SNMP-custom**
 
@@ -90,7 +90,23 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Pas de métrique pour ce service.
+| Nom                             | Unité |
+|:--------------------------------|:------|
+| disk.total                      | count |
+| disk.status                     | N/A   |
+| disk.health                     | N/A   |
+| hardware.disk.bad_sectors.count | count |
+| cpu.fan.status                  | N/A   |
+| system.fan.status               | N/A   |
+| fan.total                       | count |
+| psu.status                      | N/A   |
+| psu.total                       | count |
+| raid.status                     | N/A   |
+| raid.total                      | count |
+| system.status                   | N/A   |
+| system.total                    | count |
+
+> La métrique `disk.health` n'est disponible que pour les DSM version 7.1 et supérieures.
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -217,7 +233,7 @@ yum install centreon-pack-hardware-storage-synology-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Synology**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Synology SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -505,7 +521,7 @@ Les options génériques sont listées ci-dessous :
 | --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
