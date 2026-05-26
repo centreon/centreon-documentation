@@ -3,6 +3,9 @@ id: stm-zones
 title: Monitoring non-public user journeys (closed beta)
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 A private Synthetic Monitoring Zone (STM Zone) allows you to monitor your user journeys on internal domains or networks specific to your organization using a probe deployed inside your infrastructure.
 
 ## Prerequisites
