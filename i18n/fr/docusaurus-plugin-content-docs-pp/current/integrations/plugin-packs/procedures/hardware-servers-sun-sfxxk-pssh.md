@@ -1,6 +1,6 @@
 ---
 id: hardware-servers-sun-sfxxk-pssh
-title: Sun SFxxK
+title: Sun SFxxK PSSH
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

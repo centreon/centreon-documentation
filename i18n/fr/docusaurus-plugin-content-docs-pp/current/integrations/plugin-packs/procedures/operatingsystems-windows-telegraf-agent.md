@@ -132,7 +132,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 
 ### Configuration de Centreon Engine
 
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma.md#configurez-la-communication-collecteuragent).
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/telegraf.md#configurez-engine).
 
 ### Prérequis système sur l'hôte à superviser
 
@@ -286,8 +286,8 @@ services se mettront à jour dans les minutes qui suivront.
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------- | :---------------- | :---------: |
 | NTPHOSTNAME    | Set the NTP server to use (if not set, we try to find it with w32tm command).                                                            |                   |             |
 | NTPPORT        | Set the NTP port (default: 123).                                                                                                         |                   |             |
-| WARNINGOFFSET  | Thresholds.                                                                                                                              | -1:1              |             |
-| CRITICALOFFSET | Thresholds.                                                                                                                              | -2:2              |             |
+| WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. | -1:1              |             |
+| CRITICALOFFSET | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. | -2:2              |             |
 | TIMEOUT        | Set timeout time for 'w32tm' command execution (default: 30 sec).                                                                        | 10                |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 

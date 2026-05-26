@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-emc-celerra-ssh
-title: EMC Celerra
+title: EMC Celerra SSH
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **EMC Celerra** connector through the
+The following monitoring connectors will be installed when you install the **EMC Celerra SSH** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -24,8 +24,8 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-EMC-Celerra-SSH-custom" label="HW-Storage-EMC-Celerra-SSH-custom">
 
-| Service Alias | Service Template                            | Service Description                           |
-|:--------------|:--------------------------------------------|:----------------------------------------------|
+| Service Alias | Service Template                            | Service Description                                  |
+|:--------------|:--------------------------------------------|:-----------------------------------------------------|
 | Getreason     | HW-Storage-EMC-Celerra-Getreason-SSH-custom | Check the status of control stations and data movers |
 
 > The services listed above are created automatically when the **HW-Storage-EMC-Celerra-SSH-custom** host template is used.
@@ -40,8 +40,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Getreason" label="Getreason">
 
-| Name   | Unité |
-|:--------|:-----|
+| Name   | Unit |
+|:-------|:-----|
 | status | N/A  |
 
 </TabItem>
@@ -97,7 +97,7 @@ yum install centreon-pack-hardware-storage-emc-celerra-ssh
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **EMC Celerra** connector through
+2. Whatever the license type (*online* or *offline*), install the **EMC Celerra SSH** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -158,8 +158,8 @@ yum install centreon-plugin-Hardware-Storage-Emc-Celerra-Ssh
 | SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          |                   |             |
 | SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
 | SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
-| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | libssh            |             |
-| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli, plink and libssh                                                                                             | libssh            |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                            |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -171,9 +171,9 @@ yum install centreon-plugin-Hardware-Storage-Emc-Celerra-Ssh
 <Tabs groupId="sync">
 <TabItem value="Getreason" label="Getreason">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'controlstation', 'datamover'                    | .*                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'controlstation', 'datamover'                                                                        | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
