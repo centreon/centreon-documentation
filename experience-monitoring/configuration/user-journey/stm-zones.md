@@ -47,7 +47,7 @@ When creating a probe, STM probes are the type selected by default. STM probes c
 </TabItem>
 <TabItem value="Recommendations probe">
 
-When creating a probe, it is possible to create a recommendation probe. Recommendation probes run once a day to make personalized suggestions on how to optimize your website using the metrics collected by Experience Monitoring.
+When creating a probe, it is possible to create a recommendation probe. Recommendation probes run once a day to make personalized suggestions on how to optimize your website.
 
 1. To create and launch the recommendations probe, click the **Recommendations** tab in the **Start the probe** section and execute the command.
 
