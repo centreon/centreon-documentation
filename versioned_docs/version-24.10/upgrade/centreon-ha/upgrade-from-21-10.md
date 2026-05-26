@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon HA platform from version 21.10 to version 24.10.
 
+> If you were considering migrating your platform to another OS too, contact your Centreon sales representative to discuss this.
+
 ## Prerequisites
 
 ### Suspend cluster resources management
@@ -33,9 +35,10 @@ When upgrading from an older version, you need to go through the [key rotation p
 
 To perform the upgrade:
 
-> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Post-upgrade actions" step (included)**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Upgrade MariaDB" step included**.
 
-> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Update your customized Apache configuration" step (included) only. Do not perform the "Finalizing the upgrade" step.**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-21-10.md) **until the "Update your customized Apache configuration" step included**. Then, skip to the "Upgrade MariaDB" step and follow its instructions. **Do not follow "Finalizing the upgrade" and "Post-upgrade actions"**.
+
 
 Then on the two central nodes, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 

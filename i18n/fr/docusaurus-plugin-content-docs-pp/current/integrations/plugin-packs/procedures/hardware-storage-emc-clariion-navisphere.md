@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-emc-clariion-navisphere
-title: EMC Clariion
+title: EMC Clariion Navisphere
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **EMC Clariion** apporte un modèle d'hôte :
+Le connecteur de supervision **EMC Clariion Navisphere** apporte un modèle d'hôte :
 
 * **HW-Storage-EMC-Clariion-Navisphere-custom**
 
@@ -22,8 +22,8 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                                         | Description                                     | Découverte |
 |:----------------|:----------------------------------------------------------|:------------------------------------------------|:----------:|
 | Cache           | HW-Storage-EMC-Clariion-Cache-Navisphere-custom           | Contrôle l'état du cache                        |            |
-| Controller      | HW-Storage-EMC-Clariion-Controller-Navisphere-custom      | Contrôle le contrôleur Navisphere                          |            |
-| Disks           | HW-Storage-EMC-Clariion-Disks-Navisphere-custom           | Contrôle l'état et les performances des disques | X          |
+| Controller      | HW-Storage-EMC-Clariion-Controller-Navisphere-custom      | Contrôle le contrôleur Navisphere               |            |
+| Disks           | HW-Storage-EMC-Clariion-Disks-Navisphere-custom           | Contrôle l'état et les performances des disques |     X      |
 | Hardware-Global | HW-Storage-EMC-Clariion-Hardware-Global-Navisphere-custom | Contrôle l'ensemble du matériel                 |            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-EMC-Clariion-Navisphere-custom** est utilisé.
@@ -62,14 +62,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Cache" label="Cache">
 
-| Métrique    | Unité |
+| Nom         | Unité |
 |:------------|:------|
 | dirty_cache | %     |
 
 </TabItem>
 <TabItem value="Controller" label="Controller">
 
-| Métrique                         | Unité |
+| Nom                              | Unité |
 |:---------------------------------|:------|
 | controller.io.read.usage.iops    | iops  |
 | controller.io.write.usage.iops   | iops  |
@@ -80,7 +80,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Métrique                      | Unité |
+| Nom                           | Unité |
 |:------------------------------|:------|
 | *disk_name*#state             | N/A   |
 | *disk_name*#hard-read-errors  | N/A   |
@@ -94,14 +94,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Faults" label="Faults">
 
-| Métrique     | Unité |
+| Nom          | Unité |
 |:-------------|:------|
 | array.status | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Métrique        | Unité |
+| Nom             | Unité |
 |:----------------|:------|
 | fan.status      | N/A   |
 | lcc.status      | N/A   |
@@ -115,16 +115,17 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Hba-State" label="Hba-State">
 
-| Métrique         | Unité |
+| Nom              | Unité |
 |:-----------------|:------|
 | hba.state.status | N/A   |
 
 </TabItem>
 <TabItem value="Port-State" label="Port-State">
 
-| Métrique         | Unité |
+| Nom              | Unité |
 |:-----------------|:------|
 | hba.state.status | N/A   |
+
 </TabItem>
 </Tabs>
 
@@ -176,7 +177,7 @@ yum install centreon-pack-hardware-storage-emc-clariion-navisphere
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Clariion**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Clariion Navisphere**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -282,7 +283,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Clariion-Navisphere
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'lcc', 'psu', 'battery', 'memory', 'cpu', 'iomodule', 'cable'                           | .*                |             |
+| COMPONENT    | Which component to check. Can be: 'fan', 'lcc', 'psu', 'battery', 'memory', 'cpu', 'iomodule', 'cable'                                           | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -431,7 +432,7 @@ Les options génériques sont listées ci-dessous :
 | --ssh-priv-key                             | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --sshcli-command                           | ssh command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --sshcli-path                              | ssh command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no'). The default option is --sshcli-options='-o=LogLevel=ERROR' which hides the SSH banner. If you override this parameter, make sure to append '-o=LogLevel=ERROR' to your new value to maintain this behavior. This parameter can be used multiple times and multiple options can be specified in the same parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --plink-command                            | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --plink-path                               | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --plink-option                             | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |

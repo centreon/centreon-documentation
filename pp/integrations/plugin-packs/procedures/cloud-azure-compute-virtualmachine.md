@@ -117,7 +117,14 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Vm-Sizes-Global" label="Vm-Sizes-Global">
 
-Coming soon
+| Name                              | Unit |
+|:----------------------------------|:-----|
+| azvm.general.standard_B*          | N/A  |
+| azvm.compute.standard_F*          | N/A  |
+| azvm.memory.standard_E*           | N/A  |
+| azvm.storage.standard_L*          | N/A  |
+| azvm.gpu.standard_N*              | N/A  |
+| azvm.high_performance.standard_H* | N/A  |
 
 </TabItem>
 </Tabs>

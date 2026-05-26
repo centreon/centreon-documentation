@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit les procédures avancées de configuration de votre système Centreon MAP.
 
+> Veuillez noter que les endpoints spécifiés dans cette page ont été mis à jour suite à la dépréciation de la version bêta. Depuis la version 24.10, `beta` est remplacé par `latest` dans les chemins d'accès.
+
 ## Superviser votre serveur Centreon MAP après installation
 
 Centreon fournit un [connecteur de supervision et un plugin](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator) pour superviser votre serveur Centreon MAP.
@@ -28,7 +30,7 @@ Pour superviser la JVM centreon-map, veuillez utiliser les valeurs de macro suiv
 | Nom                     | Valeur                                    |
 | :---------------------- | :---------------------------------------- |
 | ACTUATORCUSTOMMODE      | ```centreonmap```                         |
-| ACTUATORAPIURLPATH      | ```/centreon-map/api/beta```           |
+| ACTUATORAPIURLPATH      | ```/centreon-map/api/latest```           |
 | ACTUATORAPIUSERNAME     | Le nom d'utilisateur Api doit être défini |
 | ACTUATORAPIPASSWORD     | Le mot de passe Api doit être défini      |
 
@@ -44,92 +46,18 @@ Vous pouvez également vérifier l'URL suivante, qui indique si le serveur est o
 <TabItem value="HTTP" label="HTTP">
 
 ```shell
-http://<MAP_IP>:8080/centreon-map/api/beta/actuator/health.
+http://<MAP_IP>:8080/centreon-map/api/latest/actuator/health.
 ```
 
 </TabItem>
 <TabItem value="HTTPS" label="HTTPS">
 
 ```shell
-https://<MAP_IP>:8443/centreon-map/api/beta/actuator/health.
+https://<MAP_IP>:8443/centreon-map/api/latest/actuator/health.
 ```
 
 </TabItem>
 </Tabs>
-
-### Sauvegarder le serveur Centreon MAP
-
-### Éléments sauvegardés
-
-Les éléments sauvegardés sont :
-
-- Les fichiers de configuration (**/etc/centreon-map**).
-- La base de données (**centreon\_map**)
-
-### Comment ça marche ?
-
-Le script de sauvegarde est exécuté quotidiennement (à 2 heures du matin) avec une tâche cron située dans **/etc/cron.d/centreon-map-server-backup** :
-
-```text
-#
-# Cron to backup Centreon MAP server
-#
-PATH=/sbin:/bin:/usr/sbin:/usr/bin
-
-# rewrite file with new cron line
-CRONTAB_EXEC_USER=""
-
-0 2 * * * root bash /usr/share/centreon-map-server/bin/centreon-map-server-backup.sh >> /var/log/centreon-map/backup.log 2>&1
-```
-
-La sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** est stockée dans **BACKUP\_DIR**; ce répertoire est défini dans le fichier de configuration.
-
-### Paramètres de sauvegarde
-
-Les paramètres de sauvegarde sont enregistrés dans **/etc/centreon-map/backup.conf**.
-
-- ENABLE : activer/désactiver le mécanisme de sauvegarde (valeur par défaut : 0)
-- BACKUP\_DIR : emplacement où la sauvegarde est stockée (valeur par défaut : **/var/backup**)
-- RETENTION\_AGE : rétention de la sauvegarde en jours (valeur par défaut : 8)
-
-> Nous conseillons d'exporter les sauvegardes vers un autre serveur que votre serveur Centreon afin de les sécuriser.
-
-### Restaurer les données du serveur Centreon MAP
-
-Le processus de restauration est divisé en plusieurs étapes :
-
-- Extraction de la sauvegarde
-- Restauration des fichiers de configuration
-- Restauration de la base de données
-
-> Nous supposons que vous avez suivi la procédure d'installation du serveur Centreon MAP pour obtenir une nouvelle installation.
-
-### Extraire la sauvegarde
-
-Récupérez la dernière sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** et extrayez-la dans le répertoire **/tmp** :
-
-```shell
-cd /tmp
-tar xzf centreon-map-server-yyyy-mm-dd.tar.gz
-```
-
-### Restaurer les fichiers de configuration
-
-Pour restaurer les fichiers de configuration, exécutez la commande suivante :
-
-```shell
-cp -R etc/centreon-map/* /etc/centreon-map/
-```
-
-### Restaurer la base de données
-
-Pour restaurer la base de données **centreon\_map**, exécutez la commande suivante :
-
-```shell
-systemctl stop centreon-map
-mysql -h <db_host> -u <db_user> -p<db_password> <db_name> < centreon-map-server.dump
-systemctl start centreon-map
-```
 
 ## Changer le port du serveur Centreon MAP
 
@@ -171,5 +99,5 @@ Attendez que le service Centreon MAP ait fini de démarrer (~30 secondes à une 
 Vérifiez que votre serveur est opérationnel et accessible sur le nouveau port que vous avez défini, en entrant l'URL suivante dans votre navigateur web :
 
 ```shell
-http://<MAP_IP>:<NEW_PORT>/centreon-map/api/beta/actuator/health
+http://<MAP_IP>:<NEW_PORT>/centreon-map/api/latest/actuator/health
 ```
