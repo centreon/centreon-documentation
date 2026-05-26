@@ -73,12 +73,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The SNMP service must be installed and configured on the Cisco CTS Device.
-The Centreon Pollers must as well be able to reach the CTS over the UDP/161 port.
+### SNMP Configuration
 
-More information about how to configure your CTS can be found in the official documentation:
-https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide/maint.html.
+The SNMP agent must be enabled and configured on the resource. Please refer to the [official documentation](https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide/maint.html). Your resource may require a list of addresses authorized to query it to be set up. Please ensure that the addresses of the Centreon pollers are included in this list.
 
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 ## Installing the monitoring connector
 
 ### Pack
