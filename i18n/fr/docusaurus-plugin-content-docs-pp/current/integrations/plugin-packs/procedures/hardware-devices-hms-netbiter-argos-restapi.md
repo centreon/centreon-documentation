@@ -260,7 +260,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--proxyurl='' \
 	--access-key='' \
 	--api-username='' \
-	--api-username='' \
+	--api-password='' \
 	--system-id='xxxxxx'  \
 	--warning-alarms-total='' \
 	--critical-alarms-total='' \

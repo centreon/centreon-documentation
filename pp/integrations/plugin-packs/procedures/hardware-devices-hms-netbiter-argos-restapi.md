@@ -259,7 +259,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--proxyurl='' \
 	--access-key='' \
 	--api-username='' \
-	--api-username='' \
+	--api-password='' \
 	--system-id='xxxxxx'  \
 	--warning-alarms-total='' \
 	--critical-alarms-total='' \
