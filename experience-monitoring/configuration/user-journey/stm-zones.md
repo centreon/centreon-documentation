@@ -36,7 +36,7 @@ docker login docker.centreon.com/centreon-dem-beta
 ## Step 3: Create and launch the probe
 
 <Tabs groupId="sync">
-<TabItem value="Monitoring probe">
+<TabItem value="STM probe">
 
 When creating a probe, STM probes are the type selected by default. STM probes collect the usual performance metrics used by Experience Monitoring.
 
@@ -45,7 +45,7 @@ When creating a probe, STM probes are the type selected by default. STM probes c
 2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list.
 
 </TabItem>
-<TabItem value="Monitoring probe">
+<TabItem value="Recommendations probe">
 
 When creating a probe, it is possible to create a recommendation probe. Recommendation probes run once a day to make personalized suggestions on how to optimize your website using the metrics collected by Experience Monitoring.
 
