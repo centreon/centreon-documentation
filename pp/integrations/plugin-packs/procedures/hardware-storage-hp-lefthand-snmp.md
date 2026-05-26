@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-hp-lefthand-snmp
-title: HP Lefthand
+title: HP Lefthand SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **HP Lefthand** brings a host template:
+The Monitoring Connector **HP Lefthand SNMP** brings a host template:
 
 * **HW-Storage-Hp-Lefthand-SNMP-custom**
 
@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias       | Service Template                                       | Service Description |
 |:--------------------|:-------------------------------------------------------|:--------------------|
 | Hardware-Global     | HW-Storage-Hp-Lefthand-Hardware-Global-SNMP-custom     | Check all hardware  |
-| Volume-Usage-Global | HW-Storage-Hp-Lefthand-Volume-Usage-Global-SNMP-custom | Check volume usage |
+| Volume-Usage-Global | HW-Storage-Hp-Lefthand-Volume-Usage-Global-SNMP-custom | Check volume usage  |
 
 > The services listed above are created automatically when the **HW-Storage-Hp-Lefthand-SNMP-custom** host template is used.
 
@@ -45,7 +45,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name        | Unit  |
+| Name               | Unit  |
 |:-------------------|:------|
 | fan.status         | N/A   |
 | rcc.status         | N/A   |
@@ -58,7 +58,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
 
-| Metric name                 | Unit  |
+| Name                        | Unit  |
 |:----------------------------|:------|
 | *volume*#used               | B     |
 | *volume*#read               | B/s   |
@@ -132,7 +132,7 @@ yum install centreon-pack-hardware-storage-hp-lefthand-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **HP Lefthand** connector through
+2. Whatever the license type (*online* or *offline*), install the **HP Lefthand SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -206,32 +206,32 @@ yum install centreon-plugin-Hardware-Storage-Hp-Lefthand-Snmp
 
 | Macro        | Description                                                                                                                            | Default value                  | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'rcc', 'temperature', 'psu', 'voltage', 'device', 'rc', 'ro'                  | .*                             |             |
+| COMPONENT    | Which component to check. Can be: 'fan', 'rcc', 'temperature', 'psu', 'voltage', 'device', 'rc', 'ro'                                  | .*                             |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --snmp-force-getnext |             |
 
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
 
-| Macro                     | Description                                                                                                                                      | Default value          | Mandatory |
-|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
-| FILTERNAME                | Filter volume name (can be a regexp)                                                                                                             | .*                     |           |
-| FILTERCOUNTERS            | Only display some counters (regexp can be used). Example: --filter-counters='^read\| write$                                                      |                        |           |
-| WARNINGREAD               | Warning threshold                                                                                                                                |                        |           |
-| CRITICALREAD              | Critical threshold                                                                                                                               |                        |           |
-| WARNINGREADIOPS           | Warning threshold                                                                                                                                |                        |           |
-| CRITICALREADIOPS          | Critical threshold                                                                                                                               |                        |           |
-| WARNINGREADLATENCY        | Warning threshold                                                                                                                                |                        |           |
-| CRITICALREADLATENCY       | Critical threshold                                                                                                                               |                        |           |
-| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}                         | %\{status\} !~ /normal/i |           |
-| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                          |                        |           |
-| WARNINGUSAGE              | Warning threshold                                                                                                                                |                        |           |
-| CRITICALUSAGE             | Critical threshold                                                                                                                               |                        |           |
-| WARNINGWRITE              | Warning threshold                                                                                                                                |                        |           |
-| CRITICALWRITE             | Critical threshold                                                                                                                               |                        |           |
-| WARNINGWRITEIOPS          | Warning threshold                                                                                                                                |                        |           |
-| CRITICALWRITEIOPS         | Critical threshold                                                                                                                               |                        |           |
-| WARNINGWRITELATENCY       | Warning threshold                                                                                                                                |                        |           |
-| CRITICALWRITELATENCY      | Critical threshold                                                                                                                               |                        |           |
+| Macro                     | Description                                                                                                                                    | Default value          | Mandatory |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
+| FILTERNAME                | Filter volume name (can be a regexp)                                                                                                           | .*                     |           |
+| FILTERCOUNTERS            | Only display some counters (regexp can be used). Example: --filter-counters='^read\| write$                                                    |                        |           |
+| WARNINGREAD               | Warning threshold                                                                                                                              |                        |           |
+| CRITICALREAD              | Critical threshold                                                                                                                             |                        |           |
+| WARNINGREADIOPS           | Warning threshold                                                                                                                              |                        |           |
+| CRITICALREADIOPS          | Critical threshold                                                                                                                             |                        |           |
+| WARNINGREADLATENCY        | Warning threshold                                                                                                                              |                        |           |
+| CRITICALREADLATENCY       | Critical threshold                                                                                                                             |                        |           |
+| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}                   | %\{status\} !~ /normal/i |           |
+| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                    |                        |           |
+| WARNINGUSAGE              | Warning threshold                                                                                                                              |                        |           |
+| CRITICALUSAGE             | Critical threshold                                                                                                                             |                        |           |
+| WARNINGWRITE              | Warning threshold                                                                                                                              |                        |           |
+| CRITICALWRITE             | Critical threshold                                                                                                                             |                        |           |
+| WARNINGWRITEIOPS          | Warning threshold                                                                                                                              |                        |           |
+| CRITICALWRITEIOPS         | Critical threshold                                                                                                                             |                        |           |
+| WARNINGWRITELATENCY       | Warning threshold                                                                                                                              |                        |           |
+| CRITICALWRITELATENCY      | Critical threshold                                                                                                                             |                        |           |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). | --verbose              |           |
 
 </TabItem>
@@ -363,7 +363,7 @@ All generic options are listed here:
 | --contextname                              | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --contextengineid                          | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --securityengineid                         | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --snmp-tls-transport                       | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-tls-our-identity                    | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --snmp-tls-their-identity                  | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |

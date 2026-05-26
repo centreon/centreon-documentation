@@ -8,6 +8,8 @@ import TabItem from '@theme/TabItem';
 
 If you want to automate standard maps creation or maintenance, you may use the Centreon MAP extension API.
 
+> Please note that the endpoints specified on this page have been updated following the deprecation of the beta version. From 24.10, `beta` is replaced with `latest` in the paths.
+
 ## Permissions
 
 With this API, you can create / update / delete standard maps. To be able to use the API, the account you use needs to have one
@@ -26,7 +28,7 @@ of the following privileges:
 <TabItem value="HTTP" label="HTTP">
 
 ```
-POST : http://serverURL:8081/centreon-map/api/beta/auth/sign-in
+POST : http://serverURL:8081/centreon-map/api/latest/auth/sign-in
 ```
 
 </TabItem>
@@ -34,7 +36,7 @@ POST : http://serverURL:8081/centreon-map/api/beta/auth/sign-in
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-POST : https://serverURL:9443/centreon-map/api/beta/auth/sign-in
+POST : https://serverURL:9443/centreon-map/api/latest/auth/sign-in
 ```
 
 </TabItem>
@@ -68,7 +70,7 @@ Headers {
 <TabItem value="HTTP" label="HTTP">
 
 ```
-POST http://serverURL:8081/centreon-map/api/beta/maps
+POST http://serverURL:8081/centreon-map/api/latest/maps
 ```
 
 </TabItem>
@@ -76,7 +78,7 @@ POST http://serverURL:8081/centreon-map/api/beta/maps
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-POST https://serverURL:9443/centreon-map/api/beta/maps
+POST https://serverURL:9443/centreon-map/api/latest/maps
 ```
 
 </TabItem>
@@ -102,7 +104,7 @@ Body {
 <TabItem value="HTTP" label="HTTP">
 
 ```
-GET http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views/_viewId_
+GET http://serverURL:8081/centreon-map/api/latest/maps/_mapId_/views/_viewId_
 ```
 
 </TabItem>
@@ -110,7 +112,7 @@ GET http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views/_viewId_
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-GET https://serverURL:9443/centreon-map/api/beta/maps/_mapId_/views/_viewId_
+GET https://serverURL:9443/centreon-map/api/latest/maps/_mapId_/views/_viewId_
 ```
 
 </TabItem>
@@ -124,7 +126,7 @@ In this scenario, the "shape" element is a rectangle.
 <TabItem value="HTTP" label="HTTP">
 
 ```
-PUT http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views
+PUT http://serverURL:8081/centreon-map/api/latest/maps/_mapId_/views
 ```
 
 </TabItem>
@@ -132,7 +134,7 @@ PUT http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-PUT https://serverURL:9443/centreon-map/api/beta/maps/_mapId_/views
+PUT https://serverURL:9443/centreon-map/api/latest/maps/_mapId_/views
 ```
 
 </TabItem>

@@ -5,8 +5,11 @@ title: Medias
 
 Les médias sont des images utilisées par l'interface web de Centreon. Ces images
 sont utilisées afin de pouvoir représenter de manière plus intuitive les
-ressources supervisées, proposer des fonds de cartes pour des modules de
+ressources supervisées, fournir des fonds de cartes pour des modules de
 cartographie, etc.
+
+* Pour gérer les médias, vous devez être connecté à Centreon avec un profil administrateur ou éditeur.
+* Dans Centreon, un utilisateur ne peut afficher et utiliser une image que si une [règle d'accès](../access-control-lists.md) l'y autorise explicitement.
 
 ## Gestion des images
 

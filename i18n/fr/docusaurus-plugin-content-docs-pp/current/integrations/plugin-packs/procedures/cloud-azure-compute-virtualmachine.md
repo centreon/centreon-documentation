@@ -119,7 +119,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Vm-Sizes-Global" label="Vm-Sizes-Global">
 
-Coming soon
+| Nom                               | Unité |
+|:----------------------------------|:------|
+| azvm.general.standard_B*          | N/A   |
+| azvm.compute.standard_F*          | N/A   |
+| azvm.memory.standard_E*           | N/A   |
+| azvm.storage.standard_L*          | N/A   |
+| azvm.gpu.standard_N*              | N/A   |
+| azvm.high_performance.standard_H* | N/A   |
 
 </TabItem>
 </Tabs>

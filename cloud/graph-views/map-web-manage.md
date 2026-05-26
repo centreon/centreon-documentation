@@ -20,8 +20,6 @@ The homepage displays the list of existing maps and, for each map, you can view 
 
 You can perform actions on any standard map and geographic view you have access to. Use the following procedures if you need to edit map properties, share or delete a map.
 
-> The features to share and to copy a map URL are not available on a geographic view.
-
 ### Duplicate a map
 
 Click the **three vertical dots** menu at the top right of the map, and then click **Duplicate**.

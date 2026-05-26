@@ -398,7 +398,7 @@ make pure_install
 - Install the package with necessary tools
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Install the SDK
@@ -418,7 +418,7 @@ make pure_install
 - Install the package with necessary tools
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Install the SDK
@@ -642,13 +642,13 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 3. Apply the **Virt-VMWare2-ESX-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                      | Description                                                                                           | Default value     | Mandatory   |
-|:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONVMWAREPORT         | Port of the daemon (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends on the daemon's configuration)                                          | default           |              |
-| CENTREONVMWAREHOST         | Hostname of the server on which the daemon is installed (required)                                                                        | localhost         | X            |
-| ESXNAME                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                   |                   |             |
-| CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro                      | Description                                                                                                                      | Default value | Mandatory |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CENTREONVMWAREPORT         | Port of the daemon (default: 5700)                                                                                               | 5700          |           |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the daemon's configuration)                                                                      | default       |           |
+| CENTREONVMWAREHOST         | Hostname of the server on which the daemon is installed (required)                                                               | localhost     |     X     |
+| ESXNAME                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                    | .*            |     X     |
+| CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
