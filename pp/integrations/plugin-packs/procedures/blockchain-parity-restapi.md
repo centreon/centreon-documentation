@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 | Eth           | Blockchain-Parity-Restapi-Eth-custom    | Check Parity Eth whith API       |
 | Info          | Blockchain-Parity-Restapi-Info-custom   | Get Parity information whith API |
 | Parity        | Blockchain-Parity-Restapi-Parity-custom | Check Parity whith API           |
-| Eth           | Blockchain-Parity-Restapi-Eth-custom    | Check Parity Eth with API       |
+| Eth           | Blockchain-Parity-Restapi-Eth-custom    | Check the state of the Ethereum module of a Parity node with API       |
 | Info          | Blockchain-Parity-Restapi-Info-custom   | Get Parity information with API |
 | Parity        | Blockchain-Parity-Restapi-Parity-custom | Check Parity with API           |
 | Parity        | Blockchain-Parity-Restapi-Net-custom    | Check Parity net with API       |

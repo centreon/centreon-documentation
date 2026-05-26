@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias  | Modèle de service                       | Description                                    |
 |:-------|:----------------------------------------|:-----------------------------------------------|
-| Eth    | Blockchain-Parity-Restapi-Eth-custom    | Contrôle l'état des métriques Ethereum par API |
+| Eth    | Blockchain-Parity-Restapi-Eth-custom    | Contrôle l'état du module Ethereum d'un nœud Parity par API |
 | Info   | Blockchain-Parity-Restapi-Info-custom   | Récupérer les informations Parity par API      |
 | Parity | Blockchain-Parity-Restapi-Parity-custom | Contrôle l'état de Parity par API              |
 | Parity | Blockchain-Parity-Restapi-Net-custom    | Contrôle l'état du réseau Parity par API       |
