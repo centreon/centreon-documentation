@@ -37,9 +37,28 @@ docker login docker.centreon.com/centreon-dem-beta
 
 ## Étape 3 : Créer et démarrer la sonde
 
-1. Exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-la-zone-stm) pour créer la sonde et la démarrer. 
+<Tabs groupId="sync">
+<TabItem value="Sonde STM">
+
+Lorsque vous créez une sonde, les sondes STM sont le type par défault. Les sondes STM servent à collecter les métriques de performance habituelles utilisées par Experience Monitoring.
+
+1. Pour créer et démarrer une sonde STM, exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-la-zone-stm). 
 
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**.
+
+</TabItem>
+<TabItem value="Sonde recommendation">
+
+Lorsque vous créez une sonde, il est possible decréer une sonde de recommendations. Les sondes de recommendations tournent une fois par jour pour vous faire des recommendations personnalisées sur comment optimiser votre site.
+
+1. Pour créer et démarrer une sonde de recommendations, cliquez sur l'onglet **Recommendations** dans la section **Démarrer la sonde** et exécutez la commande affichée.
+
+2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**. Les sondes de recommendations se différencient des sondes STM grâce à leur icône de jumelles.
+
+Notez qu'il faut attendre 24 heures pour que la sonde ait assez de données pour commencer à faire des recommendations.
+
+</TabItem>
+</Tabs>
 
 ## Étape 4 : Associer la zone à un parcours utilisateur
 
