@@ -49,7 +49,7 @@ When creating a probe, STM probes are the type selected by default. STM probes c
 
 When creating a probe, it is possible to create a recommendation probe. Recommendation probes run once a day to make personalized suggestions on how to optimize your website.
 
-1. To create and launch the recommendations probe, click the **Recommendations** tab in the **Start the probe** section and execute the command.
+1. To create and launch the recommendations probe, click the **Recommendations** tab in the **Start the probe** section and execute the displayed command.
 
 2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list. Recommendation probes have binoculars icon to distinguish them from STM probes.
 
