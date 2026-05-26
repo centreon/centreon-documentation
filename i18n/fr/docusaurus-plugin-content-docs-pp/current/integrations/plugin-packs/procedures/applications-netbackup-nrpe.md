@@ -204,7 +204,7 @@ yum install nagios-plugins-nrpe
 | NRPEPORT         | Port used to reach the NRPE server                                                                                                     | 5666                  |             |
 | NRPECLIENT       | NRPE Binary used to perform the check                                                                                                     | check\_centreon\_nrpe |             |
 | NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                     | 55                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                       |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
