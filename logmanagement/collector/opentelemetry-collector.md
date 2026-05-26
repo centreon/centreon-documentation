@@ -14,7 +14,7 @@ As explained in [What is OpenTelemetry and how is it used by Centreon Log Manage
 
 ## Components of an OpenTelemetry Collector
 
-An OpenTelemetry Collector has three main components that are executed one after the other (see [diagram](#diagram) below):
+An OpenTelemetry Collector has three main components that are executed one after the other (see [diagram](#diagrams) below):
 
 * **Receivers** read data from files or receive data from a stream. They accept logs in various formats and from various sources (e.g., OTLP, syslog, etc). Some types of receivers include "operators", which are similar to processors but apply only to the logs from that specific receiver.
 * **Processors** let you perform actions on all logs in a given pipeline. They can filter, transform, or enrich data before it leaves the collector.
