@@ -35,9 +35,27 @@ docker login docker.centreon.com/centreon-dem-beta
 
 ## Step 3: Create and launch the probe
 
-1. To create and launch the probe, execute the second command you obtained at [step 2](#step-2-associate-a-probe-to-the-stm-zone).
+<Tabs groupId="sync">
+<TabItem value="Monitoring probe">
+
+When creating a probe, STM probes are the type selected by default. STM probes collect the usual performance metrics used by Experience Monitoring.
+
+1. To create and launch the STM probe, execute the second command you obtained at [step 2](#step-2-associate-a-probe-to-the-stm-zone).
 
 2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list.
+
+</TabItem>
+<TabItem value="Monitoring probe">
+
+When creating a probe, it is possible to create a recommendation probe. Recommendation probes run once a day to make personalized suggestions on how to optimize your website using the metrics collected by Experience Monitoring.
+
+1. To create and launch the recommendations probe, click the **Recommendations** tab in the **Start the probe** section and execute the command.
+
+2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list. Recommendation probes have binoculars icon to distinguish them from STM probes.
+
+Note that it takes 24 hours for the probe to gather enough data to start sending recommendations. 
+
+<\Tabs>
 
 ## Step 4: Associate the zone with a user journey
 
