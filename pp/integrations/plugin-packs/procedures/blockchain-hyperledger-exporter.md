@@ -160,7 +160,7 @@ yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 | EXPORTERAPIURLPATH   | URL to access the Hyperledger Exporter                                                                                                     | /                 |             |
 | EXPORTERAPIPORT      | Port used (default: 80)                                                                              |                   |             |
 | EXPORTERURLPATH      | The URL path used to reach the exporter’s HTTP endpoint                                                                                                     |                   |             |
-| EXPORTEREXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXPORTEREXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 | TIMEOUT              | Timeout in seconds for the command (default: 45). Default value can be override by the mode          |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
