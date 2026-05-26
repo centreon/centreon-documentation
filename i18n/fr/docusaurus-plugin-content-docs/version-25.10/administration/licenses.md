@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 ## Types de licences
 
-Selon votre [édition Centreon](https://www.centreon.com/editions/), votre licence peut être :
+Selon votre [édition Centreon](https://www.centreon.com/fr/editions-centreon/ ), votre licence peut être :
 
 - en ligne : gérée avec un jeton. Votre plateforme Centreon doit être connectée à internet.
 - hors ligne : gérée avec des fichiers de licence
