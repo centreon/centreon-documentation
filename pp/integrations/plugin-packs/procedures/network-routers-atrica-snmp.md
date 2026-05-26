@@ -1,6 +1,6 @@
 ---
 id: network-routers-atrica-snmp
-title: Atrica Routeur
+title: Atrica Routeur SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

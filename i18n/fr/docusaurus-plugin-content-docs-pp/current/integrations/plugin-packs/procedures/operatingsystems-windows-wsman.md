@@ -5,6 +5,13 @@ title: Windows WSMAN
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Windows WSMAN**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+
+* [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
@@ -33,6 +40,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                          | Description                                                                                                                                                 | Découverte |
 |:-------------------|:-------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
+| Certificates       | OS-Windows-Certificates-WSMAN-custom       | Contrôle les certificats locaux                                                                                                                                                                                                                                                                                                                                          | X          |
 | Disk-Global        | OS-Windows-Disk-Global-WSMAN-custom        | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                                                      | X          |
 | Files-Date-Generic | OS-Windows-Files-Date-Generic-WSMAN-custom | Contrôle le temps                                                                                                                                           |            |
 | Files-Size-Generic | OS-Windows-Files-Size-Generic-WSMAN-custom | Contrôle la taille des fichiers                                                                                                                             |            |
@@ -54,23 +62,32 @@ Le connecteur apporte les modèles de service suivants
 
 ### Règles de découverte
 
-#### Découverte de service
+#### Découverte de services
 
-| Nom de la règle                 | Description                                                   |
-|:--------------------------------|:--------------------------------------------------------------|
-| OS-Windows-WSMAN-Disk-Name      | Discover the disk partitions and monitor space occupation     |
-| OS-Windows-WSMAN-Processes-Name | Discover processes and monitor their system usage             |
-| OS-Windows-WSMAN-Services-Name  | Discover services and monitor their system usage              |
-| OS-Windows-WSMAN-Traffic-Name   | Discover network interfaces and monitor bandwidth utilization |
+| Nom de la règle                      | Description                                                   |
+|:-------------------------------------|:--------------------------------------------------------------|
+| OS-Windows-WSMAN-Certificate-Subject | Découvre et supervise les certificats locaux Windows          |
+| OS-Windows-WSMAN-Disk-Name           | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé     |
+| OS-Windows-WSMAN-Processes-Name      | Découvre les processus en utilisant leur nom et supervise leur utilisation par le système             |
+| OS-Windows-WSMAN-Services-Name       | Découvre les services en utilisant leur nom et supervise leur statut              |
+| OS-Windows-WSMAN-Traffic-Name        | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Métrique                    | Unité |
+|:----------------------------|:------|
+| certificates.detected.count | count |
+| certificate.expires.seconds | s     |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Métrique                                 | Unité |
@@ -313,6 +330,24 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Macro                          | Description                                                                                                                                                | Valeur par défaut | Obligatoire |
+|:-------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| UNIT                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s                 |             |
+| INCLUDE_THUMBPRINT             | Filter certificate by thumbprint (can be a regexp)                                                                                                         |                   |             |
+| EXCLUDE_THUMBPRINT             | Exclude certificate by thumbprint (can be a regexp)                                                                                                        |                   |             |
+| INCLUDE_SUBJECT                | Filter certificate by subject (can be a regexp)                                                                                                            |                   |             |
+| EXCLUDE_SUBJECT                | Exclude certificate by subject (can be a regexp)                                                                                                           |                   |             |
+| INCLUDE_PATH                   | Filter certificate by path (can be a regexp)                                                                                                               |                   |             |
+| EXCLUDE_PATH                   | Exclude certificate by path (can be a regexp)                                                                                                              |                   |             |
+| WARNING_CERTIFICATES_DETECTED  | Threshold                                                                                                                                                  |                   |             |
+| CRITICAL_CERTIFICATES_DETECTED | Threshold                                                                                                                                                  |                   |             |
+| WARNING_CERTIFICATE_EXPIRES    | Threshold                                                                                                                                                  |                   |             |
+| CRITICAL_CERTIFICATE_EXPIRES   | Threshold                                                                                                                                                  |                   |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).           |                   |             |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Macro           | Description                                                                                         | Valeur par défaut | Obligatoire |
@@ -374,8 +409,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 | NTPADDR      | Set the ntp hostname (if not set, localtime is used)                                                            |                   |             |
 | NTPPORT      | Set the ntp port (Default: 123)                                                                                 |                   |             |
 | TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100' |                   |             |
-| WARNING      | Time offset warning threshold (in seconds)                                                                      | -1:1              |             |
-| CRITICAL     | Time offset critical Threshold (in seconds)                                                                     | -2:2              |             |
+| WARNING      | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. | -1:1              |             |
+| CRITICAL     | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. | -2:2              |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                   |             |
 
 </TabItem>
@@ -535,6 +570,7 @@ Le plugin apporte les modes suivants :
 
 | Mode                                                                                                                            | Modèle de service associé                                                          |
 |:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/certificates.pm)]      | OS-Windows-Certificates-WSMAN-custom                                               |
 | cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/cpu.pm)]                        | OS-Windows-Cpu-WSMAN-custom                                                        |
 | eventlog [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/eventlog.pm)]              | Not used in this Monitoring Connector                                              |
 | files-date [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/filesdate.pm)]           | OS-Windows-Files-Date-Generic-WSMAN-custom                                         |
@@ -610,6 +646,26 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Option                           | Description                                                                                                                                                 |
+|:---------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                   |
+| --ps-display                     | Display powershell script.                                                                                                                                  |
+| --ps-exec-only                   | Print powershell output.                                                                                                                                    |
+| --include-thumbprint             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |
+| --exclude-thumbprint             | Exclude certificate by thumbprint (can be a regexp).                                                                                                        |
+| --include-subject                | Filter certificate by subject (can be a regexp).                                                                                                            |
+| --exclude-subject                | Exclude certificate by subject (can be a regexp).                                                                                                           |
+| --include-path                   | Filter certificate by path (can be a regexp).                                                                                                               |
+| --exclude-path                   | Exclude certificate by path (can be a regexp).                                                                                                              |
+| --unit                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. |
+| --warning-certificate-expires    | Threshold.                                                                                                                                                  |
+| --critical-certificate-expires   | Threshold.                                                                                                                                                  |
+| --warning-certificates-detected  | Threshold.                                                                                                                                                  |
+| --critical-certificates-detected | Threshold.                                                                                                                                                  |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Option                 | Description                                                                                                                                                                                                                                   |
@@ -674,8 +730,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option            | Description                                                                                                         |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------|
-| --warning-offset  | Time offset warning threshold (in seconds).                                                                         |
-| --critical-offset | Time offset critical Threshold (in seconds).                                                                        |
+| --warning-offset  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --ntp-hostname    | Set the ntp hostname (if not set, localtime is used).                                                               |
 | --ntp-port        | Set the ntp port (Default: 123).                                                                                    |
 | --timezone        | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.    |

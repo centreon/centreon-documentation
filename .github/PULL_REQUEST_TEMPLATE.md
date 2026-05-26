@@ -4,10 +4,10 @@ Please include a short summary of the changes and what is the purpose of the PR.
 
 ## Target version (i.e. version that this PR changes)
 
-- [ ] 23.10.x
-- [ ] 24.04.x
 - [ ] 24.10.x
 - [ ] 25.10.x
+- [ ] 26.10.x 
 - [ ] Cloud
 - [ ] Monitoring Connectors
-- [ ] Quanta by Centreon
+- [ ] Experience Monitoring
+- [ ] Log Management

@@ -1,10 +1,10 @@
 {
-  "item.label.Centreon OnPrem": {
-    "message": "Centreon OnPrem",
+  "item.label.Infra Monitoring OnPrem": {
+    "message": "Infra Monitoring OnPrem",
     "description": "Navbar item with label Centreon OnPrem"
   },
-  "item.label.Centreon Cloud": {
-    "message": "Centreon Cloud",
+  "item.label.Infra Monitoring Cloud": {
+    "message": "Infra Monitoring Cloud",
     "description": "Navbar item with label Centreon Cloud"
   },
   "item.label.Monitoring Connectors": {
