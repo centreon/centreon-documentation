@@ -37,6 +37,7 @@ In some situations, you may want to add an extra collector that sits in between 
 Use an OpenTelemetry Collector in gateway mode:
 
 * When you cannot install a collector in agent mode on a network device (e.g. a firewall).
+* When you want to control and limit outbound network traffic by only opening the necessary ports.
 * When you have a lot of services. If you have 50 services and you want to change where logs are sent, having a gateway means you only have one configuration to update.
 * When you want to clean up the data before it goes anywhere. Maybe some logs contain confidential data, or they contain too much information. The gateway can strip that out before the data ever reaches a third-party tool. One filter, applied everywhere, automatically.
 

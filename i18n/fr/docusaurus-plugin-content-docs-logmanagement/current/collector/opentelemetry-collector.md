@@ -37,6 +37,7 @@ Dans certains cas, vous pouvez souhaiter ajouter un collecteur supplémentaire p
 Utilisez un collecteur OpenTelemetry en mode gateway :
 
 * Lorsque vous ne pouvez pas installer un collecteur en mode agent sur un périphérique réseau (par exemple, un pare-feu).
+* Lorsque vous souhaitez contrôler et limiter le trafic réseau sortant en n'ouvrant que les ports nécessaires.
 * Lorsque vous disposez de nombreux services. Si vous avez 50 services et que vous souhaitez modifier la destination des logs, le fait d’utiliser une gateway signifie que vous n’avez qu’une seule configuration à mettre à jour.
 * Lorsque vous souhaitez nettoyer les données avant qu’elles ne soient transmises. Certains logs contiennent peut-être des données confidentielles, ou trop d’informations. La gateway peut les supprimer avant que les données n’atteignent un outil tiers. Un seul filtre, appliqué partout, automatiquement.
 
