@@ -55,7 +55,7 @@ When creating a probe, it is possible to create a recommendation probe. Recommen
 
 Note that it takes 24 hours for the probe to gather enough data to start sending recommendations. 
 
-<\Tabs>
+</Tabs>
 
 ## Step 4: Associate the zone with a user journey
 
