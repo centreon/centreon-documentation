@@ -50,15 +50,15 @@ Lorsque vous créez une sonde, les sondes STM sont le type par défault. Les son
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**.
 
 </TabItem>
-<TabItem value="Sonde recommendation">
+<TabItem value="Sonde recommandation">
 
-Lorsque vous créez une sonde, il est possible decréer une sonde de recommendations. Les sondes de recommendations tournent une fois par jour pour vous faire des recommendations personnalisées sur comment optimiser votre site.
+Lorsque vous créez une sonde, il est possible decréer une sonde de recommandations. Les sondes de recommandations tournent une fois par jour pour vous faire des recommandations personnalisées sur comment optimiser votre site.
 
-1. Pour créer et démarrer une sonde de recommendations, cliquez sur l'onglet **Recommendations** dans la section **Démarrer la sonde** et exécutez la commande affichée.
+1. Pour créer et démarrer une sonde de recommandations, cliquez sur l'onglet **recommandations** dans la section **Démarrer la sonde** et exécutez la commande affichée.
 
-2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**. Les sondes de recommendations se différencient des sondes STM grâce à leur icône de jumelles.
+2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**. Les sondes de recommandations se différencient des sondes STM grâce à leur icône de jumelles.
 
-Notez qu'il faut attendre 24 heures pour que la sonde ait assez de données pour commencer à faire des recommendations.
+Notez qu'il faut attendre 24 heures pour que la sonde ait assez de données pour commencer à faire des recommandations.
 
 </TabItem>
 </Tabs>
