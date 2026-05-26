@@ -50,7 +50,7 @@ Le connecteur apporte les modèles de service suivants
 | Aggregate-Raid-Status-Global | HW-Storage-NetApp-Ontap-Aggregate-Raid-Status-Global-Oncommandapi-custom | Contrôle l'état du raid d'un ou plusieurs agrégats      |
 | Aggregate-Status-Global      | HW-Storage-NetApp-Ontap-Aggregate-Status-Global-Oncommandapi-custom      | Contrôle l'état d'un ou plusieurs agrégats              |
 | Cluster-Usage-Global         | HW-Storage-NetApp-Ontap-Cluster-Usage-Global-Oncommandapi-custom         | Contrôle l'utilisation d'un ou plusieurs clusters         |
-| Disk-Spare                   | HW-Storage-NetApp-Ontap-Disk-Spare-Oncommandapi-custom                   | Contrôle le nombre de disque de spare et leur état       |
+| Disk-Spare                   | HW-Storage-NetApp-Ontap-Disk-Spare-Oncommandapi-custom                   | Contrôle le nombre de disque de rechange et leur état       |
 | FC-Port-Status-Global        | HW-Storage-NetApp-Ontap-Fc-Port-Status-Global-Oncommandapi-custom        | Contrôle le statut d'une ou plusieurs port fibre channels |
 | Lun-Alignment                | HW-Storage-NetApp-Ontap-Lun-Alignment-Oncommandapi-custom                | Contrôle les problèmes d'alignement des LUNs             |
 | Lun-Usage-Global             | HW-Storage-NetApp-Ontap-Lun-Usage-Global-Oncommandapi-custom             | Contrôle l'utilisation des LUNs                          |
