@@ -207,6 +207,7 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```
 OK: datasource 'value': 3.12 (min), 4.52 (avg), 5.13 (max) | 'value#datasource.value.minimum.count'=3.12;;;; 'value#datasource.value.average.count'=4.52;;;; 'value#datasource.value.maximum.count'=5.13;;;;
+```
 
 ### Diagnostic des erreurs communes
 
