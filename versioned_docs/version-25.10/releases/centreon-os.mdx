@@ -31,30 +31,30 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
   <summary>Enhancements</summary>
 
 - TLS configuration is now exported from .env to broker json files.
-- [Configuration] A dedicated window is available to ease CMA deployement.
+- [Configuration] Added a dedicated window to ease the deployment of CMA.
 - [Configuration] Disabled the Agent Type selector when editing an existing agent configuration.
-- [Configuration] Removed obsolete gorgone error message from configuration generation log.
-- [Performance] Improved ACL calculation by removing the dependency to an outdated class on legacy pages.
+- [Configuration] Removed an obsolete gorgone error message from the configuration log that appeared when exporting the configuration of a remote poller.
+- [Performance] Improved ACL calculations by removing the dependency to an outdated class on legacy pages.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue where adding image with a dot in directory name.
-- [API] Fixed an issue when filtering on a hostgroup in a host search.
-- [APIv2] Fixed the total of element in the servicegroup listing endpoint.
-- [Authentication] Fixed SAML authentication failure. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
-- [CLAPI] Fixed an issue where CG object were not showing members anymore.
-- [Centreon-Backup] Fixed a mysqldump issue fail since latest mariadb versions.
+- Fixed an issue where adding image linked to a host group with a dot in the directory name would result in an error.
+- [API] Fixed an issue where filtering on a hostgroup in a host search would not show all relevant host groups. The same issue was found and fixed for categories.
+- [APIv2] Fixed an issue with the API response not displaying all the requested elements.
+- [Authentication] Fixed authentication failures with SAML. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
+- [CLAPI] Fixed an issue where CG objects were not displaying a "members" column.
+- [Centreon-Backup] Fixed a mysqldump error 1045 that appeared when the user did not have LOCK TABLES permissions.
 - [Configuration] Fixed an issue where Centreon Engine statistics were no longer displayed.
 - [Configuration] Fixed an issue where empty/undefined inherited command macros were saved on final resource.
-- [Custom Views] Fixed a calculation error where host and service totals were displayed incorrectly for non-admin users.
-- [Event Logs] Resolved an issue where restricted users saw no results in the Event Log despite having assigned resources.
-- [Logs] Resolved an issue where insufficient user permissions triggered excessive PHP warnings, potentially causing disk space issues.
+- [Custom Views] Fixed an issue where the number of hosts and services displayed in some widgets was incorrect for non-admin users.
+- [Event Logs] Fixed an issue where restricted users saw no results in the Event Log despite having assigned resources.
+- [Logs] Fixed an issue where insufficient user permissions triggered excessive PHP warnings, potentially causing disk space issues.
 - [Resource Status] Fixed an issue where the Status column would disappear when navigating to the Resource Status page from a Dashboard "Resource Table" widget.
 - [Systemd] Allow php-fpm to write in /usr/share/centreon.
-- [Upgrade 24.10.x] Fixed missing column 'parameters' in additional_connector_configuration.
+- [Upgrade from 24.10.x] Fixed an issue with additional_connector_configuration that resulted in ab SQL error, blocking the upgrade entirely .
 - [Virtual metrics] Fixed an error when adding or editing a virtual metric with “VDEF” as the “DEF Type”.
 
 </details>
@@ -64,14 +64,14 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [Performance] Improved ACL calculation by removing the dependency to an outdated class on legacy pages.
+- [Performance] Improved ACL calculations by removing the dependency to an outdated class on legacy pages.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- Resolved incorrect redirections to status pages when initiated from legacy interface pages.
+- Resolved incorrect redirections to status pages when initiated from the Open ticket widgets.
 - [EasyVistaRest provider] Fixed ticket creation errors for custom database setups.
 
 </details>
@@ -82,14 +82,14 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
   <summary>Enhancements</summary>
 
 - [Broker] Enhanced cache reliability for stream connectors.
-- [Configuration] Macros can now be used in macros (recursive).
+- [Configuration] Macros can now be used inside custom macros (recursive).
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [Notifications] Fixed an issue where escalations was not triggered.
+- [Notifications] Fixed an issue where escalations would not be sent to the relevant users.
 
 </details>
 
@@ -114,7 +114,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- [CMA] Fixed an issue where certificate store was not taken into account.
+- [CMA] Fixed an issue with the certificate being saved in an incorrect location.
 
 </details>
 
