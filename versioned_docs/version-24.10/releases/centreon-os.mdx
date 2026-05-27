@@ -31,24 +31,24 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [Performance] Improved ACL calculation by removing the dependency to an outdated class on legacy pages.
+- [Performance] Improved ACL calculations by removing the dependency to an outdated class on legacy pages.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [APIv2] Fixed the total of element in the servicegroup listing endpoint.
+- [APIv2] Fixed an issue with the API response not displaying all the requested elements.
 - [Authentication] Fixed SAML authentication failure. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
-- [CLAPI] Fixed an issue where CG object were not showing members anymore.
+- [CLAPI] Fixed an issue where CG objects were not displaying a "members" column.
 - [Configuration] Fixed an issue where Centreon Engine statistics were no longer displayed.
-- [Configuration] Fixed an issue where unlinking a host template from a host does not unlink it from the service by host page.
-- [Custom Views] Fixed a calculation error where host and service totals were displayed incorrectly for non-admin users.
-- [Dashboards] Fixed issue preventing "Clock/Timer" widget from being displayed in Playlists.
-- [Dashboards] Fixed the period selection in the *Business Activity status timeline* widget.
-- [Event Logs] Resolved an issue where restricted users saw no results in the Event Log despite having assigned resources.
-- [Logs] Resolved an issue where insufficient user permissions triggered excessive PHP warnings, potentially causing disk space issues.
-- [Monitoring] Fixed difference of values in graph between the Ressource status and the Performance pages.
+- [Configuration] Fixed an issue where, after unlinking a host template from a host, it would still appear as linked in the services by host page.
+- [Custom Views] Fixed an issue where the number of hosts and services displayed in some widgets was incorrect for non-admin users.
+- [Dashboards] Fixed an issue preventing "Clock/Timer" widget from being displayed in Playlists.
+- [Dashboards] Fixed an issue with the time period selection in the *Business Activity status timeline* widget.
+- [Event Logs] Fixed an issue where restricted users saw no results in the Event Log despite having assigned resources.
+- [Logs] Fixed an issue where insufficient user permissions would trigger excessive PHP warnings, potentially causing disk space issues.
+- [Monitoring] Fixed a difference of values in the graphs between the Ressource status and the Performance pages.
 - [Resource Status] Fixed an issue where the Status column would disappear when navigating to the Resource Status page from a Dashboard "Resource Table" widget.
 - [Systemd] Allow php-fpm to write in /usr/share/centreon.
 
@@ -59,7 +59,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [Performance] Improved ACL calculation by removing the dependency to an outdated class on legacy pages.
+- [Performance] Improved ACL calculations by removing the dependency to an outdated class on legacy pages.
 
 </details>
 
@@ -67,7 +67,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
   <summary>Bug fixes</summary>
 
 - Fixed an issue where tickets were lost when custom variables were modified after ticket creation.
-- Resolved incorrect redirections to status pages when initiated from legacy interface pages.
+- Resolved incorrect redirections to status pages when initiated from the Open ticket widgets.
 
 </details>
 
