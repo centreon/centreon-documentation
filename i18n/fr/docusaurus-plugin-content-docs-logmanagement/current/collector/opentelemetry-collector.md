@@ -10,7 +10,7 @@ Comme expliqué dans [Qu'est-ce qu'OpenTelemetry et comment Centreon Log Managem
 
 * Un seul collecteur est nécessaire par hôte.
 * Vous pouvez envoyer différents types de logs à l'aide du même collecteur.
-* Un collecteur qui recueille les logs directement depuis un hôte est un collecteur en mode agent. Il peut parfois être utile de mettre en chaîne des collecteurs, les collecteurs en mode agent transmettant leurs données à un [collecteur en mode gateway](#opentelemetry-collectors-in-gateway-mode).
+* Un collecteur qui recueille les logs directement depuis un hôte est un collecteur en mode agent. Il peut parfois être utile de mettre en chaîne des collecteurs, les collecteurs en mode agent transmettant leurs données à un [collecteur en mode gateway](#collecteurs-opentelemetry-en-mode-gateway).
 
 ## Composants d'un collecteur OpenTelemetry
 
