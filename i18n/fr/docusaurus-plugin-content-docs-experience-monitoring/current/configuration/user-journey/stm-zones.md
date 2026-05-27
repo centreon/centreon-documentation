@@ -43,7 +43,7 @@ docker login docker.centreon.com/centreon-dem-beta
 <Tabs groupId="sync">
 <TabItem value="Sonde STM">
 
-Lorsque vous créez une sonde, les sondes STM sont le type par défault. Les sondes STM servent à collecter les métriques de performance habituelles utilisées par Experience Monitoring.
+Lorsque vous créez une sonde, les sondes STM sont le type par défaut. Celles-ci servent à collecter les métriques de performance habituelles utilisées par Experience Monitoring.
 
 1. Pour créer et démarrer une sonde STM, exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-la-zone-stm). 
 
@@ -52,7 +52,7 @@ Lorsque vous créez une sonde, les sondes STM sont le type par défault. Les son
 </TabItem>
 <TabItem value="Sonde recommandation">
 
-Lorsque vous créez une sonde, il est possible decréer une sonde de recommandations. Les sondes de recommandations tournent une fois par jour pour vous faire des recommandations personnalisées sur comment optimiser votre site.
+Vous pouvez également créer des sondes de recommandations. Ces dernières tournent une fois par jour pour vous faire des recommandations personnalisées sur comment optimiser votre site.
 
 1. Pour créer et démarrer une sonde de recommandations, cliquez sur l'onglet **recommandations** dans la section **Démarrer la sonde** et exécutez la commande affichée.
 
