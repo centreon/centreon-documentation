@@ -77,7 +77,7 @@ Votre tableau de bord affiche maintenant le widget **Tableau des ressources** co
 > Vous pouvez également fermer les tickets directement à partir du widget.
 
 </TabItem>
-<TabItem value="Vues personnalisées (legacy)" label="Vues personnalisées (legacy)">
+<TabItem value="Custom Views (legacy)" label="Vues personnalisées (legacy)">
 
 Pour utiliser le widget, vous devez l'ajouter dans une vue personnalisée. 
 

@@ -56,7 +56,7 @@ Votre tableau de bord affiche désormais deux widgets **Tableau des ressources**
 * Lorsqu'un utilisateur ferme un ticket, si votre fournisseur le permet, le ticket sera également automatiquement fermé dans votre outil ITSM.
 
 </TabItem>
-<TabItem value="Vues personnalisées (legacy)" label="Vues personnalisées (legacy)">
+<TabItem value="Custom Views (legacy)" label="Vues personnalisées (legacy)">
 
 1. Allez à la page **Accueil > Vues personnalisées**, sélectionnez votre vue et ajoutez deux widgets **Open Tickets**.
 
