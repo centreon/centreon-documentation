@@ -10,11 +10,11 @@ Comme expliqué dans [Qu'est-ce qu'OpenTelemetry et comment Centreon Log Managem
 
 * Un seul collecteur est nécessaire par hôte.
 * Vous pouvez envoyer différents types de logs à l'aide du même collecteur.
-* Un collecteur qui recueille les logs directement depuis un hôte est un collecteur en mode agent. Il peut parfois être utile de mettre en chaîne des collecteurs, les collecteurs en mode agent transmettant leurs données à un [collecteur en mode gateway](#opentelemetry-collectors-in-gateway-mode).
+* Un collecteur qui recueille les logs directement depuis un hôte est un collecteur en mode agent. Il peut parfois être utile de mettre en chaîne des collecteurs, les collecteurs en mode agent transmettant leurs données à un [collecteur en mode gateway](#collecteurs-opentelemetry-en-mode-gateway).
 
 ## Composants d'un collecteur OpenTelemetry
 
-Un collecteur OpenTelemetry comprend trois composants principaux qui s'exécutent les uns après les autres (voir le [schéma](#schéma) ci-dessous) :
+Un collecteur OpenTelemetry comprend trois composants principaux qui s'exécutent les uns après les autres (voir le [schéma](#schémas) ci-dessous) :
 
 * Les **receivers** lisent les données à partir de fichiers ou les reçoivent via un flux. Ils acceptent des logs dans divers formats et provenant de diverses sources (par exemple, OTLP, syslog, etc.). Certains types de receivers incluent des "operators", qui sont similaires aux processors mais s’appliquent uniquement aux logs provenant de ce récepteur spécifique.
 * Les **processors** vous permettent d’effectuer des actions sur tous les logs d’un pipeline donné. Ils peuvent filtrer, transformer ou enrichir les données avant qu’elles ne quittent le collecteur.
