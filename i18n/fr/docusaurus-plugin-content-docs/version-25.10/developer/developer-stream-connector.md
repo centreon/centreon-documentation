@@ -36,6 +36,8 @@ La documentation technique complète est disponible [ici](developer-broker-strea
 * Le premier, simple, qui explique les bases des Stream Connectors. Son objectif est d'exporter les données vers un fichier journal.
 * Le second est plus exigeant pour le lecteur, il exporte les données de performance vers la TSDB InfluxDB mais est facilement adaptable pour exporter vers une autre TSDB.
 
+Si vous incluez d'autres scripts au sein de votre stream connector (avec un include), toute modification apportée sur les scripts inclus doit être suivie d’un redémarrage (et non d’un rechargement) de Broker pour être prise en compte.
+
 ### Langage de programmation
 
 Centreon a choisi le langage de programmation Lua pour vous permettre de manipuler, d'agréger et de transférer des données. Lua est un langage de programmation facile à utiliser. De plus amples informations sont disponibles avec la [Documentation officielle Lua](https://www.lua.org/docs.html).
