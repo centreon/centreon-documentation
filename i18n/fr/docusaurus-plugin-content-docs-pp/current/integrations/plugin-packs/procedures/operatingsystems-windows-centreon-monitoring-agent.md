@@ -803,7 +803,7 @@ custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
 
 3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
+## Comment puis-je tester le plugin et que signifient les options des commandes ? (contrôles non natifs uniquement)
 
 Vous pouvez tester que le plugin parvient bien à superviser votre serveur Windows en utilisant une commande
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :

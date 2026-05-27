@@ -819,7 +819,7 @@ custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
 
 3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
+## How to check in the CLI that the configuration is OK and what are the main options for? (non-native checks only)
 
 Test that the plugin is able to monitor your Windows server by using a command like this one (replace the sample values by yours):
 
