@@ -6,7 +6,7 @@ title: Superviser des parcours utilisateur non-publics (beta fermée)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser vos parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation, via une sonde déployée dans votre infrastructure.
+Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser vos parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation, via une sonde déployée dans votre infrastructure. Vous pouvez également utiliser une sonde pour obtenir des recommandations personnalisées pour optimiser votre site.
 
 ## Prérequis
 
