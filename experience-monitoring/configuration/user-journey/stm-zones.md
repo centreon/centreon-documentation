@@ -56,7 +56,7 @@ Probes can also be created as recommendations probes. These run once a day to ma
 
 2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list. Recommendation probes have a binoculars icon to distinguish them from STM probes.
 
-Note that it takes 24 hours for the probe to gather enough data to start sending recommendations. 
+Note that it takes up to 24 hours for the probe to gather enough data to start sending recommendations. 
 
 </TabItem>
 </Tabs>
