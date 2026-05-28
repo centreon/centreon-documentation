@@ -156,7 +156,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'ciam/cloud-saml',
+          id: 'users/cloud-saml',
         },
       ],
     },
