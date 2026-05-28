@@ -1,5 +1,5 @@
 ---
-id: ciam
+id: centreon-hub
 title: Portail utilisateur (Centreon Hub)
 ---
 
