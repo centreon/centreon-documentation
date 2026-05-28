@@ -5,24 +5,24 @@ title: Configurer une connexion SAML
 
 Une connexion SAML (Security Assertion Markup Language) vous permet de mettre en place une authentification unique (SSO) fluide et sécurisée pour votre organisation.
 
-Ainsi, vous pouvez lier votre organisation dans le [CIAM](ciam.md) à un fournisseur d'identité, de sorte que vos utilisateurs n'aient pas besoin de se connecter chaque fois qu'ils veulent utiliser Centreon Cloud.
+Ainsi, vous pouvez lier votre organisation dans [Centreon Hub](centreon-hub.md) à un fournisseur d'identité, de sorte que vos utilisateurs n'aient pas besoin de se connecter chaque fois qu'ils veulent utiliser Centreon Cloud.
 
 ## Prérequis
 
 Dans votre fournisseur d'identité :
 
 1. Créez une application.
-2. Créez des rôles d'application, qui seront reliés à un [rôle dans le CIAM : **User**, **Editor** et **Administrator**](../users/users.md#rôles-des-utilisateurs).
+2. Créez des rôles d'application, qui seront reliés à un [rôle dans Centreon Hub : **User**, **Editor** et **Administrator**](users.md#rôles-des-utilisateurs).
 3. Assignez vos utilisateurs à l'application, puis assignez un rôle à chacun.
 
-Si vous avez déjà des utilisateurs dans le CIAM, le rôle de l'utilisateur dans l'IdP remplacera son rôle actuel dans le CIAM, à l'exception du rôle **Administrator** dans le CIAM, qui ne change pas. Cela permet d'éviter de perdre par erreur l'accès à votre organisation.
+Si vous avez déjà des utilisateurs dans Centreon Hub, le rôle de l'utilisateur dans l'IdP remplacera son rôle actuel dans Centreon Hub, à l'exception du rôle **Administrator** dans Centreon Hub, qui ne change pas. Cela permet d'éviter de perdre par erreur l'accès à votre organisation.
 
 ## Étape 1 : Accéder à la page de configuration
 
-> Vous devez avoir le rôle **Administrator** dans le CIAM pour pouvoir configurer SAML pour une organisation.
+> Vous devez avoir le rôle **Administrator** dans Centreon Hub pour pouvoir configurer SAML pour une organisation.
 
-1. Connectez-vous au CIAM.
-2. SI vous appartenez à plusieurs organisations, sélectionnez l'organization désirée dans la liste en haut à gauche de la page.
+1. Connectez-vous à Centreon Hub.
+2. Si vous appartenez à plusieurs organisations, sélectionnez l'organization désirée dans la liste en haut à gauche de la page.
 3. Allez à la page **Organization > Authentication**.
 
 ## Étape 2 : Configurer la connexion à votre fournisseur d'identité
@@ -48,14 +48,14 @@ Avant d'activer l'authentification SAML, vous devez remplir tous les paramètres
 4. **Role mapping**:
 
    * **Role attribute path**: Récupérez cette valeur dans les métadonnées de votre application. Exemple : `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role`.
-   * Créez les mappings désirés. Il existe [3 rôles dans le CIAM (**User**, **Editor** et **Administrator**)](../users/users.md#rôles-des-utilisateurs) qui peuvent être mappés aux rôles que vous avez créés dans votre fournisseur d'identité (un rôle CIAM peut être mappé à un, plusieurs ou aucun rôle de votre IDP). Dans le champ **Valeur de l'attribut**, entrez la valeur exacte que vous avez définie pour chaque rôle dans votre fournisseur d'identité (la valeur, pas le nom d'affichage). Les utilisateurs qui se connectent à Centreon se verront automatiquement attribuer des droits sur les menus et les actions, car un rôle leur sera attribué selon les règles que vous avez définies. Notez que si vous assignez plusieurs rôles à un même utilisateur, l'utilisateur aura les droits du rôle avec la plus haute priorité parmi ceux qui lui ont été attribués.
+   * Créez les mappings désirés. Il existe [3 rôles dans Centreon Hub (**User**, **Editor** et **Administrator**)](users.md#rôles-des-utilisateurs) qui peuvent être mappés aux rôles que vous avez créés dans votre fournisseur d'identité (un rôle Centreon Hub peut être mappé à un, plusieurs ou aucun rôle de votre IdP). Dans le champ **Valeur de l'attribut**, entrez la valeur exacte que vous avez définie pour chaque rôle dans votre fournisseur d'identité (la valeur, pas le nom d'affichage). Les utilisateurs qui se connectent à Centreon se verront automatiquement attribuer des droits sur les menus et les actions, car un rôle leur sera attribué selon les règles que vous avez définies. Notez que si vous assignez plusieurs rôles à un même utilisateur, l'utilisateur aura les droits du rôle avec la plus haute priorité parmi ceux qui lui ont été attribués.
 
-   > Il est possible de ne pas définir de mapping de rôles. Cette option est réservée à des fins de test. Dans ce cas, les utilisateurs devront être invités manuellement dans le CIAM avant de pouvoir rejoindre votre organisation à l'aide du SSO.
+   > Il est possible de ne pas définir de mapping de rôles. Cette option est réservée à des fins de test. Dans ce cas, les utilisateurs devront être invités manuellement dans Centreon Hub avant de pouvoir rejoindre votre organisation à l'aide du SSO.
 
 5. **Group mapping**:
 
    * **Group attribute path**: Récupérez cette valeur dans les métadonnées de votre application.
-   * Grâce aux listes apparaissant en dessous, faites correspondre les valeurs d'attribut correctes avec les [groupes d'utilisateurs du CIAM](../users/user_groups.md) désirés. Cela déterminera [quels droits les utilisateurs auront sur les ressources](../administration/resource_access.md).
+   * Grâce aux listes apparaissant en dessous, faites correspondre les valeurs d'attribut correctes avec les [groupes d'utilisateurs de Centreon Hub](user_groups.md) désirés. Cela déterminera [quels droits les utilisateurs auront sur les ressources](../administration/resource_access.md).
 
 ## Étape 3 : Tester la connexion et activer SAML
 
