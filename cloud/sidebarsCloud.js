@@ -140,7 +140,7 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'ciam/ciam',
+          id: 'users/centreon-hub',
         },
         {
           type: 'doc',
