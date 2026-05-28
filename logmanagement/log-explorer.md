@@ -57,7 +57,7 @@ Click a log to see all related information in the **Log details** panel, includi
 * Use the **Search and add column** button at the top right of the results to choose which columns/attributes you want to display.
 * In this window, you can reset the display to the 3 default columns.
 * The **Time** column is always displayed first and cannot be unpinned. You can pin one other column in second position.
-* *You can drag columns to a different position in the table.
+* You can drag columns to a different position in the table.
 
    ![image](assets/column-management.png)
 
