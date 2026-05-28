@@ -6240,7 +6240,7 @@ Object name: **BV**
 To list available BVs, use the **SHOW** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BV -a SHOW
+centreon -u admin -p 'centreon' -o BV -a SHOW
 id;name;description
 4;BV1;BV1
 5;BV2;BV2
@@ -6261,7 +6261,7 @@ The following columns are required:
 To add a BV, use the **ADD** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BV -a ADD -v 'BV1;BV1'
+centreon -u admin -p 'centreon' -o BV -a ADD -v 'BV1;BV1'
 ```
 
 The following columns are required:
@@ -6276,7 +6276,7 @@ The following columns are required:
 To remove a BV, use the **DEL** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BV -a DEL -v 'BV1'
+centreon -u admin -p 'centreon' -o BV -a DEL -v 'BV1'
 ```
 
 #### SETPARAM
@@ -6284,7 +6284,7 @@ To remove a BV, use the **DEL** action:
 To change specific parameters for a BV, use the **SETPARAM** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BV -a SETPARAM -v 'BV1;description;BV description'
+centreon -u admin -p 'centreon' -o BV -a SETPARAM -v 'BV1;description;BV description'
 ```
 
 You can change the following parameters:
@@ -6300,7 +6300,7 @@ You can change the following parameters:
 To set the Business Activity (BA) to a BV, use the **SETBA** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BV -a SETBA -v 'bv1;ba1'
+centreon -u admin -p 'centreon' -o BV -a SETBA -v 'bv1;ba1'
 ```
 
 The following columns are required:
@@ -6315,7 +6315,7 @@ The following columns are required:
 To add BA to a BV, use the **ADDBA** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BV -a ADDBA -v 'bv1;ba1'
+centreon -u admin -p 'centreon' -o BV -a ADDBA -v 'bv1;ba1'
 ```
 
 The following columns are required:
@@ -6330,7 +6330,7 @@ The following columns are required:
 To delete a BA from a BV, use the **DELBA** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BV -a DELBA -v 'bv1;ba1'
+centreon -u admin -p 'centreon' -o BV -a DELBA -v 'bv1;ba1'
 ```
 
 The following columns are required:
@@ -6345,7 +6345,7 @@ The following columns are required:
 To set an ACL group to a BV, use the **SETACLGROUP** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BV -a SETACLGROUP -v 'bv1;ALL'
+centreon -u admin -p 'centreon' -o BV -a SETACLGROUP -v 'bv1;ALL'
 ```
 
 The following columns are required:
@@ -6360,7 +6360,7 @@ The following columns are required:
 To add an ACL group to a BV, use the **ADDACLGROUP** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BV -a ADDACLGROUP -v 'bv1;ALL'
+centreon -u admin -p 'centreon' -o BV -a ADDACLGROUP -v 'bv1;ALL'
 ```
 
 The following columns are required:
@@ -6375,7 +6375,7 @@ The following columns are required:
 To delete an ACL group from a BV, use the **DELACLGROUP** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BV -a DELACLGROUP -v 'bv1;ALL'
+centreon -u admin -p 'centreon' -o BV -a DELACLGROUP -v 'bv1;ALL'
 ```
 
 The following columns are required:
@@ -6394,7 +6394,7 @@ Object name: **BA**
 To list available business activities, use the **SHOW** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a SHOW
+centreon -u admin -p 'centreon' -o BA -a SHOW
 id;name;description;state_source;level_w;level_c;notification_interval
 1;ba1;ba1;1;80;70;3
 2;ba2;ba2;2;;;2
@@ -6423,7 +6423,7 @@ Business Activity Calculation Methods (state_source):
 To add a BA, use the **ADD** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a ADD -v 'ba1;ba1;0;90;80;5'
+centreon -u admin -p 'centreon' -o BA -a ADD -v 'ba1;ba1;0;90;80;5'
 ```
 
 The following columns are required:
@@ -6442,7 +6442,7 @@ The following columns are required:
 To remove a BA, use the **DEL** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a DEL -v 'ba1'
+centreon -u admin -p 'centreon' -o BA -a DEL -v 'ba1'
 ```
 
 #### SETPARAM
@@ -6450,9 +6450,9 @@ To remove a BA, use the **DEL** action:
 To change a specific parameters for a BV, use the **SETPARAM** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a SETPARAM -v 'ba1;enable;1'
-./centreon -u admin -p 'centreon' -o BA -a SETPARAM -v 'ba1;comment;new comments'
-./centreon -u admin -p 'centreon' -o BA -a SETPARAM -v 'ba1;notification_options;r,w,c'
+centreon -u admin -p 'centreon' -o BA -a SETPARAM -v 'ba1;enable;1'
+centreon -u admin -p 'centreon' -o BA -a SETPARAM -v 'ba1;comment;new comments'
+centreon -u admin -p 'centreon' -o BA -a SETPARAM -v 'ba1;notification_options;r,w,c'
 ```
 
 Parameters that you can change are the following:
@@ -6485,8 +6485,8 @@ Parameters that you can change are the following:
 To set a BV to a BA, use the **SETBV** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a SETBV -v 'ba1;bv1'
-./centreon -u admin -p 'centreon' -o BA -a SETBV -v 'ba1;bv1|bv2'
+centreon -u admin -p 'centreon' -o BA -a SETBV -v 'ba1;bv1'
+centreon -u admin -p 'centreon' -o BA -a SETBV -v 'ba1;bv1|bv2'
 ```
 
 The following columns are required:
@@ -6501,8 +6501,8 @@ The following columns are required:
 To add a BV to a BA, use the **ADDBV** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a ADDBV -v 'ba1;bv1'
-./centreon -u admin -p 'centreon' -o BA -a ADDBV -v 'ba1;bv2|bv3'
+centreon -u admin -p 'centreon' -o BA -a ADDBV -v 'ba1;bv1'
+centreon -u admin -p 'centreon' -o BA -a ADDBV -v 'ba1;bv2|bv3'
 ```
 
 The following columns are required:
@@ -6517,7 +6517,7 @@ The following columns are required:
 To delete a BV from a BA, use the **DELBV** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a DELBV -v 'ba1;bv1'
+centreon -u admin -p 'centreon' -o BA -a DELBV -v 'ba1;bv1'
 ```
 
 The following columns are required:
@@ -6532,8 +6532,8 @@ The following columns are required:
 To set contact group to a BA, use the **SETCONTACTGROUP** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a SETCONTACTGROUP -v 'ba1;Guest'
-./centreon -u admin -p 'centreon' -o BA -a SETCONTACTGROUP -v 'ba1;Guest|Supervisors'
+centreon -u admin -p 'centreon' -o BA -a SETCONTACTGROUP -v 'ba1;Guest'
+centreon -u admin -p 'centreon' -o BA -a SETCONTACTGROUP -v 'ba1;Guest|Supervisors'
 ```
 
 The following columns are required:
@@ -6548,7 +6548,7 @@ The following columns are required:
 To add contact group to a BA, use the **ADDCONTACTGROUP** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a ADDCONTACTGROUP -v 'ba1;Guest'
+centreon -u admin -p 'centreon' -o BA -a ADDCONTACTGROUP -v 'ba1;Guest'
 ```
 
 The following columns are required:
@@ -6563,7 +6563,7 @@ The following columns are required:
 To delete a contact group from a BA, use the **DELCONTACTGROUP** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a DELCONTACTGROUP -v 'ba1;Guest'
+centreon -u admin -p 'centreon' -o BA -a DELCONTACTGROUP -v 'ba1;Guest'
 ```
 
 The following columns are required:
@@ -6579,7 +6579,7 @@ To set extra reporting periods for Centreon MBI, use the
 **SETEXTRAREPORTINGPERIOD** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a SETEXTRAREPORTINGPERIOD -v 'ba1;workhours'
+centreon -u admin -p 'centreon' -o BA -a SETEXTRAREPORTINGPERIOD -v 'ba1;workhours'
 ```
 
 The following columns are required:
@@ -6595,7 +6595,7 @@ To add extra reporting periods for Centreon MBI, use the
 **ADDEXTRAREPORTINGPERIOD** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a ADDEXTRAREPORTINGPERIOD -v 'ba1;workhours'
+centreon -u admin -p 'centreon' -o BA -a ADDEXTRAREPORTINGPERIOD -v 'ba1;workhours'
 ```
 
 The following columns are required:
@@ -6611,7 +6611,7 @@ To delete extra reporting periods from a BA, use the
 **DELEXTRAREPORTINGPERIOD** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a DELEXTRAREPORTINGPERIOD -v 'ba1;workhours'
+centreon -u admin -p 'centreon' -o BA -a DELEXTRAREPORTINGPERIOD -v 'ba1;workhours'
 ```
 
 The following columns are required:
@@ -6627,7 +6627,7 @@ To set the poller where the BA is calculated (in addition to central),
 use the **SETPOLLER** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a SETPOLLER -v 'ba1;poller1'
+centreon -u admin -p 'centreon' -o BA -a SETPOLLER -v 'ba1;poller1'
 ```
 
 The following columns are required:
@@ -6643,7 +6643,7 @@ To delete poller where the BA is calculated, use the **DELPOLLER**
 action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BA -a DELPOLLER -v 'ba1;poller1'
+centreon -u admin -p 'centreon' -o BA -a DELPOLLER -v 'ba1;poller1'
 ```
 
 The following columns are required:
@@ -6662,7 +6662,7 @@ Object name: **KPI**
 To list available KPI, use the **SHOW** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o KPI -a SHOW
+centreon -u admin -p 'centreon' -o KPI -a SHOW
 id;type;name;impacted_ba;warning_impact;critical_impact;unknown_impact
 1;service;Centreon-Server Load;ba1;25;50;20
 2;metaservice;meta1;toto;50;100;75
@@ -6686,10 +6686,10 @@ Columns are the following:
 To add a KPI, use the **ADD** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o KPI -a ADD -v 'service;host1|service1;ba1;10;20;5'
-./centreon -u admin -p 'centreon' -o KPI -a ADD -v 'metaservice;meta11;ba2;minor;major;null'
-./centreon -u admin -p 'centreon' -o KPI -a ADD -v 'ba;ba1;ba3;10;20;5'
-./centreon -u admin -p 'centreon' -o KPI -a ADD -v 'boolean;rule1;ba4;10;20;5'
+centreon -u admin -p 'centreon' -o KPI -a ADD -v 'service;host1|service1;ba1;10;20;5'
+centreon -u admin -p 'centreon' -o KPI -a ADD -v 'metaservice;meta11;ba2;minor;major;null'
+centreon -u admin -p 'centreon' -o KPI -a ADD -v 'ba;ba1;ba3;10;20;5'
+centreon -u admin -p 'centreon' -o KPI -a ADD -v 'boolean;rule1;ba4;10;20;5'
 ```
 
 Required columns are the following:
@@ -6708,7 +6708,7 @@ Required columns are the following:
 If you want to remove a KPI, use the **DEL** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o KPI -a DEL -v 'ba;ba1;ba3'
+centreon -u admin -p 'centreon' -o KPI -a DEL -v 'ba;ba1;ba3'
 ```
 
 #### SETPARAM
@@ -6717,8 +6717,8 @@ If you want to change a specific parameters for a KPI, use the
 **SETPARAM** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o KPI -a SETPARAM -v 'service;host1|service1;ba1;enable;0'
-./centreon -u admin -p 'centreon' -o KPI -a SETPARAM -v 'metaservice;meta1;ba1;warning_impact;50'
+centreon -u admin -p 'centreon' -o KPI -a SETPARAM -v 'service;host1|service1;ba1;enable;0'
+centreon -u admin -p 'centreon' -o KPI -a SETPARAM -v 'metaservice;meta1;ba1;warning_impact;50'
 ```
 
 Parameters that you can change are the following:
@@ -6737,7 +6737,7 @@ If you want to change configuration mode, use the **SETIMPACTMODE**
 action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o KPI -a SETIMPACTMODE -v 'ba;ba1;ba3;advanced'
+centreon -u admin -p 'centreon' -o KPI -a SETIMPACTMODE -v 'ba;ba1;ba3;advanced'
 ```
 
 Parameters that you can change are the following:
@@ -6758,7 +6758,7 @@ Object name: **BOOLEANRULE**
 To list available boolean rules, use the **SHOW** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BOOLEANRULE -a SHOW
+centreon -u admin -p 'centreon' -o BOOLEANRULE -a SHOW
 id;name;expression;bool_state
 8;rule1;expression1;1
 9;rule2;expression2;1
@@ -6779,7 +6779,7 @@ The following columns are required:
 To add a boolean rule, use the **ADD** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BOOLEANRULE -a ADD -v 'rule1;expression1;1'
+centreon -u admin -p 'centreon' -o BOOLEANRULE -a ADD -v 'rule1;expression1;1'
 ```
 
 The following columns are required:
@@ -6795,7 +6795,7 @@ The following columns are required:
 To remove a boolean rule, use the **DEL** action:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BOOLEANRULE -a DEL -v 'rule1'
+centreon -u admin -p 'centreon' -o BOOLEANRULE -a DEL -v 'rule1'
 ```
 
 #### SETPARAM
@@ -6804,7 +6804,7 @@ To change a specific parameter for a boolean rule, use the **SETPARAM**
 command:
 
 ``` shell
-./centreon -u admin -p 'centreon' -o BOOLEANRULE -a setparam -v 'rule1;expression;new expression'
+centreon -u admin -p 'centreon' -o BOOLEANRULE -a setparam -v 'rule1;expression;new expression'
 ```
 
 Parameters that you can change are the following:
