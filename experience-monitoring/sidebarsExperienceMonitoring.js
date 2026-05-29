@@ -2,41 +2,31 @@ module.exports = {
   'experience-monitoring': [
     {
       type: 'category',
-      label: 'What can I do with Centreon Experience Monitoring?',
+      label: 'Getting started with Experience Monitoring',
       link: {
         type: "doc",
-        id: "getting-started/welcome"
+        id: "getting-started/welcome",
       },
       items: [
-        { type: 'doc', id: 'getting-started/experience-monitoring-solution' },
-        { type: 'doc', id: 'getting-started/synthetic-monitoring' },
-        { type: 'doc', id: 'getting-started/real-user-monitoring' },
-        { type: 'doc', id: 'getting-started/digital-sobriety' },
-        { type: 'doc', id: 'getting-started/system-view' },
-        { type: 'doc', id: 'getting-started/network-data' },
-        { type: 'doc', id: 'getting-started/business-view' },
-        { type: 'doc', id: 'getting-started/load-tests' },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Setting up Experience Monitoring',
-      link: {
-        type: 'generated-index',
-      },
-      items: [
-        { type: 'doc', id: 'installation/installation-checklist' },
-
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Getting to know Experience Monitoring',
-      link: {
-        type: 'generated-index',
-      },
-      items: [
-             {
+        {
+          type: 'category',
+          label: 'What can I do with Experience Monitoring',
+          link: {
+            type: 'doc',
+            id: 'getting-started/experience-monitoring-solution',
+          },
+          items: [
+            { type: 'doc', id: 'getting-started/synthetic-monitoring' },
+            { type: 'doc', id: 'getting-started/real-user-monitoring' },
+            { type: 'doc', id: 'getting-started/digital-sobriety' },
+            { type: 'doc', id: 'getting-started/system-view' },
+            { type: 'doc', id: 'getting-started/network-data' },
+            { type: 'doc', id: 'getting-started/business-view' },
+            { type: 'doc', id: 'getting-started/load-tests' },
+          ],
+        },
+        { type: 'doc', id: 'performance-analysis/basic-actions/navigate-in-experience-monitoring' },
+        {
           collapsed: true,
           type: 'category',
           label: 'Understanding metric concepts',
@@ -54,21 +44,29 @@ module.exports = {
             { type: 'doc', id: 'performance-analysis/metrics/cumulative-layout-shift' },
           ],
         },
-        { type: 'doc', id: 'performance-analysis/basic-actions/navigate-in-experience-monitoring' },
         {
           collapsed: true,
           type: 'category',
           label: 'Understanding graphs',
           link: {
-        type: 'generated-index',
+            type: 'generated-index',
           },
           items: [
             { type: 'doc', id: 'how-to-articles/using-charts' },
             { type: 'doc', id: 'installation/monitor-production-events' },
-
+          ],
+        },
       ],
     },
-    ],
+    {
+      type: 'category',
+      label: 'Setting up Experience Monitoring',
+      link: {
+        type: 'generated-index',
+      },
+      items: [
+        { type: 'doc', id: 'installation/installation-checklist' },
+      ],
     },
     {
       collapsed: true,
@@ -134,18 +132,16 @@ module.exports = {
         },
         { type: 'doc', id: 'performance-analysis/system-tab-indicators' },
       ],
-
     },
     {
       collapsed: true,
       type: 'category',
-      label: "Check a site’s network performance",
+      label: "Check a site's network performance",
       link: {
         type: 'generated-index',
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-
       ],
     },
     {
@@ -157,7 +153,6 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-
       ],
     },
     {
@@ -169,7 +164,6 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-
       ],
     },
     {
@@ -181,7 +175,6 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-
       ],
     },
     {
@@ -197,7 +190,6 @@ module.exports = {
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
         { type: 'doc', id: 'experience-monitoring-glossary' },
-
       ],
     },
   ],
