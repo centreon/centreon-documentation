@@ -740,27 +740,6 @@
               "id": "graph-views/introduction-map"
             },
             {
-              "type": "category",
-              "label": "Information for MAP Legacy users",
-              "link": {
-                "type": "generated-index"
-              },
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-legacy-eol"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/upgrading-map-legacy"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/import-into-map-web"
-                }
-              ]
-            },
-            {
               "type": "doc",
               "id": "graph-views/map-web-install"
             },
