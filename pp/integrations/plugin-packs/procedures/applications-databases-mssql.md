@@ -45,8 +45,8 @@ The connector brings the following service templates (sorted by the host templat
 | Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio-custom       | Check the "Data Buffer Cache Hit Ratio" of the server. No alerts by default |
 | Locks-Waits          | App-DB-MSSQL-Locks-Waits-custom          | Check locks-waits per second of the server                                  |
 | Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy-custom | Check the "Page Life Expectancy" of the server. No alerts by default        |
-| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Check allowing to execute a custom SQL request with a digital answer        |
-| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Check allowing to execute a custom SQL request with a string answer         |
+| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Check allowing to execute a custom SQL request with a numerical result      |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Check allowing to execute a custom SQL request with a string result         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
