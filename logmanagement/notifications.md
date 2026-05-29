@@ -17,7 +17,9 @@ Notifications can be sent when an [alert rule](alerts.md) triggers an [alert eve
    * Enter the webhook URL you retrieved from your third-party application. You must include **http://** or **https://**.
    * Select the HTTP method you want the webhook to use.
    * Write the message body to be sent.
-   * Define any headers you want to pass to your third-party application.
+   * Define any headers you want to pass to your third-party application, e.g. to indicate the format of the message body.
+
+   **Example**: I want to post a message to a Slack channel. The webhook URL is retrieved from Slack. The message body can be json, and we can have the following header: key: **content-type**: value : **application/json**.
 
 4. Click **Create**. The notification channel appears in the list.
 
@@ -33,4 +35,4 @@ Notifications can be sent when an [alert rule](alerts.md) triggers an [alert eve
    * define when notifications should be sent: **On every status change/on every alert event**.
    * select the notification channel you created at step 1.
 
-4. Click **Save**. The notifications will start being sent when the alert events meet the conditions you defined.
+4. Click **Save**. The notifications will start being sent when the alert events meet the conditions you defined. Use the **Last trigger event** and **Last sent** columns to track your notifications.
