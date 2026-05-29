@@ -650,6 +650,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-netbackup-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-netbackup-nrpe'
         },
         {
