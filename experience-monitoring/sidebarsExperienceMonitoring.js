@@ -18,7 +18,6 @@ module.exports = {
           items: [
             { type: 'doc', id: 'getting-started/synthetic-monitoring' },
             { type: 'doc', id: 'getting-started/real-user-monitoring' },
-            { type: 'doc', id: 'getting-started/digital-sobriety' },
             { type: 'doc', id: 'getting-started/system-view' },
             { type: 'doc', id: 'getting-started/network-data' },
             { type: 'doc', id: 'getting-started/business-view' },
@@ -135,9 +134,7 @@ module.exports = {
       ],
     },
     {
-      items: [
-        { type: 'doc', id: 'network-tab-indicators' },
-      ],
+      type: 'doc', id: 'network-tab-indicators'
     },
     {
       type: 'doc', id: 'perform-load-test'
@@ -154,7 +151,7 @@ module.exports = {
       ],
     },
     {
-        { type: 'doc', id: 'configuration/manage-users-and-rights' },
+      type: 'doc', id: 'configuration/manage-users-and-rights'
     },
     {
       collapsed: true,
