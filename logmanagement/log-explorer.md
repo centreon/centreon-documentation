@@ -32,7 +32,7 @@ Use the search bar to filter your logs. The search bar has two modes (use the sw
 
 * In query editor mode:
 
-   * Type your search directly using the [query syntax](query-syntax.md). Autocomplete and error detection help you write queries faster and avoid mistakes. Hover over a flagged mistake to see explanations and suggestions.
+   * Type your search directly using the [query syntax](query-syntax.md). Autocomplete and error detection help you write queries faster and avoid mistakes. Hover over a flagged mistake to see explanations and suggestions. Errors (in red) mean that the query will not work. Warnings (in orange) mean that the query may work but the results might not be what you expected. For example, typing **and** instead of **AND** causes the query to search for the string "and" in the message body rather than using it as a boolean operator.
    * Click the **Ask AI** button to the right of the search bar. In the field that appears, write a query with your own words and in any language, then click **Apply and search**. This will generate a query with the correct syntax in the query editor: you can edit it to enrich the query if you like. This is a good way to learn the [query syntax](query-syntax.md).
 
       > AI responses may be inaccurate or incomplete. Always check the results.

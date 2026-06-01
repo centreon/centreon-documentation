@@ -32,7 +32,7 @@ Utilisez la barre de recherche pour filtrer vos logs. La barre de recherche prop
 
 * En mode éditeur de requête:
 
-   * Saisissez directement votre recherche en utilisant la [syntaxe de requête](query-syntax.md). L'autocomplete et la détection d'erreurs vous aident à rédiger vos requêtes plus rapidement et à éviter les erreurs. Survolez une erreur signalée pour afficher des explications et des suggestions.
+   * Saisissez directement votre recherche en utilisant la [syntaxe de requête](query-syntax.md). L'autocomplete et la détection d'erreurs vous aident à rédiger vos requêtes plus rapidement et à éviter les erreurs. Survolez une erreur signalée pour afficher des explications et des suggestions. Les erreurs (en rouge) indiquent que la requête ne fonctionnera pas. Les avertissements (en orange) indiquent que la requête peut fonctionner, mais que les résultats risquent de ne pas correspondre à ce que vous attendiez. Par exemple, si vous tapez **and** au lieu de **AND**, la requête recherchera la chaîne **and** dans le corps du message au lieu de l'utiliser comme opérateur booléen.
    * Cliquez sur le bouton **Ask AI** à droite dans la barre de recherche. Dans le champ qui s'affiche, saisissez votre requête avec vos propres mots et dans la langue de votre choix, puis cliquez sur **Apply and search**. Cela générera une requête avec la syntaxe correcte dans l'éditeur de requêtes : vous pouvez la modifier pour l'enrichir si vous le souhaitez. C'est un bon moyen d'apprendre la [syntaxe des requêtes](query-syntax.md).
 
       > Les réponses de l'IA peuvent être inexactes ou incomplètes. Vérifiez toujours les résultats.

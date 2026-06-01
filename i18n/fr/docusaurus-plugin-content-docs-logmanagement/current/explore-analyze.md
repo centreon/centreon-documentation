@@ -1,4 +1,4 @@
-﻿---
+---
 id: explore-analyze
 title: Explorer et analyser les logs
 ---
@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DocCardList from '@theme/DocCardList';
 
-Selon votre [cas d'usage](./getting-started/use-cases.md), vous pouvez soit filtrer les logs de la page Log explorer pour afficher les logs à haut niveau de sévérité, soit vous baser sur les évènements d'alerte (alert events) pour les situations plus complexes.
+Selon votre [cas d'usage](./getting-started/use-cases.md), vous pouvez soit filtrer les logs de la page **Log explorer** pour afficher les logs à haut niveau de sévérité, soit vous baser sur les évènements d'alerte (alert events) pour les situations plus complexes.
 
 > Pour afficher des logs dans Centreon Log Management, vous devez d'abord [configurer un collecteur OpenTelemetry sur chaque hôte dont vous souhaitez recevoir les logs](./collector/collector.md).
 
