@@ -7,15 +7,25 @@ The Digital Sobriety Score (DSS) is a grade given by Centreon Experience Monitor
 
 The DSS can be found on the **Global View**
 
-It is somewhat similar to the [GreenIT collective](https://www.ecoindex.fr/en/)'s Eco Index. However, while the Eco Index emphasizes simple evaluation based on three technical criteria for a given URL, which is particularly useful during development, CXM's Digital Sobriety Score adopts a broader, audit-style approach more suited to sites already in production.
-
 The DSS is a combination of the average Carbon Footpring Per Click (CFPC) and the average Eco-Design Score (EDS), a more detailed breakdown of what composes these metrics can be seen below.
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
 
+It is somewhat similar to the [GreenIT collective](https://www.ecoindex.fr/en/)'s Eco Index. 
+The Eco Index emphasizes simple evaluation based on three technical criteria for a given URL, which is particularly useful during development.
+CXM's Digital Sobriety Score, on the other hand adopts a broader, audit-style approach more suited to sites already in production.
+
+To obtain a Digital Sobriety Score, you must provide Experience Monitoring with two pieces of information:
+- Where are your servers located?
+- Are they hosted in the Cloud?
+
+To fill in these details, go to **Configuration > Site**.
+
+Based on this information, Experience Monitoring will estimate the CO2 emitted per page.
+
 ## How is the Digital Sobriety Score calculated?
 
-The Digical Sobriety Score can be calculated with two types of audits : a "simple audit" and a "full audit". Simple audits are free and can be performed on the [quanta.green website](https://www.quanta.green/).
+The Digital Sobriety Score can be calculated with two types of audits : a "simple audit" and a "full audit". Simple audits are free and can be performed on the [quanta.green website](https://www.quanta.green/).
 
 |  | Simple method (see [quanta.green](http://quanta.green)) | Full audit method |
 | --- | --- | --- |
@@ -33,6 +43,8 @@ To allow comparison across web applications of different sizes, results are expr
 The Digital Sobriety Score combines several criteria into a single metric. It is not a measure of carbon emissions alone, but a comparative indicator designed to evaluate web applications independently of their audience size.
 
 ### What is taken into account for the calculations?
+
+Experience Monitoring attributes an individual score to each user journey configured on the site and a broader score that encompasses all the user journey. The latter is the score seen on the **Digital Sobriety Score** widget in **Global View**
 
 The CFPC quantifies the environmental impact associated with a single page view or any click-triggered context change within a web application. The use of click-based measurement is particularly relevant for the increasingly common Single Page Applications (SPAs), where user interactions often update the view without initiating a full page reload. In these cases, each interaction, regardless of whether it triggers navigation, has an environmental cost and must be accounted for in the assessments.
 
@@ -68,6 +80,7 @@ CXM calculates a number from 0 to 100 by calculating the EDS from these indicato
 | 60 to 75               | C            |
 | 75 to 90               | B            |
 | 90 to 100              | A            |
+
 
 ## Obtaining a Digital Sobriety Score Certificate
 

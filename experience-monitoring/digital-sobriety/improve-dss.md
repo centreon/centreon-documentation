@@ -26,7 +26,6 @@ Below this is the **Diagnostic**, a list of recommendations to improve your scor
 
 You can click on each individual recommendation to get more details on how to enact them.
 
-
 > After modifying a user journey, you must relaunch the probe to update the displayed data.
 
 ### How do I know my changes made a difference?

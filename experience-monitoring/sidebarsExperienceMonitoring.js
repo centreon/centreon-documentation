@@ -23,6 +23,7 @@ module.exports = {
             { type: 'doc', id: 'getting-started/network-data' },
             { type: 'doc', id: 'getting-started/business-view' },
             { type: 'doc', id: 'getting-started/load-tests' },
+            { type: 'doc', id: 'getting-started/digital-sobriety' },
           ],
         },
         { type: 'doc', id: 'performance-analysis/basic-actions/navigate-in-experience-monitoring' },
@@ -92,9 +93,9 @@ module.exports = {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+        { type: 'doc', id: 'digital-sobriety/digital-sobriety-concepts' },
         { type: 'doc', id: 'digital-sobriety/digital-sobriety-score' },
-        { type: 'doc', id: 'digital-sobriety/differences-with-eco-index' },
+        { type: 'doc', id: 'digital-sobriety/improve-dss' },
       ],
     },
     {
@@ -134,26 +135,12 @@ module.exports = {
       ],
     },
     {
-      collapsed: true,
-      type: 'category',
-      label: "Check a site's network performance",
-      link: {
-        type: 'generated-index',
-      },
       items: [
-        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+        { type: 'doc', id: 'network-tab-indicators' },
       ],
     },
     {
-      collapsed: true,
-      type: 'category',
-      label: 'Run a load test',
-      link: {
-        type: 'generated-index',
-      },
-      items: [
-        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
-      ],
+      type: 'doc', id: 'perform-load-test'
     },
     {
       collapsed: true,
@@ -165,6 +152,9 @@ module.exports = {
       items: [
         { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
       ],
+    },
+    {
+        { type: 'doc', id: 'configuration/manage-users-and-rights' },
     },
     {
       collapsed: true,
