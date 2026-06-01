@@ -161,7 +161,7 @@ module.exports = {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+        { type: 'doc', id: 'troubleshooting' },
       ],
     },
     {
