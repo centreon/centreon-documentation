@@ -3,7 +3,7 @@ id: real-user-monitoring
 title: Real User Monitoring (RUM)
 ---
 
-The Real User Monitoring (or RUM) feature allows you to measures a website's performance directly from the browsers of real users. 
+The Real User Monitoring (or RUM) feature allows you to measure a website's performance directly from the browsers of real users. 
 To do this, HTML tag is inserted into the code's page to monitor the loading times experienced by users.
 The tag is designed to be very light so it doesn't slow down the user's browsing. It is also loaded separately so its own loading times are not taken into account in the metrics collected.
 
