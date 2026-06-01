@@ -3,6 +3,8 @@ id: manage-users-and-rights
 title: Manage users and their rights
 ---
 
+Experience Monitoring licenses have no user count limits. We recommend inviting everyone involved in the project, regardless of their role. Go to the Organization page to invite users.
+
 ## Access the configuration menu
 
 All actions described here are performed from the **Organization** menu. It is available in the top-right menu as shown:
