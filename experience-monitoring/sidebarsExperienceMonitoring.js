@@ -134,10 +134,10 @@ module.exports = {
       ],
     },
     {
-      type: 'doc', id: 'network-tab-indicators'
+      type: 'doc', id: 'performance-analysis/network-tab-indicators'
     },
     {
-      type: 'doc', id: 'perform-load-test'
+      type: 'doc', id: 'how-to-articles/perform-load-tests'
     },
     {
       collapsed: true,
