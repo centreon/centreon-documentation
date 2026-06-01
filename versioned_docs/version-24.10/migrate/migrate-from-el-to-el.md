@@ -14,6 +14,8 @@ This procedure only applies if the following conditions are met:
 
 All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
 
+> If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
+
 Be sure that you have fully backed up your environment for the following
 servers:
 
@@ -89,6 +91,8 @@ dnf update
    > Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
 ### Step 3: Retrieve the databases
+
+>If you are using a remote database, ignore this step and move on to [Step 4](#step-4-synchronize-the-plugins)
 
 1. On the old server, create a dump of the databases:
 

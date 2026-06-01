@@ -225,6 +225,10 @@
         {
           "type": "doc",
           "id": "graph-views/secure-your-map-platform"
+        },
+        {
+          "type": "doc",
+          "id": "reporting/secure-your-mbi-platform"
         }
       ]
     },
@@ -475,8 +479,7 @@
               "type": "doc",
               "id": "alerts-notifications/event-log"
             }
-
-            ]
+          ]
         },
         {
           "type": "category",
@@ -535,7 +538,7 @@
                 },
                 {
                   "type": "doc",
-                  "id": "alerts-notifications/notif-config-for-teams"
+                  "id": "integrations/notifications/sms-notifications"
                 },
                 {
                   "type": "doc",
@@ -657,7 +660,7 @@
             }
           ]
         },
-                {
+        {
           "type": "category",
           "label": "Administrate",
           "link": {
@@ -684,7 +687,7 @@
         }
       ]
     },
-        {
+    {
       "type": "category",
       "label": "Data Visualization",
       "link": {
@@ -724,38 +727,17 @@
             }
           ]
         },
-    {
-      "type": "category",
-      "label": "Graphical views (maps)",
-      "link": {
-        "type": "generated-index",
-        "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
-      },
-        "items": [
+        {
+          "type": "category",
+          "label": "Graphical views (maps)",
+          "link": {
+            "type": "generated-index",
+            "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
+          },
+          "items": [
             {
               "type": "doc",
               "id": "graph-views/introduction-map"
-            },
-            {
-              "type": "category",
-              "label": "Information for MAP Legacy users",
-              "link": {
-                "type": "generated-index"
-              },
-                    "items":[
-                      {
-                        "type": "doc",
-                        "id": "graph-views/map-legacy-eol"
-                      },
-                      {
-                        "type": "doc",
-                        "id": "graph-views/upgrading-map-legacy"
-                      },
-                      {
-                        "type": "doc",
-                        "id": "graph-views/import-into-map-web"
-                      }
-                    ]
             },
             {
               "type": "doc",
@@ -803,7 +785,10 @@
             },
             {
               "type": "doc",
-
+              "id": "graph-views/map-web-backup-restore"
+            },
+            {
+              "type": "doc",
               "id": "graph-views/map-web-known-issues"
             },
             {
@@ -813,74 +798,98 @@
             {
               "type": "doc",
               "id": "api/map-api"
-                  }
-              ]
             }
-          ,
-            {
-      "type": "doc",
-      "id": "alerts-notifications/custom-views"
-    }
-    ]
-    },
+          ]
+        },
         {
+          "type": "doc",
+          "id": "alerts-notifications/custom-views"
+        },
+        {
+          "type": "doc",
+          "id": "alerts-notifications/availability"
+        }
+      ]
+    },
+    {
       "type": "category",
-      "label": "Reporting",
+      "label": "Reporting (MBI)",
       "link": {
         "type": "generated-index"
       },
       "items": [
         {
           "type": "doc",
-          "id": "alerts-notifications/availability"
-        },
-        {
-          "type": "doc",
           "id": "reporting/introduction"
         },
         {
+          "type": "doc",
+          "id": "reporting/concepts"
+        },
+        {
+          "type": "doc",
+          "id": "reporting/how-mbi-works"
+        },
+        {
+          "type": "doc",
+          "id": "reporting/installation"
+        },
+        {
           "type": "category",
-          "label": "Guide",
+          "label": "Using MBI",
           "link": {
             "type": "generated-index"
           },
           "items": [
             {
               "type": "doc",
-              "id": "reporting/manage-reports"
+              "id": "reporting/preparing-data"
             },
             {
               "type": "doc",
-              "id": "reporting/reports"
+              "id": "reporting/generating-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/reports-publication-rule"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/share"
             },
             {
               "type": "doc",
               "id": "reporting/widgets"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/configure"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/concepts"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/report-development"
             }
           ]
         },
         {
           "type": "category",
-          "label": "Administrate",
+          "label": "Fixing MBI issues",
           "link": {
             "type": "generated-index"
           },
           "items": [
             {
               "type": "doc",
-              "id": "reporting/installation"
+              "id": "reporting/troubleshooting"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/rebuilding-data"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "MBI administration",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "reporting/backup-restore"
             },
             {
               "type": "doc",
@@ -896,7 +905,57 @@
             },
             {
               "type": "doc",
-              "id": "reporting/backup-restore"
+              "id": "reporting/report-development"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Available reports",
+          "link": {
+            "type": "doc",
+            "id": "reporting/available-reports/available-reports"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/ba-monitoring-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/availability-events-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/performance-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/storage-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/network-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/virtualization-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/electric-consumption-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/profiling-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/inventory-configuration-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/database-diagnostics-reports"
             }
           ]
         }
@@ -1105,6 +1164,10 @@
             {
               "type": "doc",
               "id": "upgrade/upgrade-mariadb"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-mysql"
             }
           ]
         },
@@ -1158,6 +1221,39 @@
     },
     {
       "type": "category",
+      "label": "Centreon Monitoring Agent",
+      "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-certificates"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-custom"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-migratenscpp"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-troubleshooting"
+                }
+              ]
+    },
+    {
+      "type": "category",
       "label": "Integrations",
       "link": {
         "type": "doc",
@@ -1172,6 +1268,10 @@
             "id": "integrations/stream-connectors"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "integrations/stream-connectors-rn"
+            },
             {
               "type": "doc",
               "id": "integrations/event-management/sc-hp-bsm"
@@ -1395,11 +1495,11 @@
         },
         {
           "type": "doc",
-          "id": "developer/developer-translate-centreon"
+          "id": "developer/developer-widget"
         },
         {
           "type": "doc",
-          "id": "developer/developer-widget"
+          "id": "developer/mcp-server"
         },
         {
           "type": "category",
@@ -1416,6 +1516,10 @@
             {
               "type": "doc",
               "id": "developer/developer-broker-bbdo"
+            },
+            {
+              "type": "doc",
+              "id": "developer/developer-broker-bbdo-switch-versions"
             },
             {
               "type": "doc",
@@ -1452,9 +1556,77 @@
       "label": "Centreon HA",
       "link": {
         "type": "doc",
-        "id": "installation/installation-of-centreon-ha/overview"
+        "id": "installation/installation-of-centreon-ha/centreon-ha"
       },
       "items": [
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-faq"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/cluster-elements"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/overview"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-prerequisites"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-small"
+        },
+        {
+          "type": "category",
+          "label": "Completing your Centreon HA setup",
+          "link": {
+            "type": "generated-index",
+            "description": "Your HA platform has been installed by Centreon Professional Services. What can you do next?"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha/integrating-pollers"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/monitoring-guide"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Operating Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/troubleshooting-guide"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Updating Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "update/update-centreon-ha"
+            }
+          ]
+        },
         {
           "type": "category",
           "label": "Upgrading Centreon HA",
@@ -1462,6 +1634,14 @@
             "type": "generated-index"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-24-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-24-04"
+            },
             {
               "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
@@ -1482,24 +1662,11 @@
               "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
             },
-        {
-          "type": "doc",
-          "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-        }
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+            }
           ]
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Monitoring your platform",
-      "link": {
-        "type": "generated-index"
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "health/helios"
         }
       ]
     },
@@ -1511,19 +1678,12 @@
       },
       "items": [
         {
-          "type": "doc",
-          "id": "releases/introduction"
-        },
-        {
-          "type": "doc",
-          "id": "releases/lifecycle"
-        },
-        {
           "type": "category",
-          "label": "Release notes by component",
-          "link": {
-            "type": "generated-index"
-          },
+          "label": "Release notes for Centreon 25.10",
+          "link": { 
+            "type": "doc",
+            "id": "releases/introduction"
+          }, 
           "items": [
             {
               "type": "doc",
@@ -1534,6 +1694,10 @@
               "id": "releases/centreon-commercial-extensions"
             }
           ]
+        },
+        {
+          "type": "doc",
+          "id": "releases/lifecycle"
         }
       ]
     },
@@ -1585,6 +1749,10 @@
         {
           "type": "doc",
           "id": "resources/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "resources/logs"
         },
         {
           "type": "doc",

@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-quantum-scalar-snmp
-title: Quantum Scalar
+title: Quantum Scalar SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Quantum Scalar** brings a host template:
+The Monitoring Connector **Quantum Scalar SNMP** brings a host template:
 
 * **HW-Storage-Quantum-Scalar-SNMP-custom**
 
@@ -44,15 +44,15 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric Name         | Unit      |
-|:--------------------|:----------|
-| global.status          | N/A       |
-| hardware.sensor.humidity.percentage          | %      |
-| physicaldrive.status   | N/A   |
-| hardware.psu.power.watt   | W   |
-| subsystem.status   | N/A   |
-| hardware.sensor.temperature.celsius   | C   |
-| hardware.sensor.voltage.volt   | V   |
+| Name                                | Unit |
+|:------------------------------------|:-----|
+| global.status                       | N/A  |
+| hardware.sensor.humidity.percentage | %    |
+| physicaldrive.status                | N/A  |
+| hardware.psu.power.watt             | W    |
+| subsystem.status                    | N/A  |
+| hardware.sensor.temperature.celsius | C    |
+| hardware.sensor.voltage.volt        | V    |
 
 </TabItem>
 </Tabs>
@@ -61,7 +61,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP service must be configured and activated on the host. 
+Please refer to the official documentation. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -112,7 +115,7 @@ yum install centreon-pack-hardware-storage-quantum-scalar-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Quantum Scalar** connector through
+2. Whatever the license type (*online* or *offline*), install the **Quantum Scalar SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -184,10 +187,10 @@ yum install centreon-plugin-Hardware-Storage-Quantum-Scalar-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                                           | Default value     | Mandatory   |
-|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'global', 'subsystem', 'physicaldrive', 'psu', 'voltage', 'humidity', 'temperature' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                    | --verbose         |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'global', 'subsystem', 'physicaldrive', 'psu', 'voltage', 'humidity', 'temperature'                  | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -309,7 +312,7 @@ All available options for each service template are listed below:
 | --contextname                              | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --contextengineid                          | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --securityengineid                         | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --snmp-tls-transport                       | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-tls-our-identity                    | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --snmp-tls-their-identity                  | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |

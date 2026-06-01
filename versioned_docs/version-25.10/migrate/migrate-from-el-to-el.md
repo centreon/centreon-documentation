@@ -22,8 +22,8 @@ servers:
 
 If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
 
-> If your Centreon platform includes a Centreon redundancy system, please
-> contact [Centreon support](https://support.centreon.com).
+> If your Centreon platform has HA, please
+> contact your Centreon sales representative to discuss any migration scenario.
 
 ## Migrating a platform
 
@@ -89,6 +89,8 @@ dnf update
    > Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
 ### Step 3: Retrieve the databases
+
+>If you are using a remote database, ignore this step and move on to [Step 4](#step-4-synchronize-the-plugins)
 
 1. On the old server, create a dump of the databases:
 
@@ -198,12 +200,12 @@ rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/c
 ### Step 5: Upgrade Centreon
 
 1. On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-24.10.x-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-25.10.x-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory (**x** is the target version number for your migrated machine):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-24.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-25.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. If you use the same IP address or same DNS name on the old Centreon webserver and the new one, do a full cache cleanup of your browser to avoid JS issues.

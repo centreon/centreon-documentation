@@ -13,6 +13,11 @@ This connector is designed to be compatible with the following products.
 | ------- |:-----:| --------- |
 | 3CX     | -     | 18.0.9.20 |
 
+> As things stand with version 20 of 3CX, the API endpoints that were available for
+version 18 are no longer available, which is preventing us from updating this connector. If you
+have any new information on this subject, please share it with us in [this 
+post](https://thewatch.centreon.com/ideas/request-to-upgrade-connector-3cx-4418).
+
 ## Pack assets
 
 ### Templates

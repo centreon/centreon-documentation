@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-dell-ml6000-snmp
-title: Dell ML6000
+title: Dell ML6000 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Dell ML6000** connector through the
+The following monitoring connectors will be installed when you install the **Dell ML6000 SNMP** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -50,14 +50,14 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Name           | Unit |
-|:----------------------|:-----|
-| global.status         | N/A  |
-| physicaldrive.status  | N/A  |
-| subsystem.status      | N/A  |
-| component.status      | N/A  |
-| temperature.status    | N/A  |
-| fan.status            | N/A  |
+| Name                 | Unit |
+|:---------------------|:-----|
+| global.status        | N/A  |
+| physicaldrive.status | N/A  |
+| subsystem.status     | N/A  |
+| component.status     | N/A  |
+| temperature.status   | N/A  |
+| fan.status           | N/A  |
 
 </TabItem>
 </Tabs>
@@ -66,7 +66,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher.
 Your resource may require a list of addresses authorized to query it to be set up.
 Please ensure that the addresses of the Centreon pollers are included in this list.
 
@@ -116,7 +117,7 @@ yum install centreon-pack-hardware-storage-dell-ml6000-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Dell ML6000** connector through
+2. Whatever the license type (*online* or *offline*), install the **Dell ML6000 SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -309,7 +310,7 @@ All available options for each service template are listed below:
 | --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
