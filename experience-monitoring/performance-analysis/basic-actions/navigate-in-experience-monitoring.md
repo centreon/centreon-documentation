@@ -3,15 +3,30 @@ id: navigate-in-experience-monitoring
 title: Navigating in Experience Monitoring
 ---
 
-Centreon Experience Monitoring lets you move across several dimensions: switching modules, changing the selected site, or modifying the time range being analyzed.
+## Navigation elements
 
-When you first log into Experience Monitoring, you land on the **Overview** page by default. If you then select [**User Journeys**](../../getting-started/synthetic-monitoring.md) from the menu, you'll notice this screen includes:
+All pages in Experience Monitoring include the following elements:
 
-- The **horizontal navigation bar** (at the top), which lets you switch between Experience Monitoring modules ([**User Journeys**](../../getting-started/synthetic-monitoring.md), [**System**](../../getting-started/system-view.md), [**Real User Monitoring**](../../getting-started/real-user-monitoring.md), etc.).
-- A **site selector** (at the top-left) that allows a user with access to multiple Experience Monitoring organizations/sites to switch between them (for example: an Enterprise license or an agency managing multiple clients' Experience Monitoring accounts).
+1. A **site selector** (at the top-left) that allows a user with access to [multiple Experience Monitoring organizations/sites](#multi-site-mode) to switch between them.
 
-	When using Experience Monitoring in multi-site mode, you can compare performance data across several Experience Monitoring sites at once, or create a custom dashboard that aggregates metrics from multiple Experience Monitoring sites.
-	
-- A **time range selector** (at the top-right) that lets you change the analyzed period at any time. This is useful to observe how a site's response times evolve over days, weeks, or months. By default, Experience Monitoring shows the last 24 hours and refreshes every minute to surface the latest measurements in real time.
+2. The **horizontal navigation bar** (at the top), which lets you switch between Experience Monitoring modules ([**User Journeys**](../../getting-started/synthetic-monitoring.md), [**System**](../../getting-started/system-view.md), [**Real User Monitoring**](../../getting-started/real-user-monitoring.md), etc.).
+
+3. A **time range selector** (at the top-right) that lets you change the analyzed period at any time. This is useful to observe how a site's response times evolve over days, weeks, or months. By default, Experience Monitoring shows the last 24 hours and refreshes every minute to show the latest measurements in real time.
 
 ![image](../../assets/performance-analysis/basic-actions/navigate-1.png)
+
+## Multi-site mode
+
+If your account has access to multiple Experience Monitoring sites — for example
+under an Enterprise license or as an agency managing several clients — you can
+use the site selector to switch between them or work across them simultaneously.
+
+Multi-site mode lets you:
+
+- **Compare performance data** across several sites side by side.
+- **Build custom dashboards** that aggregate metrics from multiple sites into a
+  single view.
+
+## Overview page
+
+When you first log into Experience Monitoring, you land on the **Overview** page by default. Click **Settings** in the top right corner to customize how  this page is displayed for a site.
