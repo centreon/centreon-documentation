@@ -10,7 +10,7 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: 'What can I do with Experience Monitoring',
+          label: 'What can I do with Experience Monitoring?',
           link: {
             type: 'doc',
             id: 'getting-started/experience-monitoring-solution',
@@ -29,7 +29,7 @@ module.exports = {
         {
           collapsed: true,
           type: 'category',
-          label: 'Understanding metric concepts',
+          label: 'Understanding metrics',
           link: {
             type: 'doc',
             id: 'performance-analysis/metrics/overview-of-metrics',

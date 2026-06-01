@@ -19,7 +19,7 @@ Real User Monitoring installs like any marketing tag: by inserting a JavaScript 
 
 Digital sobriety scores are calculated from STM and RUM data. If STM and RUM are properly installed and configured, no additional installation is required.
 
-## Analyze a site's business data (Google Analytics/Matomo)
+## Business data (Google Analytics/Matomo)
 
 To correlate your business data with other Experience Monitoring data, you need to [link your Google Analytics or Matomo account to Experience Monitoring](../configuration/configure-google-analytics.md).
 
@@ -27,9 +27,9 @@ In the **Business data** page:
 
 * The **Journey and revenues** tab contains data only if you have configured a [user journey](#user-journeyssynthetic-monitoring-stm).
 
-* The **Infratructure cost/click** contains data only if you have configured an agent collecting [system data](#system-data-monitor-the-health-of-your-host-server).
+* The **Infrastructure cost/click** tab contains data only if you have configured an agent collecting [system data](#system-data-monitor-the-health-of-your-host-server).
 
-## System data: monitor the health of your host server
+## System data (host server health)
 
 To monitor the health of your host server, you need to install a system agent on it. Additional modules can be added depending on the level of detail you need or your license allows.
 
@@ -39,13 +39,13 @@ To monitor the health of your host server, you need to install a system agent on
    * If your application runs on Apache, MySQL, Varnish (...), [install a dedicated agent](./servers/add-advanced-metrics.md) to collect data from those services.
    * If you are using a PHP application (e.g. Magento or OroCommerce), [install the PHP profiler](./servers/install-php-magento-orocommerce-profiler.md).
 
-## Check a site's network performance
+## Network performance
 
 You don't need to do anything - data appears automatically on the **Network data** page.
 
-## Run a load test
+## Load tests
 
-You don't need to install anything to be able to run load tests. You just need to configure a user journey.
+To be able to run load tests, you just need to configure a user journey. You don't need to install anything extra.
 
 <!--
 ## Adding events markers to your graphs

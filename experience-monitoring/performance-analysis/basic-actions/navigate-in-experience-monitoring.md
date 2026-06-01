@@ -1,6 +1,6 @@
 ﻿---
 id: navigate-in-experience-monitoring
-title: Navigate in Experience Monitoring
+title: Navigating in Experience Monitoring
 ---
 
 Centreon Experience Monitoring lets you move across several dimensions: switching modules, changing the selected site, or modifying the time range being analyzed.
