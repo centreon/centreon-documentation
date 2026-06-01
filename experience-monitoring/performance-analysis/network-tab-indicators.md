@@ -40,6 +40,6 @@ You should contact your network administrator or site's host in the following ca
 
 - An isolated spike on one chart. Most likely a single measurement anomaly with no impact on end users.
 
-- ICMP shows persistent red since setup. This is moste likely not an incident but a sign that ICMP is disabled for your site. Ask your network administrator or host to enable ICMP if you want full visibility.
+- ICMP shows persistent red since setup. This is most likely not an incident but a sign that ICMP is disabled for your site. Ask your network administrator or host to enable ICMP if you want full visibility.
 
-- ICMP turns red but TCP stays greenYour site is still reachable. ICMP was likely blocked while the web service remains available on port 80.
+- ICMP turns red but TCP stays green. Your site is still reachable. ICMP was likely blocked while the web service remains available on port 80.

@@ -7,7 +7,7 @@ The Digital Sobriety Score (DSS) is a grade given by Centreon Experience Monitor
 
 The DSS can be found on the **Global View**
 
-The DSS is a combination of the average Carbon Footpring Per Click (CFPC) and the average Eco-Design Score (EDS), a more detailed breakdown of what composes these metrics can be seen below.
+The DSS is a combination of the average Carbon Footprint Per Click (CFPC) and the average Eco-Design Score (EDS), a more detailed breakdown of what composes these metrics can be seen below.
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
 
