@@ -3,14 +3,14 @@ id: synthetic-monitoring
 title: Synthetic Monitoring (or "User Journeys")
 ---
 
-Synthetic Monitoring performs regular browsing a predetermined path on a website to measure various web performance indicators.
+Synthetic Monitoring performs regular browsing, following a predetermined path on a website to measure various web performance indicators.
 
 ## Key advantages
 
-- Monitor the proper functioning of a typical journey and calculate its availability rate (e.g., "it was possible to browse and purchase on the ecommerce site 99.5% of the time this month").
+- Monitor the proper functioning of the typical browsing experience and calculate its availability rate (e.g., "it was possible to browse and purchase on the ecommerce site 99.5% of the time this month").
 - Alert site managers in real time in case of site malfunction with notifications containing a detailed incident report.
 - Measure and record page load times according to several key criteria (including Google's [Core Web Vitals](https://web.dev/vitals/)).
-- Obtain recommendations to make the site faster.
+- Obtain personalized recommendations to make the site faster.
 
 Here is an example of a typical journey for an ecommerce site:
 

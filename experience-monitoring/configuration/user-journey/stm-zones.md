@@ -3,7 +3,10 @@ id: stm-zones
 title: Monitoring non-public user journeys (closed beta)
 ---
 
-A private Synthetic Monitoring Zone (STM Zone) allows you to monitor your user journeys on internal domains or networks specific to your organization using a probe deployed inside your infrastructure.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+A private Synthetic Monitoring Zone (STM Zone) allows you to monitor your user journeys on internal domains or networks specific to your organization using a probe deployed inside your infrastructure. You can also use a probe to obtain personalized recommendations to optimize your website.
 
 ## Prerequisites
 
@@ -35,9 +38,28 @@ docker login docker.centreon.com/centreon-dem-beta
 
 ## Step 3: Create and launch the probe
 
-1. To create and launch the probe, execute the second command you obtained at [step 2](#step-2-associate-a-probe-to-the-stm-zone).
+<Tabs groupId="sync">
+<TabItem value="STM probe">
+
+When creating a probe, STM probes are the type selected by default. STM probes collect the usual performance metrics used by Experience Monitoring.
+
+1. To create and launch the STM probe, execute the second command you obtained at [step 2](#step-2-associate-a-probe-to-the-stm-zone).
 
 2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list.
+
+</TabItem>
+<TabItem value="Recommendations probe">
+
+Probes can also be created as recommendations probes. These run once a day to make personalized suggestions on how to optimize your website.
+
+1. To create and launch the recommendations probe, click the **Recommendations** tab in the **Start the probe** section and execute the displayed command.
+
+2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list. Recommendation probes have a binoculars icon to distinguish them from STM probes.
+
+Note that it takes up to 24 hours for the probe to gather enough data to start sending recommendations. 
+
+</TabItem>
+</Tabs>
 
 ## Step 4: Associate the zone with a user journey
 

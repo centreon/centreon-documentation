@@ -34,6 +34,3 @@ Note that the number of concurrent users created for each step must always be hi
 7. Determine the failure conditions that will determine when the test will automatically stop. Tests can also be manually stopped.
 
 8. Check the two acknowdlgment boxes and start the test.
-
-### Manually stopping a test
-

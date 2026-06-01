@@ -3,7 +3,10 @@ id: stm-zones
 title: Superviser des parcours utilisateur non-publics (beta fermée)
 ---
 
-Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser vos parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation, via une sonde déployée dans votre infrastructure.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser vos parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation, via une sonde déployée dans votre infrastructure. Vous pouvez également utiliser une sonde pour obtenir des recommandations personnalisées pour optimiser votre site.
 
 ## Prérequis
 
@@ -37,9 +40,28 @@ docker login docker.centreon.com/centreon-dem-beta
 
 ## Étape 3 : Créer et démarrer la sonde
 
-1. Exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-la-zone-stm) pour créer la sonde et la démarrer. 
+<Tabs groupId="sync">
+<TabItem value="Sonde STM">
+
+Lorsque vous créez une sonde, les sondes STM sont le type par défaut. Celles-ci servent à collecter les métriques de performance habituelles utilisées par Experience Monitoring.
+
+1. Pour créer et démarrer une sonde STM, exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-la-zone-stm). 
 
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**.
+
+</TabItem>
+<TabItem value="Sonde recommandation">
+
+Vous pouvez également créer des sondes de recommandations. Ces dernières tournent une fois par jour pour vous faire des recommandations personnalisées sur comment optimiser votre site.
+
+1. Pour créer et démarrer une sonde de recommandations, cliquez sur l'onglet **recommandations** dans la section **Démarrer la sonde** et exécutez la commande affichée.
+
+2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**. Les sondes de recommandations se différencient des sondes STM grâce à leur icône de jumelles.
+
+Notez qu'il faut attendre juqu'à 24 heures pour que la sonde ait assez de données pour commencer à faire des recommandations.
+
+</TabItem>
+</Tabs>
 
 ## Étape 4 : Associer la zone à un parcours utilisateur
 
