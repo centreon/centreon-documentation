@@ -296,17 +296,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 ### Dependencies
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 ```bash
 dnf install gcc wget
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install gcc wget
 ```
 
 </TabItem>
@@ -355,7 +348,7 @@ The table below summarizes the supported Client/Server combinations:
 > For more information, please refer to the [Oracle Instant Client official FAQ](https://www.oracle.com/database/technologies/faq-instant-client.html).
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 Go to [Instant Client Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html),
 choose the right OS your Poller is running on (Linux x86-64) and download the following packages (RPM):
@@ -394,7 +387,7 @@ unzip 'instantclient-*.zip'
 ### Perl library for Oracle
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 As **root**, run:
 
@@ -470,7 +463,7 @@ make install
 ```
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 Create the file **/etc/ld.so.conf.d/oracle.conf** and add one line representing the 
 path to the library: 
@@ -584,13 +577,6 @@ apt install centreon-pack-applications-databases-oracle
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-databases-oracle
-```
-
-</TabItem>
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Oracle Database** connector through
@@ -628,13 +614,6 @@ dnf install centreon-plugin-Applications-Databases-Oracle
 
 ```bash
 apt install centreon-plugin-applications-databases-oracle
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Databases-Oracle
 ```
 
 </TabItem>

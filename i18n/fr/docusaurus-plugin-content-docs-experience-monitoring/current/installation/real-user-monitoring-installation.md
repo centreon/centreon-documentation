@@ -36,11 +36,14 @@ Vous trouverez ensuite le tag sur cet écran avec un bouton pour le copier facil
 
 Ce tag est à insérer dans la section “HEAD” du site web. L’opération peut être effectuée manuellement par un développeur, ou alternativement **il peut être ajouté dans un tag manager comme GTM en suivant la procédure suivante** : 
 
+### Insérer un tag RUM avec GTM
+
 **1-**  **Créer une nouvelle balise** : 
 
 Connectez-vous à votre compte GTM et sélectionnez le conteneur approprié pour votre site web. Cliquez ensuite sur "Ajouter une nouvelle balise".
 
 **2- Configurer la balise** :
+
 Sélectionnez "Balise HTML personnalisée" comme type de balise.
 Collez le script que vous avez fourni dans le champ HTML.
 Assurez-vous que le type de script est correctement défini comme "JavaScript" si nécessaire. GTM gère généralement cela automatiquement, mais il est bon de vérifier.

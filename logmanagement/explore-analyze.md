@@ -13,11 +13,47 @@ According to your [use case](./getting-started/use-cases.md), you’ll either fi
 
 The **log explorer** page allows you to search and filter logs so you can investigate issues and perform root-cause analysis.
 
+### Time period
+
 * Use the **Time period** list at the top right of the page to select the range of logs to display.
-* Use the search bar to filter your logs using [queries](query-syntax.md). You can enrich your search with additional context (attributes) to refine the results and identify the root cause of problems.
-* Expand logs to see the details of their attributes.
 * Navigate your data using the timeline: click and drag your mouse over the graph to select a new time range.
-<!--filters-->
+
+### Searching for logs
+
+Use the search bar to filter your logs. The search bar has two modes (use the switch on the right to select the one you want):
+
+* In query mode:
+
+   * Type your search directly using the [query syntax](query-syntax.md).
+   * Click the **Ask AI** button to the right of the search bar. Write a query with your own words in the field that appears, then click **Apply and search**. This will generate a query with the correct syntax.
+
+      > AI responses may be inaccurate or incomplete. Always check the results.
+
+      ![image](assets/ask-ai.png)
+     
+* In **Query builder** mode, blocks lets you build your search step by step - you add a block, then you select attribute names and values and select syntax elements like AND, OR, and NOT.
+
+   * Click the plus sign in the search bar to add a blank block.
+   * Add a pre-filled block automatically by clicking the plus sign to the left of an attribute value in the **Filters** panel.
+
+   ![image](./assets/log_explorer_full.png)
+
+In both cases, you need to click the **Search** button to launch the search.
+
+### Detailed log info
+
+Click a log to see all related information in the **Log details** panel, including the raw log entry.
+
+* You can open several logs in the panel.
+* The search bar will inspect attribute names and values.
+
+### Rearranging columns
+
+* Use the **Search and add column** button at the top right of the results to choose which columns/attributes you want to display.
+
+   ![image](assets/column-management.png)
+  
+* The **Time** column is always displayed first and cannot be unpinned. You can pin one other column in second position.
 
 ## Using the Alert events page
 
