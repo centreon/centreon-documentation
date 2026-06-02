@@ -94,7 +94,6 @@ const cards = [
         href: "logmanagement/explore-analyze/",
       },
     ],
-    isBeta: true,
   },
 ];
 
