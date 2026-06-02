@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 ## Types de licences
 
-Selon votre [édition Centreon](https://www.centreon.com/editions/), votre licence peut être :
+Selon votre [édition Centreon](https://www.centreon.com/fr/editions-centreon/), votre licence peut être :
 
 - en ligne : gérée avec un jeton. Votre plateforme Centreon doit être connectée à internet.
 - hors ligne : gérée avec des fichiers de licence
@@ -129,3 +129,5 @@ chmod 640 /etc/centreon/license.d/*
   ```sql
   SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
   ```
+
+  > Les hôtes désactivés sont pris en compte par la licence. Assurez-vous que le total des hôtes existants (activés + désactivés) est inférieur à la limite fixée par votre licence.

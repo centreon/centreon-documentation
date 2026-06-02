@@ -51,9 +51,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Connection" label="Connection">
 
-| Name                                              | Unit |
-|:-------------------------------------------------|:------|
-| status                                           | N/A   |
+| Name   | Unit |
+|:-------|:-----|
+| status | N/A  |
 
 </TabItem>
 </Tabs>
@@ -170,10 +170,10 @@ yum install centreon-plugin-Applications-Protocol-Udp
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **App-Protocol-Udp-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 
-| Macro      | Description | Default value     | Mandatory   |
-|:-----------|:------------|:------------------|:-----------:|
-| UDPPORT    | Port used            | 161               | X            |
-| UDPTIMEOUT | Timeout value            | 3                 |             |
+| Macro      | Description   | Default value | Mandatory |
+|:-----------|:--------------|:--------------|:---------:|
+| UDPPORT    | Port used     | 161           |     X     |
+| UDPTIMEOUT | Timeout value | 3             |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -185,10 +185,10 @@ yum install centreon-plugin-Applications-Protocol-Udp
 3. Apply the **App-Protocol-Udp-Only-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro      | Description | Default value     | Mandatory   |
-|:-----------|:------------|:------------------|:-----------:|
-| UDPPORT    | Port used            | 161               | X            |
-| UDPTIMEOUT | Timeout value            | 3                 |             |
+| Macro      | Description   | Default value | Mandatory |
+|:-----------|:--------------|:--------------|:---------:|
+| UDPPORT    | Port used     | 161           |     X     |
+| UDPTIMEOUT | Timeout value | 3             |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -203,10 +203,10 @@ yum install centreon-plugin-Applications-Protocol-Udp
 <Tabs groupId="sync">
 <TabItem value="Connection" label="Connection">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PORT         | Port used                                                                                          |                   | X           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| PORT         | Port used                                                                                                                              |               |     X     |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 </Tabs>

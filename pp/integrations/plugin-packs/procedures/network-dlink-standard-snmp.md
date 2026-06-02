@@ -67,7 +67,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                                   | Unit  |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | cpu.utilization.5s.percentage                 | %     |
 | cpu.utilization.1m.percentage                 | %     |
@@ -79,12 +79,21 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Name                         | Unit  |
+|:-----------------------------|:------|
+| hardware.fan.status          | N/A   |
+| hardware.fan.count           | count |
+| hardware.fan.speed.rpm       | rpm   |
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
+| hardware.temperature.celsius | C     |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                                               | Unit  |
+| Name                                                      | Unit  |
 |:----------------------------------------------------------|:------|
 | *interface_name*#status                                   | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
@@ -97,7 +106,7 @@ Coming soon
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name                      | Unit  |
+| Name                             | Unit  |
 |:---------------------------------|:------|
 | *memory*#memory.usage.bytes      | B     |
 | *memory*#memory.free.bytes       | B     |
@@ -106,7 +115,7 @@ Coming soon
 </TabItem>
 <TabItem value="Stack" label="Stack">
 
-| Metric name                 | Unit  |
+| Name                        | Unit  |
 |:----------------------------|:------|
 | stack.members.total.count   | count |
 | *member*~member-status      | N/A   |
@@ -438,7 +447,7 @@ All generic options are listed here:
 | --contextname                              | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --contextengineid                          | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --securityengineid                         | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --snmp-tls-transport                       | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-tls-our-identity                    | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --snmp-tls-their-identity                  | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |

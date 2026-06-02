@@ -5,6 +5,11 @@ title: HP Ilo XMLAPI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **HP Ilo XMLAPI** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+
 ## Pack assets
 
 ### Templates
@@ -52,7 +57,7 @@ To be able to query this API, you must create a read-only access account on the 
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connectors Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -88,7 +93,7 @@ yum install centreon-pack-hardware-servers-hp-ilo-xmlapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **HP Ilo XMLAPI** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -139,7 +144,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Ilo-Xmlapi
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
 3. Apply the **HW-Server-Hp-Ilo-Xmlapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
@@ -281,8 +286,8 @@ All available options for each service template are listed below:
 | --absent-problem                           | Return an error if an entity is not 'present' (default is skipping). Can be specific or global (example: --absent-problem="fan,Fan Block 1").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --no-component                             | Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --threshold-overload                       | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='fan,OK,degraded'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --warning                                  | Define the warning threshold for 'temperature', 'fan'. Syntax: type,regexp,threshold. Example: --warning='temperature,.*,30'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --critical                                 | Define the critical threshold for 'temperature', 'fan'. Syntax: type,regexp,threshold. Example: --critical='temperature,.*,50'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --warning                                  | Define the warning threshold for 'temperature', 'fan'. Syntax: type,regexp,threshold. Example: --warning='temperature,.*,30'.   When not specified on the command line the warning threshold for the 'temperature' entity is automatically defined based on the CAUTION field returned by ILO.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --critical                                 | Define the critical threshold for 'temperature', 'fan'. Syntax: type,regexp,threshold. Example: --critical='temperature,.*,50'.   When not specified on the command line the critical threshold for the 'temperature' entity is automatically defined based on the CRITICAL field returned by ILO.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 </TabItem>
 </Tabs>
