@@ -314,6 +314,21 @@ Install the following dependencies:
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
+#### Add Sury APT repository for PHP 8.2
+
+To install the Sury repository, execute the following command:
+
+```shell
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
+apt update
+```
+
 </TabItem>
 </Tabs>
 
@@ -396,6 +411,61 @@ Replace **new-server-name** with the name of your choice. Example:
 ```shell
 hostnamectl set-hostname central
 ```
+
+### Set the PHP time zone
+
+You are required to set the PHP time zone.
+
+> Replace **Europe/Paris** with your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Run the following command as `root`:
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+After saving the file, restart the PHP-FPM service:
+
+```shell
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Run the following command as `root`:
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+After saving the file, restart the PHP-FPM service:
+
+```shell
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php/8.2/mods-available/centreon.ini
+```
+
+> The PHP timezone was defined during the installation process by retrieving the timezone configured on the operating system.
+
+After saving the file, restart the PHP8.2-FPM service:
+
+```shell
+systemctl restart php8.2-fpm
+```
+
+</TabItem>
+</Tabs>
 
 ### Service startup during system bootup
 

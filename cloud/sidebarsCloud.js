@@ -568,8 +568,10 @@ module.exports = {
         {
           "type": "category",
           "label": "Guide",
+          "key": "graph-views-guide",
           "link": {
             "type": "generated-index",
+            "slug": "graph-views-guide"
           },
           "items": [
             {
@@ -622,6 +624,39 @@ module.exports = {
     },
     {
       "type": "category",
+      "label": "Centreon Monitoring Agent",
+      "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-certificates"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-custom"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-migratenscpp"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-troubleshooting"
+                }
+              ]
+    },
+    {
+      "type": "category",
       "label": "Integrations",
       "link": {
         "type": "generated-index",
@@ -630,6 +665,10 @@ module.exports = {
         {
           "type": "doc",
           "id": "integrations/stream-connectors-cloud"
+        },
+        {
+          "type": "doc",
+          "id": "integrations/mcp-server"
         },
         {
           "type": "category",
@@ -692,8 +731,18 @@ module.exports = {
       "items": [
     {
       "type": "link",
-      "href": "https://docs-api.centreon.com/api/centreon-web/cloud/",
+      "href": "https://docs-api.centreon.com/api/centreon-web-cloud/",
       "label": "Centreon Cloud API"
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-bam/cloud/",
+      "label": "BAM API"
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-autodiscovery/cloud/",
+      "label": "Autodiscovery API"
     },
     {
           "type": "doc",

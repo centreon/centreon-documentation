@@ -110,7 +110,7 @@ Pour créer une règle de publication, allez à la page **Reporting > Monitoring
 </TabItem>
 <TabItem value="SMTP" label="SMTP">
 
-> Avant de configurer la règle SMTP dans l'interface MBI, assurez-vous que [Postfix est correctement installé et configuré](https://docs-next-int.centreon.com/fr/docs/administration/postfix/) sur votre serveur MBI afin de permettre la livraison du courrier en local.
+> Avant de configurer la règle SMTP dans l'interface MBI, assurez-vous que [Postfix est correctement installé et configuré](../administration/postfix.md) sur votre serveur MBI afin de permettre la livraison du courrier en local.
 > 
 > Par défaut, Postfix est utilisé comme relais de messagerie sans authentification sur MBI. Cela signifie que :
 > - La configuration SMTP dans Centreon MBI ne nécessite pas d'informations d'identification ni de SSL.
@@ -132,10 +132,10 @@ Pour créer une règle de publication, allez à la page **Reporting > Monitoring
 | Corps par défaut de l e-mail              |                         | Contenu par défaut dans le corps de l'email. Si ce champ est vide, l'email sera vide.                                                     |
 | Signature par défaut de l'e-mail          |                         | Signature/pied de page par défaut en bas de l'email. Si ce champ est vide, l’email n’aura pas de signature.                               |
 | Taille maximum du rapport                 | 4 Mo                    | Taille maximale totale autorisée pour toutes les pièces jointes (en mégaoctets).                                                            |
-| Protocole                                 | http                    | Protocole utilisé pour accéder à l'interface Centreon (HTTP ou [HTTPS](https://docs-next-int.centreon.com/fr/docs/administration/secure-platform/)). |
+| Protocole                                 | http                    | Protocole utilisé pour accéder à l'interface Centreon (HTTP ou [HTTPS](../administration/secure-platform.md)). |
 | L'extension de l'adresse web de Centreon  | /centreon               | Extension de chemin web (ce sera `/centreon` si vous ne l’avez pas personnalisée).                                                          |
 | Adresse du serveur Web principal Centreon | central_ip              | IP ou FQDN + port de l’interface web Centreon.                                                                                              |
-| Contact Groups                            | cg-reports-mbi          | Le(s) [groupe(s) de contacts](https://docs-next-int.centreon.com/fr/docs/monitoring/basic-objects/contacts-groups/) qui recevront le rapport. Attention, si vous envoyez une copie du rapport à ces utilisateurs, ils pourront voir toutes les données que cleui-ci contient — qu'ils aient ou non [des droits d’accès sur ces ressources](https://docs-next-int.centreon.com/fr/docs/administration/access-control-lists.md#access-filters-on-resources).  |
+| Contact Groups                            | cg-reports-mbi          | Le(s) [groupe(s) de contacts](../monitoring/basic-objects/contacts-groups.md) qui recevront le rapport. Attention, si vous envoyez une copie du rapport à ces utilisateurs, ils pourront voir toutes les données que cleui-ci contient — qu'ils aient ou non [des droits d’accès sur ces ressources](../administration/access-control-lists.md#filtres-daccès-aux-ressources).  |
 
 
 </TabItem>
@@ -148,7 +148,7 @@ Pour vous assurer qu'une copie de votre rapport est publiée à chaque fois que 
 * marquer la règle comme globale (aucune configuration supplémentaire n'est nécessaire, car toutes les règles globales sont exécutées à chaque fois qu'une tâche est exécutée - attention, les règles globales s'appliquent à toutes les tâches exécutées par la plateforme).
 * dans la tâche souhaitée, sélectionner la règle personnalisée souhaitée dans l'onglet **Publication** de la page **Reporting > Monitoring Business Intelligence > Jobs**.
 
-Veuillez noter que les données incluses dans le rapport dépendent des [droits d'accès aux ressources](https://docs-next-int.centreon.com/fr/docs/administration/access-control-lists/#filtres-daccès-aux-ressources) de l'utilisateur qui crée la tâche. Il incombe à l'utilisateur qui crée la tâche de s'assurer que les ressources incluses dans le rapport sont autorisées pour les utilisateurs avec lesquels il souhaite partager le rapport.
+Veuillez noter que les données incluses dans le rapport dépendent des [droits d'accès aux ressources](../administration/access-control-lists.md#filtres-daccès-aux-ressources) de l'utilisateur qui crée la tâche. Il incombe à l'utilisateur qui crée la tâche de s'assurer que les ressources incluses dans le rapport sont autorisées pour les utilisateurs avec lesquels il souhaite partager le rapport.
 
 ## Fonctionnement de la règle de publication Default
 

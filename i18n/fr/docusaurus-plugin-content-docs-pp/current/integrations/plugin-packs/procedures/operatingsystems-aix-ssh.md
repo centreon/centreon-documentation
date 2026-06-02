@@ -292,6 +292,7 @@ yum install centreon-plugin-Operatingsystems-Aix-Local
 | Macro          | Description                                                                                                                                                     | Valeur par défaut | Obligatoire |
 |:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERCOMMAND  | Filter process commands (regexp can be used)                                                                                                                    |                   |             |
+| FILTERARG      | Filter process arguments (regexp can be used)                                                                                                                   |                   |             |
 | FILTERPPID     | Filter process ppid (regexp can be used)                                                                                                                        |                   |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ppid\}, %\{state\}, %\{elapsed\}, %\{cmd\}, %\{args\}                |                   |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ppid\}, %\{state\}, %\{elapsed\}, %\{cmd\}, %\{args\} |                   |             |
@@ -500,6 +501,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-arg             |   Filter process arguments (regexp can be used).                                                                                                                    |
 | --filter-ppid            |   Filter process ppid (regexp can be used).                                                                                                                         |
 | --filter-state           |   Filter process states (regexp can be used). You can use: 'Canceled', 'Nonexistent', 'Active', 'Swapped', 'Idle', 'Stopped', 'Running', 'Sleeping'.                |
+| --show-all               |   Display all processes (not only problems). Implies --verbose.                                                                                                     |
 | --warning-status         |   Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{ppid\}, %\{state\}, %\{elapsed\}, %\{cmd\}, %\{args\}     |
 | --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{ppid\}, %\{state\}, %\{elapsed\}, %\{cmd\}, %\{args\}   |
 | --warning-* --critical-* |   Thresholds. Can be: 'total'.                                                                                                                                      |

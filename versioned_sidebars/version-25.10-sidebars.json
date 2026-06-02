@@ -225,6 +225,10 @@
         {
           "type": "doc",
           "id": "graph-views/secure-your-map-platform"
+        },
+        {
+          "type": "doc",
+          "id": "reporting/secure-your-mbi-platform"
         }
       ]
     },
@@ -534,7 +538,7 @@
                 },
                 {
                   "type": "doc",
-                  "id": "alerts-notifications/notif-config-for-teams"
+                  "id": "integrations/notifications/sms-notifications"
                 },
                 {
                   "type": "doc",
@@ -734,27 +738,6 @@
             {
               "type": "doc",
               "id": "graph-views/introduction-map"
-            },
-            {
-              "type": "category",
-              "label": "Information for MAP Legacy users",
-              "link": {
-                "type": "generated-index"
-              },
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-legacy-eol"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/upgrading-map-legacy"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/import-into-map-web"
-                }
-              ]
             },
             {
               "type": "doc",
@@ -1181,6 +1164,10 @@
             {
               "type": "doc",
               "id": "upgrade/upgrade-mariadb"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-mysql"
             }
           ]
         },
@@ -1234,6 +1221,39 @@
     },
     {
       "type": "category",
+      "label": "Centreon Monitoring Agent",
+      "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-certificates"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-custom"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-migratenscpp"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-troubleshooting"
+                }
+              ]
+    },
+    {
+      "type": "category",
       "label": "Integrations",
       "link": {
         "type": "doc",
@@ -1248,6 +1268,10 @@
             "id": "integrations/stream-connectors"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "integrations/stream-connectors-rn"
+            },
             {
               "type": "doc",
               "id": "integrations/event-management/sc-hp-bsm"
@@ -1471,11 +1495,11 @@
         },
         {
           "type": "doc",
-          "id": "developer/developer-translate-centreon"
+          "id": "developer/developer-widget"
         },
         {
           "type": "doc",
-          "id": "developer/developer-widget"
+          "id": "developer/mcp-server"
         },
         {
           "type": "category",
@@ -1492,6 +1516,10 @@
             {
               "type": "doc",
               "id": "developer/developer-broker-bbdo"
+            },
+            {
+              "type": "doc",
+              "id": "developer/developer-broker-bbdo-switch-versions"
             },
             {
               "type": "doc",
@@ -1528,9 +1556,77 @@
       "label": "Centreon HA",
       "link": {
         "type": "doc",
-        "id": "installation/installation-of-centreon-ha/overview"
+        "id": "installation/installation-of-centreon-ha/centreon-ha"
       },
       "items": [
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-faq"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/cluster-elements"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/overview"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-prerequisites"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-small"
+        },
+        {
+          "type": "category",
+          "label": "Completing your Centreon HA setup",
+          "link": {
+            "type": "generated-index",
+            "description": "Your HA platform has been installed by Centreon Professional Services. What can you do next?"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha/integrating-pollers"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/monitoring-guide"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Operating Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/troubleshooting-guide"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Updating Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "update/update-centreon-ha"
+            }
+          ]
+        },
         {
           "type": "category",
           "label": "Upgrading Centreon HA",
@@ -1538,6 +1634,14 @@
             "type": "generated-index"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-24-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-24-04"
+            },
             {
               "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
@@ -1568,38 +1672,18 @@
     },
     {
       "type": "category",
-      "label": "Monitoring your platform",
-      "link": {
-        "type": "generated-index"
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "health/helios"
-        }
-      ]
-    },
-    {
-      "type": "category",
       "label": "Releases",
       "link": {
         "type": "generated-index"
       },
       "items": [
         {
-          "type": "doc",
-          "id": "releases/introduction"
-        },
-        {
-          "type": "doc",
-          "id": "releases/lifecycle"
-        },
-        {
           "type": "category",
-          "label": "Release notes by component",
-          "link": {
-            "type": "generated-index"
-          },
+          "label": "Release notes for Centreon 25.10",
+          "link": { 
+            "type": "doc",
+            "id": "releases/introduction"
+          }, 
           "items": [
             {
               "type": "doc",
@@ -1610,6 +1694,10 @@
               "id": "releases/centreon-commercial-extensions"
             }
           ]
+        },
+        {
+          "type": "doc",
+          "id": "releases/lifecycle"
         }
       ]
     },

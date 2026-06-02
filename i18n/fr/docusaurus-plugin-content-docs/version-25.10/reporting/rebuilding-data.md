@@ -311,7 +311,7 @@ Centreon MBI utilise un script basé sur Perl pour orchestrer son ETL (Extract, 
 /usr/share/centreon-bi/bin/centreonBIETL (-c|-d|-r) 
 ```
 
-Ce script prend en charge plusieurs options d'exécution pour effectuer des tâches telles que la création de [dimensions](https://docs-next-int.centreon.com/fr/docs/reporting/concepts/#dimension), la copie et l'agrégation des données de la veille ou la reconstruction de l'ensemble de la base de données MBI.
+Ce script prend en charge plusieurs options d'exécution pour effectuer des tâches telles que la création de [dimensions](concepts.md#dimension), la copie et l'agrégation des données de la veille ou la reconstruction de l'ensemble de la base de données MBI.
 
 Cette section se concentre spécifiquement sur l'option `-r` (reconstruction) et son utilisation.
 

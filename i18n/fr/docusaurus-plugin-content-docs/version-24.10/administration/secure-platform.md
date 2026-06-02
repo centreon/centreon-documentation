@@ -44,11 +44,10 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 Centreon a récemment développé des règles SELinux afin de renforcer le contrôle
 des composants par le système d'exploitation.
 
-> Ces règles sont actuellement en **mode bêta** et peuvent être activées. Vous
-> pouvez les activer en suivant cette procédure. Lors de la détection d'un
+> Pour activer ces règles, suivez cette procédure. En cas de
 > problème, il est possible de désactiver SELinux globalement et de nous envoyer
 > vos commentaires afin d'améliorer nos règles sur
-> [Github](https://github.com/centreon/centreon).
+> notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).
 
 ### Présentation de SELinux
 
@@ -656,7 +655,7 @@ Maintenant que vous avez votre certificat auto-signé, vous pouvez suivre la pro
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install mod_ssl mod_security openssl
+dnf install mod_ssl openssl
 ```
 
 2. Installez les certificats :
@@ -673,7 +672,7 @@ cp ca_demo.crt /etc/pki/tls/certs/
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install mod_ssl mod_security openssl
+dnf install mod_ssl openssl
 ```
 
 2. Installez les certificats :
@@ -692,7 +691,6 @@ cp ca_demo.crt /etc/pki/tls/certs/
 ```shell
 curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
 apt update
-apt install libapache2-mod-security2
 a2enmod ssl
 a2enmod security2
 systemctl restart apache2
@@ -1442,7 +1440,7 @@ dnf install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1450,13 +1448,13 @@ dnf install nghttp2
 
 4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
 
-Commentez la ligne suivante :
+Identifiez la ligne suivante et commentez-la en ajoutant le caractère "#" comme ci-dessous :
 
 ```shell
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 ```
 
-Décommentez la ligne suivante :
+Identifiez la ligne suivante et décommentez-la en supprimant le caractère "#" comme ci-dessous :
 
 ```shell
 LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1484,7 +1482,7 @@ dnf install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1492,13 +1490,13 @@ dnf install nghttp2
 
 4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
 
-Commentez la ligne suivante :
+Identifiez la ligne suivante et commentez-la en ajoutant le caractère "#" comme ci-dessous :
 
 ```shell
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 ```
 
-Décommentez la ligne suivante :
+Identifiez la ligne suivante et décommentez-la en supprimant le caractère "#" comme ci-dessous :
 
 ```shell
 LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1526,7 +1524,7 @@ apt install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1542,6 +1540,105 @@ a2enmod http2
 ```
 
 5. Redémarrez le processus Apache pour prendre en compte la nouvelle configuration :
+
+```shell
+systemctl restart apache2
+```
+
+</TabItem>
+</Tabs>
+
+## Activer mod_security
+
+**mod_security** est un module de sécurité pour Apache qui agit comme un pare-feu d'applications web (WAF).
+
+1. Installez **mod_security** :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install mod_security
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install mod_security
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt install libapache2-mod-security2
+```
+
+</TabItem>
+</Tabs>
+
+2. Éditez le fichier suivant et adaptez les paramètres selon votre choix :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+/etc/httpd/conf.d/mod_security.conf
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+/etc/httpd/conf.d/mod_security.conf
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+/etc/modsecurity/mod_security.conf
+```
+
+</TabItem>
+</Tabs>
+
+Nous recommandons la configuration suivante :
+
+```text
+    SecResponseBodyAccess Off
+    SecDebugLog /var/log/httpd/modsec_debug.log
+    SecDebugLogLevel 0
+    SecAuditEngine RelevantOnly
+    SecAuditLogRelevantStatus "^(?:5|4(?!01|4))"
+    SecAuditLogParts ABJDEFHZ
+    SecAuditLogType Serial
+    SecAuditLog /var/log/httpd/modsec_audit.log
+    SecArgumentSeparator &
+    SecCookieFormat 0
+    SecTmpDir /var/lib/mod_security
+    SecDataDir /var/lib/mod_security
+```
+
+3. Redémarrez Apache :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 systemctl restart apache2
@@ -1652,3 +1749,33 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 
 Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu 
 [**Administration > Parameters > Backup**](./backup.md).
+
+## Utiliser un antivirus sur une plateforme Centreon
+
+Cette section s'applique si vous utilisez un logiciel antivirus/EDR pour analyser une plateforme Centreon Infra Monitoring (serveur central, serveur distant, poller, serveur MAP ou MBI). Cela inclut les modules Business.
+
+Voici une liste des services et répertoires qui doivent être exclus de l'analyse antivirus.
+
+### Services à exclure
+
+* centengine
+* cbd
+* centreontrapd
+* gorgoned
+* php-fpm
+* httpd
+
+Si vous utilisez l'un de ces connecteurs, excluez les services suivants :
+
+* vmware: centreon_vmware
+* as400: centreon-as400
+
+### Répertoires à exclure
+
+* /etc/centreon*
+* /var/log/centreon*
+* /var/lib/centreon*
+* /var/cache/centreon*
+* /usr/share/centreon*
+* /var/spool/centreon*
+* /var/lib/mysql
