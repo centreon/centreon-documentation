@@ -27,6 +27,4 @@ It is also possible you don't yet have an account. In that case, an administrato
 
 ## Other troubleshooting resources
 
-See also:
-
 * [Troubleshooting RUM](./how-to-articles/rum-blocked-by-csp/)
