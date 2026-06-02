@@ -66,6 +66,7 @@ html:root {
   --ifm-blockquote-padding-vertical: 16px;
   --ifm-blockquote-padding-horizontal: 32px;
   --ifm-global-radius: 5px;
+  --ifm-product-dropdown-background-color: #f7eefe;
 }
 
 html[data-theme='dark']:root {
@@ -92,6 +93,7 @@ html[data-theme='dark']:root {
 
   --ifm-blockquote-border-color: rgba(34, 19, 226, 1);
   --ifm-blockquote-background-color: rgba(34, 19, 226, 0.5);
+  --ifm-product-dropdown-background-color: #120950;
 }
 
 blockquote {
@@ -314,7 +316,14 @@ img[src*="thumbnail2"] {
   margin-bottom: -6px!important;
 }
 details{
-  border-width: 0px!important;
+  border-left-width: thin;
+  border-right-width: 0;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  border-radius: 0%;
+  border-style: dotted;
+  background-color: #f5f5f700;
+  box-shadow: none;
 }
 summary{
   font-weight: bold;

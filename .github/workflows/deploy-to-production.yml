@@ -8,7 +8,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  dependency-scan:
+    uses: centreon/security-tools/.github/workflows/dependency-analysis.yml@main
+
   deploy:
+    needs: [dependency-scan]
     runs-on: infrastructure
 
     name: Deploy to production
@@ -20,9 +24,11 @@ jobs:
     steps:
       - name: Setup awscli
         run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          sudo unzip -q awscliv2.zip
-          sudo ./aws/install
+          if ! command -v aws >/dev/null 2>&1; then
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            sudo unzip -q awscliv2.zip
+            sudo ./aws/install
+          fi
         shell: bash
 
       - name: Deploy from staging to https://docs.centreon.com

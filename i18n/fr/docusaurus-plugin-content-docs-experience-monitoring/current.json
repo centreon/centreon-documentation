@@ -1,0 +1,50 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.experience-monitoring.category.Getting started with Centreon Experience Monitoring": {
+    "message": "Démarrer avec Centreon Experience Monitoring",
+    "description": "The label for category Getting started in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Installation": {
+    "message": "Installation",
+    "description": "The label for category Installation in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Servers and middleware": {
+    "message": "Serveurs et middleware",
+    "description": "The label for category Servers and middlewares in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Configuration": {
+    "message": "Configuration",
+    "description": "The label for category Configuration in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.User journey": {
+    "message": "Parcours Utilisateurs",
+    "description": "The label for category User journey in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Advanced configuration": {
+    "message": "Configuration avancée",
+    "description": "The label for category Advanced configuration in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Performance analysis": {
+    "message": "Analyse de la performance",
+    "description": "The label for category Performance analysis in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Metric overview": {
+    "message": "Vue d'ensemble des métriques",
+    "description": "The label for category Metric overview in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Basic actions": {
+    "message": "Actions de base",
+    "description": "The label for category Basic actions in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Digital sobriety": {
+    "message": "Sobriété numérique",
+    "description": "The label for category Digital sobriety in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.How-to articles": {
+    "message": "Articles How-to",
+    "description": "The label for category How-to articles in sidebar Experience Monitoring"
+  }
+}

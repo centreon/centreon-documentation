@@ -332,8 +332,5 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 30 -u -2 -P 8192 -c check_centreon_plugins -a 'apps::microsoft::activedirectory::local::plugin' 'dfsr-backlog'  ' \
-	--sending-member="" \
-	--replication-group="" \
-	--help
+/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 30 -u -2 -P 8192 -c check_centreon_plugins -a 'apps::microsoft::activedirectory::local::plugin' 'dfsr-backlog' --help
 ```
