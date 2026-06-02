@@ -28,3 +28,7 @@ It is also possible you don't yet have an account. In that case, an administrato
 ## Other troubleshooting resources
 
 * [Troubleshooting RUM](./how-to-articles/rum-blocked-by-csp/)
+
+## Centreon support
+
+To contact us, log in to the [**The Guard** portal](https://support.centreon.com) to create your ticket. If you don’t have access yet, please contact us [by email](mailto:support@centreon.com).
