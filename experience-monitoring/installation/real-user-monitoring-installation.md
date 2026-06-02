@@ -37,7 +37,7 @@ Real User Monitoring (RUM) requires inserting a JavaScript tag into your site's 
 
 ## GDPR considerations
 
-Although Experience Monitoring uses a cookie, **no consent is required in France**.
+Although Centreon Experience Monitoring uses a cookie, **no consent is required in France**.
 
 The CNIL (French data protection authority) exempts certain cookies from requiring consent under these conditions:
 
@@ -47,7 +47,7 @@ The CNIL (French data protection authority) exempts certain cookies from requiri
 - they are not transmitted to third parties
 - they do not enable tracking a user's browsing across other websites.
 
-**Experience Monitoring meets these conditions.**
+**Centreon Experience Monitoring meets these conditions.**
 
 You can find CNIL's recommendations on [this page](https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience).
 
