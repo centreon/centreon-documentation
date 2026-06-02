@@ -277,9 +277,24 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+### Réseau
+- Connectivité réseau entre le collecteur et le système NetApp
+- Port **443 (HTTPS)** ouvert entre le superviseur et le contrôleur ONTAP
+- Résolution DNS fonctionnelle vers le système NetApp (ou IP fixe renseignée)
+
+### NetApp / ONTAP
+- Créer un compte **read-only** dédié à la supervision (bonne pratique sécurité)
+- L'IP de management du **cluster** doit être accessible (cluster management LIF)
+- Vérifier que l'accès **ontapi** et/ou **http** est activé sur le compte
+
+voir [Documentation API REST ONTAP](https://docs.netapp.com/us-en/ontap-automation/)
+
+### OnCommand
+- **OnCommand API Services** installé et accessible (si couche intermédiaire utilisée)
+- Version compatible avec la version ONTAP en production
+- Certificat SSL valide ou acceptance du certificat auto-signé configurée côté collecteur
+
+
 
 ## Installer le connecteur de supervision
 

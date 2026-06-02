@@ -276,9 +276,24 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+### Network
+- Network connectivity between the monitoring collector and the NetApp system
+- Port **443 (HTTPS)** open between the supervisor and the ONTAP controller
+- Functional DNS resolution to the NetApp system (or static IP configured)
+
+### NetApp / ONTAP
+- Create a dedicated **read-only** account for monitoring (security best practice)
+- The **cluster** management IP must be accessible (cluster management LIF)
+- Verify that **ontapi** and/or **http** access is enabled on the account
+
+see [ONTAP REST API documentation](https://docs.netapp.com/us-en/ontap-automation/).
+
+### OnCommand
+
+- **OnCommand API Services** installed and accessible (if intermediate layer is used)
+- Version compatible with the ONTAP version in production
+- Valid SSL certificate or self-signed certificate acceptance configured on the collector side
+
 
 ## Installing the monitoring connector
 
