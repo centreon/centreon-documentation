@@ -7,7 +7,7 @@ Real User Monitoring (RUM) requires inserting a JavaScript tag into your site's 
 
 ## Procedure
 
-1. To retrieve your application's RUM tag, go to **Configuration > Integrations**:
+1. To retrieve your application's RUM tag, go to **Settings > Integrations**:
 
    ![image](../assets/installation/install-rum-1.png)
 
@@ -37,7 +37,7 @@ Real User Monitoring (RUM) requires inserting a JavaScript tag into your site's 
 
 ## GDPR considerations
 
-Although Experience Monitoring uses a cookie, **no consent is required.**
+Although Experience Monitoring uses a cookie, **no consent is required in France**.
 
 The CNIL (French data protection authority) exempts certain cookies from requiring consent under these conditions:
 
@@ -50,3 +50,5 @@ The CNIL (French data protection authority) exempts certain cookies from requiri
 **Experience Monitoring meets these conditions.**
 
 You can find CNIL's recommendations on [this page](https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience).
+
+In other countries, requirements may vary. If consent is required, load the RUM tag conditionally via your Consent Management Platform (CMP) — only users who consent will be tracked.

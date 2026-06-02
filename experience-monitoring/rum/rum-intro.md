@@ -11,7 +11,7 @@ This is what makes it fundamentally different from [Synthetic Monitoring](../get
 
 ## How does it work?
 
-RUM works via [a lightweight, asynchronous tag added to the page](../installation/real-user-monitoring-installation.md), which send data back to Experience Monitoring.
+RUM works via [a lightweight, asynchronous tag added to the page](../installation/real-user-monitoring-installation.md), which sends data back to Experience Monitoring.
 
 * It doesn't slow the user's browsing on the site.
 * The data collected is purely technical (no personal identifiers), making it GDPR-compliant, and allows segmentation by browser type without tracking individual users.

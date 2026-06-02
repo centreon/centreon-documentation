@@ -7,11 +7,11 @@ Once RUM is [configured](../installation/real-user-monitoring-installation.md), 
 
 ## What RUM can tell you
 
-[Experience monitoring metrics](../performance-analysis/metrics/overview-of-metrics.md) and digital sobriety data(../digital-sobriety/) are detailed in each tab, and presented as visuals, graphs or tables - aggregated according to different criteria.
+[Experience monitoring metrics](../performance-analysis/metrics/overview-of-metrics.md) and [digital sobriety data](../digital-sobriety/digital-sobriety-concepts.md) are detailed in each tab, and presented as visuals, graphs or tables - aggregated according to different criteria.
 
 * An overview of the situation over the last 30 minutes is shown in the **LIVE** section. Typical use case: A colleague or customer service reports that the site is slow. Go to the **Live** view to immediately check if the data differs from normal.
 
-   > Warning: Only the **Live** section displays the last 30 minutes. All other data on the page is set to the time period defined in the filter (blue box in the top-right corner). If the user doesyou do not pay attention to the selected time period, you may end up looking at aggregated data that does not match what you are looking for.
+   > Warning: Only the **Live** section displays the last 30 minutes. All other data on the page is set to the time period defined in the filter (blue box in the top-right corner).
 
 * **Most visited pages**:
    * In the **Summary & Live** tab, a treemap shows a graphical view of your most visited pages. Clicking a URL in the treemap displays detailed data for this URL (under the table), in the **URLs** tab.
