@@ -9,7 +9,7 @@ Experience Monitoring licenses have no user count limits. We recommend inviting 
 
 All actions described here are performed from the **Organization** page.
 
-![image](../../assets/configuration/user-journey/organization-page.png)
+![image](../assets/configuration/user-journey/organization-page.png)
 
 ## Automatic password expiration
 

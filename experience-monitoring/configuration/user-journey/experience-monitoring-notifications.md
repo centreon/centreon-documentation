@@ -26,7 +26,7 @@ You can configure this URL by clicking the word “Webhook” for a newly create
 Users can define periods during which they do not receive alerts to better reflect their working hours or availability. 
 By default, users are considered available 24/7, click on the green bars to add red areas which indicate the times where the user will not receive notifications.
 
-![image](../assets/configuration/receive-and-configure-alerts-4.png)
+![image](../../assets/configuration/receive-and-configure-alerts-4.png)
 
 Additionally, each alert can be enabled/disabled for specific time ranges so it doesn't notify subscribed people regardless of their personal schedule.
 

@@ -17,4 +17,4 @@ Additionnally, User Journeys allow you to:
 - Monitor the proper functioning of a typical journey and calculate its availability rate (e.g., "it was possible to browse and purchase on the ecommerce site 99.5% of the time this month").
 - Alert site managers in case of a site malfunction, by sending emails, SMS, or other notifications with a detailed incident report.
 - Measure and record page load times according to several key criteria (Time To First Byte, Speed Index, full page load time, or with respect to Google's [Core Web Vitals](https://web.dev/vitals/)).
-- Analyze each page to [lists areas for improvement]() that will make the site faster (e.g., "to improve the homepage load time, optimize certain images and reduce the JavaScript code of a specific file").
+- Analyze each page to [identify areas for improvement](./user-journey-improve.md) that will make the site faster (e.g., "to improve the homepage load time, optimize certain images and reduce the JavaScript code of a specific file").
