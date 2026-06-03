@@ -60,28 +60,28 @@ personnalisées suivantes : \$_HOSTSNMPCOMMUNITY$ et \$_HOSTSNMPVERSION$.
 
 Lorsque Centreon Engine évalue une commande, la résolution des macros s'effectue en deux passes successives.
 
-**Niveau 1 — Niveau de la commande** : les tokens de macros présents directement dans la ligne de commande sont résolus :
+**Niveau 1 — Niveau de la commande** : les macros présentes directement dans la ligne de commande sont résolues :
 
-- Macro standard ou personnalisée reconnue → remplacée par sa valeur.
-- Macro non reconnue ou vide → remplacée par une chaîne vide.
+- Macro standard ou personnalisée résolue → remplacée par sa valeur.
+- Macro non résolue ou vide → remplacée par une chaîne vide.
 
 **Niveau 2 — Niveau de la valeur de macro** : si la valeur produite au niveau 1 contient elle-même des tokens ressemblant à des macros, une seconde passe s'applique à cette valeur :
 
-- Macro reconnue → résolue en sa valeur.
-- Macro non reconnue ou vide → **conservée telle quelle** (non supprimée).
+- Macro résolue → remplacée par sa valeur.
+- Macro non résolue ou vide → **conservée telle quelle** (non supprimée).
 
 ### Syntaxe d'échappement avec doubles accolades
 
-Utilisez le format `{{$MACRO$}}` lorsque vous souhaitez que les tokens de macro non reconnus dans une valeur soient remplacés par une chaîne vide plutôt que conservés :
+Utilisez le format `{{$MACRO$}}` lorsque vous souhaitez que les macros non résolues dans une valeur soient remplacées par une chaîne vide plutôt que conservées :
 
-- Au niveau 1 ou 2 : une macro reconnue est résolue et les doubles accolades sont supprimées.
-- Au niveau 1 ou 2 : une macro non reconnue ou vide est remplacée par une chaîne vide et les doubles accolades sont supprimées.
+- Au niveau 1 ou 2 : une macro résolue est remplacée par sa valeur et les doubles accolades sont supprimées.
+- Au niveau 1 ou 2 : une macro non résolue ou vide est remplacée par une chaîne vide et les doubles accolades sont supprimées.
 
 ### Cas d'usage : syntaxes de plugins tiers
 
 Certains plugins de supervision utilisent des caractères `$` dans leur propre syntaxe d'argument, qui ne sont pas des délimiteurs de macros Centreon. Un exemple courant est la syntaxe NSClient++, qui utilise des tokens tels que `${name}`, `${state}`, `${problem_list}` ou `${drive}`.
 
-Ces tokens étant des macros Centreon non reconnues, le comportement du niveau 2 les conserve tels quels, ce qui permet au plugin de recevoir la ligne de commande correcte.
+Ces macros Centreon n'étant pas résolues, le comportement du niveau 2 les conserve telles quelles, ce qui permet au plugin de recevoir la ligne de commande correcte.
 
 :::warning
 
