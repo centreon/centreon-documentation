@@ -3,9 +3,7 @@ id: cloud-saml
 title: Configuring a connection with SAML
 ---
 
-SAML (Security Assertion Markup Language) lets you set up seamless and secure single sign-on (SSO) for your organization.
-
-This means you can link your organization in [Centreon Hub](centreon-hub.md) to an identity provider, so that your users do not need to log in every time they access Centreon Cloud.
+SAML (Security Assertion Markup Language) lets you set up seamless and secure single sign-on (SSO) for your organization. This means you can link your organization in [Centreon Hub](centreon-hub.md) to an identity provider.
 
 ## Prerequisites
 
