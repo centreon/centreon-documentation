@@ -82,7 +82,7 @@ export default function DocBreadcrumbs() {
     homeLabel = 'Centreon Experience Monitoring';
   } else if (docSection === 'logmanagement') {
     homePath = '/logmanagement/getting-started/welcome';
-    homeLabel = 'Centreon Log Management BETA';
+    homeLabel = 'Centreon Log Management';
   }
 
   breadcrumbs.unshift({
