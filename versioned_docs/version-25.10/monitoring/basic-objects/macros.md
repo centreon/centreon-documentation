@@ -92,14 +92,6 @@ If you define a macro value that contains such tokens and export the configurati
 
 :::
 
-**Example** — `$_SERVICEDETAILSYNTAX$` macro defined in a service template:
-
-| Context | Value |
-|---|---|
-| Macro value defined in template | `raw::${name}=${state} (${start_type})` |
-| Resulting command line (correct behaviour) | `--detail-syntax=raw::${name}=${state} (${start_type})` |
-| Resulting command line (old behaviour — tokens stripped) | `--detail-syntax=raw::=${start_type})` |
-
 ## Global macros
 
 Global macros are used by the monitoring engine. These macros can be invoked by any type

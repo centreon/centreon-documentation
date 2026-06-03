@@ -95,14 +95,6 @@ Si vous définissez une valeur de macro contenant de tels tokens et exportez la 
 
 :::
 
-**Exemple** — macro `$_SERVICEDETAILSYNTAX$` définie dans un modèle de service :
-
-| Contexte | Valeur |
-|---|---|
-| Valeur de la macro dans le modèle | `raw::${name}=${state} (${start_type})` |
-| Ligne de commande résultante (comportement correct) | `--detail-syntax=raw::${name}=${state} (${start_type})` |
-| Ligne de commande résultante (ancien comportement — tokens supprimés) | `--detail-syntax=raw::=${start_type})` |
-
 ## Les macros globales
 
 Les macros globales sont utilisées par le moteur de supervision. Ces macros peuvent

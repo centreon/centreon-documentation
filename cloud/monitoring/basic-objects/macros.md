@@ -88,14 +88,6 @@ If you define a macro value that contains such tokens and export the configurati
 
 :::
 
-**Example** — `$_SERVICEDETAILSYNTAX$` macro defined in a service template:
-
-| Context | Value |
-|---|---|
-| Macro value defined in template | `raw::${name}=${state} (${start_type})` |
-| Resulting command line (correct behaviour) | `--detail-syntax=raw::${name}=${state} (${start_type})` |
-| Resulting command line (old behaviour — tokens stripped) | `--detail-syntax=raw::=${start_type})` |
-
 ## List of macros
 
 The following is an exhaustive list of macros by resource type, each type of resource also has a description section. 
