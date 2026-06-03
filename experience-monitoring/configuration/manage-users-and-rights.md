@@ -7,9 +7,9 @@ Experience Monitoring licenses have no user count limits. We recommend inviting 
 
 ## Access the configuration menu
 
-All actions described here are performed from the **Organization** menu. It is available in the top-right menu as shown:
+All actions described here are performed from the **Organization** page.
 
-![Shortcut to the Organization menu](../assets/configuration/manage-users-and-rights-1.png)
+![image](../../assets/configuration/user-journey/organization-page.png)
 
 ## Automatic password expiration
 
@@ -21,7 +21,7 @@ Users will be required to change their password after the number of days you set
 
 ## Invite a new user to your organization
 
-> If nobody in your organization is an Administrator or Owner, contact Experience Monitoring support or your reseller to manage your organization.
+> If nobody in your organization is an Administrator or Owner, contact the Centreon support or your reseller to manage your organization.
 
 ### Permissions
 
@@ -36,11 +36,11 @@ Permissions are shared across all sites within the same Organization.
 
 To add a new user to your organization you must be an Administrator of the Organization.
 
-At the bottom of this screen you have the list of users who already have access to the Organization and the permissions assigned to each of them.
+From the **Organization's configuration** page, click on the the **User Accounts** tab
 
-To add a user, click the icon next to the role you want to assign and enter the user's email address. If they don't yet have an Experience Monitoring account, they will be invited to create one automatically.
+Existing users are listed according to their role.
 
-![image](../assets/configuration/manage-users-and-rights-2.png)
+To add a user, click the add icon in column of the role you want to assign and enter the user's email address. If they don't yet have an Experience Monitoring account, they will be invited to create one automatically.
 
 ## Change a user's permissions
 
