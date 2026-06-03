@@ -798,17 +798,43 @@ centreon-monitoring-agent-modify.exe /VERYSILENT
 
 Update the agent using your package manager.
 
-For RPM-based systems (Alma Linux, RHEL, Oracle Linux):
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf update centreon-monitoring-agent
 ```
 
-For Debian-based systems (Debian, Ubuntu):
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 ```shell
 apt-get update && apt-get upgrade centreon-monitoring-agent
 ```
+
+</TabItem>
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+</TabItem>
+</Tabs>
 
 Then restart the agent:
 
