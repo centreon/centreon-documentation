@@ -20,11 +20,11 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
     } else if ('to' in item && item.to && item.to.includes('log')) {
       sections.push({
         ...item,
-        label: 'Log Management BETA',
+        label: 'Log Management',
         initials: 'LM',
         color:  '#611485ff'
       });
-    } else if ('to' in item && item.to && item.to.includes('cxm')) {
+    } else if ('to' in item && item.to && item.to.includes('experience-monitoring')) {
       sections.push({
         ...item,
         label: 'Experience Monitoring',

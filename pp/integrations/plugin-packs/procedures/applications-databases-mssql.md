@@ -45,8 +45,8 @@ The connector brings the following service templates (sorted by the host templat
 | Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio-custom       | Check the "Data Buffer Cache Hit Ratio" of the server. No alerts by default |
 | Locks-Waits          | App-DB-MSSQL-Locks-Waits-custom          | Check locks-waits per second of the server                                  |
 | Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy-custom | Check the "Page Life Expectancy" of the server. No alerts by default        |
-| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Check allowing to execute a custom SQL request with a digital answer        |
-| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Check allowing to execute a custom SQL request with a string answer         |
+| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Check allowing to execute a custom SQL request with a numerical result      |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Check allowing to execute a custom SQL request with a string result         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -184,7 +184,23 @@ We recommend you use a domain user to better manage its properties and privilege
 
 ### Dependencies
 
-These packages are required: `freetds perl-DBD-Sybase unixODBC`
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+These packages are required: `freetds perl-DBD-Sybase unixODBC`.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+These packages are required: `freetds perl-DBD-Sybase unixODBC`.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+These packages are required: `freetds libdbd-sybase-perl unixODBC`.
+
+</TabItem>
+</Tabs>
 
 ### Freetds configuration
 
@@ -192,8 +208,24 @@ The default version used by freetds is 4.2. To guarantee optimal operations and 
 uncomment this line `version = 4.2`and replace `4.2` with `8.0`. The 8.0 version is the minimal supported version.
 
 The configuration file is located under different paths depending on your operating system: 
-- RedHat-like: /etc/freetds.conf
-- Debian 11: /etc/freetds/freetds.conf
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+`/etc/freetds.conf`
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+`/etc/freetds.conf`
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+`/etc/freetds/freetds.conf`
+
+</TabItem>
+</Tabs>
 
 ## Installing the monitoring connector
 
@@ -227,13 +259,6 @@ dnf install centreon-pack-applications-databases-mssql
 
 ```bash
 apt install centreon-pack-applications-databases-mssql
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-databases-mssql
 ```
 
 </TabItem>
@@ -274,13 +299,6 @@ dnf install centreon-plugin-Applications-Databases-Mssql
 
 ```bash
 apt install centreon-plugin-applications-databases-mssql
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Databases-Mssql
 ```
 
 </TabItem>

@@ -52,26 +52,26 @@ const cards = [
   },
   {
     title: "Experience Monitoring",
-    href: "cxm/getting-started/welcome/",
+    href: "experience-monitoring/getting-started/welcome/",
     links: [
       {
         label: "Getting started with Centreon Experience Monitoring",
-        href: "cxm/getting-started/welcome/",
+        href: "experience-monitoring/getting-started/welcome/",
       },
       {
         label: "Synthetic Monitoring (STM)",
-        href: "cxm/getting-started/synthetic-monitoring/",
+        href: "experience-monitoring/getting-started/synthetic-monitoring/",
       },
       {
         label: "Real User Monitoring (RUM)",
-        href: "cxm/getting-started/real-user-monitoring/",
+        href: "experience-monitoring/getting-started/real-user-monitoring/",
       },
       {
         label: "Digital sobriety",
-        href: "cxm/category/digital-sobriety/"
+        href: "experience-monitoring/category/digital-sobriety/"
       },{
         label: "Experience Monitoring release notes",
-        href: "cxm/release-notes/"
+        href: "experience-monitoring/release-notes/"
       },
     ],
   },
@@ -79,10 +79,6 @@ const cards = [
     title: "Log Management",
     href: "logmanagement/getting-started/welcome/",
     links: [
-      {
-        label: "Signing up for the BETA program",
-        href: "logmanagement/getting-started/beta/",
-      },
       {
         label: "Log Management basics",
         href: "logmanagement/getting-started/concepts/",
@@ -96,7 +92,6 @@ const cards = [
         href: "logmanagement/explore-analyze/",
       },
     ],
-    isBeta: true,
   },
 ];
 

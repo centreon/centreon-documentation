@@ -1,6 +1,6 @@
-# Getting started with Centreon Log Management BETA
+# Getting started with Centreon Log Management
 
-Welcome to Centreon Log Management BETA!
+Welcome to Centreon Log Management!
 
 import DocCardList from '@theme/DocCardList';
 

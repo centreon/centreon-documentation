@@ -43,23 +43,23 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias                    | Service Template                                      | Service Description                                                  | Discovery |
-|:---------------------------------|:------------------------------------------------------|:---------------------------------------------------------------------|:---------:|
-| ASM-Diskgroup-Usage-Generic-Name | App-DB-Oracle-ASM-Diskgroup-Usage-Generic-Name-custom | Check ASM groupdisk usage and status to the Oracle server            |           |
-| ASM-Diskgroup-Usage-Global       | App-DB-Oracle-ASM-Diskgroup-Usage-Global-custom       | Check ASM groupdisk usage and status to the Oracle server            |     X     |
-| Data-Files-Status                | App-DB-Oracle-Data-Files-Status-custom                | Check Oracle data files status                                       |           |
-| Dictionary-Cache-Usage           | App-DB-Oracle-Dictionary-Cache-Usage-custom           | Check dictionary cache usage                                         |           |
-| Event-Waits-Usage                | App-DB-Oracle-Event-Waits-Usage-custom                | Check event wait usage                                               |           |
-| Fra-Usage                        | App-DB-Oracle-Fra-Usage-custom                        | Check fast recovery area space usage                                 |           |
-| Invalid-Object                   | App-DB-Oracle-Invalid-Object-custom                   | Check invalid objects                                                |           |
-| Library-Cache-Usage              | App-DB-Oracle-Library-Cache-Usage-custom              | Check library cache usage                                            |           |
-| Long-Queries                     | App-DB-Oracle-Long-Queries-custom                     | Check long queries                                                   |           |
-| Redolog-Usage                    | App-DB-Oracle-Redolog-Usage-custom                    | Check redo log usage                                                 |           |
-| Rman-Backup-Age                  | App-DB-Oracle-Rman-Backup-Age-custom                  | Check RMAN backup age                                                |           |
-| Rman-Backup-Online-Age           | App-DB-Oracle-Rman-Backup-Online-Age-custom           | Check RMAN backup age in online mode                                 |           |
-| Rollback-Segment-Usage           | App-DB-Oracle-Rollback-Segment-Usage-custom           | Check rollback segment usage                                         |           |
-| Sql                              | App-DB-Oracle-Sql-Statement-Generic-custom            | Check allowing to execute a custom SQL request with a digital answer |           |
-| Sql-String                       | App-DB-Oracle-Sql-Statement-String-Generic-custom     | Check allowing to execute a custom SQL request with a string answer  |           |
+| Service Alias                    | Service Template                                      | Service Description                                                    | Discovery |
+|:---------------------------------|:------------------------------------------------------|:-----------------------------------------------------------------------|:---------:|
+| ASM-Diskgroup-Usage-Generic-Name | App-DB-Oracle-ASM-Diskgroup-Usage-Generic-Name-custom | Check ASM groupdisk usage and status to the Oracle server              |           |
+| ASM-Diskgroup-Usage-Global       | App-DB-Oracle-ASM-Diskgroup-Usage-Global-custom       | Check ASM groupdisk usage and status to the Oracle server              |     X     |
+| Data-Files-Status                | App-DB-Oracle-Data-Files-Status-custom                | Check Oracle data files status                                         |           |
+| Dictionary-Cache-Usage           | App-DB-Oracle-Dictionary-Cache-Usage-custom           | Check dictionary cache usage                                           |           |
+| Event-Waits-Usage                | App-DB-Oracle-Event-Waits-Usage-custom                | Check event wait usage                                                 |           |
+| Fra-Usage                        | App-DB-Oracle-Fra-Usage-custom                        | Check fast recovery area space usage                                   |           |
+| Invalid-Object                   | App-DB-Oracle-Invalid-Object-custom                   | Check invalid objects                                                  |           |
+| Library-Cache-Usage              | App-DB-Oracle-Library-Cache-Usage-custom              | Check library cache usage                                              |           |
+| Long-Queries                     | App-DB-Oracle-Long-Queries-custom                     | Check long queries                                                     |           |
+| Redolog-Usage                    | App-DB-Oracle-Redolog-Usage-custom                    | Check redo log usage                                                   |           |
+| Rman-Backup-Age                  | App-DB-Oracle-Rman-Backup-Age-custom                  | Check RMAN backup age                                                  |           |
+| Rman-Backup-Online-Age           | App-DB-Oracle-Rman-Backup-Online-Age-custom           | Check RMAN backup age in online mode                                   |           |
+| Rollback-Segment-Usage           | App-DB-Oracle-Rollback-Segment-Usage-custom           | Check rollback segment usage                                           |           |
+| Sql                              | App-DB-Oracle-Sql-Statement-Generic-custom            | Check allowing to execute a custom SQL request with a numerical result |           |
+| Sql-String                       | App-DB-Oracle-Sql-Statement-String-Generic-custom     | Check allowing to execute a custom SQL request with a string result    |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -296,17 +296,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 ### Dependencies
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 ```bash
 dnf install gcc wget
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install gcc wget
 ```
 
 </TabItem>
@@ -321,8 +314,41 @@ apt install wget gcc make unzip libaio1 libdbi-perl
 
 ###  Oracle instant client
 
+## Prerequisites
+
+### Oracle Instant Client
+
+The plugin requires **Oracle Instant Client** to be installed on the Centreon poller. 
+Certain versions of the Instant Client are mandatory for the plugin to work correctly depending on your Oracle database version.
+
+The table below summarizes the supported Client/Server combinations:
+
+| Client \ Server | 23ai | 21c      | 19c       | 18c | 12.2.0 | 12.1.0   | 11.2.0   |
+|-----------------|------|----------|-----------|-----|--------|----------|----------|
+| **23c** [^2]    | Yes  | Yes      | Yes       | No  | No     | No       | No       |
+| **21c**         | Yes  | Yes      | Yes       | Was | Was    | Yes [^3] | No       |
+| **19c**         | Yes  | Yes      | Yes       | Was | Was    | Yes [^3] | Yes [^1] |
+| **18c**         | No   | Was      | Was       | Was | Was    | Was      | Was      |
+| **12.2.0**      | No   | Was      | Was       | Was | Was    | Was      | Was      |
+| **12.1.0**      | No   | Yes [^3] | Yes [^3]  | Was | Was    | Yes [^3] | Yes [^3] |
+| **11.2.0**      | No   | No       | Yes [^1]  | Was | Was    | Yes [^3] | Yes [^1] |
+
+**Legend:**
+
+| Value   | Meaning                                                                                                                    |
+|---------|----------------------------------------------------------------------------------------------------------------------------|
+| **Yes** | Supported combination                                                                                                      |
+| **Was** | Was a supported combination, but one of the releases is no longer covered by Oracle support (fixes are no longer possible) |
+| **No**  | Has never been a supported combination                                                                                     |
+
+[^1]: Version 11.2.0.3 or 11.2.0.4 only.
+[^2]: 32-bit DB23c client is not available on any platform. However, you can use older 32-bit clients (e.g. 19c) with a DB23c server.
+[^3]: Version 12.1.0.2 only. For 11.2 interoperability, version 11.2.0.4 is required.
+
+> For more information, please refer to the [Oracle Instant Client official FAQ](https://www.oracle.com/database/technologies/faq-instant-client.html).
+
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 Go to [Instant Client Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html),
 choose the right OS your Poller is running on (Linux x86-64) and download the following packages (RPM):
@@ -361,7 +387,7 @@ unzip 'instantclient-*.zip'
 ### Perl library for Oracle
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 As **root**, run:
 
@@ -437,7 +463,7 @@ make install
 ```
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 Create the file **/etc/ld.so.conf.d/oracle.conf** and add one line representing the 
 path to the library: 
@@ -551,13 +577,6 @@ apt install centreon-pack-applications-databases-oracle
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-databases-oracle
-```
-
-</TabItem>
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Oracle Database** connector through
@@ -595,13 +614,6 @@ dnf install centreon-plugin-Applications-Databases-Oracle
 
 ```bash
 apt install centreon-plugin-applications-databases-oracle
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Databases-Oracle
 ```
 
 </TabItem>
