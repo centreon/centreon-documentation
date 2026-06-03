@@ -435,7 +435,7 @@ const config = {
               ...items,
               {
                 to: '/logmanagement/getting-started/welcome',
-                label: 'Centreon Log Management BETA',
+                label: 'Centreon Log Management',
                 position: 'left',
                 activeBaseRegex: '/logmanagement/',
               },
