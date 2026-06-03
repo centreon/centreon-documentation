@@ -57,17 +57,17 @@ The **Community SNMP & Version** fields in a host form automatically generate th
 
 ## Macros within macros
 
-When Centreon Engine evaluates a command, macro resolution happens in two successive passes.
+When Centreon Engine evaluates a command, macro resolution happens in two successive steps.
 
 **Level 1 — Command level**: Macros embedded directly in the command line are resolved:
 
-- A resolved standard or custom macro → replaced with its value.
-- An unresolved or empty macro → replaced with an empty string.
+- A resolved standard or custom macro is replaced with its value.
+- An unresolved or empty macro is replaced with an empty string.
 
-**Level 2 — Macro value level**: If the value produced at Level 1 itself contains macro-like tokens, a second pass applies to that value:
+**Level 2 — Macro value level**: If the value produced at Level 1 itself contains macro-like tokens, a second step is applied to that value:
 
-- A resolved macro → replaced with its value.
-- An unresolved or empty macro → **left as-is** (preserved verbatim, not stripped).
+- A resolved macro is replaced with its value.
+- An unresolved or empty macro is **left as-is** (preserved verbatim, not stripped).
 
 ### Double-brace escape syntax
 
@@ -82,9 +82,7 @@ Some monitoring plugins use `$` characters in their own argument syntax that are
 
 Because these tokens are unresolved Centreon macros, Level 2 behaviour preserves them verbatim, allowing the plugin to receive the correct argument string.
 
-:::warning
-
-If you define a macro value that contains such tokens and export the configuration with an older Engine version that does not implement the two-level model, those tokens will be stripped and the plugin will receive a malformed command line.
+> If you define a macro value that contains such tokens and export the configuration with an older Engine version that does not implement the two-level model, those tokens will be stripped and the plugin will receive a malformed command line.
 
 :::
 
