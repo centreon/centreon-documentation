@@ -83,7 +83,7 @@ Voici un exemple d'entrée de log brute envoyée par l'Observateur d'évènement
   * **k8s.container.name** : nom du conteneur Kubernetes.
   * **deployment.environment** : environnement tel que prod ou staging.
 
-Dans Log Management, vous pouvez filtrer vos données en utilisant ces attributs dans les [requêtes](../query-syntax.md), dans [**Log explorer**](../log-explorer.md#utiliser-la-page-log-explorer) ou dans les [tableaux de bord](../dashboards.md).
+Dans Log Management, vous pouvez filtrer vos données en utilisant ces attributs dans les [requêtes](../query-syntax.md), dans [**Log explorer**](../log-explorer.md) ou dans les [tableaux de bord](../dashboards.md).
 
 ## Quel attribut OpenTelemetry gère l'heure des logs?
 
