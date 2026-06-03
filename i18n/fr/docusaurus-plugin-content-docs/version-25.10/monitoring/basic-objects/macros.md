@@ -62,6 +62,47 @@ suivantes : $_SERVICEPARTITION$, $_SERVICEWARNING$, $_SERVICECRITICAL$.
 Les champs **Community SNMP & Version** présent au sein d'une fiche d'hôte génèrent automatiquement les macros
 personnalisées suivantes : $_HOSTSNMPCOMMUNITY$ et $_HOSTSNMPVERSION$.
 
+## Macros dans les macros
+
+Lorsque Centreon Engine évalue une commande, la résolution des macros s'effectue en deux passes successives.
+
+**Niveau 1 — Niveau de la commande** : les tokens de macros présents directement dans la ligne de commande sont résolus :
+
+- Macro standard ou personnalisée reconnue → remplacée par sa valeur.
+- Macro non reconnue ou vide → remplacée par une chaîne vide.
+
+**Niveau 2 — Niveau de la valeur de macro** : si la valeur produite au niveau 1 contient elle-même des tokens ressemblant à des macros, une seconde passe s'applique à cette valeur :
+
+- Macro reconnue → résolue en sa valeur.
+- Macro non reconnue ou vide → **conservée telle quelle** (non supprimée).
+
+### Syntaxe d'échappement avec doubles accolades
+
+Utilisez le format `{{$MACRO$}}` lorsque vous souhaitez que les tokens de macro non reconnus dans une valeur soient remplacés par une chaîne vide plutôt que conservés :
+
+- Au niveau 1 ou 2 : une macro reconnue est résolue et les doubles accolades sont supprimées.
+- Au niveau 1 ou 2 : une macro non reconnue ou vide est remplacée par une chaîne vide et les doubles accolades sont supprimées.
+
+### Cas d'usage : syntaxes de plugins tiers
+
+Certains plugins de supervision utilisent des caractères `$` dans leur propre syntaxe d'argument, qui ne sont pas des délimiteurs de macros Centreon. Un exemple courant est la syntaxe NSClient++, qui utilise des tokens tels que `${name}`, `${state}`, `${problem_list}` ou `${drive}`.
+
+Ces tokens étant des macros Centreon non reconnues, le comportement du niveau 2 les conserve tels quels, ce qui permet au plugin de recevoir la ligne de commande correcte.
+
+:::warning
+
+Si vous définissez une valeur de macro contenant de tels tokens et exportez la configuration avec une version de Engine n'implémentant pas le modèle à deux niveaux, ces tokens seront supprimés et le plugin recevra une ligne de commande malformée.
+
+:::
+
+**Exemple** — macro `$_SERVICEDETAILSYNTAX$` définie dans un modèle de service :
+
+| Contexte | Valeur |
+|---|---|
+| Valeur de la macro dans le modèle | `raw::${name}=${state} (${start_type})` |
+| Ligne de commande résultante (comportement correct) | `--detail-syntax=raw::${name}=${state} (${start_type})` |
+| Ligne de commande résultante (ancien comportement — tokens supprimés) | `--detail-syntax=raw::=${start_type})` |
+
 ## Les macros globales
 
 Les macros globales sont utilisées par le moteur de supervision. Ces macros peuvent

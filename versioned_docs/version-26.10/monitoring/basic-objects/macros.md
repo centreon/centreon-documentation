@@ -59,6 +59,47 @@ $_SERVICEWARNING$, $_SERVICECRITICAL$.
 The **Community SNMP & Version** fields in a host form automatically generate the following customized macros:
 $_HOSTSNMPCOMMUNITY$ and $_HOSTSNMPVERSION$.
 
+## Macros within macros
+
+When Centreon Engine evaluates a command, macro resolution happens in two successive passes.
+
+**Level 1 — Command level**: Macro tokens embedded directly in the command line are resolved:
+
+- A recognised standard or custom macro → replaced with its value.
+- An unrecognised or empty macro → replaced with an empty string.
+
+**Level 2 — Macro value level**: If the value produced at Level 1 itself contains macro-like tokens, a second pass applies to that value:
+
+- A recognised macro → resolved to its value.
+- An unrecognised or empty macro → **left as-is** (preserved verbatim, not stripped).
+
+### Double-brace escape syntax
+
+Use the `{{$MACRO$}}` format when you want unrecognised macro tokens inside a value to be replaced with an empty string rather than preserved verbatim:
+
+- At Level 1 or Level 2: a recognised macro is resolved and the double braces are removed.
+- At Level 1 or Level 2: an unrecognised or empty macro is replaced with an empty string and the double braces are removed.
+
+### Use case: third-party plugin syntaxes
+
+Some monitoring plugins use `$` characters in their own argument syntax that are not Centreon macro delimiters. A common example is NSClient++ syntax, which uses tokens such as `${name}`, `${state}`, `${problem_list}`, and `${drive}`.
+
+Because these tokens are unrecognised Centreon macros, Level 2 behaviour preserves them verbatim, allowing the plugin to receive the correct argument string.
+
+:::warning
+
+If you define a macro value that contains such tokens and export the configuration with an older Engine version that does not implement the two-level model, those tokens will be stripped and the plugin will receive a malformed command line.
+
+:::
+
+**Example** — `$_SERVICEDETAILSYNTAX$` macro defined in a service template:
+
+| Context | Value |
+|---|---|
+| Macro value defined in template | `raw::${name}=${state} (${start_type})` |
+| Resulting command line (correct behaviour) | `--detail-syntax=raw::${name}=${state} (${start_type})` |
+| Resulting command line (old behaviour — tokens stripped) | `--detail-syntax=raw::=${start_type})` |
+
 ## Global macros
 
 Global macros are used by the monitoring engine. These macros can be invoked by any type
