@@ -5,12 +5,12 @@ title: Troubleshooting RUM
 
 ## A strict Content Security Policy (CSP) blocks the RUM data collection
 
-In certain web environments with an enforced security policy ([Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)), the Centreon Real User Monitoring (RUM) tag may require additional configuration. The issue is rare, but can prevent RUM data from being transmitted until the Quanta domains are correctly authorized.
+In certain web environments with an enforced security policy ([Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)), the Centreon Real User Monitoring (RUM) tag may require additional configuration. The issue is rare, but can prevent RUM data from being transmitted until the Experience Monitoring domains are correctly authorized.
 
 ### Symptom - RUM data is not being transmitted
 
-If you have installed the Quanta RUM tag via GTM or Axeptio and you observe that:
-- the Quanta script loads correctly,
+If you have installed the Centreon Experience Monitoring RUM tag via GTM or another tag manager and you observe that:
+- the Centreon Experience Monitoring script loads correctly,
 - but no RUM data is being transmitted,
 - and/or the request to ``beacon.gif`` appears as ``blocked:csp``.
 
@@ -18,7 +18,7 @@ Your site uses a CSP that requires an update. This behavior is completely normal
 
 ### Issue - The RUM tag is blocked by a CSP
 
-Experience Monitoring uses a script loaded from ``https://appstatic.quanta.io``, and then sends its performance metrics to ``https://rum-metrics.quanta.io``. 
+Centreon Experience Monitoring uses a script loaded from `https://appstatic.quanta.io`, and then sends its performance metrics to `https://rum-metrics.quanta.io`. 
 On the large majority of sites, this works automatically, including when the tag is installed via GTM, Axeptio or another manager. However, some sites implement an advanced Content Security Policy (CSP).
 
 This is a security mechanism that precisely defines:
@@ -26,13 +26,13 @@ This is a security mechanism that precisely defines:
 - to which domains the browser can send requests,
 - which images / pixels can be called.
 
-**If the Quanta domains are not added to this list, the browser will block the RUM beacon**, even if the script itself is loaded correctly.
+**If the Centreon Experience Monitoring domains are not added to this list, the browser will block the RUM beacon**, even if the script itself is loaded correctly.
 
 > In Chrome DevTools, this appears as ``blocked:csp`` on the ``beacon.gif`` type request.
 
 ### Solution - Add authorizations
 
-To allow the RUM module to work while strictly respecting your security rules, simply add the two Quanta domains to the appropriate directives.
+To allow the RUM module to work while strictly respecting your security rules, simply add the two Centreon Experience Monitoring domains to the appropriate directives.
 
 1. Authorize the loading of the RUM script
 

@@ -160,12 +160,14 @@ module.exports = {
     {
       collapsed: true,
       type: 'category',
-      label: 'Dashboards and exports',
+      label: 'Using analysis data',
       link: {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+        { type: 'doc', id: 'performance-analysis/dashboards' },
+        { type: 'doc', id: 'performance-analysis/export-results' },
+        { type: 'doc', id: 'performance-analysis/view-history' },
       ],
     },
     {
@@ -179,7 +181,7 @@ module.exports = {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
+        { type: 'doc', id: 'troubleshooting' },
       ],
     },
     {

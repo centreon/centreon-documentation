@@ -1,6 +1,6 @@
 ﻿---
 id: dashboards
-title: Dashboards
+title: Using dashboards
 ---
 
 Dashboards are a way to visualize Experience Monitoring information at a glance.
