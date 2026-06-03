@@ -220,14 +220,15 @@ Keep your scripts short, simple and with precise specifications.
 
 ## Adding an expectation
 
-There is a seventh, optional action that the probe can perform after each other action. This action is not seen among other actions for you to select but appears at the bottom of the action window once the action has been configured.
+There is a seventh, optional action that the probe can perform after each other action.
+This action is not seen among other actions for you to select but appears at the bottom of the action window once the action has been configured.
 
 **Add an expectation** makes the probe verify that the step was properly executed.
 
 For example, imagine your user journey mimicks a user making purchases on your site and proceeding to check out. 
-Adding an expectation step after adding an item to the cart (i.e. look for text confirming the item was added) lets you confirm the probe is succesfully adding items to the cart and not proceeding to check out with an empty cart.
+Adding an expectation step after adding an item to the cart (i.e. look for text confirming the item was added) lets you confirm the probe is successfully adding items to the cart and not proceeding to check out with an empty cart.
 
-> An expecation action is automatically added for each **Navigate** action to confirm the probe succescully reached the target url. This expectation can not be removed.
+> An expectation action is automatically added for each **Navigate** action to confirm the probe successfully reached the target url. This expectation can not be removed.
 > Additionally, the last action of the user journey must have at least one verification.
 
 ### Configure an expectation
@@ -247,7 +248,8 @@ No content verification is performed.
 
 #### Find text
 
-> We recommend using CSS selectors because they are less sensitive to site changes. If you don't know how to create CSS selectors, contact your agency or Experience Monitoring support (support@quanta.io or the question mark at the bottom-right in Experience Monitoring) so we can help configure your journey.
+> We recommend using CSS selectors because they are less sensitive to site changes.
+If you don't know how to create CSS selectors, contact your agency or Experience Monitoring support (support@quanta.io or the question mark at the bottom-right in Experience Monitoring) so we can help configure your journey.
 
 This verification uses the same logic as the Click and Hover actions. If the text you search for exists on the page after the action, the verification passes.
 
