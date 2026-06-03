@@ -23,26 +23,26 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Virt-VMWare2-VM-custom" label="Virt-VMWare2-VM-custom">
 
-| Alias               | Modèle de service                               | Description                                                                                                  |
-|:--------------------|:------------------------------------------------|:-------------------------------------------------------------------------------------------------------------|
-| Vm-Limit            | Virt-VMWare2-Vm-Limit-Generic-custom            | Contrôle permettant de vérifier la définition de limites.                                                     |
-| Vm-Snapshot         | Virt-VMWare2-Vm-Snapshot-Generic-custom         | Contrôle permettant de vérifier l'âge des snapshots sur la machine virtuelle.                                |
-| Vm-Status           | Virt-VMWare2-Vm-Status-Generic-custom           | Contrôle permettant de vérifier l'état global d'une machine virtuelle.                                        |
+| Alias               | Modèle de service                               | Description                                                                                                    |
+|:--------------------|:------------------------------------------------|:---------------------------------------------------------------------------------------------------------------|
+| Vm-Limit            | Virt-VMWare2-Vm-Limit-Generic-custom            | Contrôle permettant de vérifier la définition de limites.                                                      |
+| Vm-Snapshot         | Virt-VMWare2-Vm-Snapshot-Generic-custom         | Contrôle permettant de vérifier l'âge des snapshots sur la machine virtuelle.                                  |
+| Vm-Status           | Virt-VMWare2-Vm-Status-Generic-custom           | Contrôle permettant de vérifier l'état global d'une machine virtuelle.                                         |
 | Vm-Thinprovisioning | Virt-VMWare2-Vm-Thinprovisioning-Generic-custom | Contrôle permettant de vérifier si une machine virtuelle possède un disque en mode 'thin provisioning' ou non. |
-| Vm-Tools            | Virt-VMWare2-Vm-Tools-Generic-custom            | Contrôle permettant de vérifier l'état des vmtools d'une machine virtuelle.                                   |
+| Vm-Tools            | Virt-VMWare2-Vm-Tools-Generic-custom            | Contrôle permettant de vérifier l'état des vmtools d'une machine virtuelle.                                    |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-VMWare2-VM-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias              | Modèle de service                              | Description                                                                                               |
-|:-------------------|:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------|
-| Vm-Cpu             | Virt-VMWare2-Vm-Cpu-Generic-custom             | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle.                         |
-| Vm-Datastores-Iops | Virt-VMWare2-Vm-Datastores-Iops-Generic-custom | Contrôle permettant de vérifier le taux d'utilisation des datastores rattachés à une machine virtuelle.  |
-| Vm-Device          | Virt-VMWare2-Vm-Device-Generic-custom          | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle.                         |
-| Vm-Memory          | Virt-VMWare2-Vm-Memory-Generic-custom          | Contrôle permettant de vérifier le taux d'utilisation mémoire d'une machine virtuelle.                     |
-| Vm-Swap            | Virt-VMWare2-Vm-Swap-Generic-custom            | Contrôle permettant de vérifier si une machine virtuelle swappe.                                           |
+| Alias              | Modèle de service                              | Description                                                                                             |
+|:-------------------|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------|
+| Vm-Cpu             | Virt-VMWare2-Vm-Cpu-Generic-custom             | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle.                      |
+| Vm-Datastores-Iops | Virt-VMWare2-Vm-Datastores-Iops-Generic-custom | Contrôle permettant de vérifier le taux d'utilisation des datastores rattachés à une machine virtuelle. |
+| Vm-Device          | Virt-VMWare2-Vm-Device-Generic-custom          | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle.                      |
+| Vm-Memory          | Virt-VMWare2-Vm-Memory-Generic-custom          | Contrôle permettant de vérifier le taux d'utilisation mémoire d'une machine virtuelle.                  |
+| Vm-Swap            | Virt-VMWare2-Vm-Swap-Generic-custom            | Contrôle permettant de vérifier si une machine virtuelle swappe.                                        |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -53,9 +53,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                     |
-|:----------------|:--------------------------------|
-| VMWare VM       | Discover VMWare virtual machines. |
+| Nom de la règle | Description                             |
+|:----------------|:----------------------------------------|
+| VMWare VM       | Découvre les machines virtuelles VMWare |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -66,7 +66,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Vm-Cpu" label="Vm-Cpu">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *vm*~status                                   | N/A   |
 | *vm*~vm.cpu.utilization.percentage            | %     |
@@ -79,7 +79,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Datastores-Iops" label="Vm-Datastores-Iops">
 
-| Métrique                                       | Unité |
+| Nom                                            | Unité |
 |:-----------------------------------------------|:------|
 | *vm*~status                                    | N/A   |
 | *vm*~vm.datastore.latency.max.milliseconds     | ms    |
@@ -91,7 +91,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Device" label="Vm-Device">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | vm.devices.connected.count      | count |
 | *vm*#status                     | N/A   |
@@ -102,7 +102,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Limit" label="Vm-Limit">
 
-| Métrique      | Unité |
+| Nom           | Unité |
 |:--------------|:------|
 | cpu-status    | N/A   |
 | memory-status | N/A   |
@@ -113,7 +113,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Memory" label="Vm-Memory">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | *vm*~status                         | N/A   |
 | *vm*~vm.memory.consumed.usage.bytes | B     |
@@ -127,7 +127,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Snapshot" label="Vm-Snapshot">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | vm.snapshots.warning.current.count  | count |
 | vm.snapshots.critical.current.count | count |
@@ -135,7 +135,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Status" label="Vm-Status">
 
-| Métrique            | Unité |
+| Nom                 | Unité |
 |:--------------------|:------|
 | *vm*#status         | N/A   |
 | *vm*#overall-status | N/A   |
@@ -145,7 +145,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Swap" label="Vm-Swap">
 
-| Métrique                              | Unité |
+| Nom                                   | Unité |
 |:--------------------------------------|:------|
 | *vm*#status                           | N/A   |
 | *vm*#vm.swap.in.usage.bytespersecond  | B/s   |
@@ -156,14 +156,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Thinprovisioning" label="Vm-Thinprovisioning">
 
-| Métrique    | Description                                | Unité |
-|:------------|:-------------------------------------------|:------|
-| status      | Status of the thin provisoning virtual disks |       |
+| Nom    | Description                                  | Unité |
+|:-------|:---------------------------------------------|:------|
+| status | Status of the thin provisoning virtual disks |       |
 
 </TabItem>
 <TabItem value="Vm-Tools" label="Vm-Tools">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | vm.tools.notupdated.current.count   | count |
 | vm.tools.notrunning.current.count   | count |
@@ -204,7 +204,7 @@ apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
@@ -236,7 +236,7 @@ dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virt
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 perl Makefile.PL
 make pure_install
@@ -256,7 +256,7 @@ dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virt
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200

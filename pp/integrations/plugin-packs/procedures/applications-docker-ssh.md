@@ -18,10 +18,10 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Docker-SSH-custom" label="App-Docker-SSH-custom">
 
-| Service Alias    | Service Template                       | Service Description    | Discovery  |
-|:-----------------|:---------------------------------------|:-----------------------|:----------:|
-| Container-Status | App-Docker-Container-Status-SSH-custom | Check container status | X          |
-| Container-Usage  | App-Docker-Container-Usage-SSH-custom  | Check container usage  | X          |
+| Service Alias    | Service Template                       | Service Description    | Discovery |
+|:-----------------|:---------------------------------------|:-----------------------|:---------:|
+| Container-Status | App-Docker-Container-Status-SSH-custom | Check container status |     X     |
+| Container-Usage  | App-Docker-Container-Usage-SSH-custom  | Check container usage  |     X     |
 
 > The services listed above are created automatically when the **App-Docker-SSH-custom** host template is used.
 
@@ -76,6 +76,25 @@ A user is required to query the resource using SSH. There is no need for root or
 privileges. There are two possible ways to log in through SSH, either by
 copying the SSH key of the **centreon-engine** user to the target resource, or by
 setting your unique user and password directly in the host macros.
+
+### Best practice: naming your containers
+
+By default, Docker generates a random name each time a container is recreated. 
+The connector uses that name (via the `--filter-name` option) to identify containers and create the associated metrics. 
+If the name changes, new metrics and a new RRD file are created in `/var/lib/centreon/metrics`, leading to a proliferation of stale data.
+
+**Always assign a fixed name to each monitored container:**
+
+```bash
+# Command line
+docker run -d --name my-nginx nginx
+
+# Docker Compose
+services:
+  web:
+    image: nginx
+    container_name: my-nginx
+```
 
 ## Installing the monitoring connector
 

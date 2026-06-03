@@ -100,7 +100,7 @@ apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
@@ -132,7 +132,7 @@ dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virt
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 
 perl Makefile.PL
@@ -152,7 +152,7 @@ dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virt
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200

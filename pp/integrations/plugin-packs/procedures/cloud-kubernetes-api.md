@@ -1085,6 +1085,9 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 | Macro                  | Description                                                                                        | Default value     | Mandatory   |
 |:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INCLUDE_STATUS         | Filter by node status (can be a regexp). Status can be 'pending', 'running', 'succeeded', 'failed', 'unknown'          | running           |             |
+| EXCLUDE_STATUS         | Exclude by node status (can be a regexp). Status can be 'pending', 'running', 'succeeded', 'failed', 'unknown'         |                   |             |
+| EXCLUDE_NODE_NAME      | Exclude by node name (can be a regexp)                                                                                 |                   |             |
 | WARNINGALLOCATEDPODS   | Thresholds (in percentage)                                                                         |                   |             |
 | CRITICALALLOCATEDPODS  | Thresholds (in percentage)                                                                         |                   |             |
 | WARNINGCPULIMITS       | Thresholds (in percentage)                                                                         |                   |             |

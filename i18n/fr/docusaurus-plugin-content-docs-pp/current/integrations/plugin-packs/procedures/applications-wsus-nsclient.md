@@ -200,28 +200,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install
+dnf install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install
+dnf install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install
+apt install centreon-plugin-operatingsystems-windows-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 </TabItem>

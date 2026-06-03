@@ -35,9 +35,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias             | Modèle de service                           | Description                                                            | Découverte |
 |:------------------|:--------------------------------------------|:-----------------------------------------------------------------------|:----------:|
-| Container-Disk-IO | Cloud-cAdvisor-Container-Disk-IO-Api-custom | Contrôle permettant de vérifier les I/O disques des containers. | X          |
-| Container-Traffic | Cloud-cAdvisor-Container-Traffic-Api-custom | Contrôle permettant de vérifier l'utilisation du réseau des containers | X          |
-| Container-Usage   | Cloud-cAdvisor-Container-Usage-Api-custom   | Contrôle permettant de vérifier l'utilisation des containers           | X          |
+| Container-Disk-IO | Cloud-cAdvisor-Container-Disk-IO-Api-custom | Contrôle permettant de vérifier les I/O disques des containers.        |     X      |
+| Container-Traffic | Cloud-cAdvisor-Container-Traffic-Api-custom | Contrôle permettant de vérifier l'utilisation du réseau des containers |     X      |
+| Container-Usage   | Cloud-cAdvisor-Container-Usage-Api-custom   | Contrôle permettant de vérifier l'utilisation des containers           |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -50,11 +50,11 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de service
 
-| Nom de la règle                      | Description                                                   |
-|:-------------------------------------|:--------------------------------------------------------------|
-| Cloud-cAdvisor-API-Container-Disk-IO | Discover the disk partitions and monitor space occupation     |
-| Cloud-cAdvisor-API-Container-Traffic | Discover network interfaces and monitor bandwidth utilization |
-| Cloud-cAdvisor-API-Container-Usage   | Discover containers and monitor their resource usage          |
+| Nom de la règle                      | Description                                                                    |
+|:-------------------------------------|:-------------------------------------------------------------------------------|
+| Cloud-cAdvisor-API-Container-Disk-IO | Découvre les partitions disque et supervise l'espace occupé                    |
+| Cloud-cAdvisor-API-Container-Traffic | Découvre les interfaces réseau et supervise l'utilisation de la bande passante |
+| Cloud-cAdvisor-API-Container-Usage   | Découvre les conteneurs et supervise leur utilisation                          |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -116,7 +116,28 @@ documentation officielle permet de [déployer le nécessaire rapidement](https:/
 ### Flux réseaux
 
 Le Collecteur doit être en mesure de contacter le serveur hébergeant cAdvisor au travers 
-du port TCP/8080. Attention, selon la configuration le port peut être différent. 
+du port TCP/8080. Attention, selon la configuration le port peut être différent.
+
+### Bonne pratique : nommer vos conteneurs
+
+cAdvisor identifie chaque conteneur par son nom. 
+Par défaut, Docker génère un nom aléatoire à chaque recréation de conteneur, ce qui amène Centreon à créer 
+de nouvelles métriques et un nouveau fichier RRD dans `/var/lib/centreon/metrics` à chaque changement, entraînant une prolifération de données obsolètes.
+
+**Attribuez toujours un nom fixe à chaque conteneur supervisé :**
+
+```bash
+# Ligne de commande
+docker run -d --name mon-nginx nginx
+
+# Docker Compose
+services:
+  web:
+    image: nginx
+    container_name: mon-nginx
+```
+
+> Si vous utilisez Kubernetes, privilégiez des `StatefulSets` pour garantir des noms de pods stables (`mon-service-0`, `mon-service-1`, etc.), compatibles avec les filtres `--container` et `--pod` du connecteur.
 
 ## Installer le connecteur de supervision
 

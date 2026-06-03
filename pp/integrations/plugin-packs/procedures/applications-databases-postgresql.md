@@ -37,15 +37,15 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias   | Service Template                       | Service Description                                                  | Discovery  |
-|:----------------|:---------------------------------------|:---------------------------------------------------------------------|:----------:|
-| Bloat           | App-DB-Postgres-Bloat-custom           | Check tables and btrees bloat                                        |            |
-| Database-Size   | App-DB-Postgres-Database-Size-custom   | Check the databases size                                             | X          |
-| Sql-Statement   | App-DB-Postgres-Sql-Statement-custom   | Check allowing to execute a custom SQL request with a digital answer |            |
-| Statistics      | App-DB-Postgres-Statistics-custom      | Check database statistics                                            |            |
-| Tablespace-Size | App-DB-Postgres-Tablespace-Size-custom | Check time between poller and the Postgres server                    |            |
-| Time-Sync       | App-DB-Postgres-Time-Sync-custom       | Check time between poller and the Postgres server                    |            |
-| Vacuum          | App-DB-Postgres-Vacuum-custom          | Check the execution of Vacuum on a DB for a given amount of days     |            |
+| Service Alias   | Service Template                       | Service Description                                                    | Discovery |
+|:----------------|:---------------------------------------|:-----------------------------------------------------------------------|:---------:|
+| Bloat           | App-DB-Postgres-Bloat-custom           | Check tables and btrees bloat                                          |           |
+| Database-Size   | App-DB-Postgres-Database-Size-custom   | Check the databases size                                               |     X     |
+| Sql-Statement   | App-DB-Postgres-Sql-Statement-custom   | Check allowing to execute a custom SQL request with a numerical result |           |
+| Statistics      | App-DB-Postgres-Statistics-custom      | Check database statistics                                              |           |
+| Tablespace-Size | App-DB-Postgres-Tablespace-Size-custom | Check time between poller and the Postgres server                      |           |
+| Time-Sync       | App-DB-Postgres-Time-Sync-custom       | Check time between poller and the Postgres server                      |           |
+| Vacuum          | App-DB-Postgres-Vacuum-custom          | Check the execution of Vacuum on a DB for a given amount of days       |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 

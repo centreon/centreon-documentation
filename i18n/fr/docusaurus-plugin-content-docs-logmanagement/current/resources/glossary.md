@@ -1,4 +1,4 @@
----
+﻿---
 id: glossary
 title: Glossaire des termes Centreon Log Management
 ---
@@ -41,20 +41,20 @@ A label for a set of services. Example: **e-commerce site.** -->
 
 Dans la plupart des outils et des plateformes, les logs sont présentés à l'aide de niveaux de log tels que INFO ou ERROR, le format le plus familier aux utilisateurs finaux. Dans OpenTelemetry, ces informations sont gérées à l'aide de deux attributs : [SeverityNumber](https://opentelemetry.io/docs/specs/otel/logs/data-model/#field-severitynumber) (l'ID de la sévérité) et SeverityText (le libellé de la sévérité). Une valeur **SeverityText** correspond à plusieurs **SeverityNumbers**.
 
-Dans Centreon Log Management (CLM), vous ne verrez que des logs avec une sévérité <span style={{color:"#4a8c6f"}}>**TRACE**</span>, <span style={{color:"#1ebeb3"}}>**DEBUG**</span>, <span style={{color:"#1588d1"}}>**INFO**</span>, <span style={{color:"#ffca34"}} >**WARNING**</span>, <span style={{color:"#fd9b27"}}>**ERROR**</span> ou <span style={{color:"#ff4a4a"}}>**FATAL**</span>. En effet, l'import des données se base sur l'attribut **SeverityNumber**. Les valeurs stockées dans l'attribut **SeverityText** renvoyées par l'hôte sont remplacées par celles définis par la norme OpenTelemetry (à l'exception de WARN qui devient WARNING). Cela permet d'éviter les doublons ou les entrées incohérentes dans la liste des niveaux de sévérité.
+Les logs ont généralement une sévérité <span style={{color:"#4a8c6f"}}>**TRACE**</span>, <span style={{color:"#1ebeb3"}}>**DEBUG**</span>, <span style={{color:"#1588d1"}}>**INFO**</span>, <span style={{color:"#ffca34"}} >**WARNING**</span>, <span style={{color:"#fd9b27"}}>**ERROR**</span> ou <span style={{color:"#ff4a4a"}}>**FATAL**</span>.
 
-Voici la liste des niveaux de sévérité pris en compte par CLM (les descriptions sont celles de la documentation OpenTelemetry) :
+Voici la liste des niveaux de sévérité pris en compte par Log Management (les descriptions sont celles de la documentation OpenTelemetry) :
 
 | Ensemble de SeverityNumbers | Nom | Description |
 | --- | --- |--- |
-| 1-4| <span style={{color:'#4a8c6f'}}>**TRACE**</span>	| Un évènement de débugage très précis. |
+| 1-4 | <span style={{color:'#4a8c6f'}}>**TRACE**</span>	| Un évènement de débugage très précis. |
 | 5-8	| <span style={{color:'#1ebeb3'}}>**DEBUG**</span>	| Un évènement de débugage. |
 | 9-12	| <span style={{color:'#1588d1'}}>**INFO**</span>	| Un évènement informatif. Indique qu'un évènement s'est produit. |
 | 13-16	| <span style={{color:'#ffca34'}}>**WARNING**</span>	| Un évènement d'avertissement. Il ne s'agit pas d'une erreur, mais cet évènement est probablement plus important qu'un évènement informatif. |
 | 17-20	| <span style={{color:'#fd9b27'}}>**ERROR**</span>	| Une erreur s'est produite. |
 | 21-24	| <span style={{color:'#ff4a4a'}}>**FATAL**</span>	| Une erreur fatale telle qu'un crash de l'application ou du système. |
 
-Certains outils peuvent ne pas inclure de numéro de sévérité dans leurs logs. Toute entrée de log reçue sans numéro de sévérité se voit attribuer par CLM le numéro de sévérité **0** (la sévérité est <span style={{color:"#999999"}}>**UNSPECIFIED**</span>).
+Certains outils peuvent ne pas inclure de numéro de sévérité dans leurs logs. Toute entrée de log reçue sans numéro de sévérité se voit attribuer par Log Management le numéro de sévérité **0** (la sévérité est <span style={{color:"#999999"}}>**UNSPECIFIED**</span>).
 
 ## Télémétrie
 

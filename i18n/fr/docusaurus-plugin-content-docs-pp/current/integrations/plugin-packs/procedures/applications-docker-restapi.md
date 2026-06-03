@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                         | Description                                                  | Découverte |
 |:----------------|:------------------------------------------|:-------------------------------------------------------------|:----------:|
-| Container-Usage | App-Docker-Container-Usage-Restapi-custom | Contrôle permettant de vérifier l'utilisation des containers | X          |
+| Container-Usage | App-Docker-Container-Usage-Restapi-custom | Contrôle permettant de vérifier l'utilisation des containers |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -108,7 +108,26 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 * Enregistrer les modifications
 * Recharger les services du système : ```systemctl daemon-reload```
 * Redémarrer Docker : ```system docker restart```
- 
+
+### Bonne pratique : nommer vos conteneurs
+
+Par défaut, Docker génère un nom aléatoire à chaque recréation de conteneur. 
+Or, le connecteur identifie chaque conteneur par son nom pour créer les métriques associées. 
+Si ce nom change, de nouvelles métriques et un nouveau fichier RRD sont créés dans `/var/lib/centreon/metrics`, 
+entraînant une prolifération de données obsolètes.
+
+**Attribuez toujours un nom fixe à chaque conteneur supervisé :**
+
+```bash
+# Ligne de commande
+docker run -d --name mon-nginx nginx
+
+# Docker Compose
+services:
+  web:
+    image: nginx
+    container_name: mon-nginx
+```
 
 ## Installer le connecteur de supervision
 

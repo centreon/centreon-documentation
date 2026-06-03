@@ -24,13 +24,13 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Prometheus-cAdvisor-Api-custom" label="Cloud-Prometheus-cAdvisor-Api-custom">
 
-| Service Alias        | Service Template                                | Service Description           |
-|:---------------------|:------------------------------------------------|:------------------------------|
-| Container-Cpu        | Cloud-Prometheus-cAdvisor-Cpu-Api-custom        | Check container CPU usage     |
-| Container-Load       | Cloud-Prometheus-cAdvisor-Load-Api-custom       | Check container load          |
-| Container-Memory     | Cloud-Prometheus-cAdvisor-Memory-Api-custom     | Check container memory usage  |
-| Container-Storage    | Cloud-Prometheus-cAdvisor-Storage-Api-custom    | Check container storage usage |
-| Container-Task-State | Cloud-Prometheus-cAdvisor-Task-State-Api-custom | Check the state of container tasks   |
+| Service Alias        | Service Template                                | Service Description                |
+|:---------------------|:------------------------------------------------|:-----------------------------------|
+| Container-Cpu        | Cloud-Prometheus-cAdvisor-Cpu-Api-custom        | Check container CPU usage          |
+| Container-Load       | Cloud-Prometheus-cAdvisor-Load-Api-custom       | Check container load               |
+| Container-Memory     | Cloud-Prometheus-cAdvisor-Memory-Api-custom     | Check container memory usage       |
+| Container-Storage    | Cloud-Prometheus-cAdvisor-Storage-Api-custom    | Check container storage usage      |
+| Container-Task-State | Cloud-Prometheus-cAdvisor-Task-State-Api-custom | Check the state of container tasks |
 
 > The services listed above are created automatically when the **Cloud-Prometheus-cAdvisor-Api-custom** host template is used.
 
@@ -104,6 +104,26 @@ Here is the list of services for this connector, detailing all metrics and statu
 ## Prerequisites
 
 It is essential to have Docker, a Prometheus configuration file, and appropriate Docker volumes to use Prometheus with cAdvisor.
+
+### Best practice: naming your containers
+
+cAdvisor identifies each container by its name. By default, Docker generates a random name each time a container is recreated, 
+causing Centreon to create new metrics and a new RRD file in `/var/lib/centreon/metrics` on every change, leading to a proliferation of stale data.
+
+**Always assign a fixed name to each monitored container:**
+
+```bash
+# Command line
+docker run -d --name my-nginx nginx
+
+# Docker Compose
+services:
+  web:
+    image: nginx
+    container_name: my-nginx
+```
+
+> If you are using Kubernetes, prefer `StatefulSets` to ensure stable pod names (`my-service-0`, `my-service-1`, etc.), which are compatible with the `--container` and `--pod` filter options of the connector.
 
 ## Installing the monitoring connector
 

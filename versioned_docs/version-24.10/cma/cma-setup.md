@@ -264,7 +264,6 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/apt-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 2. Import the repository key:
@@ -289,7 +288,6 @@ apt install centreon-monitoring-agent
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/ubuntu-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 2. Import the repository key:
@@ -445,11 +443,11 @@ To escape the **-** character in an argument value, it must be preceded by **--%
 Available parameters are :
 
 | flag                       | description                                                                                                                                                                                                                                                               |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --install_cma              | Set this flag if you want to install the Centreon Monitoring Agent                                                                                                                                                                                                        |
 | --install_plugins          | Set this flag if you want to download and install the latest version of Centreon plugins                                                                                                                                                                                  |
 | --install_embedded_plugins | Set this flag if you want to install Centreon plugins embedded in the installer (case of a host that cannot access the internet)                                                                                                                                          |
-| --hostname                 | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                                                                                                                                                                                                                    |
+| --hostname                 | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                                                                                                                                 |
 | --endpoint                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode, it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) |
 | --reverse                  | Add this flag for Poller-initiated connection mode.                                                                                                                                                                                                                       |
 | --log_type                 | event_log or file. In case of logging in a file, log_file param is mandatory                                                                                                                                                                                              |
@@ -457,11 +455,11 @@ Available parameters are :
 | --log_file                 | log files path.                                                                                                                                                                                                                                                           |
 | --log_max_file_size        | max file in Mo before rotate.                                                                                                                                                                                                                                             |
 | --log_max_files            | max number of log files before delete. For the rotation of logs to be active, it is necessary that both parameters 'Max File Size' and 'Max number of files' are set.                                                                                                     |
-| --encryption               | Encryption mode. Possible values: \{full;insecure;no\}.                                                                                                                                                                                                 |
-| --private_key              | Private key file path.                                                                                                                                  |
-| --public_cert              | Public certificate file path.                                                                                                                     |
+| --encryption               | Encryption mode. Possible values: \{full;insecure;no\}.                                                                                                                                                                                                                   |
+| --private_key              | Private key file path.                                                                                                                                                                                                                                                    |
+| --public_cert              | Public certificate file path.                                                                                                                                                                                                                                             |
 | --ca                       | Trusted CA's certificate file path.                                                                                                                                                                                                                                       |
-| --ca_name                  | Expected TLS certificate common name (CN). Only for Insecure TLS mode.                                                                                                                                                                                                                               |
+| --ca_name                  | Expected TLS certificate common name (CN). Only for Insecure TLS mode.                                                                                                                                                                                                    |
 
 | --token                    | Authentication token.
 If you use the **--install_plugins** option but the download of the plugins fails, the installer will install the plugins embedded in the installer.
@@ -503,7 +501,7 @@ You can configure two kinds of log output:
 </TabItem>
 </Tabs>
 
-### Deploy the Centreon agent plugins on the host (Linux)
+### Deploy the Centreon plugin on the host (Linux)
 
 If you are using Centreon connectors and non-native controls on Linux:
 
@@ -646,8 +644,8 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```bash
-dnf install dnf-plugins-core
-dnf install epel-release
+dnf install -y dnf-plugins-core
+dnf install -y epel-release
 dnf config-manager --set-enabled crb
 
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
@@ -707,11 +705,33 @@ EOF
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
+> NB: on some minimal docker images, it may be necessary to install this package:
+> ```bash
+> dnf install procps-ng
+> ```
+
 </TabItem>
-<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt-get update
+```
+
+2. Install the plugin:
+
+```bash
+apt -y install centreon-plugin-operatingsystems-linux-local
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```bash
+apt update && apt install lsb-release ca-certificates apt-transport-https wget gnupg2 curl
 
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
@@ -743,6 +763,13 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 
 </TabItem>
 </Tabs>
+
+3. Create the directory needed for the plugins cache:
+
+```bash
+mkdir -p /var/lib/centreon/centplugins
+chown centreon-monitoring-agent: /var/lib/centreon/centplugins
+```
 
 ### Updating an existing configuration
 

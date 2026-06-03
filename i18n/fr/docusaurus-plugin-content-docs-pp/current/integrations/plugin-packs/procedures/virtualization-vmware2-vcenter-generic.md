@@ -41,14 +41,14 @@ Le connecteur apporte les modèles de service suivants
 | Cluster-Cpu                   | Virt-VMWare2-Cluster-Cpu-Generic-custom           | Contrôle permettant de vérifier l'utilisation processeur d'un cluster                                                                                |            |
 | Cluster-Cpu-Global            | Virt-VMWare2-Cluster-Cpu-Global-custom            | Contrôle permettant de vérifier l'utilisation processeur des clusters                                                                                |            |
 | Cluster-Status                | Virt-VMWare2-Cluster-Status-Generic-custom        | Contrôle permettant de vérifier l'état global d'une machine virtuelle                                                                                |            |
-| Cluster-Status-Global         | Virt-VMWare2-Cluster-Status-Global-custom         | Contrôle permettant de vérifier l'état global de plusieurs machines virtuelles                                                                       | X          |
+| Cluster-Status-Global         | Virt-VMWare2-Cluster-Status-Global-custom         | Contrôle permettant de vérifier l'état global de plusieurs machines virtuelles                                                                       |     X      |
 | Datacenter-Alarms             | Virt-VMWare2-Datacenter-Alarms-Generic-custom     | Contrôle permettant de vérifier les alarmes d'un datacenter                                                                                          |            |
-| Datacenter-Alarms-Global      | Virt-VMWare2-Datacenter-Alarms-Global-custom      | Contrôle permettant de vérifier les alarmes des datacenters                                                                                          | X          |
-| Datastore-Io-Global           | Virt-VMWare2-Datastore-Io-Global-custom           | Contrôle permettant de vérifier le taux d'utilisation en Kbps des datastores                                                                         | X          |
-| Datastore-Iops-Global         | Virt-VMWare2-Datastore-Iops-Global-custom         | Contrôle permettant de vérifier les IOPs moyens de plusieurs datastores                                                                              | X          |
+| Datacenter-Alarms-Global      | Virt-VMWare2-Datacenter-Alarms-Global-custom      | Contrôle permettant de vérifier les alarmes des datacenters                                                                                          |     X      |
+| Datastore-Io-Global           | Virt-VMWare2-Datastore-Io-Global-custom           | Contrôle permettant de vérifier le taux d'utilisation en Kbps des datastores                                                                         |     X      |
+| Datastore-Iops-Global         | Virt-VMWare2-Datastore-Iops-Global-custom         | Contrôle permettant de vérifier les IOPs moyens de plusieurs datastores                                                                              |     X      |
 | Datastore-Snapshots-Global    | Virt-VMWare2-Datastore-Snapshots-Global-custom    | Contrôle permettant de vérifier le taux d'utilisation des snapshots sur plusieurs datastores                                                         |            |
-| Datastore-Usage-Global        | Virt-VMWare2-Datastore-Usage-Global-custom        | Contrôle permettant de vérifier le taux d'utilisation de plusieurs datastores                                                                        | X          |
-| Datastore-Vm-Count-Global     | Virt-VMWare2-Datastore-Vm-Count-Global-custom     | Contrôle permettant de vérifier le nombre de machines virtuelles allumées/éteintes/suspendues sur plusieurs datastores                               | X          |
+| Datastore-Usage-Global        | Virt-VMWare2-Datastore-Usage-Global-custom        | Contrôle permettant de vérifier le taux d'utilisation de plusieurs datastores                                                                        |     X      |
+| Datastore-Vm-Count-Global     | Virt-VMWare2-Datastore-Vm-Count-Global-custom     | Contrôle permettant de vérifier le nombre de machines virtuelles allumées/éteintes/suspendues sur plusieurs datastores                               |     X      |
 | ESX-Alarms-Global             | Virt-VMWare2-ESX-Alarms-Global-custom             | Contrôle permettant de vérifier les alarmes des serveurs ESX                                                                                         |            |
 | Esx-Cpu-Global                | Virt-VMWare2-ESX-Cpu-Global-custom                | Contrôle permettant de vérifier le taux d'utilisation CPU de plusieurs serveurs ESX                                                                  |            |
 | Esx-Datastores-Latency-Global | Virt-VMWare2-ESX-Datastores-Latency-Global-custom | Contrôle permettant de vérifier la latence rencontré par les serveurs ESX sur ses datastores                                                         |            |
@@ -69,7 +69,7 @@ Le connecteur apporte les modèles de service suivants
 | Vm-Device-Global              | Virt-VMWare2-Vm-Device-Global-custom              | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle                                                                    |            |
 | Vm-Limit-Global               | Virt-VMWare2-Vm-Limit-Global-custom               | Contrôle permettant de vérifier la définition de limites                                                                                             |            |
 | Vm-Memory-Global              | Virt-VMWare2-Vm-Memory-Global-custom              | Contrôle permettant de vérifier le taux d'utilisation mémoire des machines virtuelles                                                                |            |
-| Vm-Snapshot-Global            | Virt-VMWare2-Vm-Snapshot-Global-custom            | Contrôle permettant de vérifier l'âge des snapshosts sur plusieurs machine virtuelles                                                                 |            |
+| Vm-Snapshot-Global            | Virt-VMWare2-Vm-Snapshot-Global-custom            | Contrôle permettant de vérifier l'âge des snapshots sur plusieurs machines virtuelles                                                                |            |
 | Vm-Status-Global              | Virt-VMWare2-Vm-Status-Global-custom              | Contrôle permettant de vérifier l'état global de plusieurs machines virtuelles                                                                       |            |
 | Vm-Swap-Global                | Virt-VMWare2-Vm-Swap-Global-custom                | Contrôle permettant de vérifier si les machines virtuelles swappent                                                                                  |            |
 | Vm-Thinprovisioning-Global    | Virt-VMWare2-Vm-Thinprovisioning-Global-custom    | Contrôle permettant de vérifier si une machine virtuelle possède un disque en mode 'thinprovisioning' ou non                                         |            |
@@ -87,14 +87,14 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de service
 
-| Nom de la règle                               | Description |
-|:----------------------------------------------|:------------|
-| Virt-VMWare2-Datacenters-Alarm-Name           |             |
-| Virt-VMWare2-Vcenter-Clusters-Status-Name     |             |
-| Virt-VMWare2-Vcenter-Datastores-Io-Name       |             |
-| Virt-VMWare2-Vcenter-Datastores-Iops-Name     |             |
-| Virt-VMWare2-Vcenter-Datastores-Usage-Name    |             |
-| Virt-VMWare2-Vcenter-Datastores-Vm-Count-Name |             |
+| Nom de la règle                               | Description                                                                                        |
+|:----------------------------------------------|:---------------------------------------------------------------------------------------------------|
+| Virt-VMWare2-Datacenters-Alarm-Name           | Découvre des Datacenters et supervise leurs alarmes                                                  |
+| Virt-VMWare2-Vcenter-Clusters-Status-Name     | Découvre des Clusters et supervise leur status                                                     |
+| Virt-VMWare2-Vcenter-Datastores-Io-Name       | Découvre des Datastores et supervise leur taux d'utilisation en Kbps                                 |
+| Virt-VMWare2-Vcenter-Datastores-Iops-Name     | Découvre des Datastores et supervise leurs IOPs moyens                                               |
+| Virt-VMWare2-Vcenter-Datastores-Usage-Name    | Découvre des Datastores et supervise leur taux d'utilisation                                         |
+| Virt-VMWare2-Vcenter-Datastores-Vm-Count-Name | Découvre des Datastores et supervise le nombre de machines virtuelles allumées/éteintes/suspendues |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -106,7 +106,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Cluster-Cpu" label="Cluster-Cpu">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *clusters*~cluster.cpu.utilization.percentage | %     |
 | *clusters*~cluster.cpu.utilization.mhz        | MHz   |
@@ -114,7 +114,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Cluster-Cpu-Global" label="Cluster-Cpu-Global">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *clusters*~cluster.cpu.utilization.percentage | %     |
 | *clusters*~cluster.cpu.utilization.mhz        | MHz   |
@@ -122,7 +122,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Cluster-Status" label="Cluster-Status">
 
-| Métrique         | Unité |
+| Nom              | Unité |
 |:-----------------|:------|
 | *cluster*#status | N/A   |
 
@@ -131,7 +131,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Cluster-Status-Global" label="Cluster-Status-Global">
 
-| Métrique         | Unité |
+| Nom              | Unité |
 |:-----------------|:------|
 | *cluster*#status | N/A   |
 
@@ -140,7 +140,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datacenter-Alarms" label="Datacenter-Alarms">
 
-| Métrique                                 | Unité |
+| Nom                                      | Unité |
 |:-----------------------------------------|:------|
 | datacenter.alarms.warning.current.count  | count |
 | datacenter.alarms.critical.current.count | count |
@@ -153,7 +153,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datacenter-Alarms-Global" label="Datacenter-Alarms-Global">
 
-| Métrique                                 | Unité |
+| Nom                                      | Unité |
 |:-----------------------------------------|:------|
 | datacenter.alarms.warning.current.count  | count |
 | datacenter.alarms.critical.current.count | count |
@@ -166,7 +166,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Io-Global" label="Datastore-Io-Global">
 
-| Métrique                                         | Unité |
+| Nom                                              | Unité |
 |:-------------------------------------------------|:------|
 | datastore.read.usage.bytespersecond              | B/s   |
 | datastore.write.usage.bytespersecond             | B/s   |
@@ -179,7 +179,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Iops-Global" label="Datastore-Iops-Global">
 
-| Métrique                                       | Unité |
+| Nom                                            | Unité |
 |:-----------------------------------------------|:------|
 | datastores.read.usage.iops                     | iops  |
 | datastores.write.usage.iops                    | iops  |
@@ -194,7 +194,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Snapshots-Global" label="Datastore-Snapshots-Global">
 
-| Métrique                                           | Unité |
+| Nom                                                | Unité |
 |:---------------------------------------------------|:------|
 | *datastore*~status                                 | N/A   |
 | *datastore*~datastore.snapshots.usage.bytes        | B     |
@@ -205,7 +205,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Usage-Global" label="Datastore-Usage-Global">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *datastore*#status                            | N/A   |
 | *datastore*#datastore.space.usage.bytes       | B     |
@@ -218,7 +218,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Vm-Count-Global" label="Datastore-Vm-Count-Global">
 
-| Métrique                                          | Unité |
+| Nom                                               | Unité |
 |:--------------------------------------------------|:------|
 | datastore.vm.poweredon.current.count              | count |
 | datastore.vm.poweredoff.current.count             | count |
@@ -233,7 +233,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="ESX-Alarms-Global" label="ESX-Alarms-Global">
 
-| Métrique                           | Unité |
+| Nom                                | Unité |
 |:-----------------------------------|:------|
 | host.alarms.warning.current.count  | count |
 | host.alarms.critical.current.count | count |
@@ -246,7 +246,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Cpu-Global" label="Esx-Cpu-Global">
 
-| Métrique                                          | Unité |
+| Nom                                               | Unité |
 |:--------------------------------------------------|:------|
 | *host*~status                                     | N/A   |
 | *host*~host.cpu.utilization.percentage            | %     |
@@ -258,7 +258,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Datastores-Latency-Global" label="Esx-Datastores-Latency-Global">
 
-| Métrique                                                     | Unité |
+| Nom                                                          | Unité |
 |:-------------------------------------------------------------|:------|
 | *host*~status                                                | N/A   |
 | *host*~*datastore*#host.datastore.latency.read.milliseconds  | ms    |
@@ -269,7 +269,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Health-Global" label="Esx-Health-Global">
 
-| Métrique                                              | Unité |
+| Nom                                                   | Unité |
 |:------------------------------------------------------|:------|
 | host.health.problems.current.count                    | count |
 | *host*~status                                         | N/A   |
@@ -286,7 +286,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Memory-Global" label="Esx-Memory-Global">
 
-| Métrique                          | Unité |
+| Nom                               | Unité |
 |:----------------------------------|:------|
 | *host*#status                     | N/A   |
 | *host*#host.memory.usage.bytes    | B     |
@@ -298,7 +298,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Service-Global" label="Esx-Service-Global">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | *host*~status                   | N/A   |
 | *host*~*service*#service-status | N/A   |
@@ -308,7 +308,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Status-Global" label="Esx-Status-Global">
 
-| Métrique              | Unité |
+| Nom                   | Unité |
 |:----------------------|:------|
 | *host*#status         | N/A   |
 | *host*#overall-status | N/A   |
@@ -318,7 +318,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Storage-Global" label="Esx-Storage-Global">
 
-| Métrique                           | Unité |
+| Nom                                | Unité |
 |:-----------------------------------|:------|
 | *host*~status                      | N/A   |
 | *host*~host.adapters.total.count   | count |
@@ -346,7 +346,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Swap-Global" label="Esx-Swap-Global">
 
-| Métrique                                  | Unité |
+| Nom                                       | Unité |
 |:------------------------------------------|:------|
 | *host*#status                             | N/A   |
 | *host*#host.swap.in.usage.bytespersecond  | B/s   |
@@ -357,7 +357,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Time-Global" label="Esx-Time-Global">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | *host*#status                   | N/A   |
 | *host*#host.time.offset.seconds | s     |
@@ -367,7 +367,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Traffic-Global" label="Esx-Traffic-Global">
 
-| Métrique                                                 | Unité |
+| Nom                                                      | Unité |
 |:---------------------------------------------------------|:------|
 | *host*~status                                            | N/A   |
 | *host*~host.traffic.in.bitsperseconds                    | b/s   |
@@ -385,7 +385,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Uptime-Global" label="Esx-Uptime-Global">
 
-| Métrique                          | Unité |
+| Nom                               | Unité |
 |:----------------------------------|:------|
 | *host*#status                     | N/A   |
 | *host*#host.uptime.offset.seconds | s     |
@@ -395,7 +395,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Vm-Count-Global" label="Esx-Vm-Count-Global">
 
-| Métrique                                | Unité |
+| Nom                                     | Unité |
 |:----------------------------------------|:------|
 | host.vm.poweredon.current.count         | count |
 | host.vm.poweredoff.current.count        | count |
@@ -410,7 +410,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-is-Maintenance-Global" label="Esx-is-Maintenance-Global">
 
-| Métrique                  | Unité |
+| Nom                       | Unité |
 |:--------------------------|:------|
 | *host*#status             | N/A   |
 | *host*#maintenance-status | N/A   |
@@ -420,7 +420,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | licenses.total.count                | count |
 | *licenses*#license.usage.count      | count |
@@ -431,7 +431,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Cpu-Global" label="Vm-Cpu-Global">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *vm*~status                                   | N/A   |
 | *vm*~vm.cpu.utilization.percentage            | %     |
@@ -444,7 +444,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Datastores-Iops-Global" label="Vm-Datastores-Iops-Global">
 
-| Métrique                                       | Unité |
+| Nom                                            | Unité |
 |:-----------------------------------------------|:------|
 | *vm*~status                                    | N/A   |
 | *vm*~vm.datastore.latency.max.milliseconds     | ms    |
@@ -456,7 +456,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Device-Global" label="Vm-Device-Global">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | vm.devices.connected.count      | count |
 | *vm*#status                     | N/A   |
@@ -467,7 +467,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Limit-Global" label="Vm-Limit-Global">
 
-| Métrique      | Unité |
+| Nom           | Unité |
 |:--------------|:------|
 | cpu-status    | N/A   |
 | memory-status | N/A   |
@@ -478,7 +478,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Memory-Global" label="Vm-Memory-Global">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | *vm*~status                         | N/A   |
 | *vm*~vm.memory.consumed.usage.bytes | B     |
@@ -492,7 +492,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Snapshot-Global" label="Vm-Snapshot-Global">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | vm.snapshots.warning.current.count  | count |
 | vm.snapshots.critical.current.count | count |
@@ -500,7 +500,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Status-Global" label="Vm-Status-Global">
 
-| Métrique            | Unité |
+| Nom                 | Unité |
 |:--------------------|:------|
 | *vm*#status         | N/A   |
 | *vm*#overall-status | N/A   |
@@ -510,7 +510,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Swap-Global" label="Vm-Swap-Global">
 
-| Métrique                              | Unité |
+| Nom                                   | Unité |
 |:--------------------------------------|:------|
 | *vm*#status                           | N/A   |
 | *vm*#vm.swap.in.usage.bytespersecond  | B/s   |
@@ -521,16 +521,16 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Thinprovisioning-Global" label="Vm-Thinprovisioning-Global">
 
-| Metric name                         | Unit                                   |
-|-------------------------------------|----------------------------------------|
-| VM Connection State                 | N/A      							|
-| Thin Provisioning Status of VMs     | N/A            						|
-| VM Power State                      | N/A            						|
+| Nom                             | Unité |
+|:--------------------------------|:-----|
+| VM Connection State             | N/A |
+| Thin Provisioning Status of VMs | N/A |
+| VM Power State                  | N/A |
 
 </TabItem>
 <TabItem value="Vm-Tools-Global" label="Vm-Tools-Global">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | vm.tools.notupdated.current.count   | count |
 | vm.tools.notrunning.current.count   | count |
@@ -539,7 +539,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vsan-Cluster-Usage" label="Vsan-Cluster-Usage">
 
-| Métrique                                                       | Unité |
+| Nom                                                            | Unité |
 |:---------------------------------------------------------------|:------|
 | *cluster*#cluster.vsan.backend.read.usage.iops                 | iops  |
 | *cluster*#cluster.vsan.backend.write.usage.iops                | iops  |
@@ -548,12 +548,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | *cluster*#cluster.vsan.backend.throughput.read.bytespersecond  | B/s   |
 | *cluster*#cluster.vsan.backend.throughput.write.bytespersecond | B/s   |
 | *cluster*#cluster.vsan.backend.latency.read.microseconds       | µs    |
-| *cluster*#cluster.vsan.backend.latency.write.microseconds     | µs    |
+| *cluster*#cluster.vsan.backend.latency.write.microseconds      | µs    |
 
 </TabItem>
 <TabItem value="Vsan-Cluster-Usage-Global" label="Vsan-Cluster-Usage-Global">
 
-| Métrique                                                       | Unité |
+| Nom                                                            | Unité |
 |:---------------------------------------------------------------|:------|
 | *cluster*#cluster.vsan.backend.read.usage.iops                 | iops  |
 | *cluster*#cluster.vsan.backend.write.usage.iops                | iops  |
@@ -599,7 +599,7 @@ apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
@@ -631,7 +631,7 @@ dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virt
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 perl Makefile.PL
 make pure_install
@@ -650,7 +650,7 @@ dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virt
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200

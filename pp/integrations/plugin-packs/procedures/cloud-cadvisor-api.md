@@ -32,11 +32,11 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias     | Service Template                            | Service Description           | Discovery  |
-|:------------------|:--------------------------------------------|:------------------------------|:----------:|
-| Container-Disk-IO | Cloud-cAdvisor-Container-Disk-IO-Api-custom | Check container disk I/O.    | X          |
-| Container-Traffic | Cloud-cAdvisor-Container-Traffic-Api-custom | Check container network usage | X          |
-| Container-Usage   | Cloud-cAdvisor-Container-Usage-Api-custom   | Check container usage         | X          |
+| Service Alias     | Service Template                            | Service Description           | Discovery |
+|:------------------|:--------------------------------------------|:------------------------------|:---------:|
+| Container-Disk-IO | Cloud-cAdvisor-Container-Disk-IO-Api-custom | Check container disk I/O.     |     X     |
+| Container-Traffic | Cloud-cAdvisor-Container-Traffic-Api-custom | Check container network usage |     X     |
+| Container-Usage   | Cloud-cAdvisor-Container-Usage-Api-custom   | Check container usage         |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -111,6 +111,26 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 A running cAdvisor container should be available. You can refer to the official
 [quick start](https://github.com/google/cadvisor#quick-start-running-cadvisor-in-a-docker-container).
+
+### Best practice: naming your containers
+
+cAdvisor identifies each container by its name. By default, Docker generates a random name each time a container is recreated, 
+causing Centreon to create new metrics and a new RRD file in `/var/lib/centreon/metrics` on every change, leading to a proliferation of stale data.
+
+**Always assign a fixed name to each monitored container:**
+
+```bash
+# Command line
+docker run -d --name my-nginx nginx
+
+# Docker Compose
+services:
+  web:
+    image: nginx
+    container_name: my-nginx
+```
+
+> If you are using Kubernetes, prefer `StatefulSets` to ensure stable pod names (`my-service-0`, `my-service-1`, etc.), which are compatible with the `--container` and `--pod` filter options of the connector.
 
 ### Network flow
 

@@ -21,8 +21,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias            | Modèle de service                      | Description                                                  | Découverte |
 |:-----------------|:---------------------------------------|:-------------------------------------------------------------|:----------:|
-| Container-Status | App-Docker-Container-Status-SSH-custom | Contrôle permettant de vérifier le statut des conteneurs     | X          |
-| Container-Usage  | App-Docker-Container-Usage-SSH-custom  | Contrôle permettant de vérifier l'utilisation des conteneurs | X          |
+| Container-Status | App-Docker-Container-Status-SSH-custom | Contrôle permettant de vérifier le statut des conteneurs     |     X      |
+| Container-Usage  | App-Docker-Container-Usage-SSH-custom  | Contrôle permettant de vérifier l'utilisation des conteneurs |     X      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Docker-SSH-custom** est utilisé.
 
@@ -81,6 +81,25 @@ sont pas nécessaires, un utilisateur 'simple' est suffisant.
 Deux méthodes de connexion SSH sont possibles :
 * soit en copiant la clé SSH publique de l'utilisateur `centreon-engine` du collecteur Centreon à la ressource à superviser
 * soit en définissant votre utilisateur et votre mot de passe directement dans les macros d'hôtes.
+
+### Bonne pratique : nommer vos conteneurs
+
+Par défaut, Docker génère un nom aléatoire à chaque recréation de conteneur. 
+Le connecteur utilise ce nom (via l'option `--filter-name`) pour identifier les conteneurs et créer les métriques associées. 
+Si ce nom change, de nouvelles métriques et un nouveau fichier RRD sont créés dans `/var/lib/centreon/metrics`, entraînant une prolifération de données obsolètes.
+
+**Attribuez toujours un nom fixe à chaque conteneur supervisé :**
+
+```bash
+# Ligne de commande
+docker run -d --name mon-nginx nginx
+
+# Docker Compose
+services:
+  web:
+    image: nginx
+    container_name: mon-nginx
+```
 
 ## Installer le connecteur de supervision
 
