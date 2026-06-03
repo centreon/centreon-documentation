@@ -8,10 +8,6 @@ module.exports = {
         id: 'getting-started/welcome'
       },
        items: [
-                {
-          type: 'doc',
-          id: 'getting-started/beta'
-        },
         {
           type: 'doc',
           id: 'getting-started/observability'
