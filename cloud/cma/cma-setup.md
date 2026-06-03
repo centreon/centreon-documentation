@@ -980,6 +980,63 @@ centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE "ServiceName"
 </TabItem>
 </Tabs>
 
+### Updating the agent
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+Update the agent using your package manager.
+
+For RPM-based systems (Alma Linux, RHEL, Oracle Linux):
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+For Debian-based systems (Debian, Ubuntu):
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+Then restart the agent:
+
+```shell
+systemctl restart centagent
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+[Download the new CMA installer](https://download.centreon.com) (**Custom Platform** tab then **Monitoring Agent** tab).
+
+<Tabs groupId="sync">
+<TabItem value="Interactive mode" label="Interactive mode">
+
+> The installer must be launched with the "Run as administrator" option.
+
+1. Launch the installer. Since at least one CMA instance is already installed, the first screen offers two options:
+   * **Install**: updates the agent binaries only. The existing configuration is preserved.
+   * **Update**: allows you to update both the agent binaries and the configuration. Select the instance to update — the configuration fields are pre-filled with the current values and can be modified.
+2. Select **Update**, choose the instance to update, adjust the configuration if needed, and complete the wizard.
+
+</TabItem>
+<TabItem value="Silent mode" label="Silent mode (console)">
+
+Use the `/UPDATE` flag to update an existing instance. The `/AGENTINSTANCE` parameter specifies the instance to update:
+
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATE /AGENTINSTANCE="ServiceName"
+```
+
+This updates both the agent binaries and the configuration of the specified instance.
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
 ### Uninstalling the agent
 
 <Tabs groupId="sync">

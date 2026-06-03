@@ -792,6 +792,55 @@ centreon-monitoring-agent-modify.exe /VERYSILENT
 </TabItem>
 </Tabs>
 
+### Mettre à jour l'agent
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+Mettez à jour l'agent à l'aide de votre gestionnaire de paquets.
+
+Pour les systèmes RPM (Alma Linux, RHEL, Oracle Linux) :
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+Pour les systèmes Debian (Debian, Ubuntu) :
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+Redémarrez ensuite l'agent :
+
+```shell
+systemctl restart centagent
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+Sous Centreon 24.10, la mise à jour de l'agent sous Windows nécessite de désinstaller la version actuelle et de réinstaller la nouvelle. Veillez à sauvegarder votre configuration avant de procéder, car elle sera perdue lors de la désinstallation.
+
+#### Étape 1 : Sauvegardez votre configuration
+
+La configuration de l'agent est stockée dans la base de registre Windows. Exportez la clé suivante avant de désinstaller :
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent
+```
+
+#### Étape 2 : Désinstallez la version actuelle
+
+Exécutez le programme de désinstallation situé dans le répertoire d'installation de CMA.
+
+#### Étape 3 : Installez la nouvelle version
+
+[Téléchargez le nouvel installer de l'agent](https://download.centreon.com) et exécutez-le en renseignant les valeurs de configuration sauvegardées à l'étape 1.
+
+</TabItem>
+</Tabs>
+
 ## Étape 4 : Tester le fonctionnement de l'agent
 
 Voir [section dédiée](cma-troubleshooting.md).
