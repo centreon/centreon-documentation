@@ -47,7 +47,7 @@ The Business Data module displays the following metrics, all sourced from Google
 
 
 
-Quanta links with Analytics so you can:
+Centreon Experience Monitoring links with Analytics so you can:
 
 Have your business KPIs correlating the technical performance and your sales.
 See the impact of peak traffic on your page load time.

@@ -164,10 +164,10 @@ To install the Experience Monitoring agent:
     yum install quanta-agent
     ```
 
-5. Edit the file **/etc/quanta/agent.yml** and replace __YOUR_QUANTA_TOKEN__ with [your **auto-registration token**](#prerequisites):
+5. Edit the file **/etc/quanta/agent.yml** and replace __YOUR_EXPERIENCE_MONITORING_TOKEN__ with [your **auto-registration token**](#prerequisites):
 
     ```shell
-    __YOUR_QUANTA_TOKEN__
+    __YOUR_EXPERIENCE_MONITORING_TOKEN__
     ```
 
 6. Start the agent:

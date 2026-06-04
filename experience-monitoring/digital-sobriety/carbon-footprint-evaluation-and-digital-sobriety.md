@@ -57,4 +57,4 @@ Here is the current functional scope of Experience Monitoring:
 | Network | YES | YES | YES |  |
 | End-user devices | YES | YES | n/a |  |
 
-For more details about the algorithms used for each scope, contact the support team at [support@quanta.io](mailto:support@quanta.io).
+For more details about the algorithms used for each scope, contact the support team at [support@centreon.com](mailto:support@centreon.com).

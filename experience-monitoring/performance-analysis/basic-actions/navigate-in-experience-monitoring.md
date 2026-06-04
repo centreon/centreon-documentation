@@ -3,25 +3,30 @@ id: navigate-in-experience-monitoring
 title: Navigating in Experience Monitoring
 ---
 
-Centreon Experience Monitoring allows you to:
+In the Centreon Experience Monitoring interface, you can:
 
 1. [Switch between sites](#switching-between-sites).
 2. [Switch between modules](#switching-between-modules) (user journeys, RUM...).
-3. [Change the time period covered by the displayed data](#changing-the-time-period-covered-by-the-data).
+3. Access the [dashboards](../dashboards.md) page, the configuration page for the module you are in, or your [user](../../configuration/manage-users-and-rights.md) profile.
+4. [Change the time period covered by the displayed data](#changing-the-time-period-covered-by-the-displayed-data).
 
 ![image](../../assets/performance-analysis/basic-actions/navigate-1.png)
 
 ## Organizations and sites
 
-The platform supports a two-level hierarchy that lets you organize and monitor multiple websites from a single account.
+The platform has a two-level hierarchy that lets you organize and monitor multiple websites from a single account.
 
-* Organizations are top-level groupings that contain one or more sites — for example, separate organizations for different business units or clients.
+* Organizations are top-level groupings that contain one or more sites — for example, separate organizations for different business units or clients. [User rights](../../configuration/manage-users-and-rights.md) are defined at organization level.
 * Sites are individual websites within an organization. A common setup is separate sites for different environments, such as production and pre-production.
 
 ### Switching between sites
 
-* Hover over the site name in the top navigation bar to open the **Sites** panel, then click any site in the list to switch to it. The **Global view** is displayed for that site.
+* Hover over the site name in the top navigation bar to open the **Sites** panel, then click any site in the list to switch to it.
 * If you need to, use the search box to filter sites by name.
+
+   ![image](../../assets/configuration/user-journey/organization-page.png)
+
+Multi-site comparisons are only possible from the [dashboards](../dashboards.md). You can compare performance data across several sites side by side, or aggregate metrics from multiple sites into a single view.
 
 ### Adding a site to an organization
 
@@ -36,15 +41,18 @@ The **horizontal navigation bar** (at the top) lets you switch between Experienc
 
 ## Changing the time period covered by the displayed data
 
-A **time range selector** (at the top-right) lets you change the analyzed period at any time. This is useful to observe how a site's response times evolve over days, weeks, or months. By default, Experience Monitoring shows the last 24 hours and refreshes every minute to show the latest measurements in real time.
+A **time range selector** (at the top-right) lets you change the analyzed period at any time. This time period affects all indicators and dashboards (except the **Live** widget in RUM). This is useful to observe how a site's response times evolve over days, weeks, or months. By default, Experience Monitoring shows the last 24 hours and refreshes every minute to show the latest measurements in real time.
 
-## Global view page
+Zooming in on a period in a graph (with a click and drag action) automatically updates the time range selector.
+
+## Customizing the Global view page
 
 When you first log into Experience Monitoring, you land on the **Global view** page by default. Select the site you want, then click **Settings** in the top right corner to fine-tune what the page displays for this site.
 
 ### User Journeys taken into account in the calculations
 
-This section defines which user journeys are used to calculate the **Global View** scores// all scores for this site (where?).
+This section defines which user journeys are used to calculate the scores in the **Global View**, for the **Performance score** and **Journeys availability** widgets. It also affects the **Digital Sobriety Score** widget [if the calculations are based on user journeys](#data-source-of-calculations-for-the-digital-sobriety-score).
+
 Two modes are available:
 
 - **All user journeys** — every configured user journey contributes to the calculations.
@@ -55,19 +63,8 @@ Two modes are available:
 Select the data source used to calculate the eco-design score and CO₂ emissions for all [digital sobriety](../../digital-sobriety/digital-sobriety-concepts.md) data across the site (only one source can be selected at a time):
 
 * **Real User Monitoring** —  all calculations will be based on real traffic collected by the RUM tag
-* **User journeys** — all calculations will be based on automated measurements from STM probes.
+* **User journeys** — all calculations will be based on automated measurements from STM probes, based on what you defined in [User Journeys taken into account in the calculations](#user-journeys-taken-into-account-in-the-calculations).
 
 ### Site screenshot reference
 
-Select the screenshot you want to appear in the **Global view** page for this site: choose between the thumbnails you selected for your user journeys.
-
-<!--
-If your account has access to multiple Experience Monitoring sites — for example
-under an Enterprise license or as an agency managing several clients — you can
-use the site selector to switch between them or work across them simultaneously.
-
-Multi-site mode lets you:
-
-- **Compare performance data** across several sites side by side.
-- **Build custom dashboards** that aggregate metrics from multiple sites into a
-  single view.-->
+Select the screenshot you want to appear in the **Global view** page for this site: choose between the thumbnails for your user journeys.

@@ -200,7 +200,7 @@ Application agents allow you to collect system data from various components of y
    </TabItem>
    </Tabs>
 
-2. If you are using multiple Varnish instances, specify which instance you want to send data to Quanta by adding the following lines at the end of the following file: **/etc/quanta/modules.d/varnish.yml**:
+2. If you are using multiple Varnish instances, specify which instance you want to send data to Centreon Experience Monitoring by adding the following lines at the end of the following file: **/etc/quanta/modules.d/varnish.yml**:
 
     ```bash
     varnish:
