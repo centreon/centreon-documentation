@@ -5,7 +5,8 @@ title: Receiving and configuring notifications
 
 You can configure Experience Monitoring to send you a notification when one of your [user journeys](./user-journey-intro.md) fails or timeouts
 
-Email notifications are available to all users. Additionaly, some licenses allow receiving notifications by SMS, Slack, or webhooks. To subscribe to this option, contact your sales representative or [the Centreon support](../../getting-started/contact-support.md)
+Email notifications are available to all users. Additionaly, some licenses allow receiving notifications by SMS, Slack, or webhooks.
+To subscribe to this option, contact your sales representative or [the Centreon support](../../getting-started/contact-support.md)
 
 > Note that, while email, webhook or slack notifications are unlimited, there is a set amount of SMS available per site per month. 
 To see your SMS quota, go to **Configuration**, then the **Site** tab. You will find your quota in the **Alerts & Reports** section.
@@ -18,8 +19,11 @@ Each user must individually set the phone number or accouts on which they will r
 
 The email, phone number and slack accounts listed on your profile information are the ones that will be used to send you notifications.
 
-Additionally, Experience Monitoring allows users to receive alerts via a webhook for better integration with other tools and systems. When an incident is detected on a monitored web application, Experience Monitoring can send an **HTTP POST** request to a URL specified by the user. This URL can be protected by htaccess, and the user can also define **custom headers** if needed.
-You can configure this URL by clicking the word “Webhook” for a newly created or existing alert, then clicking the “**+**” icon (**Create a webhook**):
+Additionally, Experience Monitoring allows users to receive alerts via a webhook for better integration with other tools and systems.
+For example, if you use Microsoft Teams instead of Slack, a webhook will allow the integration.
+When an incident is detected on a monitored web application, Experience Monitoring can send an HTTP POST request to a URL specified by the user.
+This URL can be protected by htaccess, and the user can also define **HTTP headers** if needed.
+You can configure this URL by clicking the word **Webhoo** for a newly created or existing alert, then clicking the pencil icon.
 
 ### Alerting schedule
 
@@ -34,10 +38,10 @@ Additionally, each alert can be enabled/disabled for specific time ranges so it 
 
 Having informed your contact information and times of availability, click on **Configuration** then click on the **Alerting** tab.
 
-You can choose to suscribe to the notifications of an existing notification by clicking on the list of users who receive notifications.
+You can choose to subscribe to the notifications of an existing notification by clicking on the list of users who receive notifications.
 A window with the subscribed users pops up, click on "Subscribe yourself" to add yourself to this notification and check the boxes for the types of notifications you will receive.
 
-Admnis can also subscribe or unsusbscribe other users from a notification.
+Admins can also subscribe or unsubscribe other users from a notification.
 
 If the notification you wish to subscribe to hasn't been created, click on the + icon to create it yourself.
 
