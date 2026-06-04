@@ -50,7 +50,7 @@ Avant d'activer l'authentification SAML, vous devez remplir tous les paramètres
 
    > Il est possible de ne pas définir de mapping de rôles. Cette option est réservée à des fins de test. Dans ce cas, les utilisateurs devront être invités manuellement dans Centreon Hub avant de pouvoir rejoindre votre organisation à l'aide du SSO.
 
-5. **Group mapping**:
+5. **Group mapping** (optionnel):
 
    * **Group attribute path**: Récupérez cette valeur dans les métadonnées de votre application.
    * Grâce aux listes apparaissant en dessous, faites correspondre les valeurs d'attribut correctes avec les [groupes d'utilisateurs de Centreon Hub](user_groups.md) désirés. Cela déterminera [quels droits les utilisateurs auront sur les ressources](../administration/resource_access.md).
