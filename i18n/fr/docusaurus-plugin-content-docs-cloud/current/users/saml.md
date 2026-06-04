@@ -29,7 +29,7 @@ Avant d'activer l'authentification SAML, vous devez remplir tous les paramètres
 
 1. Renseignez le **Nom de domaine** de votre entreprise : seuls les utilisateurs dont l'adresse mail correspond à ce nom de domaine pourront se connecter à l'aide du fournisseur d'identité.
 
-2. Copiez le contenu des deux champs suivants depuis la section **Identity provider** de la page du CIAM dans les champs correspondants de votre fournisseur d'identité :
+2. Copiez le contenu des deux champs suivants depuis la section **Identity provider** de la page de Centreon Hub dans les champs correspondants de votre fournisseur d'identité :
 
    * **Identifier (Entity ID)**: entrer l'URL représentant le nom unique de l'entité SAML.
    * **Reply URL (Assertion consumer service URL)**: par exemple, `https:/<Centreon_IP_address>/centreon/api/latest/saml/acs`.
