@@ -136,5 +136,5 @@ Les échecs de connexion ou de communication entre les services (par exemple, un
 
 ## Exemples de questions auxquelles vous pouvez trouver des réponses
 
-* Quel service génère le plus d'erreurs aujourd'hui ? Filtrez la [timeline](../explore-analyze.md#utiliser-la-page-log-explorer) sur la journée courante, puis filtrez par severitynumber>17. Empilez le graphique par nom de service.
+* Quel service génère le plus d'erreurs aujourd'hui ? Filtrez la [timeline](../log-explorer.md) sur la journée courante, puis filtrez par severitynumber>17. Empilez le graphique par nom de service.
 * Quels services ont changé de comportement après le déploiement ? Dans Log explorer, filtrez par nom de service ou espace de noms, et vérifiez s'il y a des erreurs.

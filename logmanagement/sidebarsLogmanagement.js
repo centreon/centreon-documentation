@@ -32,7 +32,7 @@ module.exports = {
           items: [
         {
           type: 'doc',
-          id: 'ciam'
+          id: 'centreon-hub'
         }
        ]
     },
@@ -67,12 +67,13 @@ module.exports = {
           "type": "category",
           "label": "Exploring and analyzing logs",
           "link": {
-            "type": "generated-index",
+            "type": "doc",
+            "id": "explore-analyze"
           },
           items: [
         {
           type: 'doc',
-          id: 'explore-analyze'
+          id: 'log-explorer'
         },
         {
           type: 'doc',
