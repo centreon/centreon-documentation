@@ -7,7 +7,7 @@ Using the data collected by the [recommendation probe](./user-journey-setup.md#d
 
 Note that these recommendations come from the user journeys and so only provide recommendations for the pages appearing in the journey's steps.
 
-# Getting the recommendations for each step
+## Getting the recommendations for each step
 
 From the [User Journey **Overview** page](../../how-to-articles/user-journey-screen.md#overview-page), scroll down to the list of steps.
 Click on the magnifying glass to the right of the step you want to optimize.
@@ -22,12 +22,7 @@ Below this is a list of recommendations to optimize your site.
 The recommendations are listed from most impactful to the least.
 Each individual recommendation can be clicked to see what metrics would be impacted, how to implement it and the potential gains.
 
-# How do I know precisely what to do
-
-Each site is different. While Experience Monitoring can determine that certain elements could be optimized, it is up to the user to know what to do.
-Although each recommendation offers tips on how to implement it, we can not offer a detailed guide for optimizing your particular case.
-
-# How can I tell my changes had a real impact
+## How can I tell my changes had a real impact
 
 From the **Last Recommendations tab**, you can access our **Recommendations comparator**.
 Click on the scales icon at the top right of the timeline to compare two sets of recommendations.

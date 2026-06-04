@@ -6,7 +6,7 @@ title: User Journeys
 User journeys allows you to configure a probe to regularly navigate your site following a pre-established path, measuring various web performance indicators.
 The probe then sends the data to Experience Monitoring for you to review.
 
-User journeys, along with [Real User Monitoring](../../getting-started/real-user-monitoring.md), are one of the key features of Experience Monitoring as other features like the [Digital Sobriety Score](../../digital-sobriety/digital-sobriety-concepts.md) or [Load Tests](../../getting-started/load-tests.md) depend on the path set by User Journeys to function. Setting up at least one User Journey should be one.
+User journeys, along with [Real User Monitoring](../../getting-started/real-user-monitoring.md), are one of the key features of Experience Monitoring as other features like the [Digital Sobriety Score](../../digital-sobriety/digital-sobriety-concepts.md) or [Load Tests](../../getting-started/load-tests.md) depend on the path set by User Journeys to function.
 
 Note that you may need to whitelist [Experience Monitoring's IP addresses](../../installation/experience-monitoring-ip-addresses.md) for the probes to function.
 

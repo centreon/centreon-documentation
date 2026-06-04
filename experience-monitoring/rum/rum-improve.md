@@ -15,4 +15,4 @@ The module displays optimization recommendations for URLs, with the following li
 * If you expand to the Top 20 or Top 50, pages lower in the rankings only receive recommendations if they were ever in the Top 10 during the selected period.
 * The Top 10 changes daily, which explains why, over a long period, the gaps are not in the same places.
 
-Alternative: To obtain recommendations for pages outside the Top 10, you must [set up a scenario (User Journey)](../configuration/user-journey/create-a-scenario.md) on the relevant URL. Use the shortcut on the right to access the corresponding page.
+Alternative: To obtain recommendations for pages outside the Top 10, you must [set up a scenario (User Journey)](../configuration/user-journey/user-journey-setup.md) on the relevant URL. Use the shortcut on the right to access the corresponding page.

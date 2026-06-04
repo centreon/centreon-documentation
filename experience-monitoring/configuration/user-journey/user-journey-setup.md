@@ -2,10 +2,12 @@
 id: user-journey-setup
 title: Creating a User Journey
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 > Note that if the site you wish to monitor is internal to your organization, you will need to create an [STM zone](stm-zones.md) in addition to the user journey and install [the profiler](../../installation/servers/install-php-magento-orocommerce-profiler.md).
 
-> This page mentions [CSS selectors](../../experience-monitoring-glossary.md) frequently for better results. We recommend reading on this topic before proceeding.
+> This page mentions [CSS selectors](../../experience-monitoring-glossary.md) frequently. We recommend reading on this topic before proceeding.
 
 User journeys allows you to configure a probe to regularly navigate your site following a pre-established path. This page explains how to configure both the journey as a whole and its individual steps.
 
@@ -17,13 +19,16 @@ Because a navigation actions are always the only or the last action of a step an
 
 Give a name to this new step and click the + icon inside the step to choose an action to perform.
 
-# User Journey configuration
+## User Journey configuration
+
+Only users with the **Owner** or **Administrator** role can create or edit user journeys.
 
 To access the advanced settings, open your journey in edit mode, click the three dots menu to its right, and select **Advanced**.
 
 Remember to click **Save** after any changes in this window.
 
-## General
+<Tabs groupId="sync">
+<TabItem value="General" label="General">
 
 Give your journey a clear, unique name. This name appears in reports and throughout the Experience Monitoring interface.
 
@@ -43,7 +48,8 @@ In addition to the User Journey probe, a recommendations probe is run once a day
 The **Operating mode** options allow you to disable this probe, have it only check your first step or check all steps. 
 You can also change the language of the recommendations.
 
-## HTTP Requests
+</TabItem>
+<TabItem value="HTTP Requests" label="HTTP Requests">
 
 ### HTTP Basic authentication
 
@@ -57,9 +63,8 @@ Add custom cookies to store data or sessions at journey start.
 
 You can add custom HTTP headers.
 
-## Simulation
-
-### Browser options
+</TabItem>
+<TabItem value="Simulation" label="Simulation">
 
 #### Enable browser cache
 
@@ -73,18 +78,22 @@ Determine on which Chromium version the probe will run.
 
 ### User Agent
 
+The User Agent is an HTTP Header string that every browser sends to the page it is viewing. It informs the page what browser and what type of device you are using to access it.
+You can input a custom string to simulate a specific browser.
+
 ### Device options
 
 Here you can determine the screen size that the probe will pretend to work with and its orientation if you selected the screen size of a phone or tablet.
 
 You can also determine how powerful would be the device used by user.
 
-### Timings
+</TabItem>
+<TabItem value="Timings" label="Timings">
 
 Determine the interval between each execution of the probe. You can also configure how much time the probe waits for a step before determining it a timeout.
 
 Note that the time it takes for the probe to execute the entire journey must be lower than the time between each execution.
-For example do not set an interval of 5 minutes between executions on a user journey that averages 7 minutes per run.
+For example, do not set an interval of 5 minutes between executions on a user journey that averages 7 minutes per run.
 
 Because of this requirement, it is recommended to set a high interval at first then lowering its value as you figure out how long the probe takes.
 
@@ -92,7 +101,8 @@ Because of this requirement, it is recommended to set a high interval at first t
 
 The probe waits for all elements of the page to have fully loaded before moving on to the next action. This better imitates a real user's behavior.
 
-### Variables
+</TabItem>
+<TabItem value="Variables" label="Variables">
 
 Variables let you pass dynamic values such as login credentials into a journey at runtime without hardcoding them at the step.
 
@@ -104,7 +114,8 @@ Variables are particularly useful when you need different values in different co
 
 > Variables are fixed per journey configuration. To use different values, you will need separate variable definitions per context (monitoring vs. load test).
 
-### Blocked URLs
+</TabItem>
+<TabItem value="Blocked URLs" label="Blocked URLs">
 
 You can tell the probe to skip requests to specific domains or URLs. This is useful when to:
 
@@ -122,24 +133,32 @@ The following domains are blocked by default:
 - Google Ads
 - Google Maps
 
-# Step or Actions configuration
+</Tabs>
+
+## Step or Actions configuration
 
 User journeys are composed of steps and actions. 
 Steps represent a page while actions are anything a user can do within the same page (clicking on something, opening the search bar, etc.). 
 A step can contain multiple actions.
 
-## Possible actions in a User Journey
+Each license has a limited number of steps available for use amongst all user journeys. These steps are shared amongst all sites of your organization.
+
+To see how many steps you have available, go to the **Licenses & Sites** tab in the **Organization** page.
+
+### Possible actions in a User Journey
 
 There are 6 possible actions that the probe can perform when following a User Journey:
 
-### Navigate
+<Tabs groupId="sync">
+<TabItem value="Navigate" label="Navigate">
 
 Choose a URL to navigate to. This action is the same as entering a URL in the address bar and going there. A User Journey always starts with a navigation action. 
 Navigation actions are also always the only or the last action of a step.
 
 The URL must be within the domain authorized for your Experience Monitoring license.
 
-### Click
+</TabItem>
+<TabItem value="Click" label="Click">
 
 Click on an object on the page you are currently in. To choose what to click you have two options:
 
@@ -162,7 +181,8 @@ By default, Experience Monitoring will look for the first occurrence of your sel
 - click the second, third, etc.
 - click randomly among all occurrences.
 
-### Hover
+</TabItem>
+<TabItem value="Hover" label="Hover">
 
 Hover uses the same conditions as Click but only moves the mouse over the chosen text or CSS element without clicking on it.
 
@@ -184,7 +204,8 @@ By default, Experience Monitoring will look for the first occurrence of your sel
 - click the second, third, etc.
 - click randomly among all occurrences.
 
-### Fill out a form
+</TabItem>
+<TabItem value="Fill form" label="Fill form">
 
 Fill in text fields with specific content. The probe relies on HTML standards to do this.
 
@@ -204,13 +225,15 @@ By default, Experience Monitoring submits the form once filled. You can click th
 - Click a text: useful if the form is submitted elsewhere on the page
 - Click a CSS element: same idea.
 
-### Wait
+</TabItem>
+<TabItem value="Wait" label="Wait">
 
 Sometimes there is no better solution than to wait for an action to happen. For example, if elements fade in after 1s, trying to add a step without a waiting action will cause the user journey to fail because the probe immediately looks for elements that aren't visible yet.
 
 This should be a last-resort option and used rarely because it slows down your user journey stats.
 
-### Run a script
+</TabItem>
+<TabItem value="Run a script" label="Run a script">
 
 If all other actions fail, you can use this option to run JavaScript in the browser to force an action. Avoid using scripts to replace other actions unless necessary. Note that the script guarantees the action is executed, but not that it succeeds, so you should add an [expectation step](#add-an-expectation) after each script:
 - DOM: (visible element, class changed)
@@ -218,26 +241,25 @@ If all other actions fail, you can use this option to run JavaScript in the brow
 
 Keep your scripts short, simple and with precise specifications.
 
+</TabItem>
+</Tabs>
+
 ## Adding an expectation
 
-There is a seventh, optional action that the probe can perform after each other action.
+There is a seventh, (sometimes) optional action that the probe can perform after each other action.
 This action is not seen among other actions for you to select but appears at the bottom of the action window once the action has been configured.
 
-**Add an expectation** makes the probe verify that the step was properly executed.
+**Add an expectation** makes the probe verify that the action was properly executed. You can add an expectation after every action.
 
 For example, imagine your user journey mimicks a user making purchases on your site and proceeding to check out. 
-Adding an expectation step after adding an item to the cart (i.e. look for text confirming the item was added) lets you confirm the probe is successfully adding items to the cart and not proceeding to check out with an empty cart.
+Adding an expectation to the step "adding an item to the cart" (i.e. look for text confirming the item was added) lets you confirm the probe is successfully adding items to the cart and not proceeding to check out with an empty cart.
 
-> An expectation action is automatically added for each **Navigate** action to confirm the probe successfully reached the target url. This expectation can not be removed.
+> An expectation action is automatically added for each **Navigate** action to confirm the probe successfully reached the target url. This expectation cannot be removed.
 > Additionally, the last action of the user journey must have at least one verification.
-
-### Configure an expectation
-
-After each action is performed, you can add success verifications.
 
 #### Confirm that navigation occurred
 
-> This verification cannot be removed for a Navigate action.
+> This verification is added automatically for a **Navigate** action and cannot be removed.
 
 The probe will check that a new HTML document was loaded correctly, meaning:
 
@@ -255,7 +277,7 @@ This verification uses the same logic as the Click and Hover actions. If the tex
 
 #### Find the CSS element
 
-This verification finds an element using its CSS selector. **If it's an image, the probe also verifies that the image loads correctly.**
+This verification finds an element using its CSS selector. If it's an image, the probe also verifies that the image loads correctly.
 
 #### Make a request
 
