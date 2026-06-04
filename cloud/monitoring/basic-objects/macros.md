@@ -55,6 +55,37 @@ In a service check command, the following macros are used: **$_SERVICEPARTITION$
 The **Community SNMP & Version** fields in a host form automatically generate the following custom macros:
 **$_HOSTSNMPCOMMUNITY$** and **$_HOSTSNMPVERSION$**.
 
+## Macros within macros
+
+When Centreon Engine evaluates a command, macro resolution happens in two successive steps.
+
+**Level 1 — Command level**: Macros embedded directly in the command line are resolved:
+
+- A resolved standard or custom macro is replaced with its value.
+- An unresolved or empty macro is replaced with an empty string.
+
+**Level 2 — Macro value level**: If the value produced at Level 1 itself contains macro-like tokens, a second step is applied to that value:
+
+- A resolved macro is replaced with its value.
+- An unresolved or empty macro is **left as-is** (preserved verbatim, not stripped).
+
+### Double-brace escape syntax
+
+Use the `{{$MACRO$}}` format when you want unresolved macros inside a value to be replaced with an empty string rather than preserved verbatim:
+
+- At Level 1 or Level 2: a resolved macro is replaced with its value and the double braces are removed.
+- At Level 1 or Level 2: an unresolved or empty macro is replaced with an empty string and the double braces are removed.
+
+### Use case: third-party plugin syntaxes
+
+Some monitoring plugins use `$` characters in their own argument syntax that are not Centreon macro delimiters. A common example is NSClient++ syntax, which uses tokens such as `${name}`, `${state}`, `${problem_list}`, and `${drive}`.
+
+Because these tokens are unresolved Centreon macros, Level 2 behaviour preserves them verbatim, allowing the plugin to receive the correct argument string.
+
+> If you define a macro value that contains such tokens and export the configuration with an older Engine version that does not implement the two-level model, those tokens will be stripped and the plugin will receive a malformed command line.
+
+:::
+
 ## List of macros
 
 The following is an exhaustive list of macros by resource type, each type of resource also has a description section. 
