@@ -32,7 +32,7 @@ module.exports = {
           items: [
         {
           type: 'doc',
-          id: 'ciam'
+          id: 'centreon-hub'
         }
        ]
     },
