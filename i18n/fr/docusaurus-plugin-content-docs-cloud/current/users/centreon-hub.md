@@ -33,7 +33,7 @@ Une organisation correspond à un périmètre d'équipements à superviser. Par 
 ### Inviter des utilisateurs dans l'organisation
 
 1. À la page **Users**, cliquez sur **Invite user**.
-2. Renseignez les emails des utilisateurs que vous souhaitez inviter, et sélectionnez [le rôle à leur attribuer dans Centreon Hub et dans Centreon Cloud](./users.md#user-roles).
+2. Renseignez les emails des utilisateurs que vous souhaitez inviter, et sélectionnez [le rôle à leur attribuer dans Centreon Hub et dans Centreon Cloud](./users.md#rôles-des-utilisateurs).
 3. Cliquez sur **Invite**. Les personnes recevront un email intitulé **You've been invited to join `<organization>`'s Centreon account**. Votre adresse email sera visible dans l'email d'invitation.
    Tant que celle-ci n'a pas été acceptée, vous pouvez annuler ou renvoyer une invitation à la page **Users > Invitations**.
 
