@@ -66,7 +66,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                                             | Description                                               |
 |:------------------------------------------------------|:----------------------------------------------------------|
-| HW-Storage-NetApp-Ontap-Oncommandapi-Svm-Volumes-Name | Discover the disk partitions and monitor space occupation |
+| HW-Storage-NetApp-Ontap-Oncommandapi-Svm-Volumes-Name | Discover the virtual machines disk partitions and monitor space occupation |
 | HW-Storage-NetApp-Ontap-Oncommandapi-Volumes-Name     | Discover the disk partitions and monitor space occupation |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)

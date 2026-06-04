@@ -67,7 +67,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                                       | Description                                                                         |
 |:------------------------------------------------------|:------------------------------------------------------------------------------------|
-| HW-Storage-NetApp-Ontap-Oncommandapi-Svm-Volumes-Name | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
+| HW-Storage-NetApp-Ontap-Oncommandapi-Svm-Volumes-Name | Découvre les partitions du disque des machines virtuelles en utilisant son nom et supervise l'espace occupé |
 | HW-Storage-NetApp-Ontap-Oncommandapi-Volumes-Name     | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
