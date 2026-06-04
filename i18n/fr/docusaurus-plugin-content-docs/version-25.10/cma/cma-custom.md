@@ -13,7 +13,7 @@ L'exécution des plugins personnalisés nécessite de déclarer les commandes as
 ## Actions sur l'hôte
 
 1. Copiez le plugin sur l'hôte, dans le répertoire de votre choix.
-2. Créez le fichier de commandes. Les formats supportés sont **.txt** ou **.ini**.
+2. Créez le fichier de commandes. Les formats supportés sont **.txt** ou **.ini**. Le fichier doit être encodé en **UTF-8** (sans BOM). D'autres encodages tels que UTF-16 ou UTF-16 LE BOM empêcheront le fonctionnement des checks personnalisés.
 
    Exemple de contenu :
 

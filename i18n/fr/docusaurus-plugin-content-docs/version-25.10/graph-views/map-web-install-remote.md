@@ -22,15 +22,6 @@ Le schéma ci-dessous décrit l'architecture de MAP avec un serveur distant :
 
 ![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
 
-## Synchronisation des images
-
-Ajoutez l'accès à la page de synchronisation des images **Administration > Paramètres > Images** :
-
-```shell
-[root@remote ~]# mysql centreon
-MariaDB [centreon]> update topology SET topology_show='1' where topology_name='Images' ;
-```
-
 ## Configuration de Centreon Broker
 
 Pour pouvoir afficher les statuts en temps réel, **Centreon MAP** nécessite de recevoir ces données en provenance du Broker du serveur distant Centreon.
@@ -42,6 +33,10 @@ Dans l'onglet **Output**, créez une nouvelle sortie avec les paramètres suivan
 ![image](../assets/graph-views/output_broker.png)
 
 Pour finir l'installation, générez et déployez la configuration du serveur distant Centreon en sélectionnant le mode **Redémarrer**.
+
+## Gestion des images
+
+Si vous souhaitez utiliser des images personnalisées, vous pouvez les ajouter au répertoire `centreon-map` depuis l'interface web (voir plus d'informations sur les [medias](../administration/parameters/medias.md)).
 
 ## Désinstallation de Centreon MAP
 
