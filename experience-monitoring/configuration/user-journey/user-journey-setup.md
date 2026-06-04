@@ -249,7 +249,7 @@ No content verification is performed.
 #### Find text
 
 > We recommend using CSS selectors because they are less sensitive to site changes.
-If you don't know how to create CSS selectors, contact your agency or Experience Monitoring support (support@quanta.io or the question mark at the bottom-right in Experience Monitoring) so we can help configure your journey.
+If you don't know how to create CSS selectors, contact your agency or Experience Monitoring support (support@centreon.com or the question mark at the bottom-right in Experience Monitoring) so we can help configure your journey.
 
 This verification uses the same logic as the Click and Hover actions. If the text you search for exists on the page after the action, the verification passes.
 
