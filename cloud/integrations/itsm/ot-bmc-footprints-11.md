@@ -15,7 +15,7 @@ incidents about your monitoring alerts.
 This integration is (at least) compatible with the following BMC Footprints
 versions:
 
-  - 11.x
+- 11.x
 
 ## Feature information
 
@@ -110,6 +110,3 @@ curl --location 'https://<footprints_address>/<footprints_action>' \
 '
 ```
 
-## Possibilities
-
-As of now, the provider is able to open a ticket.
