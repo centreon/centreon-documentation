@@ -193,25 +193,48 @@ apt install centreon-connector-perl
 
 #### Less fork mode
 
-In addition to avoiding Perl recompilation, the Perl connector supports a **less fork** mode that further reduces CPU consumption. In this mode, the connector reuses persistent worker processes across multiple checks, rather than forking a new process for each check execution.
+> **Beta feature:** This mode has not yet been validated for all Centreon plugins. Test it on a limited number of pollers with your specific plugins before deploying at scale in production.
 
-**Performance:** Less fork mode can allow a single poller to run up to **10 times more services** compared to standard mode, thanks to significantly lower CPU overhead.
+In addition to avoiding Perl recompilation, the Perl connector supports a **less fork** mode. In standard mode, a child process is spawned for each check then immediately killed. In less fork mode, child processes are reused across multiple checks, dramatically reducing CPU usage.
 
-**Enabling less fork mode**
+**Performance measurements** (50 hosts × 10 services each):
 
-To activate less fork mode, add the `--use-less-forks` option to the `connector_line` in the centengine connector configuration file:
+| Mode | CPU usage |
+|------|-----------|
+| Engine without connector | 85% |
+| Perl connector – standard (fork per check) | 38% |
+| Perl connector – less fork (process reuse) | **11%** |
+
+**How it works**
+
+The `--child-max-reuse-script` option controls how many checks a child process can execute before being killed:
+
+- Default value: `1` (each child dies after one check — classic fork behavior)
+- Less fork mode: set to a higher value, e.g. `100`
+
+The connector also automatically kills a child process if it exceeds the following thresholds:
+- `--child-max-memory-increase-percent` (default: 10%): memory increase since first check
+- `--child-max-fd-increase-percent` (default: 10%): file descriptor increase since first check
+- `--child-max-thread` (default: 10): number of threads created
+- `--idle-child-ttl` (default: 15 min): idle time without any check
+
+**Configuration**
+
+Define a dedicated "less fork" connector in the centengine connector configuration file (e.g. `/etc/centreon-engine/connectors.cfg`):
 
 ```text
-define connector{
-    connector_name          Perl Connector
-    connector_line          /usr/lib64/centreon-connector/centreon_connector_perl --use-less-forks
+define connector {
+    connector_name                 Perl Connector Less Fork
+    connector_line                 /usr/lib64/centreon-connector/centreon_connector_perl --child-max-reuse-script=100 --log-file=/var/log/centreon-engine/connector-perl.log
 }
 ```
 
-Then reload the centengine service:
+Then, for each check command you want to optimize, select **Perl Connector Less Fork** in the **Connectors** field of the command configuration form.
+
+**Per-command override**
+
+You can also override the reuse limit for a specific command by inserting the keyword directly in the command line, between the script path and the script's arguments:
 
 ```shell
-systemctl reload centengine
+/usr/lib/nagios/plugins/check_something.pl child-max-reuse-script 5 --arg1 value1
 ```
-
-> **Warning:** Less fork mode has not yet been validated for all Centreon plugins. Test it on a limited number of pollers with your specific plugins before deploying at scale in production. Some plugins may not be compatible with this operating mode.
