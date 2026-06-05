@@ -258,24 +258,9 @@ The connector also automatically kills a child process if it exceeds the followi
 - `--child-max-thread` (default: 10): number of threads created
 - `--idle-child-ttl` (default: 15 min): idle time without any check
 
-**Configuration**
+**Usage**
 
-Define a dedicated "less fork" connector in the centengine connector configuration file (e.g. `/etc/centreon-engine/connectors.cfg`):
-
-```text
-define connector {
-    connector_name                 Perl Connector Less Fork
-    connector_line                 /usr/lib64/centreon-connector/centreon_connector_perl --child-max-reuse-script=100 --log-file=/var/log/centreon-engine/connector-perl.log
-}
-```
-
-Then reload centengine:
-
-```shell
-systemctl reload centengine
-```
-
-For each check command you want to optimize, select **Perl Connector Less Fork** in the **Connectors** field of the command configuration form.
+The **Perl Connector Less Fork** connector is pre-configured on your poller. To benefit from less fork mode, go to **Configuration > Commands > Checks** and select **Perl Connector Less Fork** in the **Connectors** field of each check command you want to optimize, if it is not already set.
 
 **Per-command override**
 

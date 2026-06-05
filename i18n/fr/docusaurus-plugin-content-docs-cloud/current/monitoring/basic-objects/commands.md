@@ -183,18 +183,9 @@ Le connecteur tue également automatiquement un processus fils s'il dépasse les
 - `--child-max-thread` (défaut : 10) : nombre de threads créés
 - `--idle-child-ttl` (défaut : 15 min) : temps d'inactivité sans aucun contrôle
 
-**Configuration**
+**Utilisation**
 
-Définissez un connecteur dédié "less fork" dans le fichier de configuration des connecteurs centengine (par ex. `/etc/centreon-engine/connectors.cfg`) :
-
-```text
-define connector {
-    connector_name                 Perl Connector Less Fork
-    connector_line                 /usr/lib64/centreon-connector/centreon_connector_perl --child-max-reuse-script=100 --log-file=/var/log/centreon-engine/connector-perl.log
-}
-```
-
-Ensuite, pour chaque commande de contrôle à optimiser, sélectionnez **Perl Connector Less Fork** dans le champ **Connecteurs** du formulaire de configuration de la commande.
+Le connecteur **Perl Connector Less Fork** est préconfiguré sur votre collecteur. Pour bénéficier du mode "less fork", rendez-vous dans **Configuration > Commandes > Contrôles** et sélectionnez **Perl Connector Less Fork** dans le champ **Connecteurs** de chaque commande de contrôle à optimiser, si ce n'est pas déjà le cas.
 
 **Surcharge par commande**
 
