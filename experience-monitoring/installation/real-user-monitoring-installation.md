@@ -19,7 +19,7 @@ Real User Monitoring (RUM) requires inserting a JavaScript tag into your site's 
 
 3. Go to **Real User Monitoring**. You should see data appear in a matter of minutes.
 
-### Using GTM to add a Centreon RUM tag to your pages
+### Using Google Tag Manager (GTM) to add a Centreon RUM tag to your pages
 
 1. Create a new tag: sign in to your GTM account and select the container for your website. Click **Add a new tag**.
 

@@ -7,17 +7,15 @@ By integrating Google Analytics data into Experience Monitoring, you can correla
 
 ## Link Google Analytics to Experience Monitoring
 
-> To connect/disconnect Experience Monitoring to/from Google Anaytics, you must have **Administrator** or **Owner** permissions on your Organization in Experience Monitoring.
+> To connect/disconnect Experience Monitoring to/from Google Anaytics, you must have [**Administrator** or **Owner** permissions](../configuration/manage-users-and-rights.md) on your Organization in Experience Monitoring.
 
 Here is a [video tutorial](https://www.youtube.com/watch?v=qmeXwypUmL4&list=PLgmedpAAxo-40d8PaBsaQS7Hkrm6mdxjs&index=3) that shows how to link Experience Monitoring to your Google account. You can also follow the procedure below.
 
 To link Experience Monitoring with your Google Analytics account:
 
-1. Click **Settings** (the gear icon at the top right of the screen).
+1. Select the site for which you want to link the Google Analytics account (click its name).
 
-2. Select the site for which you want to link the Google Analytics account (click its name).
-
-3. Go to the **Integrations** tab.
+2. Click **Settings** (the gear icon at the top right of the screen), then click the **Integrations** tab.
 
 4. At the bottom of the **Business & Analytics** section, click **Connect**. You'll be redirected to Google's sign-in page — enter the credentials of the account you want to link.
 
