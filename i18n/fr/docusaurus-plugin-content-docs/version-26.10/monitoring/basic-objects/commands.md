@@ -231,3 +231,28 @@ apt install centreon-connector-perl
 
 </TabItem>
 </Tabs>
+
+#### Mode "less fork"
+
+En complément d'éviter la recompilation Perl, le connecteur Perl supporte un mode **"less fork"** qui réduit davantage la consommation CPU en réutilisant des processus Perl persistants pour plusieurs contrôles, plutôt que de forker un nouveau processus à chaque exécution.
+
+**Gain de performance :** Ce mode peut permettre à un collecteur de superviser jusqu'à **10 fois plus de services** par rapport au mode standard, grâce à une consommation CPU nettement réduite.
+
+**Activation du mode "less fork"**
+
+Pour activer le mode "less fork", ajoutez l'option `--use-less-forks` à la `connector_line` dans le fichier de configuration des connecteurs centengine :
+
+```text
+define connector{
+    connector_name          Perl Connector
+    connector_line          /usr/lib64/centreon-connector/centreon_connector_perl --use-less-forks
+}
+```
+
+Rechargez ensuite le service centengine :
+
+```shell
+systemctl reload centengine
+```
+
+> **Avertissement :** Le mode "less fork" n'a pas encore été validé pour l'ensemble des plugins Centreon. Testez-le sur un nombre limité de collecteurs avec vos plugins spécifiques avant de le déployer massivement en production. Certains plugins peuvent ne pas être compatibles avec ce mode.
