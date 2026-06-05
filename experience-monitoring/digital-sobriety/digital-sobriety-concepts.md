@@ -21,7 +21,7 @@ To fill in these details, go to **Configuration > Site**.
 
 Based on this information, Experience Monitoring will estimate the CO2 emitted per page.
 
-CXM scores each user journey on your site individually, as well as producing a combined score across all journeys. 
+Experience Monitoring scores each user journey on your site individually, as well as producing a combined score across all journeys. 
 Scores can also be calculated using [RUM data](../rum/rum-intro.md).
 You can view these at any time from the Global View.
 For a full breakdown of how the score is calculated, see [Digital Sobriety Score calculations](digital-sobriety-score.md#how-is-the-digital-sobriety-score-calculated). 

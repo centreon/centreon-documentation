@@ -38,7 +38,7 @@ Results are expressed relative to traffic, so sites of different sizes can be fa
 
 The DSS is somewhat similar to the [GreenIT collective](https://www.ecoindex.fr/en/)'s Eco Index. 
 The Eco Index emphasizes simple evaluation based on three technical criteria for a given URL, which is particularly useful during development.
-CXM's Digital Sobriety Score, on the other hand adopts a broader, audit-style approach more suited to sites already in production.
+Experience Monitoring's DSS, on the other hand adopts a broader, audit-style approach more suited to sites already in production.
 
 ## Before you start
 
@@ -49,6 +49,9 @@ To calculate your DSS, Experience Monitoring needs two things:
 
 Go to **Configuration > Site** to fill in these details.
 
+The DSS is calculated data from either your user journeys or RUM. To determine which one should be used go to the configuration page.
+In the **Global view** tab, you can select whether to use RUM or user journeys for the calculations.
+
 ## Simple audit vs. full audit
 
 There are two ways to get a DSS:
@@ -58,7 +61,7 @@ There are two ways to get a DSS:
 | **Time to complete** | 3–5 minutes | Minimum 7 days |
 | **Coverage** | Average of the 10 most visited pages | 100% of pages, weighted by traffic |
 | **Setup required** | None | RUM tag (GDPR-compatible) or User Journey |
-| **Cost** | Free at quanta.green | Requires a CXM subscription |
+| **Cost** | Free at quanta.green | Requires an Experience Monitoring license |
 | **Historical data** | Quarterly, stored for 3 months | Real-time, stored for multiple years |
 | **Certificate** | Yes | Yes |
 
@@ -66,16 +69,16 @@ The simple audit is a good starting point. The full audit is what you want for p
 
 ## Getting a certificate
 
-CXM can issue a DSS certificate with detailed measurements suitable for presentations, communications, or displaying on your site.
+Centreon can issue a DSS certificate with detailed measurements suitable for presentations, communications, or displaying on your site.
 
 Requirements:
-- A CXM Digital Sobriety license with Real User Monitoring enabled
-- An expert review to produce the full report
+- An Experience Monitoring Digital Sobriety license with Real User Monitoring enabled.
+- An expert review to produce the full report.
 
 Validity:
-- First year: based on the previous 30 days of data
-- Renewal: based on the following 12 months
-- From year two onward: based on a full year of traffic, with optional year-over-year comparison
+- First year: based on the previous 30 days of data.
+- Renewal: based on the following 12 months.
+- From year two onward: based on a full year of traffic, with optional year-over-year comparison.
 
 ---
 

@@ -9,8 +9,8 @@ Note that these recommendations come from a probe executing the user journeys. Y
 
 ## Getting the recommendations for each step
 
-From the [User Journey **Overview** page](../../how-to-articles/user-journey-screen.md#overview-page), scroll down to the list of steps.
-Click on the magnifying glass to the right of the step you want to optimize.
+1. From the [User Journey **Overview** page](../../how-to-articles/user-journey-screen.md#overview-page), scroll down to the list of steps.
+2. Click on the magnifying glass to the right of the step you want to optimize.
 
 You will be taken to the tab **Last detailled analysis**.
 This tab, as well as the **Last recommendations** tab only appear when you are viewing a specific step of a journey.

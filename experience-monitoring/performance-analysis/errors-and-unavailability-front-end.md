@@ -1,11 +1,11 @@
 ﻿---
 id: errors-and-unavailability-front-end
-title: Understanding errors & unavailability in Experience Monitoring
+title: Understanding errors & unavailability
 --- 
 
 > The HAR for all steps can be found under the incident screenshot to help your developers understand where the incident originated.
 
-# Troubleshooting user journey incidents
+## Troubleshooting user journey incidents
 
 When a probe detects a failure during a user journey run, Experience Monitoring records an incident.
 This page explains how to investigate incidents using screenshots, and describes the most common error types you may encounter.
@@ -21,10 +21,9 @@ To view the screenshot:
 2. Select **Incident details** (or **View screenshot**) from the menu that appears.
 3. A window will open showing the page the probe encountered during the failure.
 
-No screenshot available?
-
+It is possible to have an error and no screenshot.
 The probe cannot capture a screenshot when the server returns no content at all.
-This most commonly occurs during a Step timed out error, where there is simply nothing to capture.
+This most commonly occurs during a step timed out error, where there is simply nothing to capture.
 
 ## Error reference
 

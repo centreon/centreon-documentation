@@ -7,7 +7,7 @@ Experience Monitoring licenses have no user count limits. We recommend inviting 
 
 ## Access the configuration menu
 
-All actions described here are performed from the **Organization** page.
+All actions described here are performed from the **Organization** page accessed from the site selector.
 
 ![image](../assets/configuration/user-journey/organization-page.png)
 

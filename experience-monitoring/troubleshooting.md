@@ -27,7 +27,8 @@ It is also possible you don't yet have an account. In that case, an administrato
 
 ## Other troubleshooting resources
 
-* [Troubleshooting RUM](./how-to-articles/rum-blocked-by-csp/)
+* [Troubleshooting User Journeys](./performance-analysis/errors-and-unavailability-front-end.md)
+* [Troubleshooting RUM](./how-to-articles/rum-blocked-by-csp.md)
 
 ## Centreon support
 

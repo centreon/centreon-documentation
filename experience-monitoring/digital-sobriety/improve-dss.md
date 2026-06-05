@@ -16,16 +16,16 @@ Click the **More details** button.
 ## How can I know what to improve?
 
 The graph at the top shows information of your overall DSS. This is calculated using the combined data from all your **User Journeys** or your **RUM** data.
-Improving your DSS is done by improving the individual steps of user journeys or the certain pages if you are using **RUM**. To learn about possible improvements:
+Improving your DSS is done by improving the individual steps of user journeys or certain pages if you are using RUM. To learn about possible improvements:
 
 <Tabs groupId="sync">
 <TabItem value="For User Journeys" label="For User Journeys">
 
-1. Click the **More Details** button on a user journey, a graph of that user journey's DSS appears.
-2. Scroll down to see a graph with details of the steps of that user journey is displayed below.
-3. Click the binoculars icon to the right of the step you want to improve.
+1. From the **User Journeys** page, click the **Overview of this journey** button for the journey you want to improve.
+2. Inside the **Overview** page, the steps of the user journey are listed. To the right of each step is a a magnifying glass icon named **Last detailed analysis**. Click the icon of the step you want to improve.
+3. Click the **Last recommendations** tab at the top.
 
-You are now on the page of **Last recommendations** for the selected user journey, here you can see a timeline showing how much time it takes for each step to load.
+You are now on the page of **Last recommendations** for the selected step, here you can see a timeline showing how much time it takes for each step to load.
 
 Below this is the **Diagnostic**, a list of recommendations to improve your score. They are separated in 3 groups according to their impact:
 - The most impactful ones are have a red triangle.
@@ -34,12 +34,20 @@ Below this is the **Diagnostic**, a list of recommendations to improve your scor
 
 You can click on each individual recommendation to get more details on how to enact them.
 
-> After modifying a user journey, you must relaunch the probe to update the displayed data.
-
 </TabItem>
 <TabItem value="For RUM" label="For RUM">
 
-path to RUM recs
+1. From the **Real User Monitoring** page, click the **URLs** tab 
+2. To the right of certain URLs, there is a binoculars icon, click on it.
+
+You are now on the page of **Last recommendations** for the selected URL, here you can see a timeline showing how much time it takes for each step to load.
+
+Below this is the **Diagnostic**, a list of recommendations to improve your score. They are separated in 3 groups according to their impact:
+- The most impactful ones are have a red triangle.
+- Followed by those with a yellow square
+- The least impactful recommendations have a grey circle.
+
+You can click on each individual recommendation to get more details on how to enact them.
 
 </TabItem>
 </Tabs>
