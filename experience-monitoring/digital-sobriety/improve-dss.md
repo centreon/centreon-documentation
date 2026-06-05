@@ -2,6 +2,8 @@
 id: improve-dss
 title: Improving your Digital Sobriety Score
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 The Digital Sobriety Score (DSS) is a calculation of your site's carbon emissions [taking diverse factors into account](digital-sobriety-score.md). In addition to calculating it, Centreon Experience Monitoring can offer advice on how to improve.
 
