@@ -11,11 +11,17 @@ Details on your DSS and how to improve it are accessed from the corresponding wi
 
 Click the **More details** button.
 
-### How can I know what to improve?
+## How can I know what to improve?
 
-The graph at the top shows information of your overall DSS. This is calculated using the combined data from all your **User Journeys**. 
-Improving your DSS is done by improving aspects of individual user journeys. To learn about possible improvements, click the **More Details** button on a user journey, a graph of that user journey's DSS appears.
-A Graph with details of the steps of that user journey is displayed below. Click the binoculars icon to the right of this second graph.
+The graph at the top shows information of your overall DSS. This is calculated using the combined data from all your **User Journeys** or your **RUM** data.
+Improving your DSS is done by improving the individual steps of user journeys or the certain pages if you are using **RUM**. To learn about possible improvements:
+
+<Tabs groupId="sync">
+<TabItem value="For User Journeys" label="For User Journeys">
+
+1. Click the **More Details** button on a user journey, a graph of that user journey's DSS appears.
+2. Scroll down to see a graph with details of the steps of that user journey is displayed below.
+3. Click the binoculars icon to the right of the step you want to improve.
 
 You are now on the page of **Last recommendations** for the selected user journey, here you can see a timeline showing how much time it takes for each step to load.
 
@@ -28,7 +34,15 @@ You can click on each individual recommendation to get more details on how to en
 
 > After modifying a user journey, you must relaunch the probe to update the displayed data.
 
-### How do I know my changes made a difference?
+</TabItem>
+<TabItem value="For RUM" label="For RUM">
+
+path to RUM recs
+
+</TabItem>
+</Tabs>
+
+## How do I know my changes made a difference?
 
 In the **Last recommendations** page, scroll to the bottom of the page and click the **Compare with** button. You will be taken to the **Recommendations comparator**.
 The most recent audit will already be opened in the first slot of the comparator.

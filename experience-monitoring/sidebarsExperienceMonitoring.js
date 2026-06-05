@@ -77,9 +77,9 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'configuration/user-journey/user-journey-intro' },
-        { type: 'doc', id: 'configuration/user-journey/user-journey-setup' },
-        { type: 'doc', id: 'how-to-articles/user-journey-screen' },
+        { type: 'doc', id: 'configuration/user-journey/create-a-scenario' },
         { type: 'doc', id: 'configuration/user-journey/user-journey-best-practices' },
+        { type: 'doc', id: 'how-to-articles/user-journey-screen' },
         { type: 'doc', id: 'configuration/user-journey/user-journey-notifications' },
         { type: 'doc', id: 'configuration/user-journey/user-journey-improve' },
         { type: 'doc', id: 'performance-analysis/errors-and-unavailability-front-end' },

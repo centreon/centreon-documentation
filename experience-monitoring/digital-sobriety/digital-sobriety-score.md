@@ -3,38 +3,13 @@ id: digital-sobriety-score
 title: Digital Sobriety Score
 ---
 
-The Digital Sobriety Score (DSS) is a grade given by Centreon Experience Monitoring that informs on a website's impact on the environment. While websites are immaterial, there is a physical infrastructure that keeps them running. The DSS measures the environmental impact of this infrastructure.
+## Digital Sobriety Score
 
-The DSS can be found on the **Global View**
+Every website has an environmental cost. Servers consume energy, networks transfer data, and devices process it — all of it adds up. The Digital Sobriety Score (DSS) is Centreon Experience Monitoring's way of measuring that impact and turning it into a single, actionable grade.
 
-The DSS is a combination of the average Carbon Footprint Per Click (CFPC) and the average Eco-Design Score (EDS), a more detailed breakdown of what composes these metrics can be seen below.
+You can find the DSS on the **Global View**.
 
-![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
-
-It is somewhat similar to the [GreenIT collective](https://www.ecoindex.fr/en/)'s Eco Index. 
-The Eco Index emphasizes simple evaluation based on three technical criteria for a given URL, which is particularly useful during development.
-CXM's Digital Sobriety Score, on the other hand adopts a broader, audit-style approach more suited to sites already in production.
-
-To obtain a Digital Sobriety Score, you must provide Experience Monitoring with two pieces of information:
-- Where are your servers located?
-- Are they hosted in the Cloud?
-
-To fill in these details, go to **Configuration > Site**.
-
-Based on this information, Experience Monitoring will estimate the CO2 emitted per page.
-
-## How is the Digital Sobriety Score calculated?
-
-The Digital Sobriety Score can be calculated with two types of audits : a "simple audit" and a "full audit". Simple audits are free and can be performed on the [quanta.green website](https://www.quanta.green/).
-
-|  | Simple method (see [quanta.green](http://quanta.green)) | Full audit method |
-| --- | --- | --- |
-| Duration | 3 to 5 minutes | minimum of 7 days so collected data is sufficiently comprehensive |
-| Precision | Average based on the 10 most visited pages of the site | Considers 100% of pages, weighted by each page's share of total site traffic |
-| Installation required | None | Requires installing a Real User Monitoring tag (Note: CXM’s RUM tag enables full audits while remaining GDPR-compatible) |
-| Cost | Free on quanta.green | Requires a CXM subscription or another tool capable of calculating the Digital Sobriety Score |
-| Time-series comparison | Yes, but at quarterly precision (quanta.green stores scores for 3 months). After 3 months, a new analysis shows evolution over time. | Yes, in real time and historized automatically over multiple years in CXM |
-| Certification | The "Simple audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. | The "Full audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. |
+## How is it calculated?
 
 The site’s carbon footprint is calculated from measured traffic data and can be incorporated into a company’s overall carbon inventory to better represent digital emissions.
 
@@ -42,59 +17,74 @@ To allow comparison across web applications of different sizes, results are expr
 
 The Digital Sobriety Score combines several criteria into a single metric. It is not a measure of carbon emissions alone, but a comparative indicator designed to evaluate web applications independently of their audience size.
 
-### What is taken into account for the calculations?
+The DSS combines two metrics:
 
-Experience Monitoring attributes an individual score to each user journey configured on the site and a broader score that encompasses all the user journey. The latter is the score seen on the **Digital Sobriety Score** widget in **Global View**
+- Carbon Footprint Per Click (CFPC) — the CO₂ emitted per page view or user interaction
+- Eco-Design Score (EDS) — a technical assessment of how efficiently the site is built and served
 
-The CFPC quantifies the environmental impact associated with a single page view or any click-triggered context change within a web application. The use of click-based measurement is particularly relevant for the increasingly common Single Page Applications (SPAs), where user interactions often update the view without initiating a full page reload. In these cases, each interaction, regardless of whether it triggers navigation, has an environmental cost and must be accounted for in the assessments.
+![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
 
-The EDS is composed from multiple indicators:
+Together, they produce a score from 0 to 100, mapped to a letter grade:
 
-- Time To First Byte (TTFB)
+| Score | Grade |
+|-------|-------|
+| 90–100 | A |
+| 75–90 | B |
+| 60–75 | C |
+| 45–60 | D |
+| 0–45 | E |
 
-   TTFB measures the latency between a client request and the first byte received from the server. It is commonly used as a proxy for server-side processing time. Higher TTFB values generally indicate longer server execution, which correlates with increased energy consumption at the hosting infrastructure.
+Results are expressed relative to traffic, so sites of different sizes can be fairly compared.
 
-- Page Weight
+The DSS is somewhat similar to the [GreenIT collective](https://www.ecoindex.fr/en/)'s Eco Index. 
+The Eco Index emphasizes simple evaluation based on three technical criteria for a given URL, which is particularly useful during development.
+CXM's Digital Sobriety Score, on the other hand adopts a broader, audit-style approach more suited to sites already in production.
 
-   Page weight represents the total volume of data transferred to the client during a page load or a dynamic context update. Larger payloads require more network resources and increase energy consumption across the delivery chain.
+## Before you start
 
-- Frontend Execution Time
+To calculate your DSS, Experience Monitoring needs two things:
 
-   Following content delivery, client devices execute JavaScript and perform rendering tasks locally. Although this processing occurs outside the datacenter and is often not monitored by site operators, it contributes to overall energy usage and associated emissions on end-user devices.
+- Where are your servers located?
+- Are they hosted in the cloud?
 
-- Number of HTTP(S) Requests
+Go to **Configuration > Site** to fill in these details.
 
-   Each HTTP(S) request introduces additional network overhead and requires processing on both the server and client. A higher number of requests increases data exchange, network energy consumption, and client-side CPU utilization.
+## Simple audit vs. full audit
 
-- DOM Size
+There are two ways to get a DSS:
 
-   The Document Object Model (DOM) defines the in-memory structure of HTML elements. Larger DOM trees increase memory usage and computational overhead for rendering, layout calculations, and scripting, thereby elevating energy consumption on client devices.
+| | Simple audit | Full audit |
+|---|---|---|
+| **Time to complete** | 3–5 minutes | Minimum 7 days |
+| **Coverage** | Average of the 10 most visited pages | 100% of pages, weighted by traffic |
+| **Setup required** | None | RUM tag (GDPR-compatible) or User Journey |
+| **Cost** | Free at quanta.green | Requires a CXM subscription |
+| **Historical data** | Quarterly, stored for 3 months | Real-time, stored for multiple years |
+| **Certificate** | Yes | Yes |
 
+The simple audit is a good starting point. The full audit is what you want for production sites — it gives a complete, continuously updated picture.
 
-CXM calculates a number from 0 to 100 by calculating the EDS from these indicators, combining it with the CFPC and then gives the corresponding letter grade:
+## Getting a certificate
 
-| Digital Sobriety Score | Letter grade |
-| ---------------------- | ------------ |
-| 0 to 45                | E            |
-| 45 to 60               | D            |
-| 60 to 75               | C            |
-| 75 to 90               | B            |
-| 90 to 100              | A            |
+CXM can issue a DSS certificate with detailed measurements suitable for presentations, communications, or displaying on your site.
 
+Requirements:
+- A CXM Digital Sobriety license with Real User Monitoring enabled
+- An expert review to produce the full report
 
-## Obtaining a Digital Sobriety Score Certificate
+Validity:
+- First year: based on the previous 30 days of data
+- Renewal: based on the following 12 months
+- From year two onward: based on a full year of traffic, with optional year-over-year comparison
 
-Centreon Experience Monitoring can issue a certificate for the site's DSS. The certificate comes with detailed information on the website's measurments that can be suitable for presentations, communication or in-site use.
+---
 
-### Certification requirements
+## What goes into the Eco-Design Score
 
-A CXM Digital Sobriety license connected to the site, with Real User Monitoring enabled
-An expert review to produce the full report
+For those who want the detail, the EDS is calculated from five technical indicators:
 
-The score is calculated in real time.
-
-### Certification validity
-
-Initial certification: based on the previous 30 days of data; valid for one year
-Renewal: based on the following 12 months of data
-From the second year onward: based on a full year of traffic, with optional year-over-year comparison
+- **Time To First Byte (TTFB)** — how long the server takes to respond. Slower responses mean more energy used server-side.
+- **Page weight** — the total data transferred per page load. Heavier pages consume more network and device resources.
+- **Frontend execution time** — the time a user's device spends running JavaScript and rendering the page. Often overlooked, but it contributes to end-user device emissions.
+- **Number of HTTP(S) requests** — each request adds network overhead and CPU load on both ends. Fewer is better.
+- **DOM size** — the number of HTML elements in memory. Larger DOMs mean more work for the browser to render and update the page.

@@ -1,11 +1,11 @@
 ---
 id: user-journey-improve
-title: Knowing what to improve from the data of a user journey
+title: Improving your site with user journeys
 ---
 
 Using the data collected by the [recommendation probe](./user-journey-setup.md#daily-recommendations-audits), Experience Monitoring will make suggestions on how to optimize your website.
 
-Note that these recommendations come from the user journeys and so only provide recommendations for the pages appearing in the journey's steps.
+Note that these recommendations come from a probe executing the user journeys. You will only obtain recommendations for the pages appearing in the journey's steps.
 
 ## Getting the recommendations for each step
 
@@ -14,7 +14,7 @@ Click on the magnifying glass to the right of the step you want to optimize.
 
 You will be taken to the tab **Last detailled analysis**.
 This tab, as well as the **Last recommendations** tab only appear when you are viewing a specific step of a journey.
-Those tabs are hidden when looking at a journey as a whole.
+These two tabs are hidden when looking at a journey as a whole.
 
 Click on the **Last Recommendations** tab.
 The first thing you'll see is a timeline with the metrics for the step you selected.
