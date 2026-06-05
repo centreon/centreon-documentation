@@ -133,6 +133,7 @@ The following domains are blocked by default:
 - Google Ads
 - Google Maps
 
+</TabItem>
 </Tabs>
 
 ## Step or Actions configuration
