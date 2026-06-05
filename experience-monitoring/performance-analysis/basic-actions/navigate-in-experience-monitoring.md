@@ -14,7 +14,7 @@ In the Centreon Experience Monitoring interface, you can:
 
 ## Organizations and sites
 
-The platform has a two-level hierarchy that lets you organize and monitor multiple websites from a single account.
+The platform lets you organize and monitor multiple websites from a single account.
 
 * Organizations are top-level groupings that contain one or more sites — for example, separate organizations for different business units or clients. [User rights](../../configuration/manage-users-and-rights.md) are defined at organization level.
 * Sites are individual websites within an organization. A common setup is separate sites for different environments, such as production and pre-production.
