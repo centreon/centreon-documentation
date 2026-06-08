@@ -791,6 +791,81 @@ centreon-monitoring-agent-modify.exe /VERYSILENT
 </TabItem>
 </Tabs>
 
+### Updating the agent
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+Update the agent using your package manager.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+</TabItem>
+</Tabs>
+
+Then restart the agent:
+
+```shell
+systemctl restart centagent
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+On Centreon 24.10, updating the agent on Windows requires uninstalling the current version and reinstalling the new one. Make sure to save your configuration before proceeding, as it will be lost during uninstallation.
+
+#### Step 1: Save your configuration
+
+The agent configuration is stored in the Windows registry. Export the following key before uninstalling:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent
+```
+
+#### Step 2: Uninstall the current version
+
+Run the uninstaller located in the CMA installation directory.
+
+#### Step 3: Install the new version
+
+[Download the new CMA installer](https://download.centreon.com) and run it, re-entering the configuration values saved in Step 1.
+
+</TabItem>
+</Tabs>
+
 ## Step 4: Test if the agent works
 
 See [dedicated section](cma-troubleshooting.md).
