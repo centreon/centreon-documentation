@@ -1049,7 +1049,7 @@ systemctl restart centagent
 </TabItem>
 <TabItem value="Silent mode" label="Silent mode (console)">
 
-Use the `/UPDATE` flag to update an existing instance. The `/AGENTINSTANCE` parameter specifies the instance to update:
+Use the `/UPDATEONLY` flag to update an existing instance. The `/AGENTINSTANCE` parameter specifies the instance to update:
 
 ```shell
 centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATE /AGENTINSTANCE="ServiceName"
