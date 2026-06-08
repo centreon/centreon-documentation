@@ -267,5 +267,5 @@ The **Perl Connector Less Fork** connector is pre-configured on your poller. To 
 You can also override the reuse limit for a specific command by inserting the keyword directly in the command line, between the script path and the script's arguments:
 
 ```shell
-/usr/lib/nagios/plugins/check_something.pl child-max-reuse-script 5 --arg1 value1
+/usr/lib/nagios/plugins/check_something.pl --child-max-reuse-script 5 --arg1 value1
 ```

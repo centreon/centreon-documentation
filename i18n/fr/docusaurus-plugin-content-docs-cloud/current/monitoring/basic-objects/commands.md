@@ -192,7 +192,7 @@ Le connecteur **Perl Connector Less Fork** est préconfiguré sur votre collecte
 Il est également possible de surcharger la limite de réutilisation pour une commande spécifique en insérant le mot-clé directement dans la ligne de commande, entre le chemin du script et ses arguments :
 
 ```shell
-/usr/lib/nagios/plugins/check_something.pl child-max-reuse-script 5 --arg1 valeur1
+/usr/lib/nagios/plugins/check_something.pl --child-max-reuse-script 5 --arg1 valeur1
 ```
 
 ### Connecteur SSH
