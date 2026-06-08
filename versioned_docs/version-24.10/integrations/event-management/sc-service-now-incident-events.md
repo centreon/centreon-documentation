@@ -88,7 +88,7 @@ The fields for the first entry are already present. Click on the **+Add a new en
 | string | incident_table  | The name of the incident table             | incident                                                |
 | string | source          | The source name of the incident            | centreon                                                |
 
-7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to ServiceNow Incident](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow).
+7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to ServiceNow Incident](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow-incident).
 
 8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
