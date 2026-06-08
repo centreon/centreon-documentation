@@ -1047,7 +1047,7 @@ systemctl restart centagent
 Utilisez le flag `/UPDATE` pour mettre à jour une instance existante. Le paramètre `/AGENTINSTANCE` spécifie l'instance à mettre à jour :
 
 ```shell
-centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATE /AGENTINSTANCE="ServiceName"
+centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /AGENTINSTANCE="ServiceName"
 ```
 
 Cette commande met à jour les binaires et la configuration de l'instance spécifiée.
