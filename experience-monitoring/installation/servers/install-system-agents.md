@@ -11,8 +11,6 @@ Sending information to Experience Monitoring requires installing the Experience 
 * The agent is only compatible with Linux.
 * This procedure can be used directly if your application or site is hosted on a static server. For autoscaling environments (including Docker), it must be adapted to manage the **hostid** correctly. See [Install the agent in autoscaling environments](cloud-configuration-of-agents.md).
 
-At this time, it is not possible to link a server to multiple sites, whether within the same organization or not.
-
 ## Compatibility
 
 <ul><li>Debian 10, 11, 12</li><li>Ubuntu Jammy, Kinetic, Lunar</li><li>CentOS 7, CentOS 8 Stream</li></ul>
@@ -24,7 +22,7 @@ At this time, it is not possible to link a server to multiple sites, whether wit
 
 ## Prerequisites
 
-* To install the Experience Monitoring agent, you will need an **auto-registration token**. Each site has its own token. To retrieve a token, in the site you want, go to **Settings > System**. The token is displayed in a green box. (See a [video tutorial](https://www.loom.com/share/8e1958d64017451a8a0b7a63ab5c8185).)
+* To install the Experience Monitoring agent, you will need an **auto-registration token**. Each site has its own token. To retrieve a token, in the site you want, go to **Settings > System**. The token is displayed in a green box.
 
 * System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](#endpoint-addresses-for-server-agents).
 
@@ -81,7 +79,7 @@ At this time, it is not possible to link a server to multiple sites, whether wit
     apt install quanta-agent
     ```
 
-   You will be prompted for the token during installation, and system data should appear in Experience Monitoring within a minute.  You can then install [application agents](./add-advanced-metrics.md) or [the PHP profiler](install-php-magento-orocommerce-profiler.md) if you need them.
+   You will be prompted for the token during installation, and system data should appear in Experience Monitoring within a minute. You can then install [application agents](./add-advanced-metrics.md) if you need them.
 
 </TabItem>
 <TabItem value="Ubuntu" label="Ubuntu">
@@ -90,25 +88,11 @@ To install the Experience Monitoring agent:
 
 1. Add the following line to the **/etc/apt/sources.list.d/quanta.list** file.
 
-   <Tabs groupId="debian">
+   <Tabs groupId="ubuntu">
    <TabItem value="Jammy" label="Jammy">
 
    ```bash
    deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu jammy main
-   ```
-
-   </TabItem>
-   <TabItem value="Kinetic" label="Kinetic">
-
-   ```bash
-   deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu kinetic main
-   ```
-
-   </TabItem>
-   <TabItem value="Lunar" label="Lunar">
-
-   ```bash
-   deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu lunar main
    ```
 
    </TabItem>
@@ -200,13 +184,13 @@ The agent uses syslog for logging; you will generally find logs in **/var/log/da
 
 You can send logs to another file by changing the **file** variable under the **logger** section in **/etc/quanta/agent.yml** (make sure to set up log rotation).
 
-## Modifying an Existing Installation
+## Modifying an existing installation
 
 If you want to modify the configuration of an Experience Monitoring agent that is already installed on one of your servers, you will find its configuration in the **/etc/quanta/agent.yml** file. It contains the main connection information, including the Experience Monitoring token corresponding to the relevant site. Access to this file can be useful if you monitor multiple sites with the same Experience Monitoring account and wish to specify the correct token to associate each server with its hosted site (e.g., for separate production and pre-production servers).
 
 Here is an excerpt from the **/etc/quanta/agent.yml** file:
 
-```jsx
+```yaml
 user: quanta-agent
 directory: /var/run/quanta
 pidfile: /var/run/quanta/agent.pid
@@ -233,4 +217,4 @@ This is outbound HTTPS traffic (port 443) and is often allowed by default. Howev
 
 - 52.215.166.110
 - 52.215.179.235
-- 52.215.180.
+- 52.215.180.115

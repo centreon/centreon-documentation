@@ -39,7 +39,7 @@ Application agents allow you to collect system data from various components of y
     curl http://127.0.0.1/server-status
     ```
 
-3. If not, you will need to [enable the **mod_status** module in Apache](https://httpd.apache.org/docs/current/en/mod/mod_status.htmll)
+3. If not, you will need to [enable the **mod_status** module in Apache](https://httpd.apache.org/docs/current/en/mod/mod_status.html)
 4. If you want to modify the URL used by our module, you can edit the following file:
 
    ```shell
@@ -251,7 +251,7 @@ instance: your_instance_name
 2. If you are not using the default port (6379), edit the following file:
 
    ```shell
-   **/etc/quanta/modules.d/redis.yml**.
+   /etc/quanta/modules.d/redis.yml
    ```
 
 3. If you are using Redis authentication, uncomment the line and enter the password in the **/etc/quanta/modules.d/redis.yml** file:
@@ -315,6 +315,6 @@ Some cloud providers offer managed services - for example AWS provides RDS and E
 
 To work around this, install an agent on another instance you control (for example a front) and have it monitor the remote managed service by pointing it at the service's IP and port.
 
-For example, for RDS you can deploy the `quanta-agent-mysql` agent (see the standard guide) and edit the `/etc/quanta/modules.d/mysqlstat.yml` agent configuration file to specify the host and port of the managed service (IP and port).
+For example, for RDS you can deploy the `quanta-agent-mysql` agent (see the [standard guide](install-system-agents.md)) and edit the `/etc/quanta/modules.d/mysqlstat.yml` agent configuration file to specify the host and port of the managed service (IP and port).
 
 If you use multiple ElastiCache instances or equivalents (multiple cache types and session stores), you can configure the Redis (or Memcached) agent to target the different backends.

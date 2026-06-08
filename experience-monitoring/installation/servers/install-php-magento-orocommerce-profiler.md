@@ -24,7 +24,6 @@ The PHP profiler allows you to collect detailed information about the execution 
 | Ubuntu | Jammy (22.04) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
 | Ubuntu | Kinetic (22.10) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
 | Ubuntu | Lunar (23.04) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
-| CentOS | 7 | 7.3/7.4 | 1.3.3 (beta repo) |
 
 ## Installation
 
