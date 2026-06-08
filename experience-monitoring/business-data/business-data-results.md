@@ -9,7 +9,7 @@ The Business Data module displays traffic and conversion metrics sourced from th
 
 Business Data traffic refers to the traffic that customers typically view in their analytics. It is a filtered "business-specific" view, unlike [RUM](../rum/rum.md), which captures all raw traffic.
 
-| Criterion | RUM in Experience Monitoring | Bunisness data (Google Analytics) |
+| Criterion | RUM in Experience Monitoring | Business data (Google Analytics) |
 | --- | --- | --- |
 | Traffic coverage | 100% of traffic (before GDPR pop-in) | Only visitors who have accepted GDPR consent |
 | Bots | Included (US bots, crawlers, etc.) | Excluded (filtered in the GA view configured by the client) |
@@ -47,7 +47,7 @@ The Business Data module displays the following metrics, all sourced from Google
 
 
 
-Centreon Experience Monitoring links with Analytics so you can:
+<!--Centreon Experience Monitoring links with Analytics so you can:
 
 Have your business KPIs correlating the technical performance and your sales.
 See the impact of peak traffic on your page load time.
@@ -55,10 +55,9 @@ Measure the capacity and impact of your site's modifications on your architectur
 
 In the **Business data** page, you can:
 
-* **Overview** tab - Analytics summary over the period -> which period? the one on the right
-
+* **Overview** tab - Analytics summary over the period
 * **Opportunities** tab
 
 * Correlate Google Analytics data with Synthetic Monitoring data in the **Journey and revenues** tab (you need to have configured a user journey). You can see an estimation of losses due to downtime or slow loading pages.
 
-* Correlate Google Analytics data with system data in the **Infratructure cost/click** (you need to have configured an agent collecting [system data](../installation/servers/install-system-agents.md)).
+* Correlate Google Analytics data with system data in the **Infrastructure cost/click** (you need to have configured an agent collecting [system data](../installation/servers/install-system-agents.md)).-->

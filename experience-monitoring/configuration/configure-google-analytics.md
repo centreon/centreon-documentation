@@ -7,7 +7,7 @@ By integrating Google Analytics data into Experience Monitoring, you can correla
 
 ## Link Google Analytics to Experience Monitoring
 
-> To connect/disconnect Experience Monitoring to/from Google Anaytics, you must have [**Administrator** or **Owner** permissions](../configuration/manage-users-and-rights.md) on your Organization in Experience Monitoring.
+> To connect/disconnect Experience Monitoring to/from Google Analytics, you must have [**Administrator** or **Owner** permissions](../configuration/manage-users-and-rights.md) on your Organization in Experience Monitoring.
 
 Here is a [video tutorial](https://www.youtube.com/watch?v=qmeXwypUmL4&list=PLgmedpAAxo-40d8PaBsaQS7Hkrm6mdxjs&index=3) that shows how to link Experience Monitoring to your Google account. You can also follow the procedure below.
 
@@ -27,11 +27,7 @@ To link Experience Monitoring with your Google Analytics account:
 
 No, Experience Monitoring is invisible to Google Analytics — we don't call the Google Analytics tag that runs on your site's pages. Therefore your GA statistics are not affected by our probes.
 
-### Why don't I see Analytics data in Experience Monitoring?
-
-Google Analytics data can take several hours to appear. Because we retrieve data via their API, we can only import data that is visible in GA.
-
-### Why don't I have real-time Analytics data?
+### Why don't I see real-time Analytics data in Experience Monitoring?
 
 Google Analytics data can take several hours to appear. Because we retrieve data via their API, we can only import data that is visible in GA.
 

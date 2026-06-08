@@ -19,27 +19,23 @@ You need to specify a configuration file per instance in **/etc/quanta/agent.yml
 
 - **/etc/quanta/modules.d/redis_sessions.yml**
 
-*module: redis*
-
-*redis:*
-
-*instance: sessions*
-
-*host: 127.0.0.1*
-
-*port: 6379*
+```
+module: redis
+redis:
+instance: sessions
+host: 127.0.0.1
+port: 6379
+```
 
 - **/etc/quanta/modules.d/redis_cache.yml**
 
-*module: redis*
-
-*redis:*
-
-*instance: cache*
-
-*host: 127.0.0.1*
-
-*port: 6378*
+``
+module: redis
+redis:
+instance: cache
+host: 127.0.0.1
+port: 6378
+```
 
 This configuration works the same for Memcached and Varnish. Don't forget to change the "module" parameter and the configuration key.
 
@@ -47,7 +43,7 @@ For Varnish, the "instance" parameter is also used as the Varnish instance name,
 
 ## Can I monitor services not on the same machine?
 
-We recommend installing the agent on all servers in your infrastructure. However, if you can't on some servers (e.g., on a database) and still want to monitor MySQL, you can change the **host** parameter in the agent configuration (**/etc/quanta/modules.d/service.yml**).
+We recommend installing the agent on all servers in your infrastructure. However, if you can't on some servers (e.g., on a database) and still want to monitor MySQL, you can change the **host** parameter in the agent configuration.
 
 ## My server is shared between several sites, each with an Experience Monitoring subscription. How can data be visible on both sites?
 
@@ -101,5 +97,3 @@ The module does not alter application behavior; it only collects profiling infor
 The module also has an "xhprof" mode (full execution profiling), which works similarly but is never activated by Experience Monitoring without user action.
 
 Data is sent to the agent via the designated Unix socket and is never stored or sent elsewhere.
-
-If you have further questions, feel free to contact our support team; we will be happy to help.

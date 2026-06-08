@@ -12,7 +12,7 @@ Because this data comes from Google Analytics, it is processed with a default 4-
 
 ## Prerequisites
 
-* Users must have filled in their personal data (email, SMS, Slack) and defined the time periods during which they want to be notified or not.
+* [Users must have filled in their personal data](../configuration/manage-users-and-rights.md) (email, SMS, Slack) and defined the time periods during which they want to be notified or not.
 
 ## Creating business alerts
 
