@@ -13,7 +13,7 @@ The ServiceNow Incident Events stream connector allows you to send data from Cen
 (e.g. if you want to avoid the central server being a SPOF, or if you are an MSP and you install the stream connector on a poller or a remote server within your customer's infrastructure).
 - By default, the ServiceNow Incident Events stream connector sends data from [**host_status**](../../developer/developer-broker-mapping.md#host-status) and 
 [**service_status**](../../developer/developer-broker-mapping.md#service-status) Broker events. The event format is shown **[here](#event-format)**.
-- These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow).
+- These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow-incident).
 
 ## Installation
 
