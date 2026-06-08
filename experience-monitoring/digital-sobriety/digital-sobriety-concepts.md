@@ -11,6 +11,8 @@ Experience Monitoring has its own approach called the Digital Sobriety Score bas
 The score runs from 0 to 100 and is translated into a letter grade from A (most efficient) to E (least efficient). 
 It combines two underlying metrics: the Carbon Footprint Per Click (CFPC), which captures the environmental cost of individual user interactions, and the Eco-Design Score (EDS), which evaluates how efficiently your pages are built.
 
+![image](../assets/digital-sobriety/digital-sobriety-details.png)
+
 Because the DSS is grounded in real traffic data and follows the principles of the GHG Protocol, it can feed directly into a company's carbon inventory, making it a practical tool for sustainability reporting.
 
 If you have the Digital Sobriety option, you must provide Experience Monitoring with two pieces of information:

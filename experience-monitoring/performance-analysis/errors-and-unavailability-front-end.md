@@ -17,9 +17,14 @@ at the moment of failure. This is usually the fastest way to understand what wen
 
 To view the screenshot:
 
-1. On the journey graph, click the red area corresponding to the incident.
-2. Select **Incident details** (or **View screenshot**) from the menu that appears.
-3. A window will open showing the page the probe encountered during the failure.
+1. On the **User Journey** configuration page, look for the red-colored step. This is the step where the probe failed.
+2. Click on the "!" red icon.
+
+A window will open showing the page the probe encountered during the failure.
+
+![image](../assets/configuration/user-journey/failed-step.png)
+
+It is possible to have more steps incorrect steps but, because the probe stop at the first issue encountered, these will not be shown until the previous failing steps are fixed.
 
 It is possible to have an error and no screenshot.
 The probe cannot capture a screenshot when the server returns no content at all.
@@ -28,8 +33,6 @@ This most commonly occurs during a step timed out error, where there is simply n
 ## Error reference
 
 ### Expected string not found
-
-What it means:
 
 Each step can be configured with an expected word or phrase that should appear on the page to confirm the correct page loaded.
 This error means that string could not be found.
@@ -45,12 +48,8 @@ Possible causes and fixes:
 
 ### User journey timeout
 
-What it means:
-
 The entire journey took longer than its measurement interval allows. 
 For example, a journey set to run every 3 minutes must complete all its steps within those 3 minutes.
-
-What to do:
 
 The individual steps may be working correctly but there simply wasn't enough time to complete them all.
 You can try:
@@ -61,22 +60,18 @@ You can try:
 
 ### Step timeout
 
-What it means:
-
 One step took longer than its allowed timeout and was marked as failed.
 
 Possible causes and fixes:
 
 - Slow page load: the page itself is taking too long to respond.
   Investigate server or network performance.
-- Timeout set too short: the timeout for this step may be too aggressive for the content it loads.
-  Increase the step timeout in the step's advanced settings.
+- Timeout set too short: the timeout for this step may be too short for the content it loads.
+  Increase the step timeout in the step's [advanced settings](../configuration/user-journey/create-a-scenario.md#user-journey-configuration).
 - Misconfigured verification: if the step is looking for an element that doesn't exist, it will wait until it times out on every run.
   Review the step's expected string or element selector.
 
 ### Invalid return code
-
-What it means:
 
 Every web page returns a status code when it loads.
 The expected code is 200 (success). This error means the probe received a different code, such as:
@@ -90,8 +85,6 @@ What to do:
 - If the page should exist but is returning an error, the issue lies with the server or application and requires further investigation.
 
 ### Unable to resolve host
-
-What it means:
 
 The probe could not translate the site's domain name into an IP address.
 This points to a DNS issue. 

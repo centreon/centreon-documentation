@@ -15,12 +15,6 @@ User journeys allows you to configure a probe to regularly navigate your site fo
 
 To create a User Journey, go to the **Settings** page and click on the **User Journeys** tab. Then, click on **Create a User Journey**. A journey is added with a first step named "Home" to navigate to your site's homepage automatically configured.
 
-Because a navigation actions are always the only or the last action of a step and a step to navigate to our site's homepage is already configured, you must now create a new step. To do so, click on the + icon below the first step.
-
-![image](../../assets/configuration/user-journey/user-journey-add-step.png)
-
-Give a name to this new step and click the + icon inside the step to choose an action to perform.
-
 ## User Journey configuration
 
 To access the advanced settings, open your journey in edit mode, click the three dots menu to its right, and select **Advanced**.
@@ -142,9 +136,16 @@ User journeys are composed of steps and actions.
 Steps represent a page while actions are anything a user can do within the same page (clicking on something, opening the search bar, etc.). 
 A step can contain multiple actions.
 
-Each license has a limited number of steps available for use amongst all user journeys. These steps are shared amongst all sites of your organization.
+> Each license has a limited number of steps available for use amongst all user journeys. These steps are shared amongst all sites of your organization.
+> To see how many steps you have available, go to the **Licenses & Sites** tab in the **Organization** page.
 
-To see how many steps you have available, go to the **Licenses & Sites** tab in the **Organization** page.
+Because a navigation actions are always the only or the last action of a step, and a step to navigate to our site's homepage is already configured, you must now create a new step. 
+To do so, click on the + icon below the first step.
+
+![image](../../assets/configuration/user-journey/user-journey-add-step.png)
+
+Give a name to this new step and click the + icon inside the step to choose an action to perform.
+
 
 ### Possible actions in a User Journey
 
@@ -283,3 +284,12 @@ This verification finds an element using its CSS selector. If it's an image, the
 #### Make a request
 
 This verification validates that a request to an address was made at some point after the action. The request must be successful; redirects are allowed.
+
+## Failed step or action
+
+![image](../../assets/configuration/user-journey/failed-step.png)
+
+When the probe fails to execute a step or an action, the corresponding step is colored red.
+The "!" icon indicates where the failure happened.
+Click on the icon to view details of what caused this failure with a screenshot of the page where the probe failed.
+You can find some information on what caused this step or action to fail, for more information on this, read our [User Journey troubleshooting guide](../../performance-analysis/errors-and-unavailability-front-end.md)

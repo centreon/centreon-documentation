@@ -64,13 +64,6 @@ Two modes are available:
 - **All user journeys** — every configured user journey contributes to the calculations.
 - **Only selected journeys** — manually select which user journeys to include using the checkboxes. This is useful for excluding test journeys or journeys that are not representative of the real user experience.
 
-### Data source of calculations for the digital sobriety score
-
-Select the data source used to calculate the eco-design score and CO₂ emissions for all [digital sobriety](../../digital-sobriety/digital-sobriety-concepts.md) data across the site (only one source can be selected at a time):
-
-* **Real User Monitoring** —  all calculations will be based on real traffic collected by the RUM tag
-* **User journeys** — all calculations will be based on automated measurements from STM probes, based on what you defined in [User Journeys taken into account in the calculations](#user-journeys-taken-into-account-in-the-calculations).
-
 ### Site screenshot reference
 
 Select the screenshot you want to appear in the **Global view** page for this site: choose between the thumbnails for your user journeys.
