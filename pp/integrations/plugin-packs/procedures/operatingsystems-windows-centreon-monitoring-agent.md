@@ -489,8 +489,8 @@ Filter syntax is similar to C/SQL:
 
 - Numeric operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
 - Logical: `&&` (AND), `||` (OR)
-- String equality: `==`, `!=`
-- IN/NOT IN: version in ('1.0', '1.1')
+- String equality: `==`, `!=` (note: single `=` is **not** valid)
+- IN/NOT IN: `filename in ('myfile.txt')`, `version in ('1.0', '1.1')`
 
 Supported file metadata labels:
 
@@ -522,8 +522,10 @@ You can combine with WARNING/CRITICAL to require multiple matches before changin
 
 - "size > 50M"                            # File larger than 50 MB
 - "extension == '.bak'"                   # Backup files
-- "size > 200M && extension == '.dll'"    # Large DLLs
+- "size > 200m && extension == '.dll'"    # Large DLLs
 - "count &lt;= 0"                            # No file found
+- "filename in ('myfile.txt')"            # Specific file by name
+- "filename == 'myfile.txt'"              # Specific file by name (alternative)
 
 
 #### File age check
@@ -537,8 +539,8 @@ File age can be checked using 3 metadata labels, which can be mixed using logica
 _“I want to trigger a CRITICAL alert if at least one file of my test directory has not be updated since 1 day or more, and WARNING alert if more than 12 hours and less than 1 day”_
 
 ```
-PATH= "C:\Users\User\Documents\test"
-PATTERN= "*.*"
+PATH= C:/Users/User/Documents/test
+PATTERN= *.*
 MAXDEPTH= -1,
 DETAILSYNTAX= {filename}: {size}
 WARNINGSTATUS= written > 12h
@@ -554,14 +556,14 @@ _“I want to trigger CRITICAL alert if at least 1 DLLs in System32 (including s
 The extension filter can be done using PATTERN or FILTER.
 
 ```
-PATH= C:\\Windows\\System32
+PATH= C:/Windows/System32
 PATTERN= *.dll
 MAXDEPTH= 1,
 OUTPUTSYNTAX= {status}: {problem_count}/{count} DLLs have issues: {problem_list}
-DETAILSYNTAX: {filename}: {size} {version}
+DETAILSYNTAX= {filename}: {size} {version}
 FILTER= extension == '.dll'
-WARNINGSTATUS= size > 10M
-CRITICALSTATUS= size > 100M
+WARNINGSTATUS= size > 10m
+CRITICALSTATUS= size > 100m
 WARNING= 1
 CRITICAL= 0
 ```
@@ -570,6 +572,7 @@ Note:
 
 - If "line_count" is used in any filter or output, line count calculation will be enabled (may impact performance).
 - Paths, patterns, and filters are case-insensitive on Windows.
+- Use `/` as the path separator instead of `\` (e.g., `C:/Users/...`). Backslashes require extra escaping and may cause errors.
 
 
 #### File presence check
@@ -577,7 +580,7 @@ Note:
 _“I want to trigger a CRITICAL alert if file is not present“_
 
 ```
-PATH= C:\Users\User\Documents\test
+PATH= C:/Users/User/Documents/test
 PATTERN= myfile.txt
 MAXDEPTH= -1,
 DETAILSYNTAX= {filename}: {size}
@@ -590,7 +593,7 @@ CRITICAL= 0
 _“I want to trigger a CRITICAL alert if at least one file is present“_
 
 ```
-PATH= C:\Users\User\Documents\test
+PATH= C:/Users/User/Documents/test
 PATTERN= myfile.txt
 MAXDEPTH= -1,
 DETAILSYNTAX= {filename}: {size}
