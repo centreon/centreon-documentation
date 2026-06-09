@@ -1,6 +1,6 @@
 ---
 id: user-journey-improve
-title: Improving your site with user journeys
+title: Optimizing your site
 ---
 
 Using the data collected by the [recommendation probe](./create-a-scenario.md#daily-recommendations-audits), Experience Monitoring will make suggestions on how to optimize your website.

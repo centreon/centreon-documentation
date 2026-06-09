@@ -3,7 +3,10 @@ id: network-data
 title: Network Data
 ---
 
-The **Network view** feature allows for an overview of the site's responsiveness over time using a network probe that regularly pings the site. The result of these pings over time can be seen in a timeline by clicking on **Network View** from the main menu.
+The **Network Data** module allows for an overview of the site's responsiveness over time using a network probe that regularly pings the site.
+The result of these pings over time can be seen in a timeline by clicking on **Network View** from the main menu.
+
+![image](../assets/getting-started/network-view.png)
 
 > At the moment all measurements are performed from our infrastructure in Europe. If your site is hosted on another continent, latency may be higher.
 

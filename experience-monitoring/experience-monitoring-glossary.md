@@ -14,7 +14,7 @@ CSS Selectors are less sensitive to site changes. If you don't know how to creat
 
 ## Digital Sobriety Score
 
-A score ranging from 0 to 100 that reflects of the overall efficiency of your site to reduce its environmental impact.
+A score ranging from 0 to 100 that indicates the overall efficiency of your site to help you reduce its environmental impact.
 Calculated using data from either [Real User Monitoring](#real-user-monitoring) or your [user journeys](#user-journey).
 
 ## Hero time
