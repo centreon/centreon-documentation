@@ -522,7 +522,7 @@ You can combine with WARNING/CRITICAL to require multiple matches before changin
 
 - "size > 50M"                            # File larger than 50 MB
 - "extension == '.bak'"                   # Backup files
-- "size > 200M && extension == '.dll'"    # Large DLLs
+- "size > 200m && extension == '.dll'"    # Large DLLs
 - "count &lt;= 0"                            # No file found
 - "filename in ('myfile.txt')"            # Specific file by name
 - "filename == 'myfile.txt'"              # Specific file by name (alternative)
@@ -562,8 +562,8 @@ MAXDEPTH= 1,
 OUTPUTSYNTAX= {status}: {problem_count}/{count} DLLs have issues: {problem_list}
 DETAILSYNTAX= {filename}: {size} {version}
 FILTER= extension == '.dll'
-WARNINGSTATUS= size > 10M
-CRITICALSTATUS= size > 100M
+WARNINGSTATUS= size > 10m
+CRITICALSTATUS= size > 100m
 WARNING= 1
 CRITICAL= 0
 ```
