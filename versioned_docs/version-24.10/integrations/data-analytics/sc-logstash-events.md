@@ -67,13 +67,13 @@ Make sure Logstash is able to receive data sent by Centreon: flows must not be b
 | Path            | /usr/share/centreon-broker/lua/logstash-events-apiv2.lua |
 | Filter category | Neb                                                      |
 
-5. To enable Centreon to connect to your Logstash equipment, fill in the following mandatory parameters. 
+5. To enable Centreon to connect to your Logstash device, fill in the following mandatory parameters. 
 The fields for the first entry are already present. Click on the **+Add a new entry** link located below the **Filter category** table to add another one.
 
 | Type   | Name            | Value explanation                     | Value exemple            |
 | ------ |-----------------|---------------------------------------|--------------------------|
-| string | http_server_url | The url of the logstash http plugin   | `https:/mylogstash.test` |
-| number | port            | The port of your logstash http plugin | `8443`                   |
+| string | http_server_url | The URL of the Logstash HTTP plugin   | `https:/mylogstash.test` |
+| number | port            | The port of your Logstash HTTP plugin | `8443`                   |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
@@ -81,8 +81,8 @@ The fields for the first entry are already present. Click on the **+Add a new en
 | ------ |-----------|------------------------------------------------------------------------------------------------|----------------------------------------------|
 | string | logfile   | The file in which logs are written                                                             | /var/log/centreon-broker/logstash-events.log |
 | number | log_level | Logging level from 1 (errors) to 3 (debug)                                                     | 1                                            |
-| string | username  | The username if your are using https with basic auth for your logstash http plugin             | USERNAMEXX76                                 |
-| string | password  | The password of your user if you are using https with basic auth for your logstash http plugin | PASSWORDXX76                                 |
+| string | username  | The username if your are using HTTPS with basic authentication for your Logstash HTTP plugin             | USERNAMEXX76                                 |
+| string | password  | The password of your user if you are using HTTPS with basic authentication for your Logstash HTTP plugin | PASSWORDXX76                                 |
 
 7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Logstash](#filtering-or-adapting-the-data-you-want-to-send-to-logstash).
 
@@ -98,7 +98,7 @@ Logstash should now receive data from Centreon. To test if it is working, see [C
 
 ### Filtering or adapting the data you want to send to Logstash
 
-All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters), that allow you to filter the data you will send to your Logstash equipment, to reformat the data, to define a proxy...
+All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters), that allow you to filter the data you will send to your Logstash device, to reformat the data, to define a proxy...
 
 Each optional parameter has a default value, that is indicated in the corresponding documentation.
 
@@ -170,7 +170,7 @@ In order to use this feature you need to configure a json event format file and 
 | ------ | ----------- |--------------------------------------------------|
 | string | format_file | /etc/centreon-broker/logstash-events-format.json |
 
-> The event format configuration file must be readable by the centreon-broker user.
+> The event format configuration file must be readable by the **centreon-broker** user.
 
 To learn more about custom event formats and templating files, visit **[this page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 

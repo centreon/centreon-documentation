@@ -73,8 +73,8 @@ Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category
 
 | Type   | Nom             | Explication                     | Exemple de valeur        |
 | ------ |-----------------|---------------------------------|--------------------------|
-| string | http_server_url | L'url du plugin http logstash   | `https:/mylogstash.test` |
-| number | port            | Le port du plugin http logstash | `8443`                   |
+| string | http_server_url | L'URL du plugin HTTP Logstash   | `https:/mylogstash.test` |
+| number | port            | Le port du plugin HTTP Logstash | `8443`                   |
 
 6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
@@ -82,8 +82,8 @@ Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category
 |--------|-----------|------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
 | string | logfile   | Fichier dans lequel les logs sont écrits                                                                         | /var/log/centreon-broker/logstash-events.log |
 | number | log_level | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug)                                                        | 1                                            |
-| string | username  | Le nom d'utilisateur si vous utilisez le protocol https avec une authentification basique pour votre plugin http | USERNAMEXX76                                 |
-| string | password  | Le mot de passe si vous utilisez le protocol https avec une authentification basique pour votre plugin http      | PASSWORDXX76                                 |
+| string | username  | Le nom d'utilisateur si vous utilisez le protocole HTTPS avec une authentification basique pour votre plugin HTTP | USERNAMEXX76                                 |
+| string | password  | Le mot de passe si vous utilisez le protocole HTTPS avec une authentification basique pour votre plugin HTTP | PASSWORDXX76                                 |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Logstash](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-logstash).
 
@@ -168,7 +168,7 @@ Pour utiliser cette fonctionnalité, vous devez configurer un fichier json de fo
 | ------ |-------------|--------------------------------------------------|
 | string | format_file | /etc/centreon-broker/logstash-events-format.json |
 
-> Le fichier de configuration du format des événements doit être lisible par l'utilisateur de centreon-broker.
+> Le fichier de configuration du format des événements doit être lisible par l'utilisateur **centreon-broker**.
 
 Pour en savoir plus sur les formats d'événements personnalisés et les fichiers modèles, consultez **[cette page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
