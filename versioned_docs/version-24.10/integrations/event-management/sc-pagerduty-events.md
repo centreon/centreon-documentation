@@ -72,7 +72,7 @@ Make sure PagerDuty is able to receive data sent by Centreon: flows must not be 
 
 | Type   | Name            | Value explanation               | Value exemple |
 | ------ |-----------------|---------------------------------|---------------|
-| string | pdy_routing_key | The event api key for pagerduty | xxxxxxxxxxxxx |
+| string | pdy_routing_key | The event API key for PagerDuty | xxxxxxxxxxxxx |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
@@ -80,8 +80,8 @@ Make sure PagerDuty is able to receive data sent by Centreon: flows must not be 
 | ------ |------------------|--------------------------------------------|-----------------------------------------------|
 | string | logfile          | The file in which logs are written         | /var/log/centreon-broker/pagerduty-events.log |
 | number | log_level        | Logging level from 1 (errors) to 3 (debug) | 1                                             |
-| string | pdy_centreon_url | Url of your Centreon server                | `http://set.pdy_centreon_url.parameter`       |
-| string | http_server_url  | Url of the PagerDuty event endpoint        | `https://events.pagerduty.com/v2/enqueue`     |
+| string | pdy_centreon_url | URL of your Centreon server                | `http://set.pdy_centreon_url.parameter`       |
+| string | http_server_url  | URL of the PagerDuty event endpoint        | `https://events.pagerduty.com/v2/enqueue`     |
 | string | client           | The PagerDuty client                       | Centreon Stream Connector                     |
 | string | pdy_source       | Source of the event                        | `nil`                                         |
 
@@ -210,7 +210,7 @@ In order to use this feature you need to configure a json event format file and 
 | ------ | ----------- |---------------------------------------------------|
 | string | format_file | /etc/centreon-broker/pagerduty-events-format.json |
 
-> The event format configuration file must be readable by the centreon-broker user.
+> The event format configuration file must be readable by the **centreon-broker** user.
 
 To learn more about custom event formats and templating files, visit **[this page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 

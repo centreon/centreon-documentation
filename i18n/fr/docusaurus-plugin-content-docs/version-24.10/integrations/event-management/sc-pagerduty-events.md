@@ -83,8 +83,8 @@ La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-
 |--------|------------------|-----------------------------------------------------------|-----------------------------------------------|
 | string | logfile          | Fichier dans lequel les logs sont écrits                  | /var/log/centreon-broker/pagerduty-events.log |
 | number | log_level        | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                             |
-| string | pdy_centreon_url | Url de votre serveur Centreon                             | `http://set.pdy_centreon_url.parameter`       |
-| string | http_server_url  | Url de l'endpoint event de PagerDuty                      | `https://events.pagerduty.com/v2/enqueue`     |
+| string | pdy_centreon_url | URL de votre serveur Centreon                             | `http://set.pdy_centreon_url.parameter`       |
+| string | http_server_url  | URL de l'endpoint event de PagerDuty                      | `https://events.pagerduty.com/v2/enqueue`     |
 | string | client           | Le client PagerDuty                                       | Centreon Stream Connector                     |
 | string | pdy_source       | Source de l'event                                         | `nil`                                         |
 
@@ -106,7 +106,7 @@ Tous les stream connectors ont un jeu de [paramètres optionnels](https://github
 
 Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
 
-* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à PagerDuty que les évènmenes traités par un collecteur nommé "poller-1", entrez :
+* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à PagerDuty que les évènements traités par un collecteur nommé "poller-1", entrez :
 
    ```text
    type = string
@@ -210,7 +210,7 @@ Pour utiliser cette fonctionnalité, vous devez configurer un fichier json de fo
 | ------ |-------------|---------------------------------------------------|
 | string | format_file | /etc/centreon-broker/pagerduty-events-format.json |
 
-> Le fichier de configuration du format des événements doit être lisible par l'utilisateur de centreon-broker.
+> Le fichier de configuration de format d'événements doit être lisible par l'utilisateur **centreon-broker**.
 
 Pour en savoir plus sur les formats d'événements personnalisés et les fichiers modèles, consultez **[cette page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
@@ -227,6 +227,6 @@ Si vous voulez tester que les évènements sont envoyés correctement à PagerDu
 curl -X POST -H 'content-type: application/json' 'https://events.pagerduty.com/v2/enqueue' -d '{"dedup_key":<my_host>_H","payload":{"component":<my_host>","group":"<hg_1>","summary":"winter is coming","class":"host","severity":"info","timestamp":"2021-09-24T14:37:22.000","custom_details":{"Hostgroups":"<hg_1>","Hostseverity":2},"source":<my_host>"},"event_action":"trigger","client":"Centreon Stream Connector","routing_key":"dzada32193dzbe1fz51xz","links":[{"href":"<centreon_url>","text":"Link to Centreon host summary"}]}'
 ```
 
-Vous devez remplacer tous les *`<xxxx>`* à l'intérieur de la commande ci-dessus par leur valeur appropriée. \N<my_host\>* peut devenir *linuxServerA*.
+Vous devez remplacer tous les *`<xxxx>`* à l'intérieur de la commande ci-dessus par leur valeur appropriée. \<my_host\>* peut devenir *linuxServerA*.
 
 3. Vérifiez que l'évènement a bien été reçu par PagerDuty.
