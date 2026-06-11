@@ -199,7 +199,7 @@ You must replace all the *`<xxxx>`* inside the above command with the correct va
 
 3. Check that the event has been received by Signl4.
 
-You can then close this signal with the following command:
+You can then notify the signal alert is closed with the following command:
 
 ```shell
 curl -X POST -H 'content-type: application/json' 'https://connect.signl4.com/webhook/<team_secret>' -d '{"EventType": "HOST","Date": "Fri Nov 26 12:00:00 CET 2021","Host": "Highway","Message": "to hell!","Status": "OK", "Title": "Highway is UP", "X-S4-SourceSystem": "Centreon","X-S4-ExternalID": "HOSTALERT_666","X-S4-Status": "resolved"}'

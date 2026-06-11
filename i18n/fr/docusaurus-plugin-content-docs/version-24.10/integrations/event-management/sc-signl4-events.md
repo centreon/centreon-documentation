@@ -197,7 +197,7 @@ curl -X POST -H 'content-type: application/json' 'https://connect.signl4.com/web
 
 3. Vérifiez que l'évènement a bien été reçu par Signl4.
 
-Vous pouvez fermer ce signal avec la commande suivante :
+Vous pouvez notifier la fin de l'alerte associée au signal avec la commande suivante :
 
 ```shell
 curl -X POST -H 'content-type: application/json' 'https://connect.signl4.com/webhook/<team_secret>' -d '{"EventType": "HOST","Date": "Fri Nov 26 12:00:00 CET 2021","Host": "Highway","Message": "to hell!","Status": "OK", "Title": "Highway is UP", "X-S4-SourceSystem": "Centreon","X-S4-ExternalID": "HOSTALERT_666","X-S4-Status": "resolved"}'
