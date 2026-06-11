@@ -173,7 +173,7 @@ Pour utiliser cette fonctionnalité, vous devez configurer un fichier json de fo
 | ------ |-------------|-------------------------------------------------------------|
 | string | format_file | /etc/centreon-broker/servicenow-incident-events-format.json |
 
-> Le fichier de configuration du format des événements doit être lisible par l'utilisateur de centreon-broker.
+> Le fichier de configuration du format des événements doit être lisible par l'utilisateur **centreon-broker**.
 
 Pour en savoir plus sur les formats d'événements personnalisés et les fichiers modèles, consultez **[cette page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
