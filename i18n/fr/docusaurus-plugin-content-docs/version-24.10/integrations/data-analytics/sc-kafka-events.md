@@ -1,6 +1,6 @@
 ---
 id: sc-kafka-events
-title: Kafka Event Manager 
+title: Kafka Events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -113,7 +113,7 @@ qui vous permettent de filtrer les données que vous enverrez à votre équipeme
 Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
 
 * Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, 
-afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Kafka que les évènmenes traités par un collecteur nommé "poller-1", entrez :
+afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Kafka que les évènements traités par un collecteur nommé "poller-1", entrez :
 
    ```text
    type = string
@@ -184,7 +184,7 @@ Pour utiliser cette fonctionnalité, vous devez configurer un fichier json de fo
 | ------ |-------------|-----------------------------------------------|
 | string | format_file | /etc/centreon-broker/kafka-events-format.json |
 
-> Le fichier de configuration du format des événements doit être lisible par l'utilisateur de centreon-broker.
+> Le fichier de configuration du format des événements doit être lisible par l'utilisateur **centreon-broker**.
 
 Pour en savoir plus sur les formats d'événements personnalisés et les fichiers modèles, consultez **[cette page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
@@ -194,20 +194,20 @@ L'envoi de données à Kafka peut être assez compliqué en raison de tous les p
 
 Pour faciliter les choses, un script de test de connexion en Lua est disponible.
 
-Pour l'installer, vous devez suivre la **[procédure d'installation](#installation)** et ensuite :
+Pour l'installer, vous devez suivre la **[procédure d'installation](#installation)** et ensuite exécuter la commande suivante :
 
 ```shell
 wget -O /tmp/kafka_test_connection.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/modules/tests/kafka_test_connexion.lua 
 ```
 
-**Ouvrez** le script et **configurez** les options kafka que vous voulez utiliser à partir de la librdkafka 
-**[documentation officielle](https://github.com/edenhill/librdkafka/blob/v0.11.4/CONFIGURATION.md)** 
-(vous n'avez pas besoin d'ajouter le préfixe *_sc_kafka_* cette fois-ci, mettez simplement le paramètre entre les crochets **config[]**).
+**Ouvrez** le script et **configurez** les options Kafka que vous voulez utiliser à partir de la librdkafka 
+(**[documentation officielle](https://github.com/edenhill/librdkafka/blob/v0.11.4/CONFIGURATION.md)**).
+Vous n'avez pas besoin d'ajouter le préfixe *_sc_kafka_* cette fois-ci, mettez simplement le paramètre entre les crochets **config[]**.
 
 Il y a déjà des configurations mises en place à titre d'exemple pour vous guider.
 
 Si cela ne fonctionne pas, vous devriez avoir un message d'erreur comme ci-dessous (avec le message d'erreur approprié). 
-Il est fortement conseillé d'avoir accès à kafka pour vérifier si un message est envoyé depuis le script de test.
+Il est fortement conseillé d'avoir accès à Kafka pour vérifier si un message est envoyé depuis le script de test.
 
 ```shell
 %3|1622459610.760|FAIL|rdkafka#producer-1| [thrd:sasl_plaintext://cps-kafkan:9093/bootstrap]: sasl_plaintext://cps-kafkan:9093/bootstrap: Failed to resolve 'cps-kafkan:9093': Name or service not known

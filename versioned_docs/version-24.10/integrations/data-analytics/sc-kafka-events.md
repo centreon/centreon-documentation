@@ -1,6 +1,6 @@
 ---
 id: sc-kafka-events
-title: Kafka Event Manager 
+title: Kafka Events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -69,13 +69,13 @@ Make sure Kafka is able to receive data sent by Centreon: flows must not be bloc
 | Path            | /usr/share/centreon-broker/lua/kafka-events-apiv2.lua |
 | Filter category | Neb,Bam                                               |
 
-5. To enable Centreon to connect to your Kafka equipment, fill in the following mandatory parameters. The fields for 
+5. To enable Centreon to connect to your Kafka device, fill in the following mandatory parameters. The fields for 
 the first entry are already present. Click on the **+Add a new entry** link located below the **Filter category** table to add another one.
 
 | Type   | Name    | Value explanation                                             | Value exemple                               |
 | ------ | ------- |---------------------------------------------------------------|---------------------------------------------|
 | string | topic   | The topic in which events are going to be written             | Monitoring                                  |
-| string | brokers | Coma separeted list of brokers that are ready to receive data | broker_address1:port1,broker_address2:port2 |
+| string | brokers | Comma-separated list of brokers that are ready to receive data | broker_address1:port1,broker_address2:port2 |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
@@ -86,11 +86,11 @@ the first entry are already present. Click on the **+Add a new entry** link loca
 
 7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Kafka](#filtering-or-adapting-the-data-you-want-to-send-to-kafka).
 
-In addition to parameters from stream connectors, there is a handfull of parameters available thanks to the librdkafka library. 
+In addition to parameters from stream connectors, there is a handful of parameters available thanks to the librdkafka library. 
 They are all documented in the librdkafka **[official documentation](https://github.com/edenhill/librdkafka/blob/v0.11.4/CONFIGURATION.md)**. 
 To use them you just need to **add** the **_sc_kafka_ prefix**.
 
-With that in mind, the parameter **sasl.mechanism** becomes **_sc_kafka_sasl.mechanism** in your broker configuration.
+With that in mind, the **sasl.mechanism** parameter becomes **_sc_kafka_sasl.mechanism** in your broker configuration.
 
 > El7 and El8 repos grant access to an old librdkafka library version.
 
@@ -106,7 +106,7 @@ Kafka should now receive data from Centreon. To test if it is working, see [Curl
 
 ### Filtering or adapting the data you want to send to Kafka
 
-All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters), that allow you to filter the data you will send to your Kafka equipment, to reformat the data, to define a proxy...
+All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters), that allow you to filter the data you will send to your Kafka device, to reformat the data, to define a proxy...
 
 Each optional parameter has a default value, that is indicated in the corresponding documentation.
 
@@ -182,13 +182,13 @@ In order to use this feature you need to configure a json event format file and 
 | ------ | ----------- |-----------------------------------------------|
 | string | format_file | /etc/centreon-broker/kafka-events-format.json |
 
-> The event format configuration file must be readable by the centreon-broker user.
+> The event format configuration file must be readable by the **centreon-broker** user.
 
 To learn more about custom event formats and templating files, visit **[this page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
 ## Testing the stream connector
 
-Sending data to Kafka can be quite complicated because of all the involved parameters (either from the stream connector itself or the kafka library).
+Sending data to Kafka can be quite complicated because of all the involved parameters (either from the stream connector itself or the Kafka library).
 
 To make things easier, a lua connection test script is available.
 
@@ -203,7 +203,7 @@ wget -O /tmp/kafka_test_connection.lua https://raw.githubusercontent.com/centreo
 There are already configuration set up as examples to guide you.
 
 If it doesn't work, you should have an error message like below (with the appropriate error message). 
-It is strongly advised to have access to kafka to check if a message is sent from the test script.
+It is strongly advised to have access to Kafka to check if a message is sent from the test script.
 
 ```shell
 %3|1622459610.760|FAIL|rdkafka#producer-1| [thrd:sasl_plaintext://cps-kafkan:9093/bootstrap]: sasl_plaintext://cps-kafkan:9093/bootstrap: Failed to resolve 'cps-kafkan:9093': Name or service not known
