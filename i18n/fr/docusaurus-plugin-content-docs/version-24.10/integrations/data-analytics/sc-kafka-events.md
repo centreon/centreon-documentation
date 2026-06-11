@@ -93,7 +93,6 @@ Pour les utiliser, il suffit d'ajouter le préfixe **_sc_kafka_**.
 
 Dans cette façon, le paramètre **sasl.mechanism** devient **_sc_kafka_sasl.mechanism** dans la configuration de votre broker.
 
-> Les dépôts El7 et El8 donnent accès à une ancienne version de la bibliothèque librdkafka.
 
 8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
