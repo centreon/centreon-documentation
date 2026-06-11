@@ -187,7 +187,7 @@ Pour utiliser cette fonctionnalité, vous devez configurer un fichier json de fo
 
 Pour en savoir plus sur les formats d'événements personnalisés et les fichiers modèles, consultez **[cette page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
-## Tester le stream connector
+## Commandes curl : tester le stream connector
 
 L'envoi de données à Kafka peut être assez compliqué en raison de tous les paramètres impliqués (soit du stream connector lui-même, soit de la bibliothèque Kafka).
 
