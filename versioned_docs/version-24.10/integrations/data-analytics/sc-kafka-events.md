@@ -185,7 +185,7 @@ In order to use this feature you need to configure a json event format file and 
 
 To learn more about custom event formats and templating files, visit **[this page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
-## Testing the stream connector
+## Curl commands: testing the stream connector
 
 Sending data to Kafka can be quite complicated because of all the involved parameters (either from the stream connector itself or the Kafka library).
 
