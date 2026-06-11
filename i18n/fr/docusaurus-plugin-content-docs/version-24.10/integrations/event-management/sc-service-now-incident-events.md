@@ -181,7 +181,7 @@ Pour en savoir plus sur les formats d'événements personnalisés et les fichier
 
 Si vous voulez tester que les commandes de configuration sont envoyées à ServiceNow Incident correctement, utilisez les commandes curl suivantes.
 
-Vous devez remplacer tous les *`<xxxx>`* à l'intérieur des commandes ci-dessous par leur valeur appropriée. *<instance>`* peut devenir *MyCompany*.
+Vous devez remplacer tous les *`<xxxx>`* à l'intérieur des commandes ci-dessous par leur valeur appropriée. *\<instance\>`* peut devenir *MyCompany*.
 
 ### Get OAuth tokens
 
