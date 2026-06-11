@@ -157,6 +157,8 @@ The value **true** must be returned.
 
 ## Poller checks
 
+You need to run these checks on every poller that receives data from CMA agents.
+
 ### Check that the server is listening and that packets are arriving
 
 <Tabs groupId="sync">
@@ -198,23 +200,18 @@ tcpdump -i any port 4317
 
 This command must return results, showing that packets are exchanged between agent and poller.
 
-### Enable the OpenTelemetry logs
+### Change the OpenTelemetry log level
 
-1. Edit the monitoring engine's configuration file:
+By default, the log level is **Error**. You may want to change this for debugging purposes.
 
-   ```bash
-   /etc/centreon-engine/centengine.cfg
-   ```
-
-2. Add the following line:
-
-   ```bash
-   log_level_otl=trace
-   ```
+1. Go to **Configuration > Pollers > Engine Configuration**, then select the poller you want.
+2. In the **Log options** tab, in the **Debug Configuration** section, select the log level you want for OpenTelemetry logs.
 
    The different log levels are: trace, debug, info, warning, error, critical, disabled.
 
 3. Restart the monitoring engine.
+
+> Remember to lower the log level once you've finished debugging, to avoid cluttering the poller with unnecessary logs.
 
 ### Check that the engine log file does not contain any errors
 
@@ -228,12 +225,12 @@ No CMA related lines should be returned.
 
 ## Checks in Centreon
 
-The host and its configured services must return a status and metrics.
+Check in the **Monitoring > Resource status** page that all resources are up to date. The host and its configured services must return a status and metrics.
 
 ## Location of poller and agent logs
 
-* Poller logs: `/var/log/centreon-engine/centengine.log`
+* You can find the engine logs for each poller here: `/var/log/centreon-engine/centengine.log`.
 
-* Agent logs:
+* On each host monitored by CMA, the agent's logs can be found here:
    * Linux: by default, `/var/log/centreon-monitoring-agent/centagent.log` (this log location can be configured in **/etc/centreon-monitoring-agent/centagent.json**)
    * Windows: the location is the one you specified when installing the agent (by default, in the Windows Event Viewer).

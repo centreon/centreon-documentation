@@ -33,16 +33,22 @@ Edit each widget you want, saving your changes to each widget. Then save the das
 
 ## Editing a widget
 
-When editing a dashboard, click the 3 dots in the top rigt corner of a widget to enter edit mode.
-Once you have edited your widget, save it, then save th edashboard itself.
+When editing a dashboard, click the 3 dots in the top right corner of a widget to enter edit mode.
+Once you have edited your widget, save it, then save the dashboard itself.
 
 ## Available widgets
 
-## Generic text
+### Generic text
 
 Use this widget to insert titles, information or links into your dashboards. Use the toolbar to format the description.
 
 ![image](./assets/widget_generic_text.png)
+
+### Log viewer
+
+Use this widget to display the list of logs matching a specific query in the last n minutes. In the resulting table, click **Show in context** on the right to display the log in the **Log explorer** page, along with the previous and next 2 minutes of logs that match the query.
+
+![image](./assets/widget_log_viewer.png)
 
 ### Metrics graph
 

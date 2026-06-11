@@ -35,7 +35,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                          | Service Description   | Discovery |
 |:----------------|:------------------------------------------|:----------------------|:---------:|
-| Container-Usage | App-Docker-Container-Usage-Restapi-custom | Check container usage | X         |
+| Container-Usage | App-Docker-Container-Usage-Restapi-custom | Check container usage |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -107,8 +107,26 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 
 * Save the changes
 * Apply the changes made at the systemd level : ```systemctl daemon-reload```
-* Restart the Docker engine: ```systemctl restart docker``` 
- 
+* Restart the Docker engine: ```systemctl restart docker```
+
+### Best practice: naming your containers
+
+By default, Docker generates a random name each time a container is recreated. T
+he connector uses that name to identify each container and create the associated metrics. 
+If the name changes, new metrics and a new RRD file are created in `/var/lib/centreon/metrics`, leading to a proliferation of stale data.
+
+**Always assign a fixed name to each monitored container:**
+
+```bash
+# Command line
+docker run -d --name my-nginx nginx
+
+# Docker Compose
+services:
+  web:
+    image: nginx
+    container_name: my-nginx
+```
 
 ## Installing the monitoring connector
 

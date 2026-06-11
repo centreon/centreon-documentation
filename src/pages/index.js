@@ -33,7 +33,7 @@ const links = {
 
 const cards = [
   {
-    title: "Centreon Infra Monitoring",
+    title: "Infra Monitoring",
     href: "docs/getting-started/welcome/",
     links: [
       {
@@ -51,40 +51,36 @@ const cards = [
     ],
   },
   {
-    title: "Centreon DEM",
-    href: "dem/getting-started/welcome/",
+    title: "Experience Monitoring",
+    href: "experience-monitoring/getting-started/welcome/",
     links: [
       {
-        label: "Getting started with Centreon Digital Experience Monitoring",
-        href: "dem/getting-started/welcome/",
+        label: "Getting started with Centreon Experience Monitoring",
+        href: "experience-monitoring/getting-started/welcome/",
       },
       {
         label: "Synthetic Monitoring (STM)",
-        href: "dem/getting-started/synthetic-monitoring/",
+        href: "experience-monitoring/getting-started/synthetic-monitoring/",
       },
       {
         label: "Real User Monitoring (RUM)",
-        href: "dem/getting-started/real-user-monitoring/",
+        href: "experience-monitoring/getting-started/real-user-monitoring/",
       },
       {
         label: "Digital sobriety",
-        href: "dem/category/digital-sobriety/"
+        href: "experience-monitoring/category/digital-sobriety/"
       },{
-        label: "DEM release notes",
-        href: "dem/release-notes/"
+        label: "Experience Monitoring release notes",
+        href: "experience-monitoring/release-notes/"
       },
     ],
   },
   {
-    title: "Centreon Log Management",
+    title: "Log Management",
     href: "logmanagement/getting-started/welcome/",
     links: [
       {
-        label: "Signing up for the BETA program",
-        href: "logmanagement/getting-started/beta/",
-      },
-      {
-        label: "CLM basics",
+        label: "Log Management basics",
         href: "logmanagement/getting-started/concepts/",
       },
       {
@@ -96,7 +92,6 @@ const cards = [
         href: "logmanagement/explore-analyze/",
       },
     ],
-    isBeta: true,
   },
 ];
 

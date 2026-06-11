@@ -1,21 +1,21 @@
 ---
 id: network-switchs-alcatel-omniswitch-snmp
-title: Alcatel Omniswitch
+title: Alcatel Omniswitch SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Alcatel Omniswitch** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+The following monitoring connectors will be installed when you install the **Alcatel Omniswitch SNMP** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
 
 ### Templates
 
-The Monitoring Connector **Alcatel Omniswitch** brings a host template:
+The Monitoring Connector **Alcatel Omniswitch SNMP** brings a host template:
 
 * **Net-Alcatel-OmniSwitch-SNMP-custom**
 
@@ -53,9 +53,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name       | Description                                                                                                                                                                                                                                                 |
-|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Alcatel-OmniSwitch-SNMP-custom** host template. |
+| Rule name   | Description                                                                                                                                                                                                                                                 |
+|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Alcatel-OmniSwitch-SNMP-custom** host template. |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -83,9 +83,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Flash-Memory" label="Flash-Memory">
 
-| Name                       | Unit  |
-|:---------------------------|:------|
-| *memory*#flash.usage.bytes | B     |
+| Name                       | Unit |
+|:---------------------------|:-----|
+| *memory*#flash.usage.bytes | B    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -162,7 +162,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:-----------------------|:------|
 | chassis.detected.count | count |
 | chassis-status         | N/A   |
-| chassis-status         | N/A   |
 
 </TabItem>
 </Tabs>
@@ -171,8 +170,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP agent must be enabled and configured on the resource. 
-Please refer to the [official documentation](https://www.al-enterprise.com/en/search#q=omniswitch&t=all&sort=relevancy) from the manufacturer/publisher. 
+The SNMP service must be configured and activated on the host. 
+Please refer to the [official documentation](https://www.al-enterprise.com/en/search#q=omniswitch&t=all&sort=relevancy). 
 Your resource may require a list of addresses authorized to query it to be set up. 
 Please ensure that the addresses of the Centreon pollers are included in this list.
 
@@ -222,8 +221,8 @@ yum install centreon-pack-network-switchs-alcatel-omniswitch-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Alcatel Omniswitch** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+2. Whatever the license type (*online* or *offline*), install the **Alcatel Omniswitch SNMP** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -280,9 +279,9 @@ yum install centreon-plugin-Network-Switchs-Alcatel-Omniswitch-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro            | Description                                                                                                                                        | Default value | Mandatory |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -294,81 +293,81 @@ yum install centreon-plugin-Network-Switchs-Alcatel-Omniswitch-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent (1m,1h)                                                                                                   |                   |             |
-| CRITICAL     | Critical threshold in percent (1m,1h)                                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold in percent (1m,1h)                                                                                                             |               |           |
+| CRITICAL     | Critical threshold in percent (1m,1h)                                                                                                            |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Flash-Memory" label="Flash-Memory">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent                                                                                                           |                   |             |
-| CRITICAL     | Critical threshold in percent                                                                                                          |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold in percent                                                                                                                     |               |           |
+| CRITICAL     | Critical threshold in percent                                                                                                                    |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                                         | Default value                                             | Mandatory   |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-----------:|
-| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                            | ifname                                                    |             |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                   | ifname                                                    |             |
-| INTERFACENAME      | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                                                           |             |
-| WARNINGINDISCARD   | Threshold                                                                                                                                                           |                                                           |             |
-| CRITICALINDISCARD  | Threshold                                                                                                                                                           |                                                           |             |
-| WARNINGINERROR     | Threshold                                                                                                                                                           |                                                           |             |
-| CRITICALINERROR    | Threshold                                                                                                                                                           |                                                           |             |
-| WARNINGINTRAFFIC   | Threshold                                                                                                                                                           |                                                           |             |
-| CRITICALINTRAFFIC  | Threshold                                                                                                                                                           |                                                           |             |
-| WARNINGOUTDISCARD  | Threshold                                                                                                                                                           |                                                           |             |
-| CRITICALOUTDISCARD | Threshold                                                                                                                                                           |                                                           |             |
-| WARNINGOUTERROR    | Threshold                                                                                                                                                           |                                                           |             |
-| CRITICALOUTERROR   | Threshold                                                                                                                                                           |                                                           |             |
-| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                           |                                                           |             |
-| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                           |                                                           |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}    |                                                           |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose                                                 |             |
+| Macro              | Description                                                                                                                                                         | Default value                                             | Mandatory |
+|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:---------:|
+| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                            | ifname                                                    |           |
+| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                   | ifname                                                    |           |
+| INTERFACENAME      | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                                                           |           |
+| WARNINGINDISCARD   | Threshold                                                                                                                                                           |                                                           |           |
+| CRITICALINDISCARD  | Threshold                                                                                                                                                           |                                                           |           |
+| WARNINGINERROR     | Threshold                                                                                                                                                           |                                                           |           |
+| CRITICALINERROR    | Threshold                                                                                                                                                           |                                                           |           |
+| WARNINGINTRAFFIC   | Threshold                                                                                                                                                           |                                                           |           |
+| CRITICALINTRAFFIC  | Threshold                                                                                                                                                           |                                                           |           |
+| WARNINGOUTDISCARD  | Threshold                                                                                                                                                           |                                                           |           |
+| CRITICALOUTDISCARD | Threshold                                                                                                                                                           |                                                           |           |
+| WARNINGOUTERROR    | Threshold                                                                                                                                                           |                                                           |           |
+| CRITICALOUTERROR   | Threshold                                                                                                                                                           |                                                           |           |
+| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                           |                                                           |           |
+| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                           |                                                           |           |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |           |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}    |                                                           |           |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose                                                 |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent (1m,1h)                                                                                                   |                   |             |
-| CRITICAL     | Critical threshold in percent (1m,1h)                                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold in percent (1m,1h)                                                                                                             |               |           |
+| CRITICAL     | Critical threshold in percent (1m,1h)                                                                                                            |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Spanning-Tree" label="Spanning-Tree">
 
-| Macro          | Description                                                                                                                                                               | Default value                    | Mandatory   |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
-| FILTERPORT     | Filter on port description (can be a regexp)                                                                                                                              | .*                               |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{op\_status\}, %\{admin\_status\}, %\{port\}, %\{index\} | %\{state\} =~ /blocking\|broken/ |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{op\_status\}, %\{admin\_status\}, %\{port\}, %\{index\}  |                                  |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                    | --verbose                        |             |
+| Macro          | Description                                                                                                                                                               | Default value                    | Mandatory |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:---------:|
+| FILTERPORT     | Filter on port description (can be a regexp)                                                                                                                              | .*                               |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{op\_status\}, %\{admin\_status\}, %\{port\}, %\{index\} | %\{state\} =~ /blocking\|broken/ |           |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{op\_status\}, %\{admin\_status\}, %\{port\}, %\{index\}  |                                  |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                    | --verbose                        |           |
 
 </TabItem>
 <TabItem value="Virtual-Chassis" label="Virtual-Chassis">
 
-| Macro                   | Description                                                                                                                            | Default value                  | Mandatory   |
-|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| WARNINGCHASSISDETECTED  | Threshold                                                                                                                              |                                |             |
-| CRITICALCHASSISDETECTED | Threshold                                                                                                                              |                                |             |
-| CRITICALCHASSISSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{role\}, %\{status\}, %\{mac\}    | %\{status\} !~ /init\|running/ |             |
-| WARNINGCHASSISSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{role\}, %\{status\}, %\{mac\}     |                                |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                      |             |
+| Macro                   | Description                                                                                                                                      | Default value                  | Mandatory |
+|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:---------:|
+| WARNINGCHASSISDETECTED  | Threshold                                                                                                                                        |                                |           |
+| CRITICALCHASSISDETECTED | Threshold                                                                                                                                        |                                |           |
+| CRITICALCHASSISSTATUS   | Define the conditions to match for the status to be CRITICAL You can use the following variables: %\{role\}, %\{status\}, %\{mac\}               | %\{status\} !~ /init\|running/ |           |
+| WARNINGCHASSISSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{role\}, %\{status\}, %\{mac\}               |                                |           |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose                      |           |
 
 </TabItem>
 </Tabs>
@@ -469,7 +468,7 @@ All generic options are listed here:
 | --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |

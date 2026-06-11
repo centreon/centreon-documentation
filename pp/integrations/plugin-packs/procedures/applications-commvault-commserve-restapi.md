@@ -227,7 +227,8 @@ yum install centreon-plugin-Applications-Commvault-Commserve-Restapi
 | COMMSERVEAPIPASSWORD     | Set API password                                                                                                                         |                   | X           |
 | COMMSERVEAPITOKEN        | Set API access token                                                                                                                     |                   |             |
 | COMMSERVEAPIREFRESHTOKEN | Set API refresh token associated to the access token. Refresh token is mandatory when --api-token is used                                |                   |             |
-| COMMSERVEAPIINSTANCE     | Set instance name to differentiate cache files when --api-token is used                                                                  | default           |             |
+| TOKEN_REFRESH_FREQUENCY  | Set token validity duration (in seconds). Tokens will be automatically renewed after this duration when operating in 'token' mode        | 1500              |             |
+| COMMSERVEAPIINSTANCE     | Set instance name to differentiate cache files when --api-token and 'token' authentication are used                                      | default           |             |
 | COMMSERVEAPIPROTO        | Specify https if needed                                                                                                                  | https             |             |
 | COMMSERVEAPIPORT         | API port                                                                                                                                 | 443               |             |
 | COMMSERVEAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -385,6 +386,7 @@ The plugin brings the following modes:
 | list-storage-policies [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/commvault/commserve/restapi/mode/liststoragepolicies.pm)] | Used for service discovery                           |
 | media-agents [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/commvault/commserve/restapi/mode/mediaagents.pm)]                  | App-Commvault-Commserve-Media-Agents-Restapi-custom  |
 | storage-pools [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/commvault/commserve/restapi/mode/storagepools.pm)]                | App-Commvault-Commserve-Storage-Pools-Restapi-custom |
+| token [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/commvault/commserve/restapi/mode/token.pm)]                               | Not used in this Monitoring Connector                |
 
 ### Available options
 

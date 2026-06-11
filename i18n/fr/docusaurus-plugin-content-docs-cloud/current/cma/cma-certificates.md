@@ -18,22 +18,43 @@ La vérification est faite sur les blocs **subject** et **alt_names** du certifi
 
 Les formats supportés sont :
 
-- fichier de certificat public, CA ou wildcard : .crt/.cer
+- fichier de certificat public, CA ou wildcard : .crt/.cert/.cer
 - fichier de clé privée : .key
 
-Les fichiers de certificat déposés sur le collecteur doivent être déposés dans **/etc/pki/**, à la racine ou dans un sous-repértoire.
-Ils doivent avoir les permissions suivantes :
+Les fichiers de certificat déposés sur le collecteur peuvent être placés dans n'importe quel répertoire (sauf les répertoires interdits).
+
+#### Répertoires interdits
 
 ```shell
-chmod 644 /etc/pki/agent.crt
-chmod 644 /etc/pki/agent.key
+/tmp 
+/root 
+/proc 
+/mnt 
+/run 
+/snap 
+/sys 
+/boot 
+/etc (seul /etc/pki/** est autorisé)
+/.*
 ```
+
+#### Permissions
+
+Les fichiers de certificat doivent avoir les permissions suivantes :
+
+```shell
+chmod 644 /chemin/vers/le/certificat/agent.crt
+chmod 644 /chemin/vers/le/certificat/agent.key
+```
+
 > Attention, ne pas appliquer ces droits à l'ensemble du répertoire /etc/pki/ au risque de provoquer une panne globale du collecteur.
 
 Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans le répertoire de votre choix.
 
 Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats (connexion initiée par l'agent).
 Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration faite sur l'hôte (colonne "Configuration de l'hôte" du tableau ci-dessous).
+
+> **Magasin de certificats Windows** : sous Windows, CMA lit les certificats CA depuis le magasin de certificats Windows **Ordinateur local** (Local Computer). Il s'agit du magasin de confiance standard à l'échelle du système, accessible en lecture par tous les processus de la machine, mais qui nécessite des privilèges d'administrateur pour y écrire. L'emplacement correct pour les certificats de CA racine et intermédiaires est : **Ordinateur local > Autorités de certification racines de confiance** (Local Computer > Trusted Root Certification Authorities).
 
 ### Synthèse des configurations possibles
 
@@ -158,7 +179,7 @@ chmod 644 /etc/pki/agent.key
 
 ## Mode test : communication non chiffrée
 
-Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat ou jeton.
+Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat mais un jeton reste obligatoire.
 
 > Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
 

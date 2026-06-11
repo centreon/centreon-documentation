@@ -50,7 +50,45 @@ Un jeton est fourni par défaut à la page **Administration > Jetons d'authentif
 
 * L'expiration est prise en compte immédiatement, sans nécessiter d'action utilisateur.
 
+### Configurez la communication collecteur/agent
+
+1. Allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter**.
+2. Dans la fenêtre qui s'ouvre, sélectionnez le type d'agent **Centreon Monitoring Agent**. Des champs supplémentaires apparaissent.
+3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
+4. Sélectionnez le mode de chiffrement
+
+<Tabs groupId="sync">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+
+5. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
+6. Sélectionnez **Créer les hôtes automatiquement** si vous souhaitez que le collecteur vérifie si les connexions entrantes proviennent d'hôtes connus ou non. Si aucun hôte de la liste ne porte le même hostname, l'hôte et ses services seront créés. Le modèle **OS-Windows-Centreon-Monitoring-Agent-custom** ou **OS-Linux-Centreon-Monitoring-Agent-custom** sera alors appliqué. Ces valeurs peuvent être modifiées sur l'hôte, en utilisant le paramètre **host_template** dans la base de registre ou le fichier **centagent.json**.
+7. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
+   > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
+8. Cliquez sur **Sauvegarder**.
+9. [Déployez la configuration en redémarrant le moteur de collecte](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+</TabItem>
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+
+5. Dans la section **Paramètres**, sélectionnez le collecteur qui se connectera aux agents. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
+6. Dans la section **Hôtes supervisés**, sélectionnez l'hôte créé précédemment. Son adresse IP s'affiche, et un port par défaut est renseigné. Modifiez ces informations si nécessaire.
+7. Renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
+8. Sélectionnez le jeton d'authentification créé précédemment. Il est aussi possible de créer un jeton depuis cet écran.
+9. Ajoutez l'hôte.
+10. Répétez l'opération pour chaque hôte devant être lié à ce collecteur. Pour configurer de fortes volumétries, il est recommandé de passer par les API dédiées.
+11. [Déployez la configuration en redémarrant le moteur de collecte](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+</TabItem>
+</Tabs>
+
+Cette configuration est déployée sur le collecteur dans le fichier **/etc/centreon-engine/otl_server.json**. Attention, ce fichier ne doit pas être édité à la main car il est écrasé à chaque déploiement de la configuration.
+
 ### Créez l'hôte et les services
+
+Cette section s'applique :
+
+* si le collecteur établit la connexion avec l'agent
+* si l'agent établit la connexion avec le collecteur, mais que l'option **Créer les hôtes automatiquement** n'est pas sélectionnée.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
@@ -71,38 +109,6 @@ Créez les services associés au modèle d'hôte.
 </TabItem>
 </Tabs>
 
-### Configurez la communication collecteur/agent
-
-1. Allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter**.
-2. Dans la fenêtre qui s'ouvre, sélectionnez le type d'agent **Centreon Monitoring Agent**. Des champs supplémentaires apparaissent.
-3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
-4. Sélectionnez le mode de chiffrement
-
-<Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
-
-5. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
-6. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
-   > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
-7. Cliquez sur **Sauvegarder**.
-8. [Déployez la configuration en redémarrant le moteur de collecte](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
-</TabItem>
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
-
-5. Dans la section **Paramètres**, sélectionnez le collecteur qui se connectera aux agents. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
-6. Dans la section **Hôtes supervisés**, sélectionnez l'hôte créé précédemment. Son adresse IP s'affiche, et un port par défaut est renseigné. Modifiez ces informations si nécessaire.
-7. Renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
-8. Sélectionnez le jeton d'authentification créé précédemment. Il est aussi possible de créer un jeton depuis cet écran.
-9. Ajoutez l'hôte.
-10. Répétez l'opération pour chaque hôte devant être lié à ce collecteur. Pour configurer de fortes volumétries, il est recommandé de passer par les API dédiées.
-11. [Déployez la configuration en redémarrant le moteur de collecte](../monitoring/monitoring-servers/deploying-a-configuration.md).
-
-</TabItem>
-</Tabs>
-
-Cette configuration est déployée sur le collecteur dans le fichier **/etc/centreon-engine/otl_server.json**. Attention, ce fichier ne doit pas être édité à la main car il est écrasé à chaque déploiement de la configuration.
-
 ## Étape 2 : Préparez le collecteur
 
 > Cette étape n'est pas nécessaire si vous souhaitez utiliser CMA avec le collecteur **Central**.
@@ -113,6 +119,8 @@ Cette étape s'effectue sur le collecteur.
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+
+> Ces commandes doivent être adaptées selon le système d'exploitation.
 
 Exécutez les commandes suivantes :
 
@@ -236,7 +244,16 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el10/centreon-25.10.repo
+dnf install  compat-openssl11 centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 1. Exécutez les commandes suivantes :
 
@@ -244,7 +261,6 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 2. Importez la clé du dépôt :
@@ -269,7 +285,6 @@ apt install centreon-monitoring-agent
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/ubuntu-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
-echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 2. Importez la clé du dépôt :
@@ -297,6 +312,8 @@ apt install centreon-monitoring-agent
 
 > Si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 $\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
+
+Pour un collecteur distant :
 
 ```json
 {
@@ -401,7 +418,7 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 $\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 
-   * Dans le champ **Poller endpoint**, saisissez l'adresse IP ou le nom DNS du collecteur, suivi du port d'écoute CMA (4317 par défaut), sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317.
+   * Dans le champ **Poller endpoint**, saisissez l'adresse IP ou le nom DNS du collecteur, suivi du port d'écoute CMA (4317 par défaut pour un collecteur distant), sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317.
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
    * Le champ **Listening interface** pourra rester à sa valeur par défaut (0.0.0.0:4317), et correspond à l'interface sur laquelle l'agent va accepter les connections venant du collecteur.
@@ -422,37 +439,41 @@ Vous pouvez afficher une liste des arguments avec la ligne de commande suivante 
 centreon-monitoring-agent.exe /VERYSILENT /HELP
 ```
 
-> Si vous utilisez le collecteur central, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> Si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 > $\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Les différents arguments sont:
 
-| flag                       | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | obligatoire
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | 
-|/COMPONENTS| Composants à installer. "agent", "plugins" ou "agent,plugins"  |X |
-|/AGENTINSTANCE| Le nom d'instance de l'agent (nom du service). Si non renseigné, un nom par défaut est généré (CentreonMonitoringAgent) |  |
-|/HOST                 | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon.                          | X |
-|/ENDPOINT                 | Dans le cas le plus courant (l'agent se connecte au collecteur), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le collecteur, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si **/REVERSE=true**, vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur. | X|
-|/TOKEN| Jeton d'authentification | X |
-|/PLUGINSRC| Source d'installation des plugins Centreon. "auto" : via internet, "embedded" : version locale. Défaut : "auto" || 
-|/REVERSE| Connection initiée par le collecteur. "true" ou "false". Défaut : "false"| |
-|/ENCRYPTION| Mode de chiffrement. "no","full","insecure". Défaut : "no"|  |
-|/CERT| Chemin du fichier contenant la clé publique | si ENCRYPTION=full ou insecure, et /REVERSE=true |
-|/KEY| Chemin du fichier contenant la clé privée | si ENCRYPTION=full ou insecure, et /REVERSE=true |
-|/CA| Chemin du fichier contenant le certificat de confiance |  |
-|/COMMONNAME| Nom commun CA. Si ENCRYPTION=insecure |  |
-|/LOGTYPE| "event-log" ou "file". Défaut : "event-log"|  |
-|/LOGFILE| Chemin du fichier de log | si /LOGTYPE=file |
-|/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Défaut : "error"| si /LOGTYPE=file |
-|/MAXFILESIZE| Taille maximale du fichier de log avant rotation, en Mo. Défaut : 10. Si /LOGTYPE=file | |
-|/MAXNUMBER| Nombre maximal de fichiers de log. Pour que la rotation des logs soit activée, ces deux paramètres sont nécessaires. Défaut : 3. Si /LOGTYPE=file | |
-|/VERSION| Version de centagent.exe |  |                                                                                                                                                                                                                                                      
+| flag             | description                                                                                                                                                                                                                                                                                                                                                                                                                                                            | obligatoire                                      |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------| 
+| /COMPONENTS      | Composants à installer. "agent", "plugins" ou "agent,plugins"                                                                                                                                                                                                                                                                                                                                                                                                          | X                                                |
+| /AGENTINSTANCE   | Le nom d'instance de l'agent (nom du service). Si non renseigné, un nom par défaut est généré (CentreonMonitoringAgent)                                                                                                                                                                                                                                                                                                                                                |                                                  |
+| /HOST            | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon.                                                                                                                                                                                                                                                                                        | X                                                |
+| /ENDPOINT        | Dans le cas le plus courant (l'agent se connecte au collecteur), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le collecteur, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si **/REVERSE=true**, vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317 pour le collecteur distant) sur lequel l'agent va accepter les connections venant du collecteur. | X                                                |
+| /TOKEN           | Jeton d'authentification                                                                                                                                                                                                                                                                                                                                                                                                                                               | X                                                |
+| /PLUGINSRC       | Source d'installation des plugins Centreon. "auto" : via internet, "embedded" : version locale. Défaut : "auto"                                                                                                                                                                                                                                                                                                                                                        |                                                  | 
+| /REVERSE         | Connection initiée par le collecteur. "true" ou "false". Défaut : "false"                                                                                                                                                                                                                                                                                                                                                                                              |                                                  |
+| /ENCRYPTION      | Mode de chiffrement. "no","full","insecure". Défaut : "no"                                                                                                                                                                                                                                                                                                                                                                                                             |                                                  |
+| /CERT            | Chemin du fichier contenant la clé publique                                                                                                                                                                                                                                                                                                                                                                                                                            | si ENCRYPTION=full ou insecure, et /REVERSE=true |
+| /KEY             | Chemin du fichier contenant la clé privée                                                                                                                                                                                                                                                                                                                                                                                                                              | si ENCRYPTION=full ou insecure, et /REVERSE=true |
+| /CA              | Chemin du fichier contenant le certificat de confiance                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                  |
+| /COMMONNAME      | Nom commun CA. Si ENCRYPTION=insecure                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                  |
+| /LOGTYPE         | "event-log" ou "file". Défaut : "event-log"                                                                                                                                                                                                                                                                                                                                                                                                                            |                                                  |
+| /LOGFILE         | Chemin du fichier de log                                                                                                                                                                                                                                                                                                                                                                                                                                               | si /LOGTYPE=file                                 |
+| /LOGLEVEL        | "off","critical","error","warning","info","debug","trace". Défaut : "error"                                                                                                                                                                                                                                                                                                                                                                                            | si /LOGTYPE=file                                 |
+| /MAXFILESIZE     | Taille maximale du fichier de log avant rotation, en Mo. Défaut : 10. Si /LOGTYPE=file                                                                                                                                                                                                                                                                                                                                                                                 |                                                  |
+| /MAXNUMBER       | Nombre maximal de fichiers de log. Pour que la rotation des logs soit activée, ces deux paramètres sont nécessaires. Défaut : 3. Si /LOGTYPE=file                                                                                                                                                                                                                                                                                                                      |                                                  |
+| /CUSTOMCHECKFILE | Chemin du fichier de commandes personnalisées, si vous en utilisez.                                                                                                                                                                                                                                                                                                                                                                                                    |                                                  |
+| /VERSION         | Version de centagent.exe                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                  |                                                                                                                                                                                                                                                      
                                                                                          
 Si **/PLUGINSRC=auto** et que le téléchargement échoue, l'installeur passera automatiquement en mode **embedded**.
 
 Les erreurs d'exécution du mode silencieux, et l'output de /VERSION sont écrits dans ./installer_output.log.
 
 *Exemples de commande*
+
+> Si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+$\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Commande minimale (paramètres obligatoires) :
 
@@ -502,7 +523,7 @@ Deux types de log sont disponibles :
 </TabItem>
 </Tabs>
 
-### Déployer les plugins Centreon agent sur l'hôte (Linux)
+### Déployer le plugin Centreon sur l'hôte (Linux)
 
 Si vous utilisez des connecteurs Centreon et des contrôles non natifs sous Linux :
 
@@ -640,10 +661,97 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```bash
+dnf install -y dnf-plugins-core
+dnf install -y epel-release
+dnf config-manager --set-enabled crb
+
+cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
+[centreon-plugins-stable]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-stable-noarch]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/noarch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+EOF
+```
+
+2. Installez le plugin :
+
+```bash
+dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
+```
+
+> NB: sur certaines images docker minimalistes, il peut être nécessaire d'installer ce paquet :
+> ```bash
+> dnf install procps-ng
+> ```
+
+</TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt-get update
+```
+
+2. Installez le plugin :
+
+```bash
+apt -y install centreon-plugin-operatingsystems-linux-local
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```bash
+apt update && apt install lsb-release ca-certificates apt-transport-https wget gnupg2 curl
 
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
@@ -671,6 +779,18 @@ apt-get update
 
 ```bash
 apt -y install centreon-plugin-operatingsystems-linux-local
+```
+
+</TabItem>
+</Tabs>
+
+3. Créez le répertoire nécessaire au cache des plugins :
+
+```bash
+mkdir -p /var/lib/centreon/centplugins
+chown centreon-monitoring-agent: /var/lib/centreon/centplugins
+```
+
 ### Configurer plusieurs instances d'agent sur le même hôte
 
 #### Principe général
@@ -778,6 +898,9 @@ Il sera utilisé comme nom de service et de clé de registre.
 
 À chaque exécution, une nouvelle instance est créée, avec nom incrémental “CentreonMonitoringAgent1”, “CentreonMonitoringAgent2”.
 Si l’on veut nommer autrement le service (le nom doit être unique), utilisez le paramètre **/AGENTINSTANCE**. Ce nom sera utilisé comme nom de service et de clé de registre.
+
+> Si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+$\{CLOUD_ORG\} est présent dans l'URL de votre plateforme Cloud : https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 ```shell
 centreon-monitoring-agent-xxx.exe /VERYSILENT /AGENTINSTANCE="ServiceName"  /COMPONENTS=agent,plugins /HOST=host_1 /ENDPOINT=localhost:4317 /TOKEN=token_value 

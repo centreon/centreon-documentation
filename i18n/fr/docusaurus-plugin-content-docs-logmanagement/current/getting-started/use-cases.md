@@ -1,9 +1,9 @@
----
+﻿---
 id: use-cases
 title: Cas d'usage
 ---
 
-Centreon Log Management vous permet de détecter et de résoudre une grande variété de problèmes dans un système informatique, allant des erreurs mineures aux incidents majeurs. De nombreux cas d'utilisation typiques de CLM se concentrent sur l'analyse des causes profondes (root cause analysis). Voici quelques exemples concrets de ce que CLM peut vous aider à détecter à partir de l'analyse des journaux manquants, des types de journaux inattendus ou des volumes de journaux inhabituels.
+Centreon Log Management vous permet de détecter et de résoudre une grande variété de problèmes dans un système informatique, allant des erreurs mineures aux incidents majeurs. De nombreux cas d'utilisation typiques de Log Management se concentrent sur l'analyse des causes profondes (root cause analysis). Voici quelques exemples concrets de ce que Log Management peut vous aider à détecter à partir de l'analyse des journaux manquants, des types de journaux inattendus ou des volumes de journaux inhabituels.
 
 ## Problèmes d'intégration et de communication entre services
 
@@ -23,7 +23,7 @@ Par exemple, si les données attendues ne sont pas reçues ou envoyées correcte
 
 ### Problèmes de synchronisation
 
-Les erreurs dans le traitement des files d'attente de messages ou des évènements asynchrones peuvent être identifiées par CLM. Vous pouvez les détecter en filtrant Log explorer sur le nom du service (service_name: "synchronization service").
+Les erreurs dans le traitement des files d'attente de messages ou des évènements asynchrones peuvent être identifiées par Log Management. Vous pouvez les détecter en filtrant Log explorer sur le nom du service (service_name: "synchronization service").
 
 ## Problèmes liés au serveur ou à l'infrastructure
 
@@ -45,7 +45,7 @@ Les exceptions ou erreurs dans le code d'une application, comme des "null pointe
 
 ### Échec de connexion à une base de données
 
-Si une application ne parvient pas à se connecter à une base de données, CLM peut signaler les messages d'erreur correspondants. Vous les détecterez généralement dans Log explorer.
+Si une application ne parvient pas à se connecter à une base de données, Log Management peut signaler les messages d'erreur correspondants. Vous les détecterez généralement dans Log explorer.
 
 ### Erreurs de configuration
 
@@ -67,7 +67,7 @@ Les conflits entre différentes versions de logiciels, d'outils ou de bibliothè
 
 ### Échecs de processus batch ou de jobs automatisés
 
-Si une tâche automatisée ou un script de batch échoue, CLM peut afficher les erreurs associées.
+Si une tâche automatisée ou un script de batch échoue, Log Management peut afficher les erreurs associées.
 
 Exemples :
 
@@ -136,5 +136,5 @@ Les échecs de connexion ou de communication entre les services (par exemple, un
 
 ## Exemples de questions auxquelles vous pouvez trouver des réponses
 
-* Quel service génère le plus d'erreurs aujourd'hui ? Filtrez la [timeline](../explore-analyze.md#utiliser-la-page-log-explorer) sur la journée courante, puis filtrez par severitynumber>17. Empilez le graphique par nom de service.
+* Quel service génère le plus d'erreurs aujourd'hui ? Filtrez la [timeline](../log-explorer.md) sur la journée courante, puis filtrez par severitynumber>17. Empilez le graphique par nom de service.
 * Quels services ont changé de comportement après le déploiement ? Dans Log explorer, filtrez par nom de service ou espace de noms, et vérifiez s'il y a des erreurs.

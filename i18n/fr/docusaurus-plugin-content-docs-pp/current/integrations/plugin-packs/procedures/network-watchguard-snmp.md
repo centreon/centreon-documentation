@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Watchguard SNMP** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -158,7 +158,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                                                   | Unité |
 |:------------------------------------------------------|:------|
 | status                                                | N/A   |
-| status                                                | N/A   |
 | *interface_name1*#interface.traffic.in.bitspersecond  | b/s   |
 | *interface_name2*#interface.traffic.in.bitspersecond  | b/s   |
 | *interface_name1*#interface.traffic.out.bitspersecond | b/s   |
@@ -222,8 +221,8 @@ yum install centreon-pack-network-watchguard-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Watchguard**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Watchguard SNMP**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -336,7 +335,7 @@ yum install centreon-plugin-Network-Watchguard-Snmp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'device'                                                                                       | .*                |             |
+| COMPONENT    | Which component to check. Can be: 'device'                                                                                                       | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -385,15 +384,15 @@ yum install centreon-plugin-Network-Watchguard-Snmp
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro          | Description                                                                                                                                                                                                                     | Valeur par défaut | Obligatoire |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                             | .*                |             |
-| WARNINGIN      | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALIN     | Threshold                                                                                                                                                                                                                       | 90                |             |
-| WARNINGOUT     | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALOUT    | Threshold                                                                                                                                                                                                                       | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                | --verbose         |             |
+| Macro          | Description                                                                                                                                                         | Valeur par défaut                                | Obligatoire |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
+| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name | .*                                               |             |
+| WARNINGIN      | Threshold                                                                                                                                                           | 80                                               |             |
+| CRITICALIN     | Threshold                                                                                                                                                           | 90                                               |             |
+| WARNINGOUT     | Threshold                                                                                                                                                           | 80                                               |             |
+| CRITICALOUT    | Threshold                                                                                                                                                           | 90                                               |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} ne "up" |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                    | --verbose                                        |             |
 
 </TabItem>
 </Tabs>
@@ -419,7 +418,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--name \
 	--add-status \
 	--add-traffic \
-	--critical-status='' \
+	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' \
 	--warning-in-traffic='80' \
 	--critical-in-traffic='90' \
 	--warning-out-traffic='80' \
@@ -430,7 +429,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=13b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=61b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=71b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=68b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes
@@ -456,23 +455,23 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                             | Modèle de service associé                 |
-|:---------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|
-| cluster [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/watchguard/snmp/mode/cluster.pm)]          | Net-Watchguard-Cluster-SNMP-custom        |
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/watchguard/snmp/mode/cpu.pm)]                  | Net-Watchguard-Cpu-SNMP-custom            |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/hardwaredevice.pm)]            | Net-Watchguard-Hardware-SNMP-custom       |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]              | Net-Watchguard-Traffic-Global-SNMP-custom |
-| ipsec-tunnel [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/watchguard/snmp/mode/ipsectunnel.pm)] | Net-Watchguard-Ipsec-Tunnel-SNMP-custom   |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]     | Used for service discovery                |
-| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/liststorages.pm)]         | Used for service discovery                |
-| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/loadaverage.pm)]                   | Not used in this Monitoring Connector     |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/memory.pm)]                      | Not used in this Monitoring Connector     |
-| policy-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/watchguard/snmp/mode/policyusage.pm)] | Net-Watchguard-Policy-Usage-SNMP-custom   |
-| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/storage.pm)]                    | Net-Watchguard-Disk-Global-SNMP-custom    |
-| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/swap.pm)]                          | Not used in this Monitoring Connector     |
-| system [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/watchguard/snmp/mode/system.pm)]            | Net-Watchguard-System-SNMP-custom         |
-| time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/ntp.pm)]                           | Not used in this Monitoring Connector     |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                      | Not used in this Monitoring Connector     |
+| Mode                                                                                                                             | Modèle de service associé                     |
+|:---------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| cluster [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/watchguard/snmp/mode/cluster.pm)]          | Net-Watchguard-Cluster-SNMP-custom            |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/watchguard/snmp/mode/cpu.pm)]                  | Net-Watchguard-Cpu-SNMP-custom                |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/hardwaredevice.pm)]            | Net-Watchguard-Hardware-SNMP-custom           |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]              | Net-Watchguard-Traffic-Global-SNMP-custom     |
+| ipsec-tunnel [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/watchguard/snmp/mode/ipsectunnel.pm)] | Net-Watchguard-Ipsec-Tunnel-SNMP-custom       |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]     | Utilisé pour la découverte de services        |
+| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/liststorages.pm)]         | Utilisé pour la découverte de services        |
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/loadaverage.pm)]                   | Non utilisé dans ce connecteur de supervision |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/memory.pm)]                      | Non utilisé dans ce connecteur de supervision |
+| policy-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/watchguard/snmp/mode/policyusage.pm)] | Net-Watchguard-Policy-Usage-SNMP-custom       |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/storage.pm)]                    | Net-Watchguard-Disk-Global-SNMP-custom        |
+| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/swap.pm)]                          | Non utilisé dans ce connecteur de supervision |
+| system [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/watchguard/snmp/mode/system.pm)]            | Net-Watchguard-System-SNMP-custom             |
+| time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/ntp.pm)]                           | Non utilisé dans ce connecteur de supervision |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                      | Non utilisé dans ce connecteur de supervision |
 
 ### Options disponibles
 
@@ -507,7 +506,7 @@ Les options génériques sont listées ci-dessous :
 | --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |

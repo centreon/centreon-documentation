@@ -11,9 +11,9 @@
     "message": "Gérer les utilisateurs",
     "description": "The label for category Managing users in sidebar logmanagement"
   },
-    "sidebar.logmanagement.category.Sending logs to CLM": {
-    "message": "Envoyer des logs à CLM",
-    "description": "The label for category Sending logs to CLM in sidebar logmanagement"
+    "sidebar.logmanagement.category.Sending logs to Centreon Log Management": {
+    "message": "Envoyer des logs à Centreon Log Management",
+    "description": "The label for category Sending logs to Centreon Log Management in sidebar logmanagement"
   },
     "sidebar.logmanagement.category.Exploring and analyzing logs": {
     "message": "Explorer et analyser les logs",
@@ -30,5 +30,9 @@
     "sidebar.logmanagement.category.Resources": {
     "message": "Ressources",
     "description": "The label for category Resources in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.API": {
+    "message": "API",
+    "description": "The label for category API in sidebar logmanagement"
   }
 }

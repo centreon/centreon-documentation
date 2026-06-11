@@ -13,15 +13,433 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 | Component | Releases |
 |----------|----------|
-| **Centreon Web** | [25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
-| **Centreon Collect** | [25.10.2 (January 29, 2026)](#centreon-collect-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-collect-25101) |
-| **Centreon Gorgone** | [25.10.3 (January 29, 2026)](#centreon-gorgone-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-gorgone-25102)<br/>[25.10.1 (November 17, 2025)](#centreon-gorgone-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-gorgone-25100) |
-| **Centreon Monitoring Agent** | [25.10.2 (January 29, 2026)](#centreon-monitoring-agent-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-monitoring-agent-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-monitoring-agent-25100)  |
-| **Centreon Open Tickets** | [25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
-| **Centreon AWIE** | [25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
-| **Centreon DSM** | [25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
+| **Centreon Web** | [25.10.13 (June 3, 2026)](#centreon-web-251013)<br/>[25.10.12 (May 26, 2026)](#centreon-web-251012)<br/>[25.10.11 (April 28, 2026)](#centreon-web-251011)<br/>[25.10.10 (March 30, 2026)](#centreon-web-251010)<br/>[25.10.9 (February 25, 2026)](#centreon-web-25109)<br/>[25.10.8 (February 23, 2026)](#centreon-web-25108)<br/>[25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
+| **Centreon Collect** | [25.10.7 (June 2, 2026)](#centreon-collect-25107)<br/>[25.10.6 (May 26, 2026)](#centreon-collect-25106)<br/>[25.10.5 (April 28, 2026)](#centreon-collect-25105)<br/>[25.10.4 (March 30, 2026)](#centreon-collect-25104)<br/>[25.10.3 (February 25, 2026)](#centreon-collect-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-collect-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-collect-25101) |
+| **Centreon Gorgone** |  [25.10.7 (May 26, 2026)](#centreon-gorgone-25107)<br/>[25.10.6 (April 28, 2026)](#centreon-gorgone-25106)<br/>[25.10.5 (March 30, 2026)](#centreon-gorgone-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-gorgone-25104)<br/>[25.10.3 (January 29, 2026)](#centreon-gorgone-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-gorgone-25102)<br/>[25.10.1 (November 17, 2025)](#centreon-gorgone-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-gorgone-25100) |
+| **Centreon Monitoring Agent** | [25.10.6 (May 26, 2026)](#centreon-monitoring-agent-25106)<br/>[25.10.5 (April 28, 2026)](#centreon-monitoring-agent-25105)<br/>[25.10.4 (March 30, 2026)](#centreon-monitoring-agent-25104)<br/>[25.10.3 (February 25, 2026)](#centreon-monitoring-agent-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-monitoring-agent-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-monitoring-agent-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-monitoring-agent-25100)  |
+| **Centreon Open Tickets** | [25.10.7 (May 26, 2026)](#centreon-open-tickets-25107)<br/>[25.10.6 (April 28, 2026)](#centreon-open-tickets-25106)<br/>[25.10.5 (March 30, 2026)](#centreon-open-tickets-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-open-tickets-25104)<br/>[25.10.3 (February 23, 2026)](#centreon-open-tickets-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
+| **Centreon AWIE** | [25.10.6 (April 28, 2026)](#centreon-awie-25106)<br/>[25.10.5 (Febuary 25, 2026)](#centreon-awie-25105)<br/>[25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
+| **Centreon DSM** | [25.10.3 (April 28, 2026)](#centreon-dsm-25103)<br/>[25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
 
 </details>
+
+## June 3, 2026
+
+### Centreon Web 25.10.13
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Remote Server] Fixed an issue where exporting the configuration of a remote server would reset certain settings and ACLs for that server.
+
+</details>
+
+## June 2, 2026
+
+### Centreon Collect 25.10.7
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [configuration] Fixed an issue where the '$' character in a macro was removed.
+
+</details>
+
+## May 26, 2026
+
+### Centreon Web 25.10.12
+
+<details open>
+  <summary>Enhancements</summary>
+
+- TLS configuration is now exported from .env to broker json files.
+- [Configuration] Added a dedicated window to ease the deployment of CMA.
+- [Configuration] Disabled the Agent Type selector when editing an existing agent configuration.
+- [Configuration] Removed an obsolete gorgone error message from the configuration log that appeared when exporting the configuration of a remote poller.
+- [Performance] Improved ACL calculations by removing the dependency to an outdated class on legacy pages.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue where adding image linked to a host group with a dot in the directory name would result in an error.
+- [API] Fixed an issue where filtering on a hostgroup in a host search would not show all relevant host groups. The same issue was found and fixed for categories.
+- [APIv2] Fixed an issue with the API response not displaying all the requested elements.
+- [Authentication] Fixed authentication failures with SAML. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
+- [CLAPI] Fixed an issue where CG objects were not displaying a "members" column.
+- [Centreon-Backup] Fixed a mysqldump error 1045 that appeared when the user did not have LOCK TABLES permissions.
+- [Configuration] Fixed an issue where Centreon Engine statistics were no longer displayed.
+- [Configuration] Fixed an issue where empty/undefined inherited command macros were saved on final resource.
+- [Custom Views] Fixed an issue where the number of hosts and services displayed in some widgets was incorrect for non-admin users.
+- [Event Logs] Fixed an issue where restricted users saw no results in the Event Log despite having assigned resources.
+- [Logs] Fixed an issue where insufficient user permissions triggered excessive PHP warnings, potentially causing disk space issues.
+- [Resource Status] Fixed an issue where the Status column would disappear when navigating to the Resource Status page from a Dashboard "Resource Table" widget.
+- [Systemd] Allow php-fpm to write in /usr/share/centreon.
+- [Upgrade from 24.10.x] Fixed an issue with additional_connector_configuration that resulted in ab SQL error, blocking the upgrade entirely .
+- [Virtual metrics] Fixed an error when adding or editing a virtual metric with “VDEF” as the “DEF Type”.
+
+</details>
+
+### Centreon Open Tickets 25.10.7
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Performance] Improved ACL calculations by removing the dependency to an outdated class on legacy pages.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Resolved incorrect redirections to status pages when initiated from the Open ticket widgets.
+- [EasyVistaRest provider] Fixed ticket creation errors for custom database setups.
+
+</details>
+
+### Centreon Collect 25.10.6
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] Enhanced cache reliability for stream connectors.
+- [Configuration] Macros can now be used inside custom macros (recursive).
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Notifications] Fixed an issue where escalations would not be sent to the relevant users.
+
+</details>
+
+### Centreon Gorgone 25.10.7
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ETL] Updated database scripts to ensure DB tables support metric names longer than 255 characters, preventing crashes during data processing.
+
+</details>
+
+### Centreon Monitoring Agent 25.10.6
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] Enhanced cache reliability for stream connectors.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CMA] Fixed an issue with the certificate being saved in an incorrect location.
+
+</details>
+
+## April 28, 2026
+
+### Centreon Web 25.10.11
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Install/Upgrade] If a dedicated token & agent configuration do not yet exist when doing a fresh install/upgrading a platform, they will now be automatically created.
+- [Pollers] If a dedicated token & agent configuration do not yet exist when when a new poller is added, they will now be automatically created.
+- [API] Added a new endpoint to GET Host Template.
+- [API] Added a new endpoint to GET Host.
+- [API] Added a new endpoint to GET Service Template.
+- [API] Added a new endpoint to GET Services.
+- [API] Added a new endpoint to GET Service Severities.
+- [API] Added a new endpoint to GET and DELETE medias.
+- [API] Added a new endpoint to GET and UPDATE Service Category.
+- [API] Added a new endpoint to GET and UPDATE Service Groups.
+- [Authentication] Specified the list of special characters accepted when creating a password.
+- [Configuration] Improved host selection when creating hostgroups: search results are no longer reset when a host is added and clicking "Select all" no longer removes previously selected hosts.
+- [Performance] Improved the SQL query construction for better performance in Resource Status.
+- [Performance] Removed the deprecated row-counting method and removed an unnecessary SQL join to optimize queries in Resource Status.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue with host edition/creation making API calls.
+- [API] Fixed an issue where `otel_server` block was added to `otl_server.json` when only 'Connection initiated by poller' was active in TLS mode.
+- [ACL] Fixed an issue that allowed users to see hosts belonging to hostgroups they had lost access to.
+- [API] Fixed an issue where adding a host or a service wouldn't trigger an ACL recalculation.
+- [MCP] Fixed an issue that resulted in an SQL syntax error when calling the 'GET' API endpoints with certain parameters.
+- [Administration] Fixed an issue where unlocking a locked contact would fail with an SQL syntax error.
+- [Authentication] Fixed an issue with SAML authentication that caused several API call failure messages and a error 500. Please manually verify your SAML comparison settings if you previously used a non-default configuration.
+- [CEIP] Fixed an issue where database name was hardcoded, causing multiple SQL errors.
+- [Configuration] Fixed an issue that caused exporting the configuration to be slower on 25.10.
+- [Configuration] Fixed an issue where unlinking a host template from a host did not unlink it from the service by host page.
+- [Dashboards] Duplicate entries are now removed from the metric selection.
+- [Event Logs] Fixed an issue in filter dropdowns where the service list failed to update based on the selected host.
+- [Graph] Legend names now display correctly instead of showing the "Default" placeholder.
+- [Login] Fixed an issue on login autofill when using Safari that caused the the username field to remain empty.
+- [Remote server] Fixed an issue where tasks were not correctly imported.
+- [Upgrade 24.10.x] Fixed missing column 'parameters' in additional_connector_configuration.
+- [WEB] Fixed console error from css MIME type.
+
+</details>
+
+### Centreon Open Tickets 25.10.6
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [ITSM] Ivanti ITSM is now officially supported.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Services] Fixed an issue where moving a service between hosts would leave remains of the old configuration in some tables used by Open Ticket.
+- [Performance] Improved ticket management performance in the Resource Table widget in dashboards.
+
+</details>
+
+### Centreon Collect 25.10.5
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Broker is now able to handle secure TLS connections.
+- [CMA] The CMA agent can now retrieve the certificate automatically generated by the poller.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue occurring with the perl connector when plugin output was longer than 4096 bytes.
+
+</details>
+
+### Centreon Gorgone 25.10.6
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Config] Fixed an issue that caused application crashes when a service had no associated category. These services are now automatically assigned to a "NoCategory" dimension, just like hosts.
+- [Packaging] The **centreon-common** package is no longer installed when installing **centreon-gorgone**.
+
+</details>
+
+### Centreon Monitoring Agent 25.10.5
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] The CMA agent can now retrieve the certificate automatically generated by the poller.
+
+</details>
+
+### Centreon AWIE 25.10.6
+
+- No functional changes for this module in this version.
+
+### Centreon DSM 25.10.3
+
+- No functional changes for this module in this version.
+
+## March 30, 2026
+
+### Centreon Web 25.10.10
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Hosts can now be automaticaly created when the option for it is checked in Agent configuration.
+- [Dashboards] Status Chart widget - Added the ability to filter by the state of resources (in downtime, acknowledged, flapping).
+- [Image Administration] You can now upload images weighing up to 5 MB.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CMA] Fixed an issue during the remote server upgrade, regarding the event_script output for CMA.
+- [API] Fixed an issue where LDAP users configured to reach the API realtime would get their permission revoked after requesting a login token.
+- [API] The API no longer returns "null" when trying to acces the /monitoring/servers endpoint (it will now returns the IP address of the pollers).
+- [Administration] Fixed an issue where additional configuration wasn't updated after deleting a user.
+- [Administration] Fixed pagination issues on the LDAP page.
+- [Authentication] Changed the default setting for "Requested Authentication Context" to Disabled in SAML/SSO configurations.
+- [Configuration] Allowed horizontal resize on select type fields.
+- [Configuration] Fixed an issue on additional configuration when changing vCenter name.
+- [Configuration] Fixed an issue on macro decryption (use engine-context instead of .env when encrypting).
+- [Configuration] Fixed an issue where .mib import logs were unreadable.
+- [Configuration] Fixed an issue where changes to the "Broker module configuration file" field weren’t applied.
+- [Configuration] Listing pages now display the total count and the range of visible elements.
+- [Configuration] Macros defined on a parent resource are now preserved when a child resource overrides its value.
+- [Custom Views] Fixed an SQL error that occurred when renaming a widget.
+- [Custom Views] Fixed an issue where exporting data for Service Monitoring widgets included all services in the configuration instead of just the selected resources.
+- [Custom Views] Fixed an issue with large platforms where the CSV export in the Service Monitoring widget failed.
+- [Installation] Fixed an issue with the mariadb password setup.
+- [Resource Status] Fixed an issue that caused the Centreon interface to crash when trying to display the graph of a service without any performance data available.
+- [Resource Status] Fixed an issue with PNG exports.
+- [Resource Status] Fixed an issue with the CSV export not taking into consideration the applied filters.
+
+</details>
+
+### Centreon Open Tickets 25.10.5
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Resource Table widget - Fixed an issue occurring when the ticket ID is not a numeric value.
+- [Dashboards] Resource Table widget - Fixed several issues occurring when using Easy Vista Rest API provider.
+
+</details>
+
+### Centreon Collect 25.10.4
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CMA] Fixed an issue where peer name was not in the peer certificate, while correctly configured in the self-signed certificate.
+
+</details>
+
+### Centreon Gorgone 25.10.5
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue with partitioning and data duplication during the rebuild process.
+
+</details>
+
+### Centreon Monitoring Agent 25.10.4
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] A new “Host template" parameter is available in CMA configuration, and used for Host registration.
+- [CMA] Added a Linux script to ease agent download & deployment.
+- [CMA] Added a Windows script to ease agent download & deployment.
+- [CMA] File native checks can now trigger alerts on empty result set.
+- [CMA] Improved wording for the outpute of the CMA installation script.
+
+</details>
+
+## February 25, 2026
+
+### Centreon Web 25.10.9
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CA] CA certificate-related columns have been created in the instances database. 
+- [Configuration] Provided a script to adapt the threshold format for CMA native checks.
+- [Dashboards] Resource Table widget - Options are now available to enable/disable ticket creation (for hosts and services).
+- [Pollers] Dedicated token & agent configuration are now automatically created when adding a Poller/Remote Server.
+- [Logs] Opentelemetry has been added in the Engine logs menu.
+- [Poller wizard] Replaced "service" by "systemctl" in Poller related commands (engine/broker).
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API V2] The "hosts" field is no longer required when adding a host.
+- [Configuration] Fixed an issue where macros to a service by HG would not be exported.
+- [Configuration] Fixed an issue where the new Host Group configuration page would appear twice in the menu.
+- [Configuration] Fixed an issue where a trailing comma in string leads to an sql error for hostgroups during a remote server export.
+- [Configuration] Macros defined on a parent resource are now preserved when a child resource overrides its value.
+- [Custom Views] Group Monitoring widgets - Fixed an issue that occurred when using hyphens in resource names.
+- [Dashboards] Fixed an issue preventing metric widgets from being displayed.
+- [Dashboards] Metrics Graph widget - Fixed an issue preventing meta services from being used in dataset selection.
+- [Downtimes] Fixed an issue when filtering downtimes by service names.
+- [API] Fixed an issue where the "Reach API Realtime" option was set to "Yes" even if a "No" was selected when creating the user.
+- [Host Group] Fixed an issue where the host group name restrictions would allow characters that then prevented exporting the configuration.
+-[LDAP] Fixed an issue where auto import was ignored when different LDAP configurations coexisted.
+- [Logs] Fixed a wrongful PHP warning that appeared after running CentreonWorker.
+- [Monitoring] Fixed an issue where non-local accounts would be wrongfully notified of their password's expiration date.
+- [Monitoring] Fixed an issue with the base values for the graph in the Ressource status and the Performance pages.
+- [Performance Graph] Fixed an issue with the legend not reflecting changes to the displayed timeframe.
+- [Remote server] Fixed an issue where tasks would not be correctly imported.
+- [SNMP Traps] Fixed an issue with credentials exposure.
+- [UI Notifications] Fixed an issue where LDAP/local users were not able to see the “UI Notifications” panel.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. More details on [our community platform The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+### Centreon Collect 25.10.3
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] If an SC write function does not return a boolean, the next write retry is delayed.
+- [Configuration] Added a Broker output to handle script execution.
+- [Engine] Engine is now able to generate & renew CMA certificates.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker][Engine] Fixed an issue with unexpected notifications being sent for "UNKNOWN" services when a host status switches to "DOWN".
+
+</details>
+
+### Centreon Gorgone 25.10.4
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed an issue with the gorgoned logrotate configuration file.
+
+</details>
+
+### Centreon Monitoring Agent 25.10.3
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Full threshold format is now handled for all CMA native checks.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CMA] Fixed issues with uninstaller signature and installer AGENTINSTANCE.
+
+</details>
+
+### Centreon Open Tickets 25.10.4
+
+- No functional changes for this module in this version.
+
+### Centreon AWIE 25.10.5
+
+- No functional changes for this module in this version.
+
+### Centreon DSM 25.10.2
+
+- No functional changes for this module in this version.
+
+## February 23, 2026
+
+### Centreon Web 25.10.8
+
+This release contains security fixes. More details on [our community platform The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+### Centreon Open Tickets 25.10.3
+
+This release contains security fixes. More details on [our community platform The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
 
 ## February 10, 2026
 

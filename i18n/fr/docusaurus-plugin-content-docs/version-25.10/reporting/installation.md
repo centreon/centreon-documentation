@@ -278,7 +278,7 @@ d'au moins 12GB de mémoire vive afin d'utiliser le
 
 > Si vous souhaitez utiliser un répertoire autre que `/var/lib/mysql/`, éditez les variables **datadir** et **tmpdir** du fichier centreon.cnf.
 
-Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
+Assurez-vous que le dossier **tmp** soit créé dans la même partition que **/var/lib/mysql**.
 
 > Ne définissez pas ces optimisations MariaDB/MySQL sur votre serveur de supervision.
 
@@ -1141,6 +1141,8 @@ mysql_secure_installation
 
 - Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
 - Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
+
+> Voir les procédures avancées pour [Sécuriser votre plateforme MBI](../reporting/secure-your-mbi-platform.md).
 
 #### Commencer à configurer
 

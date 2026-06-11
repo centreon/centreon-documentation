@@ -278,7 +278,7 @@ You will need at least 12 GB of RAM in order to use the [following file](../asse
 
 > If you want to use a different directory than `/var/lib/mysql/`, edit the **datadir** and **tmpdir** variables in the centreon.cnf file.
 
-Make sure you have a **tmp** folder in **/var/lib/mysql**.
+Make sure a **tmp** folder is created inside the same partition as **/var/lib/mysql**.
 
 > Do not set these MariaDB optimizations on your monitoring server.
 
@@ -1166,6 +1166,8 @@ mysql_secure_installation
 
 - Answer **yes** to all questions except "Disallow root login remotely?"
 - It is mandatory to define a password for the **root** user of the database. You will need this password during the [web-installation](../installation/web-and-post-installation.md).
+
+> See advanced procedures to [Secure your MBI platform](../reporting/secure-your-mbi-platform.md).
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 

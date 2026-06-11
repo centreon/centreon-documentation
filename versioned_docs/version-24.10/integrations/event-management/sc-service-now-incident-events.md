@@ -1,6 +1,6 @@
 ---
 id: sc-service-now-incident-events
-title: ServiceNow Incident Event
+title: ServiceNow Incident Events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -13,13 +13,13 @@ The ServiceNow Incident Events stream connector allows you to send data from Cen
 (e.g. if you want to avoid the central server being a SPOF, or if you are an MSP and you install the stream connector on a poller or a remote server within your customer's infrastructure).
 - By default, the ServiceNow Incident Events stream connector sends data from [**host_status**](../../developer/developer-broker-mapping.md#host-status) and 
 [**service_status**](../../developer/developer-broker-mapping.md#service-status) Broker events. The event format is shown **[here](#event-format)**.
-- These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow).
+- These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow-incident).
 
 ## Installation
 
 Perform the installation on the server that will send data to ServiceNow Incident (central server, remote server, poller).
 
-1. Login as `root` using your favorite SSH client.
+1. Log in as `root` using your favorite SSH client.
 
 2. Run the following command:
 
@@ -72,11 +72,11 @@ The fields for the first entry are already present. Click on the **+Add a new en
 
 | Type   | Name          | Value explanation                    | Value exemple |
 | ------ |---------------|--------------------------------------|---------------|
-| string | instance      | the name of the service now instance | MyCompany     |
+| string | instance      | the name of the ServiceNow instance | MyCompany     |
 | string | client_id     | The Oauth client_id                  | Client_ID     |
 | string | client_secret | The Oauth client_secret              | Client_Secret |
 | string | username      | The Oauth user                       | User          |
-| string | password      | The Oauth pasword                    | Password      |
+| string | password      | The Oauth password                    | Password      |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
@@ -84,11 +84,11 @@ The fields for the first entry are already present. Click on the **+Add a new en
 | ------ |-----------------|--------------------------------------------|---------------------------------------------------------|
 | string | logfile         | The file in which logs are written         | /var/log/centreon-broker/servicenow-incident-events.log |
 | number | log_level       | Logging level from 1 (errors) to 3 (debug) | 1                                                       |
-| string | http_server_url | The address of the service-now server      | service-now.com                                         |
+| string | http_server_url | The address of the ServiceNow server      | service-now.com                                         |
 | string | incident_table  | The name of the incident table             | incident                                                |
 | string | source          | The source name of the incident            | centreon                                                |
 
-7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to ServiceNow Incident](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow).
+7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to ServiceNow Incident](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow-incident).
 
 8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
@@ -137,7 +137,7 @@ To use this feature you must add the following parameter in your stream connecto
 
 ## Event format
 
-This stream connector will send event with the following format.
+This stream connector will send events with the following format.
 
 ### service_status event
 

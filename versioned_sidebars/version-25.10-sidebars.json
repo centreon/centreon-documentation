@@ -225,6 +225,10 @@
         {
           "type": "doc",
           "id": "graph-views/secure-your-map-platform"
+        },
+        {
+          "type": "doc",
+          "id": "reporting/secure-your-mbi-platform"
         }
       ]
     },
@@ -734,27 +738,6 @@
             {
               "type": "doc",
               "id": "graph-views/introduction-map"
-            },
-            {
-              "type": "category",
-              "label": "Information for MAP Legacy users",
-              "link": {
-                "type": "generated-index"
-              },
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-legacy-eol"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/upgrading-map-legacy"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/import-into-map-web"
-                }
-              ]
             },
             {
               "type": "doc",
@@ -1287,6 +1270,10 @@
           "items": [
             {
               "type": "doc",
+              "id": "integrations/stream-connectors-rn"
+            },
+            {
+              "type": "doc",
               "id": "integrations/event-management/sc-hp-bsm"
             },
             {
@@ -1511,6 +1498,10 @@
           "id": "developer/developer-widget"
         },
         {
+          "type": "doc",
+          "id": "developer/mcp-server"
+        },
+        {
           "type": "category",
           "label": "Centreon Broker",
           "link": {
@@ -1676,19 +1667,6 @@
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
             }
           ]
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Monitoring your platform",
-      "link": {
-        "type": "generated-index"
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "health/helios"
         }
       ]
     },

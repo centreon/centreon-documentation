@@ -308,6 +308,20 @@ Installez les dépendances suivantes :
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
+#### Installer le dépôt Sury APT pour PHP 8.2
+
+Pour installer le dépôt Sury, exécutez la commande suivante :
+
+```shell
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
+```
+
+Puis importez la clé du dépôt :
+
+```shell
+wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
+```
+
 </TabItem>
 </Tabs>
 
@@ -357,7 +371,7 @@ apt update
 </TabItem>
 </Tabs>
 
-### Étape 2 : Installation
+## Étape 2 : Installation
 
 Cette section décrit comment installer un serveur central Centreon.
 
@@ -373,7 +387,7 @@ une base de données distante sur un serveur dédié.
   </TabItem>
 </Tabs>
 
-### Étape 3 : Configuration
+## Étape 3 : Configuration
 
 ### Nom du serveur
 
@@ -388,6 +402,62 @@ Remplacez **new-server-name** par le nom que vous souhaitez. Exemple :
 ```shell
 hostnamectl set-hostname central
 ```
+
+### Définir le fuseau horaire de PHP
+
+Vous devez définir le fuseau horaire de PHP.
+
+> Remplacez **Europe/Paris** par votre fuseau horaire. Vous pouvez trouver la liste des
+> fuseaux horaires supportés [ici] (http://php.net/manual/en/timezones.php).
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Exécutez la commande suivante en tant que `root` :
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+Après avoir enregistré le fichier, redémarrez le service PHP-FPM :
+
+```shell
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Exécutez la commande suivante en tant que `root` :
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+Après avoir enregistré le fichier, redémarrez le service PHP-FPM :
+
+```shell
+systemctl restart php-fpm
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php/8.2/mods-available/centreon.ini
+```
+
+> Celui-ci a été défini durant le processus d'installation en récupérant le fuseau horaire configuré sur le
+> système d'exploitation.
+
+Après avoir enregistré le fichier, redémarrez le service PHP-FPM :
+
+```shell
+systemctl restart php8.2-fpm
+```
+
+</TabItem>
+</Tabs>
 
 ### Démarrage des services au démarrage du système
 

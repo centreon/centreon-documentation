@@ -62,24 +62,57 @@ suivantes : $_SERVICEPARTITION$, $_SERVICEWARNING$, $_SERVICECRITICAL$.
 Les champs **Community SNMP & Version** présent au sein d'une fiche d'hôte génèrent automatiquement les macros
 personnalisées suivantes : $_HOSTSNMPCOMMUNITY$ et $_HOSTSNMPVERSION$.
 
-## Les macros de ressources
+## Macros dans les macros
 
-Les macros de ressources sont des macros globales qui sont utilisées par le moteur de supervision. Ces macros peuvent
+Lorsque Centreon Engine évalue une commande, la résolution des macros s'effectue en deux passes successives.
+
+**Niveau 1 — Niveau de la commande** : les macros présentes directement dans la ligne de commande sont résolues :
+
+- Macro standard ou personnalisée résolue → remplacée par sa valeur.
+- Macro non résolue ou vide → remplacée par une chaîne vide.
+
+**Niveau 2 — Niveau de la valeur de macro** : si la valeur produite au niveau 1 contient elle-même des tokens ressemblant à des macros, une seconde passe s'applique à cette valeur :
+
+- Macro résolue → remplacée par sa valeur.
+- Macro non résolue ou vide → **conservée telle quelle** (non supprimée).
+
+### Syntaxe d'échappement avec doubles accolades
+
+Utilisez le format `{{$MACRO$}}` lorsque vous souhaitez que les macros non résolues dans une valeur soient remplacées par une chaîne vide plutôt que conservées :
+
+- Au niveau 1 ou 2 : une macro résolue est remplacée par sa valeur et les doubles accolades sont supprimées.
+- Au niveau 1 ou 2 : une macro non résolue ou vide est remplacée par une chaîne vide et les doubles accolades sont supprimées.
+
+### Cas d'usage : syntaxes de plugins tiers
+
+Certains plugins de supervision utilisent des caractères `$` dans leur propre syntaxe d'argument, qui ne sont pas des délimiteurs de macros Centreon. Un exemple courant est la syntaxe NSClient++, qui utilise des tokens tels que `${name}`, `${state}`, `${problem_list}` ou `${drive}`.
+
+Ces macros Centreon n'étant pas résolues, le comportement du niveau 2 les conserve telles quelles, ce qui permet au plugin de recevoir la ligne de commande correcte.
+
+:::warning
+
+Si vous définissez une valeur de macro contenant de tels tokens et exportez la configuration avec une version de Engine n'implémentant pas le modèle à deux niveaux, ces tokens seront supprimés et le plugin recevra une ligne de commande malformée.
+
+:::
+
+## Les macros globales
+
+Les macros globales sont utilisées par le moteur de supervision. Ces macros peuvent
 être invoquées par n'importe quel type de commande. Elles se présentent sous la forme $USERn$ où ‘n' est compris entre
 1 et 256.
 
 D'une manière générale, ces macros sont utilisées pour faire référence aux chemins contenant les sondes de supervision.
 Par défaut, la macro $USER1$ est créée et sa valeur est la suivante : /usr/lib/nagios/plugins.
 
-Pour ajouter une macro de ressources :
+Pour ajouter une macro globale :
 
 * Renez-vous dans le menu **Configuration > Pollers > Resources**
 * Cliquez sur le bouton **Add**
 
-![image](../../assets/configuration/01macrosressources.png)
+![image](../../assets/configuration/01globalmacros.png)
 
-* Le champ **Resource Name** définit le nom de la macro de ressources. Exemple : $USER3$
-* Le champ **MACRO Expression** définit la valeur de la macro.
+* Le champ **Name** définit le nom de la macro globale. Exemple : $USER3$
+* Le champ **Expression** définit la valeur de la macro.
 * La liste **Linked Instances** permet de définir quels seront les moteurs de supervision qui pourront accéder à cette
   macro.
 * Les champs **Status** et **Comment** permettent d'activer/désactiver la macro ou de la commenter.

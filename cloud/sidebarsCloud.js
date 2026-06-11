@@ -140,7 +140,7 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'ciam/ciam',
+          id: 'users/centreon-hub',
         },
         {
           type: 'doc',
@@ -156,7 +156,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'ciam/cloud-saml',
+          id: 'users/cloud-saml',
         },
       ],
     },
@@ -667,6 +667,10 @@ module.exports = {
           "id": "integrations/stream-connectors-cloud"
         },
         {
+          "type": "doc",
+          "id": "integrations/mcp-server"
+        },
+        {
           "type": "category",
           "label": "ITSM",
           "link": {
@@ -727,8 +731,18 @@ module.exports = {
       "items": [
     {
       "type": "link",
-      "href": "https://docs-api.centreon.com/api/centreon-web/cloud/",
+      "href": "https://docs-api.centreon.com/api/centreon-web-cloud/",
       "label": "Centreon Cloud API"
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-bam/cloud/",
+      "label": "BAM API"
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-autodiscovery/cloud/",
+      "label": "Autodiscovery API"
     },
     {
           "type": "doc",

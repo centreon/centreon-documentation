@@ -13,7 +13,7 @@ This chapter describes how to upgrade your Centreon platform from version 24.10 
 >
 > In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
+> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
 > If you were using MySQL 8.0, you may want to [upgrade to MySQL 8.4](upgrade-mysql.md) before the end of support for version 8.0. at the end of April 2026.
 
@@ -27,6 +27,40 @@ servers:
 - Central server
 - Database server
 
+### Check the repositories
+
+Before upgrading your Centreon platform, make sure the following package repositories are enabled:
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+* bullseye, bullseye-updates, bullseye-backports and bullseye security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+</Tabs>
+
 ## Upgrade the Centreon Central server
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
@@ -39,7 +73,7 @@ servers:
 1. Update your Centreon 24.10 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el8/centreon-24.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -66,7 +100,7 @@ servers:
 1. Update your Centreon 24.10 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.10/el9/centreon-24.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -160,7 +194,7 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
-And ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually.
+And ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` (`/etc/php/8.2/fpm/conf.d/50-centreon.ini` for Debian) is set to at least 256mb. If it isn't, insert it manually.
 
 7. Clean the cache:
 
@@ -591,6 +625,36 @@ with the following:
      (You can also adapt them manually.)
 
 3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via the `no_shell_interpretation: true` parameter. If you previously customized this file, your version will be saved in the same directory as `41-autodiscovery.yaml.rpmnew` and must be manually merged to include this parameter.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via the `no_shell_interpretation: true` parameter. If you previously customized this file, your version will be saved in the same directory as `41-autodiscovery.yaml.rpmnew` and must be manually merged to include this parameter.
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml` via the `no_shell_interpretation: true` parameter. If you previously customized this file, you will be prompted to resolve the potential conflicts.
+
+</TabItem>
+</Tabs>
 
 4. Restart the processes:
 

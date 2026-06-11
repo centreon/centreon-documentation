@@ -8,6 +8,12 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
 25.10 (c'est-à-dire le passage de 25.10.x à 25.10.y).
 
+> Après avoir effectué la mise à jour de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
+>
+> Dans votre architecture, tous les serveurs doivent avoir la même version majeure de Centreon et, si possible, la même version mineure.
+>
+> De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
+
 ## Avant la mise à jour
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
@@ -43,6 +49,31 @@ Eliminez les paquets debuginfo avant de poursuivre à moins d'en avoir un besoin
 
 </TabItem>
 </Tabs>
+
+
+### Vérifier les dépôts
+
+Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+</Tabs>
+
 
 ## Mise à jour du serveur Centreon Central
 

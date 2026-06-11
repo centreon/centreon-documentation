@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-emc-clariion-navisphere
-title: EMC Clariion
+title: EMC Clariion Navisphere
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **EMC Clariion** brings a host template:
+The Monitoring Connector **EMC Clariion Navisphere** brings a host template:
 
 * **HW-Storage-EMC-Clariion-Navisphere-custom**
 
@@ -177,7 +177,7 @@ yum install centreon-pack-hardware-storage-emc-clariion-navisphere
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **EMC Clariion** connector through
+2. Whatever the license type (*online* or *offline*), install the **EMC Clariion Navisphere** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin

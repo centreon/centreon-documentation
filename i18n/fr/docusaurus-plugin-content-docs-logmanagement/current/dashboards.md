@@ -38,11 +38,17 @@ Une fois que vous avez modifié votre widget, enregistrez-le, puis enregistrez l
 
 ## Widgets disponibles
 
-## Generic text
+### Generic text
 
 Utilisez ce widget pour insérer des titres, des informations ou des liens dans vos tableaux de bord. Utilisez la barre d'outils pour mettre en forme la description.
 
 ![image](./assets/widget_generic_text.png)
+
+### Log viewer
+
+Utilisez ce widget pour afficher la liste des logs correspondant à une requête spécifique au cours des n dernières minutes. Dans le tableau généré, cliquez sur **Show in context** à droite pour afficher un log dans la page **Log explorer**, ainsi que les logs des 2 minutes précédentes et suivantes correspondant à la requête.
+
+![image](./assets/widget_log_viewer.png)
 
 ### Metrics graph
 

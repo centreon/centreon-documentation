@@ -77,12 +77,12 @@ export default function DocBreadcrumbs() {
   } else if (docSection === 'cloud') {
     homePath = '/cloud/getting-started/welcome';
     homeLabel = 'Infra Monitoring Cloud';
-  } else if (docSection === 'dem') {
-    homePath = '/dem/getting-started/welcome';
-    homeLabel = 'Centreon DEM';
+  } else if (docSection === 'experience-monitoring') {
+    homePath = '/experience-monitoring/getting-started/welcome';
+    homeLabel = 'Centreon Experience Monitoring';
   } else if (docSection === 'logmanagement') {
     homePath = '/logmanagement/getting-started/welcome';
-    homeLabel = 'Centreon Log Management BETA';
+    homeLabel = 'Centreon Log Management';
   }
 
   breadcrumbs.unshift({

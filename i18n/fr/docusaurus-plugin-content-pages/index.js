@@ -31,7 +31,7 @@ const links = {
 
 const cards = [
   {
-    title: "Centreon Infra Monitoring",
+    title: "Infra Monitoring",
     href: "docs/getting-started/welcome/",
     links: [
       {
@@ -49,40 +49,36 @@ const cards = [
     ],
   },
   {
-    title: "Centreon DEM",
-    href: "dem/getting-started/welcome/",
+    title: "Experience Monitoring",
+    href: "experience-monitoring/getting-started/welcome/",
     links: [
       {
-        label: "Démarrer avec Centreon Digital Experience Monitoring",
-        href: "dem/getting-started/welcome/",
+        label: "Démarrer avec Centreon Experience Monitoring",
+        href: "experience-monitoring/getting-started/welcome/",
       },
       {
         label: "Le Monitoring Synthétique (STM)",
-        href: "dem/getting-started/synthetic-monitoring/",
+        href: "experience-monitoring/getting-started/synthetic-monitoring/",
       },
       {
         label: "Le Real User Monitoring (RUM)",
-        href: "dem/getting-started/real-user-monitoring/",
+        href: "experience-monitoring/getting-started/real-user-monitoring/",
       },
       {
         label: "Sobriété numérique",
-        href: "dem/category/digital-sobriety/"
+        href: "experience-monitoring/category/digital-sobriety/"
       },{
-        label: "Notes de release DEM",
-        href: "dem/release-notes/"
+        label: "Notes de release Experience Monitoring",
+        href: "experience-monitoring/release-notes/"
       },
     ],
   },
   {
-    title: "Centreon Log Management",
+    title: "Log Management",
     href: "logmanagement/getting-started/welcome/",
     links: [
       {
-        label: "S'inscrire au programme BETA",
-        href: "logmanagement/getting-started/beta/",
-      },
-      {
-        label: "Bases de CLM",
+        label: "Bases de Centreon Log Management",
         href: "logmanagement/getting-started/concepts/",
       },
       {
@@ -94,7 +90,6 @@ const cards = [
         href: "logmanagement/explore-analyze/",
       },
     ],
-    isBeta: true,
   },
 ];
 

@@ -49,42 +49,22 @@ A default token is provided on the **Administration > Authentication token** pag
 
 * Expiration takes effect immediately, without requiring any user action.
 
-### Create the host and services
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
-
-> Depending on the desired connection direction, the host's “Address” field will have no impact (connection initiated by the agent) or will be retrieved when the host is selected in the agent configuration (connection initiated by the poller).
-
-Create the services associated with the host template.
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Windows-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
-
-Create the services associated with the host template.
-
-</TabItem>
-</Tabs>
-
 ### Configure poller/agent communication
 
 1. Go to the **Configuration > Pollers > Agent configurations** page, then click **Add**.
 2. In the window that opens, select the **Centreon Monitoring Agent** agent type. Additional fields will appear.
 3. Select the connection direction (default: the agent connects to the poller).
-4. Select encryption mode
+4. Select an encryption mode.
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
-5. In the **Settings** section, select the poller(s) that will receive data from the agent.
-6. In the **OTLP Receiver** section, enter the paths to the certificate files. See [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
+5. In the **Parameters** section, select the poller(s) that will receive data from the agent.
+6. Select **Create hosts automatically** if you want the poller to check whether incoming connections are from known hosts or not. If no host in the list of hosts has the same hostname, the host and its services will be created. Either the **OS-Windows-Centreon-Monitoring-Agent-custom** or the **OS-Linux-Centreon-Monitoring-Agent-custom** template will be applied. These values can be modified on the host, using the **host_template** parameter in the registry or the **centagent.json** configuration file.
+7. In the **OTLP Receiver** section, enter the paths to the certificate files. See the [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
    > If you are configuring multiple pollers at the same time, make sure that all certificate files have the same name.
-7. Click **Save**.
-8. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration.md).
+8. Click **Save**.
+9. [Deploy the configuration by restarting the collection engine](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 </TabItem>
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
@@ -102,6 +82,32 @@ Create the services associated with the host template.
 
 This configuration is deployed on the poller in the **/etc/centreon-engine/otl_server.json** file. Please note that this file should not be edited manually as it is overwritten each time the configuration is deployed.
 
+### Create the host and services
+
+This section applies:
+
+* if the poller initiates the connection to the agent
+* if the agent initiates the connection ro the poller but the option **Create hosts automatically** is not selected.
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+
+> Depending on the desired connection direction, the host's **Address** field will have no impact (connection initiated by the agent) or will be retrieved when the host is selected in the agent configuration (connection initiated by the poller).
+
+Create the services associated with the host template.
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Windows-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+
+Create the services associated with the host template.
+
+</TabItem>
+</Tabs>
+
 ## Step 2: Prepare the poller
 
 > This step is not necessary if you want to use CMA with the **Central** poller.
@@ -112,6 +118,8 @@ This step is performed on the poller.
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
+
+> These commands need to be adapted depending on the OS.
 
 Run the following commands:
 
@@ -233,7 +241,16 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el10/centreon-25.10.repo
+dnf install  compat-openssl11 centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
 
 1. Execute the following commands:
 
@@ -241,7 +258,6 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 2. Import the repository key:
@@ -266,7 +282,6 @@ apt install centreon-monitoring-agent
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/ubuntu-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
-echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 2. Import the repository key:
@@ -294,6 +309,8 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 
 > When using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 > $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
+
+For remote pollers : 
 
 ```json
 {
@@ -397,7 +414,7 @@ The CMA installer can be executed in 2 modes:
 > When using the **Central** poller, the value of **Poller endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 > $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
-   * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317. For example, 192.168.45.32:4317.
+   * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA's listening port, usually 4317 for remote pollers. For example, 192.168.45.32:4317.
 
 </TabItem>
 <TabItem value="Poller connects to agent" label="Poller connects to agent">
@@ -420,38 +437,42 @@ You can display a list of arguments with the following command line:
 centreon-monitoring-agent.exe /VERYSILENT /HELP
 ```
 
-> When using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> When using the **Central** poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
 > $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Available parameters are : 
 
-| flag                       | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | mandatory
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | 
-|/COMPONENTS| Components to install. "agent", "plugins" or "agent,plugins"  |X |
-|/AGENTINSTANCE| Agent instance name (service name). If omitted, the installer auto-generates a name (e.g., CentreonMonitoringAgent) |  |
-|/HOST                 | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                          | X |
-|/ENDPOINT                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode (/REVERSE=true), it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) , you must choose the interface (all interfaces: 0.0.0.0) and the port (usually 4317) on which the agent will accept connections from the poller. 
-| X|
-|/TOKEN| Authentication token | X |
-|/PLUGINSRC| Source of installation for Centreon plugins. "auto": via the internet, "embedded": local version. Default: "auto" || 
-|/REVERSE| Connection initiated by the poller. "true" or "false". Default: "false"| |
-|/ENCRYPTION| Encryption mode. "no", "full", "insecure". Default: "no"|  |
-|/CERT| Path to the file containing the public key | if ENCRYPTION=full or insecure, and /REVERSE=true |
-|/KEY| Path to the file containing the private key | if ENCRYPTION=full or insecure, and /REVERSE=true |
-|/CA| Path to the file containing the trusted certificate |  |
-|/COMMONNAME| CA common name. If ENCRYPTION=insecure |  |
-|/LOGTYPE| "event-log" or "file". Default: "event-log"|  |
-|/LOGFILE| Path to the log file | if /LOGTYPE=file |
-|/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Default: "error"| if /LOGTYPE=file |
-|/MAXFILESIZE| Maximum size of the log file before rotation, in MB. Default: 10. If /LOGTYPE=file | |
-|/MAXNUMBER| Maximum number of log files. Both of these parameters are required for log rotation to be enabled. Default: 3. If /LOGTYPE=file | |
-|/VERSION| Version of centagent.exe |  |                                                                                                                                                                                                                                                      
+| flag             | description                                                                                                                                                                                                                                                                                                                                                                                                                                                  | mandatory                                         |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------| 
+| /COMPONENTS      | Components to install. "agent", "plugins" or "agent,plugins"                                                                                                                                                                                                                                                                                                                                                                                                 | X                                                 |
+| /AGENTINSTANCE   | Agent instance name (service name). If omitted, the installer auto-generates a name (e.g., CentreonMonitoringAgent)                                                                                                                                                                                                                                                                                                                                          |                                                   |
+| /HOST            | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                                                                                                                                                                                                                                                                                                                    | X                                                 |
+| /ENDPOINT        | IP address or DNS name of the poller the agent will connect to. In case of poller-initiated connection mode (/REVERSE=true), it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port), you must choose the interface (all interfaces: 0.0.0.0) and the port (usually 4317 for remote poller) on which the agent will accept connections from the poller. |                                                   |
+| X                |                                                                                                                                                                                                                                                                                                                                                                                                                                                              |                                                   |
+| /TOKEN           | Authentication token                                                                                                                                                                                                                                                                                                                                                                                                                                         | X                                                 |
+| /PLUGINSRC       | Source of installation for Centreon plugins. "auto": via the internet, "embedded": local version. Default: "auto"                                                                                                                                                                                                                                                                                                                                            |                                                   | 
+| /REVERSE         | Connection initiated by the poller. "true" or "false". Default: "false"                                                                                                                                                                                                                                                                                                                                                                                      |                                                   |
+| /ENCRYPTION      | Encryption mode. "no", "full", "insecure". Default: "no"                                                                                                                                                                                                                                                                                                                                                                                                     |                                                   |
+| /CERT            | Path to the file containing the public key                                                                                                                                                                                                                                                                                                                                                                                                                   | if ENCRYPTION=full or insecure, and /REVERSE=true |
+| /KEY             | Path to the file containing the private key                                                                                                                                                                                                                                                                                                                                                                                                                  | if ENCRYPTION=full or insecure, and /REVERSE=true |
+| /CA              | Path to the file containing the trusted certificate                                                                                                                                                                                                                                                                                                                                                                                                          |                                                   |
+| /COMMONNAME      | CA common name. If ENCRYPTION=insecure                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                   |
+| /LOGTYPE         | "event-log" or "file". Default: "event-log"                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                   |
+| /LOGFILE         | Path to the log file                                                                                                                                                                                                                                                                                                                                                                                                                                         | if /LOGTYPE=file                                  |
+| /LOGLEVEL        | "off","critical","error","warning","info","debug","trace". Default: "error"                                                                                                                                                                                                                                                                                                                                                                                  | if /LOGTYPE=file                                  |
+| /MAXFILESIZE     | Maximum size of the log file before rotation, in MB. Default: 10. If /LOGTYPE=file                                                                                                                                                                                                                                                                                                                                                                           |                                                   |
+| /MAXNUMBER       | Maximum number of log files. Both of these parameters are required for log rotation to be enabled. Default: 3. If /LOGTYPE=file                                                                                                                                                                                                                                                                                                                              |                                                   |
+| /CUSTOMCHECKFILE | Path to custom commands file, if you have one.                                                                                                                                                                                                                                                                                                                                                                                                               |                                                   |
+| /VERSION         | Version of centagent.exe                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                   |                                                                                                                                                                                                                                                      
                                                                                          
 If **/PLUGINSRC=auto** and the download fails, the installer will automatically switch to **embedded** mode.
 
 Silent mode execution errors and the output of /VERSION are written to ./installer_output.log.
 
 *Command examples*
+
+> When using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 Minimal command (required parameters):
 
@@ -502,7 +523,7 @@ You can configure two kinds of log output:
 </TabItem>
 </Tabs>
 
-### Deploy the Centreon agent plugins on the host (Linux)
+### Deploy the Centreon plugin on the host (Linux)
 
 If you are using Centreon connectors and non-native controls on Linux:
 
@@ -641,10 +662,97 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```bash
+dnf install -y dnf-plugins-core
+dnf install -y epel-release
+dnf config-manager --set-enabled crb
+
+cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
+[centreon-plugins-stable]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-stable-noarch]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el10/stable/noarch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/testing/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el10/unstable/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+EOF
+```
+
+2. Install the plugin:
+
+```bash
+dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
+```
+
+> NB: on some minimal docker images, it may be necessary to install this package:
+> ```bash
+> dnf install procps-ng
+> ``` 
+
+</TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt-get update
+```
+
+2. Install the plugin:
+
+```bash
+apt -y install centreon-plugin-operatingsystems-linux-local
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```bash
+apt update && apt install lsb-release ca-certificates apt-transport-https wget gnupg2 curl
 
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
@@ -676,6 +784,13 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 
 </TabItem>
 </Tabs>
+
+3. Create the directory needed for the plugins cache:
+
+```bash
+mkdir -p /var/lib/centreon/centplugins
+chown centreon-monitoring-agent: /var/lib/centreon/centplugins
+```
 
 ### Configuring multiple agent instances on the same host
 
@@ -784,6 +899,9 @@ It will be used as the service name and registry key.
 
 Each time the service is run, a new instance is created with an incremental name such as ‘CentreonMonitoringAgent1’, ‘CentreonMonitoringAgent2’.
 If you want to give the service a different name (the name must be unique), use the **/AGENTINSTANCE** parameter. This name will be used as the service name and registry key.
+
+> When using the central poller, the value of **endpoint** will be **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
+> $\{CLOUD_ORG\} is present in the URL of your Cloud platform: https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/
 
 ```shell
 centreon-monitoring-agent-xxx.exe /VERYSILENT /AGENTINSTANCE="ServiceName"  /COMPONENTS=agent,plugins /HOST=host_1 /ENDPOINT=localhost:4317 /TOKEN=token_value 

@@ -1,53 +1,68 @@
----
+﻿---
 id: collector
-title: Configurer un collecteur OpenTelemetry
+title: Configuration complète de collecteur (sources de logs multiples)
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Comme expliqué dans [Qu'est-ce qu'OpenTelemetry et comment Centreon Log Management l'utilise-t-il ?](../getting-started/concepts.md#quest-ce-quopentelemetry-et-comment-centreon-log-management-lutilise-t-il-), vous devez installer un collecteur OpenTelemetry sur votre hôte pour pouvoir envoyer des logs à CLM.
+La section [Configurations simples de collecteur](opentelemetry-collector.md) fournit un fichier de configuration permettant de mettre en place la collecte des logs à partir d'une machine Windows. La procédure ci-dessous est plus adaptée aux cas où plusieurs types de journaux sont collectés sur le même hôte (sous Windows comme sous Linux).
 
-## Comment configurer un collecteur OpenTelemetry ?
+:::tip Gagnez du temps avec les modèles Centreon
 
-Un collecteur OpenTelemetry comporte trois composants principaux qui sont exécutés les uns après les autres :
+Centreon met à disposition [des modèles de configuration prêts à l'emploi pour les sources de logs les plus courantes](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main). Utilisez-les comme point de départ pour configurer rapidement votre collecteur.
 
-* Les **récepteurs** (receivers) lisent les données à partir de fichiers ou reçoivent des données à partir d'un flux. Ils acceptent les logs dans différents formats et provenant de différentes sources (par exemple, OTLP, syslog, etc.).
-* Les **processeurs** (processors) vous permettent de filtrer, transformer ou enrichir les données avant qu'elles ne quittent le collecteur.
-* Les **exporteurs** (exporters) envoient les logs au format OpenTelemetry vers Centreon Log Management.
+:::
+
+Si vous rencontrez des problèmes, consultez la page [Dépanner votre installation](collector-troubleshooting.md).
 
 <!-- attributs custom
 resource attributes -->
 
-## Comment envoyer des logs à Centreon Log Management ?
+## Prérequis
 
-### Prérequis
+* Générez [un jeton pour authentifier l'hôte auprès de votre plateforme Centreon Log Management](../administration/tokens.md).
+* L'endpoint requis pour connecter un collecteur OpenTelemetry à votre plateforme Centreon Log Management est `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs`.
 
-* Générez [un jeton pour authentifier l'hôte auprès de votre instance Log Management](../administration/tokens.md).
-* L'endpoint requis pour connecter un collecteur OpenTelemetry à votre instance Log Management est `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
+> Log Management peut traiter des batch de logs d'une taille de 5 MiB maximum. Au-delà, vous recevrez une erreur 413. (Si besoin, utilisez [le paramètre **sending_queue.sizer.bytes** de votre exporteur](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) pour adapter la taille de vos batchs.)
 
-> CLM peut traiter des batch de logs d'une taille de 5 MiB maximum. Au-delà, vous recevrez une erreur 413. (Si besoin, utilisez [le paramètre **sending_queue.sizer.bytes** de votre exporteur](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) pour adapter la taille de vos batchs.)
-
-### Étape 1 : Installez OpenTelemetry Collector sur votre hôte
+## Étape 1 : Installez OpenTelemetry Collector sur votre hôte
 
 Utilisez les paquets **otelcol-contrib** pour installer OpenTelemetry Collector sur chaque hôte à partir duquel vous souhaitez collecter des logs.
-
-<!--[en mode agent ou gateway - différence mode agent/mode gateway].-->
 
 <Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
-wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.139.0/otelcol-contrib_0.139.0_linux_amd64.rpm
+<Tabs groupId="distrib" queryString>
+<TabItem value="EL" label="EL">
+
+```shell
+wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.rpm
+dnf install ./otelcol-contrib_0.145.0_linux_amd64.rpm
+```
 
 </TabItem>
-<TabItem value="Windows" label="Windows">
+<TabItem value="Debian" label="Debian">
 
-https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.144.0/otelcol_0.144.0_windows_x64.msi
+```shell
+wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.deb
+apt install ./otelcol-contrib_0.145.0_linux_amd64.deb
+```
 
 </TabItem>
 </Tabs>
 
-### Étape 2 : Définir les paramètres globaux du collecteur
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+```shell
+https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.147.0/otelcol-contrib_0.147.0_windows_x64.msi 
+```
+
+</TabItem>
+</Tabs>
+
+## Étape 2 : Définir les paramètres globaux du collecteur
 
 1. Modifiez le fichier **config.yaml** créé lors de l'installation du collecteur :
 
@@ -75,7 +90,7 @@ https://github.com/open-telemetry/opentelemetry-collector-releases/releases/down
 2. Dans ce fichier, entrez les paramètres globaux de collecte des logs spécifiques à cet hôte. Ceux-ci s'appliqueront à toutes les sources de logs pour cet hôte.
 
    * Dans **endpoint**, entrez `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
-   * Dans **X-Api-Key**, entrez le [jeton requis pour vous authentifier auprès de votre instance CLM](../administration/tokens.md).
+   * Dans **X-Api-Key**, entrez le [jeton requis pour vous authentifier auprès de votre plateforme Log Management](../administration/tokens.md).
 
    Exemple:
 
@@ -86,7 +101,7 @@ https://github.com/open-telemetry/opentelemetry-collector-releases/releases/down
      otlphttp/centreon:
        endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp"
        headers:
-         "X-Api-Key": "<%TOKEN%>"
+         "X-Api-Key": "mytoken"
      debug:
        verbosity: detailed
    processors:
@@ -107,7 +122,7 @@ https://github.com/open-telemetry/opentelemetry-collector-releases/releases/down
 
    > L'indentation des paramètres dans votre fichier YAML doit être identique à celle de l'exemple. Les indentations sont de deux espaces pour chaque niveau.
 
-### Étape 3 : Configurez chaque source de logs pour votre hôte
+## Étape 3 : Configurez chaque source de logs pour votre hôte
 
 Configurez une source de logs pour chaque service souhaité (syslog, apache, etc.) sous la forme d'un fichier YAML.
 
@@ -132,9 +147,9 @@ Configurez une source de logs pour chaque service souhaité (syslog, apache, etc
 
 2. Dans ce répertoire, créez un fichier par source de logs. Par exemple : les fichiers **httpd-combined.yaml** et **httpd-error.yaml** contiendront respectivement la configuration du journal d'accès Apache et du journal d'erreurs Apache.
 
-3. Récupérez sur GitHub le fichier d'exemple correspondant à la source de logs souhaitée : https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main.
+3. [Récupérez sur GitHub](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main) le fichier d'exemple correspondant à la source de logs souhaitée.
 
-4. Sur l'hôte source, copiez et collez l'extrait de code dans le fichier correspondant. Enregistrez le fichier. Si vous utilisez plusieurs sources de logs pour un collecteur, ne définissez le pipeline qu'une seule fois (dans l'un des fichiers). Le pipeline doit mentionner tous vos receivers. Dans notre exemple :
+4. Sur l'hôte source, copiez et collez l'extrait de code dans le fichier correspondant, puis adaptez-le en fonction de votre environnement et de votre OS. Enregistrez le fichier. Si vous utilisez plusieurs sources de logs pour un collecteur, ne définissez le pipeline qu'une seule fois (dans l'un des fichiers). Le pipeline doit mentionner tous vos receivers. Dans notre exemple :
 
     ```shell
     service:
@@ -187,19 +202,3 @@ Configurez une source de logs pour chaque service souhaité (syslog, apache, etc
 
    </TabItem>
    </Tabs>
-
-## Dépannage
-
-Vérifiez l'état de votre collecteur sur l'hôte dont vous souhaitez recevoir les logs :
-
- ```shell
-journalctl -u otelcol-contrib.service
-```
-
-Si vous ne recevez pas les journaux attendus dans CLM, vérifiez que l'utilisateur **otelcol-contrib** dispose des droits suffisants pour lire les fichiers requis, en fonction du type de receiver. Exemple :
-
-```shell
-ls -l /var/log/messages
-id otelcol-contrib
-usermod -aG root otelcol-contrib
-```

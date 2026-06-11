@@ -42,9 +42,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle   | Description                                          |
-|:------------------|:-----------------------------------------------------|
-| Ansible Tower CLI | Discover hosts by requesting Ansible Tower using CLI |
+| Nom de la règle   | Description                                             |
+|:------------------|:--------------------------------------------------------|
+| Ansible Tower CLI | Découvre les hôtes en interrogeant Ansible Tower via CLI |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 

@@ -4,35 +4,18 @@ title: Explorer et analyser les logs
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DocCardList from '@theme/DocCardList';
 
-Selon votre [cas d'usage](./getting-started/use-cases.md), vous pouvez soit filtrer Log explorer pour afficher les journaux à haut niveau de sévérité, soit vous baser sur les évènements d'alerte (alert events) pour les situations plus complexes.
+Selon votre [cas d'usage](./getting-started/use-cases.md), vous pouvez soit filtrer les logs de la page **Log explorer** pour afficher les logs à haut niveau de sévérité, soit vous baser sur les évènements d'alerte (alert events) pour les situations plus complexes.
 
-> Pour afficher des logs dans CLM, vous devez d'abord [configurer un collecteur OpenTelemetry sur chaque hôte dont vous souhaitez recevoir les logs](./collector/collector.md).
+> Pour afficher des logs dans Centreon Log Management, vous devez d'abord [configurer un collecteur OpenTelemetry sur chaque hôte dont vous souhaitez recevoir les logs](./collector/collector.md).
 
-## Utiliser la page Log explorer
+Centreon Log Management vous propose plusieurs façons d'explorer vos données :
 
-La page **Log explorer** page vous permet de rechercher et de filtrer les logs afin que vous puissiez investiguer les problèmes et effectuer une analyse de leurs causes profondes.
+* [L'explorateur de logs (log explorer)](log-explorer.md): recherchez et filtrez les logs afin d'investiguer les problèmes et d'effectuer une analyse de leurs root causes.
+* [Les évènements d'alerte (**Alert events**)](alerts.md#afficher-tous-les-évènements-dalerte): surveillez ce qui se passe en temps réel afin de pouvoir réagir rapidement aux incidents. (Pour obtenir des évènements d'alerte, vous devez d'abord créer des [règles d'alerte](alerts.md).)
+* [Les tableaux de bord (dashboards)](./dashboards.md): visualisez les données actuelles et historiques afin d'analyser les tendances et de comprendre l'évolution au fil du temps.
 
-* Utilisez la liste **Time period** en haut à droite de la page pour sélectionner la plage de logs à afficher.
-* Utilisez la barre de recherche pour filtrer vos logs à l'aide de [requêtes](query-syntax.md). Vous pouvez enrichir votre recherche avec du contexte supplémentaire (attributs) afin d'affiner les résultats et d'identifier la cause profonde des problèmes.
-* Développez les logs pour afficher les détails de leurs attributs.
-* Naviguez dans vos données à l'aide de la chronologie : cliquez et faites glisser votre souris sur le graphique pour sélectionner une nouvelle plage de temps.
-<!--filters-->
+## In this section
 
-## Utiliser la page Alert events
-
-Sur la page [**Alert events**](alerts.md#afficher-tous-les-évènements-dalerte), les [évènements d'alerte](./resources/glossary.md#évènement-dalertestatut-dalerte) indiquent ce qui se passe en temps réel et vous permettent de réagir rapidement aux incidents. (Pour obtenir des évènements d'alerte, vous devez d'abord créer des [règles d'alerte](alerts.md).)
-
-<!-- ### Generating a summary of your logs
-
-Once the **Log explorer** page only shows the logs you want, generate a summary of the displayed logs to see what they can tell you: click the **Summarize logs** button to the right of the search bar.
-Log summaries are a list of the main events detected for a period:
-
-- Critical errors and failures
-- Security-related events
-- Unusual system behavior
-- Important updates or configuration changes -->
-
-## Utiliser des tableaux de bord
-
-Créez des [tableaux de bord](dashboards.md) pour visualiser et explorer vos données. Les tableaux de bord affichent à la fois les informations actuelles et les données historiques, ce qui vous permet d'examiner les tendances et de comprendre les changements au fil du temps.
+<DocCardList />
