@@ -1,6 +1,6 @@
 ---
 id: sc-service-now-incident-events
-title: ServiceNow Incident Event
+title: ServiceNow Incident Events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -75,11 +75,11 @@ La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-
 
 | Type   | Nom           | Explication                          | Exemple de valeur |
 | ------ |---------------|--------------------------------------|-------------------|
-| string | instance      | the name of the service now instance | MyCompany         |
+| string | instance      | the name of the ServiceNow instance | MyCompany         |
 | string | client_id     | The Oauth client_id                  | Client_ID         |
 | string | client_secret | The Oauth client_secret              | Client_Secret     |
 | string | username      | The Oauth user                       | User              |
-| string | password      | The Oauth pasword                    | Password          |
+| string | password      | The Oauth password                    | Password          |
 
 6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
@@ -87,7 +87,7 @@ La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-
 |--------|-----------------|--------------------------------------------|---------------------------------------------------------|
 | string | logfile         | Fichier dans lequel les logs sont écrits         | /var/log/centreon-broker/servicenow-incident-events.log |
 | number | log_level       | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                                       |
-| string | http_server_url | L'adresse du serveur service-now      | service-now.com                                         |
+| string | http_server_url | L'adresse du serveur ServiceNow      | service-now.com                                         |
 | string | incident_table  | Le nom de la table incident             | incident                                                |
 | string | source          | Le nom de la source de l'incident           | centreon                                                |
 
@@ -109,7 +109,7 @@ Tous les stream connectors ont un jeu de [paramètres optionnels](https://github
 
 Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
 
-* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à ServiceNow Incident que les évènmenes traités par un collecteur nommé "poller-1", entrez :
+* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à ServiceNow Incident que les évènements traités par un collecteur nommé "poller-1", entrez :
 
    ```text
    type = string
@@ -185,7 +185,7 @@ Vous devez remplacer tous les *`<xxxx>`* à l'intérieur des commandes ci-dessou
 
 ### Get OAuth tokens
 
-1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à ServiceNow Incident (le serveur central, un serveur distant ou un collecteur)
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à ServiceNow Incident (le serveur central, un serveur distant ou un collecteur).
 2. Exécutez la commande suivante :
 
 ```shell
@@ -203,7 +203,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<inst
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<instance_name>.service-now.com/oauth_token.do' -d 'grant_type=refresh_token&client_id=<client_id>&client_secret=<client_secret>&username=<username>&password=<password>&refresh_token=<refresh_token>'
 ```
 
-> Le *`<refresh_token>`* est obtenu grâce à **[cette commande curl](#get-oauth-tokens)**
+> Le *`<refresh_token>`* est obtenu grâce à **[cette commande curl](#get-oauth-tokens)**.
 
 3. Vérifier que la commande renvoie le token attendu.
 
@@ -217,6 +217,6 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<inst
 curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<http_server_url><servicenow_event_endpoint>' -d '{"title":"CRITICAL my_host my_service","text":"my service is not working","aggregation_key":"service_27_12","alert_type":"error","host":"my_host","date_happened":1630590530}'
 ```
 
-> Le *`<refresh_token>`* est obtenu grâce à **[cette commande curl](#get-oauth-tokens)**
+> Le *`<refresh_token>`* est obtenu grâce à **[cette commande curl](#get-oauth-tokens)**.
 
 3. Vérifiez que l'évènement a bien été reçu par ServiceNow Incident.

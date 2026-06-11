@@ -1,6 +1,6 @@
 ---
 id: sc-service-now-incident-events
-title: ServiceNow Incident Event
+title: ServiceNow Incident Events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -72,11 +72,11 @@ The fields for the first entry are already present. Click on the **+Add a new en
 
 | Type   | Name          | Value explanation                    | Value exemple |
 | ------ |---------------|--------------------------------------|---------------|
-| string | instance      | the name of the service now instance | MyCompany     |
+| string | instance      | the name of the ServiceNow instance | MyCompany     |
 | string | client_id     | The Oauth client_id                  | Client_ID     |
 | string | client_secret | The Oauth client_secret              | Client_Secret |
 | string | username      | The Oauth user                       | User          |
-| string | password      | The Oauth pasword                    | Password      |
+| string | password      | The Oauth password                    | Password      |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
@@ -84,7 +84,7 @@ The fields for the first entry are already present. Click on the **+Add a new en
 | ------ |-----------------|--------------------------------------------|---------------------------------------------------------|
 | string | logfile         | The file in which logs are written         | /var/log/centreon-broker/servicenow-incident-events.log |
 | number | log_level       | Logging level from 1 (errors) to 3 (debug) | 1                                                       |
-| string | http_server_url | The address of the service-now server      | service-now.com                                         |
+| string | http_server_url | The address of the ServiceNow server      | service-now.com                                         |
 | string | incident_table  | The name of the incident table             | incident                                                |
 | string | source          | The source name of the incident            | centreon                                                |
 
@@ -137,7 +137,7 @@ To use this feature you must add the following parameter in your stream connecto
 
 ## Event format
 
-This stream connector will send event with the following format.
+This stream connector will send events with the following format.
 
 ### service_status event
 
