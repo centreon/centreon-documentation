@@ -101,7 +101,7 @@ With that in mind, the **sasl.mechanism** parameter becomes **_sc_kafka_sasl.mec
    systemctl restart centengine
    ```
 
-Kafka should now receive data from Centreon. To test if it is working, see [Curl commands: testing the stream connector](#curl-commands-testing-the-stream-connector).
+Kafka should now receive data from Centreon. To test if it is working, see [Curl commands: testing the stream connector](#curl-commands--testing-the-stream-connector).
 
 ### Filtering or adapting the data you want to send to Kafka
 
