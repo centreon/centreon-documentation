@@ -81,7 +81,7 @@ La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-
 |--------|--------------------|-----------------------------------------------------------|--------------------------------------------|
 | string | logfile            | Fichier dans lequel les logs sont écrits                  | /var/log/centreon-broker/signl4-events.log |
 | number | log_level          | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                          |
-| string | server_address     | Url de l'instance serversignl4 Centreon                   | `https://connect.signl4.com`               |
+| string | server_address     | URL de l'instance Signl4                  | `https://connect.signl4.com`               |
 | string | x_s4_source_system | Système source à afficher dans Signl4                     | Centreon                                   |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Signl4](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-signl4).
@@ -176,7 +176,7 @@ Pour utiliser cette fonctionnalité, vous devez configurer un fichier json de fo
 | ------ |-------------| ---------------------------------------------- |
 | string | format_file | /etc/centreon-broker/signl4-events-format.json |
 
-> Le fichier de configuration du format des événements doit être lisible par l'utilisateur de centreon-broker.
+> Le fichier de configuration du format des événements doit être lisible par l'utilisateur **centreon-broker**.
 
 Pour en savoir plus sur les formats d'événements personnalisés et les fichiers modèles, consultez **[cette page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 

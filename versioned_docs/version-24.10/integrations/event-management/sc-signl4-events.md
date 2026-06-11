@@ -80,7 +80,7 @@ The fields for the first entry are already present. Click on the **+Add a new en
 | ------ |--------------------|--------------------------------------------|--------------------------------------------|
 | string | logfile            | The file in which logs are written         | /var/log/centreon-broker/signl4-events.log |
 | number | log_level          | Logging level from 1 (errors) to 3 (debug) | 1                                          |
-| string | server_address     | Url of your Centreon serversignl4 instance | `https://connect.signl4.com`               |
+| string | server_address     | URL of your Signl4 instance | `https://connect.signl4.com`               |
 | string | x_s4_source_system | Source system to display in Signl4         | Centreon                                   |
 
 7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Signl4](#filtering-or-adapting-the-data-you-want-to-send-to-signl4).
@@ -178,7 +178,7 @@ In order to use this feature you need to configure a json event format file and 
 | ------ | ----------- |------------------------------------------------|
 | string | format_file | /etc/centreon-broker/signl4-events-format.json |
 
-> The event format configuration file must be readable by the centreon-broker user.
+> The event format configuration file must be readable by the **centreon-broker** user.
 
 To learn more about custom event formats and templating files, visit **[this page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
