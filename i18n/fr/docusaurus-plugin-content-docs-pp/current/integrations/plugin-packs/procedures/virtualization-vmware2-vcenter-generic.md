@@ -41,14 +41,14 @@ Le connecteur apporte les modèles de service suivants
 | Cluster-Cpu                   | Virt-VMWare2-Cluster-Cpu-Generic-custom           | Contrôle permettant de vérifier l'utilisation processeur d'un cluster                                                                                |            |
 | Cluster-Cpu-Global            | Virt-VMWare2-Cluster-Cpu-Global-custom            | Contrôle permettant de vérifier l'utilisation processeur des clusters                                                                                |            |
 | Cluster-Status                | Virt-VMWare2-Cluster-Status-Generic-custom        | Contrôle permettant de vérifier l'état global d'une machine virtuelle                                                                                |            |
-| Cluster-Status-Global         | Virt-VMWare2-Cluster-Status-Global-custom         | Contrôle permettant de vérifier l'état global de plusieurs machines virtuelles                                                                       | X          |
+| Cluster-Status-Global         | Virt-VMWare2-Cluster-Status-Global-custom         | Contrôle permettant de vérifier l'état global de plusieurs machines virtuelles                                                                       |     X      |
 | Datacenter-Alarms             | Virt-VMWare2-Datacenter-Alarms-Generic-custom     | Contrôle permettant de vérifier les alarmes d'un datacenter                                                                                          |            |
-| Datacenter-Alarms-Global      | Virt-VMWare2-Datacenter-Alarms-Global-custom      | Contrôle permettant de vérifier les alarmes des datacenters                                                                                          | X          |
-| Datastore-Io-Global           | Virt-VMWare2-Datastore-Io-Global-custom           | Contrôle permettant de vérifier le taux d'utilisation en Kbps des datastores                                                                         | X          |
-| Datastore-Iops-Global         | Virt-VMWare2-Datastore-Iops-Global-custom         | Contrôle permettant de vérifier les IOPs moyens de plusieurs datastores                                                                              | X          |
+| Datacenter-Alarms-Global      | Virt-VMWare2-Datacenter-Alarms-Global-custom      | Contrôle permettant de vérifier les alarmes des datacenters                                                                                          |     X      |
+| Datastore-Io-Global           | Virt-VMWare2-Datastore-Io-Global-custom           | Contrôle permettant de vérifier le taux d'utilisation en Kbps des datastores                                                                         |     X      |
+| Datastore-Iops-Global         | Virt-VMWare2-Datastore-Iops-Global-custom         | Contrôle permettant de vérifier les IOPs moyens de plusieurs datastores                                                                              |     X      |
 | Datastore-Snapshots-Global    | Virt-VMWare2-Datastore-Snapshots-Global-custom    | Contrôle permettant de vérifier le taux d'utilisation des snapshots sur plusieurs datastores                                                         |            |
-| Datastore-Usage-Global        | Virt-VMWare2-Datastore-Usage-Global-custom        | Contrôle permettant de vérifier le taux d'utilisation de plusieurs datastores                                                                        | X          |
-| Datastore-Vm-Count-Global     | Virt-VMWare2-Datastore-Vm-Count-Global-custom     | Contrôle permettant de vérifier le nombre de machines virtuelles allumées/éteintes/suspendues sur plusieurs datastores                               | X          |
+| Datastore-Usage-Global        | Virt-VMWare2-Datastore-Usage-Global-custom        | Contrôle permettant de vérifier le taux d'utilisation de plusieurs datastores                                                                        |     X      |
+| Datastore-Vm-Count-Global     | Virt-VMWare2-Datastore-Vm-Count-Global-custom     | Contrôle permettant de vérifier le nombre de machines virtuelles allumées/éteintes/suspendues sur plusieurs datastores                               |     X      |
 | ESX-Alarms-Global             | Virt-VMWare2-ESX-Alarms-Global-custom             | Contrôle permettant de vérifier les alarmes des serveurs ESX                                                                                         |            |
 | Esx-Cpu-Global                | Virt-VMWare2-ESX-Cpu-Global-custom                | Contrôle permettant de vérifier le taux d'utilisation CPU de plusieurs serveurs ESX                                                                  |            |
 | Esx-Datastores-Latency-Global | Virt-VMWare2-ESX-Datastores-Latency-Global-custom | Contrôle permettant de vérifier la latence rencontré par les serveurs ESX sur ses datastores                                                         |            |
@@ -69,7 +69,7 @@ Le connecteur apporte les modèles de service suivants
 | Vm-Device-Global              | Virt-VMWare2-Vm-Device-Global-custom              | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle                                                                    |            |
 | Vm-Limit-Global               | Virt-VMWare2-Vm-Limit-Global-custom               | Contrôle permettant de vérifier la définition de limites                                                                                             |            |
 | Vm-Memory-Global              | Virt-VMWare2-Vm-Memory-Global-custom              | Contrôle permettant de vérifier le taux d'utilisation mémoire des machines virtuelles                                                                |            |
-| Vm-Snapshot-Global            | Virt-VMWare2-Vm-Snapshot-Global-custom            | Contrôle permettant de vérifier l'âge des snapshosts sur plusieurs machine virtuelles                                                                 |            |
+| Vm-Snapshot-Global            | Virt-VMWare2-Vm-Snapshot-Global-custom            | Contrôle permettant de vérifier l'âge des snapshots sur plusieurs machines virtuelles                                                                |            |
 | Vm-Status-Global              | Virt-VMWare2-Vm-Status-Global-custom              | Contrôle permettant de vérifier l'état global de plusieurs machines virtuelles                                                                       |            |
 | Vm-Swap-Global                | Virt-VMWare2-Vm-Swap-Global-custom                | Contrôle permettant de vérifier si les machines virtuelles swappent                                                                                  |            |
 | Vm-Thinprovisioning-Global    | Virt-VMWare2-Vm-Thinprovisioning-Global-custom    | Contrôle permettant de vérifier si une machine virtuelle possède un disque en mode 'thinprovisioning' ou non                                         |            |
@@ -87,14 +87,14 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de service
 
-| Nom de la règle                               | Description |
-|:----------------------------------------------|:------------|
-| Virt-VMWare2-Datacenters-Alarm-Name           |             |
-| Virt-VMWare2-Vcenter-Clusters-Status-Name     |             |
-| Virt-VMWare2-Vcenter-Datastores-Io-Name       |             |
-| Virt-VMWare2-Vcenter-Datastores-Iops-Name     |             |
-| Virt-VMWare2-Vcenter-Datastores-Usage-Name    |             |
-| Virt-VMWare2-Vcenter-Datastores-Vm-Count-Name |             |
+| Nom de la règle                               | Description                                                                                        |
+|:----------------------------------------------|:---------------------------------------------------------------------------------------------------|
+| Virt-VMWare2-Datacenters-Alarm-Name           | Découvre des Datacenters et supervise leurs alarmes                                                  |
+| Virt-VMWare2-Vcenter-Clusters-Status-Name     | Découvre des Clusters et supervise leur status                                                     |
+| Virt-VMWare2-Vcenter-Datastores-Io-Name       | Découvre des Datastores et supervise leur taux d'utilisation en Kbps                                 |
+| Virt-VMWare2-Vcenter-Datastores-Iops-Name     | Découvre des Datastores et supervise leurs IOPs moyens                                               |
+| Virt-VMWare2-Vcenter-Datastores-Usage-Name    | Découvre des Datastores et supervise leur taux d'utilisation                                         |
+| Virt-VMWare2-Vcenter-Datastores-Vm-Count-Name | Découvre des Datastores et supervise le nombre de machines virtuelles allumées/éteintes/suspendues |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -106,7 +106,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Cluster-Cpu" label="Cluster-Cpu">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *clusters*~cluster.cpu.utilization.percentage | %     |
 | *clusters*~cluster.cpu.utilization.mhz        | MHz   |
@@ -114,7 +114,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Cluster-Cpu-Global" label="Cluster-Cpu-Global">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *clusters*~cluster.cpu.utilization.percentage | %     |
 | *clusters*~cluster.cpu.utilization.mhz        | MHz   |
@@ -122,7 +122,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Cluster-Status" label="Cluster-Status">
 
-| Métrique         | Unité |
+| Nom              | Unité |
 |:-----------------|:------|
 | *cluster*#status | N/A   |
 
@@ -131,7 +131,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Cluster-Status-Global" label="Cluster-Status-Global">
 
-| Métrique         | Unité |
+| Nom              | Unité |
 |:-----------------|:------|
 | *cluster*#status | N/A   |
 
@@ -140,7 +140,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datacenter-Alarms" label="Datacenter-Alarms">
 
-| Métrique                                 | Unité |
+| Nom                                      | Unité |
 |:-----------------------------------------|:------|
 | datacenter.alarms.warning.current.count  | count |
 | datacenter.alarms.critical.current.count | count |
@@ -153,7 +153,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datacenter-Alarms-Global" label="Datacenter-Alarms-Global">
 
-| Métrique                                 | Unité |
+| Nom                                      | Unité |
 |:-----------------------------------------|:------|
 | datacenter.alarms.warning.current.count  | count |
 | datacenter.alarms.critical.current.count | count |
@@ -166,7 +166,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Io-Global" label="Datastore-Io-Global">
 
-| Métrique                                         | Unité |
+| Nom                                              | Unité |
 |:-------------------------------------------------|:------|
 | datastore.read.usage.bytespersecond              | B/s   |
 | datastore.write.usage.bytespersecond             | B/s   |
@@ -179,7 +179,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Iops-Global" label="Datastore-Iops-Global">
 
-| Métrique                                       | Unité |
+| Nom                                            | Unité |
 |:-----------------------------------------------|:------|
 | datastores.read.usage.iops                     | iops  |
 | datastores.write.usage.iops                    | iops  |
@@ -194,7 +194,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Snapshots-Global" label="Datastore-Snapshots-Global">
 
-| Métrique                                           | Unité |
+| Nom                                                | Unité |
 |:---------------------------------------------------|:------|
 | *datastore*~status                                 | N/A   |
 | *datastore*~datastore.snapshots.usage.bytes        | B     |
@@ -205,7 +205,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Usage-Global" label="Datastore-Usage-Global">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *datastore*#status                            | N/A   |
 | *datastore*#datastore.space.usage.bytes       | B     |
@@ -218,7 +218,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Vm-Count-Global" label="Datastore-Vm-Count-Global">
 
-| Métrique                                          | Unité |
+| Nom                                               | Unité |
 |:--------------------------------------------------|:------|
 | datastore.vm.poweredon.current.count              | count |
 | datastore.vm.poweredoff.current.count             | count |
@@ -233,7 +233,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="ESX-Alarms-Global" label="ESX-Alarms-Global">
 
-| Métrique                           | Unité |
+| Nom                                | Unité |
 |:-----------------------------------|:------|
 | host.alarms.warning.current.count  | count |
 | host.alarms.critical.current.count | count |
@@ -246,7 +246,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Cpu-Global" label="Esx-Cpu-Global">
 
-| Métrique                                          | Unité |
+| Nom                                               | Unité |
 |:--------------------------------------------------|:------|
 | *host*~status                                     | N/A   |
 | *host*~host.cpu.utilization.percentage            | %     |
@@ -258,7 +258,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Datastores-Latency-Global" label="Esx-Datastores-Latency-Global">
 
-| Métrique                                                     | Unité |
+| Nom                                                          | Unité |
 |:-------------------------------------------------------------|:------|
 | *host*~status                                                | N/A   |
 | *host*~*datastore*#host.datastore.latency.read.milliseconds  | ms    |
@@ -269,7 +269,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Health-Global" label="Esx-Health-Global">
 
-| Métrique                                              | Unité |
+| Nom                                                   | Unité |
 |:------------------------------------------------------|:------|
 | host.health.problems.current.count                    | count |
 | *host*~status                                         | N/A   |
@@ -286,7 +286,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Memory-Global" label="Esx-Memory-Global">
 
-| Métrique                          | Unité |
+| Nom                               | Unité |
 |:----------------------------------|:------|
 | *host*#status                     | N/A   |
 | *host*#host.memory.usage.bytes    | B     |
@@ -298,7 +298,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Service-Global" label="Esx-Service-Global">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | *host*~status                   | N/A   |
 | *host*~*service*#service-status | N/A   |
@@ -308,7 +308,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Status-Global" label="Esx-Status-Global">
 
-| Métrique              | Unité |
+| Nom                   | Unité |
 |:----------------------|:------|
 | *host*#status         | N/A   |
 | *host*#overall-status | N/A   |
@@ -318,7 +318,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Storage-Global" label="Esx-Storage-Global">
 
-| Métrique                           | Unité |
+| Nom                                | Unité |
 |:-----------------------------------|:------|
 | *host*~status                      | N/A   |
 | *host*~host.adapters.total.count   | count |
@@ -346,7 +346,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Swap-Global" label="Esx-Swap-Global">
 
-| Métrique                                  | Unité |
+| Nom                                       | Unité |
 |:------------------------------------------|:------|
 | *host*#status                             | N/A   |
 | *host*#host.swap.in.usage.bytespersecond  | B/s   |
@@ -357,7 +357,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Time-Global" label="Esx-Time-Global">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | *host*#status                   | N/A   |
 | *host*#host.time.offset.seconds | s     |
@@ -367,7 +367,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Traffic-Global" label="Esx-Traffic-Global">
 
-| Métrique                                                 | Unité |
+| Nom                                                      | Unité |
 |:---------------------------------------------------------|:------|
 | *host*~status                                            | N/A   |
 | *host*~host.traffic.in.bitsperseconds                    | b/s   |
@@ -385,7 +385,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Uptime-Global" label="Esx-Uptime-Global">
 
-| Métrique                          | Unité |
+| Nom                               | Unité |
 |:----------------------------------|:------|
 | *host*#status                     | N/A   |
 | *host*#host.uptime.offset.seconds | s     |
@@ -395,7 +395,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Vm-Count-Global" label="Esx-Vm-Count-Global">
 
-| Métrique                                | Unité |
+| Nom                                     | Unité |
 |:----------------------------------------|:------|
 | host.vm.poweredon.current.count         | count |
 | host.vm.poweredoff.current.count        | count |
@@ -410,7 +410,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-is-Maintenance-Global" label="Esx-is-Maintenance-Global">
 
-| Métrique                  | Unité |
+| Nom                       | Unité |
 |:--------------------------|:------|
 | *host*#status             | N/A   |
 | *host*#maintenance-status | N/A   |
@@ -420,7 +420,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | licenses.total.count                | count |
 | *licenses*#license.usage.count      | count |
@@ -431,7 +431,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Cpu-Global" label="Vm-Cpu-Global">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *vm*~status                                   | N/A   |
 | *vm*~vm.cpu.utilization.percentage            | %     |
@@ -444,7 +444,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Datastores-Iops-Global" label="Vm-Datastores-Iops-Global">
 
-| Métrique                                       | Unité |
+| Nom                                            | Unité |
 |:-----------------------------------------------|:------|
 | *vm*~status                                    | N/A   |
 | *vm*~vm.datastore.latency.max.milliseconds     | ms    |
@@ -456,7 +456,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Device-Global" label="Vm-Device-Global">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | vm.devices.connected.count      | count |
 | *vm*#status                     | N/A   |
@@ -467,7 +467,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Limit-Global" label="Vm-Limit-Global">
 
-| Métrique      | Unité |
+| Nom           | Unité |
 |:--------------|:------|
 | cpu-status    | N/A   |
 | memory-status | N/A   |
@@ -478,7 +478,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Memory-Global" label="Vm-Memory-Global">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | *vm*~status                         | N/A   |
 | *vm*~vm.memory.consumed.usage.bytes | B     |
@@ -492,7 +492,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Snapshot-Global" label="Vm-Snapshot-Global">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | vm.snapshots.warning.current.count  | count |
 | vm.snapshots.critical.current.count | count |
@@ -500,7 +500,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Status-Global" label="Vm-Status-Global">
 
-| Métrique            | Unité |
+| Nom                 | Unité |
 |:--------------------|:------|
 | *vm*#status         | N/A   |
 | *vm*#overall-status | N/A   |
@@ -510,7 +510,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Swap-Global" label="Vm-Swap-Global">
 
-| Métrique                              | Unité |
+| Nom                                   | Unité |
 |:--------------------------------------|:------|
 | *vm*#status                           | N/A   |
 | *vm*#vm.swap.in.usage.bytespersecond  | B/s   |
@@ -521,16 +521,16 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Thinprovisioning-Global" label="Vm-Thinprovisioning-Global">
 
-| Metric name                         | Unit                                   |
-|-------------------------------------|----------------------------------------|
-| VM Connection State                 | N/A      							|
-| Thin Provisioning Status of VMs     | N/A            						|
-| VM Power State                      | N/A            						|
+| Nom                             | Unité |
+|:--------------------------------|:-----|
+| VM Connection State             | N/A |
+| Thin Provisioning Status of VMs | N/A |
+| VM Power State                  | N/A |
 
 </TabItem>
 <TabItem value="Vm-Tools-Global" label="Vm-Tools-Global">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | vm.tools.notupdated.current.count   | count |
 | vm.tools.notrunning.current.count   | count |
@@ -539,7 +539,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vsan-Cluster-Usage" label="Vsan-Cluster-Usage">
 
-| Métrique                                                       | Unité |
+| Nom                                                            | Unité |
 |:---------------------------------------------------------------|:------|
 | *cluster*#cluster.vsan.backend.read.usage.iops                 | iops  |
 | *cluster*#cluster.vsan.backend.write.usage.iops                | iops  |
@@ -548,12 +548,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | *cluster*#cluster.vsan.backend.throughput.read.bytespersecond  | B/s   |
 | *cluster*#cluster.vsan.backend.throughput.write.bytespersecond | B/s   |
 | *cluster*#cluster.vsan.backend.latency.read.microseconds       | µs    |
-| *cluster*#cluster.vsan.backend.latency.write.microseconds     | µs    |
+| *cluster*#cluster.vsan.backend.latency.write.microseconds      | µs    |
 
 </TabItem>
 <TabItem value="Vsan-Cluster-Usage-Global" label="Vsan-Cluster-Usage-Global">
 
-| Métrique                                                       | Unité |
+| Nom                                                            | Unité |
 |:---------------------------------------------------------------|:------|
 | *cluster*#cluster.vsan.backend.read.usage.iops                 | iops  |
 | *cluster*#cluster.vsan.backend.write.usage.iops                | iops  |
@@ -569,15 +569,119 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-### Configuration du connecteur Centreon VMWare
+Pour la supervision VMware, Centreon utilise un *daemon* pour se connecter et requêter le vCenter (ou les ESX, mais il est recommandé de passer par le vCenter).
 
-Pour la supervision VMWare, centreon utlise un daemon pour se connecter et requêter le vCenter.
+### Téléchargement du SDK Perl
+
+Pour faire fonctionner ce connecteur, le SDK VMware Perl est nécessaire.
+Pour le télécharger, vous devez posséder un compte (non payant) chez Broadcom. À l'heure où ce document est rédigé, le téléchargement se fait depuis
+[cette page](https://developer.broadcom.com/sdks/vsphere-perl-sdk/latest/). Téléchargez la dernière version (l'archive dont la somme de contrôle MD5 vaut `f9ef0fc7a4e4983cf0ca6aea08d9a778`.
+
+Pour superviser des clusters vSAN, il vous faudra également télécharger une autre archive depuis [cette page](https://developer.broadcom.com/sdks/vsan-management-sdk-for-perl/latest/).
+
+Déposez ensuite les archives téléchargées à l'emplacement `/tmp/` de tous les serveurs où vous souhaiterez faire 
+fonctionner ce programme (généralement les collecteurs).
+
+### Installation du daemon Centreon VMware et du SDK Perl
 
 Installez le daemon sur tous les collecteurs :
 
-```shell
-yum install centreon-plugin-Virtualization-VMWare-daemon
+<Tabs groupId="sync">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+- Installation du paquet et d'outils nécessaires
+
+```bash
+apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
 ```
+
+- Installation du SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+- Installation du paquet et d'outils nécessaires
+
+```bash
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
+```
+
+- Installation du SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
+cd vmware-vsphere-cli-distrib
+perl Makefile.PL
+make pure_install
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+- Installation du paquet et d'outils nécessaires
+
+```bash
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
+```
+
+- Installation du SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
+```
+
+</TabItem>
+</Tabs>
+
+- Installation des modules vSAN
+
+```bash
+cd /tmp
+unzip vsan-sdk-perl.zip
+mkdir -p /usr/local/share/perl5/VMware
+cp ./vsan-sdk-perl/bindings/VIM25Vsanmgmt* /usr/local/share/perl5/VMware/
+```
+
+### Configuration du connecteur Centreon VMWare
 
 <Tabs groupId="sync">
 <TabItem value="Centreon Cloud et OnPrem à partir de la 24.10" label="Centreon Cloud et OnPrem à partir de la 24.10">
@@ -606,8 +710,8 @@ Pour configurer les accès à votre infrastructure, éditez le fichier
 
 Assurez-vous d'avoir remplacé toutes les variables avec les informations nécessaires :
 
-- _ip\_hostname_: Adresse IP ou nom d'hôte du vCenter ou de l'ESX (Si il est en mode standalone),
-- _username_: utilisateur avec un accès "lecture seul" au vCenter ou à l'ESX (Vous pouvez utilisez un utilisateur du domaine),
+- _ip\_hostname_: Adresse IP ou nom d'hôte du vCenter ou de l'ESX (s'il est en mode standalone),
+- _username_: utilisateur avec un accès "lecture seule" au vCenter ou à l'ESX (vous pouvez utiliser un utilisateur du domaine),
 - _password_: le mot de passe de l'utilisateur.
 
 Vous pouvez configurer plusieurs connexions à différents vCenter ou ESX
@@ -633,7 +737,7 @@ en utilisant cette structure:
 1;
 ```
 
-Chaque entrée est un **container**.
+Chaque entrée est appelée un **container** (il correspond à la macro d'hôte `$_HOSTCENTREONVMWARECONTAINER$`).
 
 </TabItem>
 </Tabs>
@@ -647,12 +751,18 @@ systemctl enable centreon_vmware
 
 Vous pouvez vérifiez que votre configuration est fonctionelle en consultant les journaux dans :
 "/var/log/centreon/centreon\_vmware.log".
+### Balises et attributs personnalisés
+
+Pour découvrir les balises et les attributs personnalisés, vous devez :
+
+* utiliser la version **3.2.5** de **centreon-vmware-daemon**
+* ajouter **--tags** dans les options supplémentaires de découverte : allez à la page **Configuration > Hôtes > Découverte**, et à la 3ème étape (**Définir les paramètres de découverte**), dans la section **Paramètres supplémentaires**, dans le champ **Options supplémentaires**, saisissez **--tags**.
 
 ### Flux réseau
 
-Le Collecteur Centreon avec le connecteur VMWare d'installé doit accéder en HTTPS (TCP/443) au vCenter.
+Le collecteur Centreon (avec le *daemon* VMWare installé dessus) doit accéder en HTTPS (TCP/443) au vCenter.
 
-Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder en TCP/5700 au Collecteur avec le Connecteur VMWare.
+Si plusieurs collecteurs de supervision utilisent un même daemon, alors ceux-ci doivent accéder en TCP/5700 au collecteur équipé du daemon VMware.
 
 ## Installer le connecteur de supervision
 
@@ -661,7 +771,7 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -698,7 +808,7 @@ yum install centreon-pack-virtualization-vmware2-vcenter-generic
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **VMware vCenter**
-depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
@@ -751,12 +861,12 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 3. Appliquez le modèle d'hôte **Virt-VMWare2-VCenter-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                      | Description                                                                                                                                | Valeur par défaut | Obligatoire |
-|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONVMWAREPORT         | Connector port                                                                                                                             | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                                                             | default           |             |
-| CENTREONVMWAREHOST         | Connector hostname (required)                                                                                                              | localhost         |             |
-| CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro                      | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CENTREONVMWAREPORT         | Port of the daemon (default: 5700).                                                                        | 5700              |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the daemon's configuration).                                          | default           |             |
+| CENTREONVMWAREHOST         | Hostname of the server on which the daemon is installed (required).                                                                         | localhost         |X             |
+| CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -1598,13 +1708,13 @@ Les options génériques sont listées ci-dessous :
 | --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-perfdata                          | Keep only perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -1618,16 +1728,16 @@ Les options génériques sont listées ci-dessous :
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --connector-hostname                       | Connector hostname (required).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --connector-port                           | Connector port (default: 5700).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --connector-hostname                       | Hostname of the server on which the daemon is installed (required).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --connector-port                           | Port on which the daemon is listening (default: 5700).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --container                                | Container to use (it depends on the connector's configuration).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --vsphere-address                          | Address of vpshere/ESX to connect.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --vsphere-username                         | Username of vpshere/ESX connection (with --vsphere-address).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --vsphere-password                         | Password of vpshere/ESX connection (with --vsphere-address).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --vsphere-address                          | Address of the vpshere/ESX instance to connect to.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --vsphere-username                         | Username to use to connect to the vpshere/ESX instance (with --vsphere-address).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --vsphere-password                         | Password used to connect to the vpshere/ESX instance (with --vsphere-address).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --timeout                                  | Set global execution timeout (Default: 50)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --sampling-period                          | Choose the sampling period (can change the default sampling for counters). Should be not different than 300 or 20.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --time-shift                               | Can shift the time. We the following option you can average X counters values (default: 0).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --case-insensitive                         | Searchs are case insensitive.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --sampling-period                          | Choose the sampling period (can change the default sampling for counters). Should be not different from 300 or 20.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --time-shift                               | Can shift the time. With the following option you can average X counter values (default: 0).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --case-insensitive                         | Searches are case insensitive.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --unknown-connector-status                 | Set unknown threshold for connector status (Default: '%\{code\} \< 0 \|\| (%\{code\} \> 0 && %\{code\} \< 200)'). You can use the following variables: %\{code\}, %\{short_message\}, %\{extra_message\}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --warning-connector-status                 | Set warning threshold for connector status (Default: ''). You can use the following variables: %\{code\}, %\{short_message\}, %\{extra_message\}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --critical-connector-status                | Set critical threshold for connector status (Default: ''). You can use the following variables: %\{code\}, %\{short_message\}, %\{extra_message\}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |

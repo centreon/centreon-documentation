@@ -7,9 +7,11 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-This procedure only applies if you wish to migrate from Debian 11 to Debian 12, on another server. (If you want to upgrade your OS in-place, see [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874?tid=3874&fid=21)).
+This procedure only applies if you wish to migrate from Debian 11 to Debian 12, on another server.
 
 All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
+
+> If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
 Be sure that you have fully backed up your environment for the following
 servers:

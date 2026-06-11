@@ -53,15 +53,69 @@ For security reasons, Centreon Cloud has a built-in whitelist that defines which
 
 1. Log in as **root** to the poller that will run the commmand.
 2. Edit (or create) the following file: **/etc/centreon-engine-whitelist/my-whitelist.yml**. (You can create as many whitelist files as you want in this directory.)
-3. Use a regex to define which commands to authorize. Example:
+3. Make sure the correct access rights are defined on all whitelist files:
 
-   ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
-   whitelist:
-     regex:
-       - \/opt\/my_plugins\/my_custom_plugin\.py .*
-    ```
+   ```yaml
+   chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+   chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+   chown root:centreon-engine /etc/centreon-engine-whitelist
+   chmod 750 /etc/centreon-engine-whitelist
+   ```
 
-The `.*`  at the end of the regex allows it to handle any arguments it may contain. Bear in mind that the format must be strictly indentical to the one above (including indents).
+4. Use a regex to define which commands to authorize. Example:
+
+  ```text
+  whitelist:
+      regex:
+		 - \/usr\/lib(64)?\/nagios\/plugins\/.*
+		 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+         - \/opt\/my_plugins\/my_custom_plugin\.py .*
+  cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  ```
+
+The **whitelist** block defines the commands that can be executed by the poller. 
+
+> The first two lines must always be present in the “whitelist” block; they correspond to Centreon commands.
+
+The **cma-whitelist** block defines the commands that can be executed by the CMA agent.
+
+In the **cma-whitelist** block, you can specify whitelists by host if necessary. The syntax is as follows:
+
+```text
+whitelist:
+  regex:
+	 - \/usr\/lib(64)?\/nagios\/plugins\/.*
+	 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+	 - \/opt\/my_plugins\/my_custom_plugin\.py .*
+cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  hosts:
+    - hostname:Host_1
+    regex:
+      - ...
+      
+    - hostname:Host_2
+    regex:
+      - ...
+```
+
+
+Use `.*` to include all arguments in the regex. The `.*`  at the end of the regex allows it to handle any arguments it may contain. Bear in mind that the format must be strictly indentical to the one above (including indents).
 
 > If you have not authorized your custom command in a whitelist, it will say so in the **Information** column of the **Resources Status** page.
 
@@ -136,3 +190,42 @@ apt install centreon-connector-perl
 
 </TabItem>
 </Tabs>
+
+#### Less fork mode
+
+> **Beta feature:** This mode has not yet been validated for all Centreon plugins. Test it on a limited number of pollers with your specific plugins before deploying at scale in production.
+
+In addition to avoiding Perl recompilation, the Perl connector supports a **less fork** mode. In standard mode, a child process is spawned for each check then immediately killed. In less fork mode, child processes are reused across multiple checks, dramatically reducing CPU usage.
+
+**Performance measurements** (50 hosts × 10 services each):
+
+| Mode | CPU usage |
+|------|-----------|
+| Engine without connector | 85% |
+| Perl connector – standard (fork per check) | 38% |
+| Perl connector – less fork (process reuse) | **11%** |
+
+**How it works**
+
+The `--child-max-reuse-script` option controls how many checks a child process can execute before being killed:
+
+- Default value: `1` (each child dies after one check — classic fork behavior)
+- Less fork mode: set to a higher value, e.g. `100`
+
+The connector also automatically kills a child process if it exceeds the following thresholds:
+- `--child-max-memory-increase-percent` (default: 10%): memory increase since first check
+- `--child-max-fd-increase-percent` (default: 10%): file descriptor increase since first check
+- `--child-max-thread` (default: 10): number of threads created
+- `--idle-child-ttl` (default: 15 min): idle time without any check
+
+**Usage**
+
+The **Perl Connector Less Fork** connector is pre-configured on your poller. To benefit from less fork mode, go to **Configuration > Commands > Checks** and select **Perl Connector Less Fork** in the **Connectors** field of each check command you want to optimize, if it is not already set.
+
+**Per-command override**
+
+You can also override the reuse limit for a specific command by inserting the keyword directly in the command line, between the script path and the script's arguments:
+
+```shell
+/usr/lib/nagios/plugins/check_something.pl --child-max-reuse-script 5 --arg1 value1
+```

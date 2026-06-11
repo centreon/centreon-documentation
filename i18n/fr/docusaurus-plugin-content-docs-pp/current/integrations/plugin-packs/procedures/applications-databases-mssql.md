@@ -5,6 +5,12 @@ title: Microsoft SQL Server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft SQL Server**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
@@ -50,7 +56,7 @@ Le connecteur apporte les modèles de service suivants
 
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Backup-Age" label="Backup-Age">
@@ -179,7 +185,23 @@ Néanmoins, la solution la plus optimale est l'utilisation d'un compte du domain
 
 ### Dépendances
 
-Il est nécessaire d'installer les paquets suivants: `freetds perl-DBD-Sybase unixODBC`.
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Il est nécessaire d'installer les paquets suivants : `freetds perl-DBD-Sybase unixODBC`.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Il est nécessaire d'installer les paquets suivants : `freetds perl-DBD-Sybase unixODBC`.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+Il est nécessaire d'installer les paquets suivants : `freetds libdbd-sybase-perl unixODBC`.
+
+</TabItem>
+</Tabs>
 
 ### Configuration de freetds
 
@@ -188,8 +210,24 @@ moins la version 8.0 pour un fonctionnement et une sécurité optimales. Pour ce
 décommenter la ligne `version = 4.2` et remplacer `4.2` par `8.0`. 
 
 Chemin du fichier: 
-- RedHat-like: /etc/freetds.conf
-- Debian 11: /etc/freetds/freetds.conf
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+`/etc/freetds.conf`
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+`/etc/freetds.conf`
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+`/etc/freetds/freetds.conf`
+
+</TabItem>
+</Tabs>
 
 ## Installer le connecteur de supervision
 
@@ -222,13 +260,6 @@ dnf install centreon-pack-applications-databases-mssql
 
 ```bash
 apt install centreon-pack-applications-databases-mssql
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-databases-mssql
 ```
 
 </TabItem>
@@ -267,13 +298,6 @@ dnf install centreon-plugin-Applications-Databases-Mssql
 
 ```bash
 apt install centreon-plugin-applications-databases-mssql
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Databases-Mssql
 ```
 
 </TabItem>
@@ -354,11 +378,14 @@ yum install centreon-plugin-Applications-Databases-Mssql
 </TabItem>
 <TabItem value="Connected-Users" label="Connected-Users">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| Macro           | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COUNTADMINUSERS | Count admin users (otherwise it's ignored)                                                                                               | 0                 |             |
+| UNIQUSERS       | Count users with the same login name once                                                                                                | 0                 |             |
+| DATABASENAME    | Filter connected users by database name (can be a regexp)                                                                                |                   |             |
+| WARNING         | Warning threshold                                                                                                                        |                   |             |
+| CRITICAL        | Critical threshold                                                                                                                       |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Connection-Time" label="Connection-Time">
@@ -650,8 +677,12 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                    | Description            |
 |:--------------------------|:-----------------------|
-| --warning-connected-user  | Warning threshold.     |
-| --critical-connected-user | Critical threshold.    |
+| --filter-counters         | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --database-name           | Filter connected users by database name (can be a regexp).                                                                |
+| --uniq-users              | Count users with the same login name once.                                                                                |
+| --count-admin-users       | Count admin users (otherwise it's ignored).                                                                               |
+| --warning-connected-user  | Warning threshold.                                                                                                        |
+| --critical-connected-user | Critical threshold.                                                                                                       |
 
 </TabItem>
 <TabItem value="Connection-Time" label="Connection-Time">

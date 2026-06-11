@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-ibm-ts3100-snmp
-title: IBM TS3100
+title: IBM TS3100 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **IBM TS3100** apporte un modèle d'hôte :
+Le connecteur de supervision **IBM TS3100 SNMP** apporte un modèle d'hôte :
 
 * **HW-Storage-IBM-TS3100-SNMP-custom**
 
@@ -19,8 +19,8 @@ Le connecteur apporte le modèle de service suivant
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-IBM-TS3100-SNMP-custom" label="HW-Storage-IBM-TS3100-SNMP-custom">
 
-| Alias        | Modèle de service                              | Description                             |
-|:-------------|:-----------------------------------------------|:----------------------------------------|
+| Alias        | Modèle de service                              | Description                            |
+|:-------------|:-----------------------------------------------|:---------------------------------------|
 | GlobalStatus | HW-Storage-IBM-TS3100-GlobalStatus-SNMP-custom | Contrôle l'état global de l'équipement |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-IBM-TS3100-SNMP-custom** est utilisé.
@@ -45,7 +45,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="GlobalStatus" label="GlobalStatus">
 
-| Métrique      | Unité |
+| Nom           | Unité |
 |:--------------|:------|
 | global.status | N/A   |
 
@@ -109,7 +109,7 @@ yum install centreon-pack-hardware-storage-ibm-ts3100-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IBM TS3100**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IBM TS3100 SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -296,7 +296,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --contextname                              | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --contextengineid                          | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --securityengineid                         | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --snmp-tls-transport                       | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-tls-our-identity                    | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --snmp-tls-their-identity                  | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |

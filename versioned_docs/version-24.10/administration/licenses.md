@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 ## Types of license
 
-According to your [Centreon edition](https://www.centreon.com/en/editions/), your license can be:
+According to your [Centreon edition](https://www.centreon.com/centreon-editions/), your license can be:
 - online: uses a token. Your Centreon platform must be connected to the internet.
 - offline: uses one or several license files
 
@@ -131,3 +131,5 @@ chmod 640 /etc/centreon/license.d/*
     ```sql
     SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
     ```
+
+  > Disabled hosts are taken into account by the license. Make sure that the total number of existing hosts (enabled + disabled) is below the limit set by your license.

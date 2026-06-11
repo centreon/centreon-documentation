@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-fujitsu-eternus-dx-ssh
-title: Fujitsu Eternus DX
+title: Fujitsu Eternus DX SSH
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Fujitsu Eternus DX**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Fujitsu Eternus DX SSH**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Fujitsu Eternus DX** apporte un modèle d'hôte :
+Le connecteur de supervision **Fujitsu Eternus DX SSH** apporte un modèle d'hôte :
 
 * **HW-Storage-Fujitsu-Eternus-DX-SSH-custom**
 
@@ -31,8 +31,8 @@ Le connecteur apporte les modèles de service suivants
 | Physical-Disk | HW-Storage-Fujitsu-Eternus-DX-SSH-Physical-Disk-custom | Contrôle l'état des disques                   |
 | Port-Stats    | HW-Storage-Fujitsu-Eternus-DX-SSH-Port-Stats-custom    | Contrôle l'état des ports                     |
 | Psu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Psu-custom           | Contrôle l'état de l'alimentation             |
-| Raid-Groups   | HW-Storage-Fujitsu-Eternus-DX-SSH-Raid-Groups-custom   | Contrôle l'espace disque                                              |
-| Volume-Stats  | HW-Storage-Fujitsu-Eternus-DX-SSH-Stats-custom         | Contrôle de l'état général de la baie.                                              |
+| Raid-Groups   | HW-Storage-Fujitsu-Eternus-DX-SSH-Raid-Groups-custom   | Contrôle l'espace disque                      |
+| Volume-Stats  | HW-Storage-Fujitsu-Eternus-DX-SSH-Stats-custom         | Contrôle de l'état général de la baie.        |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Fujitsu-Eternus-DX-SSH-custom** est utilisé.
 
@@ -55,9 +55,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Physical-Disk" label="Physical-Disk">
 
-| Nom                                          | Unité  |
-|:----------------------------------------------|:------|
-| disk-status                | N/A  |
+| Nom         | Unité  |
+|:------------|:------|
+| disk-status | N/A  |
 
 </TabItem>
 <TabItem value="Port-Stats" label="Port-Stats">
@@ -74,9 +74,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Psu" label="Psu">
 
-| Nom                                          | Unité  |
-|:----------------------------------------------|:------|
-| hardware.powersupply.power.watt                | W  |
+| Nom                             | Unité  |
+|:--------------------------------|:------|
+| hardware.powersupply.power.watt | W  |
 
 </TabItem>
 <TabItem value="Raid-Groups" label="Raid-Groups">
@@ -173,7 +173,7 @@ yum install centreon-pack-hardware-storage-fujitsu-eternus-dx-ssh
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Fujitsu Eternus DX**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Fujitsu Eternus DX SSH**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -232,8 +232,8 @@ yum install centreon-plugin-Hardware-Storage-Fujitsu-Eternus-Dx-Ssh
 | SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          | centreon          |             |
 | SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
 | SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
-| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | libssh            |             |
-| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli, plink and libssh                                                                                             | libssh            |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                  |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 

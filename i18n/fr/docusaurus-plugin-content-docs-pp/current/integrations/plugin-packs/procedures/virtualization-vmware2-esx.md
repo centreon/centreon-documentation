@@ -5,9 +5,9 @@ title: VMware ESX
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-VMWare est une solution de virtualisation et d'infrastructure de Cloud Computing.
+VMware est une solution de virtualisation et d'infrastructure de Cloud Computing.
 
-Le connecteur de supervision Centreon s'appuie sur le SDK Centreon VMWare Connecteur pour requêter l'API du vCenter.
+Le connecteur de supervision Centreon s'appuie sur un connecteur dédié (centreon-vmware-daemon) utilisant le SDK VMware pour requêter l'API du vCenter.
 
 Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters, etc.
 
@@ -41,21 +41,21 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                  | Modèle de service                                  | Description                                                                                                                          | Découverte |
-|:-----------------------|:---------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Datastore-Io           | Virt-VMWare2-Datastore-Io-Generic-custom           | Contrôle permettant de vérifier le taux d'utilisation en Kbps d'un datastore                                                         |            |
-| Datastore-Iops         | Virt-VMWare2-Datastore-Iops-Generic-custom         | Contrôle permettant de vérifier les IOPs moyens d'un datastore                                                                       |            |
-| Datastore-Snapshots    | Virt-VMWare2-Datastore-Snapshots-Generic-custom    | Contrôle permettant de vérifier le taux d'utilisation des snapshots sur un datastore                                                 |            |
-| Datastore-Usage        | Virt-VMWare2-Datastore-Usage-Generic-custom        | Contrôle permettant de vérifier le taux d'utilisation d'un datastore                                                                 |            |
-| Datastore-Vm-Count     | Virt-VMWare2-Datastore-Vm-Count-Generic-custom     | Contrôle permettant de vérifier le nombre de machines virtuelles allumées/éteintes/suspendues sur un datastore                       |            |
-| ESX-Alarms             | Virt-VMWare2-ESX-Alarms-Generic-custom             | Contrôle permettant de vérifier les alarmes d'un ESX                                                                                 |            |
-| Esx-Datastores-Latency | Virt-VMWare2-ESX-Datastores-Latency-Generic-custom | Contrôle permettant de vérifier la latence rencontrée par le serveur ESX sur ses datastores                                           | X          |
-| Esx-Service            | Virt-VMWare2-ESX-Service-Generic-custom            | Contrôle permettant de vérifier l'état des services d'un serveur ESX                                                                 |            |
-| Esx-Storage            | Virt-VMWare2-ESX-Storage-Generic-custom            | Contrôle permettant de vérifier les informations de stockage                                                                         |            |
-| Esx-Time               | Virt-VMWare2-ESX-Time-Generic-custom               | Contrôle permettant de vérifier le décalage de temps d'un serveur ESX                                                                |            |
-| Esx-Traffic            | Virt-VMWare2-ESX-Traffic-Generic-custom            | Contrôle permettant de vérifier le taux d'utilisation des interfaces réseau physiques d'un serveur ESX. Les seuils sont en pourcent | X          |
-| Esx-Uptime             | Virt-VMWare2-ESX-Uptime-Generic-custom             | Contrôle permettant de récuperer l'uptime en jours d'un serveur ESX                                                                  |            |
-| Esx-is-Maintenance     | Virt-VMWare2-ESX-Maintenance-Generic-custom        | Contrôle permettant de vérifier le mode de maintenance d'un serveur ESX                                                              |            |
+| Alias                  | Modèle de service                                  | Description                                                                                                                         | Découverte |
+|:-----------------------|:---------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------|:----------:|
+| Datastore-Io           | Virt-VMWare2-Datastore-Io-Generic-custom           | Contrôle permettant de vérifier le taux d'utilisation en Kbps d'un datastore                                                        |            |
+| Datastore-Iops         | Virt-VMWare2-Datastore-Iops-Generic-custom         | Contrôle permettant de vérifier les IOPs moyens d'un datastore                                                                      |            |
+| Datastore-Snapshots    | Virt-VMWare2-Datastore-Snapshots-Generic-custom    | Contrôle permettant de vérifier le taux d'utilisation des snapshots sur un datastore                                                |            |
+| Datastore-Usage        | Virt-VMWare2-Datastore-Usage-Generic-custom        | Contrôle permettant de vérifier le taux d'utilisation d'un datastore                                                                |            |
+| Datastore-Vm-Count     | Virt-VMWare2-Datastore-Vm-Count-Generic-custom     | Contrôle permettant de vérifier le nombre de machines virtuelles allumées/éteintes/suspendues sur un datastore                      |            |
+| ESX-Alarms             | Virt-VMWare2-ESX-Alarms-Generic-custom             | Contrôle permettant de vérifier les alarmes d'un ESX                                                                                |            |
+| Esx-Datastores-Latency | Virt-VMWare2-ESX-Datastores-Latency-Generic-custom | Contrôle permettant de vérifier la latence rencontrée par le serveur ESX sur ses datastores                                         |     X      |
+| Esx-Service            | Virt-VMWare2-ESX-Service-Generic-custom            | Contrôle permettant de vérifier l'état des services d'un serveur ESX                                                                |            |
+| Esx-Storage            | Virt-VMWare2-ESX-Storage-Generic-custom            | Contrôle permettant de vérifier les informations de stockage                                                                        |            |
+| Esx-Time               | Virt-VMWare2-ESX-Time-Generic-custom               | Contrôle permettant de vérifier le décalage de temps d'un serveur ESX                                                               |            |
+| Esx-Traffic            | Virt-VMWare2-ESX-Traffic-Generic-custom            | Contrôle permettant de vérifier le taux d'utilisation des interfaces réseau physiques d'un serveur ESX. Les seuils sont en pourcent |     X      |
+| Esx-Uptime             | Virt-VMWare2-ESX-Uptime-Generic-custom             | Contrôle permettant de récuperer l'uptime en jours d'un serveur ESX                                                                 |            |
+| Esx-is-Maintenance     | Virt-VMWare2-ESX-Maintenance-Generic-custom        | Contrôle permettant de vérifier le mode de maintenance d'un serveur ESX                                                             |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -68,18 +68,18 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description         |
-|:----------------|:--------------------|
-| VMWare ESX      | Discover VMWare ESX |
+| Nom de la règle | Description             |
+|:----------------|:------------------------|
+| VMWare ESX      | Découvre les ESX VMWare |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 #### Découverte de services
 
-| Nom de la règle                          | Description                                                   |
-|:-----------------------------------------|:--------------------------------------------------------------|
-| Virt-VMWare2-Esx-Datastores-Latency-Name |                                                               |
-| Virt-VMWare2-Esx-Nics-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization |
+| Nom de la règle                          | Description                                                                    |
+|:-----------------------------------------|:-------------------------------------------------------------------------------|
+| Virt-VMWare2-Esx-Datastores-Latency-Name | Découvre les datastores et supervise la latence rencontrée par le serveur ESX  |
+| Virt-VMWare2-Esx-Nics-Traffic-Name       | Découvre les interfaces réseau et supervise l'utilisation de la bande passante |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -91,7 +91,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Datastore-Io" label="Datastore-Io">
 
-| Métrique                                         | Unité |
+| Nom                                              | Unité |
 |:-------------------------------------------------|:------|
 | datastore.read.usage.bytespersecond              | B/s   |
 | datastore.write.usage.bytespersecond             | B/s   |
@@ -104,7 +104,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Iops" label="Datastore-Iops">
 
-| Métrique                                       | Unité |
+| Nom                                            | Unité |
 |:-----------------------------------------------|:------|
 | datastores.read.usage.iops                     | iops  |
 | datastores.write.usage.iops                    | iops  |
@@ -119,7 +119,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Snapshots" label="Datastore-Snapshots">
 
-| Métrique                                           | Unité |
+| Nom                                                | Unité |
 |:---------------------------------------------------|:------|
 | *datastore*~status                                 | N/A   |
 | *datastore*~datastore.snapshots.usage.bytes        | B     |
@@ -130,7 +130,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Usage" label="Datastore-Usage">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *datastore*#status                            | N/A   |
 | *datastore*#datastore.space.usage.bytes       | B     |
@@ -143,7 +143,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Datastore-Vm-Count" label="Datastore-Vm-Count">
 
-| Métrique                                          | Unité |
+| Nom                                               | Unité |
 |:--------------------------------------------------|:------|
 | datastore.vm.poweredon.current.count              | count |
 | datastore.vm.poweredoff.current.count             | count |
@@ -158,7 +158,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="ESX-Alarms" label="ESX-Alarms">
 
-| Métrique                           | Unité |
+| Nom                                | Unité |
 |:-----------------------------------|:------|
 | host.alarms.warning.current.count  | count |
 | host.alarms.critical.current.count | count |
@@ -171,7 +171,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Cpu" label="Esx-Cpu">
 
-| Métrique                                          | Unité |
+| Nom                                               | Unité |
 |:--------------------------------------------------|:------|
 | *host*~status                                     | N/A   |
 | *host*~host.cpu.utilization.percentage            | %     |
@@ -183,7 +183,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Datastores-Latency" label="Esx-Datastores-Latency">
 
-| Métrique                                                     | Unité |
+| Nom                                                          | Unité |
 |:-------------------------------------------------------------|:------|
 | *host*~status                                                | N/A   |
 | *host*~*datastore*#host.datastore.latency.read.milliseconds  | ms    |
@@ -194,7 +194,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Health" label="Esx-Health">
 
-| Métrique                                              | Unité |
+| Nom                                                   | Unité |
 |:------------------------------------------------------|:------|
 | host.health.problems.current.count                    | count |
 | *host*~status                                         | N/A   |
@@ -211,7 +211,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Memory" label="Esx-Memory">
 
-| Métrique                          | Unité |
+| Nom                               | Unité |
 |:----------------------------------|:------|
 | *host*#status                     | N/A   |
 | *host*#host.memory.usage.bytes    | B     |
@@ -223,7 +223,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Service" label="Esx-Service">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | *host*~status                   | N/A   |
 | *host*~*service*#service-status | N/A   |
@@ -233,7 +233,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Status" label="Esx-Status">
 
-| Métrique              | Unité |
+| Nom                   | Unité |
 |:----------------------|:------|
 | *host*#status         | N/A   |
 | *host*#overall-status | N/A   |
@@ -243,7 +243,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Storage" label="Esx-Storage">
 
-| Métrique                           | Unité |
+| Nom                                | Unité |
 |:-----------------------------------|:------|
 | *host*~status                      | N/A   |
 | *host*~host.adapters.total.count   | count |
@@ -271,7 +271,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Swap" label="Esx-Swap">
 
-| Métrique                                  | Unité |
+| Nom                                       | Unité |
 |:------------------------------------------|:------|
 | *host*#status                             | N/A   |
 | *host*#host.swap.in.usage.bytespersecond  | B/s   |
@@ -282,7 +282,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Time" label="Esx-Time">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | *host*#status                   | N/A   |
 | *host*#host.time.offset.seconds | s     |
@@ -292,7 +292,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Traffic" label="Esx-Traffic">
 
-| Métrique                                                 | Unité |
+| Nom                                                      | Unité |
 |:---------------------------------------------------------|:------|
 | *host*~status                                            | N/A   |
 | *host*~host.traffic.in.bitsperseconds                    | b/s   |
@@ -310,7 +310,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Uptime" label="Esx-Uptime">
 
-| Métrique                          | Unité |
+| Nom                               | Unité |
 |:----------------------------------|:------|
 | *host*#status                     | N/A   |
 | *host*#host.uptime.offset.seconds | s     |
@@ -320,7 +320,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-Vm-Count" label="Esx-Vm-Count">
 
-| Métrique                                | Unité |
+| Nom                                     | Unité |
 |:----------------------------------------|:------|
 | host.vm.poweredon.current.count         | count |
 | host.vm.poweredoff.current.count        | count |
@@ -335,7 +335,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Esx-is-Maintenance" label="Esx-is-Maintenance">
 
-| Métrique                  | Unité |
+| Nom                       | Unité |
 |:--------------------------|:------|
 | *host*#status             | N/A   |
 | *host*#maintenance-status | N/A   |
@@ -347,15 +347,121 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-### Configuration du connecteur Centreon VMWare
+Pour la supervision VMware, Centreon utilise un *daemon* pour se connecter et requêter le vCenter (ou les ESX, mais il est recommandé de passer par le vCenter).
 
-Pour la supervision VMWare, Centreon utilise un daemon pour se connecter et requêter le vCenter.
+### Téléchargement du SDK Perl
 
-Installer le daemon sur tous les collecteurs :
+Pour faire fonctionner ce connecteur, le SDK VMware Perl est nécessaire.
+Pour le télécharger, vous devez posséder un compte (non payant) chez Broadcom. À l'heure où ce document est rédigé, le téléchargement se fait depuis
+[cette page](https://developer.broadcom.com/sdks/vsphere-perl-sdk/latest/). Téléchargez la dernière version (l'archive dont la somme de contrôle MD5 vaut `f9ef0fc7a4e4983cf0ca6aea08d9a778`.
 
-```shell
-yum install centreon-plugin-Virtualization-VMWare-daemon
+Pour superviser des clusters vSAN, il vous faudra également télécharger une autre archive depuis [cette page](https://developer.broadcom.com/sdks/vsan-management-sdk-for-perl/latest/).
+
+Déposez ensuite les archives téléchargées à l'emplacement `/tmp/` de tous les serveurs où vous souhaiterez faire 
+fonctionner ce programme (généralement les collecteurs).
+
+### Installation du daemon Centreon VMware et du SDK Perl
+
+Installez le daemon sur tous les collecteurs :
+
+<Tabs groupId="sync">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+- Installation du paquet et d'outils nécessaires
+
+```bash
+apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
 ```
+
+- Installation du SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+- Installation du paquet et d'outils nécessaires
+
+```bash
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
+```
+
+- Installation du SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
+cd vmware-vsphere-cli-distrib
+perl Makefile.PL
+make pure_install
+```
+
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+- Installation du paquet et d'outils nécessaires
+
+```bash
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
+```
+
+- Installation du SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
+```
+
+
+</TabItem>
+</Tabs>
+
+- Installation des modules vSAN
+
+```bash
+cd /tmp
+unzip vsan-sdk-perl.zip
+mkdir -p /usr/local/share/perl5/VMware
+cp ./vsan-sdk-perl/bindings/VIM25Vsanmgmt* /usr/local/share/perl5/VMware/
+```
+
+### Configuration du connecteur Centreon VMWare
 
 <Tabs groupId="sync">
 <TabItem value="Centreon Cloud et OnPrem à partir de la 24.10" label="Centreon Cloud et OnPrem à partir de la 24.10">
@@ -533,12 +639,12 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 3. Appliquez le modèle d'hôte **Virt-VMWare2-ESX-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                      | Description                                                                                           | Valeur par défaut | Obligatoire |
-|:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                          | default           |             |
-| CENTREONVMWAREHOST         | Connector hostname (required)                                                                         | localhost         |             |
-| ESXNAME                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                   |                   |             |
+| Macro                      | Description                                                                                                                                | Valeur par défaut | Obligatoire |
+|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                                                             | 5700              |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                                                             | default           |             |
+| CENTREONVMWAREHOST         | Connector hostname (required)                                                                                                              | localhost         |             |
+| ESXNAME                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                              | .*                |      X      |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.

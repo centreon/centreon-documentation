@@ -53,13 +53,67 @@ Pour des raisons de sécurité, Centreon Cloud inclut une liste blanche préremp
 
 1. Connectez-vous en **root** au collecteur qui exécutera la commande.
 2. Éditez (ou créez) le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**. (Vous pouvez créer autant de fichiers de whitelists que vous souhaitez dans ce répertoire.)
-3. Utilisez une regex pour définir les comandes autorisées. Exemple : 
+3. Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
 
-   ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
-   whitelist:
-      regex:
-         - \/opt\/my_plugins\/my_custom_plugin\.py .*
+   ```yaml
+   chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+   chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+   chown root:centreon-engine /etc/centreon-engine-whitelist
+   chmod 750 /etc/centreon-engine-whitelist
    ```
+   
+4. Utilisez une regex pour définir les commandes autorisées. Exemple : 
+
+  ```text
+  whitelist:
+      regex:
+		 - \/usr\/lib(64)?\/nagios\/plugins\/.*
+		 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+         - \/opt\/my_plugins\/my_custom_plugin\.py .*
+  cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  ```
+   
+Le bloc "whitelist" définit les commandes pouvant être exécutées par le Collecteur.
+
+> les deux premières lignes doivent toujours être présentes dans le bloc "whitelist", elles correspondent aux commandes Centreon.
+
+Le bloc "cma-whitelist" définit les commandes pouvant être exécutées par l'agent CMA.
+
+Dans le bloc "cma-whitelist", vous pouvez au besoin spécifier des liste blanches par hôte, la syntaxe sera : 
+
+
+```text
+whitelist:
+  regex:
+	 - \/usr\/lib(64)?\/nagios\/plugins\/.*
+	 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+	 - \/opt\/my_plugins\/my_custom_plugin\.py .*
+cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  hosts:
+    - hostname:Host_1
+    regex:
+      - ...
+      
+    - hostname:Host_2
+    regex:
+      - ...
+```
 
 Utilisez `.*` afin d'inclure tous les arguments dans la regex.
 Le `.*` à la fin de la regex lui permet de gérer tout argument qu'elle contiendrait. Attention, le format doit être strictement identique à celui ci-dessus (cela inclut les indentations).
@@ -101,6 +155,45 @@ apt install centreon-connector-perl
 
 </TabItem>
 </Tabs>
+
+#### Mode "less fork"
+
+> **Fonctionnalité beta :** Ce mode n'a pas encore été validé pour l'ensemble des plugins Centreon. Testez-le sur un nombre limité de collecteurs avec vos plugins spécifiques avant de le déployer massivement en production.
+
+En complément d'éviter la recompilation Perl, le connecteur Perl supporte un mode **"less fork"**. En mode standard, un processus fils est créé pour chaque contrôle puis immédiatement tué. En mode "less fork", les processus fils sont réutilisés pour plusieurs contrôles, ce qui réduit drastiquement la consommation CPU.
+
+**Mesures de performance** (50 hôtes × 10 services chacun) :
+
+| Mode | Consommation CPU |
+|------|-----------------|
+| Engine sans connecteur | 85% |
+| Connecteur Perl – standard (fork par contrôle) | 38% |
+| Connecteur Perl – less fork (réutilisation des processus) | **11%** |
+
+**Fonctionnement**
+
+L'option `--child-max-reuse-script` contrôle le nombre de contrôles qu'un processus fils peut exécuter avant d'être tué :
+
+- Valeur par défaut : `1` (chaque processus fils meurt après un contrôle — comportement fork classique)
+- Mode less fork : définir une valeur plus élevée, par exemple `100`
+
+Le connecteur tue également automatiquement un processus fils s'il dépasse les seuils suivants :
+- `--child-max-memory-increase-percent` (défaut : 10%) : augmentation mémoire depuis le premier contrôle
+- `--child-max-fd-increase-percent` (défaut : 10%) : augmentation du nombre de descripteurs de fichiers depuis le premier contrôle
+- `--child-max-thread` (défaut : 10) : nombre de threads créés
+- `--idle-child-ttl` (défaut : 15 min) : temps d'inactivité sans aucun contrôle
+
+**Utilisation**
+
+Le connecteur **Perl Connector Less Fork** est préconfiguré sur votre collecteur. Pour bénéficier du mode "less fork", rendez-vous dans **Configuration > Commandes > Contrôles** et sélectionnez **Perl Connector Less Fork** dans le champ **Connecteurs** de chaque commande de contrôle à optimiser, si ce n'est pas déjà le cas.
+
+**Surcharge par commande**
+
+Il est également possible de surcharger la limite de réutilisation pour une commande spécifique en insérant le mot-clé directement dans la ligne de commande, entre le chemin du script et ses arguments :
+
+```shell
+/usr/lib/nagios/plugins/check_something.pl --child-max-reuse-script 5 --arg1 valeur1
+```
 
 ### Connecteur SSH
 
