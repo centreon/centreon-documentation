@@ -39,7 +39,7 @@ Les commandes peuvent être configurées à la page **Configuration > Commandes 
 
     * **Activer la syntaxe du shell** : cochez cette case si votre commande utilise des fonctions du shell (pipes, redirections, caractères génériques...). Notez que les commandes nécessitant le shell ralentissent le serveur de supervision.
 
-   * **Connecteurs**: utilisez le **[connecteur Perl](#connecteur-perl)** ou le **[connecteur SSH](#connecteur-ssh)** afin de réduire la comsommation de ressources du plugin. Le connecteur Perl peut être utilisé avec toutes les commandes, sauf **check_icmp** et **check_nrpe**.
+   * **Connecteurs**: utilisez le **[connecteur Perl](#connecteur-perl)** ou le **[connecteur SSH](#connecteur-ssh)** afin de réduire la consommation de ressources du plugin. Le connecteur Perl peut être utilisé avec toutes les commandes fournies par Centreon qui utilisent des plugins Perl (.pl).  Il n'est pas compatible avec les commandes qui utilisent **check_icmp** et **check_nrpe**.
 
 4. Cliquez sur **Sauvegarder**. La commande apparaît maintenant dans la liste **Commande de vérification** dans les formulaires de configuration de modèles d'hôtes ou de services.
 
