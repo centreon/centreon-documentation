@@ -1,11 +1,11 @@
 ---
-id: perfom-load-tests
+id: performing-load-tests
 title: Performing a load test
 ---
 
-Load Tests create heavy traffic on your site to evaluate its response. A functional user journey is required as the traffic created by the test will navigate the site following a chosen user journey.
+Load tests create heavy traffic on your site to evaluate its response. A functional [user journey](../configuration/user-journey/user-journey-intro.md) is required as the traffic created by the test will navigate the site following the selected user journey.
 
->Note that load tests generate real traffic on the website, thus impacting live users if performed on a production website. Load tests can also be performed in test environments.
+> Note that load tests generate real traffic on the website, thus impacting live users if performed on a production website. Load tests can also be performed in test environments.
 
 ![image](../assets/getting-started/load-tests-1.png)
 
@@ -29,6 +29,6 @@ Load Tests create heavy traffic on your site to evaluate its response. A functio
 6. Determine the number of concurrent users that will be simulated at different timeframes since the start of the test. You can add more steps to test to better control the rise in concurrent users.
 Note that the number of concurrent users created for each step must always be higher than the previous step.
 
-7. Determine the failure conditions that will determine when the test will automatically stop. Tests can also be manually stopped.
+7. Specify the failure conditions that will determine when the test will automatically stop. Tests can also be stopped manually.
 
 8. Check the two acknowledgment boxes and start the test.
