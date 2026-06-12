@@ -230,3 +230,42 @@ apt install centreon-connector-perl
 
 </TabItem>
 </Tabs>
+
+#### Less fork mode
+
+> **Beta feature:** This mode has not yet been validated for all Centreon plugins. Test it on a limited number of pollers with your specific plugins before deploying at scale in production.
+
+In addition to avoiding Perl recompilation, the Perl connector supports a **less fork** mode. In standard mode, a child process is spawned for each check then immediately killed. In less fork mode, child processes are reused across multiple checks, dramatically reducing CPU usage.
+
+**Performance measurements** (50 hosts × 10 services each):
+
+| Mode | CPU usage |
+|------|-----------|
+| Engine without connector | 85% |
+| Perl connector – standard (fork per check) | 38% |
+| Perl connector – less fork (process reuse) | **11%** |
+
+**How it works**
+
+The `--child-max-reuse-script` option controls how many checks a child process can execute before being killed:
+
+- Default value: `1` (each child dies after one check — classic fork behavior)
+- Less fork mode: set to a higher value, e.g. `100`
+
+The connector also automatically kills a child process if it exceeds the following thresholds:
+- `--child-max-memory-increase-percent` (default: 10%): memory increase since first check
+- `--child-max-fd-increase-percent` (default: 10%): file descriptor increase since first check
+- `--child-max-thread` (default: 10): number of threads created
+- `--idle-child-ttl` (default: 15 min): idle time without any check
+
+**Usage**
+
+The **Perl Connector Less Fork** connector is pre-configured on your poller. To benefit from less fork mode, go to **Configuration > Commands > Checks** and select **Perl Connector Less Fork** in the **Connectors** field of each check command you want to optimize, if it is not already set.
+
+**Per-command override**
+
+You can also override the reuse limit for a specific command by inserting the keyword directly in the command line, between the script path and the script's arguments:
+
+```shell
+/usr/lib/nagios/plugins/check_something.pl --child-max-reuse-script 5 --arg1 value1
+```

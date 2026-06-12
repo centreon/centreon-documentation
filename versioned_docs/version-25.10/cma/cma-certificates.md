@@ -54,6 +54,8 @@ Certificate files stored on the host can be stored in the directory of your choi
 These files can also be saved directly in the certificate store (agent-inititated connection).
 In this case, it is not necessary to enter them in the configuration made on the host (**Host configuration** column in the table below).
 
+> **Windows certificate store**: on Windows, CMA reads CA certificates from the **Local Computer** Windows certificate store. This is the standard system-wide trust store, readable by all processes on the machine, but requires administrator privileges to write to it. The correct location for root CA and intermediate CA certificates is: **Local Computer > Trusted Root Certification Authorities**.
+
 ### Summary of possible configurations
 
 <Tabs groupId="sync">

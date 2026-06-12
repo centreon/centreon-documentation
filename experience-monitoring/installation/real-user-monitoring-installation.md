@@ -31,7 +31,7 @@ You will then find the tag on that screen with a button to copy it easily:
 
 This tag should be inserted into the site's HEAD section. The operation can be done manually by a developer, or alternatively **it can be added to a tag manager such as GTM by following the procedure below**.
 
-### Using GTM to add an Experience Monitoring tag to your pages
+### Using GTM to add a RUM tag to your pages
 
 **1 — Create a new tag**
 
