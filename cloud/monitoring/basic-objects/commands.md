@@ -40,7 +40,7 @@ Commands can be configured in the following menu: **Configuration > Commands > C
 
    * **Enable shell syntax**: check this box if your command uses shell functions (pipes, redirects, wildcards...). Note that commands requiring the shell slow down the monitoring server.
 
-   * **Optimization connectors**: use the **[Perl Connector](#perl-connector)** or the **[SSH Connector](#ssh-connector)** to reduce the consumption of resources of the plugin. The Perl connector can be used with all commands except **check_icmp** and **check_nrpe**.
+   * **Optimization connectors**: use the **[Perl Connector](#perl-connector)** or the **[SSH Connector](#ssh-connector)** to reduce the consumption of resources of the plugin. The Perl connector can be used with all commands provided by Centreon except **check_icmp** and **check_nrpe**.
 
 4. Click **Save**. The command now appears in the **Check command** list in the host or service template configuration pages.
 
