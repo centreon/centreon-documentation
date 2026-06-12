@@ -1,4 +1,10 @@
 minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - '@rspress/core'
+  - '@rspress/shared'
+
+packages:
+  - rspress
 
 onlyBuiltDependencies:
   - '@swc/core'

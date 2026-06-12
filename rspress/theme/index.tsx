@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { Layout as DefaultLayout, Link } from 'rspress/theme';
-import { useLang, useLocation } from 'rspress/runtime';
+import { Layout as DefaultLayout, Link } from '@rspress/core/theme-original';
+import { useLang, useLocation } from '@rspress/core/runtime';
 
-export * from 'rspress/theme';
+export * from '@rspress/core/theme-original';
 
 const DEFAULT_VERSION = '26.10';
 const VERSIONS = ['26.10', '25.10'] as const;

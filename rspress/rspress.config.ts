@@ -1,4 +1,5 @@
-import { defineConfig } from 'rspress/config';
+import { defineConfig } from '@rspress/core';
+import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
 import { sidebar } from './src/sidebar';
 
 export default defineConfig({
@@ -28,8 +29,25 @@ export default defineConfig({
   // from MDX files. Dev mode works fine. To re-enable, images must be moved to public/
   // or served via absolute URLs.
   ssg: false,
+  markdown: {
+    link: {
+      checkDeadLinks: false,
+    },
+  },
   search: {
     versioned: true,
+  },
+  // Opt-in Rsdoctor analysis: run `RSDOCTOR=true pnpm build` to instrument the
+  // build and open the interactive report at the end. Off by default because it
+  // adds ~10-20% build time overhead.
+  builderConfig: {
+    tools: {
+      rspack: (_config, { appendPlugins }) => {
+        if (process.env.RSDOCTOR) {
+          appendPlugins([new RsdoctorRspackPlugin({})]);
+        }
+      },
+    },
   },
   themeConfig: {
     sidebar,

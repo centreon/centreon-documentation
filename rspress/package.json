@@ -2,6 +2,7 @@
   "name": "centreon-documentation-rspress",
   "version": "1.0.0",
   "description": "Centreon documentation POC with Rspress",
+  "type": "module",
   "scripts": {
     "dev": "rspress dev",
     "build": "rspress build",
@@ -10,10 +11,11 @@
   "license": "Apache-2.0",
   "packageManager": "pnpm@10.33.0",
   "devDependencies": {
-    "@types/node": "^25.8.0",
+    "@rsdoctor/rspack-plugin": "^1.5.12",
+    "@types/node": "^25.9.1",
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "rspress": "2.0.0-beta.21"
+    "@rspress/core": "~2.0.14"
   }
 }
