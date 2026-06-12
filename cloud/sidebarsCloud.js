@@ -741,12 +741,7 @@ module.exports = {
     {
       "type": "link",
       "href": "https://docs-api.centreon.com/api/centreon-map/25.10/",
-      "label": "Centreon Cloud API"
-    },
-    {
-      "type": "link",
-      "href": "https://docs-api.centreon.com/api/centreon-web-cloud/",
-      "label": "Centreon Cloud API"
+      "label": "MAP API"
     },
     {
       "type": "link",
