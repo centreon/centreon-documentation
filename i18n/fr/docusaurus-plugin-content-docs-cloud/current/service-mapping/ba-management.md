@@ -122,7 +122,7 @@ dépendra alors des paramètres présents dans la section Indicateur.
 
 Pour ajouter une Activité Métier, cliquez sur le bouton **Ajouter**.
 
-Une fenêtre s'ouvre pour configurer la nouvelle BA. Dans cette fenêtre, vous devez donner un nom à la BA et sélectionner la [méthode de calcul](#méthodes-de-calcul).
+Une fenêtre s'ouvre pour configurer la BA. Dans cette fenêtre, vous devez donner un nom à la BA et sélectionner la [méthode de calcul](#méthodes-de-calcul).
 Les caractères suivants ne sont pas acceptés dans le nom de la BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
 
 Vous devez également l'assigner à une [Vue Métier](#vue-métier) ou la BA ne sera pas visible.
