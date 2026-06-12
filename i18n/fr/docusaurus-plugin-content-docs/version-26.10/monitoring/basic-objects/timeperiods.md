@@ -85,6 +85,8 @@ Cette fonctionnalité a un impact sur deux aspects :
 * **L'ordonnancement des contrôles** : l'agent ne déclenche un contrôle que si l'heure courante de la machine hôte se trouve dans une fenêtre valide de la période de contrôle configurée.
 * **Le calcul de la freshness** : Centreon Engine calcule la freshness côté collecteur, en utilisant lui aussi la `check_period` configurée. Il est donc nécessaire que le fuseau horaire de la machine hôte supervisée et celui du collecteur (Centreon Engine) soient alignés : un désalignement de fuseaux horaires produira un comportement incorrect sans générer de message d'erreur côté engine.
 
+Un **contrôle forcé** (déclenché manuellement) contourne toujours la période de contrôle et s'exécute quelle que soit la fenêtre de temps configurée.
+
 > **Contrainte d'alignement de fuseau horaire** : le fuseau horaire de la machine hôte supervisée doit être identique à celui du collecteur (Centreon Engine). En cas de non-alignement, le calcul de freshness et la plage de contrôle ne seront pas cohérents entre l'agent et le moteur.
 
 | # | Fuseau horaire machine hôte | Fuseau horaire collecteur (engine) | Fuseau horaire dans le .cfg Centreon | Résultat |

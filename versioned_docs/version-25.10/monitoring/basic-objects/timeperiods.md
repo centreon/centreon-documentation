@@ -84,6 +84,8 @@ This feature affects two aspects:
 * **Check scheduling**: the agent only triggers a check if the current time on the monitored host falls within a valid window of the configured time period.
 * **Freshness calculation**: Centreon Engine calculates freshness on the poller side, also using the configured `check_period`. The timezone of the monitored host and the poller (Centreon Engine) must therefore be aligned: a timezone mismatch will produce incorrect behavior without generating any error message on the engine side.
 
+A **forced check** (triggered manually) always bypasses the check period and is executed regardless of the configured time window.
+
 > **Timezone alignment constraint**: the timezone of the monitored host machine must be identical to that of the poller (Centreon Engine). If they are not aligned, the freshness calculation and the check window will be inconsistent between the agent and the engine.
 
 | # | Monitored host timezone | Poller (engine) timezone | Timezone in Centreon .cfg | Result |
