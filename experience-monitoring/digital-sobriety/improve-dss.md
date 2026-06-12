@@ -54,10 +54,9 @@ You can click on each individual recommendation to get more details on how to en
 
 ## How do I know my changes made a difference?
 
-In the **Last recommendations** page, scroll to the bottom of the page and click the **Compare with** button. You will be taken to the **Recommendations comparator**.
-The most recent audit will already be opened in the first slot of the comparator.
-Click the **Choose another recommendation audit** button to select an audit performed before your changes and click **Compare**.
+In the **Last recommendations** page, scroll to the bottom of the page and click the **Compare with** button. 
 
-You will be shown a timeline of the two journeys, the second one shows a more detailed comparison, displaying by how much your user journey has improved or worsened.
+![image](../assets/rum-comparison.png)
 
-The list of recommendations below the timelines displays the recommendations for your current audit and the ones that were given for the previous one. This allows you to see which recommendations have been taken care of.
+The latest recommendation audit is selected by default. Select an earlier audit to see the impact of your changes.
+Remember that the recommendations probe is executed once a day so your changes may not be visible until the next day.

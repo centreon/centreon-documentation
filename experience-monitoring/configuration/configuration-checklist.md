@@ -19,7 +19,7 @@ User management is detailed here:
 
 To estimate CO<sub>2</sub>, Experience Monitoring needs a few details. Follow the guide on this page:
 
-[Configure Digital Sobriety](./configure-digital-sobriety.md)
+[Configure Digital Sobriety](../digital-sobriety/digital-sobriety-score.md#before-you-start)
 
 ## Revenue tracking and missed revenue
 

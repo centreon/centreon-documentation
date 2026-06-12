@@ -1,6 +1,6 @@
 ---
 id: user-journey-improve
-title: Improving your site with user journeys
+title: Optimizing your site
 ---
 
 Using the data collected by the [recommendation probe](./create-a-scenario.md#daily-recommendations-audits), Experience Monitoring will make suggestions on how to optimize your website.
@@ -24,8 +24,9 @@ Each individual recommendation can be clicked to see what metrics would be impac
 
 ## How can I tell my changes had a real impact
 
-From the **Last Recommendations tab**, you can access our **Recommendations comparator**.
-Click on the scales icon at the top right of the timeline to compare two sets of recommendations.
-The latest recommendation audit is selected by default, select an audit of a date previous to your changes to see the impact of your changes.
+In the **Last recommendations** page, scroll to the bottom of the page and click the **Compare with** button. 
 
+![image](../../assets/rum-comparison.png)
+
+The latest recommendation audit is selected by default. Select an earlier audit to see the impact of your changes.
 Remember that the recommendations probe is executed once a day so your changes may not be visible until the next day.
