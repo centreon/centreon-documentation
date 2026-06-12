@@ -1,10 +1,12 @@
 ---
 id: api-tokens
-title: Jetons d'API
+title: Utiliser les API Centreon Cloud
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Jetons d'API
 
 Un jeton d'API (un type de [jeton d'authentification](./authentication_tokens.md)) est nécessaire pour vous authentifier auprès des API Centreon. Pour en générer un, rendez-vous à la page **Administration > Jetons d'authentification**.
 
