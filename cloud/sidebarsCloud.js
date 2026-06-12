@@ -734,6 +734,10 @@ module.exports = {
       },
       "items": [
     {
+      "type": "doc",
+      "id": "administration/api-tokens"
+    },
+    {
       "type": "link",
       "href": "https://docs-api.centreon.com/api/centreon-web-cloud/",
       "label": "Centreon Cloud API" 
