@@ -1,6 +1,6 @@
 ---
 id: authentication-tokens
-title: Authentication tokens
+title: Jetons d'authentification
 ---
 
 import Tabs from '@theme/Tabs';
