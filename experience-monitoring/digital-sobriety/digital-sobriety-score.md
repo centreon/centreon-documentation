@@ -1,6 +1,6 @@
 ---
 id: digital-sobriety-score
-title: Digital Sobriety Score
+title: Digital Sobriety Score calculations
 ---
 
 ## Digital Sobriety Score
@@ -80,7 +80,6 @@ Validity:
 - Renewal: based on the following 12 months.
 - From year two onward: based on a full year of traffic, with optional year-over-year comparison.
 
----
 
 ## What goes into the Eco-Design Score
 
