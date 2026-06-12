@@ -1,6 +1,6 @@
 ﻿---
 id: using-charts
-title: Using Charts
+title: Using charts
 ---
 
 ## Zooming in on graphs
@@ -27,7 +27,3 @@ To do this, click on the statistic you want to isolate or hide in the legend, or
 Choose what you want to do with this statistic. In this example, if you isolate the statistic, you will see this:
 
 ![Image](../assets/how-to-articles/using-charts-4.png)
-
-See another article to go further:
-
-[Speed up your site: application or server configuration?](../performance-analysis/speed-up-website-with-applications-or-server-configuration.md)

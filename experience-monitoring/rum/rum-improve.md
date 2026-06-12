@@ -1,6 +1,6 @@
 ---
 id: rum-improve
-title: Improving RUM results
+title: RUM optimization recommendations
 ---
 
 Centreon Experience Monitoring provides detailed audits of how to improve the performance of your site.
