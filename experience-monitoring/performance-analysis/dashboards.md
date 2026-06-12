@@ -3,34 +3,47 @@ id: dashboards
 title: Using dashboards
 ---
 
-Dashboards are a way to visualize Experience Monitoring information at a glance.
+**Dashboards** are a space customizable with widgets to gather the information you need from Experience Monitoring in one place.
+While **Global View** offers an overview of the site's general performance, **Dashboards** are about getting specific, detailled information.
+The widgets can be freely placed, resized and configured to show different sets of data.
 
-## Use cases
+Dashboards can be accessed at any time using the button at the top right of your screen.
 
-### 1. Combine information from different sites or organizations
+![image](../assets/performance-analysis/dashboard-access.png)
 
-In Experience Monitoring, you can belong to multiple organizations, and each organization can include monitoring access for multiple web applications. In this context, dashboards let you display, on a single screen, any Experience Monitoring cards to which you have access.
+In Experience Monitoring, you can belong to multiple organizations, and each organization can include monitoring access for multiple web applications.
+**Dashboards** is useful for displaying information of multiple organizations rather than navigating from one to the other to check their status and performance.
 
-Example of cards from two sites in two different organizations:
+Dashboards are created for your private use by default but can be shared with the other members of your organization.
 
-![image](../assets/getting-started/dashboards-1.png)
+Use the navigation bar to switch between your dashboards.
 
-In this example, the two cards come from two different sites in two different organizations. With dashboards you can keep an eye on all your sites at once!
+## Creating dashboards
 
-### 2. Create a shared dashboard
+1. On the **Dashboards** page, click on **Create a new dashboard**
+2. Choose a name for the dashboard and click **Save**
+3. A window will open for you to select the widgets you want to add to this dashboard, a preview of the widget is shown to the right. You can select multiple widgets at once.
+This is just to get started, you can add more widgets later.
+4. Click on **Create widget(s)**
 
-Within your organization, different people will expect different information. For example, your marketing team will only care about traffic measurements and Core Web Vitals for SEO.
+Note that to create widgets, the dashboard must be in **Edit** mode. Verify this is the case in the top right: the **Edit** button should be brighter than the **Visualize** buton. 
+**Visualize** removes the ability to modify or move the widgets for a better view of what your dashboard will look like.
 
-You can create dashboards and share them with your organization so everyone in your organization has access.
+Once the widgets are created, you can freely resize them from the bottom right corner. You can also drag and drop the widgets to reposition them in the dashboard.
+Changes to the size and position of the widgets are automatically saved.
 
-![image](../assets/getting-started/dashboards-2.png)
+### Configuring widgets
 
-In your dashboard list, your private dashboards appear first. By clicking the lock icon you access sharing options to choose which organization to share it with.
+Every widget added to the dashboard has a header area.
 
-### 3. Aggregate data from different Experience Monitoring screens
+![image](../assets/performance-analysis/widget-header.png)
 
-Suppose you want to focus on your site's shopping cart. It's useful to have up-to-date information on that page coming from RUM measurements and User Journeys.
+This area indicates what site the widget relates to and, in some cases, what configuration and metric.
+You can click on the corresponding dropdown menu to change the site, the configuration and the metric displayed by the widget.
 
-However, that information lives on different screens: user journeys have a tab for Core Web Vitals and another one for performance, and RUM is not on the same page either.
+Additionnaly, using the buttons in the top right of the widget, you can hide the header to save space, duplicate the widget, or remove it from the dashboard.
 
-Dashboards let you build custom screens for this purpose.
+
+On the same row containing the **Create a new dashboard** you will find buttons duplicate the dashboard you are currently viewing. This will also duplicate all the widgets with their current configuration.
+
+You can also choose to share this dashoard with your organization, rename it or remove it entirely.

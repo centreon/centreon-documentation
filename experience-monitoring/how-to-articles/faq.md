@@ -29,7 +29,7 @@ port: 6379
 
 - **/etc/quanta/modules.d/redis_cache.yml**
 
-``
+```
 module: redis
 redis:
 instance: cache
