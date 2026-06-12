@@ -120,16 +120,14 @@ dépendra alors des paramètres présents dans la section Indicateur.
 
 ### Création d'une activité métier
 
-Pour créer une nouvelle activité métier, cliquer sur **+AJOUTER**. Le
-formulaire ci-dessous apparaît :
+Pour ajouter une Activité Métier, cliquez sur le bouton **Ajouter**.
 
-![image](../assets/service-mapping/guide/business-activity-add.png)
+Dans le paneau de configuration, vous devez donner un nom à la BA et sélectionner la [méthode de calcul](#méthodes-de-calcul).
+Les caractères suivants ne sont pas acceptés dans le nom de la BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
 
-La création de l'activité métier se fait directement dans le panneau qui
-s'ouvre. Après avoir donné un nom (obligatoire & unique) à votre
-activité métier, vous devrez configurer plusieurs sections. La section
-**Indicateur** est la plus importante.
-Les caractères suivants ne sont pas autorisés dans le nom d'une BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
+Par ailleurs, vous pouvez décider d'attribuer un icône à la BA, l'assigner à une [Vue Métier](#vue-métier) et une description
+
+Lorsque vous cliquerez sure **Créer**, un nouveau panneau s'ouvrira sur le côté où vous devrez configurer les **Indicateurs**.
 
 #### Indicateurs
 

@@ -123,17 +123,14 @@ whether the modeled IT service or application is in an **OK**,
 
 ### Create a Business Activity
 
-To add a Business Activity, click the **Add** button. The following panel
-appears:
+To add a Business Activity, click the **Add** button.
 
-![image](../assets/service-mapping/guide/business-activity-add.png)
-
-In this configuration panel, after giving a unique name (mandatory), you
-need to configure multiple sections to have an aggregated indicator. The
-name is the only mandatory parameter, but to have a BA that works, **you
-must at least configure some indicators and define the
-calculation methods**. This can be done in the "Indicator" section.
+In this configuration panel, you must give a name to the BA and select a [calculation method](#calculation-methods). 
 The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
+
+Additionally, you can choose to give an icon to the BA, assign it to a [Business view](#business-view) and add a description.
+
+After clicking **Create**, a side panel opens where you must configure the **Indicators**.
 
 #### Indicators
 
