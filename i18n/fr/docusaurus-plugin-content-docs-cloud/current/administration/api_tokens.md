@@ -28,29 +28,15 @@ Si l'authentification échoue, vérifiez si le jeton n'a pas été révoqué ou 
 Utilisez cette adresse pour vous authentifier auprès des APIs Cloud, BAM et Autodiscovery.
 
 ```shell
-http://[organization].centreon.com/[instance-name]/api/latest/...
+https://[organization].[region].centreon.cloud/[instance-name]/api/latest/...
 ```
 
-**Exemple** : `http://my-organization.centreon.com/centreon/api/latest/...`
+**Exemple** : `https://my-organization.euwest1.centreon.cloud/centreon/api/latest/...`
 
 ## Adresse de l'API Centreon MAP
 
 Remplacez **serverURL** par l'URL de votre serveur MAP (et non celle de votre serveur central).
 
-<Tabs groupId="sync">
-<TabItem value="HTTP" label="HTTP">
-  
 ```shell
-http://serverURL:8081/_centreon/centreon-map/api/latest/
+https://[organization].[region].centreon.cloud:9443/_centreon/centreon-map/api/latest/
 ```
-  
-</TabItem>
-  
-<TabItem value="HTTPS" label="HTTPS">
-  
-```shell
-https://serverURL:9443/_centreon/centreon-map/api/latest/
-```
-  
-</TabItem>
-</Tabs>

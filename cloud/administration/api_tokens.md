@@ -26,29 +26,15 @@ If authentication fails, check whether the token is not revoked or expired.
 ## Centreon Cloud, BAM, and Autodiscovery API address
 
 ```shell
-http://[organization].centreon.com/[instance-name]/api/latest/...
+https://[organization].[region].centreon.cloud/[instance-name]/api/latest/...
 ```
 
-**Example**: `http://my-organization.centreon.com/centreon/api/latest/...`
+**Example**: `https://my-organization.euwest1.centreon.cloud/centreon/api/latest/...`
 
 ## Centreon MAP API address
 
 Replace **serverURL** with the URL of your MAP server (not your central server).
-
-<Tabs groupId="sync">
-<TabItem value="HTTP" label="HTTP">
   
 ```shell
-http://serverURL:8081/_centreon/centreon-map/api/latest/
+https://[organization].[region].centreon.cloud:9443/_centreon/centreon-map/api/latest/
 ```
-  
-</TabItem>
-  
-<TabItem value="HTTPS" label="HTTPS">
-  
-```shell
-https://serverURL:9443/_centreon/centreon-map/api/latest/
-```
-  
-</TabItem>
-</Tabs>

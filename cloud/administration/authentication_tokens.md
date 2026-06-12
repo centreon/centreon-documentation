@@ -18,8 +18,8 @@ On the **Administration > Authentication tokens** page, you can filter the list 
 
 [Users with an **Administrator** role](../users/users.md#user-roles) can access the **Administration > Authentication tokens** page and can:
 
-* create tokens for themselves. 
-* see tokens created by other users.
+* create tokens for themselves.
+* see the list of tokens created by other users.
 * create tokens for other users, and can disable or delete them.
 
 ## Creating an authentication token
@@ -27,12 +27,14 @@ On the **Administration > Authentication tokens** page, you can filter the list 
 1. Go to **Administration > Authentication Tokens**.
 2. Click **Add**. A pop-up window appears.
 3. Fill in the required fields, select the type of token you want, then click **Generate new token**. A **Token** field appears in the window. You can click the eye icon to display the token if you want.
-4. Copy the token using the **Copy** button to the right of the field. Store the token carefully: you will not be able to display it a second time.
+4. Copy the token using the **Copy** button to the right of the field.
+   * API tokens: Store the token carefully, as you will not be able to display it a second time.
+   * CMA tokens can be displayed again at any time.
 5. Click **Close**.
 
 ## Managing authentication tokens
 
-The list of tokens shows the status of each token in the far left column (enabled, valid but disabled, expired). The date when the token was last used is also shown.
+The list of tokens shows the status of each token in the far left column (enabled, valid but disabled, expired). <!-- The date when the token was last used is also shown. -->
 
 Users with the **Administrator** role can:
 
