@@ -36,5 +36,5 @@ https://[organization].[region].centreon.cloud/[instance-name]/api/latest/...
 Replace **serverURL** with the URL of your MAP server (not your central server).
   
 ```shell
-https://[organization].[region].centreon.cloud:9443/_centreon/centreon-map/api/latest/
+https://[organization].[region].centreon.cloud/_[instance-name]/centreon-map/api/latest/...
 ```
