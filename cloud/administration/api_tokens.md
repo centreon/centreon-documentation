@@ -29,7 +29,7 @@ If authentication fails, check whether the token is not revoked or expired.
 http://[organization].centreon.com/[instance-name]/api/latest/...
 ```
 
-**Example**: http://my-organization.centreon.com/centreon/api/latest/...``
+**Example**: `http://my-organization.centreon.com/centreon/api/latest/...`
 
 ## Centreon MAP API address
 

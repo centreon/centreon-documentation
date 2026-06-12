@@ -29,7 +29,7 @@ Si l'authentification échoue, vérifiez si le jeton n'a pas été révoqué ou 
 http://[organization].centreon.com/[instance-name]/api/latest/...
 ```
 
-**Exemple**: http://my-organization.centreon.com/centreon/api/latest/...``
+**Exemple** : `http://my-organization.centreon.com/centreon/api/latest/...`
 
 ## Adresse de l'API Centreon MAP
 
