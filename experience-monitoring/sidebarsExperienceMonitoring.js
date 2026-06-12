@@ -155,7 +155,7 @@ module.exports = {
       type: 'doc', id: 'performance-analysis/network-tab-indicators'
     },
     {
-      type: 'doc', id: 'getting-started/load-tests'
+      type: 'doc', id: 'how-to-articles/performing-load-tests'
     },
     {
       collapsed: true,

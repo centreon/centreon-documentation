@@ -3,12 +3,12 @@ id: synthetic-monitoring
 title: User Journeys
 ---
 
-**User Journey** is the synthetic monitoring module of Experience Monitoring.
+**User Journeys** is the synthetic monitoring module of Experience Monitoring.
 A probe is configured to regularly browse your site, following a predetermined path on a website to measure various web performance indicators.
 
 ![image](../assets/configuration/user-journey/journey-widget.png)
 
-## Key advantages
+**User Journeys** allow you to:
 
 - Monitor the proper functioning of the typical browsing experience and calculate its availability rate.
 - Alert site managers in real time in case of site malfunction with notifications containing a detailed incident report.
