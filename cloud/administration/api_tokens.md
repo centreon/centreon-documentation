@@ -23,7 +23,7 @@ Headers {
 
 If authentication fails, check whether the token is not revoked or expired.
 
-## Centreon Cloud API address
+## Centreon Cloud, BAM, and Autodiscovery API address
 
 ```shell
 http://[organization].centreon.com/[instance-name]/api/latest/...

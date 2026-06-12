@@ -23,7 +23,9 @@ Headers {
 
 Si l'authentification échoue, vérifiez si le jeton n'a pas été révoqué ou s'il n'a pas expiré.
 
-## Adresse de l'API Centreon Cloud
+## Adresse des APIs Centreon Cloud, BAM et Autodiscovery
+
+Utilisez cette adresse pour vous authentifier auprès des APIs Cloud, BAM et Autodiscovery.
 
 ```shell
 http://[organization].centreon.com/[instance-name]/api/latest/...
