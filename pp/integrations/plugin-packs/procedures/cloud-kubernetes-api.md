@@ -127,7 +127,7 @@ The connector brings the following service templates (sorted by the host templat
 |----------------------------|--------------------------------------------------------------------------|
 | Kubernetes Nodes (RestAPI) | Discover Kubernetes cluster nodes by requesting the Kubernetes RestAPI               |
 | Kubernetes Nodes (Kubectl) | Discover Kubernetes cluster nodes by requesting the Kubernetes cluster using kubectl |
-| Kubernetes Namespaces (RestAPI) | Discover Kubernetes cluster namespaces by requesting Kubernetes RestAPI               |
+| Kubernetes Namespaces (RestAPI) | Discover Kubernetes cluster namespaces by requesting the Kubernetes RestAPI               |
 | Kubernetes Namespaces (Kubectl) | Discover Kubernetes cluster namespaces by requesting Kubernetes cluster using kubectl |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
