@@ -276,26 +276,25 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_idrac.pl \
 	--plugin=hardware::server::dell::idrac::snmp::plugin \
-	--mode=hardware \
+	--mode=global-status \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
-	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-community='my-snmp-community'  \
+	--warning-status='%\{status\} =~ /nonCritical|other/' \
+	--critical-status='%\{status\} =~ /critical|nonRecoverable/' \
+	--warning-storage-status='%\{status\} =~ /nonCritical|other/' \
+	--critical-storage-status='%\{status\} =~ /critical|nonRecoverable/' 
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
 	--privprotocol=''  \
-	--component='.*' \
-	--filter='' \
-	--warning='' \
-	--critical='' \
-	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: 
+OK: Overall global status is 'ok' | 
 ```
 
 ### Diagnostic des erreurs communes
