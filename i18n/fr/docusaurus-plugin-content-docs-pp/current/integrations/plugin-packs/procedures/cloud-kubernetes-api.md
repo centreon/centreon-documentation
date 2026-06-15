@@ -54,7 +54,7 @@ Le connecteur apporte les modèles de service suivants
 | Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Contrôle le statut des pods et des containers            | X          |
 | ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Contrôle le statut des ReplicaSets                       | X          |
 | ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Contrôle le statut des ReplicationControllers            | X          |
-| ResourceQuota-Status         | Cloud-Kubernetes-ResourceQuota-Status-Api-custom         | Contrôle le status des ResourceQuota                     | X          |
+| ResourceQuota-Status         | Cloud-Kubernetes-ResourceQuota-Status-Api-custom         | Contrôle le statut des ResourceQuota                     | X          |
 | StatefulSet-Status           | Cloud-Kubernetes-StatefulSet-Status-Api-custom           | Contrôle le statut des StatefulSets                      | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Kubernetes-Api-custom** est utilisé.
