@@ -70,9 +70,9 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                    | Description                                                   |
 |:-----------------------------|:--------------------------------------------------------------|
-| OS-FreeBSD-SNMP-Disk-Name    | Discover network interfaces and monitor bandwidth utilization |
-| OS-FreeBSD-SNMP-Disk-Path    | Discover the disk partitions and monitor space occupation     |
-| OS-FreeBSD-SNMP-Traffic-Name | Discover the disk partitions and monitor space occupation     |
+| OS-FreeBSD-SNMP-Disk-Name    | Use the disk name to discover the disk partitions and monitor space occupation     |
+| OS-FreeBSD-SNMP-Disk-Path    | Use the disk path to discover the disk partitions and monitor space occupation    |
+| OS-FreeBSD-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -94,7 +94,15 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Disk-*" label="Disk-*">
 
-Coming soon
+| Name                         | Unit  |
+|:--------------------------------------|:------|
+| storage.partitions.count              | count |
+| *disk_name*#storage.space.usage.bytes | B     |
+| *disk_name*#storage.access.count      | count |
+
+> Applies to the following service templates: Disk-Generic-Id, Disk-Generic-Name, Disk-Global
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
@@ -297,8 +305,6 @@ yum install centreon-plugin-Operatingsystems-Freebsd-Snmp
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **OS-FreeBSD-SNMP-custom** template to the host.
 
-> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Macro                   | Description                                                                                                                                                            | Default value | Mandatory |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -489,26 +495,22 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
 	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
 	--privprotocol=''  \
-	--interface='.*' \
-	--name \
-	--add-status \
-	--add-traffic \
+--interface='.*' \
+--name \
+--add-status \
+--add-traffic \
 	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' \
-	--warning-in-traffic='80' \
-	--critical-in-traffic='90' \
-	--warning-out-traffic='80' \
-	--critical-out-traffic='90' \
-	--verbose
-```
-
+--warning-in-traffic='80' \
+--critical-in-traffic='90' \
+--warning-out-traffic='80' \
+@@ -506,7 +508,7 @@ is able to monitor a resource using a command like this one (replace the sample
 The expected command output is shown below:
 
-```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=76995b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=15135b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=48254b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=12758b/s;80;90;; 
 ```
 
 ### Troubleshooting

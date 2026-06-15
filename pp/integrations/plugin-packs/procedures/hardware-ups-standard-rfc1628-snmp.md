@@ -217,8 +217,6 @@ yum install centreon-plugin-Hardware-Ups-Standard-Rfc1628-Snmp
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **HW-UPS-Standard-Rfc1628-SNMP-custom** template to the host.
 
-> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Macro                   | Description                                                                                                                                                            | Default value | Mandatory |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|

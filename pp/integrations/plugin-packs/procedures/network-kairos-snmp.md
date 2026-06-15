@@ -64,7 +64,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                      | Description                                                   |
 |:-------------------------------|:--------------------------------------------------------------|
-| Net-Kairos-SNMP-Alarms-Name    |                                                               |
+| Net-Kairos-SNMP-Alarms-Name    | Discover the alarms and monitor their status                                                              |
 | Net-Kairos-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -285,8 +285,6 @@ yum install centreon-plugin-Network-Kairos-Snmp
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **Net-Kairos-SNMP-custom** template to the host.
 
-> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Macro                   | Description                                                                                                                                                            | Default value | Mandatory |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -421,7 +419,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--snmp-version='' \
 	--snmp-community='' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \

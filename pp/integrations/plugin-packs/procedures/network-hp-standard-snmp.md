@@ -72,7 +72,10 @@ More information about discovering hosts automatically is available on the [dedi
 | Net-Hp-Standard-SNMP-Cast-Name          | Discover network interfaces and monitor bandwidth utilization                                |
 | Net-Hp-Standard-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets                        |
 | Net-Hp-Standard-SNMP-Spanning-Tree-Name |                                                                                              |
-| Net-Hp-Standard-SNMP-Traffic-Name       | Discover the network interfaces in order to monitor the status of the Spanning Tree Protocol |
+| Net-Hp-Standard-SNMP-Cast-Name          | Discover network interfaces and monitor packets casting type                                 |
+| Net-Hp-Standard-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets                        |
+| Net-Hp-Standard-SNMP-Spanning-Tree-Name | Discover the network interfaces in order to monitor the status of the Spanning Tree Protocol |
+| Net-Hp-Standard-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization                                |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -310,8 +313,6 @@ yum install centreon-plugin-Network-Hp-Standard-Snmp
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **Net-HP-Standard-SNMP-custom** template to the host.
 
-> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Macro                   | Description                                                                                                                                                            | Default value | Mandatory |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -514,7 +515,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \

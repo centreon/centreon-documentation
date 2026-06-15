@@ -26,8 +26,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                        | Service Description                                             |
 |:--------------|:----------------------------------------|:----------------------------------------------------------------|
-| Cpu           | Net-Hp-Procurve-Cpu-SNMP-custom         | Check the rate of utilization of CPU for the machine            |
-| Environment   | Net-Hp-Procurve-Environment-SNMP-custom | Check hardware environment (Fans, Power Supplies, Temperatures) |
+| Cpu           | Net-Hp-Procurve-Cpu-SNMP-custom         | Check the rate of CPU utilization for the machine            |
+| Environment   | Net-Hp-Procurve-Environment-SNMP-custom | Check hardware environment (fans, power supplies, temperatures) |
 | Memory        | Net-Hp-Procurve-Memory-SNMP-custom      | Check machine memory usage                                      |
 | Uptime        | Net-HP-Procurve-Uptime-SNMP-custom      | Check system uptime                                             |
 
@@ -40,8 +40,8 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------|:-------------------------------------------------|:-----------------------------------------------------------------------|:---------:|
 | Spanning-Tree        | Net-HP-Procurve-SpanningTree-SNMP-custom         | Monitor the status of the Spanning Tree Protocol on network interfaces | X         |
 | Stack                | Net-Hp-Procurve-Stack-SNMP-custom                | Check stack members                                                    |           |
-| Traffic-Generic-Id   | Net-Hp-Procurve-Traffic-Id-Generic-SNMP-custom   | Check traffic of an network interface                                  |           |
-| Traffic-Generic-Name | Net-Hp-Procurve-Traffic-Name-Generic-SNMP-custom | Check traffic of an network interface                                  |           |
+| Traffic-Generic-Id   | Net-Hp-Procurve-Traffic-Id-Generic-SNMP-custom   | Check traffic of a network interface                                  |           |
+| Traffic-Generic-Name | Net-Hp-Procurve-Traffic-Name-Generic-SNMP-custom | Check traffic of a network interface                                  |           |
 | Traffic-Global       | Net-Hp-Procurve-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces                           | X         |
 | Virtual-Chassis      | Net-Hp-Procurve-Virtual-Chassis-SNMP-custom      | Monitor VSF virtual chassis                                            |           |
 
@@ -66,8 +66,8 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                               | Description                                                                                  |
 |:----------------------------------------|:---------------------------------------------------------------------------------------------|
-| Net-Hp-Procurve-SNMP-Spanning-Tree-Name | Discover network interfaces and monitor bandwidth utilization                                |
-| Net-Hp-Procurve-SNMP-Traffic-Name       | Discover the network interfaces in order to monitor the status of the Spanning Tree Protocol |
+| Net-Hp-Procurve-SNMP-Spanning-Tree-Name | Discover the network interfaces in order to monitor the status of the Spanning Tree Protocol |
+| Net-Hp-Procurve-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization                                |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -123,7 +123,11 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-Coming soon
+| Name                                                 | Unit |
+|:-----------------------------------------------------|:-----|
+| *interface_name*#status                              | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s  |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -263,8 +267,6 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **Net-Hp-Procurve-SNMP-custom** template to the host.
 
-> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Macro                   | Description                                                                                                                                                            | Default value | Mandatory |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -418,7 +420,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
