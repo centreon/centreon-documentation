@@ -55,7 +55,7 @@ Ce modèle d'hôte hérite de l'ensemble des services associés au modèle [Clou
 | Nom de la règle      | Description                                                   |
 |:---------------------|:--------------------------------------------------------------|
 | OpenShift Nodes      | Discover OpenShift nodes by requesting the OpenShift RestAPI      |
-| OpenShift Namespaces | Discover OpenShift namespaces by requesting OpenShift RestAPI |
+| OpenShift Namespaces | Discover OpenShift namespaces by requesting the OpenShift RestAPI |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
