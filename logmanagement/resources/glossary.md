@@ -5,7 +5,7 @@ title: Glossary of Centreon Log Management terms
 
 ## Alert event/alert status
 
-The record generated when an alert rule condition is met. The alert event is given a status based on the criteria you've defined. Alert events are shown on the **Alerts > Alert events** page. Possible alert statuses are:
+The record generated when an alert rule condition is met. The alert event is given a status based on the criteria you've defined. The last alert event generated for each alert rule is shown on the **Alerts > Alert events** page. Possible alert statuses are:
 
 * <span style={{color:'#ff4a4a'}}>**CRITICAL**</span>
 * <span style={{color:'#fd9b27'}}>**ERROR**</span>
