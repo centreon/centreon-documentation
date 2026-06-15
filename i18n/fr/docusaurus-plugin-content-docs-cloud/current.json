@@ -150,5 +150,9 @@
   "sidebar.cloud.category.Customizing tickets": {
     "message": "Personnaliser les tickets",
     "description": "The label for category Customizing tickets in sidebar cloud"
+  }  ,
+  "sidebar.cloud.category.Manual setup (advanced)": {
+    "message": "Installation manuelle",
+    "description": "The label for category Manual setup in sidebar cloud"
   }
 }
