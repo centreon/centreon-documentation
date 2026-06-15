@@ -32,7 +32,7 @@ The connector brings the following service templates (sorted by the host templat
 | Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Check the current number of malfunctioning disks                          |
 | Global-status | HW-Storage-NetApp-Ontap-Global-status-SNMP-custom | Check the overall status of the  appliance                                |
 | Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Check the current status of the NVRAM batteries                           |
-| Shelf         | HW-Storage-NetApp-Ontap-Shelf-SNMP-custom         |                                                                           |
+| Shelf         | HW-Storage-NetApp-Ontap-Shelf-SNMP-custom         |  Check Shelves hardware                                                                           |
 | Uptime        | HW-Storage-NetApp-Ontap-Uptime-SNMP-custom        | Time since the server has been working and available                      |
 
 > The services listed above are created automatically when the **HW-Storage-NetApp-Ontap-SNMP-custom** host template is used.
@@ -47,9 +47,9 @@ The connector brings the following service templates (sorted by the host templat
 | Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Check if fans have failed                                                             |           |
 | File-System-Global     | HW-Storage-NetApp-Ontap-File-System-Global-SNMP-custom     | Check filesystem usage                                                                | X         |
 | Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Check current total of open NDMP sessions                                             |           |
-| Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         |                                                                                       |           |
-| Plexes                 | HW-Storage-NetApp-Ontap-Plexes-SNMP-custom                 | Check plexes                                                                          | X         |
-| Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    |                                                                                       |           |
+| Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         | Check status of clustered failover partner                                            |           |
+| Plexes                 | HW-Storage-NetApp-Ontap-Plexes-SNMP-custom                 | Check plexes                                                                          |     X     |
+| Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    | Check if power supplies have failed                                                   |           |
 | Quotas                 | HW-Storage-NetApp-Ontap-Quotas-SNMP-custom                 | Check quotas                                                                          |           |
 | Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Check CIFS and NFS calls per second.                                                  |           |
 | Snapmirrorlag          | HW-Storage-NetApp-Ontap-Snapmirrorlag-SNMP-custom          | Check snapmirrors status and lag                                                      |           |
@@ -79,9 +79,9 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                               | Description                                               |
 |:----------------------------------------|:----------------------------------------------------------|
-| Net-Netapp-Ontap-SNMP-Cluster-Node-Name | Discover the disk partitions and monitor space occupation |
-| Net-Netapp-Ontap-SNMP-Disk-Name         |                                                           |
-| Net-Netapp-Ontap-SNMP-Plex-Name         |                                                           |
+| Net-Netapp-Ontap-SNMP-Cluster-Node-Name | Discover cluster nodes and monitor them        |
+| Net-Netapp-Ontap-SNMP-Disk-Name         | Discover malfunctioning disks and monitor them |
+| Net-Netapp-Ontap-SNMP-Plex-Name         | Discover plexes and monitor them               |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -153,7 +153,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Fan" label="Fan">
 
-Coming soon
+No metrics for this service.
 
 </TabItem>
 <TabItem value="File-System-Global" label="File-System-Global">
@@ -188,12 +188,12 @@ Coming soon
 </TabItem>
 <TabItem value="Nvram" label="Nvram">
 
-Coming soon
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Partner-Status" label="Partner-Status">
 
-Coming soon
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Plexes" label="Plexes">
@@ -209,7 +209,7 @@ Coming soon
 </TabItem>
 <TabItem value="Psu" label="Psu">
 
-Coming soon
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Quotas" label="Quotas">
@@ -274,7 +274,7 @@ Coming soon
 </TabItem>
 <TabItem value="Temperature" label="Temperature">
 
-Coming soon
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -699,7 +699,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \

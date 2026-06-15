@@ -48,9 +48,9 @@ Le connecteur apporte les modèles de service suivants
 | Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Contrôle l'état des ventilateurs                               |            |
 | File-System-Global     | HW-Storage-NetApp-Ontap-File-System-Global-SNMP-custom     | Contrôle l'utilisation des disques                             | X          |
 | Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Contrôle le nombre de sessions NDMP                            |            |
-| Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         |                                                                |            |
-| Plexes                 | HW-Storage-NetApp-Ontap-Plexes-SNMP-custom                 | Contrôle les plex                                              | X          |
-| Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    |                                                                |            |
+| Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         | Contrôle le statut du failover                                 |            |
+| Plexes                 | HW-Storage-NetApp-Ontap-Plexes-SNMP-custom                 | Contrôle les plex                                              |     X      |
+| Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    | Contrôle le statut de l'alimentation électrique                |            |
 | Quotas                 | HW-Storage-NetApp-Ontap-Quotas-SNMP-custom                 | Contrôle les quotas                                            |            |
 | Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Contrôle le nombre d'appels 'CIFS' et 'NFS' par secondes       |            |
 | Snapmirrorlag          | HW-Storage-NetApp-Ontap-Snapmirrorlag-SNMP-custom          | Contrôle l'état d'un ou plusieurs snapmirror ainsi que son lag |            |
@@ -80,9 +80,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                         | Description                                                                                            |
 |:----------------------------------------|:-------------------------------------------------------------------------------------------------------|
-| Net-Netapp-Ontap-SNMP-Cluster-Node-Name | Utilise le nom du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace |
-| Net-Netapp-Ontap-SNMP-Disk-Name         |                                                                                                        |
-| Net-Netapp-Ontap-SNMP-Plex-Name         |                                                                                                        |
+| Net-Netapp-Ontap-SNMP-Cluster-Node-Name | Découvre les noeuds du cluster et les supervise                          |
+| Net-Netapp-Ontap-SNMP-Disk-Name         | Découvre les disques avec un problème de fonctionnement et les supervise |
+| Net-Netapp-Ontap-SNMP-Plex-Name         | Découvre les plex et les supervise                                       |                                                                                                    |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -154,7 +154,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Fan" label="Fan">
 
-Coming soon
+Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="File-System-Global" label="File-System-Global">
@@ -189,12 +189,12 @@ Coming soon
 </TabItem>
 <TabItem value="Nvram" label="Nvram">
 
-Coming soon
+Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="Partner-Status" label="Partner-Status">
 
-Coming soon
+Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="Plexes" label="Plexes">
@@ -210,7 +210,7 @@ Coming soon
 </TabItem>
 <TabItem value="Psu" label="Psu">
 
-Coming soon
+Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="Quotas" label="Quotas">
@@ -275,7 +275,7 @@ Coming soon
 </TabItem>
 <TabItem value="Temperature" label="Temperature">
 
-Coming soon
+Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -701,7 +701,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
