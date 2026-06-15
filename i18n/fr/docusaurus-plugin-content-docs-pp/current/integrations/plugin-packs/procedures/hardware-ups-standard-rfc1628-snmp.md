@@ -286,8 +286,8 @@ yum install centreon-plugin-Hardware-Ups-Standard-Rfc1628-Snmp
 |:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGCURRENT       | Threshold                                                                                                                                        |                   |             |
 | CRITICALCURRENT      | Threshold                                                                                                                                        |                   |             |
-| WARNINGFREQUENCE     |                                                                                                                                                  |                   |             |
-| CRITICALFREQUENCE    |                                                                                                                                                  |                   |             |
+| WARNINGFREQUENCE     | Threshold                                                                                                                                                  |                   |             |
+| CRITICALFREQUENCE    | Threshold                                                                                                                                                 |                   |             |
 | WARNINGLOAD          | Threshold                                                                                                                                        |                   |             |
 | CRITICALLOAD         | Threshold                                                                                                                                        |                   |             |
 | WARNINGPOWER         | Threshold                                                                                                                                        |                   |             |
@@ -328,7 +328,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
@@ -351,7 +351,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: frequence: 67438 Hz All output lines are ok | 'lines.output.frequence.hertz'=67438Hz;;;; 'oline1#line.output.load.percentage'=81433%;;;0;100 'oline2#line.output.load.percentage'=90052%;;;0;100 'oline1#line.output.current.ampere'=20185A;;;0; 'oline2#line.output.current.ampere'=80910A;;;0; 'oline1#line.output.voltage.volt'=29604V;;;; 'oline2#line.output.voltage.volt'=25938V;;;; 'oline1#line.output.power.watt'=187W;;;; 'oline2#line.output.power.watt'=5663W;;;; 
+OK: frequence: 67 Hz All output lines are ok | 'lines.output.frequence.hertz'=67Hz;;;; 'oline1#line.output.load.percentage'=81%;;;0;100 'oline2#line.output.load.percentage'=90%;;;0;100 'oline1#line.output.current.ampere'=25A;;;0; 'oline2#line.output.current.ampere'=8A;;;0; 'oline1#line.output.voltage.volt'=294V;;;; 'oline2#line.output.voltage.volt'=238V;;;; 'oline1#line.output.power.watt'=187W;;;; 'oline2#line.output.power.watt'=563W;;;; 
 ```
 
 ### Diagnostic des erreurs communes

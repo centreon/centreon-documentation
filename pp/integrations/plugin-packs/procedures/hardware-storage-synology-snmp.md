@@ -404,7 +404,8 @@ yum install centreon-plugin-Hardware-Storage-Synology-Snmp
 | WARNINGLIFETIMEREMAINING  | Threshold                                                                                                                                        |               |           |
 | CRITICALLIFETIMEREMAINING | Threshold                                                                                                                                        |               |           |
 | WARNINGLOAD               |                                                                                                                                                  |               |           |
-| CRITICALLOAD              |                                                                                                                                                  |               |           |
+| WARNINGLOAD               | Threshold                                                                                                                              |               |           |
+| CRITICALLOAD              | Threshold                                                                                                                              |               |           |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
@@ -435,7 +436,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
@@ -451,7 +452,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: ups load: 33690% battery charge remaining: 61557% battery estimated lifetime: 74546 seconds | 'ups.load.percent'=33690%;;;0;100 'battery.charge.remaining.percent'=61557%;;;0;100 'battery.lifetime.remaining.seconds'=74546s;;;0; 
+OK: ups load: 86% battery charge remaining: 86% battery estimated lifetime: 81 seconds | 'ups.load.percent'=86%;;;0;100'battery.charge.remaining.percent'=86%;;;0;100'battery.lifetime.remaining.seconds'=81s;;;0;
 ```
 
 ### Troubleshooting

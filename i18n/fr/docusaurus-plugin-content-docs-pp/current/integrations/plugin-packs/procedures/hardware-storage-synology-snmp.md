@@ -43,9 +43,9 @@ Le connecteur apporte les modèles de service suivants
 | Alias                | Modèle de service                                    | Description                                                                                                                |
 |:---------------------|:-----------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------|
 | Disk-Global          | HW-Storage-Synology-Disk-Global-SNMP-custom          | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques (« |
-| Traffic-Generic-Id   | HW-Storage-Synology-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau                                                                          |
-| Traffic-Generic-Name | HW-Storage-Synology-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau                                                                          |
-| Traffic-Global       | HW-Storage-Synology-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau                                                                  |
+| Traffic-Generic-Id   | HW-Storage-Synology-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau                                                                          |
+| Traffic-Generic-Name | HW-Storage-Synology-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau                                                                          |
+| Traffic-Global       | HW-Storage-Synology-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau                                                                  |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -402,8 +402,8 @@ yum install centreon-plugin-Hardware-Storage-Synology-Snmp
 | CRITICALCHARGEREMAINING   | Threshold                                                                                                                                        |                   |             |
 | WARNINGLIFETIMEREMAINING  | Threshold                                                                                                                                        |                   |             |
 | CRITICALLIFETIMEREMAINING | Threshold                                                                                                                                        |                   |             |
-| WARNINGLOAD               |                                                                                                                                                  |                   |             |
-| CRITICALLOAD              |                                                                                                                                                  |                   |             |
+| WARNINGLOAD               | Threshold                                                                                                                                        |                   |             |
+| CRITICALLOAD              | Threshold                                                                                                                                        |                   |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -436,7 +436,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
@@ -452,7 +452,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: ups load: 33690% battery charge remaining: 61557% battery estimated lifetime: 74546 seconds | 'ups.load.percent'=33690%;;;0;100 'battery.charge.remaining.percent'=61557%;;;0;100 'battery.lifetime.remaining.seconds'=74546s;;;0; 
+OK: ups load: 86% battery charge remaining: 86% battery estimated lifetime: 81 seconds | 'ups.load.percent'=86%;;;0;100'battery.charge.remaining.percent'=86%;;;0;100'battery.lifetime.remaining.seconds'=81s;;;0;
 ```
 
 ### Diagnostic des erreurs communes
