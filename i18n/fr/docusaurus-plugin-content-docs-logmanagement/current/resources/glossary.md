@@ -5,7 +5,7 @@ title: Glossaire des termes Centreon Log Management
 
 ## Évènement d'alerte/statut d'alerte
 
-Enregistrement généré lorsque les conditions d'une règle d'alerte sont remplies. L'évènement d'alerte se voit attribuer un statut en fonction des critères que vous avez définis. Les évènements d'alerte sont affichés à la page **Alerts > Alert events**. Les statuts d'alerte possibles sont les suivants :
+Enregistrement généré lorsque les conditions d'une règle d'alerte sont remplies. L'évènement d'alerte se voit attribuer un statut en fonction des critères que vous avez définis. Le dernier évènement d'alerte de chaque règle d'alerte est affiché à la page **Alerts > Alert events**. Les statuts d'alerte possibles sont les suivants :
 
 * <span style={{color:'#ff4a4a'}}>**CRITICAL**</span>
 * <span style={{color:'#fd9b27'}}>**ERROR**</span>
