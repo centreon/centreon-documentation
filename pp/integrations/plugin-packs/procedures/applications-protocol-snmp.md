@@ -88,7 +88,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Generic-Value" label="Generic-Value">
 
-Coming soon
+For this specific mode, the names of the metrics depend on the configuration made by the user.
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
