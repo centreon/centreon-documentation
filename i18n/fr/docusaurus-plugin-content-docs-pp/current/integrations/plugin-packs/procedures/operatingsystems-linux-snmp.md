@@ -67,9 +67,10 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                           |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **OS-Linux-SNMP-custom**. |
+| Nom de la règle         | Description                                                                                                                                                                                                                                                              |
+|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents             | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **OS-Linux-SNMP-custom**.                                    |
+| SNMP v3 Agents enhanced | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](.<br/><br/><br/><br/><br/><br/><br/>/applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **OS-Linux-SNMP-custom**. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -270,6 +271,8 @@ Afin de superviser vos équipements Linux, le serveur SNMP doit être configuré
 
 ## Configuration du serveur SNMP 
 
+### Configuration basique
+
 **Note :** les commandes ci-après peuvent changer en fonction de la distribution. Des documentations sont disponibles sur les sites officiels des éditeurs. 
 
 Ci-dessous, un exemple de fichier snmpd.conf (remplacer **my-snmp-community** par la communauté que vous souhaitez utiliser).
@@ -289,6 +292,39 @@ includeAllDisks 10%
 Il est nécessaire de redémarrer le processus SNMP après avoir modifié le fichier de configuration. 
 
 Assurez-vous que le processus SNMP est configuré pour démarrer automatiquement lors du redémarrage du serveur.
+
+### SNMP version 3
+
+Pour la mise en place d'un utilisateur SNMP v3 sur un serveur Linux, voici un exemple de paramétrage qui fonctionnera sur la plupart des distributions.
+
+Connectez-vous en SSH sur l'hôte à superviser et lancez les commandes suivantes (remplacez les *passphrases* par les vôtres) :
+
+```
+systemctl stop snmpd.service
+net-snmp-create-v3-user -ro -A centreonrocks -X linuxisgreat -a SHA -x AES centreon
+systemctl start snmpd.service
+```
+
+Ces commandes doivent normalement aboutir à cet affichage :
+
+```
+adding the following line to /var/lib/snmp/snmpd.conf:
+   createUser centreon SHA "centreonrocks" AES "linuxisgreat"
+adding the following line to /etc/snmp/snmpd.conf:
+   rouser centreon
+```
+
+Si tout s'est bien déroulé, la commande suivante doit aboutir à ce résultat:
+
+```
+snmpget -v 3 -u centreon -a SHA -A centreonrocks -x AES -X linuxisgreat -l authPriv 127.0.0.1 .1.3.6.1.2.1.1.5.0
+```
+
+Résultat :
+
+```
+SNMPv2-MIB::sysName.0 = STRING: myhostname
+```
 
 ### Flux réseau
 

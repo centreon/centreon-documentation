@@ -66,9 +66,10 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name   | Description                                                                                                                                                                                                                                   |
-|:------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **OS-Linux-SNMP-custom** host template. |
+| Rule name               | Description                                                                                                                                                                                                                                   |
+|:------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents             | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **OS-Linux-SNMP-custom** host template. |
+| SNMP v3 Agents enhanced | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **OS-Linux-SNMP-custom** host template. |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -277,6 +278,8 @@ To monitor a Linux based device, the SNMP service must be installed and configur
 
 A detailed documentation on how-to configure SNMP is available in the documentation of each Linux distribution.
 
+### Basic configuration
+
 Find below a minimalist snmpd.conf / net-snmp config file (replace **my-snmp-community** by the relevant value).
 
 ```
@@ -292,6 +295,41 @@ includeAllDisks 10%
 ```
 
 The SNMP server must be restarted each time the configuration is modified. Also make sure that the SNMP server is configured to automatically start on boot. 
+
+### SNMP version 3
+
+Here is a way to configure a SNMP v3 user that should work on most major distibutions.
+
+Log in with SSH on the host to monitor and run the following commands (replace the passphrases with yours):
+
+```
+systemctl stop snmpd.service
+net-snmp-create-v3-user -ro -A centreonrocks -X linuxisgreat -a SHA -x AES centreon
+systemctl start snmpd.service
+```
+
+The following lines should be returned:
+
+```
+adding the following line to /var/lib/snmp/snmpd.conf:
+   createUser centreon SHA "centreonrocks" AES "linuxisgreat"
+adding the following line to /etc/snmp/snmpd.conf:
+   rouser centreon
+```
+
+If all went well, the following command should return the same result as below:
+
+```
+snmpget -v 3 -u centreon -a SHA -A centreonrocks -x AES -X linuxisgreat -l authPriv 127.0.0.1 .1.3.6.1.2.1.1.5.0
+```
+
+Output:
+
+```
+SNMPv2-MIB::sysName.0 = STRING: myhostname
+```
+
+Make sure that the SNMP server is configured to automatically start on boot.
 
 ### Network flow
 
