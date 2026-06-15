@@ -47,7 +47,7 @@ Les différents statuts d'alerte possibles sont les suivants :
    * **Conditions**: définit quel [statut d'alerte l'évènement d'alerte doit avoir](#statuts-dalerte).
 4. Enregistrez votre règle d'alerte. La fenêtre se ferme et votre règle d'alerte apparaît dans la liste des règles d'alerte. La règle commence à être évaluée et à générer des évènements d'alerte.
 
-## Afficher tous les évènements d'alerte
+## Afficher le dernier évènement d'alerte pour chaque règle
 
 Allez à la page **Alerts & notifications > Alert events**. Utilisez la barre de recherche et son bouton de filtre pour trouver les évènements d'alerte désirés.
 
