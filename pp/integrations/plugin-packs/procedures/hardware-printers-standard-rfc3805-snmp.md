@@ -61,27 +61,46 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Cover-Status*" label="Cover-Status*">
 
-Coming soon
+| Name            | Unit  |
+|:----------------|:------|
+| *covers*#status | N/A   |
+
+> Applies to the following service templates: Cover-Status, Cover-Status
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Impressions*" label="Impressions*">
 
-Coming soon
+| Name                                  | Unit  |
+|:--------------------------------------|:------|
+| lifecount_*DeviceIndex*#*MarkerIndex* | count |
 
 </TabItem>
 <TabItem value="MarkerSupply-Usage*" label="MarkerSupply-Usage*">
 
-Coming soon
+| Name            | Unit |
+|:----------------|:---- |
+| *Toner*#*color* | %    |
+| *Unit*          | %    |
 
 </TabItem>
 <TabItem value="PaperTray-Usage*" label="PaperTray-Usage*">
 
-Coming soon
+| Name        | Unit  |
+|:------------|:------|
+| tray_*tray* | %     |
 
 </TabItem>
 <TabItem value="Printer-Errors*" label="Printer-Errors*">
 
-Coming soon
+| Name                      | Unit  |
+|:--------------------------|:------|
+| *printer*~*errors*#status | N/A   |
+
+> Applies to the following service templates: Printer-Errors, Printer-Errors
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Printer-Hardware*" label="Printer-Hardware*">
@@ -297,7 +316,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname=10.0.0.1 \
 	--snmp-community='my-snmp-community' \
 	--snmp-version='2c' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
