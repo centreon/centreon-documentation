@@ -73,8 +73,8 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                         | Description                                                                                       |
 |:----------------------------------------|:--------------------------------------------------------------------------------------------------|
-| Net-Cisco-Standard-SNMP-Aaa-Server-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
-| Net-Cisco-Standard-SNMP-Interface-Name  |                                                                                                   |
+| Net-Cisco-Standard-SNMP-Aaa-Server-Name | Découvre les serveurs AAA et supervise leur utilisation                                           |
+| Net-Cisco-Standard-SNMP-Interface-Name  | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -175,7 +175,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hsrp" label="Hsrp">
 
-Coming soon
+Pas de métrique pour ce service
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -533,20 +533,20 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | Macro                    | Description                                                                                                                                      | Valeur par défaut                                                    | Obligatoire |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:-----------:|
 | COMPONENT                | Which component to check. Can be: 'fan', 'psu', 'temperature', 'voltage', 'module', 'physical', 'sensor'                                         | .*                                                                   |             |
-| WARNINGCOUNTFAN          |                                                                                                                                                  |                                                                      |             |
-| CRITICALCOUNTFAN         |                                                                                                                                                  |                                                                      |             |
-| WARNINGCOUNTMODULE       |                                                                                                                                                  |                                                                      |             |
-| CRITICALCOUNTMODULE      |                                                                                                                                                  |                                                                      |             |
-| WARNINGCOUNTPHYSICAL     |                                                                                                                                                  |                                                                      |             |
-| CRITICALCOUNTPHYSICAL    |                                                                                                                                                  |                                                                      |             |
-| WARNINGCOUNTPSU          |                                                                                                                                                  |                                                                      |             |
-| CRITICALCOUNTPSU         |                                                                                                                                                  |                                                                      |             |
-| WARNINGCOUNTSENSOR       |                                                                                                                                                  |                                                                      |             |
-| CRITICALCOUNTSENSOR      |                                                                                                                                                  |                                                                      |             |
-| WARNINGCOUNTTEMPERATURE  |                                                                                                                                                  |                                                                      |             |
-| CRITICALCOUNTTEMPERATURE |                                                                                                                                                  |                                                                      |             |
-| WARNINGCOUNTVOLTAGE      |                                                                                                                                                  |                                                                      |             |
-| CRITICALCOUNTVOLTAGE     |                                                                                                                                                  |                                                                      |             |
+| WARNINGCOUNTFAN          | Threshold                                                                                                                                        |                                                                      |           |
+| CRITICALCOUNTFAN         | Threshold                                                                                                                                        |                                                                      |           |
+| WARNINGCOUNTMODULE       | Threshold                                                                                                                                        |                                                                      |           |
+| CRITICALCOUNTMODULE      | Threshold                                                                                                                                        |                                                                      |           |
+| WARNINGCOUNTPHYSICAL     | Threshold                                                                                                                                        |                                                                      |           |
+| CRITICALCOUNTPHYSICAL    | Threshold                                                                                                                                        |                                                                      |           |
+| WARNINGCOUNTPSU          | Threshold                                                                                                                                        |                                                                      |           |
+| CRITICALCOUNTPSU         | Threshold                                                                                                                                        |                                                                      |           |
+| WARNINGCOUNTSENSOR       | Threshold                                                                                                                                        |                                                                      |           |
+| CRITICALCOUNTSENSOR      | Threshold                                                                                                                                        |                                                                      |           |
+| WARNINGCOUNTTEMPERATURE  | Threshold                                                                                                                                        |                                                                      |           |
+| CRITICALCOUNTTEMPERATURE | Threshold                                                                                                                                        |                                                                      |           |
+| WARNINGCOUNTVOLTAGE      | Threshold                                                                                                                                        |                                                                      |           |
+| CRITICALCOUNTVOLTAGE     | Threshold                                                                                                                                        |                                                                      |           |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose  --filter-perfdata='^(sensor\.(celsius\_\|rpm\_)\|temp\_)' |             |
 
 </TabItem>
@@ -587,7 +587,8 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | WARNINGINUCAST          | Threshold                                                                                                                                                                          |                                                           |             |
 | CRITICALINUCAST         | Threshold                                                                                                                                                                          |                                                           |             |
 | WARNINGINVOLUME         |                                                                                                                                                                                    |                                                           |             |
-| CRITICALINVOLUME        |                                                                                                                                                                                    |                                                           |             |
+| WARNINGINVOLUME         | Threshold                                                                                                                                                                          |                                                           |             |
+| CRITICALINVOLUME        | Threshold                                                                                                                                                                          | 
 | WARNINGOUTBCAST         | Threshold                                                                                                                                                                          |                                                           |             |
 | CRITICALOUTBCAST        | Threshold                                                                                                                                                                          |                                                           |             |
 | WARNINGOUTDISCARD       | Threshold                                                                                                                                                                          |                                                           |             |
@@ -602,8 +603,8 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALOUTTRAFFICLIMIT | Threshold                                                                                                                                                                          |                                                           |             |
 | WARNINGOUTUCAST         | Threshold                                                                                                                                                                          |                                                           |             |
 | CRITICALOUTUCAST        | Threshold                                                                                                                                                                          |                                                           |             |
-| WARNINGOUTVOLUME        |                                                                                                                                                                                    |                                                           |             |
-| CRITICALOUTVOLUME       |                                                                                                                                                                                    |                                                           |             |
+| WARNINGOUTVOLUME        | Threshold                                                                                                                                                                          |                                                           |             |
+| CRITICALOUTVOLUME       | Threshold                                                                                                                                                                          |                                                           |             |
 | WARNINGSPEED            | Threshold                                                                                                                                                                          |                                                           |             |
 | CRITICALSPEED           | Threshold                                                                                                                                                                          |                                                           |             |
 | CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{errdisable\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |             |
@@ -753,7 +754,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
@@ -772,7 +773,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: 66526 (1m) 41276 (5m) 86299 (15m) All connection types are ok | 'calls.active.1m.average.count'=66526;;;0; 'calls.active.5m.average.count'=41276;;;0; 'calls.active.15m.average.count'=86299;;;0; 'ctype1#connection.calls.active.count'=94860;;;0; 'ctype2#connection.calls.active.count'=25745;;;0; 
+OK: 47 (1m) 81 (5m) 35 (15m) All connection types are ok | 'calls.active.1m.average.count'=47;;;0;'calls.active.5m.average.count'=81;;;0;'calls.active.15m.average.count'=35;;;0;'ctype1#connection.calls.active.count'=741;;;0; 'ctype2#connection.calls.active.count'=14943;;;0; 
 ```
 
 ### Diagnostic des erreurs communes

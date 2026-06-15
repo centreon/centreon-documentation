@@ -73,7 +73,8 @@ More information about discovering hosts automatically is available on the [dedi
 | Rule name                               | Description                                                   |
 |:----------------------------------------|:--------------------------------------------------------------|
 | Net-Cisco-Standard-SNMP-Aaa-Server-Name | Discover network interfaces and monitor bandwidth utilization |
-| Net-Cisco-Standard-SNMP-Interface-Name  |                                                               |
+| Net-Cisco-Standard-SNMP-Aaa-Server-Name | Discover AAA servers                                         |
+| Net-Cisco-Standard-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization|
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -174,7 +175,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hsrp" label="Hsrp">
 
-Coming soon
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -547,7 +548,20 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | WARNINGCOUNTTEMPERATURE  |                                                                                                                                                  |                                                                      |           |
 | CRITICALCOUNTTEMPERATURE |                                                                                                                                                  |                                                                      |           |
 | WARNINGCOUNTVOLTAGE      |                                                                                                                                                  |                                                                      |           |
-| CRITICALCOUNTVOLTAGE     |                                                                                                                                                  |                                                                      |           |
+| WARNINGCOUNTFAN          | Threshold                                                                                                                              |                                                                      |           |
+| CRITICALCOUNTFAN         | Threshold                                                                                                                              |                                                                      |           |
+| WARNINGCOUNTMODULE       | Threshold                                                                                                                              |                                                                      |           |
+| CRITICALCOUNTMODULE      | Threshold                                                                                                                              |                                                                      |           |
+| WARNINGCOUNTPHYSICAL     | Threshold                                                                                                                              |                                                                      |           |
+| CRITICALCOUNTPHYSICAL    | Threshold                                                                                                                              |                                                                      |           |
+| WARNINGCOUNTPSU          | Threshold                                                                                                                              |                                                                      |           |
+| CRITICALCOUNTPSU         | Threshold                                                                                                                              |                                                                      |           |
+| WARNINGCOUNTSENSOR       | Threshold                                                                                                                              |                                                                      |           |
+| CRITICALCOUNTSENSOR      | Threshold                                                                                                                              |                                                                      |           |
+| WARNINGCOUNTTEMPERATURE  | Threshold                                                                                                                              |                                                                      |           |
+| CRITICALCOUNTTEMPERATURE | Threshold                                                                                                                              |                                                                      |           |
+| WARNINGCOUNTVOLTAGE      | Threshold                                                                                                                              |                                                                      |           |
+| CRITICALCOUNTVOLTAGE     | Threshold                                                                                                                              |                                                                      |           |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose  --filter-perfdata='^(sensor\.(celsius\_\|rpm\_)\|temp\_)' |           |
 
 </TabItem>
@@ -592,19 +606,17 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | WARNINGOUTBCAST         | Threshold                                                                                                                                                                          |                                                           |           |
 | CRITICALOUTBCAST        | Threshold                                                                                                                                                                          |                                                           |           |
 | WARNINGOUTDISCARD       | Threshold                                                                                                                                                                          |                                                           |           |
-| CRITICALOUTDISCARD      | Threshold                                                                                                                                                                          |                                                           |           |
-| WARNINGOUTERROR         | Threshold                                                                                                                                                                          |                                                           |           |
-| CRITICALOUTERROR        | Threshold                                                                                                                                                                          |                                                           |           |
-| WARNINGOUTMCAST         | Threshold                                                                                                                                                                          |                                                           |           |
-| CRITICALOUTMCAST        | Threshold                                                                                                                                                                          |                                                           |           |
-| WARNINGOUTTRAFFIC       | Threshold                                                                                                                                                                          |                                                           |           |
-| CRITICALOUTTRAFFIC      | Threshold                                                                                                                                                                          |                                                           |           |
-| WARNINGOUTTRAFFICLIMIT  | Threshold                                                                                                                                                                          |                                                           |           |
+| WARNINGINVOLUME         | Threshold                                                                                                                                                                          |                                                           |           |
+| CRITICALINVOLUME        | Threshold                                                                                                                                                                          |                                                           |           |
+| WARNINGOUTBCAST         | Threshold                                                                                                                                                                          |                                                           |           |
+| CRITICALOUTBCAST        | Threshold                                                                                                                                                                          |                                                           |           |
+| WARNINGOUTDISCARD       | Threshold                                                                                                                                                                          |                                                           |           |
+@@ -600,8 +603,8 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALOUTTRAFFICLIMIT | Threshold                                                                                                                                                                          |                                                           |           |
 | WARNINGOUTUCAST         | Threshold                                                                                                                                                                          |                                                           |           |
 | CRITICALOUTUCAST        | Threshold                                                                                                                                                                          |                                                           |           |
-| WARNINGOUTVOLUME        |                                                                                                                                                                                    |                                                           |           |
-| CRITICALOUTVOLUME       |                                                                                                                                                                                    |                                                           |           |
+| WARNINGOUTVOLUME        | Threshold                                                                                                                                                                          |                                                           |           |
+| CRITICALOUTVOLUME       | Threshold                                                                                                                                                                          |                                                           |           |
 | WARNINGSPEED            | Threshold                                                                                                                                                                          |                                                           |           |
 | CRITICALSPEED           | Threshold                                                                                                                                                                          |                                                           |           |
 | CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{errdisable\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |           |
@@ -752,7 +764,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
@@ -771,7 +783,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: 66526 (1m) 41276 (5m) 86299 (15m) All connection types are ok | 'calls.active.1m.average.count'=66526;;;0; 'calls.active.5m.average.count'=41276;;;0; 'calls.active.15m.average.count'=86299;;;0; 'ctype1#connection.calls.active.count'=94860;;;0; 'ctype2#connection.calls.active.count'=25745;;;0; 
+OK: 47 (1m) 81 (5m) 35 (15m) All connection types are ok | 'calls.active.1m.average.count'=47;;;0;'calls.active.5m.average.count'=81;;;0;'calls.active.15m.average.count'=35;;;0;'ctype1#connection.calls.active.count'=741;;;0; 'ctype2#connection.calls.active.count'=14943;;;0; 
 ```
 
 ### Troubleshooting
