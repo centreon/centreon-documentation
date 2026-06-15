@@ -89,7 +89,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Generic-Value" label="Generic-Value">
 
-Coming soon
+Pour ce mode spécifique, les noms des métriques dépendront de la configuration effectuée par l'utilisateur.
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
