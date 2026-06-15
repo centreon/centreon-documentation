@@ -53,7 +53,7 @@ This host template also inherits all services associated with the [Cloud-Kuberne
 
 | Rule name            | Description                                                   |
 |:---------------------|:--------------------------------------------------------------|
-| OpenShift Nodes      | Discover OpenShift nodes by requesting OpenShift RestAPI      |
+| OpenShift Nodes      | Discover OpenShift nodes by requesting the OpenShift RestAPI      |
 | OpenShift Namespaces | Discover OpenShift namespaces by requesting OpenShift RestAPI |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
