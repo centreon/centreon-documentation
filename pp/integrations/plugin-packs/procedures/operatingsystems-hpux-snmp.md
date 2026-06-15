@@ -339,7 +339,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All storages are ok | 'disk_name1#usage'=67612B;80;90;; 'disk_name2#usage'=36416B;80;90;; 
+OK: All storages are ok | 'disk_name1#used'=32400B;0:28800;0:32400;0;36000 'disk_name2#used'=5280B;0:4608;0:5184;0;5760
 ```
 
 ### Troubleshooting

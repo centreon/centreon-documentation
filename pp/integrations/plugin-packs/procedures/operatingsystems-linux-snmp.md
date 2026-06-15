@@ -82,7 +82,13 @@ More information about discovering hosts automatically is available on the [dedi
 | OS-Linux-SNMP-Inodes-Name        | Discover network interfaces and monitor bandwidth utilization         |
 | OS-Linux-SNMP-Packet-Errors-Name | Discover the disk partitions and monitor space occupation             |
 | OS-Linux-SNMP-Processes-Name     | Discover processes and monitor their system usage                     |
-| OS-Linux-SNMP-Traffic-Name       | Discover the disk partitions and monitor IO usage                     |
+| OS-Linux-SNMP-Disk-IO            | Discover the disk partitions and monitor space occupation             |
+| OS-Linux-SNMP-Disk-Name          | Discover the disk partitions and monitor space occupation             |
+| OS-Linux-SNMP-Disk-Path          | Discover the disk partitions and monitor space occupation             |
+| OS-Linux-SNMP-Inodes-Name        | Discover the disk partitions and monitor inodes usage                 |
+| OS-Linux-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets |
+| OS-Linux-SNMP-Processes-Name     | Discover processes and monitor their system usage                     |
+| OS-Linux-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -389,8 +395,6 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **OS-Linux-SNMP-custom** template to the host.
 
-> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
 | Macro                   | Description                                                                                                                                                            | Default value | Mandatory |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -659,7 +663,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
@@ -679,7 +683,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=43059b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=28039b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=77116b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=9415b/s;80;90;; 
+OK: All interfaces are ok | *interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;' *interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
 ```
 
 ### Troubleshooting
