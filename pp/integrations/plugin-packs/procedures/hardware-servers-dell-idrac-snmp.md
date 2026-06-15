@@ -272,29 +272,12 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 **centreon-engine** user account (`su - centreon-engine`). Test that the connector 
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
-```bash
-/usr/lib/centreon/plugins/centreon_dell_idrac.pl \
-	--plugin=hardware::server::dell::idrac::snmp::plugin \
-	--mode=hardware \
-	--hostname=10.0.0.1 \
-	--snmp-version='2c' \
-	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
-	--authpassphrase='' \
-	--authprotocol='' \
-	--privpassphrase='' \
-	--privprotocol=''  \
-	--component='.*' \
-	--filter='' \
-	--warning='' \
-	--critical='' \
-	--verbose
-```
+
 
 The expected command output is shown below:
 
 ```bash
-OK: 
+OK: Overall global status is 'ok' | 
 ```
 
 ### Troubleshooting
