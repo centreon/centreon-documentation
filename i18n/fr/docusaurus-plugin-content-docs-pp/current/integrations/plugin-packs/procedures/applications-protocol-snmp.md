@@ -284,10 +284,10 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 | CRITICAL_PL    | Packets lost threshold critical in %                                                                                                             |                   |             |
 | WARNING_RTA    | Response time threshold warning in milliseconds                                                                                                  |                   |             |
 | CRITICAL_RTA   | Response time threshold critical in milliseconds                                                                                                 |                   |             |
-| WARNING_RTMAX  |                                                                                                                                                  |                   |             |
-| CRITICAL_RTMAX |                                                                                                                                                  |                   |             |
-| WARNING_RTMIN  |                                                                                                                                                  |                   |             |
-| CRITICAL_RTMIN |                                                                                                                                                  |                   |             |
+| WARNING_RTMAX  | Maximum response time threshold warning in milliseconds                                                                                          |                   |             |
+| CRITICAL_RTMAX | Maximum response time threshold critical in milliseconds                                                                                         |                   |             |
+| WARNING_RTMIN  | Minimum response time threshold warning in milliseconds                                                                                          |                   |             |
+| CRITICAL_RTMIN | Minimum response time threshold critical in milliseconds                                                                                         |                   |             |
 | EXTRA_OPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
