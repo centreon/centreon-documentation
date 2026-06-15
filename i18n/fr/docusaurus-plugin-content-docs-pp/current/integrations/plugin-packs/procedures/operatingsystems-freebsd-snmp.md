@@ -71,9 +71,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle              | Description                                                                                               |
 |:-----------------------------|:----------------------------------------------------------------------------------------------------------|
-| OS-FreeBSD-SNMP-Disk-Name    | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation         |
-| OS-FreeBSD-SNMP-Disk-Path    | Utilise le nom du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace    |
-| OS-FreeBSD-SNMP-Traffic-Name | Utilise le chemin du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace |
+| OS-FreeBSD-SNMP-Disk-Name    | Utilise le nom du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace    |
+| OS-FreeBSD-SNMP-Disk-Path    | Utilise le chemin du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace |
+| OS-FreeBSD-SNMP-Traffic-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation         |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -95,7 +95,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Disk-*" label="Disk-*">
 
-Coming soon
+| Nom                        | Unité  |
+|:--------------------------------------|:------|
+| storage.partitions.count              | count |
+| *disk_name*#storage.space.usage.bytes | B     |
+| *disk_name*#storage.access.count      | count |
+
+> Concerne les modèles de service suivants : Disk-Generic-Id, Disk-Generic-Name, Disk-Global
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
@@ -296,8 +304,6 @@ yum install centreon-plugin-Operatingsystems-Freebsd-Snmp
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **OS-FreeBSD-SNMP-custom**.
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro                   | Description                                                                                                                                                            | Valeur par défaut | Obligatoire |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|

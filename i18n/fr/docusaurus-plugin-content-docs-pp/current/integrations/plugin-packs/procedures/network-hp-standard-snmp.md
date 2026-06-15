@@ -70,10 +70,10 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                         | Description                                                                                       |
 |:----------------------------------------|:--------------------------------------------------------------------------------------------------|
-| Net-Hp-Standard-SNMP-Cast-Name          | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
-| Net-Hp-Standard-SNMP-Packet-Errors-Name | Découvre les interfaces réseau en utilisant leur nom et supervise les paquets erronés et rejetés  |
-| Net-Hp-Standard-SNMP-Spanning-Tree-Name |                                                                                                   |
-| Net-Hp-Standard-SNMP-Traffic-Name       | Découvre les interfaces en vue de contrôler l'état du protocole Spanning Tree                     |
+| Net-Hp-Standard-SNMP-Cast-Name          | Découvre les interfaces réseau en utilisant leur nom et supervise les paquets pour chaque type de casting |
+| Net-Hp-Standard-SNMP-Packet-Errors-Name | Découvre les interfaces réseau en utilisant leur nom et supervise les paquets erronés et rejetés          |
+| Net-Hp-Standard-SNMP-Spanning-Tree-Name | Découvre les interfaces en vue de contrôler l'état du protocole Spanning Tree                             |
+| Net-Hp-Standard-SNMP-Traffic-Name       | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation         |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -309,8 +309,6 @@ yum install centreon-plugin-Network-Hp-Standard-Snmp
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Net-HP-Standard-SNMP-custom**.
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro                   | Description                                                                                                                                                            | Valeur par défaut | Obligatoire |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -515,7 +513,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \

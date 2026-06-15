@@ -65,7 +65,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                | Description                                                                                       |
 |:-------------------------------|:--------------------------------------------------------------------------------------------------|
-| Net-Kairos-SNMP-Alarms-Name    |                                                                                                   |
+| Net-Kairos-SNMP-Alarms-Name    | Découvre les alarmes et supervise statut                                                    |
 | Net-Kairos-SNMP-Interface-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -284,8 +284,6 @@ yum install centreon-plugin-Network-Kairos-Snmp
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Net-Kairos-SNMP-custom**.
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro                   | Description                                                                                                                                                            | Valeur par défaut | Obligatoire |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -422,7 +420,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--snmp-version='' \
 	--snmp-community='' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
@@ -453,7 +451,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=4915b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=97058b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=80201b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=75466b/s;;;; 'interface_name1#interface.packets.in.discard.percentage'=61%;;;;100 'interface_name2#interface.packets.in.discard.percentage'=61%;;;;100 'interface_name1#interface.packets.in.error.percentage'=67%;;;;100 'interface_name2#interface.packets.in.error.percentage'=92%;;;;100 'interface_name1#interface.packets.out.discard.percentage'=69%;;;;100 'interface_name2#interface.packets.out.discard.percentage'=34%;;;;100 'interface_name1#interface.packets.out.error.percentage'=84%;;;;100 'interface_name2#interface.packets.out.error.percentage'=88%;;;;100 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=75607b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=51478b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=92538b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=20933b/s;;;; 'interface_name1#interface.packets.in.discard.percentage'=30%;;;;100 'interface_name2#interface.packets.in.discard.percentage'=46%;;;;100 'interface_name1#interface.packets.in.error.percentage'=32%;;;;100 'interface_name2#interface.packets.in.error.percentage'=70%;;;;100 'interface_name1#interface.packets.out.discard.percentage'=97%;;;;100 'interface_name2#interface.packets.out.discard.percentage'=23%;;;;100 'interface_name1#interface.packets.out.error.percentage'=67%;;;;100 'interface_name2#interface.packets.out.error.percentage'=78%;;;;100 
 ```
 
 ### Diagnostic des erreurs communes

@@ -226,8 +226,6 @@ yum install centreon-plugin-Hardware-Printers-Generic-Snmp
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **HW-Printer-standard-rfc3805-custom**.
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro                   | Description                                                                                                                                                            | Valeur par défaut | Obligatoire |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|

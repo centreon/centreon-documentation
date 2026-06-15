@@ -296,7 +296,8 @@ yum install centreon-plugin-Network-Firewalls-Stonesoft
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      |                                                                                                                                                  |                   |             |
-| CRITICAL     |                                                                                                                                                  |                   |             |
+| WARNING      | Threshold                                                                                                                                        |                   |             |
+| CRITICAL     | Threshold                                                                                                                                        |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -428,7 +429,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
@@ -448,7 +449,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=98425b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=70371b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=64265b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=43445b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=35b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=52b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=68b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=77b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes

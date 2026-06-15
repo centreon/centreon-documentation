@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias       | Modèle de service                       | Description                                                             |
 |:------------|:----------------------------------------|:------------------------------------------------------------------------|
 | Cpu         | Net-Hp-Procurve-Cpu-SNMP-custom         | Contrôle du taux d'utilisation du CPU de la machine                     |
-| Environment | Net-Hp-Procurve-Environment-SNMP-custom | Contrôle l'état du matériel (Ventilateurs, alimentations, températures) |
+| Environment | Net-Hp-Procurve-Environment-SNMP-custom | Contrôle l'état du matériel (ventilateurs, alimentations, températures) |
 | Memory      | Net-Hp-Procurve-Memory-SNMP-custom      | Contrôle l'utilisation mémoire du matériel                              |
 | Uptime      | Net-HP-Procurve-Uptime-SNMP-custom      | Contrôle de l'uptime du système                                         |
 
@@ -41,9 +41,9 @@ Le connecteur apporte les modèles de service suivants
 |:---------------------|:-------------------------------------------------|:--------------------------------------------------------------|:----------:|
 | Spanning-Tree        | Net-HP-Procurve-SpanningTree-SNMP-custom         | Contrôle l'état du protocole Spanning Tree sur les interfaces | X          |
 | Stack                | Net-Hp-Procurve-Stack-SNMP-custom                | Contrôle les membres du stack                                 |            |
-| Traffic-Generic-Id   | Net-Hp-Procurve-Traffic-Id-Generic-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau             |            |
-| Traffic-Generic-Name | Net-Hp-Procurve-Traffic-Name-Generic-SNMP-custom | Contrôle le traffic réseau d'une interface réseau             |            |
-| Traffic-Global       | Net-Hp-Procurve-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau     | X          |
+| Traffic-Generic-Id   | Net-Hp-Procurve-Traffic-Id-Generic-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau             |            |
+| Traffic-Generic-Name | Net-Hp-Procurve-Traffic-Name-Generic-SNMP-custom | Contrôle le trafic réseau d'une interface réseau             |            |
+| Traffic-Global       | Net-Hp-Procurve-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau     | X          |
 | Virtual-Chassis      | Net-Hp-Procurve-Virtual-Chassis-SNMP-custom      | Contrôle l'état des châssis virtuels VSF                      |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -67,8 +67,8 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                         | Description                                                                                       |
 |:----------------------------------------|:--------------------------------------------------------------------------------------------------|
-| Net-Hp-Procurve-SNMP-Spanning-Tree-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
-| Net-Hp-Procurve-SNMP-Traffic-Name       | Découvre les interfaces en vue de contrôler l'état du protocole Spanning Tree                     |
+| Net-Hp-Procurve-SNMP-Spanning-Tree-Name | Découvre les interfaces en vue de contrôler l'état du protocole Spanning Tree                     |
+| Net-Hp-Procurve-SNMP-Traffic-Name       | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -124,7 +124,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-Coming soon
+| Nom                                                  | Unité |
+|:-----------------------------------------------------|:------|
+| *interface_name*#status                              | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -262,8 +266,6 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Net-Hp-Procurve-SNMP-custom**.
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro                   | Description                                                                                                                                                            | Valeur par défaut | Obligatoire |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -419,7 +421,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
-	--snmp-username='username' \
+	--snmp-username='' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
