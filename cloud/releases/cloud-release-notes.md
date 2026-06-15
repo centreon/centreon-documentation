@@ -3,6 +3,10 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## June 15th, 2026
+
+Release notes cloud 26.05.0
+
 ## April 8th, 2026
 
 ### Centreon IT Edition
