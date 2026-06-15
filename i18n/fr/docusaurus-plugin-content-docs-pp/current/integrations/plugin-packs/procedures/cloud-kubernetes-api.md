@@ -8,6 +8,9 @@ import TabItem from '@theme/TabItem';
 ## Contenu du pack
 
 ### Préambule
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Kubernetes API** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
 Ce Pack vise à superviser à la fois la couche d'infrastructure (noeuds) et les services d'un cluster Kubernetes (deployments, daemonsets, etc). Le Pack Kubernetes API offre plusieurs façons d'organiser la supervision du cluster. Il en existe principalement trois :
 - Rassembler toutes les métriques sur un seul hôte Centreon avec un service
@@ -50,6 +53,7 @@ Le connecteur apporte les modèles de service suivants
 | Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Contrôle le statut des pods et des containers            | X          |
 | ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Contrôle le statut des ReplicaSets                       | X          |
 | ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Contrôle le statut des ReplicationControllers            | X          |
+| ResourceQuota-Status         | Cloud-Kubernetes-ResourceQuota-Status-Api-custom         | Contrôle le status des ResourceQuota                     | X          |
 | StatefulSet-Status           | Cloud-Kubernetes-StatefulSet-Status-Api-custom           | Contrôle le statut des StatefulSets                      | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Kubernetes-Api-custom** est utilisé.
@@ -73,6 +77,7 @@ Le connecteur apporte les modèles de service suivants
 | Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Contrôle le statut des pods et des containers            | X          |
 | ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Contrôle le statut des ReplicaSets                       | X          |
 | ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Contrôle le statut des ReplicationControllers            | X          |
+| ResourceQuota-Status         | Cloud-Kubernetes-ResourceQuota-Status-Api-custom         | Contrôle le status des ResourceQuota                     | X          |
 | StatefulSet-Status           | Cloud-Kubernetes-StatefulSet-Status-Api-custom           | Contrôle le statut des StatefulSets                      | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Kubernetes-Kubectl-custom** est utilisé.
@@ -116,8 +121,10 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description |
 |----------------------------|------------------------------------------------------------------------------------|
-| Kubernetes Nodes (RestAPI) | Découvrez les noeuds Kubernetes en interrogeant l'API Rest Kubernetes              |
-| Kubernetes Nodes (Kubectl) | Découvrez les noeuds Kubernetes en interrogeant le cluster Kubernetes avec kubectl |
+| Kubernetes Nodes (RestAPI) | Découvrez les noeuds d'un cluster Kubernetes en interrogeant l'API Rest Kubernetes              |
+| Kubernetes Nodes (Kubectl) | Découvrez les noeuds d'un cluster Kubernetes en interrogeant le cluster Kubernetes avec kubectl |
+| Kubernetes Namespaces (RestAPI) | Découvrez les namespaces d'un cluster Kubernetes en interrogeant l'API Rest Kubernetes              |
+| Kubernetes Namespaces (Kubectl) | Découvrez les namespaces d'un cluster Kubernetes en interrogeant le cluster Kubernetes avec kubectl |
 
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
@@ -135,6 +142,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Cloud-Kubernetes-Api-Pods-Status                   | Découvrez les Pods Kubernetes pour superviser leur statut                   |
 | Cloud-Kubernetes-Api-ReplicaSets-Status            | Découvrez les ReplicaSets Kubernetes pour superviser leur statut            |
 | Cloud-Kubernetes-Api-ReplicationControllers-Status | Découvrez les ReplicationControllers Kubernetes pour superviser leur statut |
+| Cloud-Kubernetes-Api-ResourceQuota-Status          | Découvrez les ResourceQuotas Kubernetes pour superviser leur statut         |
 | Cloud-Kubernetes-Api-StatefulSets-Status           | Découvrez les StatefulSets Kubernetes pour superviser leur statut           |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -142,7 +150,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Cluster-Events" label="Cluster-Events">
@@ -227,6 +235,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | Métrique                                         | Unité |
 |:-------------------------------------------------|:------|
 | *rcs*#replicationcontroller.replicas.ready.count | count |
+
+</TabItem>
+<TabItem value="ResourceQuota-Status" label="ResourceQuota-Status">
+
+| Metric name                                      | Unit  |
+|:-------------------------------------------------|:------|
+| *rqs*#resource.usage.percent                     | %     |
 
 </TabItem>
 <TabItem value="StatefulSet-Status" label="StatefulSet-Status">
@@ -1161,6 +1176,21 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                             | --verbose              |             |
 
 </TabItem>
+<TabItem value="ResourceQuota-Status" label="ResourceQuota-Status">
+
+| Macro             | Description                                                                                                                                                                                      | Valeur par défaut         | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
+| INCLUDE_NAME      | Filter `ResourceQuota` name (can be a regexp)                                                                                                                                                    |                           |             |
+| EXCLUDE_NAME      | Exclude `ResourceQuota` name (can be a regexp)                                                                                                                                                   |                           |             |
+| INCLUDE_NAMESPACE | Filter `ResourceQuota` namespace (can be a regexp)                                                                                                                                               |                           |             |
+| EXCLUDE_NAMESPACE | Exclude `ResourceQuota` namespace (can be a regexp)                                                                                                                                              |                           |             |
+| INCLUDE_RESOURCE  | Filter `ResourceQuota` resource type (can be a regexp)                                                                                                                                           |                           |             |
+| EXCLUDE_RESOURCE  | Exclude `ResourceQuota` resource type (can be a regexp)                                                                                                                                          |                           |             |
+| WARNING_USAGE     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{namespace\}, %\{resource\}, %\{used\}, %\{hard\}, %\{usage\_percent\}, %\{uid\}  | %\{usage\_percent\} \> 80 |             |
+| CRITICAL_USAGE    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{namespace\}, %\{resource\}, %\{used\}, %\{hard\}, %\{usage\_percent\}, %\{uid\} | %\{usage\_percent\} \> 90 |             |
+| EXTRA_OPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                           |             |
+ 
+</TabItem>
 <TabItem value="StatefulSet-Status" label="StatefulSet-Status">
 
 | Macro             | Description                                                                                                                                                                                                          | Valeur par défaut             | Obligatoire |
@@ -1271,6 +1301,7 @@ Le plugin apporte les modes suivants :
 | pod-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/podstatus.pm)]                                     | Cloud-Kubernetes-Pod-Status-Api-custom                                                    |
 | replicaset-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/replicasetstatus.pm)]                       | Cloud-Kubernetes-ReplicaSet-Status-Api-custom                                             |
 | replicationcontroller-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/replicationcontrollerstatus.pm)] | Cloud-Kubernetes-ReplicationController-Status-Api-custom                                  |
+| resourcequota-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/resourcequotastatus.pm)]                 | Cloud-Kubernetes-ResourceQuota-Status-Api-custom                                          |
 | statefulset-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/statefulsetstatus.pm)]                     | Cloud-Kubernetes-StatefulSet-Status-Api-custom                                            |
 
 ### Custom modes disponibles
@@ -1487,6 +1518,23 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-status   | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\}.                            |
 | --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%\{ready\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\}.    |
 
+</TabItem>
+<TabItem value="ResourceQuota-Status" label="ResourceQuota-Status">
+
+| Option              | Description                                                                                                                                                                                                                              |
+|:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters   | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                |
+| --warning-xxx       | Warning threshold.                                                                                                                                                                                                                       |
+| --critical-xxx      | Critical threshold.                                                                                                                                                                                                                      |
+| --include-name      | Filter `ResourceQuota` name (can be a regexp).                                                                                                                                                                                           |
+| --exclude-name      | Exclude `ResourceQuota` name (can be a regexp).                                                                                                                                                                                          |
+| --include-namespace | Filter `ResourceQuota` namespace (can be a regexp).                                                                                                                                                                                      |
+| --exclude-namespace | Exclude `ResourceQuota` namespace (can be a regexp).                                                                                                                                                                                     |
+| --include-resource  | Filter `ResourceQuota` resource type (can be a regexp).                                                                                                                                                                                  |
+| --exclude-resource  | Exclude `ResourceQuota` resource type (can be a regexp).                                                                                                                                                                                 |
+| --warning-usage     | Define the conditions to match for the status to be WARNING (default: '%\{usage\_percent\} \> 80'). You can use the following variables: %\{name\}, %\{namespace\}, %\{resource\}, %\{used\}, %\{hard\}, %\{usage\_percent\}, %\{uid\}.  |
+| --critical-usage    | Define the conditions to match for the status to be CRITICAL (default: '%\{usage\_percent\} \> 90'). You can use the following variables: %\{name\}, %\{namespace\}, %\{resource\}, %\{used\}, %\{hard\}, %\{usage\_percent\}, %\{uid\}. |
+ 
 </TabItem>
 <TabItem value="StatefulSet-Status" label="StatefulSet-Status">
 
