@@ -68,7 +68,8 @@ Ce modèle d'hôte n'a pas de modèle de service associé.
 | Nom de la règle              | Description                                                  |
 |:-----------------------------|:-------------------------------------------------------------|
 | SNMP Agents                  | Discover hosts by requesting their SNMP agents               |
-| SNMP v3 Agents               | Discover hosts by requesting their SNMP agents using SNMP v3 |
+| SNMP v3 Agents (deprecated)  | Discover hosts by requesting their SNMP agents using SNMP v3 |
+| SNMP v3 Agents enhanced      | Discover SNMP v3 hosts and fill dedicated macros to store their v3 credentials |
 | SNMP IP Addresses (RFC 4293) | Discover IP addresses by requesting a SNMP agent (RFC 4293)  |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
