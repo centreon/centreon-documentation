@@ -1,6 +1,6 @@
 ---
 id: hardware-ups-standard-rfc1628-snmp
-title: UPS Standard
+title: UPS Standard SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
