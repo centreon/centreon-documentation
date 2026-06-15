@@ -50,7 +50,7 @@ import TabItem from '@theme/TabItem';
 - [**HP-UX SNMP**](../procedures/operatingsystems-hpux-snmp.md) - Added native SNMP v3 host macro.
 - [**Kairos SNMP**](../procedures/network-kairos-snmp.md) - Added native SNMP v3 host macro.
 - [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Added **ResourceQuota-Status** service and enhanced **Deployment-Status** service with label filter, based on a community contribution [PR 5812](https://github.com/centreon/centreon-plugins/pull/5812).
-- [**Linux SNMP v3**](../procedures/operatingsystems-linux-snmpv3.md) - Added native SNMP v3 host macro.
+- [**Linux SNMP v3**](../procedures/operatingsystems-linux-snmpv3.md) - Deprecated with the enhancement of [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md).
 - [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) - Added native SNMP v3 host macro.
 - [**Mac SNMP**](../procedures/operatingsystems-mac-snmp.md) - Added native SNMP v3 host macro.
 - [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Enhanced status threshold for **failed-jobs** mode.
