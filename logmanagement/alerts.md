@@ -47,7 +47,7 @@ Possible alert statuses are:
    * **Conditions**: define which [alert status the alert event should have](#alert-statuses).
 4. Save your alert rule. The window is closed and your alert rule appears in the list of alert rules. The rule starts being evaluated and producing alert events.
 
-## Viewing all alert events
+## Viewing the last alert event for an alert rule
 
 Go to **Alerts & notifications > Alert events**. Use the search bar and its filter button to find alert events.
 
