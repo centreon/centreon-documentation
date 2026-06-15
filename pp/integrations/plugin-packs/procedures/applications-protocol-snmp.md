@@ -67,7 +67,8 @@ This host template doesn't have any associated services.
 | Rule name                    | Description                                                  |
 |:-----------------------------|:-------------------------------------------------------------|
 | SNMP Agents                  | Discover hosts by requesting their SNMP agents               |
-| SNMP v3 Agents               | Discover hosts by requesting their SNMP agents using SNMP v3 |
+| SNMP v3 Agents (deprecated)  | Discover hosts by requesting their SNMP agents using SNMP v3 |
+| SNMP v3 Agents enhanced      | Discover SNMP v3 hosts and fill dedicated macros to store their v3 credentials |
 | SNMP IP Addresses (RFC 4293) | Discover IP addresses by requesting a SNMP agent (RFC 4293)  |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
