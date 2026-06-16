@@ -38,7 +38,7 @@ thresholds to highlight deviations and generate alerts. Data received during dow
 
 ### Add your token
 
-1. Retrieve your token from your organization's page in the [CIAM](../ciam/ciam.md).
+1. Retrieve your token from your organization's page in [Centreon Hub](../users/centreon-hub.md).
 
 2. Go to **Configuration > Services > Anomaly Detection** and click **Add Centreon Cloud Token**.
 

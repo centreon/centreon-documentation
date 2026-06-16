@@ -81,7 +81,6 @@ Pour requêter sur des données contenues dans ces sections, il suffit de chaîn
 }
 ```
 
-
 ## Aide-mémoire de la syntaxe
 
 ### Opérateurs booléens
