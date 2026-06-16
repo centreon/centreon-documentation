@@ -235,13 +235,6 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **App-Protocol-SNMP-custom** template to the host.
 
-
-| Macro            | Description                                                                                                                                        | Default value | Mandatory |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
-
-4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
-
 | Macro            | Description                                                                                                                                        | Default value | Mandatory |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
