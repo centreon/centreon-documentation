@@ -225,31 +225,6 @@ yum install centreon-nrpe3-plugin
 
 3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
-
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
-is able to monitor a resource using a command like this one (replace the sample values by yours):
-
-```bash
-/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query'  ' \
-    paths=C:/RIS/Import/RIS General Ledger/Input 
-    pattern=*.xlsx
-    warning=count > 20
-    critical=age > -1d or count > 20
-    top-syntax=${status}: ${problem_count}/${count} files (${problem_list})
-    detail-syntax=${name}
-    filter=none
-    "empty-state=ok"
-    show-all'
-```
-
-The expected command output is shown below:
-
-```bash
-
-```
-
 ### Troubleshooting
 
 Please find the troubleshooting documentation for the API-based plugins in

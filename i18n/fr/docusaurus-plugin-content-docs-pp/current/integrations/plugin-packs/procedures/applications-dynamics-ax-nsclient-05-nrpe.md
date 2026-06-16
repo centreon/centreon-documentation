@@ -225,33 +225,6 @@ yum install centreon-nrpe3-plugin
 
 3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
-
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser une ressource en utilisant une commande
-telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
-
-```bash
-/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query'  ' \
-    paths=C:/RIS/Import/RIS General Ledger/Input 
-    pattern=*.xlsx
-    warning=count > 20
-    critical=age > -1d or count > 20
-    top-syntax=${status}: ${problem_count}/${count} files (${problem_list})
-    detail-syntax=${name}
-    filter=none
-    "empty-state=ok"
-    show-all'
-```
-
-La commande devrait retourner un message de sortie similaire à :
-
-```bash
-
-```
-
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
