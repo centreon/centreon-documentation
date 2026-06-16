@@ -19,7 +19,10 @@ Notifications can be sent when an [alert rule](alerts.md) triggers an [alert eve
    * Write the message body to be sent.
    * Define any headers you want to pass to your third-party application, e.g. to indicate the format of the message body.
 
-   **Example**: I want to post a message to a Slack channel. The webhook URL is retrieved from Slack. The message body can be json, and we can have the following header: key: **content-type**: value : **application/json**.
+   **Example**: I want to post a message to a Slack channel.
+      * The webhook URL is retrieved from Slack.
+      * The message body can be json (see the [example below](#example)).
+      * Header: key: **content-type**: value : **application/json**.
 
 4. Click **Create**. The notification channel appears in the list.
 
@@ -36,3 +39,45 @@ Notifications can be sent when an [alert rule](alerts.md) triggers an [alert eve
    * select the notification channel you created at step 1.
 
 4. Click **Save**. The notifications will start being sent when the alert events meet the conditions you defined. Use the **Last trigger event** and **Last sent** columns to track your notifications.
+
+## Example
+
+### json
+
+```json
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "🔴 [CRITICAL] - Centreon Log Management",
+        "emoji": true
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "⚠️ *Type:* Volume de logs anormal"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Le volume de logs de type *ERROR* a dépassé le seuil critique."
+      }
+    }
+  ]
+}
+```
+
+### Slack output
+
+![image](./assets/notif_slack.png)

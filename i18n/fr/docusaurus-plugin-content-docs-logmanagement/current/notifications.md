@@ -19,7 +19,10 @@ Des notifications peuvent être envoyées lorsqu'une [règle d'alerte](alerts.md
    * Rédigez le corps du message à envoyer.
    * Définissez les en-têtes que vous souhaitez transmettre à votre application tierce, par exemple pour indiquer le format du corps du message.
 
-      **Exemple**: Je souhaite publier un message sur un canal Slack. L'URL du webhook est fournie par Slack. Le corps du message peut être au format JSON, et l'en-tête peut se présenter comme suit : key: **content-type**: value : **application/json**.
+      **Exemple**: Je souhaite publier un message sur un canal Slack.
+         * L'URL du webhook est fournie par Slack.
+         * Le corps du message peut être au format JSON (voir exemple ci-dessous).
+         * En-tête : key: **content-type**: value : **application/json**.
 
 4. Cliquez sur **Create**. Le canal de notification apparaît dans la liste.
 
@@ -35,4 +38,46 @@ Des notifications peuvent être envoyées lorsqu'une [règle d'alerte](alerts.md
    * Définissez quand les notifications doivent être envoyées : **On every status change/on every alert event**.
    * Sélectionnez le canal de notification que vous avez créé à l'étape 1.
 
-4. Cliquez sur **Save**. Les notifications commenceront à être envoyées dès que les évènements d'alerte répondront aux conditions que vous avez définies.
+4. Cliquez sur **Save**. Les notifications commenceront à être envoyées dès que les évènements d'alerte répondront aux conditions que vous avez définies. Utilisez les colonnes **Last trigger event** et **Last sent** pour suivre vos notifications.
+
+## Exemple
+
+### json
+
+```json
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "🔴 [CRITICAL] - Centreon Log Management",
+        "emoji": true
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "⚠️ *Type:* Volume de logs anormal"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Le volume de logs de type *ERROR* a dépassé le seuil critique."
+      }
+    }
+  ]
+}
+```
+
+### Slack output
+
+![image](./assets/notif_slack.png)
