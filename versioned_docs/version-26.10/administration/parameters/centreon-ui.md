@@ -50,7 +50,7 @@ The proxy configuration is mandatory when using the Centreon IT Edition.
 
 Define the required information:
 
-- **Proxy URL**
+- **Proxy URL** (the URL must include the protocol, http:// or https://)
 - **Proxy port**
 - **Proxy user**
 - **Proxy password**

@@ -30,9 +30,9 @@ Centreon HA consiste en un ensemble d'outils de clustering en surcouche de deux 
 
 * Les collecteurs, qui effectuent la supervision proprement dite.
 
-* Une « [VIP](https://docs.centreon.com/docs/resources/glossary/#vip) centrale » auquel les collecteurs envoient les données collectées, de sorte que la VIP puisse transmettre les données au nœud central actif actuel.
+* Une « IP virtuelle (VIP) centrale » auquel les collecteurs envoient les données collectées, de sorte que la VIP puisse transmettre les données au nœud central actif actuel.
 
-* Une « VIP base de données » auquel le nœud central actif envoie les données, afin que la VIP puisse les transmettre au nœud de base de données actif actuel.
+* Une « IP virtuelle (VIP) base de données » auquel le nœud central actif envoie les données, afin que la VIP puisse les transmettre au nœud de base de données actif actuel.
 
 ## Quels sont les processus gérés par Centreon HA ?
 

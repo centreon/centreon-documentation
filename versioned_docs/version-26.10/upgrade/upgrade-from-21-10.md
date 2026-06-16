@@ -13,7 +13,7 @@ to version 25.10.
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
 
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md).
+> you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
 > Business edition users: MAP Legacy is no longer available in Centreon 25.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
@@ -36,6 +36,40 @@ servers:
 - Database server
 
 If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
+### Check the repositories
+
+Before upgrading your Centreon platform, make sure the following package repositories are enabled:
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+* bullseye, bullseye-updates, bullseye-backports and bullseye security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+</Tabs>
 
 ## Upgrade the Centreon Central server
 
@@ -394,7 +428,29 @@ Follow [this procedure](upgrade-mariadb.md) to upgrade MariaDB to version 10.11.
 
 ## Upgrade the Remote Servers
 
-This procedure is the same as for upgrading a Centreon Central server.
+This procedure is the same as for upgrading a Centreon Central server with the addition of needing to retrieve the decryption key at the end.
+
+### Retrieving the decryption key
+
+Run the following script with the central server IP address to enable the remote server to receive and process encrypted data: 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Example:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> You must use **admin** as the **\<API_ACCOUNT\>**.
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
+```
 
 > At the end of the update, the configuration should be deployed from the Central server.
 
@@ -408,7 +464,8 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 ```
 
@@ -446,7 +503,11 @@ systemctl restart centengine
 
 ### Retrieving the decryption key
 
-Run the following script to enable the poller to receive and process encrypted data: 
+Run the following script with the correct IP address to enable the poller to receive and process encrypted data.
+
+The IP address to use depends on the following conditions:
+- When updating pollers linked directly to the central server, use the central server's IP.
+- When updating pollers linked to a remote server, use the remote server's IP. However, in this instance, you must first confirm the remote server has the correct key by checking that the value of `app_secret` in the `/etc/centreon-engine/engine-context.json` file is the same as the central server's. If this is not the case, relaunch the script with the right IP to correct the .json file.
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
@@ -458,7 +519,7 @@ Example:
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> You must use the default **admin** account as the **\<API_ACCOUNT\>**.
+> You must use **admin** as the **\<API_ACCOUNT\>**.
 
 Restart **centengine**:
 

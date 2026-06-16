@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 24.10 vers la version 25.10.
 
+Si vous envisagez également de migrer votre plateforme vers un autre système d’exploitation, contactez votre représentant commercial Centreon pour en discuter.
+
 ## Prérequis
 
 ### Suspendre la gestion des ressources du cluster
@@ -39,9 +41,9 @@ systemctl stop cbd-sql
 
 Maintenant, pour effectuer la montée de version:
 
-> Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-23-10.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
+> Pour le **nœud central actif** et **le nœud base de données actif s'il existe**, [suivez la documentation officielle](../../upgrade/upgrade-from-24-10.md) **jusqu'à l'étape "Mettre à jour MariaDB" incluse**.
 
-> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, merci de [suivre la documentation officielle](../../upgrade/upgrade-from-23-10.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse uniquement. Ne pas procéder à l'étape "Finalisation de la mise à jour**.
+> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, [suivez la documentation officielle](../../upgrade/upgrade-from-24-10.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse. Ensuite, sautez à l'étape "Mettre à jour MariaDB"**. Ne procédez pas aux étapes "Finalisation de la mise à jour" et "Actions post montée de version".
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">

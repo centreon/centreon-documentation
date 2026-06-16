@@ -12,7 +12,7 @@ Vous devez créer un fichier de configuration basé sur **/etc/centreon/conf.pm*
 - Si vous utilisez des paquets, exécutez la commande suivante :
 
 ```shell
-$ perl /usr/local/bin/gorgone_config_init.pl
+$ perl /usr/bin/gorgone_config_init.pl
 2019-09-30 11:00:00 - INFO - file '/etc/centreon-gorgone/config.yaml' created success
 ```
 

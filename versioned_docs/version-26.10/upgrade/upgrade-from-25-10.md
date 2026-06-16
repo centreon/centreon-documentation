@@ -13,7 +13,7 @@ This chapter describes how to upgrade your Centreon platform from version 24.10 
 >
 > In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
+> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
 > If you were using MySQL 8.0, you may want to [upgrade to MySQL 8.4](upgrade-mysql.md) before the end of support for version 8.0. at the end of April 2026.
 
@@ -26,6 +26,40 @@ servers:
 
 - Central server
 - Database server
+
+### Check the repositories
+
+Before upgrading your Centreon platform, make sure the following package repositories are enabled:
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+* bullseye, bullseye-updates, bullseye-backports and bullseye security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+</Tabs>
 
 ## Upgrade the Centreon Central server
 
@@ -586,7 +620,29 @@ with the following:
 
 ## Upgrade the Remote Servers
 
-This procedure is the same as for upgrading a Centreon Central server.
+This procedure is the same as for upgrading a Centreon Central server with the addition of needing to retrieve the decryption key at the end.
+
+### Retrieving the decryption key
+
+Run the following script with the central server IP address to enable the remote server to receive and process encrypted data: 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Example:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> You must use **admin** as the **\<API_ACCOUNT\>**.
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
+```
 
 > At the end of the update, the configuration should be deployed from the Central server.
 
@@ -600,22 +656,25 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-24.10.repo
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-24.10.repo
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon*
 echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 apt update
 ```
@@ -687,7 +746,11 @@ systemctl restart centreon
 ```
 ### Retrieving the decryption key
 
-Run the following script to enable the poller to receive and process encrypted data: 
+Run the following script with the correct IP address to enable the poller to receive and process encrypted data.
+
+The IP address to use depends on the following conditions:
+- When updating pollers linked directly to the central server, use the central server's IP.
+- When updating pollers linked to a remote server, use the remote server's IP. However, in this instance, you must first confirm the remote server has the correct key by checking that the value of `app_secret` in the `/etc/centreon-engine/engine-context.json` file is the same as the central server's. If this is not the case, relaunch the script with the right IP to correct the .json file.
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
@@ -699,7 +762,7 @@ Example:
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> You must use the default **admin** account as the **\<API_ACCOUNT\>**.
+> You must use **admin** as the **\<API_ACCOUNT\>**.
 
 Restart **centengine**:
 

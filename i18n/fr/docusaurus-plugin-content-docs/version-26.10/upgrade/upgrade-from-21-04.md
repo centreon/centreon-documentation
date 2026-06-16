@@ -13,7 +13,7 @@ Centreon depuis la version 21.04 vers la version 25.10.
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
-> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md)
+> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md). Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
 > Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 25.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
@@ -36,6 +36,40 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur de gestion de base de données.
 
 Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
+
+### Vérifier les dépôts
+
+Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+* bullseye, bullseye-updates, bullseye-backports and bullseye security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+</Tabs>
 
 ### Mettre à jour la clé de signature RPM
 
@@ -366,10 +400,31 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
 Suivez [cette procédure](upgrade-mariadb.md) pour monter de version MariaDB en 10.11.
 
-## Montée de version des Remote Servers
+## Montée de version des serveurs distants
 
-Cette procédure est identique à la montée de version d'un serveur Centreon
-Central.
+Cette procédure est identique à celle utilisée pour effectuer la montée de version d'un serveur Centreon Central, avec en plus la nécessité de récupérer la clé de déchiffrement à la fin.
+
+### Récupération de la clé de déchiffrement
+
+Exécutez le script suivant avec l'adresse IP du serveur central afin de permettre au serveur distant de recevoir et traiter des données chiffrées : 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Exemple:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
+
+Redémarrez **centengine**:
+
+```shell
+systemctl restart centengine
+```
 
 > En fin de mise à jour, la configuration doit être déployée depuis le serveur Central.
 
@@ -383,7 +438,8 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 ```
 
@@ -414,19 +470,23 @@ systemctl enable gorgoned
 ```
 ### Récupération de la clé de déchiffrement
 
-Exécutez le script suivant afin de permettre au collecteur de recevoir et traiter des données chiffrées : 
+Exécutez le script suivant avec l'adresse IP correspondante afin de permettre au collecteur de recevoir et traiter des données chiffrées.
+
+L'adresse IP à utiliser varie selon les conditions suivantes :
+- Lorsque vous mettez à jour un collecteur lié directement au server central, utilisez l'adresse IP du serveur central.
+- Lorsque vous mettez à jour un collecteur lié à un serveur distant, utilisez l'adresse IP du serveur distant. Cependant, dans ce cas, confirmez d'abord que le server distant a la bonne clé. Vérifiez que la valeur de `app_secret` dans le fichier `/etc/centreon-engine/engine-context.json` du serveur distant est la même que pour le serveur central. Si ce n'est pas le cas, relancez le script avec l'adresse IP pour corriger le fichier .json.
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
 ```
 
-Example:
+Exemple:
 
 ``` shell
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> Vous devez utiliser le compte **admin** par défaut en tant que **\<API_ACCOUNT\>**.
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
 
 Redémarrez **centengine**:
 

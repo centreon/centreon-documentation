@@ -59,23 +59,56 @@ $_SERVICEWARNING$, $_SERVICECRITICAL$.
 The **Community SNMP & Version** fields in a host form automatically generate the following customized macros:
 $_HOSTSNMPCOMMUNITY$ and $_HOSTSNMPVERSION$.
 
-## Resource macros
+## Macros within macros
 
-Macros of resources are global macros that are used by the monitoring engine. These macros can be invoked by any type
+When Centreon Engine evaluates a command, macro resolution happens in two successive passes.
+
+**Level 1 — Command level**: Macros embedded directly in the command line are resolved:
+
+- A resolved standard or custom macro → replaced with its value.
+- An unresolved or empty macro → replaced with an empty string.
+
+**Level 2 — Macro value level**: If the value produced at Level 1 itself contains macro-like tokens, a second pass applies to that value:
+
+- A resolved macro → replaced with its value.
+- An unresolved or empty macro → **left as-is** (preserved verbatim, not stripped).
+
+### Double-brace escape syntax
+
+Use the `{{$MACRO$}}` format when you want unresolved macros inside a value to be replaced with an empty string rather than preserved verbatim:
+
+- At Level 1 or Level 2: a resolved macro is replaced with its value and the double braces are removed.
+- At Level 1 or Level 2: an unresolved or empty macro is replaced with an empty string and the double braces are removed.
+
+### Use case: third-party plugin syntaxes
+
+Some monitoring plugins use `$` characters in their own argument syntax that are not Centreon macro delimiters. A common example is NSClient++ syntax, which uses tokens such as `${name}`, `${state}`, `${problem_list}`, and `${drive}`.
+
+Because these tokens are unresolved Centreon macros, Level 2 behaviour preserves them verbatim, allowing the plugin to receive the correct argument string.
+
+:::warning
+
+If you define a macro value that contains such tokens and export the configuration with an older Engine version that does not implement the two-level model, those tokens will be stripped and the plugin will receive a malformed command line.
+
+:::
+
+## Global macros
+
+Global macros are used by the monitoring engine. These macros can be invoked by any type
 of command. They come in the form: $USERn$ where ‘n’ lies between 1 and 256.
 
 In general, these macros are used to refer to paths containing monitoring probes. By default the $USER1$
 macro is created, and its value is the following: /usr/lib/nagios/plugins.
 
-To add a resource macro:
+To add a global macro:
 
-* Go into the **Configuration \> Pollers \> Resources** menu
+* Go into the **Configuration \> Pollers \> Global macros** menu
 * Click **Add**
 
-![image](../../assets/configuration/01macrosressources.png)
+![image](../../assets/configuration/01globalmacros.png)
 
-* The **Resource Name** field defines the name of the resource macro, e.g.: $USER3$
-* The **MACRO Expression** field defines the value of the macro.
+* The **Name** field defines the name of the macro, e.g.: $USER3$
+* The **Expression** field defines the value of the macro.
 * The **Linked Instances** list allows us to define which monitoring poller will be able to access this macro.
 * The **Status** and **Comment** fields are used to enable / disable the macro and to comment on it.
 
@@ -105,48 +138,48 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Host Macros
 
-| Macro Name [[(3)](#notes)](#notes)   | Service Checks | Service Notifications  | Host Checks       | Host Notifications  | Service Event Handlers | Host Event Handlers |
-|--------------------------------------|----------------|------------------------|-------------------|---------------------|------------------------|---------------------|
-| \$HOSTNAME\$                         | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTDISPLAYNAME\$                  | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTALIAS\$                        | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTADDRESS\$                      | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTSTATE\$                        | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 |
-| \$HOSTSTATEID\$                      | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 |
-| \$LASTHOSTSTATE\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$LASTHOSTSTATEID\$                  | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTSTATETYPE\$                    | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 |
-| \$HOSTATTEMPT\$                      | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$MAXHOSTATTEMPTS\$                  | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTEVENTID\$                      | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$LASTHOSTEVENTID\$                  | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTPROBLEMID\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$LASTHOSTPROBLEMID\$                | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTLATENCY\$                      | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTEXECUTIONTIME\$                | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 |
-| \$HOSTDURATION\$                     | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTDURATIONSEC\$                  | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTDOWNTIME\$                     | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTPERCENTCHANGE\$                | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTGROUPNAME\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTGROUPNAMES\$                   | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$LASTHOSTCHECK\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$LASTHOSTSTATECHANGE\$              | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$LASTHOSTUP\$                       | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$LASTHOSTDOWN\$                     | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$LASTHOSTUNREACHABLE\$              | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTOUTPUT\$                       | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 |
-| \$LONGHOSTOUTPUT\$                   | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 |
-| \$HOSTPERFDATA\$                     | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 |
-| \$HOSTCHECKCOMMAND\$                 | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTACTIONURL\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTNOTESURL\$                     | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$HOSTNOTES\$                        | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$TOTALHOSTSERVICES\$                | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$TOTALHOSTSERVICESOK\$              | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$TOTALHOSTSERVICESWARNING\$         | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$TOTALHOSTSERVICESUNKNOWN\$         | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
-| \$TOTALHOSTSERVICESCRITICAL\$        | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 |
+| Macro Name [[(3)](#notes)](#notes)   | Service Checks | Service Notifications  | Host Checks       | Host Notifications  | Service Event Handlers | Host Event Handlers | Note | Action URL |
+|---------------------------------------|----------------|------------------------|-------------------|---------------------|------------------------|---------------------|------|------------|
+| \$HOSTNAME\$                         | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | Yes | Yes        |
+| \$HOSTDISPLAYNAME\$                  | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTALIAS\$                        | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | Yes | Yes        |
+| \$HOSTADDRESS\$                      | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | Yes | Yes        |
+| \$HOSTSTATE\$                        | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 | Yes | Yes        |
+| \$HOSTSTATEID\$                      | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 | Yes | Yes        |
+| \$LASTHOSTSTATE\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$LASTHOSTSTATEID\$                  | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTSTATETYPE\$                    | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTATTEMPT\$                      | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$MAXHOSTATTEMPTS\$                  | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTEVENTID\$                      | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$LASTHOSTEVENTID\$                  | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTPROBLEMID\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$LASTHOSTPROBLEMID\$                | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTLATENCY\$                      | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTEXECUTIONTIME\$                | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTDURATION\$                     | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTDURATIONSEC\$                  | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTDOWNTIME\$                     | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTPERCENTCHANGE\$                | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTGROUPNAME\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTGROUPNAMES\$                   | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$LASTHOSTCHECK\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$LASTHOSTSTATECHANGE\$              | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$LASTHOSTUP\$                       | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$LASTHOSTDOWN\$                     | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$LASTHOSTUNREACHABLE\$              | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTOUTPUT\$                       | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$LONGHOSTOUTPUT\$                   | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTPERFDATA\$                     | Yes            | Yes                    | Yes [(1)](#notes) | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTCHECKCOMMAND\$                 | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTACTIONURL\$                    | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTNOTESURL\$                     | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$HOSTNOTES\$                        | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$TOTALHOSTSERVICES\$                | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$TOTALHOSTSERVICESOK\$              | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$TOTALHOSTSERVICESWARNING\$         | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$TOTALHOSTSERVICESUNKNOWN\$         | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
+| \$TOTALHOSTSERVICESCRITICAL\$        | Yes            | Yes                    | Yes               | Yes                 | Yes                    | Yes                 | No  | No         |
 
 ### Host Macros description (3)
 
@@ -221,47 +254,47 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Service Macros
 
-| Macro Name                              | Service Checks    | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
-|-----------------------------------------|-------------------|------------------------|-------------|---------------------|------------------------|---------------------|
-| \$SERVICEDESC\$                         | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEDISPLAYNAME\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICESTATE\$                        | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICESTATEID\$                      | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LASTSERVICESTATE\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LASTSERVICESTATEID\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICESTATETYPE\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEATTEMPT\$                      | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$MAXSERVICEATTEMPTS\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEISVOLATILE\$                   | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEEVENTID\$                      | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LASTSERVICEEVENTID\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEPROBLEMID\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LASTSERVICEPROBLEMID\$                | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICELATENCY\$                      | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEEXECUTIONTIME\$                | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEDURATION\$                     | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEDURATIONSEC\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEDOWNTIME\$                     | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEPERCENTCHANGE\$                | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEGROUPNAME\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEGROUPNAMES\$                   | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LASTSERVICECHECK\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LASTSERVICESTATECHANGE\$              | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LASTSERVICEOK\$                       | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LASTSERVICEWARNING\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LASTSERVICEUNKNOWN\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LASTSERVICECRITICAL\$                 | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEOUTPUT\$                       | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  |
-| \$LONGSERVICEOUTPUT\$                   | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEPERFDATA\$                     | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICECHECKCOMMAND\$                 | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICEACKAUTHOR\$ [(8)](#notes)      | No                | Yes                    | No          | No                  | No                     | No                  |
-| \$SERVICEACKAUTHORNAME\$ [(8)](#notes)  | No                | Yes                    | No          | No                  | No                     | No                  |
-| \$SERVICEACKAUTHORALIAS\$ [(8)](#notes) | No                | Yes                    | No          | No                  | No                     | No                  |
-| \$SERVICEACKCOMMENT\$ [(8)](#notes)     | No                | Yes                    | No          | No                  | No                     | No                  |
-| \$SERVICEACTIONURL\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICENOTESURL\$                     | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
-| \$SERVICENOTES\$                        | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
+| Macro Name                              | Service Checks    | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers | Note | Action URL |
+|-----------------------------------------|-------------------|------------------------|-------------|---------------------|------------------------|---------------------|------|------------|
+| \$SERVICEDESC\$                         | Yes               | Yes                    | No          | No                  | Yes                    | No                  | Yes | Yes        |
+| \$SERVICEDISPLAYNAME\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICESTATE\$                        | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  | Yes | Yes        |
+| \$SERVICESTATEID\$                      | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  | Yes | Yes        |
+| \$LASTSERVICESTATE\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$LASTSERVICESTATEID\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICESTATETYPE\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEATTEMPT\$                      | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$MAXSERVICEATTEMPTS\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEISVOLATILE\$                   | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEEVENTID\$                      | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$LASTSERVICEEVENTID\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEPROBLEMID\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$LASTSERVICEPROBLEMID\$                | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICELATENCY\$                      | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEEXECUTIONTIME\$                | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEDURATION\$                     | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEDURATIONSEC\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEDOWNTIME\$                     | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEPERCENTCHANGE\$                | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEGROUPNAME\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEGROUPNAMES\$                   | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$LASTSERVICECHECK\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$LASTSERVICESTATECHANGE\$              | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$LASTSERVICEOK\$                       | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$LASTSERVICEWARNING\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$LASTSERVICEUNKNOWN\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$LASTSERVICECRITICAL\$                 | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEOUTPUT\$                       | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$LONGSERVICEOUTPUT\$                   | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEPERFDATA\$                     | Yes [(2)](#notes) | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICECHECKCOMMAND\$                 | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICEACKAUTHOR\$ [(8)](#notes)      | No                | Yes                    | No          | No                  | No                     | No                  | No  | No         |
+| \$SERVICEACKAUTHORNAME\$ [(8)](#notes)  | No                | Yes                    | No          | No                  | No                     | No                  | No  | No         |
+| \$SERVICEACKAUTHORALIAS\$ [(8)](#notes) | No                | Yes                    | No          | No                  | No                     | No                  | No  | No         |
+| \$SERVICEACKCOMMENT\$ [(8)](#notes)     | No                | Yes                    | No          | No                  | No                     | No                  | No  | No         |
+| \$SERVICEACTIONURL\$                    | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICENOTESURL\$                     | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
+| \$SERVICENOTES\$                        | Yes               | Yes                    | No          | No                  | Yes                    | No                  | No  | No         |
 
 ### Service Macros description
 
@@ -399,19 +432,19 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Notification Macros
 
-| Macro Name                    | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
-|-------------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
-| \$NOTIFICATIONTYPE\$          | No             | Yes                    | No          | Yes                 | No                     | No                  |
-| \$NOTIFICATIONRECIPIENTS\$    | No             | Yes                    | No          | Yes                 | No                     | No                  |
-| \$NOTIFICATIONISESCALATED\$   | No             | Yes                    | No          | Yes                 | No                     | No                  |
-| \$NOTIFICATIONAUTHOR\$        | No             | Yes                    | No          | Yes                 | No                     | No                  |
-| \$NOTIFICATIONAUTHORNAME\$    | No             | Yes                    | No          | Yes                 | No                     | No                  |
-| \$NOTIFICATIONAUTHORALIAS\$   | No             | Yes                    | No          | Yes                 | No                     | No                  |
-| \$NOTIFICATIONCOMMENT\$       | No             | Yes                    | No          | Yes                 | No                     | No                  |
-| \$HOSTNOTIFICATIONNUMBER\$    | No             | Yes                    | No          | Yes                 | No                     | No                  |
-| \$HOSTNOTIFICATIONID\$        | No             | Yes                    | No          | Yes                 | No                     | No                  |
-| \$SERVICENOTIFICATIONNUMBER\$ | No             | Yes                    | No          | Yes                 | No                     | No                  |
-| \$SERVICENOTIFICATIONID\$     | No             | Yes                    | No          | Yes                 | No                     | No                  |
+| Macro Name                    | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers | Note | Action URL |
+|-------------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|------|------------|
+| \$NOTIFICATIONTYPE\$          | No             | Yes                    | No          | Yes                 | No                     | No                  | No  | No         |
+| \$NOTIFICATIONRECIPIENTS\$    | No             | Yes                    | No          | Yes                 | No                     | No                  | No  | No         |
+| \$NOTIFICATIONISESCALATED\$   | No             | Yes                    | No          | Yes                 | No                     | No                  | No  | No         |
+| \$NOTIFICATIONAUTHOR\$        | No             | Yes                    | No          | Yes                 | No                     | No                  | No  | No         |
+| \$NOTIFICATIONAUTHORNAME\$    | No             | Yes                    | No          | Yes                 | No                     | No                  | No  | No         |
+| \$NOTIFICATIONAUTHORALIAS\$   | No             | Yes                    | No          | Yes                 | No                     | No                  | No  | No         |
+| \$NOTIFICATIONCOMMENT\$       | No             | Yes                    | No          | Yes                 | No                     | No                  | Yes | Yes        |
+| \$HOSTNOTIFICATIONNUMBER\$    | No             | Yes                    | No          | Yes                 | No                     | No                  | No  | No         |
+| \$HOSTNOTIFICATIONID\$        | No             | Yes                    | No          | Yes                 | No                     | No                  | No  | No         |
+| \$SERVICENOTIFICATIONNUMBER\$ | No             | Yes                    | No          | Yes                 | No                     | No                  | No  | No         |
+| \$SERVICENOTIFICATIONID\$     | No             | Yes                    | No          | Yes                 | No                     | No                  | No  | No         |
 
 ### Notification Macros description
 

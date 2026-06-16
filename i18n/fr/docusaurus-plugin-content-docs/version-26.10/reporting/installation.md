@@ -276,7 +276,9 @@ Veillez à optimiser MariaDB/MySQL sur votre serveur de reporting. Vous aurez be
 d'au moins 12GB de mémoire vive afin d'utiliser le
 [fichier suivant](../assets/reporting/installation/centreon.cnf).
 
-Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
+> Si vous souhaitez utiliser un répertoire autre que `/var/lib/mysql/`, éditez les variables **datadir** et **tmpdir** du fichier centreon.cnf.
+
+Assurez-vous que le dossier **tmp** soit créé dans la même partition que **/var/lib/mysql**.
 
 > Ne définissez pas ces optimisations MariaDB/MySQL sur votre serveur de supervision.
 
@@ -287,12 +289,20 @@ Si vous utilisez MySQL :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
+Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
+
+```shell
+log_bin_trust_function_creators=1
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
+Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
+
+```shell
+log_bin_trust_function_creators=1
+```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
@@ -308,6 +318,22 @@ log_bin_trust_function_creators=1
 </Tabs>
 
 2. Redémarrez MySQL.
+
+3. Vérifiez que la base de données que la variable suivante est appliquée :
+
+```shell
+show global variables like 'log_bin_trust_function_creators';
++---------------------------------+-------+
+| Variable_name                   | Value |
++---------------------------------+-------+
+| log_bin_trust_function_creators | ON    |
+```
+
+Si la variable n'est pas appliquée, activez-la manuellement : 
+
+```shell
+mysql> SET GLOBAL log_bin_trust_function_creators = 1;
+```
 
 Utilisateurs et groupes :
 
@@ -1115,6 +1141,8 @@ mysql_secure_installation
 
 - Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
 - Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
+
+> Voir les procédures avancées pour [sécuriser votre plateforme MBI](../reporting/secure-your-mbi-platform.md).
 
 #### Commencer à configurer
 

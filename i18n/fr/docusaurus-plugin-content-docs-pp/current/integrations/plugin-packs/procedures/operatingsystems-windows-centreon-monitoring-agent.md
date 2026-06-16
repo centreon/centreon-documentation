@@ -4,10 +4,25 @@ title: Windows CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 Le connecteur **Windows CMA** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent - CMA). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
-Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
+Pour plus d'informations sur le fonctionnement de l'agent lui-même:
+
+<Tabs groupId="version" queryString>
+<TabItem value="OnPrem" label="OnPrem">
+
+Lisez [la documentation CMA pour Centreon OnPrem](/docs/cma).
+(Ce lien vous redirige vers la dernière version de la documentation OnPrem. Utilisez le sélecteur de version dans le coin supérieur droit pour passer à une autre version si nécessaire.)
+
+</TabItem>
+<TabItem value="Cloud" label="Cloud">
+
+Lisez [la documentation CMA pour Centreon Cloud](/cloud/cma/cma-setup).
+
+</TabItem>
+</Tabs>
 
 ## Contenu du pack
 
@@ -36,6 +51,7 @@ Le connecteur apporte les modèles de service suivants
 | Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    | natif            |
 | Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Contrôle si des mises à jour sont en attente                                                                                                                              | non natif        |
 | Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Contrôle la durée depuis laquelle le serveur tourne sans interruption                                                                                                     | natif            |
+| Custom-Script  | OS-Windows-Custom-Script-Centreon-Monitoring-Agent-custom  | Contrôle permettant d'exécuter un script personnalisé sur l'hôte supervisé                                                                                                | non natif        |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom** est utilisé.
 
@@ -251,31 +267,17 @@ Pas de métrique pour ce service.
 | uptime | s     |
 
 </TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+Pas de métrique pour ce service.
+
+</TabItem>
+
 </Tabs>
 
 ## Prérequis
 
-### Flux réseau
-
-Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
-
-| Source         | Destination | Protocole | Port | Objet                                                                       |
-|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
-| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
-
-### Prérequis système pour le collecteur
-
-> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la version--> `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent récupérera sa configuration en se connectant à Centreon Engine.
-
-### Configuration de la communication collecteur/agent
-
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
-
-### Prérequis système pour l'hôte à superviser
-
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur
-[cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte)
+<CMAprerequisites />
 
 ## Installer le connecteur de supervision
 
@@ -448,20 +450,144 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Macro          | Description                                                                                                                                                                        | Valeur par défaut                                          | Obligatoire |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:-----------:|
-| PATHS          | Root directory to search files in.                                                                                                                                                 |                                                            |      X      |
-| PATTERN        | Shell-style wildcards pattern to match filenames.                                                                                                                                  | `*.*`                                                      |             |
-| FILTER         | Filter expression to select files for the check. Example: `size > 1M && extension == '.dll'`                                                                                       |                                                            |             |
-| MAXDEPTH       | Max recursion depth (0: top only, 1: include subdirs, -1: recursively include all subdirs).                                                                                        | 0                                                          |             |
-| WARNING        | Minimum WARNING files to set overall status to WARNING.                                                                                                                            |                                                            |             |
-| CRITICAL       | Minimum CRITICAL files to set overall status to CRITICAL.                                                                                                                          |                                                            |             |
-| WARNINGSTATUS  | Filter expression: files matching are considered WARNING.                                                                                                                          |                                                            |             |
-| CRITICALSTATUS | Filter expression: files matching are considered CRITICAL.                                                                                                                         |                                                            |             |
-| DETAILSYNTAX   | Format for each file detail inside `{list}`. Placeholders: `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{write}`, `{version}`, `{line_count}`, `{extension}`.      | `{name}`                                                   |             |
-| OUTPUTSYNTAX   | Output format string for the overall check result. Placeholders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, `{problem_count}`, `{ok_count}`, etc. | `{status}: {problem_count}/{count} files ({problem_list})` |             |
-| OKSYNTAX       | Output if all files are OK.                                                                                                                                                        | `{status}: {ok_count} files found - {ok_list}`             |             |
-| VERBOSE        | Display detailed file info.                                                                                                                                                        | false                                                      |             |
+Checks files in a directory tree, applies filters, and evaluates file metadata (size, timestamps, version, line count, etc.) for monitoring and alerting.
+
+
+| Macro          | Description                                                                                                                                                                        | Mandatory | Allowed values               | Default value                | Examples       |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|:-----------------------------|------------------------------|----------------|
+| PATHS          | Root directory to search files in.                                                                                                                                                 |     X     |                              |                              | path/to/file   |
+| PATTERN        | Shell-style wildcards pattern to match filenames.<br/>* can be used as a wildcard                                                                                                    |           |                              | `*.*`                        |                |
+| MAXDEPTH       | Max recursion depth.                                                                                                                                                               |           | - 0: top only <br/>- 1: include subdirs <br/>- -1: recursively include all subdirs  | 0     |           |
+| OUTPUTSYNTAX   | Output format string for the overall check result.                                                                                                                                 |           |  Placeholders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{warn_list}`, `{crit_count}`, `{crit_list}`, `{problem_count}`, `{problem_list}`, `{ok_count}`, `{ok_list}`  | `{status}: {problem_count}/{count} files ({problem_list})` |           |     |
+| DETAILSYNTAX   | Format for each file detail inside `{list}`.                                                                                                                                       |           |  `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{written}`, `{version}`, `{line_count}`, `{extension}`.  | `{filename}`                                           |           |
+| OKSYNTAX       | Output if all files are OK.                                                                                                                                                        |           |                              |`{status}: All {count} files are ok`             |           |
+| FILTER         | Filter expression to select files for the check.                                                                                                                                   |           |                              |                              | `size > 1M && extension == '.dll'`      |
+| WARNINGSTATUS  | Filter expression: files matching are considered WARNING.                                                                                                                          |           |                              | no relevant status change if empty |           |
+| CRITICALSTATUS | Filter expression: files matching are considered CRITICAL.                                                                                                                         |           |                              | no relevant status change if empty |           |
+| WARNING        | WARNING status items count must be strictly higher than this value to trigger WARNING.                                                                                             |           |                              | 0                            | 0 = at least 1 file to trigger alert    |
+| CRITICAL       | CRITICAL status items count must be strictly higher than this value to trigger CRITICAL.                                                                                           |           |                              | 0                            | 0 = at least 1 file to trigger alert    |
+| VERBOSE        | Display detailed file info.                                                                                                                                                        |           |                              | false                        |                 |
+
+
+### Filter expressions
+
+> Applies for FILTER, WARNINGSTATUS, CRITICALSTATUS.
+
+Filter syntax is similar to C/SQL:
+
+- Numeric operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- Logical: `&&` (AND), `||` (OR)
+- String equality: `==`, `!=` (note: single `=` is **not** valid)
+- IN/NOT IN: `filename in ('myfile.txt')`, `version in ('1.0', '1.1')`
+
+Supported file metadata labels:
+
+- size           (in bytes, supports units: K, Ko, M, Mo, G, Go)
+- line_count     (line counting in txt file)
+- creation       (file age in seconds since creation, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- access         (file age in seconds since last access, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- written        (file age in seconds since last modification, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- filename       (name of the file, string comparison)
+- path           (full file path, string comparison)
+- extension      (file extension, e.g. '.dll')
+- version        (for .exe/.dll files, string comparison)
+
+You can also add this result list filter in WARNINGSTATUS and CRITICALSTATUS:
+
+- count          number of items
+
+### Warning and Critical Status
+
+Files matching the WARNINGSTATUS/CRITICALSTATUS filters are considered WARNING/CRITICAL.
+You can combine with WARNING/CRITICAL to require multiple matches before changing the global state.
+
+### Examples
+
+#### Filters
+
+> Applies for FILTER, WARNINGSTATUS, CRITICALSTATUS.
+
+- "size > 50M"                            # File larger than 50 MB
+- "extension == '.bak'"                   # Backup files
+- "size > 200m && extension == '.dll'"    # Large DLLs
+- "count &lt;= 0"                            # No file found
+- "filename in ('myfile.txt')"            # Specific file by name
+- "filename == 'myfile.txt'"              # Specific file by name (alternative)
+
+#### File age check
+
+File age can be checked using 3 metadata labels, which can be mixed using logical operators :
+
+- creation       (file age in seconds since creation, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- access         (file age in seconds since last access, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- written        (file age in seconds since last modification, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+
+_“I want to trigger a CRITICAL alert if at least one file of my test directory has not be updated since 1 day or more, and WARNING alert if more than 12 hours and less than 1 day”_
+
+```
+PATH= C:/Users/User/Documents/test
+PATTERN= *.*
+MAXDEPTH= -1,
+DETAILSYNTAX= {filename}: {size}
+WARNINGSTATUS= written > 12h
+CRITICALSTATUS= written > 1d
+WARNING= 0
+CRITICAL= 0
+```
+
+#### File size check
+
+_“I want to trigger CRITICAL alert if at least 1 DLLs in System32 (including subdirs without recursivity) size is >100M, and trigger WARNING alert if at least 2 DLLs size is >10M”_
+
+The extension filter can be done using PATTERN or FILTER.
+
+```
+PATH= C:/Windows/System32
+PATTERN= *.dll
+MAXDEPTH= 1,
+OUTPUTSYNTAX= {status}: {problem_count}/{count} DLLs have issues: {problem_list}
+DETAILSYNTAX= {filename}: {size} {version}
+FILTER= extension == '.dll'
+WARNINGSTATUS= size > 10m
+CRITICALSTATUS= size > 100m
+WARNING= 1
+CRITICAL= 0
+```
+
+Note:
+
+- If "line_count" is used in any filter or output, line count calculation will be enabled (may impact performance).
+- Paths, patterns, and filters are case-insensitive on Windows.
+- Use `/` as the path separator instead of `\` (e.g., `C:/Users/...`). Backslashes require extra escaping and may cause errors.
+
+
+#### File presence check
+
+_“I want to trigger a CRITICAL alert if file is not present“_
+
+```
+PATH= C:/Users/User/Documents/test
+PATTERN= myfile.txt
+MAXDEPTH= -1,
+DETAILSYNTAX= {filename}: {size}
+WARNINGSTATUS=
+CRITICALSTATUS= count < 0
+WARNING=
+CRITICAL= 0
+```
+
+_“I want to trigger a CRITICAL alert if at least one file is present“_
+
+```
+PATH= C:/Users/User/Documents/test
+PATTERN= myfile.txt
+MAXDEPTH= -1,
+DETAILSYNTAX= {filename}: {size}
+WARNINGSTATUS=
+CRITICALSTATUS= count > 0
+WARNING=
+CRITICAL= 0
+```
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -484,8 +610,8 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NTPHOSTNAME    | Set the NTP server to use (if not set, we try to find it with w32tm command).                                                            |                   |             |
 | NTPPORT        | Set the NTP port (default: 123).                                                                                                         |                   |             |
-| WARNINGOFFSET  | Thresholds                                                                                                                               | -1:1              |             |
-| CRITICALOFFSET | Thresholds                                                                                                                               | -2:2              |             |
+| WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. | -1:1              |             |
+| CRITICALOFFSET | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. | -2:2              |             |
 | TIMEOUT        | Set timeout time for 'w32tm' command execution (default: 30 sec).                                                                        | 10                |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
@@ -525,6 +651,9 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
 | FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
 | EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service           |             |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                   |             |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                   |             |
 | WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
 | CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
 | WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
@@ -544,6 +673,9 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
 | FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
 | EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service           |             |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                   |             |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                   |             |
 | WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
 | CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
 | WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
@@ -642,21 +774,45 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro          | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:---------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600              |             |
-| CRITICALUPTIME | Critical threshold                                                                                   | 600               |             |
+| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600:             |             |
+| CRITICALUPTIME | Critical threshold                                                                                   | 600:              |             |
 
+</TabItem>
+<TabItem value="Custom-Script" label="Custom-Script">
+
+| Macro          | Description                                                                                          | Default value | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CUSTOMCHECK    | Name of the custom check to use                                                                      |               | X         |
+| ARG1           | Extra argument 1 to pass to the custom check command                                                 |               |           |
+| ARG2           | Extra argument 2 to pass to the custom check command                                                 |               |           |
+| ARG3           | Extra argument 3 to pass to the custom check command                                                 |               |           |
+| ARG4           | Extra argument 4 to pass to the custom check command                                                 |               |           |
+| ARG5           | Extra argument 5 to pass to the custom check command                                                 |               |           |
+| ARG6           | Extra argument 6 to pass to the custom check command                                                 |               |           |
+| ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
+| ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
+
+> Les commandes sont définies dans un fichier de configuration dédié utilisant un format compatible avec NSClient / NRPE.
+> Le chemin d'accès à ce fichier est configuré via le programme d'installation ou le registre à l'aide du paramètre **custom_check_file**.
+> Pour mettre à jour les commandes, modifiez le fichier et rechargez l'agent.
+
+```cmd
+[custom_checks]
+check_echo = /usr/bin/echo "$ARG1$ $ARG2$"
+custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
+```
 </TabItem>
 </Tabs>
 
 3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
+## Comment puis-je tester le plugin et que signifient les options des commandes ? (contrôles non natifs uniquement)
 
 Vous pouvez tester que le plugin parvient bien à superviser votre serveur Windows en utilisant une commande
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```cmd
-"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin os::windows::local::plugin --mode sessions --language='fr' --timeout='30' --use-new-perfdata
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin os::windows::local::plugin --mode sessions --language=fr --timeout=30 --use-new-perfdata
 ```
 
 > NB : Cette commande ne peut pas s'exécuter sur les collecteurs, il faut la lancer directement sur le serveur Windows.
@@ -705,7 +861,7 @@ Les options génériques sont listées ci-dessous :
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                        |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)' |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |

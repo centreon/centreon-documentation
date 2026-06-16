@@ -228,7 +228,7 @@
     "description": "The label for category Before you start in sidebar docs"
   },
   "sidebar.docs.category.Before you start.link.generated-index.description": {
-    "message": "Ce que vous devez savoir avant d'installer votre plateforme Centreon.",
+    "message": "Ce que vous devez savoir avant d'installer votre plateforme Centreon Infra Monitoring.",
     "description": "The generated-index page description for category Before you start in sidebar docs"
   },
   "sidebar.docs.category.First steps with Centreon": {
@@ -298,10 +298,6 @@
   "sidebar.docs.category.Data Visualization": {
     "message": "Visualisation des données",
     "description": "The label for category Data Visualization in sidebar docs"
-  },
-  "sidebar.docs.category.Information for MAP Legacy users": {
-    "message": "Informations pour les utilisateurs de MAP Legacy",
-    "description": "The label for category Information for MAP Legacy users in sidebar docs"
   },
   "sidebar.docs.category.Graphical views (maps).link.generated-index.description": {
     "message": "Les vues graphiques dans Centreon sont fournies par le module Centreon MAP.",

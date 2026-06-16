@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Stonesoft SNMP** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -72,16 +72,16 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Cluster-Load" label="Cluster-Load">
 
-| Name    | Unit  |
-|:--------|:------|
-| cpuload | %     |
+| Name    | Unit |
+|:--------|:-----|
+| cpuload | %    |
 
 </TabItem>
 <TabItem value="Cluster-State" label="Cluster-State">
 
-| Name   | Unit  |
-|:-------|:------|
-| status | N/A   |
+| Name   | Unit |
+|:-------|:-----|
+| status | N/A  |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -98,9 +98,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Name          | Unit  |
-|:--------------|:------|
-| total_cpu_avg | %     |
+| Name          | Unit |
+|:--------------|:-----|
+| total_cpu_avg | %    |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
@@ -121,44 +121,44 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Dropped-Packets" label="Dropped-Packets">
 
-| Name                    | Unit  |
-|:------------------------|:------|
-| dropped_packets_per_sec | N/A   |
+| Name                    | Unit |
+|:------------------------|:-----|
+| dropped_packets_per_sec | N/A  |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Name   | Unit  |
-|:-------|:------|
-| cached | B     |
-| buffer | B     |
-| used   | B     |
-| swap   | B     |
+| Name   | Unit |
+|:-------|:-----|
+| cached | B    |
+| buffer | B    |
+| used   | B    |
+| swap   | B    |
 
 </TabItem>
 <TabItem value="Rejected-Packets" label="Rejected-Packets">
 
-| Name                     | Unit  |
-|:-------------------------|:------|
-| rejected_packets_per_sec | N/A   |
+| Name                     | Unit |
+|:-------------------------|:-----|
+| rejected_packets_per_sec | N/A  |
 
 </TabItem>
 <TabItem value="Traffic-Generic-ID" label="Traffic-Generic-ID">
 
-| Name                                                 | Unit  |
-|:-----------------------------------------------------|:------|
-| status                                               | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+| Name                                                 | Unit |
+|:-----------------------------------------------------|:-----|
+| status                                               | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s  |
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-| Name                                                 | Unit  |
-|:-----------------------------------------------------|:------|
-| status                                               | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+| Name                                                 | Unit |
+|:-----------------------------------------------------|:-----|
+| status                                               | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s  |
 
 > Applies to the following service templates: Traffic-Generic-Name, Traffic-Global
 
@@ -220,7 +220,7 @@ yum install centreon-pack-network-firewalls-stonesoft
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Stonesoft SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -289,120 +289,120 @@ yum install centreon-plugin-Network-Firewalls-Stonesoft
 <Tabs groupId="sync">
 <TabItem value="Cluster-Load" label="Cluster-Load">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Threshold                                                                                                                              |                   |             |
-| CRITICAL     | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Threshold                                                                                                                              |               |           |
+| CRITICAL     | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Cluster-State" label="Cluster-State">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Macro               | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICALCONNECTIONS | Threshold                                                                                                                              |                   |             |
-| WARNINGCONNECTIONS  | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro               | Description                                                                                                                                      | Default value | Mandatory |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CRITICALCONNECTIONS | Threshold                                                                                                                                        |               |           |
+| WARNINGCONNECTIONS  | Threshold                                                                                                                                        |               |           |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICAL     | Critical threshold in percent                                                                                                          | 90                |             |
-| WARNING      | Warning threshold in percent                                                                                                           | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CRITICAL     | Critical threshold in percent                                                                                                                    | 90            |           |
+| WARNING      | Warning threshold in percent                                                                                                                     | 80            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER       | Set the storage name (empty means 'check all storage')                                                                                 | ^(?!(/)$)         |             |
-| CRITICAL     | Critical threshold                                                                                                                     | 90                |             |
-| WARNING      | Warning threshold                                                                                                                      | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTER       | Set the storage name (empty means 'check all storage')                                                                                           | ^(?!(/)$)     |           |
+| CRITICAL     | Critical threshold                                                                                                                               | 90            |           |
+| WARNING      | Warning threshold                                                                                                                                | 80            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Disk-Name" label="Disk-Name">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DISKNAME     | Set the storage name (empty means 'check all storage')                                                                                 |                   |             |
-| WARNING      | Warning threshold                                                                                                                      |                   |             |
-| CRITICAL     | Critical threshold                                                                                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| DISKNAME     | Set the storage name (empty means 'check all storage')                                                                                           |               |           |
+| WARNING      | Warning threshold                                                                                                                                |               |           |
+| CRITICAL     | Critical threshold                                                                                                                               |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Dropped-Packets" label="Dropped-Packets">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold for dropped packets per second                                                                                       |                   |             |
-| CRITICAL     | Critical threshold for dropped packets per second                                                                                      |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold for dropped packets per second                                                                                                 |               |           |
+| CRITICAL     | Critical threshold for dropped packets per second                                                                                                |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent                                                                                                           | 80                |             |
-| CRITICAL     | Critical threshold in percent                                                                                                          | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold in percent                                                                                                                     | 80            |           |
+| CRITICAL     | Critical threshold in percent                                                                                                                    | 90            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Rejected-Packets" label="Rejected-Packets">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold for blocked packets per second                                                                                       |                   |             |
-| CRITICAL     | Critical threshold for blocked packets per second                                                                                      |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold for blocked packets per second                                                                                                 |               |           |
+| CRITICAL     | Critical threshold for blocked packets per second                                                                                                |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Generic-ID" label="Traffic-Generic-ID">
 
-| Macro        | Description                                                                                                                                                         | Default value     | Mandatory   |
-|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
-| WARNINGIN    | Threshold                                                                                                                                                           |                   |             |
-| CRITICALIN   | Threshold                                                                                                                                                           |                   |             |
-| WARNINGOUT   | Threshold                                                                                                                                                           |                   |             |
-| CRITICALOUT  | Threshold                                                                                                                                                           |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |                   |             |
+| Macro        | Description                                                                                                                                                         | Default value | Mandatory |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACEID  | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |               |           |
+| WARNINGIN    | Threshold                                                                                                                                                           |               |           |
+| CRITICALIN   | Threshold                                                                                                                                                           |               |           |
+| WARNINGOUT   | Threshold                                                                                                                                                           |               |           |
+| CRITICALOUT  | Threshold                                                                                                                                                           |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Macro         | Description                                                                                                                                                         | Default value     | Mandatory   |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
-| WARNINGIN     | Threshold                                                                                                                                                           |                   |             |
-| CRITICALIN    | Threshold                                                                                                                                                           |                   |             |
-| WARNINGOUT    | Threshold                                                                                                                                                           |                   |             |
-| CRITICALOUT   | Threshold                                                                                                                                                           |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |                   |             |
+| Macro         | Description                                                                                                                                                         | Default value | Mandatory |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACENAME | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |               |           |
+| WARNINGIN     | Threshold                                                                                                                                                           |               |           |
+| CRITICALIN    | Threshold                                                                                                                                                           |               |           |
+| WARNINGOUT    | Threshold                                                                                                                                                           |               |           |
+| CRITICALOUT   | Threshold                                                                                                                                                           |               |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro          | Description                                                                                                                                                                                                                     | Default value     | Mandatory   |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                             | .*                |             |
-| CRITICALIN     | Threshold                                                                                                                                                                                                                       | 90                |             |
-| WARNINGIN      | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALOUT    | Threshold                                                                                                                                                                                                                       | 90                |             |
-| WARNINGOUT     | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                          | --verbose         |             |
+| Macro          | Description                                                                                                                                                         | Default value                                    | Mandatory |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:---------:|
+| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name | .*                                               |           |
+| CRITICALIN     | Threshold                                                                                                                                                           | 90                                               |           |
+| WARNINGIN      | Threshold                                                                                                                                                           | 80                                               |           |
+| CRITICALOUT    | Threshold                                                                                                                                                           | 90                                               |           |
+| WARNINGOUT     | Threshold                                                                                                                                                           | 80                                               |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} ne "up" |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose                                        |           |
 
 </TabItem>
 </Tabs>
@@ -426,7 +426,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--name \
 	--add-status \
 	--add-traffic \
-	--critical-status='' \
+	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' \
 	--warning-in-traffic='80' \
 	--critical-in-traffic='90' \
 	--warning-out-traffic='80' \
@@ -437,7 +437,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=35b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=52b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=68b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=77b/s;80;90;; 
 ```
 
 ### Troubleshooting
@@ -509,7 +509,7 @@ All generic options are listed here:
 | --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -524,9 +524,9 @@ All generic options are listed here:
 | --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
-| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

@@ -5,6 +5,12 @@ title: Linux NRPE4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Linux SSH** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
 ## Pack assets
 
 ### Templates
@@ -74,7 +80,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
@@ -250,6 +256,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 | *processes*#cpu-utilization                   | N/A   |
 | *processes*#disks-read                        | N/A   |
 | *processes*#disks-write                       | N/A   |
+| *processes*#open-files                        | N/A   |
+| *processes*#open-files-prct                   | N/A   |
 | processes.total.count                         | count |
 | processes.memory.usage.bytes                  | B     |
 | processes.cpu.utilization.percentage          | %     |
@@ -326,7 +334,7 @@ The NRPE protocol uses the TCP port 5666.
 ### System prerequisites
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 1. Install the agent.
 
@@ -381,7 +389,7 @@ reboot
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
 name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/$basearch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/stable/$basearch/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -389,7 +397,7 @@ module_hotfixes=1
 
 [centreon-plugins-stable-noarch]
 name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/noarch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/stable/noarch/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -397,7 +405,7 @@ module_hotfixes=1
 
 [centreon-plugins-testing]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/$basearch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/testing/$basearch/
 enabled=0
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -405,7 +413,7 @@ module_hotfixes=1
 
 [centreon-plugins-testing-noarch]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/noarch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/testing/noarch/
 enabled=0
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -413,7 +421,7 @@ module_hotfixes=1
 
 [centreon-plugins-unstable]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/$basearch/ 
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/unstable/$basearch/
 enabled=0 
 gpgcheck=1 
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
@@ -421,7 +429,7 @@ module_hotfixes=1
  
 [centreon-plugins-unstable-noarch] 
 name=Centreon plugins repository. (UNSUPPORTED) 
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/noarch/ 
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/unstable/noarch/
 enabled=0 
 gpgcheck=1 
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
@@ -436,108 +444,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-1. Install the agent.
-
-```bash
-dnf -y install nrpe
-dnf -y config-manager --set-enabled 'crb'
-mkdir -p /var/lib/centreon/centplugins/
-chown nrpe: /var/lib/centreon/centplugins/
-```
-
-2. Change the IP address for the`allowed_hosts parameter in` **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
-
-```bash 
-sed -i 's/dont_blame_nrpe=0/dont_blame_nrpe=1/' /etc/nagios/nrpe.cfg 
-sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nagios/nrpe.cfg 
-``` 
-
-3. Add the definition of the `check_centreon_plugins` command:
- 
-```bash
-cat >/etc/nrpe.d/centreon-commands.cfg <<'EOF'
-command[check_centreon_plugins]=/usr/lib/centreon/plugins/centreon_linux_local.pl --plugin=$ARG1$ --mode=$ARG2$ $ARG3$
-EOF
-```
-
-4. Restart the service to apply the new configuration:
-
-```bash
-systemctl restart nrpe
-systemctl enable nrpe
-```
-
-5. To monitor **systemd-journal**, run the following commands:
-
-```bash
-usermod -a -G systemd-journal nrpe
-systemctl restart nrpe
-```
-
-6. Add the Centreon plugins' repository:
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-EOF
-```
-
-7. Install the plugin :
-
-```bash
-dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 1. Add the Centreon plugins' repository:
 
@@ -594,8 +501,7 @@ systemctl restart centreon-nrpe4.service
 
 ### Pack
 
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -604,21 +510,14 @@ If the platform uses an *offline* license, install the package on the **central 
 with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```bash
 dnf install centreon-pack-operatingsystems-linux-nrpe4
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install centreon-pack-operatingsystems-linux-nrpe4
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 ```bash
 apt install centreon-pack-operatingsystems-linux-nrpe4
@@ -642,21 +541,14 @@ the **Configuration > Connectors > Monitoring Connectors** menu.
 Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```bash
 dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install nagios-plugins-nrpe
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 ```bash
 apt install nagios-nrpe-plugin
@@ -844,8 +736,8 @@ yum install nagios-plugins-nrpe
 | EXCLUDEPEERNAME  | Exclude by peer name (can be a regexp)                                                                                                                                          |                              |           |
 | FILTERPEERSTATE  | Filter peer state (can be a regexp)                                                                                                                                             | .*                           |           |
 | EXCLUDEPEERSTATE | Exclude by peer state (can be a regexp)                                                                                                                                         |                              |           |
-| WARNINGOFFSET    | Warning threshold offset deviation value in milliseconds                                                                                                                        |                              |           |
-| CRITICALOFFSET   | Critical threshold offset deviation value in milliseconds                                                                                                                       |                              |           |
+| WARNINGOFFSET    | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |                              |           |
+| CRITICALOFFSET   | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |                              |           |
 | WARNINGPEERS     | Warning threshold minimum amount of NTP-Server                                                                                                                                  |                              |           |
 | CRITICALPEERS    | Critical threshold minimum amount of NTP-Server                                                                                                                                 |                              |           |
 | WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |           |
@@ -1084,7 +976,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                              |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)' |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -1317,8 +1209,8 @@ All available options for each service template are listed below:
 | --filter-state     | Filter peer state (can be a regexp).                                                                                                                                   |
 | --warning-peers    | Warning threshold minimum amount of NTP-Server                                                                                                                         |
 | --critical-peers   | Critical threshold minimum amount of NTP-Server                                                                                                                        |
-| --warning-offset   | Warning threshold offset deviation value in milliseconds                                                                                                               |
-| --critical-offset  | Critical threshold offset deviation value in milliseconds                                                                                                              |
+| --warning-offset   | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset  | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --warning-stratum  | Warning threshold.                                                                                                                                                     |
 | --critical-stratum | Critical threshold.                                                                                                                                                    |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}     |
@@ -1396,13 +1288,42 @@ All available options for each service template are listed below:
 | --add-cpu                | Monitor CPU usage.                                                                                                                                                                                                                            |
 | --add-memory             | Monitor memory usage. It's inaccurate but it provides a trend.                                                                                                                                                                                |
 | --add-disk-io            | Monitor disk I/O.                                                                                                                                                                                                                             |
+| --add-open-files         | Monitor open file usage per process. This functionality requires that the `centreon_linux_sudoers` package be installed on the monitored host and configured in the sudoers file. Please refer to the notice below.                           |
 | --filter-command         | Filter process commands (regexp can be used).                                                                                                                                                                                                 |
 | --exclude-command        | Exclude process commands (regexp can be used).                                                                                                                                                                                                |
 | --filter-arg             | Filter process arguments (regexp can be used).                                                                                                                                                                                                |
 | --exclude-arg            | Exclude process arguments (regexp can be used).                                                                                                                                                                                               |
 | --filter-ppid            | Filter process ppid (regexp can be used).                                                                                                                                                                                                     |
 | --filter-state           | Filter process states (regexp can be used). You can use: 'zombie', 'dead', 'paging', 'stopped', 'InterrupibleSleep', 'running', 'UninterrupibleSleep'.                                                                                        |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'total-memory-usage', 'total-cpu-utilization', 'total-disks-read', 'total-disks-write', 'time', 'memory-usage', 'cpu-utilization', 'disks-read', 'disks-write'.                                                  |
+| --privileged-script-path         | This parameter allows specifying a custom path to the centreon\_plugin\_local\_process.pl script used for monitoring open file usage per process (default: '/usr/lib/centreon/plugins').                                              |
+| --warning-total                  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total                 | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-memory-usage     | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-memory-usage    | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-cpu-utilization  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-cpu-utilization | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-read       | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-read      | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-write      | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-write     | Thresholds.                                                                                                                                                                                                                           |
+| --warning-time                   | Thresholds.                                                                                                                                                                                                                           |
+| --critical-time                  | Thresholds.                                                                                                                                                                                                                           |
+| --warning-memory-usage           | Thresholds.                                                                                                                                                                                                                           |
+| --critical-memory-usage          | Thresholds.                                                                                                                                                                                                                           |
+| --warning-cpu-utilization        | Thresholds.                                                                                                                                                                                                                           |
+| --critical-cpu-utilization       | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-read             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-read            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-write            | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-write           | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-open-files            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files-prct        | Thresholds in percentage.                                                                                                                                                                                                             |
+| --critical-open-files-prct       | Thresholds in percentage.                                                                                                                                                                                                             |
+
+> To monitor open file usage per process, you need to install the `centreon-plugin-Operatingsystems-Linux-sudoers` package on each monitored host.
+> This package installs the `centreon_linux_local_process.pl` script and adds the `sudoersCentreonLinuxPlugins` file to the `sudoers` configuration.
+> Depending on the monitored hosts, this package will be installed with ```dnf install centreon-plugin-Operatingsystems-Linux-sudoers``` or ```apt install centreon-plugin-operatingsystems-linux-sudoers```.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -1495,8 +1416,5 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::linux::local::plugin' 'traffic'  ' \
-	--filter-interface="" \
-	--warning-in="" \
-	--help
+/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::linux::local::plugin' 'traffic' --help
 ```

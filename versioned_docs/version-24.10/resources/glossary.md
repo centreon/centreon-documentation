@@ -25,6 +25,10 @@ Acknowledging a resource does not mean that the incident is over. It will be ove
 
 **See also**: [Acknowledging an alert](../alerts-notifications/acknowledge.md).
 
+## Agent
+
+An agent is a software component, provided by Centreon (e.g. Centreon Monitoring Agent) or by a third party (e.g. NSClient), installed on a resource to be monitored and designed to locally collect technical data about that resource (states, indicators, events) and then transmit it to the monitoring platform, either directly or through a [poller](#poller).
+
 ## Alert
 
 An alert is one of the following statuses: **Warning**, **Down**, **Critical**, **Unknown**.

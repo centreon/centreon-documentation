@@ -58,7 +58,7 @@ Les paramètres attendus dans ce rapport :
 | Average level threshold (%) | Champ texte      | Seuil d’utilisation moyen de la bande passante, en pourcentage (entre 0 et 100) |
 | High level threshold (%)    | Champ texte      | Seuil d’utlisation haut de la bande passante, en pourcentage (entre 0 et 100)   |
 | Inbound traffic metric      | Liste déroulante | Nom de la métrique pour le trafic entrant                                       |
-| Outbound traffic metric     | Liste déroulante | Nom de la métrique pour le trafic entrant                                       |
+| Outbound traffic metric     | Liste déroulante | Nom de la métrique pour le trafic sortant                                       |
 
 #### Pré-requis
 
@@ -142,7 +142,7 @@ Les paramètres attendus dans ce rapport :
 | Average level threshold (%) | Champ texte      | Seuil d’utilisation moyen de la bande passante, en pourcentage (entre 0 et 100) |
 | High level threshold (%)    | Champ texte      | Seuil d’utlisation haut de la bande passante, en pourcentage (entre 0 et 100)   |
 | Inbound traffic metric      | Liste déroulante | Nom de la métrique pour le trafic entrant                                       |
-| Outbound traffic metric     | Liste déroulante | Nom de la métrique pour le trafic entrant                                       |
+| Outbound traffic metric     | Liste déroulante | Nom de la métrique pour le trafic sortant                                       |
 
 #### Pré-requis
 
@@ -204,7 +204,7 @@ Les paramètres attendus dans ce rapport :
 | Plage horaire           | Liste déroulante | Plage horaire utilisée pour les moyennes d’utilisation de la bande psssante |
 | Centile/Timeperiod      | Liste déroulante | Combinaison utiliser pour les statistiques de centile                       |
 | Inbound traffic metric  | Liste déroulante | Nom de la métrique pour le trafic entrant                                   |
-| Outbound traffic metric | Liste déroulante | Nom de la métrique pour le trafic entrant                                   |
+| Outbound traffic metric | Liste déroulante | Nom de la métrique pour le trafic sortant                                   |
 
 #### Pre-requis
 

@@ -7,6 +7,12 @@ import TabItem from '@theme/TabItem';
 
 Ce connecteur de supervision est compatible avec n'importe quelle distribution Linux ayant un daemon SSH installé et démarré.
 
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Linux SSH**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision**  :
+* [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
@@ -66,7 +72,7 @@ Le connecteur apporte les modèles de service suivants
 
 ### Règles de découverte
 
-#### Découverte de service
+#### Découverte de services
 
 | Nom de la règle                     | Description                                          |
 |:------------------------------------|:-----------------------------------------------------|
@@ -77,7 +83,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Cmd-Return" label="Cmd-Return">
@@ -267,6 +273,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | *processes*#cpu-utilization                   | N/A   |
 | *processes*#disks-read                        | N/A   |
 | *processes*#disks-write                       | N/A   |
+| *processes*#open-files                        | count |
+| *processes*#open-files-prct                   | %     |
 | processes.total.count                         | count |
 | processes.memory.usage.bytes                  | B     |
 | processes.cpu.utilization.percentage          | %     |
@@ -349,8 +357,11 @@ s'authentifier et exécuter les requêtes SSH. Les privilèges `sudo` ou `root` 
 sont pas nécessaires, un utilisateur 'simple' est suffisant.
 
 Deux méthodes de connexion SSH sont possibles :
-* soit en échangeant la clé SSH publique de l'utilisateur `centreon-engine` du collecteur Centreon
+* soit en échangeant la clé SSH publique de l'utilisateur **centreon-engine** du collecteur Centreon (recommandé)
 * soit en définissant votre utilisateur et votre mot de passe directement dans les macros d'hôtes.
+
+Vous devez également configurer la connexion avec l'utilisateur **centreon-gorgone** si vous comptez
+utiliser les règles de découverte de service de ce connecteur.
 
 ## Installer le connecteur de supervision
 
@@ -625,8 +636,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 | FILTERSTATE     | Filter peer state (can be a regexp)                                                                                                                                             |                   |             |
 | EXCLUDESTATE    | Filter by peer state (can be a regexp)                                                                                                                                          |                   |             |
 | UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                   |             |
-| WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                                        |                   |             |
-| CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                                       |                   |             |
+| WARNINGOFFSET   | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |                   |             |
+| CRITICALOFFSET  | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |                   |             |
 | WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                                  |                   |             |
 | CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                                 |                   |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                   |             |
@@ -927,7 +938,7 @@ Les options génériques sont listées ci-dessous :
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                        |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)' |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -1146,8 +1157,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-state     | Filter peer state (can be a regexp).                                                                                                                                   |
 | --warning-peers    | Warning threshold minimum amount of NTP-Server                                                                                                                         |
 | --critical-peers   | Critical threshold minimum amount of NTP-Server                                                                                                                        |
-| --warning-offset   | Warning threshold offset deviation value in milliseconds                                                                                                               |
-| --critical-offset  | Critical threshold offset deviation value in milliseconds                                                                                                              |
+| --warning-offset   | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset  | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --warning-stratum  | Warning threshold.                                                                                                                                                     |
 | --critical-stratum | Critical threshold.                                                                                                                                                    |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}     |
@@ -1245,13 +1256,42 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --add-cpu                | Monitor cpu usage.                                                                                                                                                                                                                            |
 | --add-memory             | Monitor memory usage. It's inaccurate but it provides a trend.                                                                                                                                                                                |
 | --add-disk-io            | Monitor disk I/O.                                                                                                                                                                                                                             |
+| --add-open-files         | Monitor open file usage per process. This functionality requires that the `centreon_linux_sudoers` package be installed on the monitored host and configured in the sudoers file. Please refer to the notice below.                           |
 | --filter-command         | Filter process commands (regexp can be used).                                                                                                                                                                                                 |
 | --exclude-command        | Exclude process commands (regexp can be used).                                                                                                                                                                                                |
 | --filter-arg             | Filter process arguments (regexp can be used).                                                                                                                                                                                                |
 | --exclude-arg            | Exclude process arguments (regexp can be used).                                                                                                                                                                                               |
 | --filter-ppid            | Filter process ppid (regexp can be used).                                                                                                                                                                                                     |
 | --filter-state           | Filter process states (regexp can be used). You can use: 'zombie', 'dead', 'paging', 'stopped', 'InterrupibleSleep', 'running', 'UninterrupibleSleep'.                                                                                        |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'total-memory-usage', 'total-cpu-utilization', 'total-disks-read', 'total-disks-write', 'time', 'memory-usage', 'cpu-utilization', 'disks-read', 'disks-write'.                                                  |
+| --privileged-script-path         | This parameter allows specifying a custom path to the centreon\_plugin\_local\_process.pl script used for monitoring open file usage per process (default: '/usr/lib/centreon/plugins').                                              |
+| --warning-total                  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total                 | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-memory-usage     | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-memory-usage    | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-cpu-utilization  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-cpu-utilization | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-read       | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-read      | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-write      | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-write     | Thresholds.                                                                                                                                                                                                                           |
+| --warning-time                   | Thresholds.                                                                                                                                                                                                                           |
+| --critical-time                  | Thresholds.                                                                                                                                                                                                                           |
+| --warning-memory-usage           | Thresholds.                                                                                                                                                                                                                           |
+| --critical-memory-usage          | Thresholds.                                                                                                                                                                                                                           |
+| --warning-cpu-utilization        | Thresholds.                                                                                                                                                                                                                           |
+| --critical-cpu-utilization       | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-read             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-read            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-write            | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-write           | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-open-files            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files-prct        | Thresholds in percentage.                                                                                                                                                                                                             |
+| --critical-open-files-prct       | Thresholds in percentage.                                                                                                                                                                                                             |
+
+> To monitor open file usage per process, you need to install the `centreon-plugin-Operatingsystems-Linux-sudoers` package on each monitored host.
+> This package installs the `centreon_linux_local_process.pl` script and adds the `sudoersCentreonLinuxPlugins` file to the `sudoers` configuration.
+> Depending on the monitored hosts, this package will be installed with ```dnf install centreon-plugin-Operatingsystems-Linux-sudoers``` or ```apt install centreon-plugin-operatingsystems-linux-sudoers```.
 
 </TabItem>
 <TabItem value="Quota" label="Quota">

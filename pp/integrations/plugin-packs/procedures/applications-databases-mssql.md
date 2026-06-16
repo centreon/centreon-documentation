@@ -45,8 +45,8 @@ The connector brings the following service templates (sorted by the host templat
 | Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio-custom       | Check the "Data Buffer Cache Hit Ratio" of the server. No alerts by default |
 | Locks-Waits          | App-DB-MSSQL-Locks-Waits-custom          | Check locks-waits per second of the server                                  |
 | Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy-custom | Check the "Page Life Expectancy" of the server. No alerts by default        |
-| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Check allowing to execute a custom SQL request with a digital answer        |
-| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Check allowing to execute a custom SQL request with a string answer         |
+| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Check allowing to execute a custom SQL request with a numerical result      |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Check allowing to execute a custom SQL request with a string result         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -184,7 +184,23 @@ We recommend you use a domain user to better manage its properties and privilege
 
 ### Dependencies
 
-These packages are required: `freetds perl-DBD-Sybase unixODBC`
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+These packages are required: `freetds perl-DBD-Sybase unixODBC`.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+These packages are required: `freetds perl-DBD-Sybase unixODBC`.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+These packages are required: `freetds libdbd-sybase-perl unixODBC`.
+
+</TabItem>
+</Tabs>
 
 ### Freetds configuration
 
@@ -192,8 +208,24 @@ The default version used by freetds is 4.2. To guarantee optimal operations and 
 uncomment this line `version = 4.2`and replace `4.2` with `8.0`. The 8.0 version is the minimal supported version.
 
 The configuration file is located under different paths depending on your operating system: 
-- RedHat-like: /etc/freetds.conf
-- Debian 11: /etc/freetds/freetds.conf
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+`/etc/freetds.conf`
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+`/etc/freetds.conf`
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+`/etc/freetds/freetds.conf`
+
+</TabItem>
+</Tabs>
 
 ## Installing the monitoring connector
 
@@ -227,13 +259,6 @@ dnf install centreon-pack-applications-databases-mssql
 
 ```bash
 apt install centreon-pack-applications-databases-mssql
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-databases-mssql
 ```
 
 </TabItem>
@@ -274,13 +299,6 @@ dnf install centreon-plugin-Applications-Databases-Mssql
 
 ```bash
 apt install centreon-plugin-applications-databases-mssql
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Databases-Mssql
 ```
 
 </TabItem>
@@ -593,7 +611,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

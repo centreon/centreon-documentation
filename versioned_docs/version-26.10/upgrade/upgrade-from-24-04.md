@@ -13,7 +13,7 @@ This chapter describes how to upgrade your Centreon platform from version 24.04 
 >
 > In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
+> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
 > Version 25.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
 
@@ -39,6 +39,40 @@ servers:
 
 If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
 
+### Check the repositories
+
+Before upgrading your Centreon platform, make sure the following package repositories are enabled:
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+* bullseye, bullseye-updates, bullseye-backports and bullseye security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+</Tabs>
+
 ## Upgrade the Centreon Central server
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
@@ -51,7 +85,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 1. Update your Centreon 24.04 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el8/centreon-24.04-el8.repo
+   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -79,7 +113,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 1. Update your Centreon 24.04 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://packages.centreon.com/standard/24.04/el9/centreon-24.04-el9.repo
+   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el9/centreon-24.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -227,7 +261,7 @@ systemctl stop php8.1-fpm
 systemctl disable php8.1-fpm
 ```
 
-Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+Ensure the `memory_limit` parameter in `/etc/php/8.2/fpm/conf.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
 
 </TabItem>
 </Tabs>
@@ -665,6 +699,36 @@ with the following:
 
 3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via the `no_shell_interpretation: true` parameter. If you previously customized this file, your version will be saved in the same directory as `41-autodiscovery.yaml.rpmnew` and must be manually merged to include this parameter.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via the `no_shell_interpretation: true` parameter. If you previously customized this file, your version will be saved in the same directory as `41-autodiscovery.yaml.rpmnew` and must be manually merged to include this parameter.
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+   
+> Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
+> 
+> If you use custom commands that rely on string interpolation, you must update them to remain compatible.
+> 
+> This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml` via the `no_shell_interpretation: true` parameter. If you previously customized this file, you will be prompted to resolve the potential conflicts.
+
+</TabItem>
+</Tabs>
+
 4. Restart the processes:
 
     ``` shell
@@ -673,7 +737,29 @@ with the following:
 
 ## Upgrade the Remote Servers
 
-This procedure is the same as for upgrading a Centreon Central server.
+This procedure is the same as for upgrading a Centreon Central server with the addition of needing to retrieve the decryption key at the end.
+
+### Retrieving the decryption key
+
+Run the following script with the central server IP address to enable the remote server to receive and process encrypted data: 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Example:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> You must use **admin** as the **\<API_ACCOUNT\>**.
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
+```
 
 > At the end of the update, the configuration should be deployed from the Central server.
 
@@ -687,7 +773,8 @@ Run the following command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 ```
 
@@ -695,7 +782,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y dnf-plugins-core
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 ```
 
@@ -703,6 +791,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
+rm -f /etc/apt/sources.list.d/centreon*
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 apt update
 ```
@@ -775,7 +864,11 @@ systemctl restart centreon
 
 ### Retrieving the decryption key
 
-Run the following script to enable the poller to receive and process encrypted data: 
+Run the following script with the correct IP address to enable the poller to receive and process encrypted data.
+
+The IP address to use depends on the following conditions:
+- When updating pollers linked directly to the central server, use the central server's IP.
+- When updating pollers linked to a remote server, use the remote server's IP. However, in this instance, you must first confirm the remote server has the correct key by checking that the value of `app_secret` in the `/etc/centreon-engine/engine-context.json` file is the same as the central server's. If this is not the case, relaunch the script with the right IP to correct the .json file.
 
 ```shell
 /usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
@@ -787,7 +880,7 @@ Example:
 /usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
 ```
 
-> You must use the default **admin** account as the **\<API_ACCOUNT\>**.
+> You must use **admin** as the **\<API_ACCOUNT\>**.
 
 Restart **centengine**:
 

@@ -140,7 +140,7 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'ciam/ciam',
+          id: 'users/centreon-hub',
         },
         {
           type: 'doc',
@@ -156,7 +156,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'ciam/cloud-saml',
+          id: 'users/cloud-saml',
         },
       ],
     },
@@ -613,6 +613,10 @@ module.exports = {
       "items": [
         {
           "type": "doc",
+          "id": "administration/authentication-tokens"
+        },
+        {
+          "type": "doc",
           "id": "administration/media"
         },
               ]
@@ -624,6 +628,39 @@ module.exports = {
     },
     {
       "type": "category",
+      "label": "Centreon Monitoring Agent",
+      "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-certificates"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-custom"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-migratenscpp"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-troubleshooting"
+                }
+              ]
+    },
+    {
+      "type": "category",
       "label": "Integrations",
       "link": {
         "type": "generated-index",
@@ -632,6 +669,10 @@ module.exports = {
         {
           "type": "doc",
           "id": "integrations/stream-connectors-cloud"
+        },
+        {
+          "type": "doc",
+          "id": "integrations/mcp-server"
         },
         {
           "type": "category",
@@ -693,14 +734,29 @@ module.exports = {
       },
       "items": [
     {
-      "type": "link",
-      "href": "https://docs-api.centreon.com/api/centreon-web/cloud/",
-      "label": "Centreon Cloud API"
+      "type": "doc",
+      "id": "administration/api-tokens"
     },
     {
-          "type": "doc",
-          "id": "administration/api-tokens"
-        }
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-web-cloud/",
+      "label": "Centreon Cloud API" 
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-map/25.10/",
+      "label": "MAP API"
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-bam/cloud/",
+      "label": "BAM API"
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-autodiscovery/cloud/",
+      "label": "Autodiscovery API"
+    },
       ],
 },
     {

@@ -274,9 +274,11 @@ vgdisplay vg_data | grep -i free*
 >```
 
 Be sure to optimize MariaDB/MySQL on your reporting server.
-You will need at least 12 GB of RAM in order to use the [next file](../assets/reporting/installation/centreon.cnf).
+You will need at least 12 GB of RAM in order to use the [following file](../assets/reporting/installation/centreon.cnf).
 
-Make sure you have a **tmp** folder in **/var/lib/mysql**.
+> If you want to use a different directory than `/var/lib/mysql/`, edit the **datadir** and **tmpdir** variables in the centreon.cnf file.
+
+Make sure a **tmp** folder is created inside the same partition as **/var/lib/mysql**.
 
 > Do not set these MariaDB optimizations on your monitoring server.
 
@@ -287,12 +289,20 @@ If you are using MySQL:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.
+In the `/etc/my.cnf.d/mysql-server.cnf` file, add: 
+
+```shell
+log_bin_trust_function_creators=1
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.
+In the `/etc/my.cnf.d/mysql-server.cnf` file, add:
+
+```shell
+log_bin_trust_function_creators=1
+```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
@@ -308,6 +318,22 @@ log_bin_trust_function_creators=1
 </Tabs>
 
 2. Restart MySQL.
+
+3. Check the database to confirm this variable is applied:
+
+```shell
+show global variables like 'log_bin_trust_function_creators';
++---------------------------------+-------+
+| Variable_name                   | Value |
++---------------------------------+-------+
+| log_bin_trust_function_creators | ON   |
+```
+
+If the variable is not turned on, set it manually:
+
+```shell
+mysql> SET GLOBAL log_bin_trust_function_creators = 1;
+```
 
 Users and groups:
 
@@ -1140,6 +1166,8 @@ mysql_secure_installation
 
 - Answer **yes** to all questions except "Disallow root login remotely?"
 - It is mandatory to define a password for the **root** user of the database. You will need this password during the [web-installation](../installation/web-and-post-installation.md).
+
+> See advanced procedures to [Secure your MBI platform](../reporting/secure-your-mbi-platform.md).
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
