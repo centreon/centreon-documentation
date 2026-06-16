@@ -329,6 +329,8 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
+/usr/lib/centreon/plugins/centreon_generic_snmp.pl \
+    --plugin=apps::protocols::snmp::plugin \
 	--mode=uptime \
     --hostname=10.0.0.1 \
     --snmp-community='my-snmp-community' \
