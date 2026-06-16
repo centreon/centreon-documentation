@@ -26,8 +26,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                       | Modèle de service                                       | Description                                                                      | 
 |:----------------------------|:--------------------------------------------------------|:---------------------------------------------------------------------------------|
-| RIS-Import-Input            | App-Dynamics-AX-RIS-Import-Input-NRPE-custom            | Contrôle permettant de vérifier le presence de fichiers à importer               | 
-| RIS-Import-ProcessingErrors | App-Dynamics-AX-RIS-Import-ProcessingErrors-NRPE-custom | Contrôle permettant de vérifier les fichier importé en échec                     |
+| RIS-Import-Input            | App-Dynamics-AX-RIS-Import-Input-NRPE-custom            | Contrôle permettant de vérifier la présence de fichiers à importer               | 
+| RIS-Import-ProcessingErrors | App-Dynamics-AX-RIS-Import-ProcessingErrors-NRPE-custom | Contrôle permettant de vérifier les fichiers importés en échec                     |
 | Service-RIS                 | App-Dynamics-AX-Service-RIS-NRPE-custom                 | Contrôle permettant de vérifier l'état du service RecurringIntegrationsScheduler |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Dynamics-AX-NRPE-custom** est utilisé.

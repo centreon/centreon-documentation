@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 This Monitoring Connector collects metrics and statuses using the NSClient++ 
 monitoring agent and its embedded NRPE Server. The connector allows you to monitor:
 * Windows Server OS from 2003 SP2 version
-* Windows Workstation from XP version
+* Windows workstations from the XP version
 
 ## Pack assets
 
@@ -64,7 +64,7 @@ No metric for this service.
 
 ### Centreon NSClient++
 
-To monitor a *Dynamics AX* through NRPE, install the Centreon packaged version 
+To monitor a Dynamics AX server through NRPE, install the Centreon packaged version 
 of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) 
 and make sure that the **NRPE Server** configuration is correct.
 
@@ -223,7 +223,7 @@ yum install centreon-nrpe3-plugin
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
