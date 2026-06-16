@@ -60,48 +60,18 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-### Centreon Plugin
+### SNMP Configuration
 
-Install this plugin on each needed poller:
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher.
+Your resource may require a list of addresses authorized to query it to be set up.
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
-``` shell
-yum install centreon-plugin-Hardware-Storage-Hp-Msl-Snmp
-```
+### Network flow
 
-Be sure to have with you the following information:
+The target resource must be reachable from the Centreon poller on the UDP/161
+SNMP port.
 
-  - Read-Only SNMP community
-  - IP Address of the equipment
-
-### Configure SNMP on your server
-
-Follow constructor procedure for your equipment.
-
-### SNMP Permissions
-
-Read-Only access.
-
-### Troubleshooting
-
-Read [Troubleshooting
-SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
-
-## Centreon Configuration
-
-### Create a host using the appropriate template
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                                | Value                         |
-| :----------------------------------- | :---------------------------- |
-| Host name                            | *Name of the host*            |
-| Alias                                | *Host description*            |
-| IP                                   | *Host IP Address*             |
-| Monitored from                       | *Monitoring Poller to use*    |
-| Host Multiple Templates              | HW-Storage-Hp-Msl-SNMP-custom |
-
-Click on the *Save* button.
 ## Installing the monitoring connector
 
 ### Pack
