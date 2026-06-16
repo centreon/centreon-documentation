@@ -88,21 +88,14 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Generic-Value" label="Generic-Value">
+<TabItem value="Numeric-Value" label="Numeric-Value">
 
 Pour ce mode spécifique, les noms des métriques dépendront de la configuration effectuée par l'utilisateur.
 
 </TabItem>
-<TabItem value="Response-Time" label="Response-Time">
+<TabItem value="String-Value" label="String-Value">
 
-| Nom                                 | Unité |
-|:------------------------------------|:------|
-| roundtrip.time.average.milliseconds | ms    |
-| roundtrip.time.maximum.milliseconds | ms    |
-| roundtrip.time.minimum.milliseconds | ms    |
-| packets.loss.percentage             | %     |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+Pour ce mode spécifique, les noms des métriques dépendront de la configuration effectuée par l'utilisateur.
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
@@ -241,13 +234,6 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **App-Protocol-SNMP-custom**.
 
-
-| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
-
-4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
-
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -279,7 +265,7 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Generic-Value" label="Generic-Value">
+<TabItem value="Numeric-Value" label="Numeric-Value">
 
 | Macro          | Description                                                                                                                                      | Valeur par défaut                | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
@@ -293,22 +279,20 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                  |             |
 
 </TabItem>
-<TabItem value="Response-Time" label="Response-Time">
+<TabItem value="String-Value" label="String-Value">
 
 | Macro          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING_PL     | Packets lost threshold warning in %                                                                                                              |                   |             |
-| CRITICAL_PL    | Packets lost threshold critical in %                                                                                                             |                   |             |
-| WARNING_RTA    | Response time threshold warning in milliseconds                                                                                                  |                   |             |
-| CRITICAL_RTA   | Response time threshold critical in milliseconds                                                                                                 |                   |             |
-| WARNING_RTMAX  | Maximum response time threshold warning in milliseconds                                                                                          |                   |             |
-| CRITICAL_RTMAX | Maximum response time threshold critical in milliseconds                                                                                         |                   |             |
-| WARNING_RTMIN  | Minimum response time threshold warning in milliseconds                                                                                          |                   |             |
-| CRITICAL_RTMIN | Minimum response time threshold critical in milliseconds                                                                                         |                   |             |
-| EXTRA_OPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| FORMATOK       | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | %\{filter_rows\} value(s)       |             |
+| FORMATUNKNOWN  | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_unknown\}  |             |
+| OID            | OID value to check (numeric format only)                                                                                                                                                                                                                                                                                                                                                                                           |                                |             |
+| WARNING        | Return Warning if an oid value match the regexp                                                                                                                                                                                                                                                                                                                                            |                                |             |
+| CRITICAL       | Return Critical if an oid value match the regexp                                                                                                                                                                                                                                                                                                                                           |                                |             |
+| FORMATWARNING  | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_warning\}  |             |
+| FORMATCRITICAL | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_critical\} |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                                                                                                                                                                        |                                |             |
 
 </TabItem>
-
 <TabItem value="Response-Time" label="Response-Time">
 
 | Macro          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
