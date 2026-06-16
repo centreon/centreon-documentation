@@ -456,7 +456,7 @@ apt update && apt install mariadb-server
 </TabItem>
 </Tabs>
 
-Then enable and restart mariadb
+Then enable and restart mariadb.
 
 ```shell
 systemctl enable mariadb
