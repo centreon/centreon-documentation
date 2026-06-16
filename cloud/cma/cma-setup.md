@@ -12,7 +12,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 2. In the window that appears, fill in the details corresponding to your environment (poller that will monitor your hosts, type of OS for your hosts).
 3. Copy the command displayed in the window, then run it on each host you want to monitor with the agent.
 
-## What happens when you run the command
+<!-- ## What happens when you run the command
 
 On the poller, [certificates](cma-certificates.md) are managed automatically:
 
@@ -28,3 +28,4 @@ On the central server:
 On the host: the CMA agent is deployed.
 
 At the end, the connection between CMA and the pller is established in TLS.
+ -->

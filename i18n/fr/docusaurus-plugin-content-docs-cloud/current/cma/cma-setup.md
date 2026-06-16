@@ -12,7 +12,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 2. Dans la fenêtre qui s'affiche, renseignez les informations correspondant à votre environnement (poller qui supervisera vos hôtes, type de système d'exploitation de vos hôtes).
 3. Copiez la commande affichée dans la fenêtre, puis exécutez-la sur chaque hôte que vous souhaitez superviser avec l'agent.
 
-## Que se passe-t-il lorsque vous exécutez la commande ?
+<!-- ## Que se passe-t-il lorsque vous exécutez la commande ?
 
 Sur le collecteur, les [certificats](cma-certificates.md) sont gérés automatiquement :
 
@@ -27,4 +27,4 @@ Sur le serveur central :
 
 Sur l'hôte : l'agent CMA est déployé.
 
-À la fin, la connexion entre CMA et le collecteur est établie via TLS.
+À la fin, la connexion entre CMA et le collecteur est établie via TLS. -->
