@@ -401,7 +401,7 @@ Select the tab according to the database to be used.
 
 > You need to have a MariaDB database to store your Centreon MAP data.
 
-First you need to add the MariaDB repository:
+First you need to add the MariaDB repository: 
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
