@@ -706,9 +706,20 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter                 | Filter job.                                                                                                                          |
 | --lookback               | Check job history in minutes.                                                                                                        |
 | --add-duration-perfdata  | Display job duration time.                                                                                                           |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}, %\{duration\}    |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}, %\{duration\}   |
-| --warning-* --critical-* | Thresholds. Can be: 'jobs-total', 'jobs-failed', 'jobs-success', 'jobs-canceled', 'jobs-running', 'jobs-retry'.                      |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}, %\{duration\}, %\{total\_count\}, %\{failed\_count\}, %\{success\_count\}, %\{retry\_count\}, %\{canceled\_count\}, %\{running\_count\}. The details of jobs matching this condition are displayed.  |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}, %\{duration\}, %\{total\_count\}, %\{failed\_count\}, %\{success\_count\}, %\{retry\_count\}, %\{canceled\_count\}, %\{running\_count\}. The details of jobs matching this condition are displayed. |
+| --warning-jobs-canceled  | Threshold.                                                                                                                           |
+| --critical-jobs-canceled | Threshold.                                                                                                                           |
+| --warning-jobs-failed    | Threshold.                                                                                                                           |
+| --critical-jobs-failed   | Threshold.                                                                                                                           |
+| --warning-jobs-retry     | Threshold.                                                                                                                           |
+| --critical-jobs-retry    | Threshold.                                                                                                                           |
+| --warning-jobs-running   | Threshold.                                                                                                                           |
+| --critical-jobs-running  | Threshold.                                                                                                                           |
+| --warning-jobs-success   | Threshold.                                                                                                                           |
+| --critical-jobs-success  | Threshold.                                                                                                                           |
+| --warning-jobs-total     | Threshold.                                                                                                                           |
+| --critical-jobs-total    | Threshold.                                                                                                                           |
 
 </TabItem>
 <TabItem value="Locks-Waits" label="Locks-Waits">

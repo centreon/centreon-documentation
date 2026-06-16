@@ -77,7 +77,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                         | Description |
 |:----------------------------------|:------------|
-| App-Protocol-SNMP-Collection-Name |             |
+| App-Protocol-SNMP-Collection-Name | Discover SNMP data using collections           |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -90,6 +90,18 @@ Here is the list of services for this connector, detailing all metrics and statu
 <TabItem value="Generic-Value" label="Generic-Value">
 
 For this specific mode, the names of the metrics depend on the configuration made by the user.
+
+</TabItem>
+<TabItem value="Response-Time" label="Response-Time">
+
+| Name                                | Unit |
+|:------------------------------------|:-----|
+| roundtrip.time.average.milliseconds | ms   |
+| roundtrip.time.maximum.milliseconds | ms   |
+| roundtrip.time.minimum.milliseconds | ms   |
+| packets.loss.percentage             | %    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
@@ -237,6 +249,12 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
+| Macro            | Description                                                                                                                                        | Default value | Mandatory |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+
+4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
 </TabItem>
 <TabItem value="App-Protocol-SNMP-Only-custom" label="App-Protocol-SNMP-Only-custom">
 
@@ -289,6 +307,21 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 | CRITICAL_RTMAX | Maximum response time threshold critical in milliseconds                                                                                         |                   |             |
 | WARNING_RTMIN  | Minimum response time threshold warning in milliseconds                                                                                          |                   |             |
 | CRITICAL_RTMIN | Minimum response time threshold critical in milliseconds                                                                                         |                   |             || EXTRA_OPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+
+</TabItem>
+<TabItem value="Response-Time" label="Response-Time">
+
+| Macro          | Description                                                                                                                                      | Default value | Mandatory |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING_PL     | Packets lost threshold warning in %                                                                                                              |               |           |
+| CRITICAL_PL    | Packets lost threshold critical in %                                                                                                             |               |           |
+| WARNING_RTA    | Response time threshold warning in milliseconds                                                                                                  |               |           |
+| CRITICAL_RTA   | Response time threshold critical in milliseconds                                                                                                 |               |           |
+| WARNING_RTMAX  | Maximum response time threshold warning in milliseconds                                                                                          |               |           |
+| CRITICAL_RTMAX | Maximum response time threshold critical in milliseconds                                                                                         |               |           |
+| WARNING_RTMIN  | Minimum response time threshold warning in milliseconds                                                                                          |               |           |
+| CRITICAL_RTMIN | Minimum response time threshold critical in milliseconds                                                                                         |               |           |
+| EXTRA_OPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
