@@ -72,7 +72,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Dynamics AX NSClient 0.5 NRPE**](../procedures/applications-dynamics-ax-nsclient-05-nrpe.md) - Replacedd `check_centreon_nrpe3` with `check_nrpe`.
+- [**Dynamics AX NSClient 0.5 NRPE**](../procedures/applications-dynamics-ax-nsclient-05-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
 - [**Dynamics365 NSClient 0.5 NRPE**](../procedures/applications-dynamics-365-nsclient-05-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
 - [**EMC Symmetrix NRPE**](../procedures/hardware-storage-emc-symmetrix-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
 - [**Hyper-V 2012 NRPE**](../procedures/virtualization-hyperv-2012-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
