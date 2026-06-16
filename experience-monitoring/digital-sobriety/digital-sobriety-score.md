@@ -5,7 +5,7 @@ title: Digital Sobriety Score calculations
 
 ## Digital Sobriety Score
 
-Every website has an environmental cost. Servers consume energy, networks transfer data, and devices process it — all of it adds up. The Digital Sobriety Score (DSS) is Centreon Experience Monitoring's way of measuring that impact and turning it into a single, actionable grade.
+Every website has an environmental cost. Servers consume energy, networks transfer data, and devices process it — all of it adds up. The Digital Sobriety Score (DSS) is Centreon way of measuring that impact and turning it into a single, actionable grade.
 
 You can find the DSS on the **Global View**.
 
@@ -56,14 +56,14 @@ In the **Global view** tab, you can select whether to use RUM or user journeys f
 
 There are two ways to get a DSS:
 
-| | Simple audit | Full audit |
-|---|---|---|
-| **Time to complete** | 3–5 minutes | Minimum 7 days |
-| **Coverage** | Average of the 10 most visited pages | 100% of pages, weighted by traffic |
-| **Setup required** | None | RUM tag (GDPR-compatible) or User Journey |
-| **Cost** | Free at quanta.green | Requires an Experience Monitoring license |
-| **Historical data** | Quarterly, stored for 3 months | Real-time, stored for multiple years |
-| **Certificate** | Yes | Yes |
+|                      | Simple audit                                      | Full audit                                |
+|----------------------|---------------------------------------------------|-------------------------------------------|
+| **Time to complete** | 3–5 minutes                                       | Minimum 7 days                            |
+| **Coverage**         | Average of the 10 most visited pages              | 100% of pages, weighted by traffic        |
+| **Setup required**   | None                                              | RUM tag (GDPR-compatible) or User Journey |
+| **Cost**             | Free at [quanta.green](https://www.quanta.green/) | Requires an Experience Monitoring license |
+| **Historical data**  | Quarterly, stored for 3 months                    | Real-time, stored for multiple years      |
+| **Certificate**      | Yes                                               | Yes                                       |
 
 The simple audit is a good starting point. The full audit is what you want for production sites — it gives a complete, continuously updated picture.
 

@@ -28,7 +28,7 @@ Improving your DSS is done by improving the individual steps of user journeys or
 You are now on the page of **Last recommendations** for the selected step, here you can see a timeline showing how much time it takes for each step to load.
 
 Below this is the **Diagnostic**, a list of recommendations to improve your score. They are separated in 3 groups according to their impact:
-- The most impactful ones are have a red triangle.
+- The most impactful ones have a red triangle.
 - Followed by those with a yellow square
 - The least impactful recommendations have a grey circle.
 
@@ -43,7 +43,7 @@ You can click on each individual recommendation to get more details on how to en
 You are now on the page of **Last recommendations** for the selected URL, here you can see a timeline showing how much time it takes for each step to load.
 
 Below this is the **Diagnostic**, a list of recommendations to improve your score. They are separated in 3 groups according to their impact:
-- The most impactful ones are have a red triangle.
+- The most impactful ones have a red triangle.
 - Followed by those with a yellow square
 - The least impactful recommendations have a grey circle.
 
@@ -55,8 +55,6 @@ You can click on each individual recommendation to get more details on how to en
 ## How do I know my changes made a difference?
 
 In the **Last recommendations** page, scroll to the bottom of the page and click the **Compare with** button. 
-
-![image](../assets/rum-comparison.png)
 
 The latest recommendation audit is selected by default. Select an earlier audit to see the impact of your changes.
 Remember that the recommendations probe is executed once a day so your changes may not be visible until the next day.

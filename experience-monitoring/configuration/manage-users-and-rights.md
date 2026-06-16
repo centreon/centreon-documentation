@@ -42,6 +42,7 @@ Existing users are listed according to their role.
 Experience Monitoring distinguishes two types of permissions for invited users:
 
 - **Member**: Members can read information. They cannot change site or Experience Monitoring scenario configuration. They can only manage their own settings and subscriptions to alerts and reports, and add comments to charts.
-- **Administrator**: Administrators have the widest set of permissions. They can modify scenario settings, add/remove users to the organization, enable/disable reports and alerts, add users to reports and alerts, and more.
+- **Administrator**: Administrators have a wider set of permissions. They can modify scenario settings, add/remove users to the organization, enable/disable reports and alerts, add users to reports and alerts, and more.
+- **Owners**: owners are the people responsible for an organization. They have the right to modify anything on an organization and manage administrators.
 
 Permissions are shared across all sites within the same organization.

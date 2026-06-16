@@ -6,7 +6,7 @@ title: Digital Sobriety concepts
 Although websites are immaterial, they rely on physical infrastructure: servers, networks, and end-user devices that all consume energy. 
 Measuring the environmental footprint of digital activity is an evolving challenge, no single approach has yet become the definitive standard.
 
-Experience Monitoring has its own approach called the Digital Sobriety Score based on the five principles of the [GHG Protocol](https://ghgprotocol.org/): Relevance, Completeness, Consistency, Transparency, and Accuracy.This score reflects how environmentally efficient your website is.
+Experience Monitoring has its own approach called the Digital Sobriety Score based on the five principles of the [GHG Protocol](https://ghgprotocol.org/): Relevance, Completeness, Consistency, Transparency, and Accuracy. This score reflects how environmentally efficient your website is.
 
 The score runs from 0 to 100 and is translated into a letter grade from A (most efficient) to E (least efficient). 
 It combines two underlying metrics: the Carbon Footprint Per Click (CFPC), which captures the environmental cost of individual user interactions, and the Eco-Design Score (EDS), which evaluates how efficiently your pages are built.

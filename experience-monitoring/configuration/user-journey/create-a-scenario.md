@@ -5,7 +5,7 @@ title: Creating a User Journey
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Note that if the site you wish to monitor is internal to your organization, you will need to create an [STM zone](stm-zones.md) in addition to the user journey and install [the profiler](../../installation/servers/install-php-magento-orocommerce-profiler.md).
+> Note that if the site you wish to monitor is internal to your organization, you will need to create an [STM zone](stm-zones.md) in addition to the user journey.
 
 > This page mentions [CSS selectors](../../experience-monitoring-glossary.md) frequently. We recommend reading on this topic before proceeding.
 
@@ -32,11 +32,11 @@ To the right of the name you can choose to:
 - Enable or disable PHP profiling for this journey if you have the Experience Monitoring system agent and PHP module installed on your servers. Not sure if this applies to you? Check the [Experience Monitoring installation checklist](../../installation/installation-checklist.md).
 - Enable or disable the SSL check. The probe will fail the journey if your site presents an invalid or expired SSL certificate. Disable this only if you intentionally run the journey on a non-secure environment.
 
-### Synthetic Monitoring Zones
+#### Synthetic Monitoring Zones
 
 If you previously configured [STM Zones](stm-zones.md), you will have the option to select a private zone here. Your public site is selected by default.
 
-### Daily recommendations audits
+#### Daily recommendations audits
 
 In addition to the User Journey probe, a recommendations probe is run once a day to give you personalized advice on how to optimize your site. 
 The **Operating mode** options allow you to disable this probe, have it only check your first step or check all steps. 
@@ -45,15 +45,15 @@ You can also change the language of the recommendations.
 </TabItem>
 <TabItem value="HTTP Requests" label="HTTP Requests">
 
-### HTTP Basic authentication
+#### HTTP Basic authentication
 
 If your site (or a staging environment) is protected by HTTP Basic authentication (sometimes called `.htaccess` protection), enter the credentials here. Leave the fields empty if no protection of this type is used.
 
-### Cookies
+#### Cookies
 
 Add custom cookies to store data or sessions at journey start.
 
-### HTTP Headers
+#### HTTP Headers
 
 You can add custom HTTP headers.
 
@@ -70,12 +70,12 @@ This simulates a returning user. Disable this to simulate a first-time visitor w
 
 Determine on which Chromium version the probe will run.
 
-### User Agent
+#### User Agent
 
 The User Agent is an HTTP Header string that every browser sends to the page it is viewing. It informs the page what browser and what type of device you are using to access it.
 You can input a custom string to simulate a specific browser.
 
-### Device options
+#### Device options
 
 Here you can determine the screen size that the probe will pretend to work with and its orientation if you selected the screen size of a phone or tablet.
 
@@ -130,7 +130,7 @@ The following domains are blocked by default:
 </TabItem>
 </Tabs>
 
-## Step or Actions configuration
+## Step or Action configuration
 
 User journeys are composed of steps and actions. 
 Steps represent a page while actions are anything a user can do within the same page (clicking on something, opening the search bar, etc.). 
@@ -139,7 +139,7 @@ A step can contain multiple actions.
 > Each license has a limited number of steps available for use amongst all user journeys. These steps are shared amongst all sites of your organization.
 > To see how many steps you have available, go to the **Licenses & Sites** tab in the **Organization** page.
 
-Because a navigation actions are always the only or the last action of a step, and a step to navigate to our site's homepage is already configured, you must now create a new step. 
+Because navigation actions are always the only or the last action of a step, and a step to navigate to your site's homepage is already configured, you must now create a new step. 
 To do so, click on the + icon below the first step.
 
 ![image](../../assets/configuration/user-journey/user-journey-add-step.png)
@@ -265,7 +265,7 @@ Adding an expectation to the step "adding an item to the cart" (i.e. look for te
 
 The probe will check that a new HTML document was loaded correctly, meaning:
 
-- The HTML document fully loaded
+- The HTML document loaded fully
 - The response status code is 200
 
 No content verification is performed.
@@ -273,7 +273,7 @@ No content verification is performed.
 #### Find text
 
 > We recommend using CSS selectors because they are less sensitive to site changes.
-If you don't know how to create CSS selectors, contact your agency or Experience Monitoring support (support@centreon.com or the question mark at the bottom-right in Experience Monitoring) so we can help configure your journey.
+If you don't know how to create CSS selectors, contact your agency or ask for help on our [community platform](https://thewatch.centreon.com/) for help configuring your user journey.
 
 This verification uses the same logic as the Click and Hover actions. If the text you search for exists on the page after the action, the verification passes.
 

@@ -5,7 +5,7 @@ title: Journey overview
 
 By clicking **User Journey** from the main menu, you will be taken to a page regrouping all the scenarios that have been created for your site.
 
-This page is gives a brief summary of the performance of each scenario. 
+This page gives a brief summary of the performance of each scenario. 
 
 ![image](../assets/configuration/user-journey/journey-widget.png)
 
