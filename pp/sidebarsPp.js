@@ -586,6 +586,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-rubrik-graphql'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-rudder-restapi'
         },
         {
@@ -1986,6 +1990,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-sensors-messpc-ethernetbox-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-microsens-g6-snmp'
         },
         {
@@ -2211,6 +2219,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-watchguard-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-westermo-standard-snmp'
         },
         {
           type: 'doc',

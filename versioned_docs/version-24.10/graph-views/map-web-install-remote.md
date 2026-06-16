@@ -23,14 +23,6 @@ The diagram below summarizes the MAP architecture:
 
 ![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
 
-## Image synchronization
-
-Add access to the image synchronization page **Administration  >  Parameters  >  Images**
-```shell
-[root@remote ~]# mysql centreon
-MariaDB [centreon]> update topology SET topology_show='1' where topology_name='Images' ;
-```
-
 ## Centreon Broker configuration
 
 In order to display real time statuses, **Centreon MAP** needs to receive this data from the Centreon remote server's Broker.
@@ -45,6 +37,10 @@ In the **Output** tab, create a new output with the following parameters:
 
 To complete the installation process, generate and deploy the Centreon remote
 server configuration by selecting **Restart**.
+
+## Image management
+
+If you want to use custom images, you can add them to the `centreon-map` directory from the web interface (see more information about [medias](../administration/parameters/medias.md)).
 
 ## Uninstalling Centreon MAP
 
