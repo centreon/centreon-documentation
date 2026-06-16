@@ -10,7 +10,9 @@ Actions are contained within [steps](#step). A step can contain multiple actions
 
 ## CSS Selector
 
-CSS Selectors are less sensitive to site changes. If you don't know how to create CSS selectors, contact your agency or Experience Monitoring support from [The Guard portal](https://support.centreon.com) to create your ticket or the question mark at the bottom-left in Experience Monitoring so we can help configure your journey.
+A pattern used in a website's stylesheet to identify which part of a page should be styled. 
+Just as you might highlight specific words in a document before changing their font, a CSS selector picks out specific elements so visual rules can be applied to them precisely.
+CSS Selectors are less sensitive to site changes so they are a reliable element to select for [User Journeys](./configuration/user-journey/user-journey-intro.md). If you don't know how to create CSS selectors, you can join our [community platform](https://thewatch.centreon.com/) to ask for help configuring your user journey.
 
 ## Digital Sobriety Score
 

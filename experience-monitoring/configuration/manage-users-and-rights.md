@@ -21,7 +21,7 @@ Users will be required to change their password after the number of days you set
 
 ## Managing users within your organization
 
-> If nobody in your organization is an Administrator or Owner, contact the Centreon support or your reseller to manage your organization.
+> If nobody in your organization is an Administrator or Owner, contact the [Centreon support](http://support.centreon.com/) or your reseller to manage your organization.
 
 ### Managing users
 
@@ -35,7 +35,7 @@ Existing users are listed according to their role.
 - To change an existing user's permissions, drag & drop them into the column corresponding to the role you want to assign.
 - To remove a user's permissions, click the cross next to their name.
 
-> If you want to remove a user's access from multiple organizations, you must do it for each organization separately. If you have access to many organizations, contact Experience Monitoring support for assistance.
+> If you want to remove a user's access from multiple organizations, you must do it for each organization separately. If you have access to many organizations, contact the [Centreon support](http://support.centreon.com/) for assistance.
 
 ### Managing permissions
 

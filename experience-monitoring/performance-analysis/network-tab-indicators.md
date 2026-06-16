@@ -3,7 +3,7 @@ id: network-tab-indicators
 title: Understanding the Network Data indicators
 --- 
 
-The Network data feature allows you set up a regular ping on your site to measure the response time. The ping's results over time can be seen on a timeline graph by clicking on **Network Data** from the main menu.
+The Network data feature allows you to set up a regular ping on your site to measure the response time. The ping's results over time can be seen on a timeline graph by clicking on **Network Data** from the main menu.
 
 ## What is a ping?
 
@@ -24,7 +24,7 @@ Both are network tests. The difference is the protocol and how each one communic
 
 ### What do the grey and red zones mean?
 
-Grey means no data is available for this section. It appears for the time before the Network Data feature was enabled and when for times where pings were not performed.
+Grey means no data is available for this section. It appears for the time before the Network Data feature was enabled and for times where pings were not performed.
 
 Red means your site was unreachable due to a network problem. The probe sent the ping but never got a response. Ping response time depends on both bandwidth and the route between the Experience Monitoring probe and your hosting location. Isolated, small red bars are not a cause for concern as downtimes can happen for a variety of reasons.
 

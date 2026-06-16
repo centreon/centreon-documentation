@@ -7,11 +7,11 @@ Alerts are available **by email with all licenses**.
 
 Some licenses allow receiving alerts **by SMS, Slack, or webhooks** (Microsoft Teams, Google Chat, Mattermost...). To subscribe to this option, contact your sales representative or support:
 
-[Contact Experience Monitoring support](../getting-started/contact-support.md)
+[Contact Experience Monitoring support](http://support.centreon.com/)
 
 ## Configure communication channels
 
-Notifications are **personal**. For a user to receive emails, SMS, or Slack messages, simply configure the information on their profile page.
+Notifications are personal. For a user to receive emails, SMS, or Slack messages, simply configure the information on their profile page.
 
 ![Profile page](../assets/configuration/receive-and-configure-alerts-1.png)
 

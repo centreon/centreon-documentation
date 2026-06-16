@@ -29,4 +29,4 @@ It is also possible you don't yet have an account. In that case, an administrato
 
 If you are still experiencing difficulties after trying the steps above, please contact our support team directly:
 
-[Contact Experience Monitoring support](../getting-started/contact-support.md)
+Contact [Centreon support](http://support.centreon.com/)

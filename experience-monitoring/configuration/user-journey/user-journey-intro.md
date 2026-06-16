@@ -8,8 +8,6 @@ The probe then sends the data to Experience Monitoring for you to review.
 
 User journeys, along with [Real User Monitoring](../../getting-started/real-user-monitoring.md), are one of the key features of Experience Monitoring as other features like the [Digital Sobriety Score](../../digital-sobriety/digital-sobriety-concepts.md) or [Load Tests](../../getting-started/load-tests.md) depend on the path set by User Journeys to function.
 
-Note that you may need to whitelist [Experience Monitoring's IP addresses](../../installation/experience-monitoring-ip-addresses.md) for the probes to function.
-
 You can configure multiple User Journeys to imitate a variety of different users and we recommend you do so to get a better view of the overall experience of navigating your site.
 In addition to the pages visited, you can further detail if the probe should act as if navigating from a computer or a phone, what browser to use and other specificities.
 This way you can better identify which type of user may be facing issues.

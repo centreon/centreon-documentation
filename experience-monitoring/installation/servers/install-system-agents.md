@@ -180,7 +180,7 @@ We do not provide packages for other OSs, but [the source code is publicly avail
 
 **I don't see data coming in, where can I find information to troubleshoot?**
 
-The agent uses syslog for logging; you will generally find logs in **/var/log/daemon.log** or **/var/log/syslog**. If you can't find the source of the error, please contact us.
+The agent uses syslog for logging; you will generally find logs in **/var/log/daemon.log** or **/var/log/syslog**. If you can't find the source of the error, please contact [Centreon support](http://support.centreon.com/).
 
 You can send logs to another file by changing the **file** variable under the **logger** section in **/etc/quanta/agent.yml** (make sure to set up log rotation).
 

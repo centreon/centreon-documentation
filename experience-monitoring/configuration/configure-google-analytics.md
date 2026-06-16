@@ -33,4 +33,4 @@ Google Analytics data can take several hours to appear. Because we retrieve data
 
 ### I accidentally disabled the Google Analytics module in Experience Monitoring. Can I recover history?
 
-No problem — we always import the last 24 hours of data. Wait a little and the data should appear. If you need to recover more than 24 hours of historical data, contact our support team.
+No problem — we always import the last 24 hours of data. Wait a little and the data should appear. If you need to recover more than 24 hours of historical data, contact [Centreon support](http://support.centreon.com/).

@@ -3,8 +3,6 @@ id: errors-and-unavailability-front-end
 title: Understanding errors & unavailability
 --- 
 
-> The HAR for all steps can be found under the incident screenshot to help your developers understand where the incident originated.
-
 ## Troubleshooting user journey incidents
 
 When a probe detects a failure during a user journey run, Experience Monitoring records an incident.
@@ -24,11 +22,13 @@ A window will open showing the page the probe encountered during the failure.
 
 ![image](../assets/configuration/user-journey/failed-step.png)
 
-It is possible to have more steps incorrect steps but, because the probe stop at the first issue encountered, these will not be shown until the previous failing steps are fixed.
+It is possible to have more incorrect steps but, because the probe stops at the first issue encountered, these will not be shown until the previous failing steps are fixed.
 
 It is possible to have an error and no screenshot.
 The probe cannot capture a screenshot when the server returns no content at all.
 This most commonly occurs during a step timed out error, where there is simply nothing to capture.
+
+Additionally, the HAR for all steps can be found under the incident screenshot to help your developers understand where the incident originated.
 
 ## Error reference
 
@@ -74,7 +74,7 @@ Possible causes and fixes:
 ### Invalid return code
 
 Every web page returns a status code when it loads.
-The expected code is 200 (success). This error means the probe received a different code, such as:
+The expected code is 200 (success). This error means the probe received a different code, such as but not limited to:
 
 - `404` — page not found
 - `503` — service unavailable

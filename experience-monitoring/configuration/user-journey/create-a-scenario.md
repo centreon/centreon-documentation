@@ -13,6 +13,45 @@ Only users with the **Owner** or **Administrator** role can create or edit user 
 
 User journeys allows you to configure a probe to regularly navigate your site following a pre-established path. This page explains how to configure both the journey as a whole and its individual steps.
 
+For this module to work properly, you may need to whitelist the following IP addresses used by Experience Monitoring:
+
+<details>
+  <summary>IP addresses</summary>
+
+- 18.200.8.204
+- 34.241.126.134
+- 34.242.201.38
+- 34.243.127.23
+- 34.248.113.181
+- 34.250.75.1
+- 34.252.162.102
+- 34.255.79.251
+- 52.17.157.120
+- 52.18.157.52
+- 52.19.60.226
+- 52.30.194.126
+- 52.31.137.223
+- 52.48.148.3
+- 52.48.151.164
+- 52.50.31.122
+- 52.51.174.216
+- 52.208.14.10
+- 52.209.27.6
+- 52.210.233.251
+- 52.212.161.58
+- 52.214.41.253
+- 54.78.224.201
+- 54.154.70.169
+- 54.170.78.117
+- 54.170.157.253
+- 63.34.122.21
+- 63.34.67.195
+- 99.81.201.50
+- 176.34.232.22
+- 185.48.122.159
+
+</details>
+
 To create a User Journey, go to the **Settings** page and click on the **User Journeys** tab. Then, click on **Create a User Journey**. A journey is added with a first step named "Home" to navigate to your site's homepage automatically configured.
 
 ## User Journey configuration
@@ -273,7 +312,7 @@ No content verification is performed.
 #### Find text
 
 > We recommend using CSS selectors because they are less sensitive to site changes.
-If you don't know how to create CSS selectors, contact your agency or ask for help on our [community platform](https://thewatch.centreon.com/) for help configuring your user journey.
+If you don't know how to create CSS selectors, you can join our [community platform](https://thewatch.centreon.com/) to ask for help configuring your user journey.
 
 This verification uses the same logic as the Click and Hover actions. If the text you search for exists on the page after the action, the verification passes.
 

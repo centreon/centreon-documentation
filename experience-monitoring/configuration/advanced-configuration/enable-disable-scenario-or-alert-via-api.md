@@ -3,8 +3,6 @@ id: enable-disable-scenario-or-alert-via-api
 title: Automate enabling/disabling a scenario or an alert via API
 --- 
 
-## Preamble
-
 In some situations it can be useful to modify Experience Monitoring's configuration automatically. Use cases are many, but the most common are:
 
 - disabling or re-enabling a journey (for example disabling it during a site maintenance window so the maintenance period is excluded from downtime statistics)
