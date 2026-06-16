@@ -331,10 +331,18 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_generic_snmp.pl \
     --plugin=apps::protocols::snmp::plugin \
-	--mode=uptime \
-    --hostname=10.0.0.1 \
-    --snmp-community='my-snmp-community' \
+	--mode=response-time \
+	--hostname=10.0.0.1 \
+	--snmp-community='my-snmp-community' \
 	--snmp-version=2c  \
+	--warning-rta='' \
+	--critical-rta='' \
+	--warning-rtmax='' \
+	--critical-rtmax='' \
+	--warning-rtmin='' \
+	--critical-rtmin='' \
+	--warning-pl='' \
+	--critical-pl='' 
 ```
 
 The expected command output is shown below:
