@@ -11,6 +11,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 1. Accédez à **Configuration > Pollers > Configurations d'agent**, puis cliquez sur **Commande**.
 2. Dans la fenêtre qui s'affiche, renseignez les informations correspondant à votre environnement (poller qui supervisera vos hôtes, type de système d'exploitation de vos hôtes).
 3. Copiez la commande affichée dans la fenêtre, puis exécutez-la sur chaque hôte que vous souhaitez superviser avec l'agent.
+   L'agent CMA est déployé, et la connexion entre CMA et le collecteur est établie via TLS.
 
 <!-- ## Que se passe-t-il lorsque vous exécutez la commande ?
 
