@@ -88,7 +88,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Fixed missing issues releated with token in commands and removed undefined ARRAY value if no jobs have been sent in **jobs** mode.
+- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Fixed issues releated with token in commands and removed undefined ARRAY value if no jobs have been sent in **jobs** mode.
 - [**Fritz!Box UPnP**](../procedures/network-fritzbox-upnp.md) - Fixed **system** mode status thresholds.
 - [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Fixed handling of `--insecure` option.
 - [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed daemon CVEs related to Log4j.
