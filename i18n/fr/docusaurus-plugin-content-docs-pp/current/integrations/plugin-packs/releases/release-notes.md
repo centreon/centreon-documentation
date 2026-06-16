@@ -88,12 +88,12 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Fixed issues releated with token in commands and removed undefined ARRAY value if no jobs have been sent in **jobs** mode.
+- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Fixed issues related to tokens in commands and removed undefined ARRAY value if no jobs have been sent in **jobs** mode.
 - [**Fritz!Box UPnP**](../procedures/network-fritzbox-upnp.md) - Fixed **system** mode status thresholds.
 - [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Fixed handling of `--insecure` option.
 - [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed daemon CVEs related to Log4j.
-- [**Phoenixtec UPS SNMP**](../procedures/hardware-ups-phoenixtec-snmp.md) - Removed thresholds for not existing counters in --help section.
-- [**Powerware UPS SNMP**](../procedures/hardware-ups-powerware-snmp.md) - Fixed the output when des not detect the absence of an input line in **input-lines** mode.
+- [**Phoenixtec UPS SNMP**](../procedures/hardware-ups-phoenixtec-snmp.md) - Removed thresholds for non-existent counters in --help section.
+- [**Powerware UPS SNMP**](../procedures/hardware-ups-powerware-snmp.md) - Fixed the output when the plugin does not detect the absence of an input line in **input-lines** mode.
 - [**Veritas Backup Exec NSCP API**](../procedures/applications-backupexec-nscp-restapi.md) - Fixed discovery macro command.
 
 </TabItem>
