@@ -14,15 +14,15 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Windows SNMP](./operatingsystems-windows-snmp.md)
 * [Mac SNMP](./operatingsystems-mac-snmp.md)
 * [FreeBSD SNMP](./operatingsystems-freebsd-snmp.md)
-* [HP-UX](./operatingsystems-hpux-snmp.md)
+* [HP-UX SNMP](./operatingsystems-hpux-snmp.md)
 * [Cisco Standard SNMP](./network-cisco-standard-snmp.md)
-* [HP Standard Network](./network-hp-standard-snmp.md)
+* [HP Standard Network SNMP](./network-hp-standard-snmp.md)
 * [Palo Alto firewall SNMP](./network-firewalls-paloalto-standard-snmp.md)
 * [HP Procurve SNMP](./network-switchs-hp-procurve-snmp.md)
-* [Mrv Optiswitch](./network-switchs-mrv-optiswitch-snmp.md)
-* [RedBack Router](./network-routers-redback-snmp.md)
-* [Silverpeak](./network-silverpeak-snmp.md)
-* [Stonesoft](./network-firewalls-stonesoft.md)
+* [Mrv Optiswitch SNMP](./network-switchs-mrv-optiswitch-snmp.md)
+* [RedBack Router SNMP](./network-routers-redback-snmp.md)
+* [Silverpeak SNMP](./network-silverpeak-snmp.md)
+* [Stonesoft SNMP](./network-firewalls-stonesoft.md)
 
 ## Contenu du pack
 
@@ -39,12 +39,12 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Protocol-SNMP-custom" label="App-Protocol-SNMP-custom">
 
-Ce modèle d'hôte n'apporte pas de modèle de service.
+Ce modèle d'hôte n'a pas de modèle de service associé.
 
 </TabItem>
 <TabItem value="App-Protocol-SNMP-Only-custom" label="App-Protocol-SNMP-Only-custom">
 
-Ce modèle d'hôte n'apporte pas de modèle de service mais utilise une commande de vérification d'hôte qui se base sur l'uptime de l'hôte récupéré par le protocole SNMP, ce qui rend cette vérification fonctionnelle, même lorsque le protocole ICMP est bloqué.
+Ce modèle d'hôte n'a pas de modèle de service associé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -65,11 +65,12 @@ Ce modèle d'hôte n'apporte pas de modèle de service mais utilise une commande
 
 #### Découverte d'hôtes
 
-| Nom de la règle              | Description                                                                    |
-|:-----------------------------|:-------------------------------------------------------------------------------|
-| SNMP Agents                  | Découvre les hôtes en interrogeant leur agent SNMP                             |
-| SNMP v3 Agents               | Découvre les hôtes en interrogeant leur agent SNMP en utilisant SNMP version 3 |
-| SNMP IP Addresses (RFC 4293) | Découvre les adresses IP en interrogeant un agent SNMP (RFC 4293)              |
+| Nom de la règle              | Description                                                  |
+|:-----------------------------|:-------------------------------------------------------------|
+| SNMP Agents                  | Discover hosts by requesting their SNMP agents               |
+| SNMP v3 Agents (deprecated)  | Discover hosts by requesting their SNMP agents using SNMP v3 |
+| SNMP v3 Agents enhanced      | Discover SNMP v3 hosts and fill dedicated macros to store their v3 credentials |
+| SNMP IP Addresses (RFC 4293) | Discover IP addresses by requesting a SNMP agent (RFC 4293)  |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -94,7 +95,7 @@ Pour ce mode spécifique, les noms des métriques dépendront de la configuratio
 </TabItem>
 <TabItem value="String-Value" label="String-Value">
 
-Aucune métrique
+Pour ce mode spécifique, les noms des métriques dépendront de la configuration effectuée par l'utilisateur.
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
@@ -233,9 +234,6 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **App-Protocol-SNMP-custom**.
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
-
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -269,18 +267,21 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 <Tabs groupId="sync">
 <TabItem value="Numeric-Value" label="Numeric-Value">
 
-| Macro        | Description                                                                                         | Valeur par défaut   | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| FORMAT       | Output format (Default: 'current value is %s')                                                      | current value is %s |             |
-| OID          | OID value to check (numeric format only)                                                            |                     |             |
-| WARNING      | Warning threshold                                                                                   |                     |             |
-| CRITICAL     | Critical threshold                                                                                  |                     |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                     |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut                | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
+| FORMATOK       | Threshold                                                                                                                                        | %\{filter\_rows\} value(s)       |             |
+| FORMATUNKNOWN  | Threshold                                                                                                                                        | value(s): %\{details\_unknown\}  |             |
+| OID            | OID value to check (numeric format only)                                                                                                         |                                  |             |
+| WARNING        | Return Warning if an oid value match the regexp                                                                                                  |                                  |             |
+| CRITICAL       | Return Critical if an oid value match the regexp                                                                                                 |                                  |             |
+| FORMATWARNING  | Threshold                                                                                                                                        | value(s): %\{details\_warning\}  |             |
+| FORMATCRITICAL | Threshold                                                                                                                                        | value(s): %\{details\_critical\} |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                  |             |
 
 </TabItem>
 <TabItem value="String-Value" label="String-Value">
 
-| Macro          | Description                                                                                                                                                                                                                                                                                                                                                                                | Valeur par défaut              | Obligatoire |
+| Macro          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
 | FORMATOK       | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | %\{filter_rows\} value(s)       |             |
 | FORMATUNKNOWN  | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_unknown\}  |             |
@@ -292,7 +293,6 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                                                                                                                                                                        |                                |             |
 
 </TabItem>
-
 <TabItem value="Response-Time" label="Response-Time">
 
 | Macro          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
@@ -333,13 +333,23 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 /usr/lib/centreon/plugins/centreon_generic_snmp.pl \
 	--plugin=apps::protocols::snmp::plugin \
 	--mode=response-time \
-	--help
+	--hostname=10.0.0.1 \
+	--snmp-community='my-snmp-community' \
+	--snmp-version=2c  \
+	--warning-rta='' \
+	--critical-rta='' \
+	--warning-rtmax='' \
+	--critical-rtmax='' \
+	--warning-rtmin='' \
+	--critical-rtmin='' \
+	--warning-pl='' \
+	--critical-pl='' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: System uptime is: 3m 25s | 'uptime'=205s;;;0;
+OK: rta 91340ms   lost 39097% | 'roundtrip.time.average.milliseconds'=91340ms;;;0; 'roundtrip.time.maximum.milliseconds'=85208ms;;;0; 'roundtrip.time.minimum.milliseconds'=23638ms;;;0; 'packets.loss.percentage'=39097%;;;0;100 
 ```
 
 ### Diagnostic des erreurs communes
@@ -546,6 +556,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins/centreon_generic_snmp.pl \
 	--plugin=apps::protocols::snmp::plugin \
-	--mode=numeric-value \
+	--mode=response-time \
 	--help
 ```
