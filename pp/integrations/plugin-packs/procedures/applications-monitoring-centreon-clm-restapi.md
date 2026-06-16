@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                                | Service Description                          |
 |:--------------|:----------------------------------------------------------------|:---------------------------------------------|
-| Alert-Events  | App-Monitoring-Centreon-CLM-Alert-Events-Generic-Restapi-custom | Counts the number of alert events per status |
+| Alert-Events  | App-Monitoring-Centreon-CLM-Alert-Events-Generic-Restapi-custom | Counts the total number of current alert events, then breaks down the total by event status |
 
 > The services listed above are created automatically when the **App-Monitoring-Centreon-CLM-Restapi-custom** host template is used.
 
@@ -35,7 +35,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                             | Service Description                                                                |
 |:--------------|:-------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| Log-Count     | App-Monitoring-Centreon-CLM-Log-Count-Generic-Restapi-custom | Counts the number of logs corresponding to the query ingested during the last hour |
+| Log-Count     | App-Monitoring-Centreon-CLM-Log-Count-Generic-Restapi-custom | Counts the number of logs ingested during the last hour matching a query  |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -70,7 +70,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Only an API token and your organization name are needed to use the plugin.
+To use this plugin, generate a token in Centreon Log Management on the **Administration > Token Management** page.
 
 ## Installing the monitoring connector
 

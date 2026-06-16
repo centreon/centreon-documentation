@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                                               | Description                                        |
 |:-------------|:----------------------------------------------------------------|:---------------------------------------------------|
-| Alert-Events | App-Monitoring-Centreon-CLM-Alert-Events-Generic-Restapi-custom | Compte le nombre d'évènements d'alertes par statut |
+| Alert-Events | App-Monitoring-Centreon-CLM-Alert-Events-Generic-Restapi-custom | Compte le nombre total d'évènements d'alerte courants, puis détaille le total des évènements ayant chaque statut |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Centreon-CLM-Restapi-custom** est utilisé.
 
@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias     | Modèle de service                                            | Description                                                                               |
 |:----------|:-------------------------------------------------------------|:------------------------------------------------------------------------------------------|
-| Log-Count | App-Monitoring-Centreon-CLM-Log-Count-Generic-Restapi-custom | Compte le nombre de logs correspondant à la requête ingérés au cours de la dernière heure |
+| Log-Count | App-Monitoring-Centreon-CLM-Log-Count-Generic-Restapi-custom | Compte le nombre de logs correspondant à une requête ingérés au cours de la dernière heure |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -71,7 +71,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Seul un token d'API est requis pour permettre l'utilisation du plugin.
+Pour pouvoir utiliser ce plugin, générez un jeton dans Centreon Log Management, à la page **Administration > Token management**.
 
 ## Installer le connecteur de supervision
 
@@ -175,7 +175,7 @@ apt install centreon-plugin-applications-monitoring-centreon-logmanagement-resta
 
 | Macro                    | Description                                                                                                                                                                                                                                                      | Valeur par défaut              | Obligatoire |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| ACCEPTED_STATUSES        | Parameter for the API request. Must be a comma separated array of valid statuses. Valid statuses are: `'unknown', 'ok', 'warn', 'error', 'critical'` Example: `--accepted-statuses='error,critical'`. Default: `'unknown,ok,warn,error,critical'` (all statuses) | unknown,ok,warn,error,critical |             |
+| ACCEPTED_STATUSES        | Parameter for the API request. Must be a comma-separated array of valid statuses. Valid statuses are: `'unknown', 'ok', 'warn', 'error', 'critical'` Example: `--accepted-statuses='error,critical'`. Default: `'unknown,ok,warn,error,critical'` (all statuses) | unknown,ok,warn,error,critical |             |
 | INCLUDE_NAME             | Filter by including only the alerts whose name matches the regular expression provided after this parameter                                                                                                                                                      |                                |             |
 | EXCLUDE_NAME             | Filter by excluding only the alerts whose name matches the regular expression provided after this parameter                                                                                                                                                      |                                |             |
 | INCLUDE_MESSAGE          | Filter by including only the alerts whose message matches the regular expression provided after this parameter                                                                                                                                                   |                                |             |
