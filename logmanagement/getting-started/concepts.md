@@ -83,7 +83,7 @@ Here is an example of a raw log entry sent by the Windows Event Viewer, collecte
   * **k8s.container.name** – Kubernetes container name
   * **deployment.environment** – environment like prod or staging.
 
-In Log Management, you can filter your data by using these attributes in [queries](../query-syntax.md), in [**Log explorer**](../explore-analyze.md#using-the-log-explorer-page) or [dashboards](../dashboards.md).
+In Log Management, you can filter your data by using these attributes in [queries](../query-syntax.md), in [**Log explorer**](../log-explorer.md) or [dashboards](../dashboards.md).
 
 ## Which OpenTelemetry attribute determines the date and time of logs?
 

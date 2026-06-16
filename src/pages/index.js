@@ -80,10 +80,6 @@ const cards = [
     href: "logmanagement/getting-started/welcome/",
     links: [
       {
-        label: "Signing up for the BETA program",
-        href: "logmanagement/getting-started/beta/",
-      },
-      {
         label: "Log Management basics",
         href: "logmanagement/getting-started/concepts/",
       },
@@ -96,7 +92,6 @@ const cards = [
         href: "logmanagement/explore-analyze/",
       },
     ],
-    isBeta: true,
   },
 ];
 

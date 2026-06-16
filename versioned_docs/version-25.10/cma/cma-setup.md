@@ -270,7 +270,6 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 2. Import the repository key:
@@ -295,7 +294,6 @@ apt install centreon-monitoring-agent
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/ubuntu-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
-echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 2. Import the repository key:
@@ -445,28 +443,28 @@ centreon-monitoring-agent.exe /VERYSILENT /HELP
 
 Available parameters are : 
 
-| flag                       | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | mandatory
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | 
-|/COMPONENTS| Components to install. "agent", "plugins" or "agent,plugins"  |X |
-|/AGENTINSTANCE| Agent instance name (service name). If omitted, the installer auto-generates a name (e.g., CentreonMonitoringAgent) |  |
-|/HOST                 | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                          | X |
-|/ENDPOINT                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode (/REVERSE=true), it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) , you must choose the interface (all interfaces: 0.0.0.0) and the port (usually 4317) on which the agent will accept connections from the poller. 
-| X|
-|/TOKEN| Authentication token | X |
-|/PLUGINSRC| Source of installation for Centreon plugins. "auto": via the internet, "embedded": local version. Default: "auto" || 
-|/REVERSE| Connection initiated by the poller. "true" or "false". Default: "false"| |
-|/ENCRYPTION| Encryption mode. "no", "full", "insecure". Default: "no"|  |
-|/CERT| Path to the file containing the public key | if ENCRYPTION=full or insecure, and /REVERSE=true |
-|/KEY| Path to the file containing the private key | if ENCRYPTION=full or insecure, and /REVERSE=true |
-|/CA| Path to the file containing the trusted certificate |  |
-|/COMMONNAME| CA common name. If ENCRYPTION=insecure |  |
-|/LOGTYPE| "event-log" or "file". Default: "event-log"|  |
-|/LOGFILE| Path to the log file | if /LOGTYPE=file |
-|/LOGLEVEL| "off","critical","error","warning","info","debug","trace". Default: "error"| if /LOGTYPE=file |
-|/MAXFILESIZE| Maximum size of the log file before rotation, in MB. Default: 10. If /LOGTYPE=file | |
-|/MAXNUMBER| Maximum number of log files. Both of these parameters are required for log rotation to be enabled. Default: 3. If /LOGTYPE=file | |
-|/CUSTOMCHECKFILE| Path to custom commands file, if you have one. | |
-|/VERSION| Version of centagent.exe |  |                                                                                                                                                                                                                                                      
+| flag             | description                                                                                                                                                                                                                                                                                                                                                                                                                                 | mandatory                                         |
+|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------| 
+| /COMPONENTS      | Components to install. "agent", "plugins" or "agent,plugins"                                                                                                                                                                                                                                                                                                                                                                                | X                                                 |
+| /AGENTINSTANCE   | Agent instance name (service name). If omitted, the installer auto-generates a name (e.g., CentreonMonitoringAgent)                                                                                                                                                                                                                                                                                                                         |                                                   |
+| /HOST            | The name of the host as defined in the Centreon interface. This name will be the matching key used to retrieve data on the Centreon host.                                                                                                                                                                                                                                                                                                   | X                                                 |
+| /ENDPOINT        | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode (/REVERSE=true), it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) , you must choose the interface (all interfaces: 0.0.0.0) and the port (usually 4317) on which the agent will accept connections from the poller. |                                                   |
+| X                |                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                   |
+| /TOKEN           | Authentication token                                                                                                                                                                                                                                                                                                                                                                                                                        | X                                                 |
+| /PLUGINSRC       | Source of installation for Centreon plugins. "auto": via the internet, "embedded": local version. Default: "auto"                                                                                                                                                                                                                                                                                                                           |                                                   | 
+| /REVERSE         | Connection initiated by the poller. "true" or "false". Default: "false"                                                                                                                                                                                                                                                                                                                                                                     |                                                   |
+| /ENCRYPTION      | Encryption mode. "no", "full", "insecure". Default: "no"                                                                                                                                                                                                                                                                                                                                                                                    |                                                   |
+| /CERT            | Path to the file containing the public key                                                                                                                                                                                                                                                                                                                                                                                                  | if ENCRYPTION=full or insecure, and /REVERSE=true |
+| /KEY             | Path to the file containing the private key                                                                                                                                                                                                                                                                                                                                                                                                 | if ENCRYPTION=full or insecure, and /REVERSE=true |
+| /CA              | Path to the file containing the trusted certificate                                                                                                                                                                                                                                                                                                                                                                                         |                                                   |
+| /COMMONNAME      | CA common name. If ENCRYPTION=insecure                                                                                                                                                                                                                                                                                                                                                                                                      |                                                   |
+| /LOGTYPE         | "event-log" or "file". Default: "event-log"                                                                                                                                                                                                                                                                                                                                                                                                 |                                                   |
+| /LOGFILE         | Path to the log file                                                                                                                                                                                                                                                                                                                                                                                                                        | if /LOGTYPE=file                                  |
+| /LOGLEVEL        | "off","critical","error","warning","info","debug","trace". Default: "error"                                                                                                                                                                                                                                                                                                                                                                 | if /LOGTYPE=file                                  |
+| /MAXFILESIZE     | Maximum size of the log file before rotation, in MB. Default: 10. If /LOGTYPE=file                                                                                                                                                                                                                                                                                                                                                          |                                                   |
+| /MAXNUMBER       | Maximum number of log files. Both of these parameters are required for log rotation to be enabled. Default: 3. If /LOGTYPE=file                                                                                                                                                                                                                                                                                                             |                                                   |
+| /CUSTOMCHECKFILE | Path to custom commands file, if you have one.                                                                                                                                                                                                                                                                                                                                                                                              |                                                   |
+| /VERSION         | Version of centagent.exe                                                                                                                                                                                                                                                                                                                                                                                                                    |                                                   |                                                                                                                                                                                                                                                      
                                                                                          
 If **/PLUGINSRC=auto** and the download fails, the installer will automatically switch to **embedded** mode.
 
@@ -523,7 +521,7 @@ You can configure two kinds of log output:
 </TabItem>
 </Tabs>
 
-### Deploy the Centreon agent plugins on the host (Linux)
+### Deploy the Centreon plugin on the host (Linux)
 
 If you are using Centreon connectors and non-native controls on Linux:
 
@@ -665,8 +663,8 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```bash
-dnf install dnf-plugins-core
-dnf install epel-release
+dnf install -y dnf-plugins-core
+dnf install -y epel-release
 dnf config-manager --set-enabled crb
 
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
@@ -726,11 +724,33 @@ EOF
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
+> NB: on some minimal docker images, it may be necessary to install this package:
+> ```bash
+> dnf install procps-ng
+> ```
+
 </TabItem>
-<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt-get update
+```
+
+2. Install the plugin:
+
+```bash
+apt -y install centreon-plugin-operatingsystems-linux-local
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```bash
+apt update && apt install lsb-release ca-certificates apt-transport-https wget gnupg2 curl
 
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
@@ -762,6 +782,13 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 
 </TabItem>
 </Tabs>
+
+3. Create the directory needed for the plugins cache:
+
+```bash
+mkdir -p /var/lib/centreon/centplugins
+chown centreon-monitoring-agent: /var/lib/centreon/centplugins
+```
 
 ### Configuring multiple agent instances on the same host
 
@@ -944,6 +971,89 @@ This is also possible in silent mode:
 ```shell
 centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE "ServiceName"
 ```
+
+</TabItem>
+</Tabs>
+
+### Updating the agent
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+Update the agent using your package manager.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+</TabItem>
+</Tabs>
+
+Then restart the agent:
+
+```shell
+systemctl restart centagent
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+[Download the new CMA installer](https://download.centreon.com) (**Custom Platform** tab then **Monitoring Agent** tab).
+
+<Tabs groupId="sync">
+<TabItem value="Interactive mode" label="Interactive mode">
+
+> The installer must be launched with the "Run as administrator" option.
+
+1. Launch the installer. Since at least one CMA instance is already installed, the first screen offers two options:
+   * **Install**: updates the agent binaries only. The existing configuration is preserved.
+   * **Update**: allows you to update both the agent binaries and the configuration. Select the instance to update — the configuration fields are pre-filled with the current values and can be modified.
+2. Select **Update**, choose the instance to update, adjust the configuration if needed, and complete the wizard.
+
+</TabItem>
+<TabItem value="Silent mode" label="Silent mode (console)">
+
+Use the `/UPDATEONLY ` flag to update an existing instance. The `/AGENTINSTANCE` parameter specifies the instance to update:
+
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /AGENTINSTANCE="ServiceName"
+```
+
+This updates both the agent binaries and the configuration of the specified instance.
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
