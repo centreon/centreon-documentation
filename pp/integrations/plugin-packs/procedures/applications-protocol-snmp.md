@@ -87,7 +87,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Generic-Value" label="Generic-Value">
+<TabItem value="Numeric-Value" label="Numeric-Value">
 
 For this specific mode, the names of the metrics depend on the configuration made by the user.
 
@@ -273,7 +273,7 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Generic-Value" label="Generic-Value">
+<TabItem value="Numeric-Value" label="Numeric-Value">
 
 | Macro          | Description                                                                                                                                      | Default value                    | Mandatory |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:---------:|
@@ -298,7 +298,7 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 | CRITICAL       | Return Critical if an oid value match the regexp                                                                                                                                                                                                                                                                                                                                           |                                |             |
 | FORMATWARNING  | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_warning\}  |             |
 | FORMATCRITICAL | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_critical\} |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                                                                                                                        |        
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                                                                                                                        |                                        |             |
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
@@ -336,20 +336,10 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_generic_snmp.pl \
-	--plugin=apps::protocols::snmp::plugin \
-	--mode=response-time \
-	--hostname=10.0.0.1 \
-	--snmp-community='my-snmp-community' \
+	--mode=uptime \
+    --hostname=10.0.0.1 \
+    --snmp-community='my-snmp-community' \
 	--snmp-version=2c  \
-	--warning-rta='' \
-	--critical-rta='' \
-	--warning-rtmax='' \
-	--critical-rtmax='' \
-	--warning-rtmin='' \
-	--critical-rtmin='' \
-	--warning-pl='' \
-	--critical-pl='' 
 ```
 
 The expected command output is shown below:
