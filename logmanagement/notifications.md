@@ -60,7 +60,7 @@ Notifications can be sent when an [alert rule](alerts.md) triggers an [alert eve
       "elements": [
         {
           "type": "mrkdwn",
-          "text": "⚠️ *Type:* Volume de logs anormal"
+          "text": "⚠️ *Type:* Abnormal log volume"
         }
       ]
     },
@@ -71,7 +71,7 @@ Notifications can be sent when an [alert rule](alerts.md) triggers an [alert eve
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "Le volume de logs de type *ERROR* a dépassé le seuil critique."
+        "text": "The volume of *ERROR* logs has exceeded the critical threshold."
       }
     }
   ]
