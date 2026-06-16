@@ -1200,6 +1200,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-openshift-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-openstack-restapi'
         },
         {
