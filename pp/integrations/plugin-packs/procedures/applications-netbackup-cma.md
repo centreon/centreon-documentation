@@ -182,7 +182,7 @@ the **Configuration > Connectors > Monitoring Connectors** menu.
 
 | Macro          | Description                                                                                                                                      | Default value            | Mandatory |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------:|
-| TIMEOUT        | Timeout in seconds for the command. Default value can be override by the mode                                                                    | 120                      |           |
+| TIMEOUT        | Timeout in seconds for the command. Default value can be overridden by the mode                                                                    | 120                      |           |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}                     | not %\{status\} =~ /up/i |           |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}                      |                          |           |
 | WARNINGUSAGE   | Set warning threshold in percent                                                                                                                 |                          |           |

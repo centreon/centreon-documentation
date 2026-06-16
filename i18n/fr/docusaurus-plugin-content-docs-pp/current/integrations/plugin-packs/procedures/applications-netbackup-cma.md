@@ -30,8 +30,8 @@ Le connecteur apporte les modèles de service suivants
 |:---------------|:----------------------------------------|:----------------------------------------------------------------------|
 | Dedup-Status   | App-Netbackup-Dedup-Status-CMA-custom   | Contrôle permettant de vérifier l'état de la déduplication            |
 | Drive-Cleaning | App-Netbackup-Drive-Cleaning-CMA-custom | Contrôle permettant de vérifier si les lecteurs doivent être nettoyés |
-| Drive-Status   | App-Netbackup-Drive-Status-CMA-custom   | Contrôle permettant de vérifier l'état de des lecteurs                |
-| Job-Status     | App-Netbackup-Job-Status-CMA-custom     | Contrôle permettant de vérifier l'état de des jobs de sauvegarde      |
+| Drive-Status   | App-Netbackup-Drive-Status-CMA-custom   | Contrôle permettant de vérifier l'état des lecteurs                |
+| Job-Status     | App-Netbackup-Job-Status-CMA-custom     | Contrôle permettant de vérifier l'état des jobs de sauvegarde      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Netbackup-CMA-custom** est utilisé.
 
@@ -183,7 +183,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro          | Description                                                                                                                                      | Valeur par défaut        | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| TIMEOUT        | Timeout in seconds for the command. Default value can be override by the mode                                                                    | 120                      |             |
+| TIMEOUT        | Timeout in seconds for the command. Default value can be overridden by the mode                                                                    | 120                      |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}                     | not %\{status\} =~ /up/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}                      |                          |             |
 | WARNINGUSAGE   | Set warning threshold in percent                                                                                                                 |                          |             |
@@ -205,7 +205,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro          | Description                                                                                                                                      | Valeur par défaut        | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| TIMEOUT        | Timeout in seconds for the command. Default value can be override by the mode                                                                    | 120                      |             |
+| TIMEOUT        | Timeout in seconds for the command. Default value can be overridden by the mode                                                                    | 120                      |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}                     | not %\{status\} =~ /up/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}                      |                          |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                |             |
@@ -215,7 +215,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro            | Description                                                                                                                                                                         | Valeur par défaut                             | Obligatoire |
 |:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| TIMEOUT          | Timeout in seconds for the command. Default value can be override by the mode                                                                                                       | 120                                           |             |
+| TIMEOUT          | Timeout in seconds for the command. Default value can be overridden by the mode                                                                                                       | 120                                           |             |
 | FILTERPOLICYNAME | Filter job policy name (can be a regexp)                                                                                                                                            | .*                                            |             |
 | FILTERENDTIME    | Filter job with end time greater than current time less value in seconds                                                                                                            | 86400                                         |             |
 | OKSTATUS         | Define the conditions to match for the status to be OK You can use the following variables: %\{display\}, %\{status\}                                                               | %\{status\} == 0                              |             |
@@ -234,7 +234,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEOUT       | Timeout in seconds for the command. Default value can be override by the mode                                                                    | 120               |             |
+| TIMEOUT       | Timeout in seconds for the command. Default value can be overridden by the mode                                                                    | 120               |             |
 | FILTERSCRATCH | Filter tape scratch                                                                                                                              | scratch           |             |
 | UNITS         | Units of thresholds ('%', 'absolute')                                                                                                            | %                 |             |
 | WARNINGUSAGE  | Threshold                                                                                                                                        | 80                |             |
