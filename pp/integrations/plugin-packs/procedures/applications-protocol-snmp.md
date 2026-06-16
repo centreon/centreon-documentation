@@ -92,16 +92,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 For this specific mode, the names of the metrics depend on the configuration made by the user.
 
 </TabItem>
-<TabItem value="Response-Time" label="Response-Time">
+<TabItem value="String-Value" label="String-Value">
 
-| Name                                | Unit |
-|:------------------------------------|:-----|
-| roundtrip.time.average.milliseconds | ms   |
-| roundtrip.time.maximum.milliseconds | ms   |
-| roundtrip.time.minimum.milliseconds | ms   |
-| packets.loss.percentage             | %    |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+For this specific mode, the names of the metrics depend on the configuration made by the user.
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
@@ -294,19 +287,18 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |                                  |           |
 
 </TabItem>
-<TabItem value="Response-Time" label="Response-Time">
+<TabItem value="String-Value" label="String-Value">
 
-| Macro          | Description                                                                                                                                      | Default value | Mandatory |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNING_PL     | Packets lost threshold warning in %                                                                                                              |               |           |
-| CRITICAL_PL    | Packets lost threshold critical in %                                                                                                             |               |           |
-| WARNING_RTA    | Response time threshold warning in milliseconds                                                                                                  |               |           |
-| CRITICAL_RTA   | Response time threshold critical in milliseconds                                                                                                 |               |           |
-| CRITICAL_RTA   | Response time threshold critical in milliseconds                                                                                                 |                   |             |
-| WARNING_RTMAX  | Maximum response time threshold warning in milliseconds                                                                                          |                   |             |
-| CRITICAL_RTMAX | Maximum response time threshold critical in milliseconds                                                                                         |                   |             |
-| WARNING_RTMIN  | Minimum response time threshold warning in milliseconds                                                                                          |                   |             |
-| CRITICAL_RTMIN | Minimum response time threshold critical in milliseconds                                                                                         |                   |             || EXTRA_OPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+| Macro          | Description                                                                                                                                                                                                                                                                                                                                                                                | Default value                  | Mandatory   |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| FORMATOK       | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | %\{filter_rows\} value(s)       |             |
+| FORMATUNKNOWN  | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_unknown\}  |             |
+| OID            | OID value to check (numeric format only)                                                                                                                                                                                                                                                                                                                                                                                           |                                |             |
+| WARNING        | Return Warning if an oid value match the regexp                                                                                                                                                                                                                                                                                                                                            |                                |             |
+| CRITICAL       | Return Critical if an oid value match the regexp                                                                                                                                                                                                                                                                                                                                           |                                |             |
+| FORMATWARNING  | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_warning\}  |             |
+| FORMATCRITICAL | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_critical\} |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                                                                                                                        |        
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
