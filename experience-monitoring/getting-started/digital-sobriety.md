@@ -8,3 +8,5 @@ Digital sobriety refers to a site's environmental impact using metrics collected
 ![image](../assets/digital-sobriety/digital-sobriety-details.png)
 
 While the concept of digital sobriety exists outside of Centreon, the **Digital Sobriety Score** and its calculation are a feature exclusive to Experience Monitoring.
+
+See our [dedicated article](../digital-sobriety/digital-sobriety-concepts.md) to learn more about this module.

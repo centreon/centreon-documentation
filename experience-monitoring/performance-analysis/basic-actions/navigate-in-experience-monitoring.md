@@ -55,15 +55,6 @@ When you first log into Experience Monitoring, you land on the **Global view** p
 
 ![image](../../assets/settings.png)
 
-### User Journeys taken into account in the calculations
-
-This section defines which user journeys are used to calculate the scores in the **Global View**, for the **Performance score** and **Journeys availability** widgets. It also affects the **Digital Sobriety Score** widget [if the calculations are based on user journeys](#data-source-of-calculations-for-the-digital-sobriety-score).
-
-Two modes are available:
-
-- **All user journeys** — every configured user journey contributes to the calculations.
-- **Only selected journeys** — manually select which user journeys to include using the checkboxes. This is useful for excluding test journeys or journeys that are not representative of the real user experience.
-
 ### Site screenshot reference
 
 Select the screenshot you want to appear in the **Global view** page for this site: choose between the thumbnails for your user journeys.

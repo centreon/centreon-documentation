@@ -16,3 +16,5 @@ A probe is configured to regularly browse your site, following a predetermined p
 - Obtain personalized recommendations to make the site faster.
 
 We recommend configuring the user journey to represent common user actions performed on the site.
+
+See our [dedicated article](../configuration/user-journey/user-journey-intro.md) to learn more about this module.

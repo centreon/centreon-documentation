@@ -5,7 +5,7 @@ title: Receiving and configuring notifications
 
 You can configure Experience Monitoring to send you a notification when one of your [user journeys](./user-journey-intro.md) fails or times out.
 
-Email notifications are available to all users. Additionaly, some licenses allow receiving notifications by SMS, Slack, or webhooks.
+Email notifications are available to all users. Additionaly, some licenses allow receiving notifications by SMS, Slack, or [webhooks](../../experience-monitoring-glossary.md#webhooks).
 To subscribe to this option, contact your sales representative.
 Notifications are also available within the Experience Monitoring platform. Click on your own icon at the top right then click **Notifications**.
 
@@ -53,4 +53,4 @@ If the notification you wish to subscribe to hasn't been created, click on the +
 The first two fields below **Alert when** determine the criteria to start sending notifications.
 The field below **Mark as solved** determines when to consider that a journey is no longer having issues and so notifications should stop.
 
-You can view 
+In addition to notifications, you can subscribe daily, weekly or monthly reports of the performance of your user journeys with the **Digests** option.

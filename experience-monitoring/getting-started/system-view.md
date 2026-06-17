@@ -8,4 +8,6 @@ The **System Data** module allows you to monitor the health of the physical infr
 It is useful for measuring your server capacity and your site's modifications impact on your architecture load.
 It can also be used to understand how hosting metrics (disk, ram, network, etc) impact your site page load time.
 
+See our [dedicated article](../performance-analysis/system-tab-indicators.md) to learn more about this module.
+
 ![image](../assets/getting-started/system-view.png)

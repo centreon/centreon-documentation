@@ -74,3 +74,8 @@ Time To First Byte (TTFB) is the metric of the interval between the browser's in
 
 User Journey is a module of Experience Monitoring.
 A probe is configured to follow a set navigation path of your site and measure the loading times of the pages.
+
+## Webhook
+
+One-way communication between applications triggered by a specified event. Webhooks allow for the integration of applications that may not have been originally been designed to work together.
+In Experience Monitoring, webhooks are used to send notifications to applications.

@@ -8,6 +8,8 @@ It provides tools designed to help optimize online business performance and redu
 
 To do this, Experience Monitoring offers an array of features for an encompassing overview.
 
+![image](../assets/switching-between-modules.png)
+
 ### What does Experience Monitoring measure?
 
 Experience Monitoring collects data on your website's loading times, taking into consideration how much time the different elements of the website take.

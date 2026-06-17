@@ -16,6 +16,7 @@ To use this module, you must link your Google Analytics 4 or Matomo account.
 To calculate this, Experience Monitoring analyzes the traffic each page generates together with each page's response times.
 The result is a summary table expressing potential gains in additional annual revenue.
 
-
 Experience Monitoring continuously tracks business metrics by linking site performance to revenue outcomes.
 It analyses the business cost of incidents and slow pages and suggests pages to optimize.
+
+See our [dedicated article](../business-data/business-data-results.md) to learn more about this module.
