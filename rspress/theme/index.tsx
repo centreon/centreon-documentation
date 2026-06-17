@@ -765,7 +765,7 @@ export function Layout(props: any) {
       {...props}
       afterNavTitle={<NavSections />}
       afterNavMenu={<VersionAwareNav />}
-      afterDocFooter={<SiteFooter />}
+      bottom={<SiteFooter />}
     />
   );
 }
