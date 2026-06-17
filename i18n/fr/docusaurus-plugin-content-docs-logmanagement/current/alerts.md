@@ -13,7 +13,7 @@ Par exemple, une entrée de log INFO peut simplement enregistrer qu'un utilisate
 
 Pour détecter ce type de problème, vous devez créer des règles d'alerte.
 
-Une règle d'alerte évalue des critères spécifiques sur une période donnée et génère des [évènements d'alerte](./resources/glossary.md#évènement-dalertestatut-dalerte), chacun avec un [statut d'alerte](#statuts-dalerte). Par exemple, une règle d'alerte peut être décrite comme suit :
+Une règle d'alerte évalue des critères spécifiques sur une période et à une fréquence données. Chaque fois que ces critères sont évalués, un [évènement d'alerte](./resources/glossary.md#évènement-dalerte) est généré, avec un [statut](#statuts-dalerte). Par exemple, une règle d'alerte peut être décrite comme suit :
 "Si cette requête renvoie plus de 50 résultats au cours des 5 dernières minutes, un évènement d'alerte avec le statut CRITIQUE doit être enregistré."
 
 * type d'alerte : count
@@ -22,9 +22,9 @@ Une règle d'alerte évalue des critères spécifiques sur une période donnée 
 
 ![image](./assets/alert_rule.png)
 
-### Statuts d'alerte
+### Statuts d'évènements d'alerte
 
-Les différents statuts d'alerte possibles sont les suivants :
+Les différents statuts d'évènements d'alerte possibles sont les suivants :
 
 * <span style={{color:'#ff4a4a'}}>**CRITICAL**</span>
 * <span style={{color:'#fd9b27'}}>**ERROR**</span>
@@ -53,6 +53,6 @@ Allez à la page **Alerts & notifications > Alert events**. Utilisez la barre de
 
 ![image](./assets/alert_events.png)
 
-Vous pouvez développer chaque évènement d'alerte pour afficher plus d'informations à son sujet. Passez la souris sur le graphique pour afficher les dates de début et de fin.
+Vous pouvez développer chaque évènement d'alerte pour afficher plus d'informations à son sujet, notamment l'historique de l'évaluation de la règle d'alerte. Passez la souris sur le graphique pour afficher les dates de début et de fin de chaque segment.
 
 ![image](./assets/alert_events_detail.png)
