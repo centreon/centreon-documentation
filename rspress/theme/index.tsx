@@ -47,17 +47,26 @@ function familyHome(key: FamilyKey, lang: Lang, version: string): string {
 }
 
 /** Header sections shown for the current product family. */
-function headerSections(family: FamilyKey, lang: Lang, version: string): { label: string; href: string }[] {
+function headerSections(family: FamilyKey, lang: Lang, version: string): { key: string; label: string; href: string }[] {
   const lp = lang === 'fr' ? '/fr' : '';
   if (family === 'infra') {
     return [
-      { label: 'Infra Monitoring OnPrem', href: `${lp}/${version}/getting-started/welcome` },
-      { label: 'Infra Monitoring Cloud', href: `${lp}${CLOUD_ENTRY}` },
-      { label: lang === 'fr' ? 'Connecteurs de supervision' : 'Monitoring Connectors', href: `${lp}${PP_ENTRY}` },
+      { key: 'onprem', label: 'Infra Monitoring OnPrem', href: `${lp}/${version}/getting-started/welcome` },
+      { key: 'cloud', label: 'Infra Monitoring Cloud', href: `${lp}${CLOUD_ENTRY}` },
+      { key: 'pp', label: lang === 'fr' ? 'Connecteurs de supervision' : 'Monitoring Connectors', href: `${lp}${PP_ENTRY}` },
     ];
   }
-  if (family === 'experience') return [{ label: 'Experience Monitoring', href: `${lp}${EM_ENTRY}` }];
-  return [{ label: 'Log Management', href: `${lp}${LOGMGMT_ENTRY}` }];
+  if (family === 'experience') return [{ key: 'experience', label: 'Experience Monitoring', href: `${lp}${EM_ENTRY}` }];
+  return [{ key: 'logmanagement', label: 'Log Management', href: `${lp}${LOGMGMT_ENTRY}` }];
+}
+
+/** Which header section is active for the current path. */
+function activeSection(pathname: string): string {
+  if (pathname.includes('/experience-monitoring')) return 'experience';
+  if (pathname.includes('/logmanagement')) return 'logmanagement';
+  if (pathname.includes('/cloud/')) return 'cloud';
+  if (pathname.includes('/pp/')) return 'pp';
+  return 'onprem';
 }
 
 /**
@@ -156,7 +165,14 @@ function VersionSelector() {
   const { lang, version, rest } = parsePathname(pathname);
 
   return (
-    <Dropdown buttonContent={<span>{version}</span>}>
+    <Dropdown
+      buttonContent={
+        <span className="rp-version-current">
+          <span className="rp-version-star" aria-hidden="true">★</span>
+          {version}
+        </span>
+      }
+    >
       {VERSIONS.map((v) => (
         <Link
           key={v}
@@ -199,6 +215,34 @@ function LanguageSelector() {
         </Link>
       ))}
     </Dropdown>
+  );
+}
+
+/**
+ * Product sections rendered on the LEFT of the navbar (next to the logo),
+ * mirroring docs.centreon.com. Only the current product family's sections are
+ * shown, with the active one highlighted.
+ */
+function NavSections() {
+  const { pathname } = useLocation();
+  const lang = useLang() as Lang;
+  const { version } = parsePathname(pathname);
+  const family = familyOf(pathname);
+  const sections = headerSections(family, lang, version);
+  const active = activeSection(pathname);
+
+  return (
+    <div className="rp-nav-sections">
+      {sections.map((sec) => (
+        <Link
+          key={sec.key}
+          href={sec.href}
+          className={`rp-nav-link${sec.key === active ? ' rp-nav-link-active' : ''}`}
+        >
+          {sec.label}
+        </Link>
+      ))}
+    </div>
   );
 }
 
@@ -252,19 +296,16 @@ function VersionAwareNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const sections = headerSections(family, lang, version);
+  const active = activeSection(pathname);
   const close = () => setMobileOpen(false);
 
   return (
     <div className="rp-version-aware-nav">
-      {/* Desktop: product sections + version (versioned only) + language + product switcher */}
+      {/* Desktop right cluster: version (versioned only), language, theme, product switcher */}
       <div className="rp-vnav-desktop">
-        {sections.map((s) => (
-          <Link key={s.label} href={s.href} className="rp-nav-link">
-            {s.label}
-          </Link>
-        ))}
         {versioned && <VersionSelector />}
         <LanguageSelector />
+        <SwitchAppearance />
         <ProductSwitcher />
       </div>
 
@@ -289,9 +330,14 @@ function VersionAwareNav() {
       <div className={`rp-vnav-mobile-panel${mobileOpen ? ' open' : ''}`}>
         {family === 'infra' && (
           <div className="rp-vnav-mobile-section">
-            {sections.map((s) => (
-              <Link key={s.label} href={s.href} className="rp-vnav-mobile-link" onClick={close}>
-                {s.label}
+            {sections.map((sec) => (
+              <Link
+                key={sec.key}
+                href={sec.href}
+                className={`rp-vnav-mobile-link${sec.key === active ? ' rp-vnav-mobile-link-active' : ''}`}
+                onClick={close}
+              >
+                {sec.label}
               </Link>
             ))}
           </div>
@@ -372,8 +418,35 @@ function VersionAwareNav() {
            selectors. In rspress 2.x they render as plain '.rp-nav-menu__item'
            elements directly inside '.rp-nav__others', so we hide those while
            keeping the divider, the appearance toggle and the social links. */
-        .rp-nav__others > .rp-nav-menu__item {
+        /* The appearance toggle is re-rendered inside our own nav cluster (in the
+           right order: version, language, theme, product switcher), so hide
+           rspress's entire built-in "others" group (langs/versions/appearance). */
+        .rp-nav__others {
           display: none !important;
+        }
+        .rp-nav-sections {
+          display: flex;
+          align-items: center;
+          gap: 1.75rem;
+          margin-left: 2rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+        }
+        .rp-nav-link-active {
+          color: var(--rp-c-brand);
+        }
+        .rp-version-current {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+        }
+        .rp-version-star {
+          color: #f5b50a;
+        }
+        @media (max-width: 1280px) {
+          .rp-nav-sections {
+            display: none;
+          }
         }
         /* We provide our own responsive burger (rp-vnav-burger) for the custom
            nav, so hide rspress's built-in mobile hamburger to avoid two burgers. */
@@ -690,6 +763,7 @@ export function Layout(props: any) {
   return (
     <DefaultLayout
       {...props}
+      afterNavTitle={<NavSections />}
       afterNavMenu={<VersionAwareNav />}
       afterDocFooter={<SiteFooter />}
     />
