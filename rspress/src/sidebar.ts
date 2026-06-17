@@ -5590,6 +5590,303 @@ export const sidebar: Sidebar = {
       ]
     }
   ],
+  "/experience-monitoring/": [
+    {
+      "text": "Getting started with Centreon Experience Monitoring",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Experience Monitoring Solution",
+          "link": "/experience-monitoring/getting-started/experience-monitoring-solution"
+        },
+        {
+          "text": "Contact Support",
+          "link": "/experience-monitoring/getting-started/contact-support"
+        },
+        {
+          "text": "Synthetic Monitoring",
+          "link": "/experience-monitoring/getting-started/synthetic-monitoring"
+        },
+        {
+          "text": "Real User Monitoring",
+          "link": "/experience-monitoring/getting-started/real-user-monitoring"
+        },
+        {
+          "text": "System View",
+          "link": "/experience-monitoring/getting-started/system-view"
+        },
+        {
+          "text": "Business View",
+          "link": "/experience-monitoring/getting-started/business-view"
+        },
+        {
+          "text": "Load Tests",
+          "link": "/experience-monitoring/getting-started/load-tests"
+        },
+        {
+          "text": "Dashboards",
+          "link": "/experience-monitoring/getting-started/dashboards"
+        }
+      ],
+      "link": "/experience-monitoring/getting-started/welcome"
+    },
+    {
+      "text": "Installation",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Installation Checklist",
+          "link": "/experience-monitoring/installation/installation-checklist"
+        },
+        {
+          "text": "Experience Monitoring Ip Addresses",
+          "link": "/experience-monitoring/installation/experience-monitoring-ip-addresses"
+        },
+        {
+          "text": "Real User Monitoring Installation",
+          "link": "/experience-monitoring/installation/real-user-monitoring-installation"
+        },
+        {
+          "text": "Monitor Production Events",
+          "link": "/experience-monitoring/installation/monitor-production-events"
+        },
+        {
+          "text": "Servers and middleware",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Install System Agents",
+              "link": "/experience-monitoring/installation/servers/install-system-agents"
+            },
+            {
+              "text": "Cloud Configuration Of Agents",
+              "link": "/experience-monitoring/installation/servers/cloud-configuration-of-agents"
+            },
+            {
+              "text": "Add Advanced Metrics",
+              "link": "/experience-monitoring/installation/servers/add-advanced-metrics"
+            },
+            {
+              "text": "Install Php Magento Orocommerce Profiler",
+              "link": "/experience-monitoring/installation/servers/install-php-magento-orocommerce-profiler"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Configuration",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Configuration Checklist",
+          "link": "/experience-monitoring/configuration/configuration-checklist"
+        },
+        {
+          "text": "Manage Users And Rights",
+          "link": "/experience-monitoring/configuration/manage-users-and-rights"
+        },
+        {
+          "text": "Configure Digital Sobriety",
+          "link": "/experience-monitoring/configuration/configure-digital-sobriety"
+        },
+        {
+          "text": "Configure Google Analytics",
+          "link": "/experience-monitoring/configuration/configure-google-analytics"
+        },
+        {
+          "text": "Receive And Configure Alerts",
+          "link": "/experience-monitoring/configuration/receive-and-configure-alerts"
+        },
+        {
+          "text": "User journey",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Create A Scenario",
+              "link": "/experience-monitoring/configuration/user-journey/create-a-scenario"
+            },
+            {
+              "text": "User Journey Best Practices",
+              "link": "/experience-monitoring/configuration/user-journey/user-journey-best-practices"
+            },
+            {
+              "text": "Monitoring non-public user journeys (closed beta)",
+              "link": "/experience-monitoring/configuration/user-journey/stm-zones"
+            }
+          ]
+        },
+        {
+          "text": "Advanced configuration",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Define CSRF token and _qm3k_session variables",
+              "link": "/experience-monitoring/configuration/advanced-configuration/enable-disable-scenario-or-alert-via-api"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Performance analysis",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Network Tab Indicators",
+          "link": "/experience-monitoring/performance-analysis/network-tab-indicators"
+        },
+        {
+          "text": "System Tab Indicators",
+          "link": "/experience-monitoring/performance-analysis/system-tab-indicators"
+        },
+        {
+          "text": "Speed Up Website With Applications Or Server Configuration",
+          "link": "/experience-monitoring/performance-analysis/speed-up-website-with-applications-or-server-configuration"
+        },
+        {
+          "text": "Errors And Unavailability Front End",
+          "link": "/experience-monitoring/performance-analysis/errors-and-unavailability-front-end"
+        },
+        {
+          "text": "Metric overview",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Hero Time",
+              "link": "/experience-monitoring/performance-analysis/metrics/hero-time"
+            },
+            {
+              "text": "Time To First Byte",
+              "link": "/experience-monitoring/performance-analysis/metrics/time-to-first-byte"
+            },
+            {
+              "text": "Speed Index",
+              "link": "/experience-monitoring/performance-analysis/metrics/speed-index"
+            },
+            {
+              "text": "OnLoad",
+              "link": "/experience-monitoring/performance-analysis/metrics/on-load"
+            },
+            {
+              "text": "Largest Contentful Paint",
+              "link": "/experience-monitoring/performance-analysis/metrics/largest-contentful-paint"
+            },
+            {
+              "text": "TBT - Total Blocking Time (Web Vitals)",
+              "link": "/experience-monitoring/performance-analysis/metrics/total-blocking-time"
+            },
+            {
+              "text": "CLS - Cumulative Layout Shift (Web Vitals)",
+              "link": "/experience-monitoring/performance-analysis/metrics/cumulative-layout-shift"
+            }
+          ],
+          "link": "/experience-monitoring/performance-analysis/metrics/overview-of-metrics"
+        },
+        {
+          "text": "Basic actions",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Navigate In Experience Monitoring",
+              "link": "/experience-monitoring/performance-analysis/basic-actions/navigate-in-experience-monitoring"
+            },
+            {
+              "text": "How Alerts Work",
+              "link": "/experience-monitoring/performance-analysis/basic-actions/how-alerts-work"
+            },
+            {
+              "text": "Gray Areas On Charts",
+              "link": "/experience-monitoring/performance-analysis/basic-actions/gray-areas-on-charts"
+            },
+            {
+              "text": "Event Tracking",
+              "link": "/experience-monitoring/performance-analysis/basic-actions/event-tracking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Digital sobriety",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Carbon Footprint Evaluation And Digital Sobriety",
+          "link": "/experience-monitoring/digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety"
+        },
+        {
+          "text": "Digital Sobriety Score",
+          "link": "/experience-monitoring/digital-sobriety/digital-sobriety-score"
+        },
+        {
+          "text": "Differences With Eco Index",
+          "link": "/experience-monitoring/digital-sobriety/differences-with-eco-index"
+        }
+      ]
+    },
+    {
+      "text": "How-to articles",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Unable To Connect",
+          "link": "/experience-monitoring/how-to-articles/unable-to-connect"
+        },
+        {
+          "text": "To view the error details, hover over the red bar — Experience Monitoring will show at which step the scenario stopped and why.",
+          "link": "/experience-monitoring/how-to-articles/meaning-of-colors-in-graphs"
+        },
+        {
+          "text": "SEO Module – Google Search Optimization",
+          "link": "/experience-monitoring/how-to-articles/seo-module"
+        },
+        {
+          "text": "Measurement Interval",
+          "link": "/experience-monitoring/how-to-articles/measurement-interval"
+        },
+        {
+          "text": "Experience Monitoring Probes In Google Analytics",
+          "link": "/experience-monitoring/how-to-articles/experience-monitoring-probes-in-google-analytics"
+        },
+        {
+          "text": "I'm concerned about my server's security, can you explain how the Experience Monitoring agent and PHP module work?",
+          "link": "/experience-monitoring/how-to-articles/faq"
+        },
+        {
+          "text": "How do I reset my password?",
+          "link": "/experience-monitoring/how-to-articles/password-reset"
+        },
+        {
+          "text": "Using Charts",
+          "link": "/experience-monitoring/how-to-articles/using-charts"
+        },
+        {
+          "text": "User Journey Screen",
+          "link": "/experience-monitoring/how-to-articles/user-journey-screen"
+        },
+        {
+          "text": "Rum Blocked By Csp",
+          "link": "/experience-monitoring/how-to-articles/rum-blocked-by-csp"
+        }
+      ]
+    },
+    {
+      "text": "Centreon Experience Monitoring release notes",
+      "link": "/experience-monitoring/release-notes"
+    }
+  ],
   "/fr/25.10/": [
     {
       "text": "Démarrer avec Centreon OnPrem",
@@ -11177,6 +11474,303 @@ export const sidebar: Sidebar = {
           "link": "/fr/logmanagement/resources/glossary"
         }
       ]
+    }
+  ],
+  "/fr/experience-monitoring/": [
+    {
+      "text": "Démarrer avec Centreon Experience Monitoring",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Experience Monitoring Solution",
+          "link": "/fr/experience-monitoring/getting-started/experience-monitoring-solution"
+        },
+        {
+          "text": "Contact Support",
+          "link": "/fr/experience-monitoring/getting-started/contact-support"
+        },
+        {
+          "text": "Synthetic Monitoring",
+          "link": "/fr/experience-monitoring/getting-started/synthetic-monitoring"
+        },
+        {
+          "text": "Real User Monitoring",
+          "link": "/fr/experience-monitoring/getting-started/real-user-monitoring"
+        },
+        {
+          "text": "System View",
+          "link": "/fr/experience-monitoring/getting-started/system-view"
+        },
+        {
+          "text": "Business View",
+          "link": "/fr/experience-monitoring/getting-started/business-view"
+        },
+        {
+          "text": "Load Tests",
+          "link": "/fr/experience-monitoring/getting-started/load-tests"
+        },
+        {
+          "text": "Dashboards",
+          "link": "/fr/experience-monitoring/getting-started/dashboards"
+        }
+      ],
+      "link": "/fr/experience-monitoring/getting-started/welcome"
+    },
+    {
+      "text": "Installation",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Installation Checklist",
+          "link": "/fr/experience-monitoring/installation/installation-checklist"
+        },
+        {
+          "text": "Experience Monitoring Ip Addresses",
+          "link": "/fr/experience-monitoring/installation/experience-monitoring-ip-addresses"
+        },
+        {
+          "text": "Real User Monitoring Installation",
+          "link": "/fr/experience-monitoring/installation/real-user-monitoring-installation"
+        },
+        {
+          "text": "Monitor Production Events",
+          "link": "/fr/experience-monitoring/installation/monitor-production-events"
+        },
+        {
+          "text": "Serveurs et middleware",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Install System Agents",
+              "link": "/fr/experience-monitoring/installation/servers/install-system-agents"
+            },
+            {
+              "text": "Cloud Configuration Of Agents",
+              "link": "/fr/experience-monitoring/installation/servers/cloud-configuration-of-agents"
+            },
+            {
+              "text": "Add Advanced Metrics",
+              "link": "/fr/experience-monitoring/installation/servers/add-advanced-metrics"
+            },
+            {
+              "text": "Install Php Magento Orocommerce Profiler",
+              "link": "/fr/experience-monitoring/installation/servers/install-php-magento-orocommerce-profiler"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Configuration",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Configuration Checklist",
+          "link": "/fr/experience-monitoring/configuration/configuration-checklist"
+        },
+        {
+          "text": "Manage Users And Rights",
+          "link": "/fr/experience-monitoring/configuration/manage-users-and-rights"
+        },
+        {
+          "text": "Configure Digital Sobriety",
+          "link": "/fr/experience-monitoring/configuration/configure-digital-sobriety"
+        },
+        {
+          "text": "Configure Google Analytics",
+          "link": "/fr/experience-monitoring/configuration/configure-google-analytics"
+        },
+        {
+          "text": "Receive And Configure Alerts",
+          "link": "/fr/experience-monitoring/configuration/receive-and-configure-alerts"
+        },
+        {
+          "text": "Parcours Utilisateurs",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Create A Scenario",
+              "link": "/fr/experience-monitoring/configuration/user-journey/create-a-scenario"
+            },
+            {
+              "text": "User Journey Best Practices",
+              "link": "/fr/experience-monitoring/configuration/user-journey/user-journey-best-practices"
+            },
+            {
+              "text": "Superviser des parcours utilisateur non-publics (beta fermée)",
+              "link": "/fr/experience-monitoring/configuration/user-journey/stm-zones"
+            }
+          ]
+        },
+        {
+          "text": "Configuration avancée",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Définir les variables CSRF-Token et _qm3k_session",
+              "link": "/fr/experience-monitoring/configuration/advanced-configuration/enable-disable-scenario-or-alert-via-api"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Analyse de la performance",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Network Tab Indicators",
+          "link": "/fr/experience-monitoring/performance-analysis/network-tab-indicators"
+        },
+        {
+          "text": "System Tab Indicators",
+          "link": "/fr/experience-monitoring/performance-analysis/system-tab-indicators"
+        },
+        {
+          "text": "Speed Up Website With Applications Or Server Configuration",
+          "link": "/fr/experience-monitoring/performance-analysis/speed-up-website-with-applications-or-server-configuration"
+        },
+        {
+          "text": "Errors And Unavailability Front End",
+          "link": "/fr/experience-monitoring/performance-analysis/errors-and-unavailability-front-end"
+        },
+        {
+          "text": "Vue d'ensemble des métriques",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Hero Time",
+              "link": "/fr/experience-monitoring/performance-analysis/metrics/hero-time"
+            },
+            {
+              "text": "Time To First Byte",
+              "link": "/fr/experience-monitoring/performance-analysis/metrics/time-to-first-byte"
+            },
+            {
+              "text": "Speed Index",
+              "link": "/fr/experience-monitoring/performance-analysis/metrics/speed-index"
+            },
+            {
+              "text": "OnLoad",
+              "link": "/fr/experience-monitoring/performance-analysis/metrics/on-load"
+            },
+            {
+              "text": "Largest Contentful Paint",
+              "link": "/fr/experience-monitoring/performance-analysis/metrics/largest-contentful-paint"
+            },
+            {
+              "text": "TTB - Total Blocking Time (Web Vital)",
+              "link": "/fr/experience-monitoring/performance-analysis/metrics/total-blocking-time"
+            },
+            {
+              "text": "CLS - Cumulative Layout Shift (Web Vital)",
+              "link": "/fr/experience-monitoring/performance-analysis/metrics/cumulative-layout-shift"
+            }
+          ],
+          "link": "/fr/experience-monitoring/performance-analysis/metrics/overview-of-metrics"
+        },
+        {
+          "text": "Actions de base",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Navigate In Experience Monitoring",
+              "link": "/fr/experience-monitoring/performance-analysis/basic-actions/navigate-in-experience-monitoring"
+            },
+            {
+              "text": "How Alerts Work",
+              "link": "/fr/experience-monitoring/performance-analysis/basic-actions/how-alerts-work"
+            },
+            {
+              "text": "Gray Areas On Charts",
+              "link": "/fr/experience-monitoring/performance-analysis/basic-actions/gray-areas-on-charts"
+            },
+            {
+              "text": "Event Tracking",
+              "link": "/fr/experience-monitoring/performance-analysis/basic-actions/event-tracking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Sobriété numérique",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Carbon Footprint Evaluation And Digital Sobriety",
+          "link": "/fr/experience-monitoring/digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety"
+        },
+        {
+          "text": "Digital Sobriety Score",
+          "link": "/fr/experience-monitoring/digital-sobriety/digital-sobriety-score"
+        },
+        {
+          "text": "Differences With Eco Index",
+          "link": "/fr/experience-monitoring/digital-sobriety/differences-with-eco-index"
+        }
+      ]
+    },
+    {
+      "text": "Articles How-to",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Unable To Connect",
+          "link": "/fr/experience-monitoring/how-to-articles/unable-to-connect"
+        },
+        {
+          "text": "Meaning Of Colors In Graphs",
+          "link": "/fr/experience-monitoring/how-to-articles/meaning-of-colors-in-graphs"
+        },
+        {
+          "text": "Module SEO - Référencement Google",
+          "link": "/fr/experience-monitoring/how-to-articles/seo-module"
+        },
+        {
+          "text": "Measurement Interval",
+          "link": "/fr/experience-monitoring/how-to-articles/measurement-interval"
+        },
+        {
+          "text": "Experience Monitoring Probes In Google Analytics",
+          "link": "/fr/experience-monitoring/how-to-articles/experience-monitoring-probes-in-google-analytics"
+        },
+        {
+          "text": "Faq",
+          "link": "/fr/experience-monitoring/how-to-articles/faq"
+        },
+        {
+          "text": "Comment réinitialiser mon mot de passe ?",
+          "link": "/fr/experience-monitoring/how-to-articles/password-reset"
+        },
+        {
+          "text": "Using Charts",
+          "link": "/fr/experience-monitoring/how-to-articles/using-charts"
+        },
+        {
+          "text": "L’écran Parcours Utilisateurs",
+          "link": "/fr/experience-monitoring/how-to-articles/user-journey-screen"
+        },
+        {
+          "text": "Les données du RUM sont bloquées car le site utilise une politique CSP stricte",
+          "link": "/fr/experience-monitoring/how-to-articles/rum-blocked-by-csp"
+        }
+      ]
+    },
+    {
+      "text": "Centreon Experience Monitoring - notes de release",
+      "link": "/fr/experience-monitoring/release-notes"
     }
   ],
   "/26.10/": [

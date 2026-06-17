@@ -53,6 +53,11 @@ LM_SOURCE_FR = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-logmanageme
 LM_SIDEBAR_JS = SOURCE_ROOT / "logmanagement" / "sidebarsLogmanagement.js"
 LM_FR_LABELS_PATH = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-logmanagement/current.json"
 
+EM_SOURCE_EN = SOURCE_ROOT / "experience-monitoring"
+EM_SOURCE_FR = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-experience-monitoring/current"
+EM_SIDEBAR_JS = SOURCE_ROOT / "experience-monitoring" / "sidebarsExperienceMonitoring.js"
+EM_FR_LABELS_PATH = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-experience-monitoring/current.json"
+
 # ── MD content transformation ─────────────────────────────────────────────────
 
 _RE_DOCCARD_IMPORT = re.compile(r"^import DocCardList from '@theme/DocCardList';\n", re.MULTILINE)
@@ -287,6 +292,12 @@ def generate_sidebar() -> None:
     non_default_en["/logmanagement/"] = _build_items(lm_items, LM_SOURCE_EN, "/logmanagement", None, "sidebar.logmanagement.category.")
     non_default_fr["/fr/logmanagement/"] = _build_items(lm_items, LM_SOURCE_FR, "/fr/logmanagement", lm_fr_labels, "sidebar.logmanagement.category.")
 
+    # experience-monitoring — single (non-versioned) tree
+    em_items = _load_js_sidebar(EM_SIDEBAR_JS)
+    em_fr_labels = json.loads(EM_FR_LABELS_PATH.read_text(encoding="utf-8"))
+    non_default_en["/experience-monitoring/"] = _build_items(em_items, EM_SOURCE_EN, "/experience-monitoring", None, "sidebar.experience-monitoring.category.")
+    non_default_fr["/fr/experience-monitoring/"] = _build_items(em_items, EM_SOURCE_FR, "/fr/experience-monitoring", em_fr_labels, "sidebar.experience-monitoring.category.")
+
     sidebar_data = {**non_default_en, **non_default_fr, **default_en, **default_fr}
 
     out = ROOT / "src" / "sidebar.ts"
@@ -386,6 +397,11 @@ def migrate_logmanagement() -> None:
     _migrate_tree(LM_SOURCE_FR, DOCS_ROOT / "fr" / "logmanagement", "fr/logmanagement", LM_SOURCE_EN)
 
 
+def migrate_experience() -> None:
+    _migrate_tree(EM_SOURCE_EN, DOCS_ROOT / "en" / "experience-monitoring", "en/experience-monitoring", None)
+    _migrate_tree(EM_SOURCE_FR, DOCS_ROOT / "fr" / "experience-monitoring", "fr/experience-monitoring", EM_SOURCE_EN)
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -397,6 +413,8 @@ if __name__ == "__main__":
     migrate_cloud()
     print("Migrating log management…")
     migrate_logmanagement()
+    print("Migrating experience monitoring…")
+    migrate_experience()
     print("Generating sidebar…")
     generate_sidebar()
     print("\nDone.")
