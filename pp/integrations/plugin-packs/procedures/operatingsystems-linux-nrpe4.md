@@ -449,7 +449,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 1. Add the Centreon plugins' repository:
 
 ```bash
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+wget -O- https://apt-key.centreon.com | gpg --dearmor > /etc/apt/trusted.gpg.d/centreon.gpg
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 apt update
 ```
