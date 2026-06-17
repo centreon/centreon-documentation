@@ -59,6 +59,9 @@ importers:
       '@rspress/core':
         specifier: ~2.0.14
         version: 2.0.14(@rspack/core@2.0.6(@swc/helpers@0.5.23))(@types/mdast@4.0.4)(@types/react@19.2.16)(core-js@3.48.0)(micromark-util-types@2.0.2)(micromark@4.0.2)
+      medium-zoom:
+        specifier: ^1.1.0
+        version: 1.1.0
     devDependencies:
       '@rsdoctor/rspack-plugin':
         specifier: ^1.5.12
@@ -10749,7 +10752,7 @@ snapshots:
   enhanced-resolve@5.18.4:
     dependencies:
       graceful-fs: 4.2.11
-      tapable: 2.3.0
+      tapable: 2.3.3
 
   entities@2.2.0: {}
 
@@ -13962,7 +13965,7 @@ snapshots:
   terser@5.46.0:
     dependencies:
       '@jridgewell/source-map': 0.3.11
-      acorn: 8.15.0
+      acorn: 8.16.0
       commander: 2.20.3
       source-map-support: 0.5.21
 

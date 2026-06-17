@@ -16,6 +16,7 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "@rspress/core": "~2.0.14"
+    "@rspress/core": "~2.0.14",
+    "medium-zoom": "^1.1.0"
   }
 }

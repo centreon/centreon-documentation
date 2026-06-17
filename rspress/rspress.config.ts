@@ -48,6 +48,13 @@ export default defineConfig({
     link: {
       checkDeadLinks: false,
     },
+    // Code highlighting themes matching the Docusaurus site (Prism github / dracula).
+    shiki: {
+      themes: {
+        light: 'github-light',
+        dark: 'dracula',
+      },
+    },
   },
   search: {
     versioned: true,

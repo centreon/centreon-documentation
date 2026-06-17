@@ -40,6 +40,13 @@
   --rp-radius-large: 8px;
 }
 
+/* Taller navbar like docs.centreon.com (--ifm-navbar-height: 96px).
+   Uses html:root to outrank a component-level `:root` default rspress sets
+   later in the bundle. */
+html:root {
+  --rp-nav-height: 96px;
+}
+
 /* ---- Brand palette (dark) ------------------------------------------------- */
 .dark {
   /* Centreon green is the accent in dark mode, navy is the background */

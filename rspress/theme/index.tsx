@@ -1,6 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Layout as DefaultLayout, Link } from '@rspress/core/theme-original';
 import { useLang, useLocation } from '@rspress/core/runtime';
+import mediumZoom from 'medium-zoom';
+import 'medium-zoom/dist/style.css';
 
 export * from '@rspress/core/theme-original';
 
@@ -272,11 +274,118 @@ function VersionAwareNav() {
   );
 }
 
+/**
+ * Enables click-to-zoom on documentation images, mirroring the medium-zoom
+ * behaviour of the Docusaurus site (which zoomed `.markdown img`). We re-attach
+ * on every navigation because rspress swaps the page content client-side, and
+ * pick the overlay background from the active theme (white in light mode, the
+ * Centreon navy in dark mode).
+ */
+function useImageZoom() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark');
+    const zoom = mediumZoom('.rspress-doc img, .rp-doc img', {
+      background: isDark ? '#00003d' : '#ffffff',
+      margin: 24,
+    });
+
+    return () => zoom.detach();
+  }, [pathname]);
+}
+
+/**
+ * Global footer rendered on documentation pages, mirroring the Docusaurus
+ * footer: corporate links, the Centreon logo and the copyright line.
+ */
+function SiteFooter() {
+  return (
+    <footer className="rp-site-footer">
+      <div className="rp-site-footer__inner">
+        <picture>
+          <img
+            className="rp-site-footer__logo rp-site-footer__logo--light"
+            src="/img/logo_centreon_dark.png"
+            alt="Centreon"
+          />
+          <img
+            className="rp-site-footer__logo rp-site-footer__logo--dark"
+            src="/img/logo_centreon.png"
+            alt="Centreon"
+          />
+        </picture>
+        <nav className="rp-site-footer__links" aria-label="Footer">
+          <a href="https://www.centreon.com/en/" target="_blank" rel="noreferrer">
+            Corporate Website
+          </a>
+          <a href="https://www.centreon.com/en/blog/" target="_blank" rel="noreferrer">
+            Blog
+          </a>
+          <a href="https://download.centreon.com/" target="_blank" rel="noreferrer">
+            Download
+          </a>
+        </nav>
+        <div className="rp-site-footer__copyright">Copyright © 2005 - 2026 Centreon</div>
+      </div>
+      <style>{`
+        .rp-site-footer {
+          margin-top: 3rem;
+          padding: 2.5rem 1.5rem;
+          border-top: 1px solid var(--rp-c-divider-light);
+        }
+        .rp-site-footer__inner {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          text-align: center;
+        }
+        .rp-site-footer__logo {
+          height: 34px;
+          width: auto;
+        }
+        .rp-site-footer__logo--dark {
+          display: none;
+        }
+        .dark .rp-site-footer__logo--light {
+          display: none;
+        }
+        .dark .rp-site-footer__logo--dark {
+          display: inline-block;
+        }
+        .rp-site-footer__links {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+        }
+        .rp-site-footer__links a {
+          color: var(--rp-c-text-2);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+        .rp-site-footer__links a:hover {
+          color: var(--rp-c-brand);
+        }
+        .rp-site-footer__copyright {
+          font-size: 0.8125rem;
+          color: var(--rp-c-text-2);
+        }
+      `}</style>
+    </footer>
+  );
+}
+
 export function Layout(props: any) {
+  useImageZoom();
   return (
     <DefaultLayout
       {...props}
       afterNavMenu={<VersionAwareNav />}
+      afterDocFooter={<SiteFooter />}
     />
   );
 }
