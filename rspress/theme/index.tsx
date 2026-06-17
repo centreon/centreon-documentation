@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Layout as DefaultLayout, Link } from '@rspress/core/theme-original';
+import { Layout as DefaultLayout, Link, SwitchAppearance } from '@rspress/core/theme-original';
 import { useLang, useLocation } from '@rspress/core/runtime';
 import mediumZoom from 'medium-zoom';
 import 'medium-zoom/dist/style.css';
@@ -152,42 +152,108 @@ function LanguageSelector() {
   );
 }
 
+function useProductLinks(lang: Lang, version: string) {
+  const langPrefix = lang === 'fr' ? '/fr' : '';
+  return [
+    { href: `${langPrefix}/${version}/getting-started/welcome`, label: 'Infra Monitoring OnPrem' },
+    { href: `${langPrefix}${CLOUD_ENTRY}`, label: 'Infra Monitoring Cloud' },
+    { href: `${langPrefix}${PP_ENTRY}`, label: lang === 'fr' ? 'Connecteurs de supervision' : 'Monitoring Connectors' },
+    { href: `${langPrefix}${LOGMGMT_ENTRY}`, label: 'Log Management' },
+  ];
+}
+
 function VersionAwareNav() {
   const { pathname } = useLocation();
   const lang = useLang() as Lang;
-  const { version } = parsePathname(pathname);
+  const { version, rest } = parsePathname(pathname);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const langPrefix = lang === 'fr' ? '/fr' : '';
-  const infraLink = `${langPrefix}/${version}/getting-started/welcome`;
-  const cloudLink = `${langPrefix}${CLOUD_ENTRY}`;
-  const ppLink = `${langPrefix}${PP_ENTRY}`;
-  const logMgmtLink = `${langPrefix}${LOGMGMT_ENTRY}`;
-  const connectorLabel = lang === 'fr' ? 'Connecteurs de supervision' : 'Monitoring Connectors';
-  const logMgmtLabel = lang === 'fr' ? 'Log Management' : 'Log Management';
+  const products = useProductLinks(lang, version);
+  const close = () => setMobileOpen(false);
 
   return (
     <div className="rp-version-aware-nav">
-      <Link href={infraLink} className="rp-nav-link">
-        Infra Monitoring OnPrem
-      </Link>
-      <Link href={cloudLink} className="rp-nav-link">
-        Infra Monitoring Cloud
-      </Link>
-      <Link href={ppLink} className="rp-nav-link">
-        {connectorLabel}
-      </Link>
-      <Link href={logMgmtLink} className="rp-nav-link">
-        {logMgmtLabel}
-      </Link>
-      <VersionSelector />
-      <LanguageSelector />
+      {/* Desktop: inline links + version/language dropdowns */}
+      <div className="rp-vnav-desktop">
+        {products.map((p) => (
+          <Link key={p.label} href={p.href} className="rp-nav-link">
+            {p.label}
+          </Link>
+        ))}
+        <VersionSelector />
+        <LanguageSelector />
+      </div>
+
+      {/* Mobile: hamburger button toggling a panel */}
+      <button
+        type="button"
+        className="rp-vnav-burger"
+        aria-label="Menu"
+        aria-expanded={mobileOpen}
+        onClick={() => setMobileOpen((o) => !o)}
+      >
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          {mobileOpen ? (
+            <path fill="currentColor" d="M6.4 4.99L4.99 6.4 10.59 12l-5.6 5.6L6.4 19l5.6-5.6 5.6 5.6 1.41-1.4-5.6-5.6 5.6-5.6L17.6 4.99 12 10.59z" />
+          ) : (
+            <path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
+          )}
+        </svg>
+      </button>
+
+      {/* Mobile panel */}
+      <div className={`rp-vnav-mobile-panel${mobileOpen ? ' open' : ''}`}>
+        <div className="rp-vnav-mobile-section">
+          {products.map((p) => (
+            <Link key={p.label} href={p.href} className="rp-vnav-mobile-link" onClick={close}>
+              {p.label}
+            </Link>
+          ))}
+        </div>
+        <div className="rp-vnav-mobile-section">
+          <div className="rp-vnav-mobile-title">{lang === 'fr' ? 'Version' : 'Version'}</div>
+          {VERSIONS.map((v) => (
+            <Link
+              key={v}
+              href={buildPathname(lang, v, rest)}
+              className={`rp-vnav-mobile-link${v === version ? ' rp-vnav-mobile-link-active' : ''}`}
+              onClick={close}
+            >
+              {v}
+            </Link>
+          ))}
+        </div>
+        <div className="rp-vnav-mobile-section">
+          <div className="rp-vnav-mobile-title">{lang === 'fr' ? 'Langue' : 'Language'}</div>
+          {(Object.keys(LANG_META) as Lang[]).map((l) => (
+            <Link
+              key={l}
+              href={buildPathname(l, version, rest)}
+              className={`rp-vnav-mobile-link${l === lang ? ' rp-vnav-mobile-link-active' : ''}`}
+              onClick={close}
+            >
+              <LangBadge short={LANG_META[l].short} />
+              {LANG_META[l].label}
+            </Link>
+          ))}
+        </div>
+        <div className="rp-vnav-mobile-section rp-vnav-mobile-appearance">
+          <div className="rp-vnav-mobile-title">{lang === 'fr' ? 'Thème' : 'Theme'}</div>
+          <SwitchAppearance />
+        </div>
+      </div>
+
       <style>{`
         .rp-version-aware-nav {
           display: flex;
           align-items: center;
-          gap: 1.25rem;
           font-size: 0.875rem;
           font-weight: 500;
+        }
+        .rp-vnav-desktop {
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
         }
         .rp-nav-link {
           color: var(--rp-c-text-1);
@@ -208,6 +274,11 @@ function VersionAwareNav() {
            - the language selector only shows a globe icon, but we want the
              current language to be visible like Docusaurus does. */
         .rp-nav__others > .rp-nav-menu__item {
+          display: none !important;
+        }
+        /* We provide our own responsive burger (rp-vnav-burger) for the custom
+           nav, so hide rspress's built-in mobile hamburger to avoid two burgers. */
+        .rp-nav-hamburger {
           display: none !important;
         }
         .rp-nav-dropdown {
@@ -270,6 +341,90 @@ function VersionAwareNav() {
           letter-spacing: 0.04em;
           color: var(--rp-c-text-2);
           text-transform: uppercase;
+        }
+
+        /* --- Responsive burger (mobile / tablet) --- */
+        .rp-vnav-burger {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          padding: 6px;
+          color: var(--rp-c-text-1);
+          background: transparent;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+        }
+        .rp-vnav-burger:hover {
+          background: var(--rp-c-bg-mute);
+          color: var(--rp-c-brand);
+        }
+        .rp-vnav-mobile-panel {
+          display: none;
+          position: absolute;
+          top: var(--rp-nav-height);
+          right: 0;
+          width: min(280px, 92vw);
+          max-height: calc(100vh - var(--rp-nav-height));
+          overflow-y: auto;
+          flex-direction: column;
+          gap: 0.5rem;
+          padding: 1rem;
+          background: var(--rp-c-bg);
+          border: 1px solid var(--rp-c-divider-light);
+          border-radius: var(--rp-radius-large);
+          box-shadow: var(--rp-shadow-3);
+          z-index: 100;
+        }
+        .rp-vnav-mobile-section {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid var(--rp-c-divider-light);
+        }
+        .rp-vnav-mobile-section:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+        .rp-vnav-mobile-title {
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: var(--rp-c-text-2);
+          padding: 0.25rem 0.5rem;
+        }
+        .rp-vnav-mobile-link {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem;
+          color: var(--rp-c-text-1);
+          text-decoration: none;
+          border-radius: 0.5rem;
+          font-size: 0.9rem;
+        }
+        .rp-vnav-mobile-link:hover {
+          background: var(--rp-c-bg-mute);
+        }
+        .rp-vnav-mobile-link-active {
+          color: var(--rp-c-brand);
+        }
+        .rp-vnav-mobile-appearance {
+          padding-top: 0.25rem;
+        }
+
+        @media (max-width: 1280px) {
+          .rp-vnav-desktop {
+            display: none;
+          }
+          .rp-vnav-burger {
+            display: flex;
+          }
+          .rp-vnav-mobile-panel.open {
+            display: flex;
+          }
         }
       `}</style>
     </div>
