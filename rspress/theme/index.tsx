@@ -10,6 +10,7 @@ const DEFAULT_VERSION = '26.10';
 const VERSIONS = ['26.10', '25.10'] as const;
 const PP_ENTRY = '/pp/integrations/plugin-packs/getting-started/introduction';
 const CLOUD_ENTRY = '/cloud/getting-started/welcome';
+const EM_ENTRY = '/experience-monitoring/getting-started/welcome';
 const LOGMGMT_ENTRY = '/logmanagement/getting-started/welcome';
 
 type Lang = 'en' | 'fr';
@@ -18,6 +19,46 @@ const LANG_META: Record<Lang, { short: string; label: string }> = {
   en: { short: 'GB', label: 'English' },
   fr: { short: 'FR', label: 'Français' },
 };
+
+/**
+ * Product families, shown in the product switcher (grid icon) and the mobile
+ * panel. "infra" (Infrastructure Monitoring) is the only versioned family.
+ */
+type FamilyKey = 'infra' | 'experience' | 'logmanagement';
+
+const PRODUCTS: { key: FamilyKey; initials: string; color: string; label: string }[] = [
+  { key: 'infra', initials: 'IM', color: '#0c00ff', label: 'Infrastructure Monitoring' },
+  { key: 'experience', initials: 'XM', color: '#259788', label: 'Experience Monitoring' },
+  { key: 'logmanagement', initials: 'LM', color: '#611485', label: 'Log Management' },
+];
+
+function familyOf(pathname: string): FamilyKey {
+  if (pathname.includes('/experience-monitoring')) return 'experience';
+  if (pathname.includes('/logmanagement')) return 'logmanagement';
+  return 'infra';
+}
+
+/** Entry (home) link for a product family, language- and version-aware. */
+function familyHome(key: FamilyKey, lang: Lang, version: string): string {
+  const lp = lang === 'fr' ? '/fr' : '';
+  if (key === 'experience') return `${lp}${EM_ENTRY}`;
+  if (key === 'logmanagement') return `${lp}${LOGMGMT_ENTRY}`;
+  return `${lp}/${version}/getting-started/welcome`;
+}
+
+/** Header sections shown for the current product family. */
+function headerSections(family: FamilyKey, lang: Lang, version: string): { label: string; href: string }[] {
+  const lp = lang === 'fr' ? '/fr' : '';
+  if (family === 'infra') {
+    return [
+      { label: 'Infra Monitoring OnPrem', href: `${lp}/${version}/getting-started/welcome` },
+      { label: 'Infra Monitoring Cloud', href: `${lp}${CLOUD_ENTRY}` },
+      { label: lang === 'fr' ? 'Connecteurs de supervision' : 'Monitoring Connectors', href: `${lp}${PP_ENTRY}` },
+    ];
+  }
+  if (family === 'experience') return [{ label: 'Experience Monitoring', href: `${lp}${EM_ENTRY}` }];
+  return [{ label: 'Log Management', href: `${lp}${LOGMGMT_ENTRY}` }];
+}
 
 /**
  * Parses the language and version out of a pathname.
@@ -29,11 +70,16 @@ const LANG_META: Record<Lang, { short: string; label: string }> = {
  * fills page.version with the default version for every page — so useVersion()
  * always returns '26.10'. We work around that by reading the version straight
  * from the URL, which always reflects the user's actual location.
+ *
+ * `versioned` tells whether a version segment was actually present: only the
+ * Infrastructure Monitoring on-prem docs are versioned, so the version selector
+ * is hidden everywhere else (cloud, connectors, experience, log management).
  */
-function parsePathname(pathname: string): { lang: Lang; version: string; rest: string } {
+function parsePathname(pathname: string): { lang: Lang; version: string; rest: string; versioned: boolean } {
   let path = pathname.replace(/\.html$/, '');
   let lang: Lang = 'en';
   let version = '';
+  let versioned = false;
 
   if (path.startsWith('/fr/') || path === '/fr') {
     lang = 'fr';
@@ -43,6 +89,7 @@ function parsePathname(pathname: string): { lang: Lang; version: string; rest: s
   for (const v of VERSIONS) {
     if (path.startsWith(`/${v}/`) || path === `/${v}`) {
       version = v;
+      versioned = true;
       path = path.slice(`/${v}`.length) || '/';
       break;
     }
@@ -50,7 +97,7 @@ function parsePathname(pathname: string): { lang: Lang; version: string; rest: s
 
   if (!version) version = DEFAULT_VERSION;
 
-  return { lang, version, rest: path };
+  return { lang, version, rest: path, versioned };
 }
 
 function buildPathname(lang: Lang, version: string, rest: string): string {
@@ -171,24 +218,22 @@ const PRODUCT_GRID_ICON = (
 
 /**
  * Product switcher (grid icon) mirroring docs.centreon.com: a high-level
- * dropdown to jump between the Centreon product families. "Infrastructure
- * Monitoring" is version-aware; the others are single-version doc trees.
+ * dropdown to jump between the Centreon product families.
  */
 function ProductSwitcher() {
   const { pathname } = useLocation();
   const lang = useLang() as Lang;
   const { version } = parsePathname(pathname);
-  const langPrefix = lang === 'fr' ? '/fr' : '';
-  const products = [
-    { initials: 'IM', color: '#0c00ff', label: 'Infrastructure Monitoring', href: `${langPrefix}/${version}/getting-started/welcome` },
-    { initials: 'XM', color: '#259788', label: 'Experience Monitoring', href: `${langPrefix}/experience-monitoring/getting-started/welcome` },
-    { initials: 'LM', color: '#611485', label: 'Log Management', href: `${langPrefix}/logmanagement/getting-started/welcome` },
-  ];
+  const active = familyOf(pathname);
 
   return (
     <Dropdown className="rp-product-switcher" hideChevron buttonContent={PRODUCT_GRID_ICON}>
-      {products.map((p) => (
-        <Link key={p.initials} href={p.href} className="rp-product-item">
+      {PRODUCTS.map((p) => (
+        <Link
+          key={p.key}
+          href={familyHome(p.key, lang, version)}
+          className={`rp-product-item${p.key === active ? ' rp-product-item-active' : ''}`}
+        >
           <span className="rp-product-icon" style={{ backgroundColor: p.color }}>
             {p.initials}
           </span>
@@ -199,35 +244,26 @@ function ProductSwitcher() {
   );
 }
 
-function useProductLinks(lang: Lang, version: string) {
-  const langPrefix = lang === 'fr' ? '/fr' : '';
-  return [
-    { href: `${langPrefix}/${version}/getting-started/welcome`, label: 'Infra Monitoring OnPrem' },
-    { href: `${langPrefix}${CLOUD_ENTRY}`, label: 'Infra Monitoring Cloud' },
-    { href: `${langPrefix}${PP_ENTRY}`, label: lang === 'fr' ? 'Connecteurs de supervision' : 'Monitoring Connectors' },
-    { href: `${langPrefix}${LOGMGMT_ENTRY}`, label: 'Log Management' },
-  ];
-}
-
 function VersionAwareNav() {
   const { pathname } = useLocation();
   const lang = useLang() as Lang;
-  const { version, rest } = parsePathname(pathname);
+  const { version, rest, versioned } = parsePathname(pathname);
+  const family = familyOf(pathname);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const products = useProductLinks(lang, version);
+  const sections = headerSections(family, lang, version);
   const close = () => setMobileOpen(false);
 
   return (
     <div className="rp-version-aware-nav">
-      {/* Desktop: inline links + version/language dropdowns */}
+      {/* Desktop: product sections + version (versioned only) + language + product switcher */}
       <div className="rp-vnav-desktop">
-        {products.map((p) => (
-          <Link key={p.label} href={p.href} className="rp-nav-link">
-            {p.label}
+        {sections.map((s) => (
+          <Link key={s.label} href={s.href} className="rp-nav-link">
+            {s.label}
           </Link>
         ))}
-        <VersionSelector />
+        {versioned && <VersionSelector />}
         <LanguageSelector />
         <ProductSwitcher />
       </div>
@@ -251,33 +287,46 @@ function VersionAwareNav() {
 
       {/* Mobile panel */}
       <div className={`rp-vnav-mobile-panel${mobileOpen ? ' open' : ''}`}>
+        {family === 'infra' && (
+          <div className="rp-vnav-mobile-section">
+            {sections.map((s) => (
+              <Link key={s.label} href={s.href} className="rp-vnav-mobile-link" onClick={close}>
+                {s.label}
+              </Link>
+            ))}
+          </div>
+        )}
         <div className="rp-vnav-mobile-section">
-          {products.map((p) => (
-            <Link key={p.label} href={p.href} className="rp-vnav-mobile-link" onClick={close}>
+          <div className="rp-vnav-mobile-title">{lang === 'fr' ? 'Produits' : 'Products'}</div>
+          {PRODUCTS.map((p) => (
+            <Link
+              key={p.key}
+              href={familyHome(p.key, lang, version)}
+              className={`rp-vnav-mobile-link${p.key === family ? ' rp-vnav-mobile-link-active' : ''}`}
+              onClick={close}
+            >
+              <span className="rp-vnav-mobile-badge" style={{ backgroundColor: p.color }}>
+                {p.initials}
+              </span>
               {p.label}
             </Link>
           ))}
-          <Link
-            href={`${lang === 'fr' ? '/fr' : ''}/experience-monitoring/getting-started/welcome`}
-            className="rp-vnav-mobile-link"
-            onClick={close}
-          >
-            Experience Monitoring
-          </Link>
         </div>
-        <div className="rp-vnav-mobile-section">
-          <div className="rp-vnav-mobile-title">{lang === 'fr' ? 'Version' : 'Version'}</div>
-          {VERSIONS.map((v) => (
-            <Link
-              key={v}
-              href={buildPathname(lang, v, rest)}
-              className={`rp-vnav-mobile-link${v === version ? ' rp-vnav-mobile-link-active' : ''}`}
-              onClick={close}
-            >
-              {v}
-            </Link>
-          ))}
-        </div>
+        {versioned && (
+          <div className="rp-vnav-mobile-section">
+            <div className="rp-vnav-mobile-title">Version</div>
+            {VERSIONS.map((v) => (
+              <Link
+                key={v}
+                href={buildPathname(lang, v, rest)}
+                className={`rp-vnav-mobile-link${v === version ? ' rp-vnav-mobile-link-active' : ''}`}
+                onClick={close}
+              >
+                {v}
+              </Link>
+            ))}
+          </div>
+        )}
         <div className="rp-vnav-mobile-section">
           <div className="rp-vnav-mobile-title">{lang === 'fr' ? 'Langue' : 'Language'}</div>
           {(Object.keys(LANG_META) as Lang[]).map((l) => (
@@ -322,12 +371,7 @@ function VersionAwareNav() {
         /* Hide rspress's built-in language (NavLangs) + version (NavVersions)
            selectors. In rspress 2.x they render as plain '.rp-nav-menu__item'
            elements directly inside '.rp-nav__others', so we hide those while
-           keeping the divider, the appearance toggle and the social links. We
-           replace them with the custom selectors above because:
-           - the version selector reads page.version which is always '26.10'
-             with our docs/<lang>/<version> layout (see parsePathname comment);
-           - the language selector only shows a globe icon, but we want the
-             current language to be visible like Docusaurus does. */
+           keeping the divider, the appearance toggle and the social links. */
         .rp-nav__others > .rp-nav-menu__item {
           display: none !important;
         }
@@ -417,6 +461,9 @@ function VersionAwareNav() {
         .rp-product-item:hover {
           background: var(--rp-c-bg-mute);
         }
+        .rp-product-item-active {
+          background: var(--rp-c-bg-mute);
+        }
         .rp-product-icon {
           width: 44px;
           height: 44px;
@@ -500,6 +547,18 @@ function VersionAwareNav() {
         }
         .rp-vnav-mobile-link-active {
           color: var(--rp-c-brand);
+        }
+        .rp-vnav-mobile-badge {
+          width: 24px;
+          height: 24px;
+          border-radius: 6px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          color: #fff;
+          font-size: 11px;
+          font-weight: 700;
         }
         .rp-vnav-mobile-appearance {
           padding-top: 0.25rem;
