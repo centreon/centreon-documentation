@@ -109,9 +109,15 @@ function parsePathname(pathname: string): { lang: Lang; version: string; rest: s
   return { lang, version, rest: path, versioned };
 }
 
-function buildPathname(lang: Lang, version: string, rest: string): string {
+function buildPathname(lang: Lang, version: string, rest: string, versioned: boolean): string {
   const langPart = lang === 'fr' ? '/fr' : '';
-  return `${langPart}/${version}${rest === '/' ? '' : rest}`;
+  const tail = rest === '/' ? '' : rest;
+  // Only versioned (on-prem) pages carry a /<version>/ segment. Non-versioned
+  // trees (homepage, cloud, connectors, experience, log management) must not,
+  // otherwise switching language would build e.g. /fr/26.10/cloud/... (a 404)
+  // or send the homepage to /fr/26.10 instead of the French homepage /fr.
+  if (versioned) return `${langPart}/${version}${tail}`;
+  return `${langPart}${tail}` || '/';
 }
 
 type DropdownProps = {
@@ -176,7 +182,7 @@ function VersionSelector() {
       {VERSIONS.map((v) => (
         <Link
           key={v}
-          href={buildPathname(lang, v, rest)}
+          href={buildPathname(lang, v, rest, true)}
           className={`rp-nav-dropdown-item${v === version ? ' rp-nav-dropdown-item-active' : ''}`}
         >
           {v}
@@ -192,7 +198,7 @@ function LangBadge({ short }: { short: string }) {
 
 function LanguageSelector() {
   const { pathname } = useLocation();
-  const { lang, version, rest } = parsePathname(pathname);
+  const { lang, version, rest, versioned } = parsePathname(pathname);
   const meta = LANG_META[lang];
 
   return (
@@ -207,7 +213,7 @@ function LanguageSelector() {
       {(Object.keys(LANG_META) as Lang[]).map((l) => (
         <Link
           key={l}
-          href={buildPathname(l, version, rest)}
+          href={buildPathname(l, version, rest, versioned)}
           className={`rp-nav-dropdown-item rp-lang-item${l === lang ? ' rp-nav-dropdown-item-active' : ''}`}
         >
           <LangBadge short={LANG_META[l].short} />
@@ -364,7 +370,7 @@ function VersionAwareNav() {
             {VERSIONS.map((v) => (
               <Link
                 key={v}
-                href={buildPathname(lang, v, rest)}
+                href={buildPathname(lang, v, rest, true)}
                 className={`rp-vnav-mobile-link${v === version ? ' rp-vnav-mobile-link-active' : ''}`}
                 onClick={close}
               >
@@ -378,7 +384,7 @@ function VersionAwareNav() {
           {(Object.keys(LANG_META) as Lang[]).map((l) => (
             <Link
               key={l}
-              href={buildPathname(l, version, rest)}
+              href={buildPathname(l, version, rest, versioned)}
               className={`rp-vnav-mobile-link${l === lang ? ' rp-vnav-mobile-link-active' : ''}`}
               onClick={close}
             >
