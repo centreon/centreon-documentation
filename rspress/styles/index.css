@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'Esphimere';
-  src: url('../public/fonts/esphimere/Esphimere_Bold.otf') format('opentype');
+  src: url('./fonts/esphimere/Esphimere_Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: 'Esphimere';
-  src: url('../public/fonts/esphimere/Esphimere_Semi_Bold.otf') format('opentype');
+  src: url('./fonts/esphimere/Esphimere_Semi_Bold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;

@@ -198,14 +198,16 @@ function VersionAwareNav() {
         .rp-nav-link:hover {
           color: var(--rp-c-brand);
         }
-        /* Hide rspress's built-in language + version selectors. They both use
-           class 'translation'. We replace them with the custom selectors above
-           because:
+        /* Hide rspress's built-in language (NavLangs) + version (NavVersions)
+           selectors. In rspress 2.x they render as plain '.rp-nav-menu__item'
+           elements directly inside '.rp-nav__others', so we hide those while
+           keeping the divider, the appearance toggle and the social links. We
+           replace them with the custom selectors above because:
            - the version selector reads page.version which is always '26.10'
              with our docs/<lang>/<version> layout (see parsePathname comment);
            - the language selector only shows a globe icon, but we want the
              current language to be visible like Docusaurus does. */
-        .translation {
+        .rp-nav__others > .rp-nav-menu__item {
           display: none !important;
         }
         .rp-nav-dropdown {
