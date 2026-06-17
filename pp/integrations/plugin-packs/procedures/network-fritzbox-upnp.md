@@ -177,14 +177,14 @@ yum install centreon-plugin-Network-Fritzbox-Upnp
 <Tabs groupId="sync">
 <TabItem value="System" label="System">
 
-| Macro                    | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNIT                     | Select the unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks.             | s                 |             |
-| WARNINGCONNECTIONSTATUS  | Threshold                                                                                                                              |                   |             |
-| CRITICALCONNECTIONSTATUS | Threshold                                                                                                                              |                   |             |
-| WARNINGUPTIME            | Threshold                                                                                                                              |                   |             |
-| CRITICALUPTIME           | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                    | Description                                                                                                                                                                                                                  | Default value     | Mandatory   |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| UNIT                     | Select the unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks.                                                                                                   | s                 |             |
+| WARNINGCONNECTIONSTATUS  | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{connection_status\}, %\{link_status\}                                                                                        |                   |             |
+| CRITICALCONNECTIONSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{link_status\} !~ /^up$/i and %\{connection_status\} !~ /^connected$/i'). Can use special variables like: %\{connection_status\}, %\{link_status\} |                   |             |
+| WARNINGUPTIME            | Threshold                                                                                                                                                                                                                    |                   |             |
+| CRITICALUPTIME           | Threshold                                                                                                                                                                                                                    |                   |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                       |                   |             |
 
 </TabItem>
 <TabItem value="Traffic" label="Traffic">
@@ -322,13 +322,13 @@ All available options for each service template are listed below:
 <Tabs groupId="sync">
 <TabItem value="System" label="System">
 
-| Option                   | Description                                                                                                                                                                                                                  |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='uptime'                                                                                                                                       |
-| --warning-status         |   Define the conditions to match for the status to be WARNING. Can use special variables like: %\{connection_status\}, %\{link_status\}                                                                                        |
-| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{link_status\} !~ /^up$/i and %\{connection_status\} !~ /^connected$/i'). Can use special variables like: %\{connection_status\}, %\{link_status\}   |
-| --unit                   |   Select the unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days.                                                                                |
-| --warning-* --critical-* |   Thresholds. Can be: 'uptime'.                                                                                                                                                                                              |
+| Option                       | Description                                                                                                                                                                                                                  |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-connection-status  | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{connection_status\}, %\{link_status\}                                                                                        |
+| --critical-connection-status | Define the conditions to match for the status to be CRITICAL (default: '%\{link_status\} !~ /^up$/i and %\{connection_status\} !~ /^connected$/i'). Can use special variables like: %\{connection_status\}, %\{link_status\} |
+| --unit                       | Select the unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days.                                                                                  |
+| --warning-uptime             | Thresholds.                                                                                                                                                                                               |
+| --warning-uptime             | Thresholds.                                                                                                                                                                                              |
 
 </TabItem>
 <TabItem value="Traffic" label="Traffic">

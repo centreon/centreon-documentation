@@ -5,6 +5,12 @@ title: Azure SQL Database
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Azure SQL Database** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
 ## Pack assets
 
 ### Templates
@@ -367,11 +373,16 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 
 | Macro                | Description                                                                                        | Default value     | Mandatory   |
 |:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER_METRIC        | Define metrics to exclude from queries.                                                             |               |           |
 | WARNINGUSAGEBYTES    | Warning threshold for usage-bytes                                                                   |                   |             |
 | CRITICALUSAGEBYTES   | Critical threshold for usage-bytes                                                                  |                   |             |
 | WARNINGUSAGEPERCENT  | Warning threshold for usage-percent                                                                 |                   |             |
 | CRITICALUSAGEPERCENT | Critical threshold for usage-percent                                                                |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+> By default, the storage mode of this monitoring connector queries the storage and storage_percent metrics.
+> Note that the storage_percent metric (Data space used percent) is not available for data warehouses and hyperscale databases. Using this metric on these environments will cause the plugin to report a "Bad Request" error.
+> For these environments, add storage_percent to the `FILTER_METRIC` macro to exclude it from the query and use this mode successfully.
 
 </TabItem>
 <TabItem value="Workers" label="Workers">
@@ -657,6 +668,7 @@ All available options for each service template are listed below:
 
 | Option           | Description                                                            |
 |:-----------------|:-----------------------------------------------------------------------|
+| --filter-metric          | Define metrics to exclude from queries.  By default, the storage mode of this monitoring connector queries the `storage` and `storage\_percent` metrics, no metrics are excluded.  Note that the `storage\_percent` metric (Data space used percent) is not available for `data warehouses` and `hyperscale` databases. Using this metric on these environments will cause the plugin to report a "Bad Request" error.  For these environments, you must use `--filter-metric=storage\_percent` to use this mode successfully. |
 | --resource       | Set resource name or ID (required). It is the database name.           |
 | --resource-group | Set resource group (required if resource's name is used).              |
 | --server         | Set server name (required if resource's name is used).                 |
