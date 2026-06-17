@@ -1188,7 +1188,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | EXCLUDE_RESOURCE  | Exclude `ResourceQuota` resource type (can be a regexp)                                                                                                                                          |                           |             |
 | WARNING_USAGE     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{namespace\}, %\{resource\}, %\{used\}, %\{hard\}, %\{usage\_percent\}, %\{uid\}  | %\{usage\_percent\} \> 80 |             |
 | CRITICAL_USAGE    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{namespace\}, %\{resource\}, %\{used\}, %\{hard\}, %\{usage\_percent\}, %\{uid\} | %\{usage\_percent\} \> 90 |             |
-| EXTRA_OPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                           |             |
+| EXTRA_OPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                 |                           |             |
  
 </TabItem>
 <TabItem value="StatefulSet-Status" label="StatefulSet-Status">
