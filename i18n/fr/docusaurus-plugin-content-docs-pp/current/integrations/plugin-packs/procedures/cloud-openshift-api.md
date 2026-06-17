@@ -34,7 +34,7 @@ Le connecteur apporte les modèles de service suivants
 | Projects         | Cloud-Openshift-Projects-Api-custom         | Contrôle les projets Openshift              | X          |
 | Routes           | Cloud-Openshift-Routes-Api-custom           | Contrôle les routes Openshift               | X          |
 
-Ce modèle d'hôte hérite également de l'ensemble des services associés au modèle [Cloud-Kubernetes-Api-custom](../cloud-kubernetes-api.md#modèles).
+Ce modèle d'hôte hérite également de l'ensemble des services associés au modèle [Cloud-Kubernetes-Api-custom](cloud-kubernetes-api.md#modèles).
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-OpenShift-Api-custom** est utilisé.
 
@@ -43,7 +43,7 @@ Ce modèle d'hôte hérite également de l'ensemble des services associés au mo
 </TabItem>
 <TabItem value="Cloud-Openshift-Node-Api-custom" label="Cloud-Openshift-Node-Api-custom">
 
-Ce modèle d'hôte hérite de l'ensemble des services associés au modèle [Cloud-Kubernetes-Node-Api-custom](../cloud-kubernetes-api.md#modèles).
+Ce modèle d'hôte hérite de l'ensemble des services associés au modèle [Cloud-Kubernetes-Node-Api-custom](cloud-kubernetes-api.md#modèles).
 
 </TabItem>
 </Tabs>
@@ -66,7 +66,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Cloud-Openshift-Api-Projects | Découvrez les Projects OpenShift pour superviser leur état     |
 | Cloud-Openshift-Api-Routes   | Découvrez les Routes Openshift pour superviser leur état       |
 
-Ce modèle d'hôte hérite également des règles de découverte associées au modèle [Cloud-Kubernetes-Api-custom](../cloud-kubernetes-api.md#découverte-de-services).
+Ce modèle d'hôte hérite également des règles de découverte associées au modèle [Cloud-Kubernetes-Api-custom](cloud-kubernetes-api.md#découverte-de-services).
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
