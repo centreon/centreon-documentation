@@ -61,10 +61,11 @@ function buildPathname(lang: Lang, version: string, rest: string): string {
 type DropdownProps = {
   buttonContent: React.ReactNode;
   className?: string;
+  hideChevron?: boolean;
   children: React.ReactNode;
 };
 
-function Dropdown({ buttonContent, className, children }: DropdownProps) {
+function Dropdown({ buttonContent, className, hideChevron, children }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const closeTimerRef = useRef<number | null>(null);
 
@@ -86,9 +87,11 @@ function Dropdown({ buttonContent, className, children }: DropdownProps) {
     <div className={`rp-nav-dropdown ${className ?? ''}`} onMouseLeave={handleMouseLeave}>
       <div className="rp-nav-dropdown-button" onMouseEnter={handleMouseEnter}>
         {buttonContent}
-        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-          <path fill="currentColor" d="M7 10l5 5 5-5z" />
-        </svg>
+        {!hideChevron && (
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+            <path fill="currentColor" d="M7 10l5 5 5-5z" />
+          </svg>
+        )}
       </div>
       <div
         className="rp-nav-dropdown-menu"
@@ -152,6 +155,50 @@ function LanguageSelector() {
   );
 }
 
+const PRODUCT_GRID_ICON = (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <circle cx="5" cy="5" r="2" />
+    <circle cx="12" cy="5" r="2" />
+    <circle cx="19" cy="5" r="2" />
+    <circle cx="5" cy="12" r="2" />
+    <circle cx="12" cy="12" r="2" />
+    <circle cx="19" cy="12" r="2" />
+    <circle cx="5" cy="19" r="2" />
+    <circle cx="12" cy="19" r="2" />
+    <circle cx="19" cy="19" r="2" />
+  </svg>
+);
+
+/**
+ * Product switcher (grid icon) mirroring docs.centreon.com: a high-level
+ * dropdown to jump between the Centreon product families. "Infrastructure
+ * Monitoring" is version-aware; the others are single-version doc trees.
+ */
+function ProductSwitcher() {
+  const { pathname } = useLocation();
+  const lang = useLang() as Lang;
+  const { version } = parsePathname(pathname);
+  const langPrefix = lang === 'fr' ? '/fr' : '';
+  const products = [
+    { initials: 'IM', color: '#0c00ff', label: 'Infrastructure Monitoring', href: `${langPrefix}/${version}/getting-started/welcome` },
+    { initials: 'XM', color: '#259788', label: 'Experience Monitoring', href: `${langPrefix}/experience-monitoring/getting-started/welcome` },
+    { initials: 'LM', color: '#611485', label: 'Log Management', href: `${langPrefix}/logmanagement/getting-started/welcome` },
+  ];
+
+  return (
+    <Dropdown className="rp-product-switcher" hideChevron buttonContent={PRODUCT_GRID_ICON}>
+      {products.map((p) => (
+        <Link key={p.initials} href={p.href} className="rp-product-item">
+          <span className="rp-product-icon" style={{ backgroundColor: p.color }}>
+            {p.initials}
+          </span>
+          <span className="rp-product-label">{p.label}</span>
+        </Link>
+      ))}
+    </Dropdown>
+  );
+}
+
 function useProductLinks(lang: Lang, version: string) {
   const langPrefix = lang === 'fr' ? '/fr' : '';
   return [
@@ -182,6 +229,7 @@ function VersionAwareNav() {
         ))}
         <VersionSelector />
         <LanguageSelector />
+        <ProductSwitcher />
       </div>
 
       {/* Mobile: hamburger button toggling a panel */}
@@ -209,6 +257,13 @@ function VersionAwareNav() {
               {p.label}
             </Link>
           ))}
+          <Link
+            href={`${lang === 'fr' ? '/fr' : ''}/experience-monitoring/getting-started/welcome`}
+            className="rp-vnav-mobile-link"
+            onClick={close}
+          >
+            Experience Monitoring
+          </Link>
         </div>
         <div className="rp-vnav-mobile-section">
           <div className="rp-vnav-mobile-title">{lang === 'fr' ? 'Version' : 'Version'}</div>
@@ -341,6 +396,41 @@ function VersionAwareNav() {
           letter-spacing: 0.04em;
           color: var(--rp-c-text-2);
           text-transform: uppercase;
+        }
+
+        .rp-product-switcher .rp-nav-dropdown-button {
+          padding: 0.4rem;
+        }
+        .rp-product-switcher .rp-nav-dropdown-menu {
+          width: 16rem;
+          padding: 0.5rem;
+        }
+        .rp-product-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 0.5rem;
+          color: var(--rp-c-text-1);
+          text-decoration: none;
+          border-radius: 0.5rem;
+        }
+        .rp-product-item:hover {
+          background: var(--rp-c-bg-mute);
+        }
+        .rp-product-icon {
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          color: #fff;
+          font-size: 18px;
+          font-weight: 700;
+        }
+        .rp-product-label {
+          font-size: 0.9rem;
         }
 
         /* --- Responsive burger (mobile / tablet) --- */
