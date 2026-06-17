@@ -1,12 +1,27 @@
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from '@rspress/core';
 import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
 import { sidebar } from './src/sidebar';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   root: 'docs',
   lang: 'en',
   title: 'Centreon Documentation',
   description: 'Centreon IT Monitoring Platform Documentation',
+  // Centreon branding: logo (light/dark) + favicon, matching docs.centreon.com.
+  // `light` is shown on a light background (dark-colored logo), `dark` on a dark
+  // background (light-colored logo) — same mapping as the Docusaurus navbar.
+  logo: {
+    light: '/img/logo_centreon_dark.png',
+    dark: '/img/logo_centreon.png',
+  },
+  logoText: '',
+  icon: '/img/favicon.ico',
+  // Global Centreon stylesheet (brand colors, fonts, component tweaks).
+  globalStyles: join(__dirname, 'styles/index.css'),
   locales: [
     {
       lang: 'en',
@@ -52,6 +67,10 @@ export default defineConfig({
   themeConfig: {
     sidebar,
     enableScrollToTop: true,
+    footer: {
+      message:
+        '<a href="https://www.centreon.com/en/" target="_blank" rel="noreferrer">Corporate Website</a> · <a href="https://www.centreon.com/en/blog/" target="_blank" rel="noreferrer">Blog</a> · <a href="https://download.centreon.com/" target="_blank" rel="noreferrer">Download</a><br/>Copyright © 2005 - 2026 Centreon',
+    },
     locales: [
       {
         lang: 'en',
