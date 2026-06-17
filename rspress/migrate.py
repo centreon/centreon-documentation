@@ -234,10 +234,10 @@ def _build_items(
 
 
 def generate_sidebar() -> None:
-    # Separate dicts so we can control merge order: non-default version + pp + cloud
-    # entries must come BEFORE default-version ones (`/` and `/fr/`). rspress
-    # uses first-match for sidebar keys, so the `/` key would otherwise swallow
-    # /25.10/, /pp/, /cloud/ requests.
+    # Separate dicts so the default version is emitted after the others. All keys
+    # are now distinct version/section prefixes (/26.10/, /25.10/, /pp/, ...), so
+    # there is no longer a catch-all "/" key that could swallow other requests;
+    # the ordering is kept only for a stable, readable sidebar.ts.
     non_default_en: dict[str, list] = {}
     non_default_fr: dict[str, list] = {}
     default_en: dict[str, list] = {}
@@ -251,14 +251,16 @@ def generate_sidebar() -> None:
         fr_labels = json.loads(FR_LABELS_PATH[version].read_text(encoding="utf-8"))
 
         is_default = version == VERSIONS[0]  # 26.10
-        # Default version: links use no version prefix so the rspress version
-        # switcher (`replaceVersion`) can rewrite /getting-started/foo →
-        # /25.10/getting-started/foo. Embedding /26.10/ here would give
-        # /25.10/26.10/... because the switcher only strips when current != default.
-        en_prefix = "" if is_default else f"/{version}"
-        en_key = "/" if is_default else f"/{version}/"
-        fr_prefix = "/fr" if is_default else f"/fr/{version}"
-        fr_key = "/fr/" if is_default else f"/fr/{version}/"
+        # Every version (including the default 26.10) is keyed and linked with its
+        # version prefix. The site only serves pages under /<version>/..., and the
+        # custom switcher (VersionAwareNav in theme/index.tsx) builds /<version>/...
+        # links via buildPathname(). Version-less links such as /getting-started/foo
+        # are not routed and 404, which previously broke every sidebar link on the
+        # default-version (26.10) pages.
+        en_prefix = f"/{version}"
+        en_key = f"/{version}/"
+        fr_prefix = f"/fr/{version}"
+        fr_key = f"/fr/{version}/"
 
         if is_default:
             default_en[en_key] = _build_items(top_items, en_src, en_prefix, None)
