@@ -34,7 +34,7 @@ Le connecteur apporte les modèles de service suivants
 | Projects         | Cloud-Openshift-Projects-Api-custom         | Contrôle les projets Openshift              | X          |
 | Routes           | Cloud-Openshift-Routes-Api-custom           | Contrôle les routes Openshift               | X          |
 
-Ce modèle d'hôte hérite également de l'ensemble des services associés au modèle [Cloud-Kubernetes-Api-custom](../cloud-kubernetes-api.md#templates).
+Ce modèle d'hôte hérite également de l'ensemble des services associés au modèle [Cloud-Kubernetes-Api-custom](../cloud-kubernetes-api.md#modèles).
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-OpenShift-Api-custom** est utilisé.
 
@@ -43,7 +43,7 @@ Ce modèle d'hôte hérite également de l'ensemble des services associés au mo
 </TabItem>
 <TabItem value="Cloud-Openshift-Node-Api-custom" label="Cloud-Openshift-Node-Api-custom">
 
-Ce modèle d'hôte hérite de l'ensemble des services associés au modèle [Cloud-Kubernetes-Node-Api-custom](../cloud-kubernetes-api.md#templates).
+Ce modèle d'hôte hérite de l'ensemble des services associés au modèle [Cloud-Kubernetes-Node-Api-custom](../cloud-kubernetes-api.md#modèles).
 
 </TabItem>
 </Tabs>
