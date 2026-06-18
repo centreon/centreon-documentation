@@ -13,7 +13,7 @@ Par exemple, une entrée de log INFO peut simplement enregistrer qu'un utilisate
 
 Pour détecter ce type de problème, vous devez créer des règles d'alerte.
 
-Une règle d'alerte évalue des critères spécifiques sur une période et à une fréquence données. Chaque fois que ces critères sont évalués, un [évènement d'alerte](./resources/glossary.md#évènement-dalerte) est généré, avec un [statut](#statuts-dalerte). Par exemple, une règle d'alerte peut être décrite comme suit :
+Une règle d'alerte évalue des critères spécifiques sur une période et à une fréquence données. Chaque fois que ces critères sont évalués, un [évènement d'alerte](./resources/glossary.md#évènement-dalerte) est généré, avec un [statut](#statuts-dévènements-dalerte). Par exemple, une règle d'alerte peut être décrite comme suit :
 "Si cette requête renvoie plus de 50 résultats au cours des 5 dernières minutes, un évènement d'alerte avec le statut CRITIQUE doit être enregistré."
 
 * type d'alerte : count
@@ -44,7 +44,7 @@ Les différents statuts d'évènements d'alerte possibles sont les suivants :
       * **Ratio** signifie que vous divisez les résultats d'une requête par les résultats d'une autre requête.
    * **Frequency**: ce champ définit à la fois la fréquence des contrôles et la période couverte par chaque contrôle. Par exemple, si vous sélectionnez **Every 5 minutes**, un contrôle sera effectué toutes les 5 minutes sur les données des 5 dernières minutes.
    * **Query**: utilisez la [syntaxe de requête](query-syntax.md) correcte.
-   * **Conditions**: définit quel [statut d'alerte l'évènement d'alerte doit avoir](#statuts-dalerte).
+   * **Conditions**: définit quel [statut d'alerte l'évènement d'alerte doit avoir](#statuts-dévènements-dalerte).
 4. Enregistrez votre règle d'alerte. La fenêtre se ferme et votre règle d'alerte apparaît dans la liste des règles d'alerte. La règle commence à être évaluée et à générer des évènements d'alerte.
 
 ## Afficher le dernier évènement d'alerte pour chaque règle

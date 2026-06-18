@@ -5,7 +5,7 @@ title: Setting up notifications
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Notifications can be sent when an [alert rule](alerts.md) triggers an [alert event](./resources/glossary.md#alert-eventalert-status) and certain conditions are met. You can configure a webhook to post a message to a third-party application.
+Notifications can be sent when an [alert rule](alerts.md) triggers an [alert event](./resources/glossary.md#alert-event) and certain conditions are met. You can configure a webhook to post a message to a third-party application.
 
 ## Step 1: Create a notification channel
 
