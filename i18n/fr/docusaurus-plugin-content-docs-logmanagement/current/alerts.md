@@ -53,6 +53,6 @@ Allez à la page **Alerts & notifications > Alert events**. Utilisez la barre de
 
 ![image](./assets/alert_events.png)
 
-Vous pouvez développer chaque évènement d'alerte pour afficher plus d'informations à son sujet, notamment l'historique de l'évaluation de la règle d'alerte. Passez la souris sur le graphique pour afficher les dates de début et de fin de chaque segment.
+Vous pouvez développer chaque évènement d'alerte pour afficher plus d'informations à son sujet, notamment l'historique de l'évaluation de la règle d'alerte. Passez la souris sur le graphique pour afficher les dates de début et de fin de chaque période passée dans un statut.
 
 ![image](./assets/alert_events_detail.png)
