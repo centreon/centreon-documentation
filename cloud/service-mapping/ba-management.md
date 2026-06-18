@@ -123,16 +123,19 @@ whether the modeled IT service or application is in an **OK**,
 
 ### Create a Business Activity
 
-To add a Business Activity, click the **Add** button.
+#### Basic information
 
-A window to configure the BA opens. In this window, you must give a name to the BA and select a [calculation method](#calculation-methods). 
-The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
+1. To add a Business Activity, click the **Add** button. A window to create the BA opens.
 
-You must also assign it to a [Business view](#business-view) or the BA will not be visible.
+2. Give a unique name to the BA (mandatory). The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
 
-Additionally, you can choose to give an icon to the BA and add a description.
+You can choose an icon for the BA and add a description, these 2 elements are optional
 
-After clicking **Create**, a side panel opens where you must configure the **Indicators**.
+3. Select a [calculation method](#calculation-methods).
+
+4. You must also link the BA to a BV ([Business view](#business-view)) or the BA will not be visible.
+
+> After clicking **Create**, a side panel opens where you will need to configure multiple sections to have an aggregated indicator.
 
 #### Indicators
 
