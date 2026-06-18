@@ -27,7 +27,7 @@ Custom attributes are key–value pairs that you add yourself to logs to provide
 
 A log event is a log entry.
 
-Not to be confused with [Alert events](#alert-eventalert-status).
+Not to be confused with [Alert events](#alert-event).
 
 ## Service
 
