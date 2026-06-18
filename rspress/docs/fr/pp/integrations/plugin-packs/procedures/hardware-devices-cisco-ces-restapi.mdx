@@ -1,0 +1,869 @@
+---
+id: hardware-devices-cisco-ces-restapi
+title: Cisco Collaboration Endpoint Rest API
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Cisco Collaboration Endpoint Rest API**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
+
+## Contenu du pack
+
+### Modèles
+
+Le connecteur de supervision **Cisco Collaboration Endpoint Rest API** apporte un modèle d'hôte :
+
+* **HW-Device-Cisco-Ces-Restapi-custom**
+
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
+
+<Tabs groupId="sync">
+<Tab value="HW-Device-Cisco-Ces-Restapi-custom" label="HW-Device-Cisco-Ces-Restapi-custom">
+
+| Alias             | Modèle de service                                    | Description                           |
+|:------------------|:-----------------------------------------------------|:--------------------------------------|
+| Calls-Rt          | HW-Device-Cisco-Ces-Calls-Rt-Restapi-custom          | Contrôle les appels en temps réel     |
+| Calls-Summary     | HW-Device-Cisco-Ces-Calls-Summary-Restapi-custom     | Contrôle l'historique des appels      |
+| Certificates      | HW-Device-Cisco-Ces-Certificates-Restapi-custom      | Contrôle l'expiration des certificats |
+| Components-Global | HW-Device-Cisco-Ces-Components-Global-Restapi-custom | Contrôle l'ensemble des composants    |
+| Diagnostics       | HW-Device-Cisco-Ces-Diagnostics-Restapi-custom       | Contrôle les messages de diagnostic |
+| Peripherals       | HW-Device-Cisco-Ces-Peripherals-Restapi-custom       | Contrôle les périphériques connectés  |
+| Sessions          | HW-Device-Cisco-Ces-Sessions-Restapi-custom          | Contrôle les sessions                 |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Device-Cisco-Ces-Restapi-custom** est utilisé.
+
+</Tab>
+<Tab value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias                             | Modèle de service                                                    | Description             |
+|:----------------------------------|:---------------------------------------------------------------------|:------------------------|
+| Components-Audio-Device           | HW-Device-Cisco-Ces-Components-Audio-Device-Restapi-custom           | Contrôle les composants des périphériques audio |
+| Components-Audio-Input-Connector  | HW-Device-Cisco-Ces-Components-Audio-Input-Connector-Restapi-custom  | Contrôle les composants des connecteurs audio en entrée |
+| Components-Audio-Output-Connector | HW-Device-Cisco-Ces-Components-Audio-Output-Connector-Restapi-custom | Contrôle les composants des connecteurs audio en sortie |
+| Components-Camera                 | HW-Device-Cisco-Ces-Components-Camera-Restapi-custom                 | Contrôle les composants des caméras |
+| Components-Software               | HW-Device-Cisco-Ces-Components-Software-Restapi-custom               | Contrôle les composants logiciels |
+| Components-Speakertrack           | HW-Device-Cisco-Ces-Components-Speakertrack-Restapi-custom           | Contrôle les composants SpeakerTack |
+| Components-Temperature            | HW-Device-Cisco-Ces-Components-Temperature-Restapi-custom            | Contrôle les composants température |
+| Components-Video-Input-Connector  | HW-Device-Cisco-Ces-Components-Video-Input-Connector-Restapi-custom  | Contrôle les composants des connecteurs vidéo en entrée |
+| Components-Video-Input-Source     | HW-Device-Cisco-Ces-Components-Video-Input-Source-Restapi-custom     | Contrôle les composants des sources vidéo en entrée |
+| Components-Video-Output-Connector | HW-Device-Cisco-Ces-Components-Video-Output-Connector-Restapi-custom | Contrôle les composants des connecteurs vidéo en sortie |
+| Components-Webex                  | HW-Device-Cisco-Ces-Components-Webex-Restapi-custom                  | Contrôle les composants Webex |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+</Tab>
+</Tabs>
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
+
+<Tabs groupId="sync">
+<Tab value="Calls-Rt" label="Calls-Rt">
+
+| Nom                                             | Unité |
+|:------------------------------------------------|:------|
+| *channels*#call.channels.traffic.bytes          | B/s   |
+| *channels*#call.channels.maxjitter.milliseconds | ms    |
+| *channels*#call.channels.packetloss.count       | count |
+| *channels*#call.channels.packetloss.percentage  | %     |
+
+</Tab>
+<Tab value="Calls-Summary" label="Calls-Summary">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| calls.total.finished.count | count |
+
+</Tab>
+<Tab value="Certificates" label="Certificates">
+
+| Nom                                              | Unité |
+|:-------------------------------------------------|:------|
+| *certificates*#system.certificate.expire.seconds | s     |
+
+</Tab>
+<Tab value="Components-Audio-Device" label="Components-Audio-Device">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| connection_status | N/A |
+
+</Tab>
+<Tab value="Components-Audio-Input-Connector" label="Components-Audio-Input-Connector">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| connection_status | N/A |
+| aiclatency | ms |
+
+</Tab>
+<Tab value="Components-Audio-Output-Connector" label="Components-Audio-Output-Connector">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| connection_status | N/A |
+| aocdelay | ms |
+
+</Tab>
+<Tab value="Components-Camera" label="Components-Camera">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| connection_status | N/A |
+| camera.status | N/A |
+
+</Tab>
+<Tab value="Components-Global" label="Components-Global">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| connection_status | N/A |
+| aiclatency | ms |
+</Tab>
+<Tab value="Components-Software" label="Components-Software">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| status | N/A |
+
+</Tab>
+<Tab value="Components-Speakertrack" label="Components-Speakertrack">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| st_status | N/A |
+| st_availability | N/A |
+
+</Tab>
+<Tab value="Components-Temperature" label="Components-Temperature">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| temperature_status | N/A |
+| temperature | C |
+
+</Tab>
+<Tab value="Components-Video-Input-Connector" label="Components-Video-Input-Connector">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| connection_status | N/A |
+| vic.status | N/A |
+| vic.signal_state | N/A |
+
+</Tab>
+<Tab value="Components-Video-Input-Source" label="Components-Video-Input-Source">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| format_status | N/A |
+
+</Tab>
+<Tab value="Components-Video-Output-Connector" label="Components-Video-Output-Connector">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| connection_status | N/A |
+
+</Tab>
+<Tab value="Components-Webex" label="Components-Webex">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| webex.status | N/A |
+
+</Tab>
+<Tab value="Diagnostics" label="Diagnostics">
+
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</Tab>
+<Tab value="Peripherals" label="Peripherals">
+
+| Nom                                | Unité |
+|:-----------------------------------|:------|
+| system.peripherals.connected.count | count |
+
+</Tab>
+<Tab value="Sessions" label="Sessions">
+
+| Nom                           | Unité |
+|:------------------------------|:------|
+| system.sessions.current.count | count |
+
+</Tab>
+</Tabs>
+
+## Prérequis
+
+Pour utiliser le connecteur Cisco Collaboration Endpoint Rest API, assurez-vous que le périphérique est accessible en HTTPS (port 443), que l’API REST est activée et que des identifiants valides (nom d’utilisateur et mot de passe) sont configurés avec les droits nécessaires pour accéder aux statuts et métriques du périphérique.
+
+## Installer le connecteur de supervision
+
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-hardware-devices-cisco-ces-restapi
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-hardware-devices-cisco-ces-restapi
+```
+
+</Tab>
+<Tab value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-hardware-devices-cisco-ces-restapi
+```
+
+</Tab>
+<Tab value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-hardware-devices-cisco-ces-restapi
+```
+
+</Tab>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Collaboration Endpoint Rest API**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Devices-Cisco-Ces-Restapi
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Hardware-Devices-Cisco-Ces-Restapi
+```
+
+</Tab>
+<Tab value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-hardware-devices-cisco-ces-restapi
+```
+
+</Tab>
+<Tab value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Devices-Cisco-Ces-Restapi
+```
+
+</Tab>
+</Tabs>
+
+## Utiliser le connecteur de supervision
+
+### Utiliser un modèle d'hôte issu du connecteur
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **HW-Device-Cisco-Ces-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+
+| Macro              | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CESAPIUSERNAME     | Set username                                                                                         |                   | X           |
+| CESAPIPASSWORD     | Set password                                                                                         |                   | X           |
+| CESAPIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
+| CESAPIPORT         | Set port (default: '443')                                                                            | 443               |             |
+| CESAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<Tab value="Calls-Rt" label="Calls-Rt">
+
+| Macro                          | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCHANNELSMAXJITTER       | Threshold                                                                                          |                   |             |
+| CRITICALCHANNELSMAXJITTER      | Threshold                                                                                          |                   |             |
+| WARNINGCHANNELSPACKETLOSS      | Threshold                                                                                          |                   |             |
+| CRITICALCHANNELSPACKETLOSS     | Threshold                                                                                          |                   |             |
+| WARNINGCHANNELSPACKETLOSSPRCT  | Threshold                                                                                          |                   |             |
+| CRITICALCHANNELSPACKETLOSSPRCT | Threshold                                                                                          |                   |             |
+| WARNINGCHANNELSTRAFFIC         | Threshold                                                                                          |                   |             |
+| CRITICALCHANNELSTRAFFIC        | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</Tab>
+<Tab value="Calls-Summary" label="Calls-Summary">
+
+| Macro                  | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGMAXJITTER       | Threshold                                                                                          |                   |             |
+| CRITICALMAXJITTER      | Threshold                                                                                          |                   |             |
+| WARNINGPACKETLOSS      | Threshold                                                                                          |                   |             |
+| CRITICALPACKETLOSS     | Threshold                                                                                          |                   |             |
+| WARNINGPACKETLOSSPRCT  | Threshold                                                                                          |                   |             |
+| CRITICALPACKETLOSSPRCT | Threshold                                                                                          |                   |             |
+| WARNINGTOTALFINISHED   | Threshold                                                                                          |                   |             |
+| CRITICALTOTALFINISHED  | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</Tab>
+<Tab value="Certificates" label="Certificates">
+
+| Macro                     | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:--------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCERTIFICATEEXPIRE  | Threshold                                                                                          |                   |             |
+| CRITICALCERTIFICATEEXPIRE | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Audio-Device" label="Components-Audio-Device">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | ad                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Audio-Input-Connector" label="Components-Audio-Input-Connector">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | aic               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Audio-Output-Connector" label="Components-Audio-Output-Connector">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | aoc               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Camera" label="Components-Camera">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | camera            |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Global" label="Components-Global">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Software" label="Components-Software">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | software          |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Speakertrack" label="Components-Speakertrack">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | st                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Temperature" label="Components-Temperature">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | temperature       |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Video-Input-Connector" label="Components-Video-Input-Connector">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | vic               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Video-Input-Source" label="Components-Video-Input-Source">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | vis               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Video-Output-Connector" label="Components-Video-Output-Connector">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | voc               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Components-Webex" label="Components-Webex">
+
+| Macro        | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex' | webex             |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Diagnostics" label="Diagnostics">
+
+| Macro          | Description                                                                                                                                                                              | Valeur par défaut                | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
+| FILTERMSG      | Filter by message (can be a regexp)                                                                                                                                                      |                                  |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{level\} =~ /warning\|minor/i') You can use the following variables: %\{description\}, %\{level\}, %\{type\}    | %\{level\} =~ /warning\|minor/i  |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{level\} =~ /critical\|major/i'). You can use the following variables: %\{description\}, %\{level\}, %\{type\} | %\{level\} =~ /critical\|major/i |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                       | --verbose                        |             |
+
+</Tab>
+<Tab value="Peripherals" label="Peripherals">
+
+| Macro                        | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSINCE                  | Filter by since X seconds (default: 86400)                                                         | 86400             |             |
+| WARNINGPERIPHERALSCONNECTED  | Threshold                                                                                          |                   |             |
+| CRITICALPERIPHERALSCONNECTED | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</Tab>
+<Tab value="Sessions" label="Sessions">
+
+| Macro                   | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGSESSIONSCURRENT  | Threshold                                                                                          |                   |             |
+| CRITICALSESSIONSCURRENT | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</Tab>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+
+```bash
+/usr/lib/centreon/plugins/centreon_cisco_ces_restapi.pl \
+	--plugin=hardware::devices::cisco::ces::restapi::plugin \
+	--mode=sessions \
+	--hostname='10.0.0.1' \
+	--api-username='xxxxxx' \
+	--api-password='xxxxxx' \
+	--port='443' \
+	--proto='https'  \
+	--warning-sessions-current='' \
+	--critical-sessions-current='' \
+	--verbose
+```
+
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: total current sessions: 48099 | 'system.sessions.current.count'=48099;;;0;
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
+des plugins basés sur HTTP/API.
+
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_cisco_ces_restapi.pl \
+	--plugin=hardware::devices::cisco::ces::restapi::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                          | Modèle de service associé                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| calls-rt [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/cisco/ces/restapi/mode/callsrt.pm)]           | HW-Device-Cisco-Ces-Calls-Rt-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| calls-summary [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/cisco/ces/restapi/mode/callssummary.pm)] | HW-Device-Cisco-Ces-Calls-Summary-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/cisco/ces/restapi/mode/certificates.pm)]  | HW-Device-Cisco-Ces-Certificates-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| components [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/cisco/ces/restapi/mode/components.pm)]      | HW-Device-Cisco-Ces-Components-Audio-Device-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Audio-Input-Connector-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Audio-Output-Connector-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Camera-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Global-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Software-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Speakertrack-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Temperature-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Video-Input-Connector-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Video-Input-Source-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Video-Output-Connector-Restapi-custom<br />HW-Device-Cisco-Ces-Components-Webex-Restapi-custom |
+| diagnostics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/cisco/ces/restapi/mode/diagnostics.pm)]    | HW-Device-Cisco-Ces-Diagnostics-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| peripherals [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/cisco/ces/restapi/mode/peripherals.pm)]    | HW-Device-Cisco-Ces-Peripherals-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| sessions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/cisco/ces/restapi/mode/sessions.pm)]          | HW-Device-Cisco-Ces-Sessions-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+### Options disponibles
+
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --redis-server                             |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --redis-attribute                          |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --redis-db                                 |   Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --failback-file                            |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --memexpiration                            |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-dir                            |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --statefile-suffix                         |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-concat-cwd                     |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --hostname                                 |   Set hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --port                                     |   Set port (default: '443').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --proto                                    |   Specify https if needed (default: 'https').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --api-username                             |   Set username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --api-password                             |   Set password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  |   Threshold for HTTP timeout (default: '30').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --no-session                               |   To be used for legacy version (before CE 8.0).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<Tab value="Calls-Rt" label="Calls-Rt">
+
+| Option                   | Description                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --warning-* --critical-* |   Thresholds. Can be: 'channels-traffic', 'channels-maxjitter' 'channels-packetloss', 'channels-packetloss-prct'.             |
+
+</Tab>
+<Tab value="Calls-Summary" label="Calls-Summary">
+
+| Option                   | Description                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --warning-* --critical-* |   Thresholds. Can be: 'total-finished', 'packetloss' 'packetloss-prct', 'maxjitter'.                                          |
+
+</Tab>
+<Tab value="Certificates" label="Certificates">
+
+| Option                   | Description                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --warning-* --critical-* |   Thresholds. Can be: 'certificate-expire'.                                                                                   |
+
+</Tab>
+<Tab value="Components-Audio-Device" label="Components-Audio-Device">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Audio-Input-Connector" label="Components-Audio-Input-Connector">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Audio-Output-Connector" label="Components-Audio-Output-Connector">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Camera" label="Components-Camera">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Global" label="Components-Global">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Software" label="Components-Software">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Speakertrack" label="Components-Speakertrack">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Temperature" label="Components-Temperature">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Video-Input-Connector" label="Components-Video-Input-Connector">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Video-Input-Source" label="Components-Video-Input-Source">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Video-Output-Connector" label="Components-Video-Output-Connector">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Components-Webex" label="Components-Webex">
+
+| Option               | Description                                                                                                                                                                                                                                                                                                  |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'ad' (audio device), 'aic' (audio input connectors), 'aoc' (audio output connectors), 'camera', 'st' (speakerTrack), 'software', 'temperature', 'vic' (video input connectors), 'vis' (video input source), 'voc', (video output connectors), 'webex'.   |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='aic,Microphone.1'                                                                                                                                                                                  |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                                                                                       |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                                 |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='ad.status,CRITICAL,NotConnected'                                                                             |
+| --warning            |   Set warning threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='aiclatency,.*,20'                                                                                                                                                                                |
+| --critical           |   Set critical threshold for 'temperature', 'fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='aiclatency,.*,50'                                                                                                                                                                              |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                               |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                                                                              |
+
+</Tab>
+<Tab value="Diagnostics" label="Diagnostics">
+
+| Option            | Description                                                                                                                                                                                   |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                   |
+| --filter-msg      |   Filter by message (can be a regexp).                                                                                                                                                        |
+| --legacy-tc       |   Use old legacy command.                                                                                                                                                                     |
+| --warning-status  |   Define the conditions to match for the status to be WARNING (default: '%\{level\} =~ /warning\|minor/i') You can use the following variables: %\{description\}, %\{level\}, %\{type\}       |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{level\} =~ /critical\|major/i'). You can use the following variables: %\{description\}, %\{level\}, %\{type\}    |
+
+</Tab>
+<Tab value="Peripherals" label="Peripherals">
+
+| Option                   | Description                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --filter-since           |   Filter by since X seconds (default: 86400).                                                                                 |
+| --warning-* --critical-* |   Thresholds. Can be: 'peripherals-connected'.                                                                                |
+
+</Tab>
+<Tab value="Sessions" label="Sessions">
+
+| Option                   | Description                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --warning-* --critical-* |   Thresholds. Can be: 'sessions-current'.                                                                                     |
+
+</Tab>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_cisco_ces_restapi.pl \
+	--plugin=hardware::devices::cisco::ces::restapi::plugin \
+	--mode=sessions \
+	--help
+```

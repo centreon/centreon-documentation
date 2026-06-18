@@ -235,7 +235,7 @@ Dans cet exemple :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-edit.png)
 
-* Dans l'**Group Policy Editor**, accédez à **Computer Configuration > Policies > Administrative Templates > Windows Components > Windows Remote Management (WinRM) > WinRM Service**.
+* Dans le menu **Group Policy Management Editor**, accédez à **Computer Configuration > Policies > Administrative Templates > Windows Components > Windows Remote Management (WinRM) > WinRM Service**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-winrm.png)
 
@@ -867,9 +867,9 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Spécifiez les paramètres suivants :
     * Action : **Start a program**
     * Programme/script : **PowerShell.exe**
-    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**\<span style=\{\{color:'#FF0000'\}\}\>**@SERVICE_USERNAME@**\</span\>
+    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1** **@SERVICE_USERNAME@**
         * Ajustez ce paramètre pour qu'il corresponde au paramètre "Destination du fichier" précédemment configuré
-        * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1\<span style=\{\{color:'#FF0000'\}\}\>sa_centreon\</span\>**.
+        * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1 **sa_centreon**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-2.png)
 

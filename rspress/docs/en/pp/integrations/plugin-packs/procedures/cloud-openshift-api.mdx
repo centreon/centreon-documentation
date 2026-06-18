@@ -1,0 +1,610 @@
+---
+id: cloud-openshift-api
+title: OpenShift API
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **OpenShift API** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+* [Kubernetes API](./cloud-kubernetes-api.md)
+
+## Pack assets
+
+### Templates
+
+The Monitoring Connector **OpenShift API** brings 2 host templates:
+
+* **Cloud-OpenShift-Api-custom**
+* **Cloud-Openshift-Node-Api-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<Tab value="Cloud-OpenShift-Api-custom" label="Cloud-OpenShift-Api-custom">
+
+| Service Alias    | Service Template                            | Service Description                        | Discovery |
+|:-----------------|:--------------------------------------------|:-------------------------------------------|:---------:|
+| ClusterOperators | Cloud-Openshift-ClusterOperators-Api-custom | Monitor OpenShift cluster operators status |           |
+| ClusterVersion   | Cloud-Openshift-ClusterVersion-Api-custom   | Check OpenShift cluster version            |           |
+| Projects         | Cloud-Openshift-Projects-Api-custom         | Check Openshift projects                   | X         |
+| Routes           | Cloud-Openshift-Routes-Api-custom           | Check Openshift routes                     | X         |
+
+This host template also inherits all services associated with the [Cloud-Kubernetes-Api-custom](../cloud-kubernetes-api/#templates) template.
+
+> The services listed above are created automatically when the **Cloud-OpenShift-Api-custom** host template is used.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+
+</Tab>
+<Tab value="Cloud-Openshift-Node-Api-custom" label="Cloud-Openshift-Node-Api-custom">
+
+This host template also inherits all services associated with the [Cloud-Kubernetes-Node-Api-custom](../cloud-kubernetes-api/#templates) template.
+
+</Tab>
+</Tabs>
+
+### Discovery rules
+
+#### Host discovery
+
+| Rule name            | Description                                                   |
+|:---------------------|:--------------------------------------------------------------|
+| OpenShift Nodes      | Discover OpenShift nodes by requesting the OpenShift RestAPI      |
+| OpenShift Namespaces | Discover OpenShift namespaces by requesting the OpenShift RestAPI |
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+#### Service discovery
+
+| Rule name                    | Description |
+|:-----------------------------|:------------|
+| Cloud-Openshift-Api-Projects | Discover OpenShift Projects to monitor their status            |
+| Cloud-Openshift-Api-Routes   | Discover OpenShift Routes to monitor their status              |
+
+This host template also inherits the discovery rules associated with the [Cloud-Kubernetes-Api-custom](../cloud-kubernetes-api/#service-discovery) template.
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+
+<Tabs groupId="sync">
+<Tab value="ClusterOperators" label="ClusterOperators">
+
+| Name                                   | Unit  |
+|:---------------------------------------|:------|
+| clusteroperators.total.count           | count |
+| clusteroperators.available.count       | count |
+| clusteroperators.unavailable.count     | count |
+| clusteroperators.progressing.count     | count |
+| clusteroperators.notupgreadable.count  | count |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</Tab>
+<Tab value="ClusterVersion" label="ClusterVersion">
+
+| Name   | Unit |
+|:-------|:-----|
+| status | N/A  |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</Tab>
+<Tab value="Projects" label="Projects">
+
+| Name                                   | Unit  |
+|:---------------------------------------|:------|
+| projects.total.count                   | count |
+| projects.active.count                  | count |
+| projects.terminating.count             | count |
+| projects.noncompliant.count            | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</Tab>
+<Tab value="Routes" label="Routes">
+
+| Name                                   | Unit  |
+|:---------------------------------------|:------|
+| *namespace*#namespace.routes.count     | count |
+| *termination*#routes.termination.count | count |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</Tab>
+</Tabs>
+
+## Prerequisites
+
+Communication with OpenShift is performed through the OpenShift REST API.
+
+To use this connector, the poller must be able to reach the OpenShift API endpoint and authenticate using a valid API token with sufficient permissions to access the monitored resources.
+
+## Installing the monitoring connector
+
+### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-cloud-openshift-api
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-cloud-openshift-api
+```
+
+</Tab>
+<Tab value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-cloud-openshift-api
+```
+
+</Tab>
+<Tab value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-cloud-openshift-api
+```
+
+</Tab>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **OpenShift API** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Cloud-OpenShift-Api
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Cloud-OpenShift-Api
+```
+
+</Tab>
+<Tab value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-cloud-openshift-api
+```
+
+</Tab>
+<Tab value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-OpenShift-Api
+```
+
+</Tab>
+</Tabs>
+
+## Using the monitoring connector
+
+### Using a host template provided by the connector
+
+<Tabs groupId="sync">
+<Tab value="Cloud-OpenShift-Api-custom" label="Cloud-OpenShift-Api-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **Cloud-OpenShift-Api-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro                   | Description                                                                                                                                        | Default value | Mandatory |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| KUBERNETESAPIHOSTNAME   | OpenShift API hostname                                                                                                                             |               | X         |
+| KUBERNETESAPITOKEN      | Token retrieved from service account                                                                                                               |               | X         |
+| KUBERNETESAPIPROTO      | Specify https if needed                                                                                                                            | https         |           |
+| KUBERNETESAPIPORT       | API port                                                                                                                                           | 6443          |           |
+| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                         |               |           |
+| KUBERNETESAPINAMESPACE  | Query routes in the specified namespace instead of all namespaces                                                                                  |               |           |
+| PROXYURL                | Proxy URL. Example: http://my.proxy:3128                                                                                                           |               |           |
+| TIMEOUT                 | Set HTTP timeout                                                                                                                                   | 10            |           |
+| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</Tab>
+<Tab value="Cloud-Openshift-Node-Api-custom" label="Cloud-Openshift-Node-Api-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **Cloud-Openshift-Node-Api-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro                   | Description                                                                                                                                        | Default value | Mandatory |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| KUBERNETESAPIHOSTNAME   | OpenShift API hostname                                                                                                                             |               | X         |
+| KUBERNETESAPITOKEN      |                                                                                                                                                    |               | X         |
+| KUBERNETESAPIPROTO      | Specify https if needed                                                                                                                            | https         |           |
+| KUBERNETESAPIPORT       | API port                                                                                                                                           | 6443          |           |
+| KUBECTLCONFIGFILE       |                                                                                                                                                    |               |           |
+| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                         |               |           |
+| KUBERNETESAPINAMESPACE  | Query routes in the specified namespace instead of all namespaces                                                                                  |               |           |
+| PROXYURL                | Proxy URL. Example: http://my.proxy:3128                                                                                                           |               |           |
+| TIMEOUT                 | Set HTTP timeout                                                                                                                                   | 10            |           |
+| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</Tab>
+</Tabs>
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<Tab value="ClusterOperators" label="ClusterOperators">
+
+| Macro                                     | Description                                                                                                                                      | Default value | Mandatory |
+|:------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INCLUDE_OPERATORS_NAME                    | Include operator name (can be a regexp)                                                                                                          |               |           |
+| EXCLUDE_OPERATORS_NAME                    | Exclude operator name (can be a regexp)                                                                                                          |               |           |
+| WARNING_CLUSTEROPERATORS_AVAILABLE        | Threshold                                                                                                                                        |               |           |
+| CRITICAL_CLUSTEROPERATORS_AVAILABLE       | Threshold                                                                                                                                        |               |           |
+| WARNING_CLUSTEROPERATORS_DEGRADED         | Threshold                                                                                                                                        |               |           |
+| CRITICAL_CLUSTEROPERATORS_DEGRADED        | Threshold                                                                                                                                        |               |           |
+| WARNING_CLUSTEROPERATORS_NOT_UPGRADEABLE  | Threshold                                                                                                                                        |               |           |
+| CRITICAL_CLUSTEROPERATORS_NOT_UPGRADEABLE | Threshold                                                                                                                                        |               |           |
+| WARNING_CLUSTEROPERATORS_PROGRESSING      | Threshold                                                                                                                                        |               |           |
+| CRITICAL_CLUSTEROPERATORS_PROGRESSING     | Threshold                                                                                                                                        |               |           |
+| WARNING_CLUSTEROPERATORS_TOTAL            | Threshold                                                                                                                                        |               |           |
+| CRITICAL_CLUSTEROPERATORS_TOTAL           | Threshold                                                                                                                                        |               |           |
+| CRITICAL_CLUSTEROPERATORS_UNAVAILABLE     | Threshold                                                                                                                                        | @1:           |           |
+| WARNING_CLUSTEROPERATORS_UNAVAILABLE      | Threshold                                                                                                                                        |               |           |
+| EXTRA_OPTIONS                             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+
+</Tab>
+<Tab value="ClusterVersion" label="ClusterVersion">
+
+| Macro           | Description                                                                                                                                                                                                                                                                                         | Default value                                         | Mandatory |
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:---------:|
+| CRITICAL_STATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{human\_status\}, %\{current\_version\}, %\{channel\}, %\{desired\_version\}, %\{available\}, %\{progressing\}, %\{failing\}, %\{upgradeable\}, %\{retrievedupdates\}, %\{updates\_available\} | %\{available\} =~ /false/ \|\| %\{failing\} =~ /true/ |           |
+| WARNING_STATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{human\_status\}, %\{current\_version\}, %\{channel\}, %\{desired\_version\}, %\{available\}, %\{progressing\}, %\{failing\}, %\{upgradeable\}, %\{retrievedupdates\}, %\{updates\_available\}  |                                                       |           |
+| EXTRA_OPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                              |                                                       |           |
+
+</Tab>
+<Tab value="Projects" label="Projects">
+
+| Macro                          | Description                                                                                                                                                                    | Default value | Mandatory |
+|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INCLUDE_PROJECT_NAME           | Include project name (can be a regexp)                                                                                                                                         |               |           |
+| EXCLUDE_PROJECT_NAME           | Exclude project name (can be a regexp)                                                                                                                                         |               |           |
+| INCLUDE_LABEL                  | Include projects matching the specified label filters. Filters are provided as a comma-separated list in the format key or key=value, where both key and value may be a regexp |               |           |
+| EXCLUDE_LABEL                  | Exclude projects matching the specified label filters. Filters are provided as a comma-separated list in the format key or key=value, where both key and value may be a regexp |               |           |
+| REQUIRED_LABEL                 | Comma-separated list of required labels. Format: key or key=value. Example: --required-label="owner" --required-label="environment=prod"                                       |               |           |
+| WARNING_PROJECTS_ACTIVE        | Threshold                                                                                                                                                                      |               |           |
+| CRITICAL_PROJECTS_ACTIVE       | Threshold                                                                                                                                                                      |               |           |
+| CRITICAL_PROJECTS_NONCOMPLIANT | Threshold                                                                                                                                                                      | @:1           |           |
+| WARNING_PROJECTS_NONCOMPLIANT  | Threshold                                                                                                                                                                      |               |           |
+| WARNING_PROJECTS_TERMINATING   | Threshold                                                                                                                                                                      |               |           |
+| CRITICAL_PROJECTS_TERMINATING  | Threshold                                                                                                                                                                      |               |           |
+| WARNING_PROJECTS_TOTAL         | Threshold                                                                                                                                                                      |               |           |
+| CRITICAL_PROJECTS_TOTAL        | Threshold                                                                                                                                                                      |               |           |
+| EXTRA_OPTIONS                  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                         |               |           |
+
+</Tab>
+<Tab value="Routes" label="Routes">
+
+| Macro                         | Description                                                                                                                                                                  | Default value | Mandatory |
+|:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INCLUDE_NAMESPACE             | Exclude route host (can be a regexp)                                                                                                                                         |               |           |
+| EXCLUDE_NAMESPACE             | Exclude route namespace (can be a regexp)                                                                                                                                    |               |           |
+| INCLUDE_NAME                  | Include route name (can be a regexp)                                                                                                                                         |               |           |
+| EXCLUDE_NAME                  | Exclude route name (can be a regexp)                                                                                                                                         |               |           |
+| INCLUDE_LABEL                 | Include routes matching the specified label filters. Filters are provided as a comma-separated list in the format key or key=value, where both key and value may be a regexp |               |           |
+| EXCLUDE_LABEL                 | Exclude routes matching the specified label filters. Filters are provided as a comma-separated list in the format key or key=value, where both key and value may be a regexp |               |           |
+| INCLUDE_SERVICE               | Include route service (can be a regexp)                                                                                                                                      |               |           |
+| EXCLUDE_SERVICE               | Exclude route service (can be a regexp)                                                                                                                                      |               |           |
+| INCLUDE_TERMINATION           | Exclude route termination type: `edge`, `passthrough`, `reencrypt`, `none` (can be a regexp)                                                                                 |               |           |
+| WARNING_HOSTS_EXPOSED         | Threshold                                                                                                                                                                    |               |           |
+| CRITICAL_HOSTS_EXPOSED        | Threshold                                                                                                                                                                    |               |           |
+| WARNING_ROUTES_ADMITTED       | Threshold                                                                                                                                                                    |               |           |
+| CRITICAL_ROUTES_ADMITTED      | Threshold                                                                                                                                                                    |               |           |
+| WARNING_ROUTES_NOT_ADMITTED   | Threshold                                                                                                                                                                    |               |           |
+| CRITICAL_ROUTES_NOT_ADMITTED  | Threshold                                                                                                                                                                    |               |           |
+| WARNING_ROUTES_NOT_TLS        | Threshold                                                                                                                                                                    |               |           |
+| CRITICAL_ROUTES_NOT_TLS       | Threshold                                                                                                                                                                    |               |           |
+| WARNING_ROUTES_PER_NAMESPACE  | Threshold                                                                                                                                                                    |               |           |
+| CRITICAL_ROUTES_PER_NAMESPACE | Threshold                                                                                                                                                                    |               |           |
+| WARNING_ROUTES_TLS            | Threshold                                                                                                                                                                    |               |           |
+| CRITICAL_ROUTES_TLS           | Threshold                                                                                                                                                                    |               |           |
+| WARNING_ROUTES_TOTAL          | Threshold                                                                                                                                                                    |               |           |
+| CRITICAL_ROUTES_TOTAL         | Threshold                                                                                                                                                                    |               |           |
+| WARNING_SERVICES_TARGETED     | Threshold                                                                                                                                                                    |               |           |
+| CRITICAL_SERVICES_TARGETED    | Threshold                                                                                                                                                                    |               |           |
+| WARNING_TERMINATION_TYPE      | Threshold                                                                                                                                                                    |               |           |
+| CRITICAL_TERMINATION_TYPE     | Threshold                                                                                                                                                                    |               |           |
+| EXTRA_OPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                       |               |           |
+
+</Tab>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
+
+```bash
+/usr/lib/centreon/plugins/centreon_openshift_api.pl \
+	--plugin=cloud::openshift::api::plugin \
+	--mode=routes \
+	--custommode='' \
+	--hostname= \
+	--port='6443' \
+	--proto='https' \
+	--token='' \
+	--proxyurl='' \
+	--namespace='' \
+	--timeout='10'  \
+	--include-namespace='' \
+	--exclude-namespace='' \
+	--include-name='' \
+	--exclude-name='' \
+	--include-host='' \
+	--exclude-host='' \
+	--include-label='' \
+	--exclude-label='' \
+	--include-service='' \
+	--exclude-service='' \
+	--include-termination='' \
+	--exclude-termination='' \
+	--warning-routes-total='' \
+	--critical-routes-total='' \
+	--warning-routes-admitted='' \
+	--critical-routes-admitted='' \
+	--warning-routes-not-admitted='' \
+	--critical-routes-not-admitted='' \
+	--warning-routes-tls='' \
+	--critical-routes-tls='' \
+	--warning-routes-not-tls='' \
+	--critical-routes-not-tls='' \
+	--warning-hosts-exposed='' \
+	--critical-hosts-exposed='' \
+	--warning-services-targeted='' \
+	--critical-services-targeted='' \
+	--warning-routes-per-namespace='' \
+	--critical-routes-per-namespace='' \
+	--warning-termination-type='' \
+	--critical-termination-type='' 
+```
+
+The expected command output is shown below:
+
+```bash
+OK: Namespace :  route(s) Termination :  route(s) | 'namespace#namespace.routes.count'=2644;;;0; 'termination#routes.termination.count'=7137;;;0; 
+```
+
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_openshift_api.pl \
+	--plugin=cloud::openshift::api::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                  | Linked service template                     |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|
+| clusteroperators [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/openshift/api/mode/clusteroperators.pm)] | Cloud-Openshift-ClusterOperators-Api-custom |
+| clusterversion [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/openshift/api/mode/clusterversion.pm)]     | Cloud-Openshift-ClusterVersion-Api-custom   |
+| projects [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/openshift/api/mode/projects.pm)]                 | Cloud-Openshift-Projects-Api-custom         |
+| routes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/openshift/api/mode/routes.pm)]                     | Cloud-Openshift-Routes-Api-custom           |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --show-password                            | By default, sensitive information in command lines is hidden in debug output and replaced with `***` (however, debug logs may still display sensitive information). Using the C option will display the passwords in plain text.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --extend-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  um wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --change-output-adv                        | Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-file                              | Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  \<output\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-counters                          | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --warning-xxx                              | Warning threshold.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --critical-xxx                             | Critical threshold.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --proxyurl                                 | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --proxypac                                 | Proxy PAC file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --insecure                                 | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --hostname                                 | OpenShift API hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --port                                     | API port (default: 6443).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --proto                                    | Specify https if needed (default: 'https').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --timeout                                  | Set HTTP timeout (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --limit                                    | Number of responses to return for each list calls (default: 100).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<Tab value="ClusterOperators" label="ClusterOperators">
+
+| Option                                      | Description                              |
+|:--------------------------------------------|:-----------------------------------------|
+| --include-name                              | Include operator name (can be a regexp). |
+| --exclude-name                              | Exclude operator name (can be a regexp). |
+| --warning-clusteroperators-total            | Threshold.                               |
+| --critical-clusteroperators-total           | Threshold.                               |
+| --warning-clusteroperators-available        | Threshold.                               |
+| --critical-clusteroperators-available       | Threshold.                               |
+| --warning-clusteroperators-unavailable      | Threshold.                               |
+| --critical-clusteroperators-unavailable     | Threshold (default: '@1:').              |
+| --warning-clusteroperators-degraded         | Threshold.                               |
+| --critical-clusteroperators-degraded        | Threshold.                               |
+| --warning-clusteroperators-progressing      | Threshold.                               |
+| --critical-clusteroperators-progressing     | Threshold.                               |
+| --warning-clusteroperators-not-upgradeable  | Threshold.                               |
+| --critical-clusteroperators-not-upgradeable | Threshold.                               |
+
+</Tab>
+<Tab value="ClusterVersion" label="ClusterVersion">
+
+| Option            | Description                                                                                                                                                                                                                                                                                                                                                            |
+|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{available\} =~ /false/ \|\| %\{failing\} =~ /true/'). You can use the following variables: %\{human\_status\}, %\{current\_version\}, %\{channel\}, %\{desired\_version\}, %\{available\}, %\{progressing\}, %\{failing\}, %\{upgradeable\}, %\{retrievedupdates\}, %\{updates\_available\} |
+| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{human\_status\}, %\{current\_version\}, %\{channel\}, %\{desired\_version\}, %\{available\}, %\{progressing\}, %\{failing\}, %\{upgradeable\}, %\{retrievedupdates\}, %\{updates\_available\}                                                                     |
+
+</Tab>
+<Tab value="Projects" label="Projects">
+
+| Option                           | Description                                                                                                                                                                     |
+|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --include-name                   | Include project name (can be a regexp).                                                                                                                                         |
+| --exclude-name                   | Exclude project name (can be a regexp).                                                                                                                                         |
+| --include-label                  | Include projects matching the specified label filters. Filters are provided as a comma-separated list in the format key or key=value, where both key and value may be a regexp. |
+| --exclude-label                  | Exclude projects matching the specified label filters. Filters are provided as a comma-separated list in the format key or key=value, where both key and value may be a regexp. |
+| --required-label                 | Comma-separated list of required labels. Format: key or key=value. Example: --required-label="owner" --required-label="environment=prod"                                        |
+| --warning-projects-total         | Threshold.                                                                                                                                                                      |
+| --critical-projects-total        | Threshold.                                                                                                                                                                      |
+| --warning-projects-active        | Threshold.                                                                                                                                                                      |
+| --critical-projects-active       | Threshold.                                                                                                                                                                      |
+| --warning-projects-terminating   | Threshold.                                                                                                                                                                      |
+| --critical-projects-terminating  | Threshold.                                                                                                                                                                      |
+| --warning-projects-noncompliant  | Threshold.                                                                                                                                                                      |
+| --critical-projects-noncompliant | Threshold (default: '@1:').                                                                                                                                                     |
+
+</Tab>
+<Tab value="Routes" label="Routes">
+
+| Option                          | Description                                                                                                                                                                   |
+|:--------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --namespace                     | Query routes in the specified namespace instead of all namespaces.                                                                                                            |
+| --include-name                  | Include route name (can be a regexp).                                                                                                                                         |
+| --exclude-name                  | Exclude route name (can be a regexp).                                                                                                                                         |
+| --include-namespace             | Include route namespace (can be a regexp).                                                                                                                                    |
+| --exclude-namespace             | Exclude route namespace (can be a regexp).                                                                                                                                    |
+| --include-host                  | Include route host (can be a regexp).                                                                                                                                         |
+| --exclude-host                  | Exclude route host (can be a regexp).                                                                                                                                         |
+| --include-label                 | Include routes matching the specified label filters. Filters are provided as a comma-separated list in the format key or key=value, where both key and value may be a regexp. |
+| --exclude-label                 | Exclude routes matching the specified label filters. Filters are provided as a comma-separated list in the format key or key=value, where both key and value may be a regexp. |
+| --include-service               | Include route service (can be a regexp).                                                                                                                                      |
+| --exclude-service               | Exclude route service (can be a regexp).                                                                                                                                      |
+| --include-termination           | Include route termination type: `edge`, `passthrough`, `reencrypt`, `none` (can be a regexp).                                                                                 |
+| --exclude-termination           | Exclude route termination type: `edge`, `passthrough`, `reencrypt`, `none` (can be a regexp).                                                                                 |
+| --warning-hosts-exposed         | Threshold.                                                                                                                                                                    |
+| --critical-hosts-exposed        | Threshold.                                                                                                                                                                    |
+| --warning-routes-admitted       | Threshold.                                                                                                                                                                    |
+| --critical-routes-admitted      | Threshold.                                                                                                                                                                    |
+| --warning-routes-not-admitted   | Threshold.                                                                                                                                                                    |
+| --critical-routes-not-admitted  | Threshold.                                                                                                                                                                    |
+| --warning-routes-not-tls        | Threshold.                                                                                                                                                                    |
+| --critical-routes-not-tls       | Threshold.                                                                                                                                                                    |
+| --warning-routes-per-namespace  | Threshold.                                                                                                                                                                    |
+| --critical-routes-per-namespace | Threshold.                                                                                                                                                                    |
+| --warning-routes-tls            | Threshold.                                                                                                                                                                    |
+| --critical-routes-tls           | Threshold.                                                                                                                                                                    |
+| --warning-routes-total          | Threshold.                                                                                                                                                                    |
+| --critical-routes-total         | Threshold.                                                                                                                                                                    |
+| --warning-services-targeted     | Threshold.                                                                                                                                                                    |
+| --critical-services-targeted    | Threshold.                                                                                                                                                                    |
+| --warning-termination-type      | Threshold.                                                                                                                                                                    |
+| --critical-termination-type     | Threshold.                                                                                                                                                                    |
+
+</Tab>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_openshift_api.pl \
+	--plugin=cloud::openshift::api::plugin \
+	--mode=routes \
+	--help
+```

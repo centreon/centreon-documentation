@@ -1,0 +1,553 @@
+---
+id: applications-databases-firebird
+title: Firebird
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Firebird** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
+## Pack assets
+
+### Templates
+
+The Monitoring Connector **Firebird** brings a host template:
+
+* **App-DB-Firebird-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<Tab value="App-DB-Firebird-custom" label="App-DB-Firebird-custom">
+
+| Service Alias   | Service Template                       | Service Description                     |
+|:----------------|:---------------------------------------|:----------------------------------------|
+| Connection-Time | App-DB-Firebird-Connection-Time-custom | Check the connection time to the server |
+| Memory          | App-DB-Firebird-Memory-custom          | Check memory usage                      |
+| Pages           | App-DB-Firebird-Pages-custom           | Check page statistics                   |
+| Queries         | App-DB-Firebird-Queries-custom         | Check queries statistics                |
+| Users           | App-DB-Firebird-Users-custom           | Check current users connected           |
+
+> The services listed above are created automatically when the **App-DB-Firebird-custom** host template is used.
+
+</Tab>
+<Tab value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias | Service Template                    | Service Description                  |
+|:--------------|:------------------------------------|:-------------------------------------|
+| Long-Queries  | App-DB-Firebird-Long-Queries-custom | Check current number of long queries |
+| Sql-Generic   | App-DB-Firebird-Sql-Generic-custom  | Check allowing to perform a custom SQL query |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+</Tab>
+</Tabs>
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+
+<Tabs groupId="sync">
+<Tab value="Connection-Time" label="Connection-Time">
+
+| Name                         | Unit  |
+|:-----------------------------|:------|
+| connection.time.milliseconds | ms    |
+
+</Tab>
+<Tab value="Long-Queries" label="Long-Queries">
+
+| Name              | Unit  |
+|:------------------|:------|
+| longqueries.count | count |
+
+</Tab>
+<Tab value="Memory" label="Memory">
+
+| Name                    | Unit  |
+|:------------------------|:------|
+| database.usage.bytes    | B     |
+| attachment.usage.bytes  | B     |
+| transaction.usage.bytes | B     |
+| statement.usage.bytes   | B     |
+| call.usage.bytes        | B     |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</Tab>
+<Tab value="Pages" label="Pages">
+
+| Name                    | Unit  |
+|:------------------------|:------|
+| pages.reads.persecond   | /s    |
+| pages.writes.persecond  | /s    |
+| pages.fetches.persecond | /s    |
+| pages.marks.persecond   | /s    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</Tab>
+<Tab value="Queries" label="Queries">
+
+| Name                              | Unit  |
+|:----------------------------------|:------|
+| queries.total.persecond           | /s    |
+| queries.sequentialreads.persecond | /s    |
+| queries.insert.persecond          | /s    |
+| queries.updates.persecond         | /s    |
+| queries.deletes.persecond         | /s    |
+| queries.backout.persecond         | /s    |
+| queries.purges.persecond          | /s    |
+| queries.expunges.persecond        | /s    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</Tab>
+<Tab value="Sql-Generic" label="Sql-Generic">
+
+| Name                              | Unit  |
+|:----------------------------------|:------|
+| value                             | N/A   |
+| sqlrequest.execution.time.seconds | s     |
+
+</Tab>
+<Tab value="Users" label="Users">
+
+| Name        | Unit  |
+|:------------|:------|
+| users.count | count |
+
+</Tab>
+</Tabs>
+
+## Prerequisites
+
+The Firebird server must be installed, running, and reachable from the Centreon poller.
+Make sure the database is accessible with a user that has sufficient privileges to execute the queries required for monitoring.
+
+## Installing the monitoring connector
+
+### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-applications-databases-firebird
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-applications-databases-firebird
+```
+
+</Tab>
+<Tab value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-databases-firebird
+```
+
+</Tab>
+<Tab value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-databases-firebird
+```
+
+</Tab>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Firebird** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Databases-Firebird
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Databases-Firebird
+```
+
+</Tab>
+<Tab value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-databases-firebird
+```
+
+</Tab>
+<Tab value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Databases-Firebird
+```
+
+</Tab>
+</Tabs>
+
+## Using the monitoring connector
+
+### Using a host template provided by the connector
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-DB-Firebird-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro                | Description                                                                                          | Default value                                | Mandatory   |
+|:---------------------|:-----------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
+| FIREBIRDUSERNAME     | Firebird username                                                                                                     | USERNAME                                     |             |
+| FIREBIRDPASSWORD     | Firebird password                                                                                                     | PASSWORD                                     |             |
+| FIREBIRDPORT         | Firebird port                                                                                                     | 3051                                         |             |
+| SYFIREBIRDPORT       | Database Server Port                                                                                 |                                              |             |
+| FIREBIRDDATABASE     | Path to Database. (example: /opt/firebird/examples/empbuild/employee.fdb)                            | /opt/firebird/examples/empbuild/employee.fdb |             |
+| FIREBIRDEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                                              |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<Tab value="Connection-Time" label="Connection-Time">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold in milliseconds                                                                  |                   |             |
+| CRITICAL     | Critical threshold in milliseconds                                                                 |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</Tab>
+<Tab value="Long-Queries" label="Long-Queries">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSTATE  | Filter by state (can be a regexp. Default: '^(?!(0)$)')                                            | ^(?!(0)$)         |             |
+| SECONDS      | Filter queries over X seconds (default: 60)                                                        | 60                |             |
+| FILTERUSER   | Filter by user (can be a regexp)                                                                   |                   |             |
+| WARNING      | Warning threshold (number of long queries)                                                         |                   |             |
+| CRITICAL     | Critical threshold (number of long queries)                                                        |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</Tab>
+<Tab value="Memory" label="Memory">
+
+| Macro               | Description                                                                                        | Default value     | Mandatory   |
+|:--------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGATTACHMENT   | Threshold                                                                                          |                   |             |
+| CRITICALATTACHMENT  | Threshold                                                                                          |                   |             |
+| WARNINGCALL         | Threshold                                                                                          |                   |             |
+| CRITICALCALL        | Threshold                                                                                          |                   |             |
+| WARNINGSTATEMENT    | Threshold                                                                                          |                   |             |
+| CRITICALSTATEMENT   | Threshold                                                                                          |                   |             |
+| WARNINGTRANSACTION  | Threshold                                                                                          |                   |             |
+| CRITICALTRANSACTION | Threshold                                                                                          |                   |             |
+| WARNINGUSED         | Threshold                                                                                          |                   |             |
+| CRITICALUSED        | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</Tab>
+<Tab value="Pages" label="Pages">
+
+| Macro           | Description                                                                                        | Default value     | Mandatory   |
+|:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGFETCHES  | Threshold                                                                                          |                   |             |
+| CRITICALFETCHES | Threshold                                                                                          |                   |             |
+| WARNINGMARKS    | Threshold                                                                                          |                   |             |
+| CRITICALMARKS   | Threshold                                                                                          |                   |             |
+| WARNINGREADS    | Threshold                                                                                          |                   |             |
+| CRITICALREADS   | Threshold                                                                                          |                   |             |
+| WARNINGWRITES   | Threshold                                                                                          |                   |             |
+| CRITICALWRITES  | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</Tab>
+<Tab value="Queries" label="Queries">
+
+| Macro            | Description                                                                                        | Default value     | Mandatory   |
+|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGBACKOUTS  | Threshold                                                                                          |                   |             |
+| CRITICALBACKOUTS | Threshold                                                                                          |                   |             |
+| WARNINGDELETES   | Threshold                                                                                          |                   |             |
+| CRITICALDELETES  | Threshold                                                                                          |                   |             |
+| WARNINGEXPUNGES  | Threshold                                                                                          |                   |             |
+| CRITICALEXPUNGES | Threshold                                                                                          |                   |             |
+| WARNINGINSERTS   | Threshold                                                                                          |                   |             |
+| CRITICALINSERTS  | Threshold                                                                                          |                   |             |
+| WARNINGPURGES    | Threshold                                                                                          |                   |             |
+| CRITICALPURGES   | Threshold                                                                                          |                   |             |
+| WARNINGSEQREADS  | Threshold                                                                                          |                   |             |
+| CRITICALSEQREADS | Threshold                                                                                          |                   |             |
+| WARNINGTOTAL     | Threshold                                                                                          |                   |             |
+| CRITICALTOTAL    | Threshold                                                                                          |                   |             |
+| WARNINGUPDATES   | Threshold                                                                                          |                   |             |
+| CRITICALUPDATES  | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</Tab>
+<Tab value="Sql-Generic" label="Sql-Generic">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FORMAT       | Output format (default: 'SQL statement result : %i.')                                              | value: %i         | X           |
+| PERFDATANAME | Perfdata name in perfdata output (default: 'value')                                                | value             |             |
+| SQLSTATEMENT | SQL statement that returns a number                                                                |                   | X           |
+| WARNING      |                                                                                                    |                   |             |
+| CRITICAL     |                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</Tab>
+<Tab value="Users" label="Users">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                  |                   |             |
+| CRITICAL     | Critical threshold                                                                                 |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</Tab>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
+
+```bash
+/usr/lib/centreon/plugins/centreon_database_firebird.pl \
+	--plugin=database::firebird::plugin \
+	--host='10.0.0.1' \
+	--port='' \
+	--username='USERNAME' \
+	--password='PASSWORD' \
+	--database='/opt/firebird/examples/empbuild/employee.fdb'  \
+	--mode=queries \
+	--warning-total='' \
+	--critical-total='' \
+	--warning-seq-reads='' \
+	--critical-seq-reads='' \
+	--warning-inserts='' \
+	--critical-inserts='' \
+	--warning-updates='' \
+	--critical-updates='' \
+	--warning-deletes='' \
+	--critical-deletes='' \
+	--warning-backouts='' \
+	--critical-backouts='' \
+	--warning-purges='' \
+	--critical-purges='' \
+	--warning-expunges='' \
+	--critical-expunges=''
+```
+
+The expected command output is shown below:
+
+```bash
+OK: Total : 99463 Seq Reads : 60500 Inserts : 68383 Updates : 73378 Deletes : 84520 Backouts : 43760 Purges : 8938 Expunges : 55717 | 'queries.total.persecond'=99463/s;;;0; 'queries.sequentialreads.persecond'=60500/s;;;0; 'queries.insert.persecond'=68383/s;;;0; 'queries.updates.persecond'=73378/s;;;0; 'queries.deletes.persecond'=84520/s;;;0; 'queries.backout.persecond'=43760/s;;;0; 'queries.purges.persecond'=8938/s;;;0; 'queries.expunges.persecond'=55717/s;;;0;
+```
+
+### Troubleshooting
+
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_database_firebird.pl \
+	--plugin=database::firebird::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                         | Linked service template                |
+|:---------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
+| connection-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/connectiontime.pm)] | App-DB-Firebird-Connection-Time-custom |
+| long-queries [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/firebird/mode/longqueries.pm)]                   | App-DB-Firebird-Long-Queries-custom    |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/firebird/mode/memory.pm)]                              | App-DB-Firebird-Memory-custom          |
+| name [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/db_name.pm)]                                                      | Not used in this Monitoring Connector  |
+| pages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/firebird/mode/pages.pm)]                                | App-DB-Firebird-Pages-custom           |
+| queries [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/firebird/mode/queries.pm)]                            | App-DB-Firebird-Queries-custom         |
+| sql [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/sql.pm)]                        | App-DB-Firebird-Sql-Generic-custom     |
+| users [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/firebird/mode/users.pm)]                                | App-DB-Firebird-Users-custom           |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --sqlmode                                  |   This plugin offers several ways to query the database (default: dbi). See --list-sqlmode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --list-sqlmode                             |   List all available sql modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --multiple                                 |   Enable connecting to multiple databases (required by some specific modes such as replication).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --host                                     |   Hostname to query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --port                                     |   Database Server Port.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --database                                 |   Path to Database. (example: /opt/firebird/examples/empbuild/employee.fdb)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<Tab value="Connection-Time" label="Connection-Time">
+
+| Option     | Description                              |
+|:-----------|:-----------------------------------------|
+| --warning  |   Warning threshold in milliseconds.     |
+| --critical |   Critical threshold in milliseconds.    |
+
+</Tab>
+<Tab value="Long-Queries" label="Long-Queries">
+
+| Option         | Description                                                   |
+|:---------------|:--------------------------------------------------------------|
+| --warning      |   Warning threshold (number of long queries).                 |
+| --critical     |   Critical threshold (number of long queries).                |
+| --seconds      |   Filter queries over X seconds (default: 60).                |
+| --filter-user  |   Filter by user (can be a regexp).                           |
+| --filter-state |   Filter by state (can be a regexp. Default: '^(?!(0)$)').    |
+
+</Tab>
+<Tab value="Memory" label="Memory">
+
+| Option            | Description                                                                                                                   |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --warning-*       |   Warning threshold. Can be: 'used' (%), 'attachment' (%), 'transaction' (%),  'statement' (%), 'call' (%).                   |
+| --critical-*      |   Critical threshold. Can be: 'used' (%), 'attachment' (%), 'transaction' (%),  'statement' (%), 'call' (%).                  |
+
+</Tab>
+<Tab value="Pages" label="Pages">
+
+| Option            | Description                                                                                                                   |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --warning-*       |   Warning threshold. Can be: 'reads', 'writes', 'fetches', 'marks'.                                                           |
+| --critical-*      |   Critical threshold. Can be: 'reads', 'writes', 'fetches', 'marks'.                                                          |
+
+</Tab>
+<Tab value="Queries" label="Queries">
+
+| Option            | Description                                                                                                                   |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --warning-*       |   Warning threshold. Can be: 'total', 'seq-reads', 'inserts', 'updates', 'deletes', 'backouts', 'purges', 'expunges'.         |
+| --critical-*      |   Critical threshold. Can be: 'total', 'seq-reads', 'inserts', 'updates', 'deletes', 'backouts', 'purges', 'expunges'.        |
+
+</Tab>
+<Tab value="Sql-Generic" label="Sql-Generic">
+
+| Option                   | Description                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --sql-statement          |   SQL statement that returns a number.                                                                                        |
+| --format                 |   Output format (default: 'SQL statement result : %i.').                                                                      |
+| --perfdata-unit          |   Perfdata unit in perfdata output (default: '')                                                                              |
+| --perfdata-name          |   Perfdata name in perfdata output (default: 'value')                                                                         |
+| --perfdata-min           |   Minimum value to add in perfdata output (default: '')                                                                       |
+| --perfdata-max           |   Maximum value to add in perfdata output (default: '')                                                                       |
+| --warning-* --critical-* |   Thresholds. Can be: 'value', 'execution-time'.                                                                              |
+
+</Tab>
+<Tab value="Users" label="Users">
+
+| Option     | Description              |
+|:-----------|:-------------------------|
+| --warning  |   Warning threshold.     |
+| --critical |   Critical threshold.    |
+
+</Tab>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_database_firebird.pl \
+	--plugin=database::firebird::plugin \
+	--host='10.0.0.1' \
+	--help
+```

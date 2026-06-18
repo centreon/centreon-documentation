@@ -248,6 +248,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Secure your MAP platform",
           "link": "/25.10/graph-views/secure-your-map-platform"
+        },
+        {
+          "text": "Secure your MBI platform",
+          "link": "/25.10/reporting/secure-your-mbi-platform"
         }
       ]
     },
@@ -712,25 +716,6 @@ export const sidebar: Sidebar = {
             {
               "text": "Introduction to Centreon MAP",
               "link": "/25.10/graph-views/introduction-map"
-            },
-            {
-              "text": "Information for MAP Legacy users",
-              "collapsible": true,
-              "collapsed": true,
-              "items": [
-                {
-                  "text": "MAP Legacy end of life",
-                  "link": "/25.10/graph-views/map-legacy-eol"
-                },
-                {
-                  "text": "Upgrading MAP Legacy to version 24.10",
-                  "link": "/25.10/graph-views/upgrading-map-legacy"
-                },
-                {
-                  "text": "Switching from MAP (Legacy) to MAP",
-                  "link": "/25.10/graph-views/import-into-map-web"
-                }
-              ]
             },
             {
               "text": "Installing MAP",
@@ -1263,7 +1248,7 @@ export const sidebar: Sidebar = {
               "link": "/25.10/integrations/data-analytics/sc-influxdb2-metrics"
             },
             {
-              "text": "Kafka Event Manager",
+              "text": "Kafka Events",
               "link": "/25.10/integrations/data-analytics/sc-kafka-events"
             },
             {
@@ -1283,7 +1268,7 @@ export const sidebar: Sidebar = {
               "link": "/25.10/integrations/event-management/sc-service-now-em-events"
             },
             {
-              "text": "ServiceNow Incident",
+              "text": "ServiceNow Incident Events",
               "link": "/25.10/integrations/event-management/sc-service-now-incident-events"
             },
             {
@@ -1894,7 +1879,7 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/applications-exense-step-restapi"
         },
         {
-          "text": "Github",
+          "text": "GitHub Rest API",
           "link": "/pp/integrations/plugin-packs/procedures/applications-github-restapi"
         },
         {
@@ -2054,7 +2039,7 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp"
         },
         {
-          "text": "Microsoft Dynamics NRPE 0.5",
+          "text": "Dynamics AX NSClient 0.5 NRPE",
           "link": "/pp/integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe"
         },
         {
@@ -2326,6 +2311,10 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/applications-squid-snmp"
         },
         {
+          "text": "Symantec Netbackup CMA",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-netbackup-cma"
+        },
+        {
           "text": "Symantec Netbackup NSClient++ NRPE",
           "link": "/pp/integrations/plugin-packs/procedures/applications-netbackup-nrpe"
         },
@@ -2382,7 +2371,7 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/applications-veeam-wsman"
         },
         {
-          "text": "Veritas Backup Exec NSCP Rest API",
+          "text": "Veritas Backup Exec NSCP API",
           "link": "/pp/integrations/plugin-packs/procedures/applications-backupexec-nscp-restapi"
         },
         {
@@ -2458,6 +2447,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Centreon Experience Monitoring (formerly Quanta) Rest API",
           "link": "/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-experience-monitoring-restapi"
+        },
+        {
+          "text": "Centreon Log Management Rest API",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-clm-restapi"
         },
         {
           "text": "Centreon Map (deprecated)",
@@ -2869,6 +2862,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Office365 Teams",
           "link": "/pp/integrations/plugin-packs/procedures/cloud-microsoft-office365-teams"
+        },
+        {
+          "text": "OpenShift API",
+          "link": "/pp/integrations/plugin-packs/procedures/cloud-openshift-api"
         },
         {
           "text": "OpenStack RESTAPI",
@@ -4359,11 +4356,11 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-restapi"
         },
         {
-          "text": "HP StoreOnce 3.x Rest API",
+          "text": "HP StoreOnce 3 Rest API",
           "link": "/pp/integrations/plugin-packs/procedures/hardware-storage-hp-storeonce3-restapi"
         },
         {
-          "text": "HP StoreOnce 4.x Rest API",
+          "text": "HP StoreOnce 4 Rest API",
           "link": "/pp/integrations/plugin-packs/procedures/hardware-storage-hp-storeonce4-restapi"
         },
         {
@@ -4893,8 +4890,8 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Using the user portal (CIAM)",
-          "link": "/cloud/ciam/ciam"
+          "text": "User portal (Centreon Hub)",
+          "link": "/cloud/users/centreon-hub"
         },
         {
           "text": "Users in Centreon Cloud",
@@ -4910,7 +4907,7 @@ export const sidebar: Sidebar = {
         },
         {
           "text": "Cloud Saml",
-          "link": "/cloud/ciam/cloud-saml"
+          "link": "/cloud/users/cloud-saml"
         }
       ]
     },
@@ -5322,6 +5319,10 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
+          "text": "Authentication Tokens",
+          "link": "/cloud/administration/authentication-tokens"
+        },
+        {
           "text": "Managing media",
           "link": "/cloud/administration/media"
         }
@@ -5477,10 +5478,6 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Beta",
-          "link": "/logmanagement/getting-started/beta"
-        },
-        {
           "text": "Observability",
           "link": "/logmanagement/getting-started/observability"
         },
@@ -5501,8 +5498,8 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Using Centreon CIAM",
-          "link": "/logmanagement/ciam"
+          "text": "User portal (Centreon Hub)",
+          "link": "/logmanagement/centreon-hub"
         }
       ]
     },
@@ -5535,8 +5532,8 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Explore Analyze",
-          "link": "/logmanagement/explore-analyze"
+          "text": "Log Explorer",
+          "link": "/logmanagement/log-explorer"
         },
         {
           "text": "Query syntax",
@@ -5546,7 +5543,8 @@ export const sidebar: Sidebar = {
           "text": "Creating dashboards",
           "link": "/logmanagement/dashboards"
         }
-      ]
+      ],
+      "link": "/logmanagement/explore-analyze"
     },
     {
       "text": "Managing alerts",
@@ -6134,6 +6132,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Sécurisez votre plateforme MAP",
           "link": "/fr/25.10/graph-views/secure-your-map-platform"
+        },
+        {
+          "text": "Sécuriser votre plateforme MBI",
+          "link": "/fr/25.10/reporting/secure-your-mbi-platform"
         }
       ]
     },
@@ -6598,25 +6600,6 @@ export const sidebar: Sidebar = {
             {
               "text": "Introduction à Centreon MAP",
               "link": "/fr/25.10/graph-views/introduction-map"
-            },
-            {
-              "text": "Informations pour les utilisateurs de MAP Legacy",
-              "collapsible": true,
-              "collapsed": true,
-              "items": [
-                {
-                  "text": "Fin de vie de MAP Legacy",
-                  "link": "/fr/25.10/graph-views/map-legacy-eol"
-                },
-                {
-                  "text": "Monter MAP Legacy en 25.10",
-                  "link": "/fr/25.10/graph-views/upgrading-map-legacy"
-                },
-                {
-                  "text": "Passer de MAP (Legacy) à MAP",
-                  "link": "/fr/25.10/graph-views/import-into-map-web"
-                }
-              ]
             },
             {
               "text": "Installer MAP",
@@ -7149,7 +7132,7 @@ export const sidebar: Sidebar = {
               "link": "/fr/25.10/integrations/data-analytics/sc-influxdb2-metrics"
             },
             {
-              "text": "Kafka Event Manager",
+              "text": "Kafka Events",
               "link": "/fr/25.10/integrations/data-analytics/sc-kafka-events"
             },
             {
@@ -7169,7 +7152,7 @@ export const sidebar: Sidebar = {
               "link": "/fr/25.10/integrations/event-management/sc-service-now-em-events"
             },
             {
-              "text": "ServiceNow Incident",
+              "text": "ServiceNow Incident Events",
               "link": "/fr/25.10/integrations/event-management/sc-service-now-incident-events"
             },
             {
@@ -7780,7 +7763,7 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-exense-step-restapi"
         },
         {
-          "text": "Github",
+          "text": "GitHub Rest API",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-github-restapi"
         },
         {
@@ -7940,7 +7923,7 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp"
         },
         {
-          "text": "Microsoft Dynamics NRPE 0.5",
+          "text": "Dynamics AX NSClient 0.5 NRPE",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe"
         },
         {
@@ -8212,6 +8195,10 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-squid-snmp"
         },
         {
+          "text": "Symantec Netbackup CMA",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-netbackup-cma"
+        },
+        {
           "text": "Symantec Netbackup NSClient++ NRPE",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-netbackup-nrpe"
         },
@@ -8268,7 +8255,7 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-veeam-wsman"
         },
         {
-          "text": "Veritas Backup Exec NSCP Rest API",
+          "text": "Veritas Backup Exec NSCP API",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-backupexec-nscp-restapi"
         },
         {
@@ -8344,6 +8331,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Centreon Experience Monitoring (formerly Quanta) Rest API",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-experience-monitoring-restapi"
+        },
+        {
+          "text": "Centreon Log Management Rest API",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-clm-restapi"
         },
         {
           "text": "Centreon Map (déprécié)",
@@ -8755,6 +8746,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Office365 Teams",
           "link": "/fr/pp/integrations/plugin-packs/procedures/cloud-microsoft-office365-teams"
+        },
+        {
+          "text": "OpenShift API",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/cloud-openshift-api"
         },
         {
           "text": "OpenStack RESTAPI",
@@ -10245,11 +10240,11 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-restapi"
         },
         {
-          "text": "HP StoreOnce 3.x Rest API",
+          "text": "HP StoreOnce 3 Rest API",
           "link": "/fr/pp/integrations/plugin-packs/procedures/hardware-storage-hp-storeonce3-restapi"
         },
         {
-          "text": "HP StoreOnce 4.x Rest API",
+          "text": "HP StoreOnce 4 Rest API",
           "link": "/fr/pp/integrations/plugin-packs/procedures/hardware-storage-hp-storeonce4-restapi"
         },
         {
@@ -10317,7 +10312,7 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/hardware-storage-lenovo-sseries-snmp"
         },
         {
-          "text": "NetApp Ontap Oncommand API",
+          "text": "NetApp Ontap OnCommand API",
           "link": "/fr/pp/integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-oncommandapi"
         },
         {
@@ -10779,8 +10774,8 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Utiliser le portail utilisateur (CIAM)",
-          "link": "/fr/cloud/ciam/ciam"
+          "text": "Portail utilisateur (Centreon Hub)",
+          "link": "/fr/cloud/users/centreon-hub"
         },
         {
           "text": "Les utilisateurs dans Centreon Cloud",
@@ -10796,7 +10791,7 @@ export const sidebar: Sidebar = {
         },
         {
           "text": "Cloud Saml",
-          "link": "/fr/cloud/ciam/cloud-saml"
+          "link": "/fr/cloud/users/cloud-saml"
         }
       ]
     },
@@ -11208,6 +11203,10 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
+          "text": "Authentication Tokens",
+          "link": "/fr/cloud/administration/authentication-tokens"
+        },
+        {
           "text": "Gérer les médias",
           "link": "/fr/cloud/administration/media"
         }
@@ -11363,10 +11362,6 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Beta",
-          "link": "/fr/logmanagement/getting-started/beta"
-        },
-        {
           "text": "Observability",
           "link": "/fr/logmanagement/getting-started/observability"
         },
@@ -11387,8 +11382,8 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Utiliser le site Centreon CIAM",
-          "link": "/fr/logmanagement/ciam"
+          "text": "Portail utilisateur (Centreon Hub)",
+          "link": "/fr/logmanagement/centreon-hub"
         }
       ]
     },
@@ -11421,8 +11416,8 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Explore Analyze",
-          "link": "/fr/logmanagement/explore-analyze"
+          "text": "Log Explorer",
+          "link": "/fr/logmanagement/log-explorer"
         },
         {
           "text": "Syntaxe des requêtes",
@@ -11432,7 +11427,8 @@ export const sidebar: Sidebar = {
           "text": "Créer des tableaux de bord",
           "link": "/fr/logmanagement/dashboards"
         }
-      ]
+      ],
+      "link": "/fr/logmanagement/explore-analyze"
     },
     {
       "text": "Gérer les alertes",
@@ -12020,6 +12016,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Secure your MAP platform",
           "link": "/26.10/graph-views/secure-your-map-platform"
+        },
+        {
+          "text": "Secure your MBI platform",
+          "link": "/26.10/reporting/secure-your-mbi-platform"
         }
       ]
     },
@@ -12484,25 +12484,6 @@ export const sidebar: Sidebar = {
             {
               "text": "Introduction to Centreon MAP",
               "link": "/26.10/graph-views/introduction-map"
-            },
-            {
-              "text": "Information for MAP Legacy users",
-              "collapsible": true,
-              "collapsed": true,
-              "items": [
-                {
-                  "text": "MAP Legacy end of life",
-                  "link": "/26.10/graph-views/map-legacy-eol"
-                },
-                {
-                  "text": "Upgrading MAP Legacy to version 24.10",
-                  "link": "/26.10/graph-views/upgrading-map-legacy"
-                },
-                {
-                  "text": "Switching from MAP (Legacy) to MAP",
-                  "link": "/26.10/graph-views/import-into-map-web"
-                }
-              ]
             },
             {
               "text": "Installing MAP",
@@ -13035,7 +13016,7 @@ export const sidebar: Sidebar = {
               "link": "/26.10/integrations/data-analytics/sc-influxdb2-metrics"
             },
             {
-              "text": "Kafka Event Manager",
+              "text": "Kafka Events",
               "link": "/26.10/integrations/data-analytics/sc-kafka-events"
             },
             {
@@ -13055,7 +13036,7 @@ export const sidebar: Sidebar = {
               "link": "/26.10/integrations/event-management/sc-service-now-em-events"
             },
             {
-              "text": "ServiceNow Incident",
+              "text": "ServiceNow Incident Events",
               "link": "/26.10/integrations/event-management/sc-service-now-incident-events"
             },
             {
@@ -13700,6 +13681,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Sécurisez votre plateforme MAP",
           "link": "/fr/26.10/graph-views/secure-your-map-platform"
+        },
+        {
+          "text": "Sécuriser votre plateforme MBI",
+          "link": "/fr/26.10/reporting/secure-your-mbi-platform"
         }
       ]
     },
@@ -14164,25 +14149,6 @@ export const sidebar: Sidebar = {
             {
               "text": "Introduction à Centreon MAP",
               "link": "/fr/26.10/graph-views/introduction-map"
-            },
-            {
-              "text": "Informations pour les utilisateurs de MAP Legacy",
-              "collapsible": true,
-              "collapsed": true,
-              "items": [
-                {
-                  "text": "Fin de vie de MAP Legacy",
-                  "link": "/fr/26.10/graph-views/map-legacy-eol"
-                },
-                {
-                  "text": "Monter MAP Legacy en 25.10",
-                  "link": "/fr/26.10/graph-views/upgrading-map-legacy"
-                },
-                {
-                  "text": "Passer de MAP (Legacy) à MAP",
-                  "link": "/fr/26.10/graph-views/import-into-map-web"
-                }
-              ]
             },
             {
               "text": "Installer MAP",
@@ -14715,7 +14681,7 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/integrations/data-analytics/sc-influxdb2-metrics"
             },
             {
-              "text": "Kafka Event Manager",
+              "text": "Kafka Events",
               "link": "/fr/26.10/integrations/data-analytics/sc-kafka-events"
             },
             {
@@ -14735,7 +14701,7 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/integrations/event-management/sc-service-now-em-events"
             },
             {
-              "text": "ServiceNow Incident",
+              "text": "ServiceNow Incident Events",
               "link": "/fr/26.10/integrations/event-management/sc-service-now-incident-events"
             },
             {

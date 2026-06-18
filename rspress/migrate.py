@@ -80,7 +80,7 @@ _RE_HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
 # Some source files use the wrong number of `../` (e.g. `../assets/foo.png` from
 # a file at depth 3 where `../../assets/foo.png` is needed). We rewrite them all
 # to use the correct prefix based on the file's depth from its version root.
-_RE_ASSET_REF = re.compile(r"(!?\[[^\]]*\]\()(?:\.\./)+assets/([^)]+\))")
+_RE_ASSET_REF = re.compile(r"(!?\[[^\]]*\]\()(?:\.\.?/)*assets/([^)]+\))")
 
 HAS_JSX = re.compile(
     r"^import .* from '@theme/Tabs'|^import .* from '@theme/TabItem'",
@@ -123,7 +123,7 @@ def transform(content: str, is_mdx: bool = False, depth: int = 1) -> str:
     # right number of `../` for the file's location, regardless of what the
     # source had. depth is the file's depth from its version root (e.g. 3 for
     # version-X/monitoring/basic-objects/foo.md → needs `../../assets/...`).
-    asset_prefix = "../" * (depth - 1)
+    asset_prefix = "./" if depth == 1 else "../" * (depth - 1)
     content = _RE_ASSET_REF.sub(
         lambda m: f"{m.group(1)}{asset_prefix}assets/{m.group(2)}",
         content,
@@ -333,6 +333,11 @@ def _migrate_tree(
     en_src_for_filter: when set, skip files that have no .md/.mdx counterpart in
     that EN tree (orphan FR files with broken paths and no EN equivalent).
     """
+    # Clean the destination first so re-running the migration doesn't leave stale
+    # files: if a previous run wrote foo.md and JSX detection now yields foo.mdx,
+    # both would survive and create duplicate routes.
+    if dst_root.exists():
+        shutil.rmtree(dst_root)
     dst_root.mkdir(parents=True, exist_ok=True)
     count = 0
     skipped = 0

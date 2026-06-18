@@ -160,7 +160,7 @@ Connection or communication failures between services (e.g., a server that does 
 
 ## Examples of questions you can find answers to
 
-* Which service is generating the most errors today? Filter the [timeline](../explore-analyze.md#using-the-log-explorer-page) on today, then filter by severitynumber>17. Stack the graph by service name.
+* Which service is generating the most errors today? Filter the [timeline](../log-explorer.md) on today, then filter by severitynumber>17. Stack the graph by service name.
 * Which services have changed their behavior after deployment? In the log explorer, filter by the service name or namespace, and check for any errors.
 <!-- * Which resources have started issuing a new type of error?” anomaly detection -->
 <!-- * Which endpoint is causing the most warnings? filtrer sur warning, filtrer sur endpoint -->
