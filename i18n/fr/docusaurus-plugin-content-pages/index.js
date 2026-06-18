@@ -78,10 +78,6 @@ const cards = [
     href: "logmanagement/getting-started/welcome/",
     links: [
       {
-        label: "S'inscrire au programme BETA",
-        href: "logmanagement/getting-started/beta/",
-      },
-      {
         label: "Bases de Centreon Log Management",
         href: "logmanagement/getting-started/concepts/",
       },
@@ -94,7 +90,6 @@ const cards = [
         href: "logmanagement/explore-analyze/",
       },
     ],
-    isBeta: true,
   },
 ];
 

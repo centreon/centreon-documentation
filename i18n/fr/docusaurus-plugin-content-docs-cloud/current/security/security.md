@@ -116,7 +116,7 @@ L’accès administrateur au produit est limité aux seuls administrateurs dûme
 ### Authentification utilisateur
 
 L’accès utilisateur au produit est limité aux seuls utilisateurs dûment autorisés. Cette autorisation peut être multifactorielle, selon l’expression du besoin du client et sa capacité à sécuriser son environnement (authentification radius, MFA, sécurité et filtrage réseau, etc…).
-Le client peut configurer ses accès et habilitations utilisateurs en s’appuyant sur le portail CIAM (Customer Identity and Access Management) proposé par Centreon. Ce portail s’appuie sur OpenID Connect, et peut être configuré avec d’autres fournisseurs d’identité propres au client.
+Le client peut configurer ses accès et habilitations utilisateurs en s’appuyant sur le portail Centreon Hub. Ce portail s’appuie sur OpenID Connect, et peut être configuré avec d’autres fournisseurs d’identité propres au client.
 
 ### Logs
 

@@ -975,6 +975,89 @@ centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE "ServiceName"
 </TabItem>
 </Tabs>
 
+### Updating the agent
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+Update the agent using your package manager.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+</TabItem>
+</Tabs>
+
+Then restart the agent:
+
+```shell
+systemctl restart centagent
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+[Download the new CMA installer](https://download.centreon.com) (**Custom Platform** tab then **Monitoring Agent** tab).
+
+<Tabs groupId="sync">
+<TabItem value="Interactive mode" label="Interactive mode">
+
+> The installer must be launched with the "Run as administrator" option.
+
+1. Launch the installer. Since at least one CMA instance is already installed, the first screen offers two options:
+   * **Install**: updates the agent binaries only. The existing configuration is preserved.
+   * **Update**: allows you to update both the agent binaries and the configuration. Select the instance to update — the configuration fields are pre-filled with the current values and can be modified.
+2. Select **Update**, choose the instance to update, adjust the configuration if needed, and complete the wizard.
+
+</TabItem>
+<TabItem value="Silent mode" label="Silent mode (console)">
+
+Use the `/UPDATEONLY ` flag to update an existing instance. The `/AGENTINSTANCE` parameter specifies the instance to update:
+
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /AGENTINSTANCE="ServiceName"
+```
+
+This updates both the agent binaries and the configuration of the specified instance.
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
 ### Uninstalling the agent
 
 <Tabs groupId="sync">
