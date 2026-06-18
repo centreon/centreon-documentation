@@ -1,6 +1,6 @@
 ﻿---
 id: network-tab-indicators
-title: Understanding the Network Data indicators
+title: Network data
 --- 
 
 The Network data feature allows you to set up a regular ping on your site to measure the response time. The ping's results over time can be seen on a timeline graph by clicking on **Network Data** from the main menu.
