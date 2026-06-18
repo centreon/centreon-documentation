@@ -5,7 +5,7 @@ title: Paramétrer des notifications
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Des notifications peuvent être envoyées lorsqu'une [règle d'alerte](alerts.md) déclenche un [évènement d'alerte](./resources/glossary.md#évènement-dalertestatut-dalerte) et que certaines conditions sont remplies. Vous pouvez configurer un webhook pour envoyer un message à une application tierce.
+Des notifications peuvent être envoyées lorsqu'une [règle d'alerte](alerts.md) déclenche un [évènement d'alerte](./resources/glossary.md#évènement-dalerte) et que certaines conditions sont remplies. Vous pouvez configurer un webhook pour envoyer un message à une application tierce.
 
 ## Étape 1 : Créer un canal de notification
 
