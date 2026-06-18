@@ -27,7 +27,7 @@ Les attributs personnalisés sont des paires clé-valeur que vous ajoutez vous-m
 
 Un évènement de log est une entrée de log.
 
-Ne pas confondre avec [Évènement d'alerte](#évènement-dalertestatut-dalerte).
+Ne pas confondre avec [Évènement d'alerte](#évènement-dalerte).
 
 ## Service
 
