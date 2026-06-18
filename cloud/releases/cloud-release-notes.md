@@ -40,8 +40,6 @@ Several important improvements have been made to Centreon Broker to enhance perf
 * The CMA installer now handles upgrades of existing instances, ensuring seamless version transitions.
 A new feature allows retrieving a public CA certificate using its fingerprint and establishing a TLS connection from it.
 * A dedicated window now allows you to automatically generate the correct CMA installation command for your target host. Simply copy the command and run it on the host.
-
-
 ### Centreon Pro Edition
 
 **Service Mapping**
