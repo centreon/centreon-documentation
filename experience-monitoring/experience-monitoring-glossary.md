@@ -29,7 +29,7 @@ Largest Contentful Paint (LCP) is the metric of the render time of the largest i
 
 ## Load Test
 
-Load Tests are a module of Experience Monitoring.
+[Load Tests](./getting-started/load-tests.md) are a module of Experience Monitoring.
 The test consists of simulating heavy traffic on your site to evaluate how it behaves in these conditions and identify bottlenecks.
 The users are simulated by Experience Monitoring but results in real traffic on your site.
 
@@ -46,7 +46,7 @@ Experience Monitoring uses [TCP and ICMP](./performance-analysis/network-tab-ind
 
 ## Real User Monitoring 
 
-Real User Monitoring (or RUM) is a module of Experience Monitoring.
+[Real User Monitoring (or RUM)](./getting-started/real-user-monitoring.md) is a module of Experience Monitoring.
 Using an HTML tag inserted into your site's code, Experience Monitoring can measure the loading times experienced by real users. 
 The tag is loaded separately to avoid it influencing the data.
 
@@ -64,7 +64,7 @@ Steps contain [actions](#actions) which determine what the probe does within a g
 
 ## Synthetic Monitoring Zone
 
-A Synthetic Monitoring Zone (or STM zone) is a domain internal to your organization. STM zones allow the User Journey probe to make its checks on sites unavailable to users outside of your organization.
+A [Synthetic Monitoring Zone (or STM zone)](./configuration/user-journey/stm-zones.md) is a domain internal to your organization. STM zones allow the User Journey probe to make its checks on sites unavailable to users outside of your organization.
 
 ## Time To First Byte
 
@@ -72,10 +72,10 @@ Time To First Byte (TTFB) is the metric of the interval between the browser's in
 
 ## User Journey
 
-User Journey is a module of Experience Monitoring.
+[User Journey](./getting-started/synthetic-monitoring.md) is a module of Experience Monitoring.
 A probe is configured to follow a set navigation path of your site and measure the loading times of the pages.
 
 ## Webhook
 
 One-way communication between applications triggered by a specified event. Webhooks allow for the integration of applications that may not have been originally been designed to work together.
-In Experience Monitoring, webhooks are used to send notifications to applications.
+In Experience Monitoring, webhooks are used to send [notifications](./configuration/user-journey/experience-monitoring-notifications.md) to applications.

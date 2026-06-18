@@ -1,29 +1,65 @@
 ﻿---
 id: using-charts
-title: Using charts
+title: Using graphs
 ---
 
-## Zooming in on graphs
+A lot of the information gathered by Experience Monitoring is converted into graphs to facilitate its lecture.
+All graphs are interactive allowing you to zoom in or out and leave comments.
 
-Experience Monitoring graphs are interactive. Easily zoom in on the period you are interested in by using the "click and drag" action from left to right on the graph (and the opposite to zoom out).
+Graphs found in the overview pages of each module but also on your customized [dashboards](../performance-analysis/dashboards.md).
+
+
+## Colors used in graphs
+
+In addition to the color attributed to each metric in a graph, you may see red zones or grey zones.
+
+- Grey zones indicates there is no information available for this time period. This is normal if you just configured your [User Journey](../getting-started/synthetic-monitoring.md) for example because there is no data prior to when the probe started running. Isolated grey zones are not cause for concern.
+- Red zones zones indicates Experience Monitoring attempted to collect the data for this chart but failed. Isolated red spikes can be due to a large variety of reasons and shouldn't be cause for concern. Large red zones however indicate an issue over a period of time. Your site may be or have been down.
+
+## Manipulating and annotating the graphs
+
+### Zooming
+
+Experience Monitoring graphs are interactive. 
+You can zoom in on a time period by using the clicking and dragging from left to right on the graph and from right to left to zoom out.
 
 ![Image](../assets/how-to-articles/using-charts-1.png)
 
-## Showing and hiding data in a chart
+### Filtering
 
-A chart can be composed of several cumulative statistics. For example, here you can see the details of network times for loading a page:
+A chart can be composed of several cumulative statistics. You can choose to hide a metric or isolate it (only display this metric) to make the graph easier to read.
 
-![Image](../assets/how-to-articles/using-charts-2.png)
+To do this, click on the metric in the legend of the chart or on the chart itself.
 
-To make things clearer, you can:
+### Anotating
 
-- hide a statistic (do not display it)
-- show only one statistic, i.e. isolate it (and hide all others).
+When something changes in production — a new deployment, a configuration update, a scheduled task — it can directly affect your monitoring data. 
+Anotating with event markers lets you easily see whether a change in your metrics coincides with a deployment or configuration update.
 
-To do this, click on the statistic you want to isolate or hide in the legend, or on the chart.
+Event markers are added automatically whenever you changes in the related configuration occur. You can also choose to create them [using our API](#interacting-with-graphs-using-the-api)
 
-![Image](../assets/how-to-articles/using-charts-3.png)
+### Commenting
 
-Choose what you want to do with this statistic. In this example, if you isolate the statistic, you will see this:
+You can leave a comment on the graphs to relay information to colleagues or leave yourself a reminder.
+To do this, click inside of the graph but outside of any metric.
 
-![Image](../assets/how-to-articles/using-charts-4.png)
+If you are having trouble clicking on the specific time you want to leave a comment on, try [zooming](#zooming) or using the side arrows on the comment window to change the time one minute at a time.
+
+## Interacting with graphs using the API
+
+Our API is triggered by an HTTP call to the URL *"https://app.quanta.io/api/events/push"*. The parameters to provide are:
+
+- *type*: The event type. It may have one of the following values:
+    - *code_deploy* (code deployment)
+    - *config_change* (system configuration change)
+    - *comment* (comment)
+    - *cron* (scheduled task)
+    - *custom* (generic event)
+- *content*: **The message associated with the event.** This field is free-form, use it for information such as the application version or a description of the changes made.
+
+## Authentication and token generation
+
+You must also provide an API token to authenticate the request. This token can be generated from the "Integrations" section of your site settings in Experience Monitoring. You can also add a custom icon.
+
+- Either in the HTTP header "Authorization" as `Authorization: Token <your_token>`
+- Or passed directly in the request by adding the parameter `?auth_token=<your_token>` at the end of the URL.
