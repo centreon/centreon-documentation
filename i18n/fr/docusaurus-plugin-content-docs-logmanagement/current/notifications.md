@@ -14,14 +14,14 @@ Des notifications peuvent être envoyées lorsqu'une [règle d'alerte](alerts.md
 2. Cliquez sur **Add** ou **Create a notification channel** et entrez un nom et une description.
 
 3. Dans la section **Settings** :
-   * Saisissez l'URL du webhook que vous avez récupérée depuis votre application tierce. Vous devez inclure **http://** ou **https://**.
+   * Saisissez l'URL du webhook que vous avez récupérée depuis votre application tierce. Vous devez inclure **https://**.
    * Sélectionnez la méthode HTTP que vous souhaitez que le webhook utilise.
    * Rédigez le corps du message à envoyer.
    * Définissez les en-têtes que vous souhaitez transmettre à votre application tierce, par exemple pour indiquer le format du corps du message.
 
       **Exemple**: Je souhaite publier un message sur un canal Slack.
          * L'URL du webhook est fournie par Slack.
-         * Pour SLack, le corps du message doit être au format JSON (voir [exemple ci-dessous](#exemple)).
+         * Pour Slack, le corps du message doit être au format JSON (voir [exemple ci-dessous](#exemple)).
          * En-tête : key: **content-type**: value : **application/json**.
 
 4. Cliquez sur **Create**. Le canal de notification apparaît dans la liste.
