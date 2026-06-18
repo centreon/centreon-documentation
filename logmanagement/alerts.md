@@ -53,6 +53,6 @@ Go to **Alerts & notifications > Alert events**. Use the search bar and its filt
 
 ![image](./assets/alert_events.png)
 
-You can expand each alert event to view more information about it, including the alert rule evaluation history. Hover over the graph to display the start and end dates for each colored period.
+You can expand each alert event to view more information about it, including the alert rule evaluation history. Hover over the graph to display the start and end dates for each period spent in a status.
 
 ![image](./assets/alert_events_detail.png)
