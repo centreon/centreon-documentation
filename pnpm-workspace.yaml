@@ -8,6 +8,8 @@ packages:
 
 onlyBuiltDependencies:
   - '@swc/core'
+  - 'ffmpeg-static'
+  - 'gifsicle'
   - core-js
   - core-js-pure
   - sharp

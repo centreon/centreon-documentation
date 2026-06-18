@@ -402,6 +402,76 @@ def migrate_experience() -> None:
     _migrate_tree(EM_SOURCE_FR, DOCS_ROOT / "fr" / "experience-monitoring", "fr/experience-monitoring", EM_SOURCE_EN)
 
 
+# ── Media optimization (images handled by the build; gif/video here) ──────────
+
+def _find_bin(node_rel: str, name: str) -> str | None:
+    """Locate a binary: prefer the npm-vendored one, else fall back to PATH."""
+    cand = ROOT / node_rel
+    if cand.exists():
+        return str(cand)
+    import shutil as _sh
+    return _sh.which(name)
+
+
+def optimize_media() -> None:
+    """Recompress migrated GIFs (gifsicle) and MP4 videos (ffmpeg/libx264) in
+    place. Images (PNG/JPEG) are compressed by the build via
+    @rsbuild/plugin-image-compress; GIF and video have no build-time codec, so we
+    optimize the assets here. No-ops (with a warning) if the tools are missing."""
+    import subprocess, hashlib
+
+    ffmpeg = _find_bin("node_modules/ffmpeg-static/ffmpeg", "ffmpeg")
+    gifsicle = _find_bin("node_modules/gifsicle/vendor/gifsicle", "gifsicle")
+
+    gifs = sorted(DOCS_ROOT.rglob("*.gif"))
+    mp4s = sorted(DOCS_ROOT.rglob("*.mp4"))
+
+    # GIFs: lossy + max optimization, keep result only if smaller.
+    if gifsicle:
+        saved = 0
+        for g in gifs:
+            tmp = g.with_suffix(".gif.opt")
+            r = subprocess.run([gifsicle, "-O3", "--lossy=80", str(g), "-o", str(tmp)],
+                               capture_output=True)
+            if r.returncode == 0 and tmp.exists() and tmp.stat().st_size < g.stat().st_size:
+                saved += g.stat().st_size - tmp.stat().st_size
+                tmp.replace(g)
+            elif tmp.exists():
+                tmp.unlink()
+        print(f"  gifsicle: {len(gifs)} GIFs, {saved/1024/1024:.1f} MB saved")
+    else:
+        print("  gifsicle not found, skipping GIF optimization")
+
+    # MP4: encode once per unique file (identical copies share a hash), copy result
+    # to all siblings so the bundler keeps deduplicating them.
+    if ffmpeg:
+        groups: dict[str, list] = {}
+        for m in mp4s:
+            h = hashlib.md5(m.read_bytes()).hexdigest()
+            groups.setdefault(h, []).append(m)
+        saved = 0
+        for paths in groups.values():
+            src = paths[0]
+            tmp = src.with_name(src.stem + ".opt.mp4")
+            r = subprocess.run(
+                [ffmpeg, "-y", "-i", str(src), "-vf", "scale='min(720,iw)':-2",
+                 "-c:v", "libx264", "-crf", "30", "-preset", "slow",
+                 "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(tmp)],
+                capture_output=True)
+            if r.returncode == 0 and tmp.exists() and tmp.stat().st_size < src.stat().st_size:
+                before = src.stat().st_size
+                data = tmp.read_bytes()
+                tmp.unlink()
+                for p in paths:
+                    saved += p.stat().st_size - len(data)
+                    p.write_bytes(data)
+            elif tmp.exists():
+                tmp.unlink()
+        print(f"  ffmpeg: {len(mp4s)} MP4s, {saved/1024/1024:.1f} MB saved")
+    else:
+        print("  ffmpeg not found, skipping video optimization")
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -415,6 +485,8 @@ if __name__ == "__main__":
     migrate_logmanagement()
     print("Migrating experience monitoring…")
     migrate_experience()
+    print("Optimizing media (gif/video)…")
+    optimize_media()
     print("Generating sidebar…")
     generate_sidebar()
     print("\nDone.")
