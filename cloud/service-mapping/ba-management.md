@@ -127,7 +127,7 @@ whether the modeled IT service or application is in an **OK**,
 
 1. To add a Business Activity, click the **Add** button. A window to create the BA opens.
 
-2. Give a unique name to the BA (mandatory). The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
+2. Give a unique name to the BA. The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
 
 You can choose an icon for the BA and add a description, these 2 elements are optional
 
