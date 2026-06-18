@@ -26,8 +26,6 @@ This release delivers a significant expansion of the Centreon REST API, enabling
 **Configuration**
 
 * Macros can now reference other macros (recursive macros), enabling more flexible and dynamic configurations.
-* Host selection in host group creation has been enhanced for a smoother experience.
-* A dedicated window is now available to ease CMA deployment directly from the configuration interface.
 * BBDO state synchronization reliability has been improved: the default periodic reload is now disabled, while a manual sync API remains available.
 * The commands configuration page has been reworked for improved usability.
 
