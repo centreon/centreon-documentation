@@ -70,9 +70,10 @@ jobs:
         run: pnpm --filter centreon-documentation-rspress build
         shell: bash
 
-      - name: Trim preview search index
-        # Preview-only: shrink the per-language search index well under
-        # Cloudflare Pages' 25 MiB per-file limit (full index kept for prod).
+      - name: Reduce preview search index to headings
+        # Preview-only: rebuild the search index from page headings (title +
+        # H2/H3) so it stays well under Cloudflare Pages' 25 MiB per-file limit.
+        # Staging/production keep the full-text index.
         working-directory: rspress
         run: node scripts/trim-preview-search-index.mjs
         shell: bash
