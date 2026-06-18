@@ -71,7 +71,7 @@ module.exports = {
     {
       collapsed: true,
       type: 'category',
-      label: 'Simulating the journey of a user',
+      label: 'User journeys (STM)',
       link: {
         type: "generated-index",
       },
@@ -105,7 +105,7 @@ module.exports = {
     {
       collapsed: true,
       type: 'category',
-      label: "Evaluate a site's digital sobriety",
+      label: "Digital sobriety",
       link: {
         type: 'generated-index',
       },
@@ -118,7 +118,7 @@ module.exports = {
     {
       collapsed: true,
       type: 'category',
-      label: "Analyze a site's business data (Google Analytics/Matomo)",
+      label: "Business data (Google Analytics/Matomo)",
       link: {
         type: 'generated-index',
       },
@@ -131,7 +131,7 @@ module.exports = {
     {
       collapsed: true,
       type: 'category',
-      label: 'Monitor the health of my host server',
+      label: 'System data (host server health)',
       link: {
         type: 'generated-index',
       },

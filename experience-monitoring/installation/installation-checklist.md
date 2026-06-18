@@ -84,6 +84,6 @@ To monitor the health of your host server, you need to install a system agent on
 
 You don't need to do anything - data appears automatically on the **Network data** page.
 
-## Load tests
+## [Load tests](../how-to-articles/performing-load-tests.md)
 
 To be able to run load tests, you just need to configure a user journey. You don't need to install anything extra.
