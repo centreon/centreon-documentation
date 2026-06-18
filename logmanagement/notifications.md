@@ -14,7 +14,7 @@ Notifications can be sent when an [alert rule](alerts.md) triggers an [alert eve
 2. Click **Add** or **Create a notification channel** and enter a name and description.
 
 3. In the **Settings** section:
-   * Enter the webhook URL you retrieved from your third-party application. You must include **http://** or **https://**.
+   * Enter the webhook URL you retrieved from your third-party application. You must include **https://**.
    * Select the HTTP method you want the webhook to use.
    * Write the message body to be sent.
    * Define any headers you want to pass to your third-party application, e.g. to indicate the format of the message body.
