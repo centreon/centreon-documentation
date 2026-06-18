@@ -41,9 +41,9 @@ A label for a set of services. Example: **e-commerce site.** -->
 
 Dans la plupart des outils et des plateformes, les logs sont présentés à l'aide de niveaux de log tels que INFO ou ERROR, le format le plus familier aux utilisateurs finaux. Dans OpenTelemetry, ces informations sont gérées à l'aide de deux attributs : [SeverityNumber](https://opentelemetry.io/docs/specs/otel/logs/data-model/#field-severitynumber) (l'ID de la sévérité) et SeverityText (le libellé de la sévérité). Une valeur **SeverityText** correspond à plusieurs **SeverityNumbers**.
 
-Les logs ont généralement une sévérité <span style={{color:"#4a8c6f"}}>**TRACE**</span>, <span style={{color:"#1ebeb3"}}>**DEBUG**</span>, <span style={{color:"#1588d1"}}>**INFO**</span>, <span style={{color:"#ffca34"}} >**WARNING**</span>, <span style={{color:"#fd9b27"}}>**ERROR**</span> ou <span style={{color:"#ff4a4a"}}>**FATAL**</span>.
+De plus, Centreon Log Management dispose d’un attribut **Severity** (accessible dans Log explorer) qui normalise toutes les valeurs de **SeverityText**. Les valeurs stockées dans l’attribut **SeverityText** renvoyé par l’hôte sont converties, dans l’attribut **Severity**, en celles définies par la norme OpenTelemetry (à l’exception de WARN, qui devient WARNING). Cela évite les doublons ou les entrées incohérentes dans la liste des sévérités : vous ne verrez que des logs avec une sévérité <span style={{color:"#4a8c6f"}}>**TRACE**</span>, <span style={{color:"#1ebeb3"}}>**DEBUG**</span>, <span style={{color:"#1588d1"}}>**INFO**</span>, <span style={{color:"#ffca34"}} >**WARNING**</span>, <span style={{color:"#fd9b27"}}>**ERROR**</span> ou <span style={{color:"#ff4a4a"}}>**FATAL**</span>.
 
-Voici la liste des niveaux de sévérité pris en compte par Log Management (les descriptions sont celles de la documentation OpenTelemetry) :
+Voici la liste des niveaux de sévérité traités par Log Management (les descriptions sont celles de la documentation OpenTelemetry) :
 
 | Ensemble de SeverityNumbers | Nom | Description |
 | --- | --- |--- |
