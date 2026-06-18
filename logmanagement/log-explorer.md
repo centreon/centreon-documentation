@@ -51,6 +51,18 @@ Click a log to see all related information in the **Log details** panel, includi
 * Copy or download the whole log in json format from the **Raw OTel log** section.
 * The search bar will inspect attribute names and values.
 
+## Summarizing logs
+
+You can automatically generate a summary of all logs matching a query. Click the **Log Summary** button next to the time range selector to open the summary in a new tab.
+
+![image](assets/log-summary-button.png)
+
+* Summaries are only available for queries returning 2,000 lines or fewer.
+* You may need to authorize new tabs for the same domain in your browser.
+
+
+
+
 ## Rearranging columns
 
 * The default columns are **Time**, **Severity** and **Body**.
