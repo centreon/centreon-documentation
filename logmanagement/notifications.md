@@ -5,7 +5,7 @@ title: Setting up notifications
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Notifications can be sent when an [alert rule](alerts.md) triggers an [alert event](./resources/glossary.md#alert-eventalert-status) and certain conditions are met. At the moment, you can configure a webhook to post a message to a third-party application.
+Notifications can be sent when an [alert rule](alerts.md) triggers an [alert event](./resources/glossary.md#alert-eventalert-status) and certain conditions are met. You can configure a webhook to post a message to a third-party application.
 
 ## Step 1: Create a notification channel
 
@@ -21,7 +21,7 @@ Notifications can be sent when an [alert rule](alerts.md) triggers an [alert eve
 
    **Example**: I want to post a message to a Slack channel.
       * The webhook URL is retrieved from Slack.
-      * The message body can be json (see the [example below](#example)).
+      * For Slack, the message body must be json (see the [example below](#example)).
       * Header: key: **content-type**: value : **application/json**.
 
 4. Click **Create**. The notification channel appears in the list.
