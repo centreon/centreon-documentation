@@ -2,6 +2,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from '@rspress/core';
 import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
+import { pluginImageCompress } from '@rsbuild/plugin-image-compress';
 import { sidebar } from './src/sidebar';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -63,6 +64,10 @@ export default defineConfig({
   // build and open the interactive report at the end. Off by default because it
   // adds ~10-20% build time overhead.
   builderConfig: {
+    // Compress raster images (PNG/JPEG/ICO) at build time. Images are served
+    // as-is (gzip can't shrink them), so this directly reduces the deployed
+    // bundle and per-page image transfer. GIF/SVG are left untouched.
+    plugins: [pluginImageCompress(['jpeg', 'png', 'ico'])],
     tools: {
       rspack: (_config, { appendPlugins }) => {
         if (process.env.RSDOCTOR) {
