@@ -1,4 +1,4 @@
-﻿---
+---
 id: log-explorer
 title: Using the log explorer
 ---
@@ -59,9 +59,7 @@ You can automatically generate a summary of all logs matching a query. Click the
 
 * Summaries are only available for queries returning 2,000 lines or fewer.
 * You may need to authorize new tabs for the same domain in your browser.
-
-
-
+* The summary identifies recurring issues, groups them by type, lists their likely root causes, and suggests next steps to resolve them.
 
 ## Rearranging columns
 
