@@ -13,7 +13,7 @@ For example, an INFO log entry might simply record that a user tried to log in. 
 
 To detect issues like this, you need to create alert rules.
 
-An alert rule evaluates specific criteria over a defined time period and with a specific frequency. Each time these criteria are evaluated, an [alert event](./resources/glossary.md#alert-event) is generated, each with an [alert status](#alert-statuses). For example, an alert rule might be described like this in words:
+An alert rule evaluates specific criteria over a defined time period and with a specific frequency. Each time these criteria are evaluated, an [alert event](./resources/glossary.md#alert-event) is generated, each with an [alert status](#alert-event-statuses). For example, an alert rule might be described like this in words:
 "If this query returns more than 50 results in the last 5 minutes, an alert event with the CRITICAL status should be recorded."
 
 * alert type: count
@@ -22,7 +22,7 @@ An alert rule evaluates specific criteria over a defined time period and with a 
 
 ![image](./assets/alert_rule.png)
 
-### Alert avant statuses
+### Alert event statuses
 
 Possible alert event statuses are:
 
