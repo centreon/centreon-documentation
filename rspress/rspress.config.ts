@@ -59,6 +59,11 @@ export default defineConfig({
   },
   search: {
     versioned: true,
+    // Full-text search (including code blocks) for staging/production. On PR
+    // preview builds we drop code blocks so each per-language search index stays
+    // under Cloudflare Pages' 25 MiB per-file limit; the preview workflow sets
+    // PREVIEW_BUILD=true.
+    codeBlocks: process.env.PREVIEW_BUILD !== 'true',
   },
   // Opt-in Rsdoctor analysis: run `RSDOCTOR=true pnpm build` to instrument the
   // build and open the interactive report at the end. Off by default because it

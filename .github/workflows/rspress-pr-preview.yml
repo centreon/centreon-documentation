@@ -63,6 +63,10 @@ jobs:
         shell: bash
 
       - name: Build rspress site
+        # Drop code blocks from the search index so each per-language index stays
+        # under Cloudflare Pages' 25 MiB per-file limit (preview only).
+        env:
+          PREVIEW_BUILD: 'true'
         run: pnpm --filter centreon-documentation-rspress build
         shell: bash
 
