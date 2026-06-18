@@ -120,16 +120,19 @@ dépendra alors des paramètres présents dans la section Indicateur.
 
 ### Création d'une activité métier
 
-Pour ajouter une Activité Métier, cliquez sur le bouton **Ajouter**.
+#### Basic information
 
-Une fenêtre s'ouvre pour configurer la BA. Dans cette fenêtre, vous devez donner un nom à la BA et sélectionner la [méthode de calcul](#méthodes-de-calcul).
-Les caractères suivants ne sont pas acceptés dans le nom de la BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
+1. Pour ajouter une Activité Métier, cliquez sur le bouton **Ajouter**. Une fenêtre s'ouvre pour configurer la BA.
 
-Vous devez également l'assigner à une [Vue Métier](#vue-métier) ou la BA ne sera pas visible.
+2. Donnez un nom unique à la BA. Les caractères suivants ne sont pas acceptés dans le nom de la BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
 
-Par ailleurs, vous pouvez décider d'attribuer un icône à la BA et une description.
+Vous pouvez choisir un icône pour la BA et ajouter une description, ces 2 élements sont optionnels.
 
-Lorsque vous cliquerez sure **Créer**, un nouveau panneau s'ouvrira sur le côté où vous devrez configurer les **Indicateurs**.
+4. Sélectionnez la [méthode de calcul](#méthodes-de-calcul).
+
+5. Vous devez également assigner la BA à une [Vue Métier](#vue-métier) ou la BA ne sera pas visible.
+
+> Lorsque vous cliquerez sure **Créer**, un nouveau panneau s'ouvrira sur le côté où vous devrez configurer plusieurs sections pour avoir un indicateur aggrégé.
 
 #### Indicateurs
 
