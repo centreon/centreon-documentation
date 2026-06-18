@@ -44,7 +44,7 @@ Possible alert event statuses are:
       * **Ratio** means that you divide the results of a query by the results of another query.
    * **Frequency**: this field defines both the frequency of the check and the time period covered by it. For instance, if you select **Every 5 minutes**, a check will be performed every 5 minutes on the data of the last 5 minutes.
    * **Query**: use the correct [query syntax](query-syntax.md).
-   * **Conditions**: define which [alert status the alert event should have](#alert-statuses).
+   * **Conditions**: define which [alert status the alert event should have](#alert-event-statuses).
 4. Save your alert rule. The window is closed and your alert rule appears in the list of alert rules. The rule starts being evaluated and producing alert events.
 
 ## Viewing the last alert event for an alert rule
