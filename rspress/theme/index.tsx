@@ -33,8 +33,9 @@ const PRODUCTS: { key: FamilyKey; initials: string; color: string; label: string
 ];
 
 function familyOf(pathname: string): FamilyKey {
-  if (pathname.includes('/experience-monitoring')) return 'experience';
-  if (pathname.includes('/logmanagement')) return 'logmanagement';
+  const { rest } = parsePathname(pathname);
+  if (rest.startsWith('/experience-monitoring')) return 'experience';
+  if (rest.startsWith('/logmanagement')) return 'logmanagement';
   return 'infra';
 }
 
@@ -62,10 +63,11 @@ function headerSections(family: FamilyKey, lang: Lang, version: string): { key: 
 
 /** Which header section is active for the current path. */
 function activeSection(pathname: string): string {
-  if (pathname.includes('/experience-monitoring')) return 'experience';
-  if (pathname.includes('/logmanagement')) return 'logmanagement';
-  if (pathname.includes('/cloud/')) return 'cloud';
-  if (pathname.includes('/pp/')) return 'pp';
+  const { rest } = parsePathname(pathname);
+  if (rest.startsWith('/experience-monitoring')) return 'experience';
+  if (rest.startsWith('/logmanagement')) return 'logmanagement';
+  if (rest === '/cloud' || rest.startsWith('/cloud/')) return 'cloud';
+  if (rest === '/pp' || rest.startsWith('/pp/')) return 'pp';
   return 'onprem';
 }
 
@@ -130,6 +132,7 @@ type DropdownProps = {
 function Dropdown({ buttonContent, className, hideChevron, children }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const closeTimerRef = useRef<number | null>(null);
+  const rootRef = useRef<HTMLDivElement | null>(null);
 
   const clearCloseTimer = () => {
     if (closeTimerRef.current) {
@@ -137,27 +140,47 @@ function Dropdown({ buttonContent, className, hideChevron, children }: DropdownP
       closeTimerRef.current = null;
     }
   };
-  const handleMouseEnter = () => {
+  const openMenu = () => {
     clearCloseTimer();
     setOpen(true);
   };
-  const handleMouseLeave = () => {
+  const scheduleClose = () => {
     closeTimerRef.current = window.setTimeout(() => setOpen(false), 150);
+  };
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') setOpen(false);
+  };
+  // Close when focus moves outside the dropdown (keyboard navigation).
+  const handleBlur = (e: React.FocusEvent) => {
+    if (!rootRef.current?.contains(e.relatedTarget as Node | null)) setOpen(false);
   };
 
   return (
-    <div className={`rp-nav-dropdown ${className ?? ''}`} onMouseLeave={handleMouseLeave}>
-      <div className="rp-nav-dropdown-button" onMouseEnter={handleMouseEnter}>
+    <div
+      ref={rootRef}
+      className={`rp-nav-dropdown ${className ?? ''}`}
+      onMouseEnter={openMenu}
+      onMouseLeave={scheduleClose}
+      onFocus={openMenu}
+      onBlur={handleBlur}
+      onKeyDown={handleKeyDown}
+    >
+      <button
+        type="button"
+        className="rp-nav-dropdown-button"
+        aria-haspopup="true"
+        aria-expanded={open}
+        onClick={() => setOpen((o) => !o)}
+      >
         {buttonContent}
         {!hideChevron && (
           <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
             <path fill="currentColor" d="M7 10l5 5 5-5z" />
           </svg>
         )}
-      </div>
+      </button>
       <div
         className="rp-nav-dropdown-menu"
-        onMouseEnter={clearCloseTimer}
         style={{ opacity: open ? 1 : 0, visibility: open ? 'visible' : 'hidden' }}
       >
         {children}
@@ -473,6 +496,9 @@ function VersionAwareNav() {
           padding: 0.5rem 0.5rem;
           transition: color 0.2s;
           white-space: nowrap;
+          background: none;
+          border: none;
+          font: inherit;
         }
         .rp-nav-dropdown-button:hover {
           color: var(--rp-c-text-2);

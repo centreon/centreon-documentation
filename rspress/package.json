@@ -16,7 +16,8 @@
     "@types/node": "^25.9.1",
     "ffmpeg-static": "^5.3.0",
     "gifsicle": "^7.0.1",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.99.0"
   },
   "dependencies": {
     "@rspress/core": "~2.0.14",

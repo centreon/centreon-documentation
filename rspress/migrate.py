@@ -433,6 +433,9 @@ def optimize_media() -> None:
             tmp = g.with_suffix(".gif.opt")
             r = subprocess.run([gifsicle, "-O3", "--lossy=80", str(g), "-o", str(tmp)],
                                capture_output=True)
+            if r.returncode != 0:
+                print(f"    warning: gifsicle failed on {g.name}: "
+                      f"{r.stderr.decode('utf-8', 'replace').strip()[:200]}")
             if r.returncode == 0 and tmp.exists() and tmp.stat().st_size < g.stat().st_size:
                 saved += g.stat().st_size - tmp.stat().st_size
                 tmp.replace(g)
@@ -458,8 +461,10 @@ def optimize_media() -> None:
                  "-c:v", "libx264", "-crf", "30", "-preset", "slow",
                  "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(tmp)],
                 capture_output=True)
+            if r.returncode != 0:
+                print(f"    warning: ffmpeg failed on {src.name}: "
+                      f"{r.stderr.decode('utf-8', 'replace').strip()[-200:]}")
             if r.returncode == 0 and tmp.exists() and tmp.stat().st_size < src.stat().st_size:
-                before = src.stat().st_size
                 data = tmp.read_bytes()
                 tmp.unlink()
                 for p in paths:

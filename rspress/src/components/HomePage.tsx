@@ -25,10 +25,10 @@ interface HomePageProps {
 }
 
 const SOCIAL_LINKS = [
-  { href: 'https://github.com/centreon/centreon/', image: IMG + 'social-network/github.png' },
-  { href: 'https://twitter.com/Centreon', image: IMG + 'social-network/twitter.png' },
-  { href: 'https://www.linkedin.com/company/centreonsoftware', image: IMG + 'social-network/linkedin.png' },
-  { href: 'https://www.youtube.com/c/Centreon-Monitoring', image: IMG + 'social-network/youtube.png' },
+  { href: 'https://github.com/centreon/centreon/', image: IMG + 'social-network/github.png', name: 'GitHub' },
+  { href: 'https://twitter.com/Centreon', image: IMG + 'social-network/twitter.png', name: 'Twitter / X' },
+  { href: 'https://www.linkedin.com/company/centreonsoftware', image: IMG + 'social-network/linkedin.png', name: 'LinkedIn' },
+  { href: 'https://www.youtube.com/c/Centreon-Monitoring', image: IMG + 'social-network/youtube.png', name: 'YouTube' },
 ];
 
 function Button({ href, label, dark, target }: { href: string; label: string; dark?: boolean; target?: string }) {
@@ -102,8 +102,8 @@ export function HomePage({ heading, subheading, cards, banner, community, openso
             </div>
             <div className={styles.socialIcons}>
               {SOCIAL_LINKS.map((s, i) => (
-                <a href={s.href} key={i} target="_blank" rel="noopener noreferrer">
-                  <img src={s.image} alt="" />
+                <a href={s.href} key={i} target="_blank" rel="noopener noreferrer" aria-label={s.name}>
+                  <img src={s.image} alt={s.name} />
                 </a>
               ))}
             </div>
