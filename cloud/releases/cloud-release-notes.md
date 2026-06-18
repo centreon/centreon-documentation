@@ -20,7 +20,7 @@ This release delivers a significant expansion of the Centreon REST API, enabling
 
 **Authentication**
 
-* A new token type has been introduced: poller token. Dedicated tokens and agent configurations are now automatically created when deploying or upgrading a platform.
+* A new token type has been introduced: poller tokens. Dedicated tokens and agent configurations are now automatically created when deploying or upgrading a platform.
 * The accepted list of special characters has been improved for better compatibility.
 
 **Configuration**
