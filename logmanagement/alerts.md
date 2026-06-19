@@ -13,7 +13,7 @@ For example, an INFO log entry might simply record that a user tried to log in. 
 
 To detect issues like this, you need to create alert rules.
 
-An alert rule evaluates specific criteria over a defined time period and generates [alert events](./resources/glossary.md#alert-eventalert-status), each with an [alert status](#alert-statuses). For example, an alert rule might be described like this in words:
+An alert rule evaluates specific criteria over a defined time period and with a specific frequency. Each time these criteria are evaluated, an [alert event](./resources/glossary.md#alert-event) is generated, each with an [alert status](#alert-event-statuses). For example, an alert rule might be described like this in words:
 "If this query returns more than 50 results in the last 5 minutes, an alert event with the CRITICAL status should be recorded."
 
 * alert type: count
@@ -22,9 +22,9 @@ An alert rule evaluates specific criteria over a defined time period and generat
 
 ![image](./assets/alert_rule.png)
 
-### Alert statuses
+### Alert event statuses
 
-Possible alert statuses are:
+Possible alert event statuses are:
 
 * <span style={{color:'#ff4a4a'}}>**CRITICAL**</span>
 * <span style={{color:'#fd9b27'}}>**ERROR**</span>
@@ -44,15 +44,15 @@ Possible alert statuses are:
       * **Ratio** means that you divide the results of a query by the results of another query.
    * **Frequency**: this field defines both the frequency of the check and the time period covered by it. For instance, if you select **Every 5 minutes**, a check will be performed every 5 minutes on the data of the last 5 minutes.
    * **Query**: use the correct [query syntax](query-syntax.md).
-   * **Conditions**: define which [alert status the alert event should have](#alert-statuses).
+   * **Conditions**: define which [alert status the alert event should have](#alert-event-statuses).
 4. Save your alert rule. The window is closed and your alert rule appears in the list of alert rules. The rule starts being evaluated and producing alert events.
 
-## Viewing all alert events
+## Viewing the last alert event for an alert rule
 
 Go to **Alerts & notifications > Alert events**. Use the search bar and its filter button to find alert events.
 
 ![image](./assets/alert_events.png)
 
-You can expand each alert event to display more information about it. Hover over the graph to display the start and end dates.
+You can expand each alert event to view more information about it, including the alert rule evaluation history. Hover over the graph to display the start and end dates for each period spent in a status.
 
 ![image](./assets/alert_events_detail.png)

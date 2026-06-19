@@ -317,12 +317,12 @@ dnf install nagios-plugins-nrpe
 3. Apply the **OS-Windows-NSClient-05-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                                                      | Default value        | Mandatory |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------|:---------------------|:---------:|
-| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                        | check_centreon_nrpe3 |           |
-| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                        | 5666                 |           |
-| NRPETIMEOUT      | Command timeout                                                                                                                  | 30                   |           |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) | -u -2 -P 8192        |           |
+| Macro            | Description                                                                                                                      | Default value | Mandatory |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                        | check_nrpe    |           |
+| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                        | 5666          |           |
+| NRPETIMEOUT      | Command timeout                                                                                                                  | 30            |           |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) | -u -2 -P 8192 |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
