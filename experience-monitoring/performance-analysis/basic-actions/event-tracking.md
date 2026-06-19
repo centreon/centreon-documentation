@@ -5,7 +5,7 @@ title: Track and add events from your site in Experience Monitoring
 
 This page explains how to add your own annotations via the UI; you can also add them automatically (for example at each deployment). Go to this page to use our API:
 
-[Automatically track production events](../../installation/monitor-production-events.md)
+[Automatically track production events](../../how-to-articles/using-charts.md#interacting-with-graphs-using-the-api)
 
 You can add custom events in Experience Monitoring to provide contextual information on various charts.
 

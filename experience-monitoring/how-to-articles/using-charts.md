@@ -8,6 +8,7 @@ All graphs are interactive allowing you to zoom in or out and leave comments.
 
 Graphs found in the overview pages of each module but also on your customized [dashboards](../performance-analysis/dashboards.md).
 
+Every graph can be downloaded as a .png to facilitate sharing information. To do this, click the camera icon on the graph's header.
 
 ## Colors used in graphs
 
