@@ -613,6 +613,10 @@ module.exports = {
       "items": [
         {
           "type": "doc",
+          "id": "administration/authentication-tokens"
+        },
+        {
+          "type": "doc",
           "id": "administration/media"
         },
               ]
@@ -730,9 +734,18 @@ module.exports = {
       },
       "items": [
     {
+      "type": "doc",
+      "id": "administration/api-tokens"
+    },
+    {
       "type": "link",
       "href": "https://docs-api.centreon.com/api/centreon-web-cloud/",
-      "label": "Centreon Cloud API"
+      "label": "Centreon Cloud API" 
+    },
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-map/25.10/",
+      "label": "MAP API"
     },
     {
       "type": "link",
@@ -744,10 +757,6 @@ module.exports = {
       "href": "https://docs-api.centreon.com/api/centreon-autodiscovery/cloud/",
       "label": "Autodiscovery API"
     },
-    {
-          "type": "doc",
-          "id": "administration/api-tokens"
-        }
       ],
 },
     {
