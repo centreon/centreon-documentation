@@ -276,7 +276,7 @@ This should be a last-resort option and used rarely because it slows down your u
 </TabItem>
 <TabItem value="Run a script" label="Run a script">
 
-If all other actions fail, you can use this option to run JavaScript in the browser to force an action. Avoid using scripts to replace other actions unless necessary. Note that the script guarantees the action is executed, but not that it succeeds, so you should add an [expectation step](#add-an-expectation) after each script:
+If all other actions fail, you can use this option to run JavaScript in the browser to force an action. Avoid using scripts to replace other actions unless necessary. Note that the script guarantees the action is executed, but not that it succeeds, so you should add an [expectation step](#adding-an-expectation) after each script:
 - DOM: (visible element, class changed)
 - Network: expected request (URL, HTTP status...)
 

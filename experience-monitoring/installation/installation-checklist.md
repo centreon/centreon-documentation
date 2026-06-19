@@ -68,7 +68,7 @@ In the **Business data** page:
 
 * The **Journey and revenues** tab contains data only if you have configured a [user journey](#user-journeyssynthetic-monitoring-stm).
 
-* The **Infrastructure cost/click** tab contains data only if you have configured an agent collecting [system data](#system-data-monitor-the-health-of-your-host-server).
+* The **Infrastructure cost/click** tab contains data only if you have configured an agent collecting [system data](#system-data-host-server-health).
 
 ## [System data (host server health)](../installation/servers/install-system-agents.md)
 

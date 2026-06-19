@@ -26,5 +26,5 @@ Based on this information, Experience Monitoring will estimate the CO2 emitted p
 Experience Monitoring scores each user journey on your site individually, as well as producing a combined score across all journeys. 
 Scores can also be calculated using [RUM data](../rum/rum-intro.md).
 You can view these at any time from the Global View.
-For a full breakdown of how the score is calculated, see [Digital Sobriety Score calculations](digital-sobriety-score.md#how-is-the-digital-sobriety-score-calculated). 
+For a full breakdown of how the score is calculated, see [Digital Sobriety Score calculations](digital-sobriety-score.md#how-is-it-calculated). 
 To learn how to act on your score and track improvements over time, see [Improving your Digital Sobriety Score](improve-dss.md).

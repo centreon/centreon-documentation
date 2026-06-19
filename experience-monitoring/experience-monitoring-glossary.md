@@ -60,7 +60,7 @@ Speed Index is expressed in seconds but should be treated as a score. It doesn't
 ## Step
 
 One of the stages of a [user journey](#user-journey). A step represents a page of the site.
-Steps contain [actions](#actions) which determine what the probe does within a given page. A step can contain multiple actions.
+Steps contain [actions](#action) which determine what the probe does within a given page. A step can contain multiple actions.
 
 ## Synthetic Monitoring Zone
 
