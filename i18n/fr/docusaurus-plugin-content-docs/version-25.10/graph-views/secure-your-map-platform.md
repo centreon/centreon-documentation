@@ -658,7 +658,7 @@ Le mode `VERIFY_CA` est le minimum recommandé en production. Ce tableau liste l
 |--------------|---------------------------|----------------------|------------------------------------|
 | `DISABLED`   | Non                       | Non                  | Développement uniquement — pas de chiffrement |
 | `trust`      | Non                       | Non                  | Chiffre le trafic mais ne valide pas le certificat serveur |
-| `VERIFY_CA`  | Oui                       | Non                  | Utilisé dans cette procédure — valide la chaîne CA |
+| `verify-ca`  | Oui                       | Non                  | Utilisé dans cette procédure — valide la chaîne CA |
 | `verify-full`| Oui                       | Oui                  | Le plus strict — vérifie aussi le nom d’hôte/IP dans le SAN du certificat |
 
 > **Remarque :** Si vous souhaitez utiliser le mode `verify-full`, le certificat serveur doit inclure un champ Subject Alternative Name (SAN) correspondant exactement à l’IP ou au nom d’hôte utilisé dans l’URL JDBC. Le champ CN seul n’est pas suffisant pour les connexions basées sur l’IP.
