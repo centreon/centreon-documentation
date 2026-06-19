@@ -245,7 +245,7 @@ to configure for Centreon MAP service.
 
 This section describes how to enable SSL on a MySQL/MariaDB server and configure a Spring Boot application to connect securely using the certificate authority verification (VERIFY_CA mode).
 
-> **Note:** This procedure covers the VERIFY_CA mode only. In this mode, the server certificate is validated against a trusted Certificate Authority, but the hostname/IP address is not verified. For other SSL verification modes, see the [SSL Mode reference](#ssl-mode-reference) section.
+> **Note:** This procedure covers the VERIFY_CA mode only. In this mode, the server certificate is validated against a trusted Certificate Authority, but the hostname/IP address is not verified. For other SSL verification modes, see the **SSL Mode reference** (MariaDB section).
 
 - Select the tab corresponding to the database you want to use.
 

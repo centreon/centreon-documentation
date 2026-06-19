@@ -229,7 +229,7 @@ Si le certificat public de Broker est signé par une autorité de certification 
 
 Cette section décrit comment activer SSL sur un serveur MySQL/MariaDB et configurer une application Spring Boot pour se connecter de manière sécurisée en utilisant la vérification de l'autorité de certification (mode VERIFY_CA).
 
-> **Note :** Cette procédure couvre uniquement le mode VERIFY_CA. Dans ce mode, le certificat du serveur est validé par une autorité de certification de confiance, mais le nom d’hôte/adresse IP n’est pas vérifié. Pour d’autres modes de vérification SSL, consultez la [référence des modes SSL](#référence-des-modes-ssl).
+> **Note :** Cette procédure couvre uniquement le mode VERIFY_CA. Dans ce mode, le certificat du serveur est validé par une autorité de certification de confiance, mais le nom d’hôte/adresse IP n’est pas vérifié. Pour d’autres modes de vérification SSL, consultez la référence des modes SSL (section MariaDB).
 
 - Sélectionnez l’onglet correspondant à la base de données que vous souhaitez utiliser.
 
