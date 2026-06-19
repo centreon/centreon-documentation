@@ -16,6 +16,10 @@ jobs:
     uses: centreon/security-tools/.github/workflows/dependency-analysis.yml@main
 
   get-versions:
+    # Skip the Docusaurus build/preview for the rspress migration PR (the rspress
+    # site has its own preview workflow). Remove this guard once the migration
+    # branch is merged. Other branches and the staging push are unaffected.
+    if: github.head_ref != 'test-rspress'
     needs: [dependency-scan]
     runs-on: ubuntu-24.04
 

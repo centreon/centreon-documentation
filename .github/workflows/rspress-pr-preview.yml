@@ -62,6 +62,17 @@ jobs:
             --config.blockExoticSubdeps=true
         shell: bash
 
+      - name: Restore rspack build cache
+        # Reuse rspack's persistent build cache between runs to speed up rebuilds
+        # (rspack invalidates only the modules that changed).
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v4.1.2
+        with:
+          path: rspress/node_modules/.cache
+          key: rspack-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.run_id }}
+          restore-keys: |
+            rspack-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-
+            rspack-${{ runner.os }}-
+
       - name: Build rspress site
         # Drop code blocks from the search index so each per-language index stays
         # under Cloudflare Pages' 25 MiB per-file limit (preview only).
