@@ -129,7 +129,7 @@ whether the modeled IT service or application is in an **OK**,
 
 2. Give a unique name to the BA. The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
 
-You can choose an icon for the BA and add a description, these 2 elements are optional
+You can choose an icon for the BA and add a description, these two elements are optional.
 
 3. Select a [calculation method](#calculation-methods).
 
