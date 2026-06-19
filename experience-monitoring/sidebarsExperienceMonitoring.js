@@ -53,7 +53,6 @@ module.exports = {
           },
           items: [
             { type: 'doc', id: 'how-to-articles/using-charts' },
-            { type: 'doc', id: 'installation/monitor-production-events' },
           ],
         },
       ],
@@ -166,8 +165,6 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'performance-analysis/dashboards' },
-        { type: 'doc', id: 'performance-analysis/export-results' },
-        { type: 'doc', id: 'performance-analysis/view-history' },
       ],
     },
     {
