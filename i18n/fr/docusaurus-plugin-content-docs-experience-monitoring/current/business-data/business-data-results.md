@@ -1,35 +1,48 @@
 ---
 id: business-data-results
-title: Understanding business data results
+title: Comprendre les résultats des données business
 ---
 
-The Business Data module displays traffic and conversion metrics sourced from the client’s analytics tool (Google Analytics or Matomo). Correlate the technical performance of your site and your sales. A key thing to do is to [plot events onto your graphs](../how-to-articles/using-charts.md#anotating) so as to explain changes.
+Le module **Données business** affiche les indicateurs de trafic et de conversion issus de votre outil d’analyse (Google Analytics ou Matomo). Établissez une corrélation entre les performances techniques de votre site et vos ventes. Il est essentiel de [reporter les évènements sur vos graphiques](../installation/monitor-production-events.md) afin d’expliquer les variations observées.
 
-## Business data or RUM?
+## Données métier ou RUM ?
 
-Business Data traffic refers to the traffic that customers typically view in their analytics. It is a filtered "business-specific" view, unlike [RUM](../rum/rum.md), which captures all raw traffic.
+Le trafic **Données métier** correspond au trafic que les clients consultent généralement dans leurs outils d’analyse. Il s’agit d’une vue filtrée spécifique à l’activité, contrairement au [RUM](../rum/rum.md), qui capture l’intégralité du trafic brut.
 
-| Criterion | RUM in Experience Monitoring | Business data (Google Analytics) |
+| Critère | RUM dans Experience Monitoring | Données business (Google Analytics) |
 | --- | --- | --- |
-| Traffic coverage | 100% of traffic (before GDPR pop-in) | Only visitors who have accepted GDPR consent |
-| Bots | Included (US bots, crawlers, etc.) | Excluded (filtered in the GA view configured by the client) |
-| GDPR consent | Independent of consent | Dependent on consent acceptance |
-| Estimated difference | Full raw traffic | Approximately 1/3 of traffic missing (GDPR refusals + filtered bots) |
-| Configuration | Managed in Experience Monitoring | Experience Monitoring retrieves the view as configured in GA (no additional processing) |
+| Couverture du trafic | 100 % du trafic (avant la fenêtre contextuelle RGPD) | Uniquement les visiteurs ayant donné leur consentement RGPD |
+| Bots | Inclus (bots américains, robots d'indexation, etc.) | Exclus (filtrés dans la vue GA configurée par le client) |
+| Consentement RGPD | Indépendant du consentement | Dépend de l’acceptation du consentement |
+| Différence estimée | Trafic brut complet | Environ 1/3 du trafic manquant (refus RGPD + bots filtrés) |
+| Configuration | Gérée dans Experience Monitoring | Experience Monitoring récupère la vue telle qu’elle est configurée dans GA (aucun traitement supplémentaire) |
 
-## Use cases
+## Cas d'utilisation
 
-### Traffic + Performance Dashboard
+### Tableau de bord « Trafic + Performances »
 
-Create a dashboard that combines website traffic (from GA) with the execution speed of user journey scenarios. This allows you to monitor the overall health of the site at a glance: traffic and performance side by side.
+Créez un [tableau de bord](../performance-analysis/dashboards.md) qui combine le trafic du site web (issu de GA) et la vitesse d'exécution des scénarios de parcours utilisateur. Cela vous permet de surveiller d'un seul coup d'œil la santé globale du site : trafic et performances présentés côte à côte.
 
-### Impact of a deployment on sales
+### Impact d'un déploiement sur les ventes
 
-After a deployment, check whether a slowdown in the site has a negative impact on the conversion rate or revenue. Use in conjunction with event tags to date the deployment.
+Après un déploiement, vérifiez si un ralentissement du site a un impact négatif sur le taux de conversion ou le chiffre d’affaires. À utiliser en association avec des [marqueurs d’évènement](../installation/monitor-production-events.md) pour dater le déploiement.
 
-### Impact of a deployment on the bounce rate
+### Impact d’un déploiement sur le taux de rebond
 
-Check whether a deployment (successful or failed) caused an increase or decrease in the bounce rate. Example: sudden spike in the bounce rate on a certain date, to be correlated with a possible slowdown.
+Vérifiez si un déploiement (réussi ou échoué) a entraîné une augmentation ou une diminution du taux de rebond. Exemple : pic soudain du taux de rebond à une date donnée, à mettre en corrélation avec un éventuel ralentissement.
+## Cas d’utilisation
+
+### Tableau de bord « Trafic + Performances »
+
+Créez un tableau de bord qui combine le trafic du site web (issu de GA) avec la vitesse d’exécution des scénarios de parcours utilisateur. Cela vous permet de surveiller d’un seul coup d’œil la santé globale du site : trafic et performances côte à côte.
+
+### Impact d’un déploiement sur les ventes
+
+Après un déploiement, vérifiez si un ralentissement du site a un impact négatif sur le taux de conversion ou le chiffre d’affaires. À utiliser en conjonction avec des balises d’événement pour dater le déploiement.
+
+### Impact d’un déploiement sur le taux de rebond
+
+Vérifiez si un déploiement (réussi ou échoué) a entraîné une augmentation ou une diminution du taux de rebond. Exemple : pic soudain du taux de rebond à une date donnée, à mettre en corrélation avec un éventuel ralentissement.
 
 ## Metrics
 

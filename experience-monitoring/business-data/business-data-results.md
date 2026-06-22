@@ -3,7 +3,7 @@ id: business-data-results
 title: Understanding business data results
 ---
 
-The Business Data module displays traffic and conversion metrics sourced from the client’s analytics tool (Google Analytics or Matomo). Correlate the technical performance of your site and your sales. A key thing to do is to [plot events onto your graphs](../how-to-articles/using-charts.md#anotating) so as to explain changes.
+The Business Data module displays traffic and conversion metrics sourced from your analytics tool (Google Analytics or Matomo). Correlate the technical performance of your site and your sales. A key thing to do is to [plot events onto your graphs](../how-to-articles/using-charts.md#anotating) so as to explain changes.
 
 ## Business data or RUM?
 
@@ -21,11 +21,11 @@ Business Data traffic refers to the traffic that customers typically view in the
 
 ### Traffic + Performance Dashboard
 
-Create a dashboard that combines website traffic (from GA) with the execution speed of user journey scenarios. This allows you to monitor the overall health of the site at a glance: traffic and performance side by side.
+Create a [dashboard](../performance-analysis/dashboards.md) that combines website traffic (from GA) with the execution speed of user journey scenarios. This allows you to monitor the overall health of the site at a glance: traffic and performance side by side.
 
 ### Impact of a deployment on sales
 
-After a deployment, check whether a slowdown in the site has a negative impact on the conversion rate or revenue. Use in conjunction with event tags to date the deployment.
+After a deployment, check whether a slowdown in the site has a negative impact on the conversion rate or revenue. Use in conjunction with [event tags](../installation/monitor-production-events.md) to date the deployment.
 
 ### Impact of a deployment on the bounce rate
 

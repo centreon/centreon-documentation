@@ -3,45 +3,34 @@ id: configure-google-analytics
 title: Configurer Google Analytics avec Experience Monitoring
 --- 
 
-## Questions fréquentes
+En intégrant les données de Google Analytics à Experience Monitoring, vous pouvez établir des corrélations entre les temps d’exécution des scénarios web et les indicateurs techniques (tels que le temps de réponse et la charge du serveur) d’une part, et les données métier (comme le trafic et les conversions) d’autre part. Cela vous aide à analyser l’impact du trafic sur les temps de chargement des pages et à en tirer des conclusions pertinentes.
 
-### Pourquoi intégrer Google Analytics dans Experience Monitoring ?
+## Associer Google Analytics à Experience Monitoring
 
-L'intégration de ces données va permettre de corréler des données techniques (temps de réponse, charge serveur, etc) avec vos données Business (traffic, conversion, etc). Ces corrélations vous permettront de tirer des conclusions.
+> Pour connecter ou déconnecter Experience Monitoring à Google Analytics, vous devez disposer des [**droits administrateur** ou **owner**](../configuration/manage-users-and-rights.md) au sein de votre organisation dans Experience Monitoring.
 
-### Les sondes Experience Monitoring sont-elles comptabilisées dans GA ?
+Voici un [tutoriel vidéo](https://www.youtube.com/watch?v=qmeXwypUmL4&list=PLgmedpAAxo-40d8PaBsaQS7Hkrm6mdxjs&index=3) qui explique comment associer Experience Monitoring à votre compte Google. Vous pouvez également suivre la procédure ci-dessous.
 
-**Non**, Experience Monitoring est un ninja pour Google Analytics ! En effet nous n'appelons pas le tag Google Analytics présent sur les pages de votre site.
+Pour associer Experience Monitoring à votre compte Google Analytics :
 
-Ainsi vos statistiques ne seront pas affectées par nos sondes.
+1. Sélectionnez le site pour lequel vous souhaitez associer le compte Google Analytics (cliquez sur son nom).
 
-### Pourquoi je n'ai pas de données Analytics qui remonte dans Experience Monitoring ?
+2. Cliquez sur **Paramètres** (l'icône en forme d'engrenage en haut à droite de l'écran), puis sur l'onglet **Intégrations**.
 
-Google Analytics a toujours un certain retard, pouvant aller jusqu'à plusieurs heures. Étant donné que nous récupérons les données via leur API, tant qu'elles ne sont pas visibles dans GA, nous ne pouvons les récupérer.
+4. Au bas de la section **Entreprise et analyses**, cliquez sur **Connecter**. Vous serez redirigé vers la page de connexion de Google : saisissez les identifiants du compte que vous souhaitez associer.
 
-### Pourquoi je n’ai pas de données Analytics en temps réel ?
+5. Une fois authentifié, vous serez redirigé vers Experience Monitoring. Sélectionnez la propriété Google Analytics que vous souhaitez utiliser.
 
-Google Analytics a toujours un certain retard, pouvant aller jusqu'à plusieurs heures. Étant donné que nous récupérons les données via leur API, tant qu'elles ne sont pas visibles dans GA, nous ne pouvons les
+## FAQ
 
-### J’ai désactivé par erreur le module Google Analytics d'Experience Monitoring. Est-il possible de récupérer de l’historique ?
+### Les sondes d'Experience Monitoring sont-elles prises en compte dans GA ?
 
-Pas de problème, nous récupérons toujours les 24 dernières heures de données. Attendez un peu et vous devriez les voir arriver.
+Non, Experience Monitoring est invisible pour Google Analytics : nous n'appelons pas la balise Google Analytics qui s'exécute sur les pages de votre site. Par conséquent, vos statistiques GA ne sont pas affectées par nos sondes.
 
-Si vous souhaitez récupérer plus de 24h de retard, n'hésitez pas à contacter le support via le bouton "Aide" en bas à droit de votre écran quand vous êtes dans l'app.
+### Pourquoi ne vois-je pas les données Analytics en temps réel dans Experience Monitoring ?
 
-## Lier Google Analytics à Experience Monitoring
+Les données Google Analytics peuvent mettre plusieurs heures à s'afficher. Comme nous récupérons les données via leur API, nous ne pouvons importer que celles qui sont visibles dans GA.
 
-Avec Experience Monitoring, vous pouvez corréler le temps d’exécution de vos webscénarios avec le traffic mesuré par Google Analytics sur la même période et ainsi analyser les effets du traffic sur les temps de chargement du site.
+### J’ai désactivé par inadvertance le module Google Analytics dans Experience Monitoring. Puis-je récupérer l’historique ?
 
-
->Pour pouvoir ajouter/supprimer une liaison vous avez besoin d’avoir les permissions « Administrateur » ou « Propriétaire » sur votre Organisation dans Experience Monitoring.
-
-Nous avons un [tutoriel vidéo](https://youtu.be/vOVU7zv_GZg?list=PLgmedpAAxo-5XqQVueiuwFwhKs_DifUDb) qui démontre comment lier Quanta à votre compte google.
-
-Pour lier Experience Monitoring avec votre compte Google Analytics, rendez-vous dans l’onglet « Configuration » (icône qui ressemble à un engrenage en haut à droite de votre écran) sélectionnez le site (en cliquant sur son nom) pour lequel vous voulez lier votre compte Google Analytics.
-
-Allez dans l’onglet « Intégrations ».
-
-Pour créer la liaison, cliquez sur « Connecter ». Vous allez être redirigé sur la page d’authentification de Google, saisissez alors l’identifiant et le mot de passe du compte que vous voulez lier.
-
-Une fois authentifié vous êtes de nouveau redirigé vers Experience Monitoring, vos profils Analytics sont importés dans l’interface et il ne vous reste plus qu’à choisir celui que vous souhaitez utiliser.
+Pas de problème — nous importons toujours les données des dernières 24 heures. Patientez un peu et les données devraient s’afficher. Si vous avez besoin de récupérer plus de 24 heures de données historiques, contactez [le support Centreon](http://support.centreon.com/).
