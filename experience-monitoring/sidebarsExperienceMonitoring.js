@@ -157,31 +157,11 @@ module.exports = {
     {
       type: 'doc', id: 'how-to-articles/performing-load-tests'
     },
-    {
-      collapsed: true,
-      type: 'category',
-      label: 'Using analysis data',
-      link: {
-        type: 'generated-index',
-      },
-      items: [
-        { type: 'doc', id: 'performance-analysis/dashboards' },
-      ],
-    },
+    { type: 'doc', id: 'performance-analysis/dashboards' },
     {
       type: 'doc', id: 'configuration/manage-users-and-rights'
     },
-    {
-      collapsed: true,
-      type: 'category',
-      label: 'Troubleshooting',
-      link: {
-        type: 'generated-index',
-      },
-      items: [
-        { type: 'doc', id: 'troubleshooting' },
-      ],
-    },
+    { type: 'doc', id: 'troubleshooting' },
     {
       type: 'doc', id: 'release-notes'
     },
