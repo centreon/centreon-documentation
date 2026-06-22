@@ -46,10 +46,10 @@ To allow the RUM module to work while strictly respecting your security rules, s
 
    In the directive: ``connect-src``, add ``https://rum-metrics.quanta.io``.
 
-Even if the current beacon passes through ``img-src``, this addition ensures compatibility with:
-- browsers using ``sendBeacon``,
-- future optimizations of the RUM API,
-- enforced security environments.
+   Even if the current beacon passes through ``img-src``, this addition ensures compatibility with:
+      - browsers using ``sendBeacon``,
+      - future optimizations of the RUM API,
+      - enforced security environments.
 
 ### CSP adjustment example
 
