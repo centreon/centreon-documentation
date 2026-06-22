@@ -81,6 +81,7 @@ module.exports = {
         { type: 'doc', id: 'configuration/user-journey/user-journey-best-practices' },
         { type: 'doc', id: 'how-to-articles/user-journey-screen' },
         { type: 'doc', id: 'configuration/user-journey/user-journey-notifications' },
+        { type: 'doc', id: 'configuration/user-journey/stm-zones' },
         { type: 'doc', id: 'configuration/user-journey/user-journey-improve' },
         { type: 'doc', id: 'performance-analysis/errors-and-unavailability-front-end' },
         { type: 'doc', id: 'configuration/advanced-configuration/enable-disable-scenario-or-alert-via-api' },
@@ -157,31 +158,11 @@ module.exports = {
     {
       type: 'doc', id: 'how-to-articles/performing-load-tests'
     },
-    {
-      collapsed: true,
-      type: 'category',
-      label: 'Using analysis data',
-      link: {
-        type: 'generated-index',
-      },
-      items: [
-        { type: 'doc', id: 'performance-analysis/dashboards' },
-      ],
-    },
+    { type: 'doc', id: 'performance-analysis/dashboards' },
     {
       type: 'doc', id: 'configuration/manage-users-and-rights'
     },
-    {
-      collapsed: true,
-      type: 'category',
-      label: 'Troubleshooting',
-      link: {
-        type: 'generated-index',
-      },
-      items: [
-        { type: 'doc', id: 'troubleshooting' },
-      ],
-    },
+    { type: 'doc', id: 'troubleshooting' },
     {
       type: 'doc', id: 'release-notes'
     },
