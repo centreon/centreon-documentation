@@ -14,7 +14,7 @@ The DSS displayed is calculated according to either [RUM data](../rum/rum-intro.
 ![image](../assets/digital-sobriety/dss-source.png)
 
 Here you can decide if you want to use RUM data or User Journeys data. 
-Additionnaly, if you choose **User Journeys**, you can decide whether the score should be calculated using the data of all user journeys or only specific ones.
+Additionally, if you choose **User Journeys**, you can decide whether the score should be calculated using the data of all user journeys or only specific ones.
 
 Note that it may take some time to calculate a new score after you change which data is used.
 

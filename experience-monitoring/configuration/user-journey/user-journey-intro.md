@@ -6,7 +6,7 @@ title: User Journeys
 User journeys allow you to configure a probe to regularly navigate your site following a pre-established path, measuring various web performance indicators.
 The probe then sends the data to Experience Monitoring for you to review.
 
-User journeys, along with [Real User Monitoring](https://docs.centreon.com/experience-monitoring/getting-started/real-user-monitoring/), are one of the key features of Experience Monitoring as other features like the [Digital Sobriety Score](../../digital-sobriety/digital-sobriety-concepts.md) or [Load Tests](../../getting-started/load-tests.md) depend on the path set by User Journeys to function.
+User journeys, along with [Real User Monitoring](https://docs.centreon.com/experience-monitoring/getting-started/real-user-monitoring/), are one of the key features of Experience Monitoring as other features like the [Digital Sobriety Score](../../digital-sobriety/digital-sobriety-concepts.md) or [Load Tests](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/load-tests/) depend on the path set by User Journeys to function.
 
 You can configure multiple User Journeys to imitate a variety of different users and we recommend you do so to get a better view of the overall experience of navigating your site.
 In addition to the pages visited, you can further detail if the probe should act as if navigating from a computer or a phone, what browser to use and other specificities.
