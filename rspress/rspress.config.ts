@@ -94,6 +94,25 @@ export default defineConfig({
         },
       },
     },
+    // Split long-lived vendor code into stable chunks so the browser keeps them
+    // cached across deployments (index.js changes on every docs update, vendors
+    // rarely do). Merges with rspress's own `styles` cacheGroup (deep-merged).
+    splitChunks: {
+      cacheGroups: {
+        react: {
+          name: 'lib-react',
+          test: /[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom|scheduler)[\\/]/,
+          chunks: 'all',
+          priority: 50,
+        },
+        vendor: {
+          name: 'lib-vendor',
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          priority: 10,
+        },
+      },
+    },
     performance: {
       // Skip the per-asset gzip-size computation at the end of the build
       // (costly across thousands of files, no functional impact).
