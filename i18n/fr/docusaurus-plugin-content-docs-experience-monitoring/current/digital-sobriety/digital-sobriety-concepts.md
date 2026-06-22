@@ -1,30 +1,30 @@
 ---
 id: digital-sobriety-concepts
-title: Digital Sobriety concepts
+title: Introduction à la sobriété numérique
 ---
 
-Although websites are immaterial, they rely on physical infrastructure: servers, networks, and end-user devices that all consume energy. 
-Measuring the environmental footprint of digital activity is an evolving challenge, no single approach has yet become the definitive standard.
+Bien que les sites web soient immatériels, ils reposent sur une infrastructure physique : serveurs, réseaux et appareils des utilisateurs finaux, qui consomment tous de l'énergie.
+Mesurer l'empreinte environnementale de l'activité numérique est un défi en constante évolution, aucune approche unique n'est encore devenue la norme de référence.
 
-Experience Monitoring has its own approach called the Digital Sobriety Score based on the five principles of the [GHG Protocol](https://ghgprotocol.org/): Relevance, Completeness, Consistency, Transparency, and Accuracy. This score reflects how environmentally efficient your website is.
+Experience Monitoring propose sa propre approche appelée le Score de Sobriété Numérique, basée sur les cinq principes du [GHG Protocol](https://ghgprotocol.org/) : Pertinence, Exhaustivité, Cohérence, Transparence et Précision. Ce score reflète l'efficacité environnementale de votre site web.
 
-The score runs from 0 to 100 and is translated into a letter grade from A (most efficient) to E (least efficient). 
-It combines two underlying metrics: the Carbon Footprint Per Click (CFPC), which captures the environmental cost of individual user interactions, and the Eco-Design Score (EDS), which evaluates how efficiently your pages are built.
+Le score va de 0 à 100 et est converti en note alphabétique de A (plus efficace) à E (moins efficace).
+Il combine deux métriques sous-jacentes : l'Empreinte Carbone Par Clic (ECPC), qui capture le coût environnemental des interactions individuelles des utilisateurs, et le Score d'Éco-Conception (SEC), qui évalue l'efficacité de construction de vos pages.
 
 ![image](../assets/digital-sobriety/digital-sobriety-details.png)
 
-Because the DSS is grounded in real traffic data and follows the principles of the GHG Protocol, it can feed directly into a company's carbon inventory, making it a practical tool for sustainability reporting.
+Comme le SSN est fondé sur des données de trafic réelles et suit les principes du GHG Protocol, il peut s'intégrer directement dans l'inventaire carbone d'une entreprise, ce qui en fait un outil pratique pour le reporting en matière de développement durable.
 
-If you have the Digital Sobriety option, you must provide Experience Monitoring with two pieces of information:
-- Where are your servers located?
-- Are they hosted in the Cloud?
+Si vous disposez de l'option Sobriété Numérique, vous devez fournir à Experience Monitoring deux informations :
+- Où sont situés vos serveurs ?
+- Sont-ils hébergés dans le Cloud ?
 
-To fill in these details, go to **Configuration > Site**.
+Pour renseigner ces informations, rendez-vous dans **Configuration > Site**.
 
-Based on this information, Experience Monitoring will estimate the CO2 emitted per page.
+Sur la base de ces informations, Experience Monitoring estimera le CO2 émis par page.
 
-Experience Monitoring scores each user journey on your site individually, as well as producing a combined score across all journeys. 
-Scores can also be calculated using [RUM data](https://docs.centreon.com/experience-monitoring/experience-monitoring/rum/rum-intro/).
-You can view these at any time from the Global View.
-For a full breakdown of how the score is calculated, see [Digital Sobriety Score calculations](https://docs.centreon.com/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/#how-is-it-calculate). 
-To learn how to act on your score and track improvements over time, see [Improving your Digital Sobriety Score](improve-dss.md).
+Experience Monitoring évalue chaque parcours utilisateur de votre site individuellement, tout en produisant un score combiné sur l'ensemble des parcours.
+Les scores peuvent également être calculés à partir des [données RUM](https://docs.centreon.com/experience-monitoring/experience-monitoring/rum/rum-intro/).
+Vous pouvez les consulter à tout moment depuis la Vue Globale.
+Pour une description complète du mode de calcul du score, voir [Calculs du Score de Sobriété Numérique](https://docs.centreon.com/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/#how-is-it-calculate).
+Pour savoir comment agir sur votre score et suivre les améliorations au fil du temps, voir [Améliorer votre Score de Sobriété Numérique](improve-dss.md).

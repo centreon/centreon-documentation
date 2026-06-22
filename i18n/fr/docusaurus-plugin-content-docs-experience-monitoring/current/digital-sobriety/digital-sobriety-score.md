@@ -1,101 +1,100 @@
 ---
 id: digital-sobriety-score
-title: Digital Sobriety Score calculations
+title: Calcul du Score de Sobriété Numérique
 ---
 
-## Digital Sobriety Score
+## Score de Sobriété Numérique
 
-Every website has an environmental cost. Servers consume energy, networks transfer data, and devices process it — all of it adds up. The Digital Sobriety Score (DSS) is Centreon way of measuring that impact and turning it into a single, actionable grade.
+Chaque site web a un coût environnemental. Les serveurs consomment de l'énergie, les réseaux transfèrent des données et les appareils les traitent — tout cela s'accumule. Le Score de Sobriété Numérique (SSN) est la façon dont Centreon mesure cet impact et le traduit en une note unique et actionnable.
 
-You can find the DSS on the **Global View**.
+Vous pouvez trouver le SSN dans la **Vue Globale**.
 
-The DSS displayed is calculated according to either [RUM data](../rum/rum-intro.md) or your [user journey data](../configuration/user-journey/user-journey-intro.md). To change the used data, go to **Configuration** > **Global view**. 
+Le SSN affiché est calculé à partir des [données RUM](../rum/rum-intro.md) ou de vos [données de parcours utilisateur](../configuration/user-journey/user-journey-intro.md). Pour modifier les données utilisées, rendez-vous dans **Configuration** > **Vue globale**.
 
 ![image](../assets/digital-sobriety/dss-source.png)
 
-Here you can decide if you want to use RUM data or User Journeys data. 
-Additionally, if you choose **User Journeys**, you can decide whether the score should be calculated using the data of all user journeys or only specific ones.
+Vous pouvez choisir d'utiliser les données RUM ou les données de Parcours Utilisateurs.
+De plus, si vous choisissez **Parcours Utilisateurs**, vous pouvez décider si le score doit être calculé à partir des données de tous les parcours utilisateurs ou uniquement de certains.
 
-Note that it may take some time to calculate a new score after you change which data is used.
+Notez qu'il peut falloir un certain temps pour calculer un nouveau score après avoir modifié les données utilisées.
 
-## How is it calculated?
+## Comment est-il calculé ?
 
-The site’s carbon footprint is calculated from measured traffic data and can be incorporated into a company’s overall carbon inventory to better represent digital emissions.
+L'empreinte carbone du site est calculée à partir des données de trafic mesurées et peut être intégrée à l'inventaire carbone global d'une entreprise pour mieux représenter les émissions numériques.
 
-To allow comparison across web applications of different sizes, results are expressed relative to traffic.
+Pour permettre la comparaison entre des applications web de tailles différentes, les résultats sont exprimés relativement au trafic.
 
-The Digital Sobriety Score combines several criteria into a single metric. It is not a measure of carbon emissions alone, but a comparative indicator designed to evaluate web applications independently of their audience size.
+Le Score de Sobriété Numérique combine plusieurs critères en une seule métrique. Il ne mesure pas uniquement les émissions de carbone, mais constitue un indicateur comparatif conçu pour évaluer les applications web indépendamment de la taille de leur audience.
 
-The DSS combines two metrics:
+Le SSN combine deux métriques :
 
-- Carbon Footprint Per Click (CFPC) — the CO₂ emitted per page view or user interaction
-- Eco-Design Score (EDS) — a technical assessment of how efficiently the site is built and served
+- Empreinte Carbone Par Clic (ECPC) — le CO₂ émis par page vue ou interaction utilisateur
+- Score d'Éco-Conception (SEC) — une évaluation technique de l'efficacité avec laquelle le site est construit et servi
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
 
-Together, they produce a score from 0 to 100, mapped to a letter grade:
+Ensemble, ils produisent un score de 0 à 100, converti en note alphabétique :
 
-| Score | Grade |
-|-------|-------|
+| Score | Note |
+|-------|------|
 | 90–100 | A |
 | 75–90 | B |
 | 60–75 | C |
 | 45–60 | D |
 | 0–45 | E |
 
-Results are expressed relative to traffic, so sites of different sizes can be fairly compared.
+Les résultats sont exprimés relativement au trafic, ce qui permet de comparer équitablement des sites de tailles différentes.
 
-The DSS is somewhat similar to the [GreenIT collective](https://www.ecoindex.fr/en/)'s Eco Index. 
-The Eco Index emphasizes simple evaluation based on three technical criteria for a given URL, which is particularly useful during development.
-Experience Monitoring's DSS, on the other hand adopts a broader, audit-style approach more suited to sites already in production.
+Le SSN est assez similaire à l'Éco Index du [collectif GreenIT](https://www.ecoindex.fr/en/).
+L'Éco Index met l'accent sur une évaluation simple basée sur trois critères techniques pour une URL donnée, ce qui est particulièrement utile en phase de développement.
+Le SSN d'Experience Monitoring, en revanche, adopte une approche plus globale, de type audit, mieux adaptée aux sites déjà en production.
 
-## Before you start
+## Avant de commencer
 
-To calculate your DSS, Experience Monitoring needs two things:
+Pour calculer votre SSN, Experience Monitoring a besoin de deux informations :
 
-- Where are your servers located?
-- Are they hosted in the cloud?
+- Où sont situés vos serveurs ?
+- Sont-ils hébergés dans le cloud ?
 
-Go to **Configuration > Site** to fill in these details.
+Rendez-vous dans **Configuration > Site** pour renseigner ces informations.
 
-The DSS is calculated data from either your user journeys or RUM. To determine which one should be used go to the configuration page.
-In the **Global view** tab, you can select whether to use RUM or user journeys for the calculations.
+Le SSN est calculé à partir des données de vos parcours utilisateurs ou de vos données RUM. Pour déterminer lequel doit être utilisé, rendez-vous sur la page de configuration.
+Dans l'onglet **Vue globale**, vous pouvez choisir d'utiliser les données RUM ou les parcours utilisateurs pour les calculs.
 
-## Simple audit vs. full audit
+## Audit simple vs. audit complet
 
-There are two ways to get a DSS:
+Il existe deux façons d'obtenir un SSN :
 
-|                      | Simple audit                                      | Full audit                                |
-|----------------------|---------------------------------------------------|-------------------------------------------|
-| **Time to complete** | 3–5 minutes                                       | Minimum 7 days                            |
-| **Coverage**         | Average of the 10 most visited pages              | 100% of pages, weighted by traffic        |
-| **Setup required**   | None                                              | RUM tag (GDPR-compatible) or User Journey |
-| **Cost**             | Free at [quanta.green](https://www.quanta.green/) | Requires an Experience Monitoring license |
-| **Historical data**  | Quarterly, stored for 3 months                    | Real-time, stored for multiple years      |
-| **Certificate**      | Yes                                               | Yes                                       |
+|                          | Audit simple                                      | Audit complet                              |
+|--------------------------|---------------------------------------------------|--------------------------------------------|
+| **Durée**                | 3 à 5 minutes                                     | 7 jours minimum                            |
+| **Couverture**           | Moyenne des 10 pages les plus visitées            | 100 % des pages, pondérées par le trafic   |
+| **Configuration requise**| Aucune                                            | Tag RUM (compatible RGPD) ou Parcours Utilisateur |
+| **Coût**                 | Gratuit sur [quanta.green](https://www.quanta.green/) | Nécessite une licence Experience Monitoring |
+| **Données historiques**  | Trimestrielles, conservées 3 mois                 | Temps réel, conservées plusieurs années    |
+| **Certificat**           | Oui                                               | Oui                                        |
 
-The simple audit is a good starting point. The full audit is what you want for production sites — it gives a complete, continuously updated picture.
+L'audit simple est un bon point de départ. L'audit complet est ce qu'il vous faut pour les sites en production — il offre une vision complète et continuellement mise à jour.
 
-## Getting a certificate
+## Obtenir un certificat
 
-Centreon can issue a DSS certificate with detailed measurements suitable for presentations, communications, or displaying on your site.
+Centreon peut délivrer un certificat SSN avec des mesures détaillées, adaptées aux présentations, communications ou à l'affichage sur votre site.
 
-Requirements:
-- An Experience Monitoring Digital Sobriety license with Real User Monitoring enabled.
-- An expert review to produce the full report.
+Prérequis :
+- Une licence Digital Sobriety Experience Monitoring avec le Real User Monitoring activé.
+- Une revue par un expert pour produire le rapport complet.
 
-Validity:
-- First year: based on the previous 30 days of data.
-- Renewal: based on the following 12 months.
-- From year two onward: based on a full year of traffic, with optional year-over-year comparison.
+Validité :
+- Première année : basée sur les 30 derniers jours de données.
+- Renouvellement : basé sur les 12 mois suivants.
+- À partir de la deuxième année : basé sur une année complète de trafic, avec comparaison année par année optionnelle.
 
+## Ce qui compose le Score d'Éco-Conception
 
-## What goes into the Eco-Design Score
+Pour ceux qui souhaitent les détails, le SEC est calculé à partir de cinq indicateurs techniques :
 
-For those who want the detail, the EDS is calculated from five technical indicators:
-
-- **Time To First Byte (TTFB)** — how long the server takes to respond. Slower responses mean more energy used server-side.
-- **Page weight** — the total data transferred per page load. Heavier pages consume more network and device resources.
-- **Frontend execution time** — the time a user's device spends running JavaScript and rendering the page. Often overlooked, but it contributes to end-user device emissions.
-- **Number of HTTP(S) requests** — each request adds network overhead and CPU load on both ends. Fewer is better.
-- **DOM size** — the number of HTML elements in memory. Larger DOMs mean more work for the browser to render and update the page.
+- **Time To First Byte (TTFB)** — le temps que met le serveur à répondre. Des réponses plus lentes signifient davantage d'énergie consommée côté serveur.
+- **Poids de la page** — le volume total de données transférées par chargement de page. Des pages plus lourdes consomment davantage de ressources réseau et d'appareils.
+- **Temps d'exécution frontend** — le temps que l'appareil de l'utilisateur passe à exécuter le JavaScript et à afficher la page. Souvent négligé, il contribue pourtant aux émissions des appareils des utilisateurs finaux.
+- **Nombre de requêtes HTTP(S)** — chaque requête ajoute une charge réseau et CPU des deux côtés. Moins il y en a, mieux c'est.
+- **Taille du DOM** — le nombre d'éléments HTML en mémoire. Des DOMs plus grands signifient plus de travail pour le navigateur pour afficher et mettre à jour la page.

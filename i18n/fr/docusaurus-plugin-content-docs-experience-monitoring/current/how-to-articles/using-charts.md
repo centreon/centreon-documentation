@@ -27,7 +27,3 @@ Pour se faire, cliquer sur la statistique que vous voulez isoler ou cacher dans 
 Choisissez ce que vous souhaitez faire avec cette statistique. Dans cet exemple, si l’on isole la statistique, nous verrons:
 
 ![Image](../assets/how-to-articles/using-charts-4.png)
-
-Rendez-vous dans l'article suivant pour aller plus loin:
-
-[Accélérez votre site: applicatif ou configuration serveurs ?](../performance-analysis/speed-up-website-with-applications-or-server-configuration.md)
