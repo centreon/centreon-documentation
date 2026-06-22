@@ -42,10 +42,10 @@ Onload is the metric of how long it takes for all elements of the page to have f
 A ping is network test. A request is sent to a server to check for a response and measure how long it takes to receive that response.
 Experience Monitoring uses [TCP and ICMP](https://docs.centreon.com/experience-monitoring/experience-monitoring/performance-analysis/network-tab-indicators/#difference-between-tcp-ping-and-icmp-ping) for its tests.
 
-## Real User Monitoring 
+## Real User Monitoring
 
-[Real User Monitoring (or RUM)](./getting-started/real-user-monitoring.md) is a module of Experience Monitoring.
-Using an HTML tag inserted into your site's code, Experience Monitoring can measure the loading times experienced by real users. 
+[Real User Monitoring (or RUM)](https://docs.centreon.com/experience-monitoring/getting-started/real-user-monitoring.md) is a module of Experience Monitoring.
+Using an HTML tag inserted into your site's code, Experience Monitoring can measure the loading times experienced by real users.
 The tag is loaded separately to avoid it influencing the data.
 
 ## Speed Index

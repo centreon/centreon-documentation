@@ -9,7 +9,7 @@ Note that these recommendations come from a probe executing the user journeys. Y
 
 ## Getting the recommendations for each step
 
-1. From the [User Journey **Overview** page](../../how-to-articles/user-journey-screen.md), scroll down to the list of steps.
+1. From the [User Journey **Overview** page](https://docs.centreon.com/experience-monitoring/how-to-articles/user-journey-screen/), scroll down to the list of steps.
 2. Click on the magnifying glass to the right of the step you want to optimize.
 
 You will be taken to the tab **Last detailed analysis**.
@@ -24,7 +24,7 @@ Each individual recommendation can be clicked to see what metrics would be impac
 
 ## How can I tell my changes had a real impact
 
-In the **Last recommendations** page, scroll to the bottom of the page and click the **Compare with** button. 
+In the **Last recommendations** page, scroll to the bottom of the page and click the **Compare with** button.
 
 ![image](../../assets/rum-comparison.png)
 

@@ -5,9 +5,7 @@ title: Recevoir et configurer les alertes
 
 Les alertes sont accessibles **dans toutes les licences par email**.
 
-Certaines licences permettent de recevoir des alertes **par SMS, par Slack, ou par webhooks** (Microsoft Teams, Google Chat, Mattermost...). Pour souscrire à cette option, contactez votre interlocuteur commercial ou le support: 
-
-[Contacter le support Experience Monitoring](../getting-started/contact-support.md)
+Certaines licences permettent de recevoir des alertes **par SMS, par Slack, ou par webhooks** (Microsoft Teams, Google Chat, Mattermost...). Pour souscrire à cette option, contactez votre interlocuteur commercial ou le support.
 
 ## Configurer les moyens de communication
 

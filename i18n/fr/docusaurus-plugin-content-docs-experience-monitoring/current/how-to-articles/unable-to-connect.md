@@ -27,8 +27,3 @@ Il est également possible que vous n'ayez pas encore de compte sur notre outil,
 
 [Gérez vos utilisateurs et leurs droits](../configuration/manage-users-and-rights.md)
 
-## Nous contacter
-
-Si malgré cela vous éprouvez toujours des difficultés, n'hésitez pas à prendre directement contact avec notre support:
-
-[Contacter le support Experience Monitoring](../getting-started/contact-support.md)
