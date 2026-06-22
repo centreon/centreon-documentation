@@ -39,7 +39,7 @@ Application agents allow you to collect system data from various components of y
     curl http://127.0.0.1/server-status
     ```
 
-3. If not, you will need to [enable the **mod_status** module in Apache](https://httpd.apache.org/docs/current/en/mod/mod_status.html)
+3. If not, you will need to [enable the **mod_status** module in Apache](https://httpd.apache.org/docs/current/en/mod/mod_status.html).
 4. If you want to modify the URL used by our module, you can edit the following file:
 
    ```shell

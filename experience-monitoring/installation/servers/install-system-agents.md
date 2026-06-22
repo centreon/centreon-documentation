@@ -6,7 +6,7 @@ title: Install the agent on a static server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sending information to Experience Monitoring requires installing the Experience Monitoring agent on all servers you wish to monitor.
+Sending system information to Experience Monitoring requires installing the Experience Monitoring agent on all servers you wish to monitor.
 
 * The agent is only compatible with Linux.
 * This procedure can be used directly if your application or site is hosted on a static server. For autoscaling environments (including Docker), it must be adapted to manage the **hostid** correctly. See [Install the agent in autoscaling environments](cloud-configuration-of-agents.md).
