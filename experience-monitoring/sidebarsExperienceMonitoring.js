@@ -53,6 +53,7 @@ module.exports = {
           },
           items: [
             { type: 'doc', id: 'how-to-articles/using-charts' },
+            { type: 'doc', id: 'installation/monitor-production-events' },
           ],
         },
       ],
