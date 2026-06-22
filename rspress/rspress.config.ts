@@ -83,6 +83,16 @@ export default defineConfig({
     output: {
       // No separate *.LICENSE.txt files in the docs output.
       legalComments: 'none',
+      // Minify with a single compress pass (rspack's default is 2 since #8853).
+      // Recovers a chunk of minification time — the dominant build cost — for a
+      // negligible size increase (the gzipped transfer is already near-optimal).
+      minify: {
+        jsOptions: {
+          minimizerOptions: {
+            compress: { passes: 1 },
+          },
+        },
+      },
     },
     performance: {
       // Skip the per-asset gzip-size computation at the end of the build
