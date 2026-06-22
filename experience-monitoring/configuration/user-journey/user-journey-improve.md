@@ -3,7 +3,7 @@ id: user-journey-improve
 title: Optimizing your site
 ---
 
-Using the data collected by the [recommendation probe](./create-a-scenario.md#daily-recommendations-audits), Experience Monitoring will make suggestions on how to optimize your website.
+Using the data collected by the [recommendation probe](https://docs.centreon.com/experience-monitoring/configuration/configuration/user-journey/create-a-scenario/#daily-recommendations-audits), Experience Monitoring will make suggestions on how to optimize your website.
 
 Note that these recommendations come from a probe executing the user journeys. You will only obtain recommendations for the pages appearing in the journey's steps.
 
