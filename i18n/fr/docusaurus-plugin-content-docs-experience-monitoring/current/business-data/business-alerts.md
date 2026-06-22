@@ -1,38 +1,39 @@
 ---
 id: business-alerts
-title: Business alerts
+title: Alertes business
 ---
 
-> Available by default on Business and Full licenses; optional on other plans.
+> Disponible par défaut avec les licences Business et Full ; en option sur les autres plans.
 
-Business alerting monitors the impact of site issues (for example drops in traffic or conversion) rather than a predefined list of causes.
-They detect abnormal drops in traffic or conversion and let you analyze precisely when those drops occurred.
+Les alertes business supervisent l'impact des problèmes sur le site (par exemple, les baisses de trafic ou de conversion) plutôt qu'une liste prédéfinie de causes.
 
-Because this data comes from Google Analytics, it is processed with a default 4-hour delay (GA data is refined over time).
+Elles détectent les baisses anormales de trafic ou de conversion et permettent d'analyser précisément le moment où ces baisses se sont produites.
 
-## Prerequisites
+Ces données provenant de Google Analytics, elles sont traitées avec un délai par défaut de 4 heures (les données GA sont affinées au fil du temps).
 
-* [Users must have filled in their personal data](../configuration/manage-users-and-rights.md) (email, SMS, Slack) and defined the time periods during which they want to be notified or not.
+## Prérequis
 
-## Creating business alerts
+[Les utilisateurs doivent avoir renseigné leurs données personnelles](../configuration/manage-users-and-rights.md) (e-mail, SMS, Slack) et défini les plages horaires pendant lesquelles ils souhaitent être notifiés ou non.
 
-1. Go to **Settings > Alerting**.
-2. In the **Business alerts** section, click **Add a business alert**, then select the alert type you want ([**Alert on conversion rate**](#conversion-rate-alerts) or [**Alerts on pageviews/mn**](#page-view-alerts)).
-3. Name your alert and define which users should receive it. Select email, SMS or Slack.
-4. If you want to define another notification channel than email, SMS or Slack, define the webhook to be used. This type of notifications are not linked to a user.
-5. Hover over the alert's tile. 2 buttons appear:
+## Créer une alerte business
 
-   * **Configure this alert's planning**: define the time periods during which alerts should be sent.
-   * **Configure this alert's thresholds**: define criteria for triggering an alert and a recovery notification.
+1. Allez à la page **Configuration > Alerting**.
+2. Dans la section **Alertes business**, cliquez sur **Ajouter une alerte métier**, puis sélectionnez le type d'alerte souhaité ([**Alerte sur le taux de conversion**](#alertes-sur-le-taux-de-conversion) ou [**Alertes sur les pages vues/mn**](#alertes-sur-les-pages-vues)).
+3. Nommez votre alerte et définissez les utilisateurs qui doivent la recevoir. Sélectionnez e-mail, SMS ou Slack.
+4. Si vous souhaitez définir un canal de notification autre que l'e-mail, le SMS ou Slack, définissez le webhook à utiliser. Ce type de notifications n'est pas lié à un utilisateur.
+5. Survolez la tuile de l'alerte. 2 boutons apparaissent :
 
-### Conversion rate alerts
+   * **Configurer la planification de cette alerte** : définissez les plages horaires pendant lesquelles les alertes doivent être envoyées.
+   * **Configurer les seuils de cette alerte** : définissez les critères de déclenchement d'une alerte et d'une notification de rétablissement.
 
-This checks whether your conversion rate average over a given period (2 hours by default) is lower compared to the same period historically (daily, weekly, or monthly baselines).
+### Alertes sur le taux de conversion
 
-By default this alert triggers when the conversion rate drops by 30% compared to the usual value. A resolution notification is sent when the metric returns to 75% of the usual conversion rate.
+Cette alerte vérifie si votre taux de conversion moyen sur une période donnée (2 heures par défaut) est inférieur par rapport à la même période historiquement (références journalières, hebdomadaires ou mensuelles).
 
-You can also set a fixed conversion-rate threshold below which you want to be alerted.
+Par défaut, cette alerte se déclenche lorsque le taux de conversion chute de 30 % par rapport à la valeur habituelle. Une notification de rétablissement est envoyée lorsque la métrique revient à 75 % du taux de conversion habituel.
 
-### Page view alerts
+Vous pouvez également définir un seuil fixe de taux de conversion en dessous duquel vous souhaitez être alerté.
 
-This works the same way as conversion-rate alerts but is applied to page views per minute.
+### Alertes sur les pages vues
+
+Cette alerte fonctionne de la même manière que les alertes sur le taux de conversion, mais s'applique aux pages vues par minute.
