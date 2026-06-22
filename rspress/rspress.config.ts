@@ -49,6 +49,13 @@ export default defineConfig({
     link: {
       checkDeadLinks: false,
     },
+    image: {
+      // Skip dead-image verification on preview builds for speed; keep it on for
+      // staging/production to catch broken image references before deploy.
+      checkDeadImages: process.env.PREVIEW_BUILD !== 'true',
+    },
+    // The docs are English/French only (no CJK), so skip CJK emphasis handling.
+    cjkFriendlyEmphasis: false,
     // Code highlighting themes matching the Docusaurus site (Prism github / dracula).
     shiki: {
       themes: {
@@ -73,6 +80,17 @@ export default defineConfig({
     // as-is (gzip can't shrink them), so this directly reduces the deployed
     // bundle and per-page image transfer. GIF/SVG are left untouched.
     plugins: [pluginImageCompress(['jpeg', 'png', 'ico'])],
+    output: {
+      // No separate *.LICENSE.txt files in the docs output.
+      legalComments: 'none',
+    },
+    performance: {
+      // Skip the per-asset gzip-size computation at the end of the build
+      // (costly across thousands of files, no functional impact).
+      printFileSize: {
+        compressed: false,
+      },
+    },
     tools: {
       rspack: (_config, { appendPlugins }) => {
         if (process.env.RSDOCTOR) {
