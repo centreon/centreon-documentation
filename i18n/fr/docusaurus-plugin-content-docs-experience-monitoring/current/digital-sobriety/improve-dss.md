@@ -5,56 +5,56 @@ title: Improving your Digital Sobriety Score
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Digital Sobriety Score (DSS) is a calculation of your site's carbon emissions [taking diverse factors into account](https://docs.centreon.com/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/). In addition to calculating it, Centreon Experience Monitoring can offer advice on how to improve.
+Le Score de Sobriété Numérique (SSN) est un calcul des émissions carbone de votre site [prenant en compte divers facteurs](https://docs.centreon.com/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/). En plus de le calculer, Centreon Experience Monitoring peut vous conseiller sur les améliorations à apporter.
 
-Details on your DSS and how to improve it are accessed from the corresponding widget located in the **Global View** page. 
+Les détails de votre SSN et les pistes d'amélioration sont accessibles depuis le widget correspondant, situé dans la page **Vue Globale**.
 
 ![Image](../assets/digital-sobriety/digital-sobriety-details.png)
 
-Click the **More details** button.
+Cliquez sur le bouton **Plus de détails**.
 
-## How can I know what to improve?
+## Comment savoir quoi améliorer ?
 
-The graph at the top shows information of your overall DSS. This is calculated using the combined data from all your **User Journeys** or your **RUM** data.
-Improving your DSS is done by improving the individual steps of user journeys or certain pages if you are using RUM. To learn about possible improvements:
+Le graphique en haut affiche des informations sur votre SSN global. Celui-ci est calculé à partir des données combinées de tous vos **Parcours Utilisateurs** ou de vos données **RUM**.
+L'amélioration de votre SSN passe par l'amélioration des étapes individuelles des parcours utilisateurs ou de certaines pages si vous utilisez le RUM. Pour découvrir les améliorations possibles :
 
 <Tabs groupId="sync">
 <TabItem value="For User Journeys" label="For User Journeys">
 
-1. From the **User Journeys** page, click the **Overview of this journey** button for the journey you want to improve.
-2. Inside the **Overview** page, the steps of the user journey are listed. To the right of each step is a a magnifying glass icon named **Last detailed analysis**. Click the icon of the step you want to improve.
-3. Click the **Last recommendations** tab at the top.
+1. Depuis la page **Parcours Utilisateurs**, cliquez sur le bouton **Vue d'ensemble de ce parcours** pour le parcours que vous souhaitez améliorer.
+2. Dans la page **Vue d'ensemble**, les étapes du parcours utilisateur sont listées. À droite de chaque étape se trouve une icône en forme de loupe intitulée **Dernière analyse détaillée**. Cliquez sur l'icône de l'étape que vous souhaitez améliorer.
+3. Cliquez sur l'onglet **Dernières recommandations** en haut de la page.
 
-You are now on the page of **Last recommendations** for the selected step, here you can see a timeline showing how much time it takes for each step to load.
+Vous vous trouvez maintenant sur la page des **Dernières recommandations** pour l'étape sélectionnée. Vous pouvez y voir une frise chronologique indiquant le temps de chargement de chaque étape.
 
-Below this is the **Diagnostic**, a list of recommendations to improve your score. They are separated in 3 groups according to their impact:
-- The most impactful ones have a red triangle.
-- Followed by those with a yellow square
-- The least impactful recommendations have a grey circle.
+En dessous se trouve le **Diagnostic**, une liste de recommandations pour améliorer votre score. Elles sont réparties en 3 groupes selon leur impact :
+- Les plus impactantes sont signalées par un triangle rouge.
+- Viennent ensuite celles signalées par un carré jaune.
+- Les recommandations les moins impactantes sont signalées par un cercle gris.
 
-You can click on each individual recommendation to get more details on how to enact them.
+Vous pouvez cliquer sur chaque recommandation individuellement pour obtenir plus de détails sur la façon de la mettre en œuvre.
 
 </TabItem>
 <TabItem value="For RUM" label="For RUM">
 
-1. From the **Real User Monitoring** page, click the **URLs** tab 
-2. To the right of certain URLs, there is a binoculars icon, click on it.
+1. Depuis la page **Real User Monitoring**, cliquez sur l'onglet **URLs**.
+2. À droite de certaines URLs, une icône en forme de jumelles est disponible, cliquez dessus.
 
-You are now on the page of **Last recommendations** for the selected URL, here you can see a timeline showing how much time it takes for each step to load.
+Vous vous trouvez maintenant sur la page des **Dernières recommandations** pour l'URL sélectionnée. Vous pouvez y voir une frise chronologique indiquant le temps de chargement de chaque étape.
 
-Below this is the **Diagnostic**, a list of recommendations to improve your score. They are separated in 3 groups according to their impact:
-- The most impactful ones have a red triangle.
-- Followed by those with a yellow square
-- The least impactful recommendations have a grey circle.
+En dessous se trouve le **Diagnostic**, une liste de recommandations pour améliorer votre score. Elles sont réparties en 3 groupes selon leur impact :
+- Les plus impactantes sont signalées par un triangle rouge.
+- Viennent ensuite celles signalées par un carré jaune.
+- Les recommandations les moins impactantes sont signalées par un cercle gris.
 
-You can click on each individual recommendation to get more details on how to enact them.
+Vous pouvez cliquer sur chaque recommandation individuellement pour obtenir plus de détails sur la façon de la mettre en œuvre.
 
 </TabItem>
 </Tabs>
 
-## How do I know my changes made a difference?
+## Comment savoir si mes modifications ont eu un effet ?
 
-In the **Last recommendations** page, scroll to the bottom of the page and click the **Compare with** button. 
+Dans la page **Dernières recommandations**, faites défiler jusqu'en bas de la page et cliquez sur le bouton **Comparer avec**.
 
-The latest recommendation audit is selected by default. Select an earlier audit to see the impact of your changes.
-Remember that the recommendations probe is executed once a day so your changes may not be visible until the next day.
+Le dernier audit de recommandations est sélectionné par défaut. Sélectionnez un audit antérieur pour voir l'impact de vos modifications.
+N'oubliez pas que la sonde de recommandations est exécutée une fois par jour, vos modifications peuvent donc ne pas être visibles avant le lendemain.
