@@ -23,7 +23,7 @@ If you don't remember the email address you used to sign in to Experience Monito
 
 It is also possible you don't yet have an account. In that case, an administrator of your organization (within Experience Monitoring) can send you an invitation by email. Instructions are available here:
 
-[Manage users and rights](./configuration/manage-users-and-rights.md)
+[Manage users and rights](https://docs.centreon.com/experience-monitoring/experience-monitoring/configuration/manage-users-and-rights.md)
 
 ## Other troubleshooting resources
 

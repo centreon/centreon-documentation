@@ -29,7 +29,7 @@ Largest Contentful Paint (LCP) is the metric of the render time of the largest i
 
 ## Load Test
 
-[Load Tests](./getting-started/load-tests.md) are a module of Experience Monitoring.
+[Load Tests](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/load-tests/) are a module of Experience Monitoring.
 The test consists of simulating heavy traffic on your site to evaluate how it behaves in these conditions and identify bottlenecks.
 The users are simulated by Experience Monitoring but results in real traffic on your site.
 
