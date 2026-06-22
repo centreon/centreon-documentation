@@ -245,7 +245,7 @@ to configure for Centreon MAP service.
 
 This section describes how to enable SSL on a MySQL/MariaDB server and configure a Spring Boot application to connect securely using the certificate authority verification (VERIFY_CA mode).
 
-> **Note:** This procedure covers the VERIFY_CA mode only. In this mode, the server certificate is validated against a trusted Certificate Authority, but the hostname/IP address is not verified. For other SSL verification modes, see the **SSL Mode reference** (MariaDB section).
+> **Note:** This procedure covers the VERIFY_CA mode only. In this mode, the server certificate is validated against a trusted Certificate Authority, but the hostname/IP address is not verified. For other SSL verification modes, see the [SSL Mode reference](#ssl-mode-reference) section.
 
 - Select the tab corresponding to the database you want to use.
 
@@ -669,7 +669,10 @@ Certificates generated with `-days 365000` are valid for ~1000 years, but this s
     # Look for: Valid from ... until ...
     ```
 
-**SSL Mode reference**
+</TabItem>
+</Tabs>
+
+### SSL Mode reference
 
 The `VERIFY_CA` mode is the recommended minimum for production. This table lists other available modes depending on your security requirements:
 
@@ -681,6 +684,3 @@ The `VERIFY_CA` mode is the recommended minimum for production. This table lists
 | `verify-full`     | Yes                   | Yes               | Strictest — also checks hostname/IP against the certificate SAN    |
 
 > **Note:** If you want to use the `verify-full` mode, the server certificate must include a Subject Alternative Name (SAN) matching the exact IP or hostname used in the JDBC URL. The CN field alone is not sufficient for IP-based connections.
-
-</TabItem>
-</Tabs>
