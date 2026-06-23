@@ -1,56 +1,56 @@
 ---
 id: user-journey-notifications
-title: Receiving and configuring notifications
+title: Recevoir et configurer les notifications
 ---
 
-You can configure Experience Monitoring to send you a notification when one of your [user journeys](./user-journey-intro.md) fails or times out.
+Vous pouvez configurer Experience Monitoring pour vous envoyer une notification lorsque l'un de vos [parcours utilisateur](./user-journey-intro.md) échoue ou dépasse le délai d'attente.
 
-Email notifications are available to all users. Additionaly, some licenses allow receiving notifications by SMS, Slack, or [webhooks](../../experience-monitoring-glossary.md#webhook).
-To subscribe to this option, contact your sales representative.
-Notifications are also available within the Experience Monitoring platform. Click on your own icon at the top right then click **Notifications**.
+Les notifications par e-mail sont disponibles pour tous les utilisateurs. De plus, certaines licences permettent de recevoir des notifications par SMS, Slack ou [webhooks](../../experience-monitoring-glossary.md#webhook).
+Pour souscrire à cette option, contactez votre représentant commercial.
+Les notifications sont également disponibles au sein de la plateforme Experience Monitoring. Cliquez sur votre icône en haut à droite, puis cliquez sur **Notifications**.
 
-> Note that, while email, webhook or slack notifications are unlimited, there is a set amount of SMS available per site per month. 
-To see your SMS quota, go to **Configuration**, then the **Site** tab. You will find your quota in the **Alerts & Reports** section.
+> Notez que si les notifications par e-mail, webhook ou Slack sont illimitées, un quota de SMS est disponible par site et par mois.
+Pour consulter votre quota SMS, accédez à **Configuration**, puis à l'onglet **Site**. Vous trouverez votre quota dans la section **Alertes & Rapports**.
 
-## Setting up notifications
+## Paramétrage des notifications
 
-### Contact information
+### Coordonnées
 
-Each user must individually set the phone number or accounts on which they will receive the notifications. To do so, click on your own icon at the top right then click **My account**.
+Chaque utilisateur doit configurer individuellement le numéro de téléphone ou les comptes sur lesquels il recevra les notifications. Pour ce faire, cliquez sur votre icône en haut à droite, puis cliquez sur **Mon compte**.
 
-The email, phone number and slack accounts listed on your profile information are the ones that will be used to send you notifications.
+L'adresse e-mail, le numéro de téléphone et les comptes Slack indiqués dans votre profil sont ceux qui seront utilisés pour vous envoyer des notifications.
 
-Additionaly, Experience Monitoring allows users to receive alerts via a webhook for better integration with other tools and systems.
-For example, if you use Microsoft Teams instead of Slack, a webhook will allow the integration.
-When an incident is detected on a monitored web application, Experience Monitoring can send an HTTP POST request to a URL specified by the user.
-This URL can be protected by htaccess, and the user can also define **HTTP headers** if needed.
-You can configure this URL by clicking the word **Webhoo** for a newly created or existing alert, then clicking the pencil icon.
+De plus, Experience Monitoring permet aux utilisateurs de recevoir des alertes via un webhook pour une meilleure intégration avec d'autres outils et systèmes.
+Par exemple, si vous utilisez Microsoft Teams à la place de Slack, un webhook permettra l'intégration.
+Lorsqu'un incident est détecté sur une application web supervisée, Experience Monitoring peut envoyer une requête HTTP POST vers une URL spécifiée par l'utilisateur.
+Cette URL peut être protégée par htaccess, et l'utilisateur peut également définir des **en-têtes HTTP** si nécessaire.
+Vous pouvez configurer cette URL en cliquant sur le mot **Webhook** d'une alerte nouvelle ou existante, puis en cliquant sur l'icône crayon.
 
-### Alerting schedule
+### Plages horaires des alertes
 
-Users can define periods during which they do not receive alerts to better reflect their working hours or availability. 
-By default, users are considered available 24/7, click on the green bars to add red areas which indicate the times where the user will not receive notifications.
+Les utilisateurs peuvent définir des périodes pendant lesquelles ils ne reçoivent pas d'alertes, afin de mieux refléter leurs horaires de travail ou leur disponibilité.
+Par défaut, les utilisateurs sont considérés comme disponibles 24h/24 et 7j/7. Cliquez sur les barres vertes pour ajouter des plages rouges indiquant les moments où l'utilisateur ne recevra pas de notifications.
 
 ![image](../../assets/configuration/receive-and-configure-alerts-4.png)
 
-Additionaly, each alert can be enabled/disabled for specific time ranges so it doesn't notify subscribed people regardless of their personal schedule.
+De plus, chaque alerte peut être activée/désactivée pour des plages horaires spécifiques, de sorte qu'elle ne notifie pas les personnes abonnées quelle que soit leur planning personnel.
 
-### Enabling notifications
+### Activer les notifications
 
-Having informed your contact information and times of availability, click on **Configuration** then click on the **Alerting** tab.
+Après avoir renseigné vos coordonnées et vos plages de disponibilité, cliquez sur **Configuration**, puis sur l'onglet **Alerting**.
 
-You can choose to subscribe to the notifications of an existing notification by clicking on the list of users who receive notifications.
-A window with the subscribed users pops up, click on "Subscribe yourself" to add yourself to this notification and check the boxes for the types of notifications you will receive.
+Vous pouvez choisir de vous abonner aux notifications d'une notification existante en cliquant sur la liste des utilisateurs qui reçoivent ces notifications.
+Une fenêtre avec les utilisateurs abonnés s'ouvre ; cliquez sur « Subscribe yourself » pour vous ajouter à cette notification et cochez les cases correspondant aux types de notifications que vous souhaitez recevoir.
 
-Admins can also subscribe or unsubscribe other users from a notification.
+Les administrateurs peuvent également abonner ou désabonner d'autres utilisateurs d'une notification.
 
-If the notification you wish to subscribe to hasn't been created, click on the + icon to create it yourself.
+Si la notification à laquelle vous souhaitez vous abonner n'a pas encore été créée, cliquez sur l'icône + pour la créer vous-même.
 
-1. Decide for which type of issue the notification will be sent: the user journey status or a metric.
-2. Choose which user journey will be covered by this notification.
-3. Decide who should receive this notification and how. To pick yourself click on the **subscribe yourself** button
-4. Determine the thresholds that will trigger this notification. Click on the gears icon to open the notification threshold editor.
-The first two fields below **Alert when** determine the criteria to start sending notifications.
-The field below **Mark as solved** determines when to consider that a journey is no longer having issues and so notifications should stop.
+1. Choisissez pour quel type de problème la notification sera envoyée : le statut du parcours utilisateur ou une métrique.
+2. Choisissez quel parcours utilisateur sera couvert par cette notification.
+3. Décidez qui doit recevoir cette notification et comment. Pour vous sélectionner, cliquez sur le bouton **Vous inscrire**.
+4. Déterminez les seuils qui déclencheront cette notification. Cliquez sur l'icône d'engrenage pour ouvrir l'éditeur de seuils de notification.
+Les deux premiers champs sous **Alerter quand** définissent les critères pour commencer à envoyer des notifications.
+Le champ sous **Marquer comme résolu** détermine quand considérer qu'un parcours n'a plus de problèmes et que les notifications doivent s'arrêter.
 
-In addition to notifications, you can subscribe daily, weekly or monthly reports of the performance of your user journeys with the **Digests** option.
+En plus des notifications, vous pouvez vous abonner à des rapports quotidiens, hebdomadaires ou mensuels sur les performances de vos parcours utilisateur avec l'option **Digests**.
