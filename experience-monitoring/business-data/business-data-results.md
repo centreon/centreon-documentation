@@ -3,7 +3,7 @@ id: business-data-results
 title: Understanding business data results
 ---
 
-The Business Data module displays traffic and conversion metrics sourced from your analytics tool (Google Analytics or Matomo). Correlate the technical performance of your site and your sales. A key thing to do is to [plot events onto your graphs](../how-to-articles/using-charts.md#anotating) so as to explain changes.
+The Business Data module displays traffic and conversion metrics sourced from your analytics tool (Google Analytics or Matomo). Correlate the technical performance of your site and your sales. A key thing to do is to [plot events onto your graphs](../installation/monitor-production-events.md) so as to explain changes.
 
 ## Business data or RUM?
 
