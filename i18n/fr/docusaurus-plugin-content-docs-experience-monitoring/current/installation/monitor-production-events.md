@@ -13,7 +13,7 @@ Ces événements peuvent être créés **automatiquement** via notre API. La mei
 
 ## Fonctionnement API
 
-Notre API s’enclenche via un simple appel HTTP sur l'URL *"https://app.quanta.io/api/events/push"*, les paramètres à renseigner sont les suivants:
+Notre API s’enclenche via un simple appel HTTP sur l'URL `https://app.quanta.io/api/events/push`, les paramètres à renseigner sont les suivants:
 
 - *type*: Le type de l'évènement. Il peut avoir comme valeur au choix:
     - *code_deploy* (déploiement de code)

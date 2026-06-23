@@ -32,9 +32,8 @@ A chart can be composed of several cumulative statistics. You can choose to hide
 
 To do this, click on the metric in the legend of the chart or on the chart itself.
 
-### Annotating
+### Annotating: event markers
 
-When something changes in production — a new deployment, a configuration update, a scheduled task — it can directly affect your monitoring data.
 Annotating with [event markers](../installation/monitor-production-events.md) lets you easily see whether a change in your metrics coincides with a deployment or configuration update.
 
 ### Commenting
@@ -43,22 +42,3 @@ You can leave a comment on the graphs to relay information to colleagues or leav
 To do this, click inside of the graph but outside of any metric.
 
 If you are having trouble clicking on the specific time you want to leave a comment on, try [zooming](#zooming) or using the side arrows on the comment window to change the time one minute at a time.
-
-## Interacting with graphs using the API
-
-Our API is triggered by an HTTP call to the URL *"https://app.quanta.io/api/events/push"*. The parameters to provide are:
-
-- *type*: The event type. It may have one of the following values:
-    - *code_deploy* (code deployment)
-    - *config_change* (system configuration change)
-    - *comment* (comment)
-    - *cron* (scheduled task)
-    - *custom* (generic event)
-- *content*: **The message associated with the event.** This field is free-form, use it for information such as the application version or a description of the changes made.
-
-## Authentication and token generation
-
-You must also provide an API token to authenticate the request. This token can be generated from the "Integrations" section of your site settings in Experience Monitoring. You can also add a custom icon.
-
-- Either in the HTTP header "Authorization" as `Authorization: Token <your_token>`
-- Or passed directly in the request by adding the parameter `?auth_token=<your_token>` at the end of the URL.
