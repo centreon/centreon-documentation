@@ -276,7 +276,7 @@ Cette option doit être utilisée en dernier recours et de façon rare, car elle
 </TabItem>
 <TabItem value="Exécuter un script" label="Exécuter un script">
 
-Si toutes les autres actions échouent, vous pouvez utiliser cette option pour exécuter du JavaScript dans le navigateur afin de forcer une action. Évitez d'utiliser des scripts pour remplacer d'autres actions, sauf si nécessaire. Notez que le script garantit que l'action est exécutée, mais pas qu'elle réussit ; vous devez donc ajouter une [étape d'expectation](#adding-an-expectation) après chaque script :
+Si toutes les autres actions échouent, vous pouvez utiliser cette option pour exécuter du JavaScript dans le navigateur afin de forcer une action. Évitez d'utiliser des scripts pour remplacer d'autres actions, sauf si nécessaire. Notez que le script garantit que l'action est exécutée, mais pas qu'elle réussit ; vous devez donc ajouter une [étape de vérification](#ajouter-une-vérification) après chaque script :
 - DOM : (élément visible, classe modifiée)
 - Réseau : requête attendue (URL, statut HTTP...)
 
@@ -290,12 +290,12 @@ Gardez vos scripts courts, simples et avec des spécifications précises.
 Il existe une septième action (parfois) facultative que la sonde peut effectuer après chaque autre action.
 Cette action n'apparaît pas parmi les autres actions à sélectionner, mais s'affiche en bas de la fenêtre d'action une fois que l'action a été configurée.
 
-**Ajouter une vérification** permet à la sonde de vérifier que l'action a été correctement exécutée. Vous pouvez ajouter une expectation après chaque action.
+**Ajouter une vérification** permet à la sonde de vérifier que l'action a été correctement exécutée. Vous pouvez ajouter une vérification après chaque action.
 
 Par exemple, imaginez que votre parcours utilisateur simule un utilisateur effectuant des achats sur votre site et passant à la caisse.
-Ajouter une expectation à l'étape « ajouter un article au panier » (c'est-à-dire rechercher du texte confirmant que l'article a été ajouté) vous permet de confirmer que la sonde ajoute bien des articles au panier et ne procède pas à la caisse avec un panier vide.
+Ajouter une vérification à l'étape « ajouter un article au panier » (c'est-à-dire rechercher du texte confirmant que l'article a été ajouté) vous permet de confirmer que la sonde ajoute bien des articles au panier et ne procède pas à la caisse avec un panier vide.
 
-> Une action d'expectation est automatiquement ajoutée pour chaque action **Naviguer** afin de confirmer que la sonde a atteint avec succès l'URL cible. Cette expectation ne peut pas être supprimée.
+> Une action de vérification est automatiquement ajoutée pour chaque action **Naviguer** afin de confirmer que la sonde a atteint avec succès l'URL cible. Cette vérification ne peut pas être supprimée.
 > De plus, la dernière action du parcours utilisateur doit comporter au moins une vérification.
 
 #### Confirmer que la navigation a eu lieu
