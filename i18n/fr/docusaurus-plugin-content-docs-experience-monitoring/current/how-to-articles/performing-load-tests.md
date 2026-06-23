@@ -1,34 +1,34 @@
 ---
 id: performing-load-tests
-title: Load tests
+title: Tests de charge
 ---
 
-Load tests create heavy traffic on your site to evaluate its response. A functional [user journey](../configuration/user-journey/user-journey-intro.md) is required as the traffic created by the test will navigate the site following the selected user journey.
+Les tests de charge génèrent un trafic important sur votre site afin d'évaluer sa réponse. Un [parcours utilisateur](../configuration/user-journey/user-journey-intro.md) fonctionnel est requis, car le trafic généré par le test naviguera sur le site en suivant le parcours utilisateur sélectionné.
 
-> Note that load tests generate real traffic on the website, thus impacting live users if performed on a production website. Load tests can also be performed in test environments.
+> Notez que les tests de charge génèrent du trafic réel sur le site web, ce qui peut impacter les utilisateurs en direct s'ils sont effectués sur un site en production. Les tests de charge peuvent également être réalisés dans des environnements de test.
 
 ![image](../assets/getting-started/load-tests-1.png)
 
-## Prerequisites
+## Prérequis
 
-- A configured user journey
-- An available load test. Contact your sales representative to acquire load tests.
+- Un parcours utilisateur configuré
+- Un test de charge disponible. Contactez votre représentant commercial pour acquérir des tests de charge.
 
-## Running a load test
+## Exécuter un test de charge
 
-1. From the **Load tests** page, click the **Run a load test** button.
+1. Depuis la page **Tests de charge**, cliquez sur le bouton **Lancer un test de charge**.
 
-2. Select the user journey that will be used for the test and if the test should wait for the onLoad. Only pages included in the user journey will be tested.
+2. Sélectionnez le parcours utilisateur qui sera utilisé pour le test et indiquez si le test doit attendre l'événement **onLoad**. Seules les pages incluses dans le parcours utilisateur seront testées.
 
-3. Give a name to the test.
+3. Donnez un nom au test.
 
-4. Determine whether the test will be run as soon as possible or scheduled for later.
+4. Déterminez si le test doit être lancé dès que possible ou planifié pour une date ultérieure.
 
-5. Determine the minimum time dedicated to each step of the test.
+5. Déterminez la durée minimale consacrée à chaque étape du test.
 
-6. Determine the number of concurrent users that will be simulated at different timeframes since the start of the test. You can add more steps to test to better control the rise in concurrent users.
-Note that the number of concurrent users created for each step must always be higher than the previous step.
+6. Déterminez le nombre d'utilisateurs simultanés qui seront simulés à différents intervalles depuis le début du test. Vous pouvez ajouter des étapes supplémentaires pour mieux contrôler la montée en charge des utilisateurs simultanés.
+Notez que le nombre d'utilisateurs simultanés créés pour chaque étape doit toujours être supérieur à celui de l'étape précédente.
 
-7. Specify the failure conditions that will determine when the test will automatically stop. Tests can also be stopped manually.
+7. Définissez les conditions d'échec qui détermineront l'arrêt automatique du test. Les tests peuvent également être arrêtés manuellement.
 
-8. Check the two acknowledgment boxes and start the test.
+8. Cochez les deux cases de confirmation et lancez le test.
