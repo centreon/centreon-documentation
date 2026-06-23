@@ -2,7 +2,7 @@ module.exports = {
   'experience-monitoring': [
     {
       type: 'category',
-      label: 'Getting started with Experience Monitoring',
+      label: 'Getting started with Centreon Experience Monitoring',
       link: {
         type: "doc",
         id: "getting-started/welcome",
