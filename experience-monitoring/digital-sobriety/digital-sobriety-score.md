@@ -5,7 +5,8 @@ title: Digital Sobriety Score calculations
 
 ## Digital Sobriety Score
 
-Every website has an environmental cost. Servers consume energy, networks transfer data, and devices process it — all of it adds up. The Digital Sobriety Score (DSS) is Centreon way of measuring that impact and turning it into a single, actionable grade.
+Every website has an environmental cost. Servers consume energy, networks transfer data, and devices process it. All of it adds up.
+The Digital Sobriety Score (DSS) is Centreon's way of measuring that impact and turning it into a single, actionable grade.
 
 You can find the DSS on the **Global View**.
 
@@ -20,16 +21,17 @@ Note that it may take some time to calculate a new score after you change which 
 
 ## How is it calculated?
 
+The Digital Sobriety Score combines several criteria into a single metric. 
+It is not a measure of carbon emissions alone, but a comparative indicator designed to evaluate web applications independently of their audience size.
+
 The site’s carbon footprint is calculated from measured traffic data and can be incorporated into a company’s overall carbon inventory to better represent digital emissions.
 
 To allow comparison across web applications of different sizes, results are expressed relative to traffic.
 
-The Digital Sobriety Score combines several criteria into a single metric. It is not a measure of carbon emissions alone, but a comparative indicator designed to evaluate web applications independently of their audience size.
-
 The DSS combines two metrics:
 
-- Carbon Footprint Per Click (CFPC) — the CO₂ emitted per page view or user interaction
-- Eco-Design Score (EDS) — a technical assessment of how efficiently the site is built and served
+- Carbon Footprint Per Click (CFPC) — the CO₂ emitted per page view or user interaction.
+- Eco-Design Score (EDS) — a technical assessment of how efficiently the site is built and served.
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
 

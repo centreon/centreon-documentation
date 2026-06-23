@@ -1,11 +1,11 @@
 ---
 id: improve-dss
-title: Improving your Digital Sobriety Score
+title: Améliorer votre Score de Sobriété Numérique
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Le Score de Sobriété Numérique (SSN) est un calcul des émissions carbone de votre site [prenant en compte divers facteurs](https://docs.centreon.com/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/). En plus de le calculer, Centreon Experience Monitoring peut vous conseiller sur les améliorations à apporter.
+Le Score de Sobriété Numérique (SSN) est un calcul des émissions carbone de votre site [prenant en compte divers facteurs](https://docs.centreon.com/fr/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/). En plus de le calculer, Centreon Experience Monitoring peut vous conseiller sur les améliorations à apporter.
 
 Les détails de votre SSN et les pistes d'amélioration sont accessibles depuis le widget correspondant, situé dans la page **Vue Globale**.
 
@@ -22,7 +22,7 @@ L'amélioration de votre SSN passe par l'amélioration des étapes individuelles
 <TabItem value="For User Journeys" label="For User Journeys">
 
 1. Depuis la page **Parcours Utilisateurs**, cliquez sur le bouton **Vue d'ensemble de ce parcours** pour le parcours que vous souhaitez améliorer.
-2. Dans la page **Vue d'ensemble**, les étapes du parcours utilisateur sont listées. À droite de chaque étape se trouve une icône en forme de loupe intitulée **Dernière analyse détaillée**. Cliquez sur l'icône de l'étape que vous souhaitez améliorer.
+2. Dans la page **Vue d'ensemble**, les étapes du parcours utilisateur sont listées. À droite de chaque étape se trouve l'icône d'une loupe intitulée **Dernière analyse détaillée**. Cliquez sur l'icône de l'étape que vous souhaitez améliorer.
 3. Cliquez sur l'onglet **Dernières recommandations** en haut de la page.
 
 Vous vous trouvez maintenant sur la page des **Dernières recommandations** pour l'étape sélectionnée. Vous pouvez y voir une frise chronologique indiquant le temps de chargement de chaque étape.

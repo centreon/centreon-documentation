@@ -1,17 +1,17 @@
 ---
 id: network-data
-title: Network Data
+title: Données Réseau
 ---
 
-The **Network Data** module allows for an overview of the site's responsiveness over time using a network probe that regularly pings the site.
+Le module **Données Réseau** permet d'avoir une vue d'ensemble de la réactivité du site au fil du temps grâce à une sonde réseau qui le contacte régulièrement.
 
 ![image](../assets/getting-started/network-view.png)
 
-> At the moment all measurements are performed from our infrastructure in Europe. If your site is hosted on another continent, latency may be higher.
+> Pour le moment, toutes les mesures sont effectuées depuis notre infrastructure en Europe. Si votre site est hébergé sur un autre continent, la latence peut être plus élevée.
 
-Your site is pinged regularly by a probe to check for a response and measure how long it takes for that response to arrive. This is done using TCP and ICMP pings.
+Votre site est régulièrement pingué par une sonde pour vérifier qu'il répond et mesurer le temps que met cette réponse à arriver. Cela est réalisé à l'aide de pings TCP et ICMP.
 
-- ICMP ping measures basic network connectivity to the server over the internet. It is common for production machines to be configured to ignore ICMP (because of security concerns for example). To cover cases where ICMP is not allowed, we run a second test that targets a service which is required to respond: a TCP ping.
-- TCP ping works on the same principle as ICMP but on port 80. Port 80 is the standard port for HTTP traffic and must be open for your site to be reachable, so a TCP ping is a reliable fallback when ICMP is blocked.
+- Le ping ICMP mesure la connectivité réseau de base vers le serveur via internet. Il est courant que les machines en production soient configurées pour ignorer l'ICMP (pour des raisons de sécurité, par exemple). Pour couvrir les cas où l'ICMP n'est pas autorisé, nous effectuons un second test ciblant un service qui est tenu de répondre : un ping TCP.
+- Le ping TCP fonctionne sur le même principe que l'ICMP, mais sur le port 80. Le port 80 est le port standard pour le trafic HTTP et doit être ouvert pour que votre site soit accessible ; le ping TCP constitue donc un recours fiable lorsque l'ICMP est bloqué.
 
-See our [dedicated article](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/load-tests/) to learn more about this module.
+Consultez notre [article dédié](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/load-tests/) pour en savoir plus sur ce module.

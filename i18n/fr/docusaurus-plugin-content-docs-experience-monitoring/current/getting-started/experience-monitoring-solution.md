@@ -1,24 +1,25 @@
 ﻿---
 id: experience-monitoring-solution
-title: La solution Experience Monitoring
+title: Qu'est-ce que je peux faire avec Experience Monitoring ?
 --- 
 
-**Centreon Experience Monitoring (anciennement Quanta) est une plateforme de Digital Experience Monitoring conçue pour allier performance web et sobriété numérique.** Elle permet aux équipes tech, produit et métier de collaborer efficacement pour offrir des expériences digitales rapides et fiables tout en économisant les ressources matérielles.
+Centreon Experience Monitoring (anciennement Quanta) est une plateforme conçue pour surveiller à la fois les performances web et la durabilité numérique.
+Elle fournit des outils destinés à aider à optimiser les performances des activités en ligne et à réduire l'empreinte carbone numérique.
 
-La solution combine plusieurs briques complémentaires :
+Pour ce faire, Experience Monitoring propose un ensemble de fonctionnalités offrant une vue d'ensemble complète.
 
-- **Synthetic Monitoring** : simulation de parcours utilisateurs, via des navigateurs web, pour mesurer les temps de chargement (notamment via les Core Web Vitals) et détecter les ralentissements ou dysfonctionnement.
-- **Real User Monitoring (RUM)** : analyse fine de l'expérience réelle vécue par les visiteurs sur l'application.
-- **Monitoring de sobriété numérique** : évaluation continue de l’empreinte carbone et du score d’éco-conception de chaque page.
-- **Tests de montée en charge** : validation de la robustesse technique du site en conditions de trafic élevé.
+![image](../assets/switching-between-modules.png)
 
-Experience Monitoring fournit une interface claire et unifiée, enrichie par :
+### Que mesure Experience Monitoring ?
 
-- des **graphes dynamiques** pour visualiser les temps de chargement,
-- des **alertes personnalisables** et intelligentes,
-- des **rapports d’audit complets**,
-- et un accompagnement humain avec nos experts (les *Perfgurus*), pour identifier les axes d’amélioration les plus impactants.
+Experience Monitoring collecte des données sur les temps de chargement de votre site web, en prenant en compte le temps que mettent les différents éléments du site à se charger.
+Les utilisateurs peuvent ainsi identifier les sections susceptibles de nécessiter une optimisation.
 
-**Objectif : vous aider à améliorer l’expérience utilisateur, booster vos performances SEO, sécuriser vos pics de trafic et réduire concrètement votre impact environnemental.**
+Experience Monitoring mesure également l'empreinte carbone du site web. Cela est réalisé en calculant le poids du site web et la puissance de traitement nécessaire pour le stocker, puis en affichant ces informations aux utilisateurs.
+Les utilisateurs peuvent ensuite chercher à réduire à la fois leur impact environnemental et leurs coûts liés à l'hébergement.
 
-Regarder la [vidéo de présentation de l'interface Experience Monitoring (Quanta)](https://www.youtube.com/watch?v=ae_8gF-KFG8).
+### Par où commencer avec Experience Monitoring ?
+
+La principale source de données d'Experience Monitoring est constituée des [Parcours Utilisateurs](../getting-started/real-user-monitoring.md). Il s'agit de chemins de navigation prédéfinis sur votre site web, généralement configurés pour imiter le comportement de l'utilisateur moyen.
+
+Une autre fonctionnalité clé est le [Real User Monitoring (RUM)](../getting-started/real-user-monitoring.md). Tandis que les parcours utilisateurs suivent une navigation théorique, le RUM collecte des données à partir de ce que les vrais utilisateurs font sur votre site web.

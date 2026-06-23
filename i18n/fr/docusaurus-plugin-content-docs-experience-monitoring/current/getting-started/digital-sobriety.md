@@ -1,12 +1,12 @@
 ---
 id: digital-sobriety
-title: Digital Sobriety
+title: Sobriété Numérique
 ---
 
-Digital sobriety refers to a site's environmental impact using metrics collected by Experience Monitoring. The metrics are then computed into a [Digital Sobriety Score](https://docs.centreon.com/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score) from 0 to 100 that reflects a website's optimization to reduce its environmental impact.
+La sobriété numérique désigne l'impact environnemental d'un site à partir des métriques collectées par Experience Monitoring. Ces métriques sont ensuite calculées pour produire un [Score de Sobriété Numérique](https://docs.centreon.com/fr/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score) de 0 à 100, qui reflète le niveau d'optimisation d'un site web pour réduire son impact environnemental.
 
 ![image](../assets/digital-sobriety/digital-sobriety-details.png)
 
-While the concept of digital sobriety exists outside of Centreon, the **Digital Sobriety Score** and its calculation are a feature exclusive to Experience Monitoring.
+Bien que le concept de sobriété numérique existe en dehors de Centreon, le **Score de Sobriété Numérique** et son mode de calcul sont des fonctionnalités exclusives à Experience Monitoring.
 
-See our [dedicated article](../digital-sobriety/digital-sobriety-concepts.md) to learn more about this module.
+Consultez notre [article dédié](../digital-sobriety/digital-sobriety-concepts.md) pour en savoir plus sur ce module.

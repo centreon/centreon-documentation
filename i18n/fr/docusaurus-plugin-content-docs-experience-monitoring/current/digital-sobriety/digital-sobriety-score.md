@@ -5,7 +5,8 @@ title: Calcul du Score de Sobriété Numérique
 
 ## Score de Sobriété Numérique
 
-Chaque site web a un coût environnemental. Les serveurs consomment de l'énergie, les réseaux transfèrent des données et les appareils les traitent — tout cela s'accumule. Le Score de Sobriété Numérique (SSN) est la façon dont Centreon mesure cet impact et le traduit en une note unique et actionnable.
+Chaque site web a un coût environnemental. Les serveurs consomment de l'énergie, les réseaux transfèrent des données et les appareils les traitent. Tout cela s'accumule.
+Le Score de Sobriété Numérique (SSN) est la façon dont Centreon mesure cet impact et le traduit en une note unique et actionnable.
 
 Vous pouvez trouver le SSN dans la **Vue Globale**.
 
@@ -13,23 +14,24 @@ Le SSN affiché est calculé à partir des [données RUM](../rum/rum-intro.md) o
 
 ![image](../assets/digital-sobriety/dss-source.png)
 
-Vous pouvez choisir d'utiliser les données RUM ou les données de Parcours Utilisateurs.
+Ici vous pouvez choisir d'utiliser les données RUM ou les données de Parcours Utilisateurs.
 De plus, si vous choisissez **Parcours Utilisateurs**, vous pouvez décider si le score doit être calculé à partir des données de tous les parcours utilisateurs ou uniquement de certains.
 
 Notez qu'il peut falloir un certain temps pour calculer un nouveau score après avoir modifié les données utilisées.
 
 ## Comment est-il calculé ?
 
+Le Score de Sobriété Numérique combine plusieurs critères en une seule métrique.
+Il ne mesure pas uniquement les émissions de carbone, mais constitue un indicateur comparatif conçu pour évaluer les applications web indépendamment de la taille de leur audience.
+
 L'empreinte carbone du site est calculée à partir des données de trafic mesurées et peut être intégrée à l'inventaire carbone global d'une entreprise pour mieux représenter les émissions numériques.
 
 Pour permettre la comparaison entre des applications web de tailles différentes, les résultats sont exprimés relativement au trafic.
 
-Le Score de Sobriété Numérique combine plusieurs critères en une seule métrique. Il ne mesure pas uniquement les émissions de carbone, mais constitue un indicateur comparatif conçu pour évaluer les applications web indépendamment de la taille de leur audience.
-
 Le SSN combine deux métriques :
 
-- Empreinte Carbone Par Clic (ECPC) — le CO₂ émis par page vue ou interaction utilisateur
-- Score d'Éco-Conception (SEC) — une évaluation technique de l'efficacité avec laquelle le site est construit et servi
+- Empreinte Carbone Par Clic (ECPC) — le CO₂ émis par page vue ou interaction utilisateur.
+- Score d'Éco-Conception (SEC) — une évaluation technique de l'efficacité avec laquelle le site est construit et servi.
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
 
@@ -87,7 +89,7 @@ Prérequis :
 Validité :
 - Première année : basée sur les 30 derniers jours de données.
 - Renouvellement : basé sur les 12 mois suivants.
-- À partir de la deuxième année : basé sur une année complète de trafic, avec comparaison année par année optionnelle.
+- À partir de la deuxième année : basé sur une année complète de trafic, avec une comparaison optionnelle d'année par année.
 
 ## Ce qui compose le Score d'Éco-Conception
 
