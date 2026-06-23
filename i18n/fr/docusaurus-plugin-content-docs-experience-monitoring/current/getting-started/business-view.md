@@ -1,20 +1,22 @@
 ﻿---
 id: business-view
-title: La vue Business
+title: Données Business
 --- 
 
-Cette section permet l’analyse des indicateurs “Métiers” du site. Pour y accéder, rendez-vous dans le menu principal, puis **Les données Business** :
+Le module **Données Business** facilite l'analyse des métriques commerciales du site.
+Pour utiliser ce module, vous devez lier votre compte Google Analytics 4 ou Matomo.
 
 ![image](../assets/getting-started/business-view-1.png)
 
-Pré-requis d’utilisation :
 
-- avoir une licence Experience Monitoring **Business**, **Full** ou **Enterprise**.
-- avoir synchronisé les données votre compte Experience Monitoring avec votre compte Google Analytics.
+**Business Data** Une mesure précise (minute par minute) et historique des métriques commerciales issues de Google Analytics 4 ou Matomo.
+- Mesure des pertes et gains de conversion liés aux incidents techniques et aux ralentissements du site.
+- Une liste classée des pages nécessitant des améliorations de performance et ayant le plus fort potentiel d'impact si elles sont optimisées.
 
-Les **bénéfices clés** apportés par la vue Business sont :
+Pour calculer cela, Experience Monitoring analyse le trafic généré par chaque page ainsi que les temps de réponse de chacune d'elles.
+Le résultat est un tableau récapitulatif exprimant les gains potentiels en chiffre d'affaires annuel supplémentaire.
 
-- une mesure précise (minute après minute) et historisée de métriques métiers issus de Google Analytics 4 ou Matomo. Par exemple, l’historique du nombre de pages vues par minute enregistré sur le site est une donnée particulièrement intéressante quand elle est corrélé aux temps de réponse du site. Cela permet généralement de répondre immédiatement à la question “est-ce que le ralentissement est lié à une récente augmentation du trafic ?”
-En effet, si le site ralenti lors d’un pic de trafic, on constatera une augmentation simultanée de ces 2 indicateurs distincts, qui sont visuellement superposés dans Experience Monitoring.
-- une mesure des pertes et gains de conversion liés à des incidents techniques et à des ralentissements sur le site.
-- une liste des pages du site nécessitant des améliorations de performance et ayant le plus d’impact potentiel en cas d’optimisation. Pour effectuer ce calcul, Experience Monitoring analyse le trafic que génère chaque page du site, ainsi que les temps de réponse de chacune des pages. Le résultat est un tableau récapitulatif exprimant les gains potentiels en chiffre d’affaire annuel additionnel.
+Experience Monitoring suit en continu les métriques commerciales en reliant les performances du site aux résultats financiers.
+Il analyse le coût commercial des incidents et des pages lentes, et suggère les pages à optimiser.
+
+Consultez notre [article dédié](../business-data/business-data-results.md) pour en savoir plus sur ce module.

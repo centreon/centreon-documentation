@@ -15,7 +15,7 @@ Il combine deux métriques sous-jacentes : l'Empreinte Carbone Par Clic (ECPC), 
 
 Comme le SSN est fondé sur des données de trafic réelles et suit les principes du GHG Protocol, il peut s'intégrer directement dans l'inventaire carbone d'une entreprise, ce qui en fait un outil pratique pour le reporting en matière de développement durable.
 
-Si vous disposez de l'option Sobriété Numérique, vous devez fournir à Experience Monitoring deux informations :
+Si vous disposez de l'option Sobriété Numérique, vous devez fournir deux éléments d'information à Experience Monitoring :
 - Où sont situés vos serveurs ?
 - Sont-ils hébergés dans le Cloud ?
 
@@ -24,7 +24,7 @@ Pour renseigner ces informations, rendez-vous dans **Configuration > Site**.
 Sur la base de ces informations, Experience Monitoring estimera le CO2 émis par page.
 
 Experience Monitoring évalue chaque parcours utilisateur de votre site individuellement, tout en produisant un score combiné sur l'ensemble des parcours.
-Les scores peuvent également être calculés à partir des [données RUM](https://docs.centreon.com/experience-monitoring/experience-monitoring/rum/rum-intro/).
+Les scores peuvent également être calculés à partir des [données RUM](https://docs.centreon.com/fr/experience-monitoring/experience-monitoring/rum/rum-intro/).
 Vous pouvez les consulter à tout moment depuis la Vue Globale.
-Pour une description complète du mode de calcul du score, voir [Calculs du Score de Sobriété Numérique](https://docs.centreon.com/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/#how-is-it-calculate).
+Pour une description complète du mode de calcul du score, voir [Calculs du Score de Sobriété Numérique](https://docs.centreon.com/fr/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/#how-is-it-calculate).
 Pour savoir comment agir sur votre score et suivre les améliorations au fil du temps, voir [Améliorer votre Score de Sobriété Numérique](improve-dss.md).
