@@ -1,40 +1,42 @@
 ﻿---
 id: network-tab-indicators
-title: Comprendre les indicateurs de l’onglet Réseau
---- 
+title: Données réseau
+---
 
-## Qu’est ce que le ping ?
+Le module **Données réseau** vous permet de configurer un ping régulier sur votre site afin de mesurer le temps de réponse. Les résultats du ping dans le temps sont visibles sur un graphique chronologique en cliquant sur **Données réseau** dans le menu principal.
 
-Un ping, c’est un test réseau. L’idée est d’envoyer une requête sur un serveur pour vérifier si l’on a une réponse et mesurer en combien de temps nous recevons cette réponse.
+## Qu'est-ce qu'un ping ?
 
-Le but est de vérifier qu’il n’y a pas de problème de communication avec les serveurs via internet.
+Un ping est un test réseau. Le principe consiste à envoyer une requête à un serveur pour vérifier qu'il répond et mesurer le temps nécessaire pour recevoir cette réponse.
 
-## Différence entre TCP Ping et ICMP Ping
+L'objectif est de vérifier qu'il n'y a pas de problème de communication avec les serveurs sur internet.
 
-Dans les deux cas, il s’agit d’un test réseau. Ce qui change, c’est le protocole utilisé. (ce ne sont pas les mêmes systèmes de communication qui seront testés entre le TCP ping et l’ICMP ping).
+> Pour le moment, toutes les mesures sont effectuées depuis notre infrastructure en Europe. Si votre site est hébergé sur un autre continent, la latence peut être plus élevée.
 
-- L’ICMP ping permet de mesurer la connectivité au serveur via le réseau internet. Néanmoins, il n’est pas rare que les machines de production ne répondent pas à l’ICMP, non pas à cause d’un incident technique mais par choix délibéré de fermer ce système de communication. Pour pallier à l’éventualité où le test ICMP ne serait pas concluant, nous effectuons un 2e test avec un serveur qui est obligé de répondre : le TCP ping.
-- Le TCP ping fonctionne donc selon le même principe que l’ICMP mais via un protocole TCP, sur le port 80 : c’est le moyen de communication de vos serveurs web. Ce port 80 est forcément ouvert, car le fermer reviendrait à rendre votre site indisponible.
+### Différence entre TCP Ping et ICMP Ping
 
-## Analyse
+Les deux sont des tests réseau. La différence réside dans le protocole et la manière dont chacun communique.
 
-### Que signifient les barres rouges ?
+- Le ping ICMP mesure la connectivité réseau de base avec le serveur sur internet. Il est courant que les machines de production soient configurées pour ignorer l'ICMP (non pas à la suite d'un incident, mais délibérément). Pour couvrir les cas où l'ICMP n'est pas autorisé, nous effectuons un second test ciblant un service qui est tenu de répondre : un ping TCP.
+- Le ping TCP fonctionne sur le même principe que l'ICMP, mais utilise TCP sur le port 80, qui est le protocole utilisé par vos serveurs web. Le port 80 doit être ouvert pour que votre site soit accessible ; le ping TCP constitue donc une solution de repli fiable lorsque l'ICMP est bloqué.
 
-Si vous voyez du rouge ponctuellement sur ce graphique, cela signifie que votre site est indisponible à cause d’un problème de réseau. Le temps de réponse du ping dépend à la fois de la bande passante et du chemin à parcourir entre la sonde Experience Monitoring et l’endroit où est hébergé votre site. Dans un souci de clarté nous allons dissocier ce qui n’est pas grave, ce qui mérite votre attention et ce qui nécessite une intervention d’urgence.
+## Comprendre les résultats
 
->Il est a noter qu'à l'heure actuelle, toutes les mesures sont réalisées depuis notre infrastructure en Europe. Donc si votre site est hébergé sur un autre continent, il se peut que la latence soit plus élevée.
+### Que signifient les zones grises et rouges ?
 
-### Quand intervenir d’urgence ?
+Le gris signifie qu'aucune donnée n'est disponible pour cette section. Il apparaît pour la période antérieure à l'activation de la fonctionnalité **Données réseau** et pour les périodes où aucun ping n'a été effectué.
 
-Une barre rouge sur les deux graphiques signifie qu’il est impossible de se connecter sur votre site à cause d’un problème de réseau. Dans ce cas là, escaladez l’information à votre hébergeur ou administrateur réseau immédiatement, votre site n'est plus joignable.
+Le rouge signifie que votre site était inaccessible en raison d'un problème réseau. La sonde a envoyé le ping mais n'a jamais reçu de réponse. Le temps de réponse au ping dépend à la fois de la bande passante et du chemin entre la sonde Experience Monitoring et votre hébergement. Des barres rouges isolées et de courte durée ne sont pas préoccupantes, car des interruptions peuvent survenir pour diverses raisons.
 
-### La situation qui mérite votre attention
+### Situations qui méritent votre attention
 
-Une augmentation conséquente du temps de réponse ou des pics récurrents sur les graphes traduisent un souci de bande passante ou une modification dans le chemin parcouru par notre sonde sur internet pour arriver sur votre site. Nous vous conseillons dans ce cas d’escalader cette information à votre hébergeur ou administrateur réseau.
+Vous devriez contacter votre administrateur réseau ou l'hébergeur de votre site dans les cas suivants :
 
-### Les situations qui ne doivent pas vous inquiéter
+- Les deux graphiques affichent des barres rouges. Cela signifie que le site est inaccessible via les deux protocoles. Il s'agit d'un incident réseau en cours.
+- Les temps de réponse ont significativement augmenté ou des pics récurrents apparaissent sur l'un ou les deux graphiques. Cela indique un problème de bande passante ou un changement dans le chemin de routage entre la sonde et votre serveur.
 
-Un pic isolé sur l’un des deux graphiques n’est pas grave, le temps d’une seule mesure il est fort probable que les utilisateurs du site n’aient pas été perturbés.
+### Situations qui ne sont généralement pas préoccupantes
 
-- Une barre rouge continue depuis qu'Experience Monitoring est installé sur le graphe ICMP signifie que ce système de communication est fermé délibérément, cela ne constitue pas une anomalie mais pour une meilleure visibilité sur la qualité du réseau, nous vous invitons à demander à votre administrateur réseau (ou hébergeur) d’ouvrir l’accès au Ping.
-- Si une barre rouge apparaît subitement sur le graphique ICMP, mais que le test TCP fonctionne toujours, pas de panique votre site est encore disponible. Cela signifie que le système de communication ICMP a probablement été coupé délibérément.
+- Un pic isolé sur un seul graphique. Il s'agit très probablement d'une anomalie de mesure ponctuelle sans impact sur les utilisateurs finaux.
+- L'ICMP affiche du rouge en permanence depuis la configuration. Il ne s'agit très probablement pas d'un incident, mais d'un signe que l'ICMP est désactivé pour votre site. Demandez à votre administrateur réseau ou à votre hébergeur d'activer l'ICMP si vous souhaitez une visibilité complète.
+- L'ICMP passe au rouge mais le TCP reste vert. Votre site est toujours accessible. L'ICMP a probablement été bloqué tandis que le service web reste disponible sur le port 80.
