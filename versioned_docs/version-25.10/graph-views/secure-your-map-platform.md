@@ -511,32 +511,22 @@ This section describes how to enable SSL on a MySQL/MariaDB server and configure
 <Tabs groupId="db" queryString>
 <TabItem value="MySQL" label="MySQL">
 
-MySQL Connector/J does not support loading PEM files directly from the JDBC URL. Java requires certificates to be stored in a JKS (Java KeyStore) or PKCS12 keystore. This eliminates PEM format issues (e.g. PKCS#1 vs PKCS#8 key format) and provides a consistent, reliable SSL setup.
+From the migration to MariaDB Connector/J, the MySQL connector is no longer bundled. Even when your database server is MySQL, the JDBC URL uses the `jdbc:mariadb://` scheme and the `org.mariadb.jdbc.Driver` driver. MariaDB Connector/J 3.x supports PEM files natively via the `serverSslCert` parameter directly in the JDBC URL. No Java keystore conversion is needed for SSL simple mode.
 
-At minimum, one keystore file is required. A second one is needed only if mutual TLS (mTLS) is enabled:
+A keystore file is only needed for mTLS (client certificate authentication):
 
 | File    | Contains     | Purpose               | Required      |
 |----------------|------------|---------------------------|-----------|
-| truststore.jks     | CA certificate | Lets Java verify the MySQL server's identity    | Yes - Always      |
-| keystore.jks      | Client cert + private key  | Lets MySQL verify the application's identity  | Only if REQUIRE X509     |
+| ca-cert.pem     | CA certificate | Lets the driver verify the MySQL server's identity     | Yes - Always      |
+| keystore.p12       | Client cert + private key  | Lets MySQL verify the application's identity  | Only if REQUIRE X509     |
 
-> **Note: mTLS is optional.** It is only needed if the MySQL user was created with REQUIRE X509 (mutual authentication). If the user was created with REQUIRE SSL, only the TrustStore is needed and Steps 2 and 2a/2b below can be skipped.
+> **Note: mTLS is optional.** It is only needed if the MySQL user was created with REQUIRE X509. If the user was created with REQUIRE SSL, only `serverSslCert` pointing to the CA is needed and the keystore steps below can be skipped.
 
-**1. Create the TrustStore.** The TrustStore contains the CA certificate. Java uses it to validate that the MySQL server's certificate was signed by a trusted authority.
+**1. Optional: Create the KeyStore for mTLS**.
 
-    ```shell
-    keytool -importcert -alias mysqlServerCACert \
-    -file /etc/mysql/newcerts/ca-cert.pem \
-    -keystore /etc/mysql/newcerts/truststore.jks \
-    -storepass changeit \
-    -noprompt
-    ```
+    > **Note:** Skip this step if the MySQL user was created with REQUIRE SSL. It is only required for REQUIRE X509 (mutual TLS). `keytool` cannot import a PEM private key directly, so we first convert to PKCS12.
 
-**2. Optional: mTLS only - Create the KeyStore** (client certificate).
-
-    > **Note:** Skip this step if the MySQL user was created with REQUIRE SSL. It is only required for REQUIRE X509 (mutual TLS). `keytool` cannot import a PEM private key directly, so we first convert to PKCS12, then to JKS.
-
-    2.1. Bundle the client cert and key into a PKCS12 file:
+    1.1. Bundle the client cert and key into a PKCS12 file:
 
         ```shell
         openssl pkcs12 -export \
@@ -547,31 +537,24 @@ At minimum, one keystore file is required. A second one is needed only if mutual
         -passout pass:changeit
         ```
 
-    2.2 Convert PKCS12 to JKS:
-
-        ```shell
-        keytool -importkeystore \
-        -srckeystore  /etc/mysql/newcerts/client.p12  -srcstoretype  PKCS12 -srcstorepass  changeit \
-        -destkeystore /etc/mysql/newcerts/keystore.jks -deststoretype JKS   -deststorepass changeit
-        ```
-
-**3. Set file permissions.** Ensure only the user running the Java application can read the keystore files.
+**2. Set file permissions.** Ensure only the user running the Java application can read the keystore files.
 
     ```shell
-    chown your_java_user: /etc/mysql/newcerts/*.jks
-    chmod 640 /etc/mysql/newcerts/*.jks
+    chown your_java_user: /etc/mysql/newcerts/keystore.p12
+    chmod 640 /etc/mysql/newcerts/keystore.p12
     ```
 
-**4. Set the JDBC URL.** Add the following to your configuration file (/etc/centreon-map/*-database.properties):
+**3. Set the JDBC URL.** Add the following to your configuration file (/etc/centreon-map/*-database.properties):
 
     ```shell
-    *.connection.url=jdbc:mysql://<ip_or_hostname>:3306/centreon_map?sslMode=VERIFY_CA&trustCertificateKeyStoreUrl=file:/etc/mysql/newcerts/truststore.jks&trustCertificateKeyStorePassword=changeit&rewriteBatchedStatements=true
+    *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mysql/newcerts/ca-cert.pem&rewriteBatchedStatements=true
     ```
+    > **Note: sslMode=trust for MySQL 8.** On a MySQL 8 server, the `sslMode=trust` parameter is added by default: the `caching_sha2_password` authentication hardened setup, replace `trust` with `verify-ca` (as shown above) or `verify-full`. Never use `sslMode=disable` on MySQL 8, as it would break authentication.
 
-**5. Optional — only if mTLS is enabled - (REQUIRE X509)**. Add options clientCertificateKeyStoreUrl and clientCertificateKeyStorePassword:
+**4. Optional — only if mTLS is enabled - (REQUIRE X509)**. Add options `keyStore`, `keyStorePassword` and `keyStoreType`:
 
         ```shell
-        *.connection.url=jdbc:mysql://<ip_or_hostname>:3306/centreon_map?sslMode=VERIFY_CA&trustCertificateKeyStoreUrl=file:/etc/mysql/newcerts/truststore.jks&trustCertificateKeyStorePassword=changeit&clientCertificateKeyStoreUrl=file:/etc/mysql/newcerts/keystore.jks&clientCertificateKeyStorePassword=changeit&rewriteBatchedStatements=true
+        *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mysql/newcerts/ca-cert.pem&keyStore=/etc/mysql/newcerts/keystore.p12&keyStorePassword=changeit&keyStoreType=PKCS12&rewriteBatchedStatements=true
         ```
 
 </TabItem>
@@ -641,17 +624,24 @@ A keystore file is only needed for mTLS (client certificate authentication):
 
 Certificates generated with `-days 365000` are valid for ~1000 years, but this should still be monitored in shorter-lived setups.
 
-**1. Check the TrustStore** (CA certificate):
+**1. Check the CA certificate**:
 
     ```shell
-    keytool -list -v -keystore /etc/mysql/newcerts/truststore.jks -storepass changeit
-    # Look for: Valid from ... until ...
+    openssl x509 -in /etc/mysql/newcerts/ca-cert.pem -noout -dates
+    # notBefore=...
+    # notAfter=...
     ```
 
-**2. Check the KeyStore** (client certificate):
+**2. Check the server certificate**:
 
     ```shell
-    keytool -list -v -keystore /etc/mysql/newcerts/keystore.jks -storepass changeit
+    openssl x509 -in /etc/mysql/newcerts/server-cert.pem -noout -dates
+    ```
+
+**3. Check the KeyStore (mTLS only)**:
+
+    ```shell
+    keytool -list -v -keystore /etc/mysql/newcerts/keystore.p12 -storepass changeit
     # Look for: Valid from ... until ...
     ```
 
@@ -684,32 +674,13 @@ Certificates generated with `-days 365000` are valid for ~1000 years, but this s
 
 ### SSL Mode reference
 
-<Tabs groupId="db" queryString>
-<TabItem value="MySQL" label="MySQL">
-
-The `VERIFY_CA` mode is the recommended minimum for production. This table lists other available modes depending on your security requirements:
-
-| Mode         | Server cert verified | Hostname/IP verified | Use case                         |
-|--------------|----------------------|----------------------|----------------------------------|
-| `DISABLED`     | No                 | No                 | Development only — no encryption |
-| `PREFERRED`     | No                   | No                | Uses SSL if available, fallback to plain |
-| `REQUIRED `     | No                   | No                | Enforces SSL, but does not validate the server cert  |
-| `VERIFY_CA`     | Yes                   | No                | Used in this procedure — validates the CA chain  |
-| `VERIFY_IDENTITY `     | Yes                   | Yes               | Strictest — also checks hostname/IP against the certificate SAN   |
-
-</TabItem>
-<TabItem value="MariaDB" label="MariaDB">
-
 The `VERIFY_CA` mode is the recommended minimum for production. This table lists other available modes depending on your security requirements:
 
 | Mode         | Server cert verified | Hostname/IP verified | Use case                         |
 |--------------|----------------------|----------------------|----------------------------------|
 | `DISABLED`     | No                 | No                 | Development only — no encryption |
 | `trust`     | No                   | No                | Encrypts traffic but does not validate the server cert  |
-| `VERIFY_CA`     | Yes                   | No                | Used in this procedure — validates the CA chain  |
+| `verify-ca`     | Yes                   | No                | Used in this procedure — validates the CA chain  |
 | `verify-full`     | Yes                   | Yes               | Strictest — also checks hostname/IP against the certificate SAN    |
 
 > **Note:** If you want to use the `verify-full` mode, the server certificate must include a Subject Alternative Name (SAN) matching the exact IP or hostname used in the JDBC URL. The CN field alone is not sufficient for IP-based connections.
-
-</TabItem>
-</Tabs>
