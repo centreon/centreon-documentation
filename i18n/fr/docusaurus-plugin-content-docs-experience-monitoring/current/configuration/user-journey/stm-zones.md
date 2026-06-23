@@ -13,6 +13,7 @@ Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser
 - Une machine située dans votre infrastructure devra héberger une sonde. Elle devra pouvoir accéder à l'application à superviser.
 - Les identifiants Docker fournis par Centreon. Les identifiants vous sont transmis par Centreon via un lien sécurisé Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
 - Un parcours utilisateur configuré sur l'application interne à superviser.
+- L'installation du [profileur](../../installation/servers/install-php-magento-orocommerce-profiler.md).
 
 ## Étape 1 : Créer une nouvelle zone STM
 

@@ -1,32 +1,32 @@
 ---
 id: user-journey-improve
-title: Optimizing your site
+title: Optimiser votre site
 ---
 
-Using the data collected by the [recommendation probe](https://docs.centreon.com/experience-monitoring/configuration/configuration/user-journey/create-a-scenario/#daily-recommendations-audits), Experience Monitoring will make suggestions on how to optimize your website.
+En utilisant les données collectées par la [sonde de recommandations](https://docs.centreon.com/experience-monitoring/configuration/configuration/user-journey/create-a-scenario/#daily-recommendations-audits), Experience Monitoring vous propose des suggestions pour optimiser votre site web.
 
-Note that these recommendations come from a probe executing the user journeys. You will only obtain recommendations for the pages appearing in the journey's steps.
+Notez que ces recommandations proviennent d'une sonde qui exécute les parcours utilisateur. Vous n'obtiendrez des recommandations que pour les pages figurant dans les étapes du parcours.
 
-## Getting the recommendations for each step
+## Obtenir les recommandations pour chaque étape
 
-1. From the [User Journey **Overview** page](https://docs.centreon.com/experience-monitoring/how-to-articles/user-journey-screen/), scroll down to the list of steps.
-2. Click on the magnifying glass to the right of the step you want to optimize.
+1. Depuis la page [**Vue d'ensemble**](https://docs.centreon.com/experience-monitoring/how-to-articles/user-journey-screen/) du parcours utilisateur, faites défiler la page jusqu'à la liste des étapes.
+2. Cliquez sur la loupe à droite de l'étape que vous souhaitez optimiser.
 
-You will be taken to the tab **Last detailed analysis**.
-This tab, as well as the **Last recommendations** tab only appear when you are viewing a specific step of a journey.
-These two tabs are hidden when looking at a journey as a whole.
+Vous serez redirigé vers l'onglet **Dernière analyse détaillée**.
+Cet onglet, ainsi que l'onglet **Dernières recommandations**, n'apparaissent que lorsque vous consultez une étape spécifique d'un parcours.
+Ces deux onglets sont masqués lorsque vous visualisez un parcours dans son ensemble.
 
-Click on the **Last Recommendations** tab.
-The first thing you'll see is a timeline with the metrics for the step you selected.
-Below this is a list of recommendations to optimize your site.
-The recommendations are listed from most impactful to the least.
-Each individual recommendation can be clicked to see what metrics would be impacted, how to implement it and the potential gains.
+Cliquez sur l'onglet **Dernières recommandations**.
+La première chose que vous verrez est une chronologie avec les métriques de l'étape sélectionnée.
+En dessous se trouve une liste de recommandations pour optimiser votre site.
+Les recommandations sont classées de la plus impactante à la moins impactante.
+Chaque recommandation peut être cliquée pour voir les métriques impactées, la façon de la mettre en œuvre et les gains potentiels.
 
-## How can I tell my changes had a real impact
+## Comment savoir si mes modifications ont eu un réel impact
 
-In the **Last recommendations** page, scroll to the bottom of the page and click the **Compare with** button.
+Dans la page **Dernières recommandations**, faites défiler jusqu'en bas de la page et cliquez sur le bouton **Comparer avec**.
 
 ![image](../../assets/rum-comparison.png)
 
-The latest recommendation audit is selected by default. Select an earlier audit to see the impact of your changes.
-Remember that the recommendations probe is executed once a day so your changes may not be visible until the next day.
+Le dernier audit de recommandations est sélectionné par défaut. Sélectionnez un audit antérieur pour voir l'impact de vos modifications.
+Rappel : la sonde de recommandations est exécutée une fois par jour, il est donc possible que vos modifications ne soient pas visibles avant le lendemain.

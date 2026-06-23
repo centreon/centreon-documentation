@@ -1,20 +1,20 @@
 ---
 id: user-journey-intro
-title: User Journeys
+title: Parcours utilisateur
 ---
 
-User journeys allow you to configure a probe to regularly navigate your site following a pre-established path, measuring various web performance indicators.
-The probe then sends the data to Experience Monitoring for you to review.
+Les parcours utilisateur vous permettent de configurer une sonde pour naviguer régulièrement sur votre site en suivant un chemin prédéfini, en mesurant divers indicateurs de performance web.
+La sonde envoie ensuite les données à Experience Monitoring pour que vous puissiez les consulter.
 
-User journeys, along with [Real User Monitoring](https://docs.centreon.com/experience-monitoring/getting-started/real-user-monitoring/), are one of the key features of Experience Monitoring as other features like the [Digital Sobriety Score](../../digital-sobriety/digital-sobriety-concepts.md) or [Load Tests](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/load-tests/) depend on the path set by User Journeys to function.
+Les parcours utilisateur, ainsi que le [Real User Monitoring](../../getting-started/real-user-monitoring.md), constituent l'une des fonctionnalités clés d'Experience Monitoring, car d'autres fonctionnalités comme le [Score de Sobriété Numérique](../../digital-sobriety/digital-sobriety-concepts.md) ou les [Tests de charge](../../getting-started/load-tests.md) dépendent du chemin défini par les parcours utilisateur pour fonctionner.
 
-You can configure multiple User Journeys to imitate a variety of different users and we recommend you do so to get a better view of the overall experience of navigating your site.
-In addition to the pages visited, you can further detail if the probe should act as if navigating from a computer or a phone, what browser to use and other specificities.
-This way you can better identify which type of user may be facing issues.
+Vous pouvez configurer plusieurs parcours utilisateur pour simuler différents types d'utilisateurs, et nous vous recommandons de le faire afin d'avoir une meilleure vision de l'expérience globale de navigation sur votre site.
+En plus des pages visitées, vous pouvez préciser si la sonde doit se comporter comme si elle naviguait depuis un ordinateur ou un téléphone, quel navigateur utiliser, et d'autres spécificités.
+Vous pourrez ainsi mieux identifier quel type d'utilisateur pourrait rencontrer des problèmes.
 
-Additionally, User Journeys allow you to:
+De plus, les parcours utilisateur vous permettent de :
 
-- Monitor the proper functioning of a typical journey and calculate its availability rate (e.g., "it was possible to browse and purchase on the ecommerce site 99.5% of the time this month").
-- Alert site managers in case of a site malfunction, by sending emails, SMS, or other notifications with a detailed incident report.
-- Measure and record page load times according to several key criteria (Time To First Byte, Speed Index, full page load time, or with respect to Google's [Core Web Vitals](https://web.dev/vitals/)).
-- Analyze each page to [identify areas for improvement](./user-journey-improve.md) that will make the site faster (e.g., "to improve the homepage load time, optimize certain images and reduce the JavaScript code of a specific file").
+- Surveiller le bon fonctionnement d'un parcours type et calculer son taux de disponibilité (par exemple, « il était possible de naviguer et d'acheter sur le site e-commerce 99,5 % du temps ce mois-ci »).
+- Alerter les gestionnaires du site en cas de dysfonctionnement, en envoyant des e-mails, SMS ou autres notifications accompagnées d'un rapport d'incident détaillé.
+- Mesurer et enregistrer les temps de chargement des pages selon plusieurs critères clés (Time To First Byte, Speed Index, temps de chargement complet de la page, ou par rapport aux [Core Web Vitals](https://web.dev/vitals/) de Google).
+- Analyser chaque page pour [identifier des axes d'amélioration](./user-journey-improve.md) qui rendront le site plus rapide (par exemple, « pour améliorer le temps de chargement de la page d'accueil, optimisez certaines images et réduisez le code JavaScript d'un fichier spécifique »).
