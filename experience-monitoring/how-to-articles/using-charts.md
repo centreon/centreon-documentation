@@ -3,7 +3,7 @@ id: using-charts
 title: Using graphs
 ---
 
-A lot of the information gathered by Experience Monitoring is converted into graphs to facilitate its lecture.
+A lot of the information gathered by Experience Monitoring is converted into graphs to make it easier to read.
 All graphs are interactive allowing you to zoom in or out and leave comments.
 
 Graphs found in the overview pages of each module but also on your customized [dashboards](../performance-analysis/dashboards.md).
@@ -32,12 +32,10 @@ A chart can be composed of several cumulative statistics. You can choose to hide
 
 To do this, click on the metric in the legend of the chart or on the chart itself.
 
-### Anotating
+### Annotating
 
-When something changes in production — a new deployment, a configuration update, a scheduled task — it can directly affect your monitoring data. 
-Anotating with event markers lets you easily see whether a change in your metrics coincides with a deployment or configuration update.
-
-Event markers are added automatically whenever you changes in the related configuration occur. You can also choose to create them [using our API](#interacting-with-graphs-using-the-api)
+When something changes in production — a new deployment, a configuration update, a scheduled task — it can directly affect your monitoring data.
+Annotating with [event markers](../installation/monitor-production-events.md) lets you easily see whether a change in your metrics coincides with a deployment or configuration update.
 
 ### Commenting
 
