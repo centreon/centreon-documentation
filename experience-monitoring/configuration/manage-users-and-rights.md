@@ -5,19 +5,21 @@ title: Manage users and their rights
 
 Experience Monitoring licenses have no user count limits. We recommend inviting everyone involved in the project, regardless of their role. Go to the **Organization** page to invite users.
 
+## Roles
+
+In Experience Monitoring, roles are as follows:
+
+- **Member**: Members can read information. They cannot change site or Experience Monitoring scenario configuration. They can only manage their own settings and subscriptions to alerts and reports, and add comments to charts.
+- **Administrator**: Administrators have a wider set of permissions. They can modify scenario settings, add/remove users to the organization, enable/disable reports and alerts, add users to reports and alerts, and more.
+- **Owners**: owners are the people responsible for an organization. They have the right to modify anything on an organization and manage administrators.
+
+Permissions are shared across all sites within the same organization.
+
 ## Access the configuration menu
 
 All actions described here are performed from the **Organization** page accessed from the site selector.
 
 ![image](../assets/configuration/user-journey/organization-page.png)
-
-## Automatic password expiration
-
-Users with the **Owner** role can define a password expiration policy for your organization.
-
-From the **General** tab, you can enable or disable password expiration and set the number of days before users must change their password.
-
-Users will be required to change their password after the number of days you set. If a same user belongs to multiple organizations, they must change their password according to the shortest period defined across all their organizations.
 
 ## Managing users within your organization
 
@@ -25,7 +27,7 @@ Users will be required to change their password after the number of days you set
 
 ### Managing users
 
-To add or remove a user or to manage their permissions, you must have the Administrator or Owner role.
+To add or remove a user or to manage their permissions, you must have the **Administrator** or **Owner** role.
 
 From the **Organization's configuration** page, click on the the **User Accounts** tab
 
@@ -37,12 +39,10 @@ Existing users are listed according to their role.
 
 > If you want to remove a user's access from multiple organizations, you must do it for each organization separately. If you have access to many organizations, contact the [Centreon support](http://support.centreon.com/) for assistance.
 
-### Managing permissions
+## Automatic password expiration
 
-Experience Monitoring distinguishes two types of permissions for invited users:
+Users with the **Owner** role can define a password expiration policy for your organization.
 
-- **Member**: Members can read information. They cannot change site or Experience Monitoring scenario configuration. They can only manage their own settings and subscriptions to alerts and reports, and add comments to charts.
-- **Administrator**: Administrators have a wider set of permissions. They can modify scenario settings, add/remove users to the organization, enable/disable reports and alerts, add users to reports and alerts, and more.
-- **Owners**: owners are the people responsible for an organization. They have the right to modify anything on an organization and manage administrators.
+From the **General** tab, you can enable or disable password expiration and set the number of days before users must change their password.
 
-Permissions are shared across all sites within the same organization.
+Users will be required to change their password after the number of days you set. If a same user belongs to multiple organizations, they must change their password according to the shortest period defined across all their organizations.

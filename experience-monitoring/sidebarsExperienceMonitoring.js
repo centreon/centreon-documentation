@@ -66,6 +66,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'installation/installation-checklist' },
+        { type: 'doc', id: 'configuration/manage-users-and-rights' },
       ],
     },
     {
@@ -152,20 +153,11 @@ module.exports = {
         { type: 'doc', id: 'performance-analysis/system-tab-indicators' },
       ],
     },
-    {
-      type: 'doc', id: 'performance-analysis/network-tab-indicators'
-    },
-    {
-      type: 'doc', id: 'how-to-articles/performing-load-tests'
-    },
+    { type: 'doc', id: 'performance-analysis/network-tab-indicators' },
+    { type: 'doc', id: 'how-to-articles/performing-load-tests' },
     { type: 'doc', id: 'performance-analysis/dashboards' },
-    {
-      type: 'doc', id: 'configuration/manage-users-and-rights'
-    },
-    { type: 'doc', id: 'troubleshooting' },
-    {
-      type: 'doc', id: 'release-notes'
-    },
+
+    { type: 'doc', id: 'release-notes' },
     {
       collapsed: true,
       type: 'category',
@@ -175,6 +167,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'experience-monitoring-glossary' },
+        { type: 'doc', id: 'troubleshooting' },
       ],
     },
   ],
