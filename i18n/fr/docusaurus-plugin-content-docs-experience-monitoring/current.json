@@ -55,9 +55,9 @@
     "message": "Comprendre les métriques",
     "description": "The label for category Understanding metrics in sidebar Experience Monitoring"
   },
-  "sidebar.experience-monitoring.category.Using graphs": {
-    "message": "Utiliser les graphiques",
-    "description": "The label for category Using graphs in sidebar Experience Monitoring"
+  "sidebar.experience-monitoring.category.Working with charts": {
+    "message": "Travailler avec les graphiques",
+    "description": "The label for category Working with charts in sidebar Experience Monitoring"
   },
   "sidebar.experience-monitoring.category.Setting up Experience Monitoring": {
     "message": "Mettre en place Experience Monitoring",

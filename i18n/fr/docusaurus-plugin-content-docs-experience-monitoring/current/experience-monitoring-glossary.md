@@ -1,79 +1,79 @@
 ---
 id: experience-monitoring-glossary
-title: Experience Monitoring glossary
+title: Glossaire Experience Monitoring
 ---
 
 ## Action
 
-One of the stages of a [user journey](#user-journey). An action is anything the user can do without changing pages or the act of changing pages itself.
-Actions are contained within [steps](#step). A step can contain multiple actions.
+L'une des étapes d'un [parcours utilisateur](#parcours-utilisateur). Une action désigne tout ce que l'utilisateur peut faire sans changer de page, ou l'acte de changer de page lui-même.
+Les actions sont contenues dans des [étapes](#étape). Une étape peut contenir plusieurs actions.
 
-## CSS Selector
+## Sélecteur CSS
 
-A pattern used in a website's stylesheet to identify which part of a page should be styled. 
-Just as you might highlight specific words in a document before changing their font, a CSS selector picks out specific elements so visual rules can be applied to them precisely.
-CSS Selectors are less sensitive to site changes so they are a reliable element to select for [User Journeys](./configuration/user-journey/user-journey-intro.md). If you don't know how to create CSS selectors, you can join our [community platform](https://thewatch.centreon.com/) to ask for help configuring your user journey.
+Un motif utilisé dans la feuille de style d'un site web pour identifier quelle partie d'une page doit être mise en forme.
+De la même façon que vous pourriez surligner des mots dans un document avant d'en modifier la police, un sélecteur CSS identifie des éléments spécifiques afin d'y appliquer des règles visuelles de manière précise.
+Les sélecteurs CSS sont moins sensibles aux modifications du site, ce qui en fait un élément fiable à sélectionner pour les [parcours utilisateurs](./configuration/user-journey/user-journey-intro.md). Si vous ne savez pas comment créer des sélecteurs CSS, vous pouvez rejoindre [notre communauté](https://thewatch.centreon.com/) pour demander de l'aide dans la configuration de votre parcours utilisateur.
 
-## Digital Sobriety Score
+## Score de sobriété numérique
 
-A score ranging from 0 to 100 that indicates the overall efficiency of your site to help you reduce its environmental impact.
-Calculated using data from either [Real User Monitoring](#real-user-monitoring) or your [user journeys](#user-journey).
+Un score allant de 0 à 100 qui indique l'efficacité globale de votre site pour vous aider à réduire son impact environnemental.
+Calculé à partir des données du [Real User Monitoring](#real-user-monitoring) ou de vos [parcours utilisateurs](#parcours-utilisateur).
 
 ## Hero time
 
-A metric exclusive to Experience Monitoring. It measures the time the [User Journey](#user-journey) probe takes between the start and the end of a step.
+Une métrique exclusive à Experience Monitoring. Elle mesure le temps que met la sonde du [parcours utilisateur](#parcours-utilisateur) entre le début et la fin d'une étape.
 
 ## Largest Contentful Paint
 
-Largest Contentful Paint (LCP) is the metric of the render time of the largest image or text block visible from the start of page load.
+Le Largest Contentful Paint (LCP) est la métrique du temps de rendu du plus grand bloc d'image ou de texte visible depuis le début du chargement de la page.
 
-## Load Test
+## Test de charge
 
-[Load Tests](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/load-tests/) are a module of Experience Monitoring.
-The test consists of simulating heavy traffic on your site to evaluate how it behaves in these conditions and identify bottlenecks.
-The users are simulated by Experience Monitoring but results in real traffic on your site.
+Les [tests de charge](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/load-tests/) sont un module d'Experience Monitoring.
+Le test consiste à simuler un trafic important sur votre site afin d'évaluer son comportement dans ces conditions et d'identifier les goulots d'étranglement.
+Les utilisateurs sont simulés par Experience Monitoring, mais cela génère du trafic réel sur votre site.
 
 ## OnLoad
 
-Onload is the metric of how long it takes for all elements of the page to have fully loaded.
+L'OnLoad est la métrique du temps nécessaire pour que tous les éléments de la page soient entièrement chargés.
 
 ## Ping
 
-A ping is network test. A request is sent to a server to check for a response and measure how long it takes to receive that response.
-Experience Monitoring uses [TCP and ICMP](https://docs.centreon.com/experience-monitoring/experience-monitoring/performance-analysis/network-tab-indicators/#difference-between-tcp-ping-and-icmp-ping) for its tests.
+Un ping est un test réseau. Une requête est envoyée à un serveur pour vérifier qu'il répond et mesurer le temps nécessaire pour recevoir cette réponse.
+Experience Monitoring utilise les protocoles [TCP et ICMP](https://docs.centreon.com/experience-monitoring/experience-monitoring/performance-analysis/network-tab-indicators/#difference-between-tcp-ping-and-icmp-ping) pour ses tests.
 
 ## Real User Monitoring
 
-[Real User Monitoring (or RUM)](https://docs.centreon.com/experience-monitoring/getting-started/real-user-monitoring.md) is a module of Experience Monitoring.
-Using an HTML tag inserted into your site's code, Experience Monitoring can measure the loading times experienced by real users.
-The tag is loaded separately to avoid it influencing the data.
+Le [Real User Monitoring (ou RUM)](https://docs.centreon.com/experience-monitoring/getting-started/real-user-monitoring.md) est un module d'Experience Monitoring.
+Grâce à une balise HTML insérée dans le code de votre site, Experience Monitoring peut mesurer les temps de chargement expérimentés par les utilisateurs réels.
+La balise est chargée séparément afin d'éviter qu'elle n'influence les données.
 
 ## Speed Index
 
-Speed Index is the metric of how quickly the visual elements of a page are displayed during the loading.
-A page that begins rendering elements after 1s and finishes at 5s will have a better Speed Index than a page that also finishes at 5s but only starts rendering at 4s.
+Le Speed Index est la métrique de la vitesse à laquelle les éléments visuels d'une page s'affichent pendant le chargement.
+Une page qui commence à afficher des éléments après 1 s et se termine à 5 s aura un meilleur Speed Index qu'une page qui se termine également à 5 s mais ne commence à s'afficher qu'à 4 s.
 
-Speed Index is expressed in seconds but should be treated as a score. It doesn't correspond to a single event on a timeline.
+Le Speed Index est exprimé en secondes mais doit être traité comme un score. Il ne correspond pas à un événement unique sur une chronologie.
 
-## Step
+## Étape
 
-One of the stages of a [user journey](#user-journey). A step represents a page of the site.
-Steps contain [actions](#action) which determine what the probe does within a given page. A step can contain multiple actions.
+L'une des étapes d'un [parcours utilisateur](#parcours-utilisateur). Une étape représente une page du site.
+Les étapes contiennent des [actions](#action) qui déterminent ce que fait la sonde sur une page donnée. Une étape peut contenir plusieurs actions.
 
-## Synthetic Monitoring Zone
+## Zone de monitoring synthétique
 
-A [Synthetic Monitoring Zone (or STM zone)](./configuration/user-journey/stm-zones.md) is a domain internal to your organization. STM zones allow the User Journey probe to make its checks on sites unavailable to users outside of your organization.
+Une [zone de monitoring synthétique (ou zone STM)](./configuration/user-journey/stm-zones.md) est un domaine interne à votre organisation. Les zones STM permettent à la sonde de parcours utilisateur d'effectuer ses vérifications sur des sites inaccessibles aux utilisateurs extérieurs à votre organisation.
 
 ## Time To First Byte
 
-Time To First Byte (TTFB) is the metric of the interval between the browser's initial HTTP request for a page and the start of the response (i.e. when the first byte of data is received).
+Le Time To First Byte (TTFB) est la métrique de l'intervalle entre la requête HTTP initiale du navigateur pour une page et le début de la réponse (c'est-à-dire le moment où le premier octet de données est reçu).
 
-## User Journey
+## Parcours utilisateur
 
-[User Journey](./getting-started/synthetic-monitoring.md) is a module of Experience Monitoring.
-A probe is configured to follow a set navigation path of your site and measure the loading times of the pages.
+Le [parcours utilisateur](./getting-started/synthetic-monitoring.md) est un module d'Experience Monitoring.
+Une sonde est configurée pour suivre un chemin de navigation prédéfini sur votre site et mesurer les temps de chargement des pages.
 
 ## Webhook
 
-One-way communication between applications triggered by a specified event. Webhooks allow for the integration of applications that may not have been originally been designed to work together.
-In Experience Monitoring, webhooks are used to send [notifications](./configuration/user-journey/experience-monitoring-notifications.md) to applications.
+Communication unidirectionnelle entre applications déclenchée par un événement spécifié. Les webhooks permettent l'intégration d'applications qui n'ont pas nécessairement été conçues pour fonctionner ensemble à l'origine.
+Dans Experience Monitoring, les webhooks sont utilisés pour envoyer des [notifications](./configuration/user-journey/experience-monitoring-notifications.md) à des applications.

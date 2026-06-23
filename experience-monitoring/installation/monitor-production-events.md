@@ -13,7 +13,7 @@ These events can be created **automatically** via our API. The best practice is 
 
 ## How the API works
 
-Our API is triggered with a simple HTTP call to the URL *"https://app.quanta.io/api/events/push"*. The parameters to provide are:
+Our API is triggered with a simple HTTP call to the URL `https://app.quanta.io/api/events/push`. The parameters to provide are:
 
 - *type*: The event type. It may have one of the following values:
     - *code_deploy* (code deployment)

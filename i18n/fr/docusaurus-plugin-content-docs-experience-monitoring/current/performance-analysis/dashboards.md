@@ -1,49 +1,48 @@
 ﻿---
 id: dashboards
-title: Using dashboards
+title: Utiliser les tableaux de bord
 ---
 
-**Dashboards** are a space customizable with widgets to gather the information you need from Experience Monitoring in one place.
-While **Global View** offers an overview of the site's general performance, **Dashboards** are about getting specific, detailled information.
-The widgets can be freely placed, resized and configured to show different sets of data.
+Les tableaux de bord sont un espace personnalisable avec des widgets permettant de regrouper en un seul endroit les informations dont vous avez besoin depuis Experience Monitoring.
+Tandis que la **Vue globale** offre un aperçu des performances générales du site, les **tableaux de bord** permettent d'obtenir des informations spécifiques et détaillées.
+Les widgets peuvent être librement déplacés, redimensionnés et configurés pour afficher différents ensembles de données.
 
-Dashboards can be accessed at any time using the button at the top right of your screen.
+Les tableaux de bord sont accessibles à tout moment via le bouton en haut à droite de votre écran.
 
 ![image](../assets/performance-analysis/dashboard-access.png)
 
-In Experience Monitoring, you can belong to multiple organizations, and each organization can include monitoring access for multiple web applications.
-**Dashboards** is useful for displaying information of multiple organizations rather than navigating from one to the other to check their status and performance.
+Dans Experience Monitoring, vous pouvez appartenir à plusieurs organisations, et chaque organisation peut inclure la supervision de plusieurs applications web.
+Les tableaux de bord sont utiles pour afficher les informations de plusieurs organisations plutôt que de naviguer de l'une à l'autre pour vérifier leur état et leurs performances.
 
-Dashboards are created for your private use by default but can be shared with the other members of your organization.
+Les tableaux de bord sont créés pour votre usage privé par défaut, mais peuvent être partagés avec les autres membres de votre organisation.
 
-Use the navigation bar to switch between your dashboards.
+Utilisez la barre de navigation pour passer d'un tableau de bord à l'autre.
 
-## Creating dashboards
+## Créer des tableaux de bord
 
-1. On the **Dashboards** page, click on **Create a new dashboard**
-2. Choose a name for the dashboard and click **Save**
-3. A window will open for you to select the widgets you want to add to this dashboard, a preview of the widget is shown to the right. You can select multiple widgets at once.
-This is just to get started, you can add more widgets later.
-4. Click on **Create widget(s)**
+1. Sur la page **Tableaux de bord**, cliquez sur **Créer un nouveau tableau de bord**.
+2. Choisissez un nom pour le tableau de bord et cliquez sur **Enregistrer**.
+3. Une fenêtre s'ouvre pour vous permettre de sélectionner les widgets à ajouter à ce tableau de bord ; un aperçu du widget est affiché à droite. Vous pouvez sélectionner plusieurs widgets à la fois.
+Il s'agit simplement d'un point de départ ; vous pourrez ajouter d'autres widgets ultérieurement.
+4. Cliquez sur **Créer le(s) widget(s)**.
 
-Note that to create widgets, the dashboard must be in **Edit** mode. Verify this is the case in the top right: the **Edit** button should be brighter than the **Visualize** buton. 
-**Visualize** removes the ability to modify or move the widgets for a better view of what your dashboard will look like.
+Notez que pour créer des widgets, le tableau de bord doit être en mode **Édition**. Vérifiez que c'est bien le cas en haut à droite : le bouton **Édition** doit être plus lumineux que le bouton **Visualiser**.
+**Visualiser** supprime la possibilité de modifier ou de déplacer les widgets pour une meilleure prévisualisation de votre tableau de bord.
 
-Once the widgets are created, you can freely resize them from the bottom right corner. You can also drag and drop the widgets to reposition them in the dashboard.
-Changes to the size and position of the widgets are automatically saved.
+Une fois les widgets créés, vous pouvez les redimensionner librement depuis leur coin inférieur droit. Vous pouvez également les faire glisser pour les repositionner dans le tableau de bord.
+Les modifications de taille et de position des widgets sont automatiquement enregistrées.
 
-### Configuring widgets
+### Configurer les widgets
 
-Every widget added to the dashboard has a header area.
+Chaque widget ajouté au tableau de bord possède une zone d'en-tête.
 
 ![image](../assets/performance-analysis/widget-header.png)
 
-This area indicates what site the widget relates to and, in some cases, what configuration and metric.
-You can click on the corresponding dropdown menu to change the site, the configuration and the metric displayed by the widget.
+Cette zone indique le site auquel le widget est associé et, dans certains cas, la configuration et la métrique concernées.
+Vous pouvez cliquer sur le menu déroulant correspondant pour modifier le site, la configuration et la métrique affichés par le widget.
 
-Additionnaly, using the buttons in the top right of the widget, you can hide the header to save space, duplicate the widget, or remove it from the dashboard.
+De plus, grâce aux boutons situés en haut à droite du widget, vous pouvez masquer l'en-tête pour gagner de la place, dupliquer le widget ou le supprimer du tableau de bord.
 
+Sur la même ligne que le bouton **Créer un nouveau tableau de bord**, vous trouverez des boutons permettant de dupliquer le tableau de bord que vous consultez actuellement. Cela dupliquera également tous les widgets avec leur configuration actuelle.
 
-On the same row containing the **Create a new dashboard** you will find buttons duplicate the dashboard you are currently viewing. This will also duplicate all the widgets with their current configuration.
-
-You can also choose to share this dashoard with your organization, rename it or remove it entirely.
+Vous pouvez également choisir de partager ce tableau de bord avec votre organisation, de le renommer ou de le supprimer entièrement.
