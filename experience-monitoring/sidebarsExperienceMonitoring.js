@@ -47,7 +47,7 @@ module.exports = {
         {
           collapsed: true,
           type: 'category',
-          label: 'Understanding graphs',
+          label: 'Using graphs',
           link: {
             type: 'generated-index',
           },
