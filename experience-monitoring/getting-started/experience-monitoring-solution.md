@@ -10,7 +10,7 @@ To do this, Experience Monitoring offers an array of features for an encompassin
 
 ![image](../assets/switching-between-modules.png)
 
-### What does Experience Monitoring measure?
+## What does Experience Monitoring measure?
 
 Experience Monitoring collects data on your website's loading times, taking into consideration how much time the different elements of the website take.
 Users can then identify which sections may require optimization.
@@ -18,7 +18,7 @@ Users can then identify which sections may require optimization.
 Experience Monitoring also measures the website's carbon footprint. This is done by calculating the weight of the website and the processing power required to stock it and displaying it to users.
 Users can then look into reducing both their environmental impact and their hosting-related costs.
 
-### Where do I start with Experience Monitoring?
+## Where do I start with Experience Monitoring?
 
 The main source of data for Experience Monitoring are [User journeys](../getting-started/real-user-monitoring.md). These are pre-established navigation paths of your website, usually configured to imitate what the average user does on your website.
 
