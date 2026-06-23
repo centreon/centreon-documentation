@@ -3,6 +3,16 @@ id: release-notes
 title: Centreon Experience Monitoring - notes de release
 ---
 
+## June 22nd, 2026
+
+**Facilitated diagnostics: probe log download**
+
+When a user journey fails, you can now download the probe logs directly from the incident view. A valuable time-saver for understanding what happened.
+
+**Security improvements**
+
+The platform has been updated to the latest versions of Ruby and Rails. This major update improves performance, security and the long-term maintainability of the application. As part of this update, a new signing key is being introduced: all users will be logged out once upon deployment and will need to log back in. "Remember me" sessions are also reset.
+
 ## February 2nd, 2026
 
 This release brings a set of improvements to **User Journeys** and **Dashboards**, designed to make scenarios clearer and dashboards more expressive.
