@@ -214,14 +214,14 @@ Si des erreurs apparaissent, vous devez les analyser et décider si ces erreurs 
 en plus des règles SELinux par défaut de Centreon. Pour ce faire, utilisez la commande suivante pour transformer
 l'erreur en règles SELinux :
 
-To analyze the logs:
+Pour analyser les logs :
 
 ```shell
 ausearch --start week-ago --message AVC,USER_AVC | audit2why
 ausearch --start week-ago --message AVC,USER_AVC | audit2allow --module <modulename>
 ```
 
-To create and install the proposed rules:
+Pour créer et installer les règles proposées :
 
 ```shell
 ausearch --start week-ago --message AVC,USER_AVC | audit2allow -M <modulename>
