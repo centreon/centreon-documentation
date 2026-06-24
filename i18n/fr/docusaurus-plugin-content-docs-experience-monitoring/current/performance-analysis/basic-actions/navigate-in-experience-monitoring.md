@@ -31,6 +31,9 @@ Les comparaisons multi-sites ne sont possibles qu'à partir des [tableaux de bor
 ### Ajouter un site à une organisation
 
 1. Survolez le nom du site dans la barre de navigation du haut pour ouvrir le panneau **Sites**, puis cliquez sur **Accéder à la page de l'organisation** pour l'organisation souhaitée.
+
+   ![image](../assets/configuration/user-journey/organization-page.png)
+
 2. Cliquez sur l'onglet **Licences & Sites**. Le nombre de sites dans cette organisation est affiché à droite.
 3. Cliquez sur **Créer un site**.
 4. Saisissez l'URL de la page d'accueil, puis cliquez sur **Créer** et confirmez. Le site apparaît dans la liste des sites de la page ainsi que dans le sélecteur de sites.

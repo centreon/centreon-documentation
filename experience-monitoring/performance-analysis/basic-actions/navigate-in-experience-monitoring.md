@@ -31,6 +31,9 @@ Multi-site comparisons are only possible from the [dashboards](../dashboards.md)
 ### Adding a site to an organization
 
 1. Hover over the site name in the top navigation bar to open the **Sites** panel, then click **Go to the organization page** for the organization you want.
+
+   ![image](../../assets/configuration/user-journey/organization-page.png)
+
 2. Click the **Licenses & Sites** tab. The number of sites in this organization is displayed on the right.
 3. Click **Create a site**.
 4. Enter the homepage's URL, then click **Create** and confirm. The site appears in the list of sites on the page, and in the site selector.
