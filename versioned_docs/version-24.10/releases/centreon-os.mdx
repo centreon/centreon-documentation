@@ -38,15 +38,15 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue on host edition/creation API internal calls.
-- [API] Fixed an issue where adding a host or service doesn't trigger ACL recalculation.
+- [Host creation] Fixed an issue that occurred when saving the host edition/creation form.
+- [API] Fixed an issue where adding a host or service wouldn't trigger an ACL recalculation.
 - [API] Replaced an incorrect error message (The HTTP status code "10" is not valid) that was displayed when the database connection timed out.
 - [CLAPI] Fixed an issue that resulted in a PHP error when using the APPLYCFG command while Anomaly Detection was configured.
-- [Configuration] Fixed an issue on export via top counter button.
+- [Configuration] Fixed an issue with the export configuration button located in the top counter that would occasionally saturate the file system.
 - [Custom Views] Removed unnecessary PHP warnings on host-monitoring and service-monitoring widgets.
 - [Dashboards] Fixed an issue with the Single Metric widget that resulted in a 404 error when using metrics that contained slashes in their name.
 - [Dashboards] Implemented performance optimizations to eliminate unnecessary widget reloads.
-- [Monitoring] Removed unnecessary PHP warnings on service details page.
+- [Monitoring] Removed unnecessary PHP warnings on the service details page.
 - [Monitoring] Removed unnecessary PHP warnings triggered by "Add Downtime" action from Service/Host details pages.
 - [Navigation] Fixed an issue in legacy pages where applying a filter to a specific resource would incorrectly redirect the user to the Resource Status page.
 
@@ -84,7 +84,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue when moving a host or a service, it might be removed from cache.
+- Fixed an issue that occurred when moving a host or a service to a different poller, causing it to be removed from the cache.
 
 </details>
 
@@ -94,7 +94,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
   <summary>Bug fixes</summary>
 
 - Fixed an issue where configuration for centreon trapd could not be pushed on pollers.
-- [ETL] Fixed a critical ETL failure path and corrected calculation logic to ensure data accuracy and processing stability.
+- [ETL] Fixed a critical ETL failure path that resulted in empty reports and corrected calculation logic.
 
 </details>
 
@@ -103,7 +103,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed the collection of the used swap value on Windows Server 2025.
+- Fixed the Swap value on Windows Server 2025 hosts.
 
 </details>
 
