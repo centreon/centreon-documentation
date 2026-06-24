@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-google-gsuite-api
+slug: /applications-google-gsuite-api
 title: Google GSuite (déprécié)
 ---
 

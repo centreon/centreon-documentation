@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-emc-clariion-navisphere
+slug: /hardware-storage-emc-clariion-navisphere
 title: EMC Clariion Navisphere
 ---
 import Tabs from '@theme/Tabs';

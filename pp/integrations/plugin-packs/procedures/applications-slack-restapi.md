@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-slack-restapi
+slug: /applications-slack-restapi
 title: Slack
 ---
 import Tabs from '@theme/Tabs';

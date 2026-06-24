@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-node-exporter-windows
+slug: /applications-monitoring-node-exporter-windows
 title: Node Exporter Windows Metrics
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-cisco-ise-restapi
+slug: /applications-cisco-ise-restapi
 title: Cisco ISE
 ---
 import Tabs from '@theme/Tabs';

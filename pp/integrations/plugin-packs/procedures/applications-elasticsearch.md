@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-elasticsearch
+slug: /applications-elasticsearch
 title: Elasticsearch (deprecated)
 ---
 

@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-gcp-compute-computeengine
+slug: /cloud-gcp-compute-computeengine
 title: Google Compute Engine
 ---
 import Tabs from '@theme/Tabs';

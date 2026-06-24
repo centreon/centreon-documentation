@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-cisco-ucs-snmp
+slug: /hardware-servers-cisco-ucs-snmp
 title: Cisco UCS SNMP
 ---
 import Tabs from '@theme/Tabs';

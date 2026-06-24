@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-directconnect
+slug: /cloud-aws-directconnect
 title: Amazon Direct Connect
 ---
 import Tabs from '@theme/Tabs';

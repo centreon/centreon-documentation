@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cyberoam-snmp
+slug: /network-cyberoam-snmp
 title: Cyberoam SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-westermo-standard-snmp
+slug: /network-westermo-standard-snmp
 title: Westermo Standard SNMP
 ---
 import Tabs from '@theme/Tabs';

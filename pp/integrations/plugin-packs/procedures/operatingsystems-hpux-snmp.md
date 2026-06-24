@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-hpux-snmp
+slug: /operatingsystems-hpux-snmp
 title: HP-UX SNMP
 ---
 import Tabs from '@theme/Tabs';

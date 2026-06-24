@@ -1,5 +1,6 @@
----
+﻿---
 id: network-generic-bluecoat-snmp
+slug: /network-generic-bluecoat-snmp
 title: Bluecoat generic SNMP
 ---
 import Tabs from '@theme/Tabs';

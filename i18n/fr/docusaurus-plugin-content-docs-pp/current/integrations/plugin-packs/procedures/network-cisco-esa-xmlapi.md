@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-esa-xmlapi
+slug: /network-cisco-esa-xmlapi
 title: Cisco ESA XMLAPI
 ---
 import Tabs from '@theme/Tabs';

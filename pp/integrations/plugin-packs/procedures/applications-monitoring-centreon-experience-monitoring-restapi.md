@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-centreon-experience-monitoring-restapi
+slug: /applications-monitoring-centreon-experience-monitoring-restapi
 title: Centreon Experience Monitoring (formerly Quanta) Rest API
 ---
 import Tabs from '@theme/Tabs';

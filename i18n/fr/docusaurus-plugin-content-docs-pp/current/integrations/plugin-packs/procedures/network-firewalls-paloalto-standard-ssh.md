@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-paloalto-standard-ssh
+slug: /network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
 ---
 import Tabs from '@theme/Tabs';

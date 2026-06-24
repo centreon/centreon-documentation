@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-callmanager-snmp
+slug: /network-cisco-callmanager-snmp
 title: Cisco Call Manager SNMP
 ---
 import Tabs from '@theme/Tabs';

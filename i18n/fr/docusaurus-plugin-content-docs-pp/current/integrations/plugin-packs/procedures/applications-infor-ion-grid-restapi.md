@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-infor-ion-grid-restapi
+slug: /applications-infor-ion-grid-restapi
 title: Infor ION Grid Rest API
 ---
 import Tabs from '@theme/Tabs';

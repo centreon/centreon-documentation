@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-linux-ssh
+slug: /operatingsystems-linux-ssh
 title: Linux SSH
 ---
 import Tabs from '@theme/Tabs';

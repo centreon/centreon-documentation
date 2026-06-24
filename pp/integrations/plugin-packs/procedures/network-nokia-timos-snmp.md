@@ -1,5 +1,6 @@
----
+﻿---
 id: network-nokia-timos-snmp
+slug: /network-nokia-timos-snmp
 title: Nokia TiMos SNMP
 ---
 import Tabs from '@theme/Tabs';

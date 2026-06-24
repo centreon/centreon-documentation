@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-ibm-ts2900-snmp
+slug: /hardware-storage-ibm-ts2900-snmp
 title: IBM TS2900 SNMP
 ---
 import Tabs from '@theme/Tabs';

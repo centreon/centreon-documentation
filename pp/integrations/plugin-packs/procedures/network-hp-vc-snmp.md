@@ -1,5 +1,6 @@
----
+﻿---
 id: network-hp-vc-snmp
+slug: /network-hp-vc-snmp
 title: HP Virtual Connect SNMP
 ---
 import Tabs from '@theme/Tabs';

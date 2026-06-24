@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-publicip
+slug: /cloud-azure-network-publicip
 title: Azure Public IP
 ---
 import Tabs from '@theme/Tabs';

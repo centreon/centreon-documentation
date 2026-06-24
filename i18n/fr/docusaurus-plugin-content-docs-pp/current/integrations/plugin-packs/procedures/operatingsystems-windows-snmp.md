@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-windows-snmp
+slug: /operatingsystems-windows-snmp
 title: Windows SNMP
 ---
 import Tabs from '@theme/Tabs';

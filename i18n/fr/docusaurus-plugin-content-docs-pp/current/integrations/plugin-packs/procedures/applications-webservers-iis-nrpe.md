@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-webservers-iis-nrpe
+slug: /applications-webservers-iis-nrpe
 title: Microsoft IIS Server NRPE (déprécié)
 ---
 

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-kairos-snmp
+slug: /network-kairos-snmp
 title: Kairos SNMP
 ---
 import Tabs from '@theme/Tabs';

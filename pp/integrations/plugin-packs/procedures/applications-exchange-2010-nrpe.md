@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-exchange-2010-nrpe
+slug: /applications-exchange-2010-nrpe
 title: Microsoft Exchange 2010 NRPE (deprecated)
 ---
 

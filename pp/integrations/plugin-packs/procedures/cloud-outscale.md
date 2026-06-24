@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-outscale
+slug: /cloud-outscale
 title: Outscale API
 ---
 import Tabs from '@theme/Tabs';

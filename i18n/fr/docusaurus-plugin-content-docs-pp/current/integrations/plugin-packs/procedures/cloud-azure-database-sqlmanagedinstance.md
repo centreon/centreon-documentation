@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-database-sqlmanagedinstance
+slug: /cloud-azure-database-sqlmanagedinstance
 title: Azure SQL Managed Instance
 ---
 import Tabs from '@theme/Tabs';

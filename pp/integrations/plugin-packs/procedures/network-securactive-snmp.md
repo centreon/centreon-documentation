@@ -1,5 +1,6 @@
----
+﻿---
 id: network-securactive-snmp
+slug: /network-securactive-snmp
 title: Securactive SNMP
 ---
 import Tabs from '@theme/Tabs';

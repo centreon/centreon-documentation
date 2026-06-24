@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-cloudwatch-discover
+slug: /cloud-aws-cloudwatch-discover
 title: AWS Discover
 ---
 import Tabs from '@theme/Tabs';

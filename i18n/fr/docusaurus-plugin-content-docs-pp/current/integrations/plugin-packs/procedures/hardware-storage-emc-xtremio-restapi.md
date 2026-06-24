@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-emc-xtremio-restapi
+slug: /hardware-storage-emc-xtremio-restapi
 title: EMC Xtremio Rest API
 ---
 import Tabs from '@theme/Tabs';

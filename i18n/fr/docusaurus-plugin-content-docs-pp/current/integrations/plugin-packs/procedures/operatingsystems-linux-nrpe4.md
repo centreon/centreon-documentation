@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-linux-nrpe4
+slug: /operatingsystems-linux-nrpe4
 title: Linux NRPE4
 ---
 import Tabs from '@theme/Tabs';

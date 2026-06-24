@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-linux-snmp
+slug: /operatingsystems-linux-snmp
 title: Linux SNMP
 ---
 import Tabs from '@theme/Tabs';

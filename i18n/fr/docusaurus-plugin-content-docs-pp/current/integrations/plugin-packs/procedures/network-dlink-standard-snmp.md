@@ -1,5 +1,6 @@
----
+﻿---
 id: network-dlink-standard-snmp
+slug: /network-dlink-standard-snmp
 title: D-Link standard SNMP
 ---
 import Tabs from '@theme/Tabs';

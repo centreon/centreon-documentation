@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-peoplesoft-jmx
+slug: /applications-peoplesoft-jmx
 title: Peoplesoft
 ---
 import Tabs from '@theme/Tabs';

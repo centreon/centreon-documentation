@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-php-apc-web
+slug: /applications-php-apc-web
 title: PHP APC
 ---
 import Tabs from '@theme/Tabs';

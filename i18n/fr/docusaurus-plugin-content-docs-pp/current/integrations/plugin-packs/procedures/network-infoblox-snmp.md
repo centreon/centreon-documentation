@@ -1,5 +1,6 @@
----
+﻿---
 id: network-infoblox-snmp
+slug: /network-infoblox-snmp
 title: Infoblox SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-wd-nas-snmp
+slug: /hardware-storage-wd-nas-snmp
 title: WD NAS SNMP
 ---
 import Tabs from '@theme/Tabs';

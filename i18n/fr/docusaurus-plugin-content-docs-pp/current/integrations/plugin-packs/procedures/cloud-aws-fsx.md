@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-fsx
+slug: /cloud-aws-fsx
 title: Amazon FSx
 ---
 import Tabs from '@theme/Tabs';

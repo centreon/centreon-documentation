@@ -1,5 +1,6 @@
----
+﻿---
 id: network-mikrotik-snmp
+slug: /network-mikrotik-snmp
 title: Mikrotik SNMP
 ---
 import Tabs from '@theme/Tabs';

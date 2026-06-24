@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-tosca-restapi
+slug: /applications-tosca-restapi
 title: Tosca Rest API
 ---
 import Tabs from '@theme/Tabs';

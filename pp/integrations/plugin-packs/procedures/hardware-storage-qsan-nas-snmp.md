@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-qsan-nas-snmp
+slug: /hardware-storage-qsan-nas-snmp
 title: QSAN NAS SNMP
 ---
 import Tabs from '@theme/Tabs';

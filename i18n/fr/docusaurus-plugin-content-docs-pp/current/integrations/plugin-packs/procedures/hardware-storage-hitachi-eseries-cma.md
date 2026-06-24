@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hitachi-eseries-cma
+slug: /hardware-storage-hitachi-eseries-cma
 title: Hitachi E Series CMA
 ---
 import Tabs from '@theme/Tabs';

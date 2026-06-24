@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-sendmail-snmp
+slug: /applications-sendmail-snmp
 title: Sendmail
 ---
 import Tabs from '@theme/Tabs';

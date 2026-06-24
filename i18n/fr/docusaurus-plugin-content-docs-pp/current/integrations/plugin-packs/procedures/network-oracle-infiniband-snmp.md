@@ -1,5 +1,6 @@
----
+﻿---
 id: network-oracle-infiniband-snmp
+slug: /network-oracle-infiniband-snmp
 title: Oracle Infiniband SNMP
 ---
 import Tabs from '@theme/Tabs';

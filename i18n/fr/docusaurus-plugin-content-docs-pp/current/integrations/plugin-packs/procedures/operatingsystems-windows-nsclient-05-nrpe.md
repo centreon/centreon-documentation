@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-windows-nsclient-05-nrpe
+slug: /operatingsystems-windows-nsclient-05-nrpe
 title: Windows NSClient 0.5 NRPE
 ---
 import Tabs from '@theme/Tabs';

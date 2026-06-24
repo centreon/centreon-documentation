@@ -1,5 +1,6 @@
----
+﻿---
 id: network-barracuda-bma-snmp
+slug: /network-barracuda-bma-snmp
 title: Barracuda Message Archiver SNMP
 ---
 import Tabs from '@theme/Tabs';

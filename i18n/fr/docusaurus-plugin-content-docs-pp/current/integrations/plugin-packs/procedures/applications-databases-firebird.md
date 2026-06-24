@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-firebird
+slug: /applications-databases-firebird
 title: Firebird
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-prometheus-cadvisor-api
+slug: /cloud-prometheus-cadvisor-api
 title: cAdvisor w/ Prometheus API
 ---
 import Tabs from '@theme/Tabs';

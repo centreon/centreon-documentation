@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-aeg-acm-snmp
+slug: /hardware-devices-aeg-acm-snmp
 title: AEG ACM SNMP
 ---
 import Tabs from '@theme/Tabs';

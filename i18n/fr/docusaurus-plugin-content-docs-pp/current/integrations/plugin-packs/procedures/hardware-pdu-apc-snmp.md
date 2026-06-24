@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-pdu-apc-snmp
+slug: /hardware-pdu-apc-snmp
 title: APC PDU SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-imap
+slug: /applications-protocol-imap
 title: IMAP Server
 ---
 import Tabs from '@theme/Tabs';

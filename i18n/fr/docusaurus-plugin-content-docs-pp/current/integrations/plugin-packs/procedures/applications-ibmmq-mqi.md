@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-ibmmq-mqi
+slug: /applications-ibmmq-mqi
 title: IBM MQ MQI
 ---
 import Tabs from '@theme/Tabs';

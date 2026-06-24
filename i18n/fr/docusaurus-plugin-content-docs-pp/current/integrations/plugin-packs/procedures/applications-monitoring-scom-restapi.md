@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-scom-restapi
+slug: /applications-monitoring-scom-restapi
 title: SCOM Rest API
 ---
 import Tabs from '@theme/Tabs';

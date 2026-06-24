@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-messpc-ethernetbox-snmp
+slug: /hardware-sensors-messpc-ethernetbox-snmp
 title: MessPC Ehternetbox SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-vmware2-vcenter-6
+slug: /virtualization-vmware2-vcenter-6
 title: VMware vCenter v6
 ---
 import Tabs from '@theme/Tabs';

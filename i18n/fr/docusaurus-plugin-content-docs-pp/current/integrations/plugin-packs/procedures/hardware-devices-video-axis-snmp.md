@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-video-axis-snmp
+slug: /hardware-devices-video-axis-snmp
 title: Axis Video SNMP
 ---
 import Tabs from '@theme/Tabs';

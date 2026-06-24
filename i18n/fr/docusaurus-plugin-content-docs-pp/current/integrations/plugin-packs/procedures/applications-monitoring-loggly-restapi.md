@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-loggly-restapi
+slug: /applications-monitoring-loggly-restapi
 title: Loggly Rest API
 ---
 import Tabs from '@theme/Tabs';

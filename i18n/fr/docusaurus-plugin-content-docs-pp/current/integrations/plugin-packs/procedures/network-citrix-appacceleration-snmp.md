@@ -1,5 +1,6 @@
----
+﻿---
 id: network-citrix-appacceleration-snmp
+slug: /network-citrix-appacceleration-snmp
 title: Citrix Acceleration SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-fortinet-fortiauthenticator-snmp
+slug: /network-fortinet-fortiauthenticator-snmp
 title: Fortinet FortiAuthenticator SNMP
 ---
 import Tabs from '@theme/Tabs';

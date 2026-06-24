@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-cassandra-jmx
+slug: /applications-databases-cassandra-jmx
 title: Cassandra
 ---
 import Tabs from '@theme/Tabs';

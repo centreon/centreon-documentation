@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-telnet
+slug: /applications-protocol-telnet
 title: Telnet Scenario
 ---
 import Tabs from '@theme/Tabs';

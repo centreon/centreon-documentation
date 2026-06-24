@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-netbackup-nsclient-05-restapi
+slug: /applications-netbackup-nsclient-05-restapi
 title: Netbackup NSClient++ API
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-panzura-snmp
+slug: /hardware-storage-panzura-snmp
 title: Panzura SNMP
 ---
 import Tabs from '@theme/Tabs';

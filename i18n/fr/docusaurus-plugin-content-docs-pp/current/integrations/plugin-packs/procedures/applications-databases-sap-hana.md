@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-sap-hana
+slug: /applications-databases-sap-hana
 title: SAP HANA
 ---
 import Tabs from '@theme/Tabs';

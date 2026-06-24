@@ -1,5 +1,6 @@
----
+﻿---
 id: network-radware-alteon-snmp
+slug: /network-radware-alteon-snmp
 title: Radware Alteon SNMP
 ---
 import Tabs from '@theme/Tabs';

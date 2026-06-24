@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-rabbitmq-restapi
+slug: /applications-rabbitmq-restapi
 title: RabbitMQ RestAPI
 ---
 import Tabs from '@theme/Tabs';

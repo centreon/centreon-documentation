@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-networkinterface
+slug: /cloud-azure-network-networkinterface
 title: Azure Network Interface
 ---
 import Tabs from '@theme/Tabs';

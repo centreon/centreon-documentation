@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-database-mysql
+slug: /cloud-azure-database-mysql
 title: Azure Database for MySQL
 ---
 import Tabs from '@theme/Tabs';

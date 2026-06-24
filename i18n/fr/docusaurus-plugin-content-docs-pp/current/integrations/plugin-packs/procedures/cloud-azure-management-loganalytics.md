@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-management-loganalytics
+slug: /cloud-azure-management-loganalytics
 title: Azure Log Analytics
 ---
 import Tabs from '@theme/Tabs';

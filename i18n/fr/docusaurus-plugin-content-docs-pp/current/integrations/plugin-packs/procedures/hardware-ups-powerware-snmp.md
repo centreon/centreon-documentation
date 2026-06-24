@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-powerware-snmp
+slug: /hardware-ups-powerware-snmp
 title: Powerware UPS SNMP
 ---
 import Tabs from '@theme/Tabs';

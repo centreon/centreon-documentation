@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-wazuh-restapi
+slug: /applications-wazuh-restapi
 title: Wazuh Rest API
 ---
 import Tabs from '@theme/Tabs';

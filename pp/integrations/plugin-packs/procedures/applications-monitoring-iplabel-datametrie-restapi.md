@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-iplabel-datametrie-restapi
+slug: /applications-monitoring-iplabel-datametrie-restapi
 title: IP-Label datametrie API (deprecated)
 ---
 

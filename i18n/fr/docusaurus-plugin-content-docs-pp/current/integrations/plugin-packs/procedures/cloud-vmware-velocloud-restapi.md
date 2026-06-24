@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-vmware-velocloud-restapi
+slug: /cloud-vmware-velocloud-restapi
 title: VMware VeloCloud Rest API
 ---
 import Tabs from '@theme/Tabs';

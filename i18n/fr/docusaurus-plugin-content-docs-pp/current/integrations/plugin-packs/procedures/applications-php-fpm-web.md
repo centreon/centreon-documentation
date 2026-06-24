@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-php-fpm-web
+slug: /applications-php-fpm-web
 title: PHP FPM
 ---
 import Tabs from '@theme/Tabs';

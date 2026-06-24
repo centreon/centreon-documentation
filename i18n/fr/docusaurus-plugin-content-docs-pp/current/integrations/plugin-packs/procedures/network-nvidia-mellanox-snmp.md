@@ -1,5 +1,6 @@
----
+﻿---
 id: network-nvidia-mellanox-snmp
+slug: /network-nvidia-mellanox-snmp
 title: Nvidia (formerly Mellanox) SNMP
 ---
 import Tabs from '@theme/Tabs';

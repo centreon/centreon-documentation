@@ -1,5 +1,6 @@
----
+﻿---
 id: blockchain-parity-restapi
+slug: /blockchain-parity-restapi
 title: Parity API
 ---
 import Tabs from '@theme/Tabs';

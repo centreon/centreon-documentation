@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-dell-ml6000-snmp
+slug: /hardware-storage-dell-ml6000-snmp
 title: Dell ML6000 SNMP
 ---
 import Tabs from '@theme/Tabs';

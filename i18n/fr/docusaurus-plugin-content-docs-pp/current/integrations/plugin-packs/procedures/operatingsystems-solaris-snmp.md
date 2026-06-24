@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-solaris-snmp
+slug: /operatingsystems-solaris-snmp
 title: Solaris SNMP
 ---
 import Tabs from '@theme/Tabs';

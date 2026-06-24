@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-centreon-clm-restapi
+slug: /applications-monitoring-centreon-clm-restapi
 title: Centreon Log Management Rest API
 ---
 import Tabs from '@theme/Tabs';

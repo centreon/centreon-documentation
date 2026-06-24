@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-vpn
+slug: /cloud-aws-vpn
 title: AWS VPN
 ---
 import Tabs from '@theme/Tabs';

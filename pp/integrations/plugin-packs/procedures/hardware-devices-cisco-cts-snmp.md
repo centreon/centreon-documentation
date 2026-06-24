@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-cisco-cts-snmp
+slug: /hardware-devices-cisco-cts-snmp
 title: Cisco Telepresence System SNMP
 ---
 import Tabs from '@theme/Tabs';

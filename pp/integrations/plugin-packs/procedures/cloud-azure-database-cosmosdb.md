@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-database-cosmosdb
+slug: /cloud-azure-database-cosmosdb
 title: Azure Cosmos DB
 ---
 import Tabs from '@theme/Tabs';

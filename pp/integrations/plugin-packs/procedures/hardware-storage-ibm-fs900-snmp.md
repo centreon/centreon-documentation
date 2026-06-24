@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-ibm-fs900-snmp
+slug: /hardware-storage-ibm-fs900-snmp
 title: IBM FlashSystem 900 SNMP
 ---
 import Tabs from '@theme/Tabs';

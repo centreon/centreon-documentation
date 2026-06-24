@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-quadstor-nrpe
+slug: /applications-quadstor-nrpe
 title: Quadstor NSClient++ NRPE
 ---
 import Tabs from '@theme/Tabs';

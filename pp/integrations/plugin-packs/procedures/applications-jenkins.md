@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-jenkins
+slug: /applications-jenkins
 title: Jenkins API
 ---
 import Tabs from '@theme/Tabs';

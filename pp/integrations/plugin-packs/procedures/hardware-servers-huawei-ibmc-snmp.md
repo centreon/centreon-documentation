@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-huawei-ibmc-snmp
+slug: /hardware-servers-huawei-ibmc-snmp
 title: Huawei iBMC SNMP
 ---
 import Tabs from '@theme/Tabs';

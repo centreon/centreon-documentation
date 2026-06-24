@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-freebsd-snmp
+slug: /operatingsystems-freebsd-snmp
 title: FreeBSD SNMP
 ---
 import Tabs from '@theme/Tabs';

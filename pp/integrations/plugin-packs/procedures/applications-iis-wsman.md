@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-iis-wsman
+slug: /applications-iis-wsman
 title: Microsoft IIS Server WSMAN
 ---
 import Tabs from '@theme/Tabs';

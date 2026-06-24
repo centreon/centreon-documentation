@@ -1,5 +1,6 @@
----
+﻿---
 id: network-evertz-fc7800-snmp
+slug: /network-evertz-fc7800-snmp
 title: Evertz FC7800 SNMP
 ---
 import Tabs from '@theme/Tabs';

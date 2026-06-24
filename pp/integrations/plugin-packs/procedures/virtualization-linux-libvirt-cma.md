@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-linux-libvirt-cma
+slug: /virtualization-linux-libvirt-cma
 title: Linux Libvirt CMA
 ---
 import Tabs from '@theme/Tabs';

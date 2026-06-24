@@ -1,5 +1,6 @@
----
+﻿---
 id: network-hp-moonshot-snmp
+slug: /network-hp-moonshot-snmp
 title: HP Moonshot SNMP
 ---
 import Tabs from '@theme/Tabs';

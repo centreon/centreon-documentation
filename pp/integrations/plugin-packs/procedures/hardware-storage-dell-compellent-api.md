@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-dell-compellent-api
+slug: /hardware-storage-dell-compellent-api
 title: Dell Compellent Nsclient NRPE
 ---
 import Tabs from '@theme/Tabs';

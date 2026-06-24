@@ -1,5 +1,6 @@
----
+﻿---
 id: infrastructure-pop
+slug: /infrastructure-pop
 title: POP Server
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-sahipro-restapi
+slug: /applications-sahipro-restapi
 title: Sahi Pro Rest API
 ---
 import Tabs from '@theme/Tabs';

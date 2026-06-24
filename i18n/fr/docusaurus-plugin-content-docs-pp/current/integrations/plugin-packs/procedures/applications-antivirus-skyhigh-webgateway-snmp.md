@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-antivirus-skyhigh-webgateway-snmp
+slug: /applications-antivirus-skyhigh-webgateway-snmp
 title: Skyhigh Security Web Gateway SNMP
 ---
 import Tabs from '@theme/Tabs';

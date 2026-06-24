@@ -1,5 +1,6 @@
----
+﻿---
 id: network-mitel-3300icp-snmp
+slug: /network-mitel-3300icp-snmp
 title: Mitel 3300ICP SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-video-openheadend-snmp
+slug: /applications-video-openheadend-snmp
 title: OpenHeadend
 ---
 import Tabs from '@theme/Tabs';

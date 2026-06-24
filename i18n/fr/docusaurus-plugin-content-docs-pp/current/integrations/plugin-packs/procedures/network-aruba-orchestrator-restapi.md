@@ -1,5 +1,6 @@
----
+﻿---
 id: network-aruba-orchestrator-restapi
+slug: /network-aruba-orchestrator-restapi
 title: Aruba Orchestrator Rest API
 ---
 import Tabs from '@theme/Tabs';

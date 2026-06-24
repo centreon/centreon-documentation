@@ -1,5 +1,6 @@
----
+﻿---
 id: network-digi-sarian-snmp
+slug: /network-digi-sarian-snmp
 title: Digi Sarian SNMP
 ---
 import Tabs from '@theme/Tabs';

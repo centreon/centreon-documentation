@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-telephony-alcatel-oxe-snmp
+slug: /hardware-telephony-alcatel-oxe-snmp
 title: Alcatel OXE SNMP
 ---
 import Tabs from '@theme/Tabs';

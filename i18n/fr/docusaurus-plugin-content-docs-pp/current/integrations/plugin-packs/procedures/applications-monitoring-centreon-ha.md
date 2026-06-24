@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-centreon-ha
+slug: /applications-monitoring-centreon-ha
 title: Centreon-HA
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-cisco-asa-snmp
+slug: /network-firewalls-cisco-asa-snmp
 title: Cisco ASA SNMP
 ---
 import Tabs from '@theme/Tabs';

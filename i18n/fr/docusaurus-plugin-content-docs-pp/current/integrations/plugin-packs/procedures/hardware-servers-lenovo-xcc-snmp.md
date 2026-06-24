@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-lenovo-xcc-snmp
+slug: /hardware-servers-lenovo-xcc-snmp
 title: Lenovo XCC SNMP
 ---
 import Tabs from '@theme/Tabs';

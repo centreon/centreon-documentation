@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-hp-snmp
+slug: /hardware-servers-hp-snmp
 title: HP Proliant SNMP
 ---
 import Tabs from '@theme/Tabs';

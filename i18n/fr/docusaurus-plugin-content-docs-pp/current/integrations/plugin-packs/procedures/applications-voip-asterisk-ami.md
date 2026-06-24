@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-voip-asterisk-ami
+slug: /applications-voip-asterisk-ami
 title: Asterisk VoIP AMI
 ---
 import Tabs from '@theme/Tabs';

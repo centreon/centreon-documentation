@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-oracle
+slug: /applications-databases-oracle
 title: Oracle Database
 ---
 import Tabs from '@theme/Tabs';

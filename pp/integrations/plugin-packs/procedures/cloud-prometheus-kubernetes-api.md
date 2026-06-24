@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-prometheus-kubernetes-api
+slug: /cloud-prometheus-kubernetes-api
 title: Kubernetes w/ Prometheus API
 ---
 import Tabs from '@theme/Tabs';

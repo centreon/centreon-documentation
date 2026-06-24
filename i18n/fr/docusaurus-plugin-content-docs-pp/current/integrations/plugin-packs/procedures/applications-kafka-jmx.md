@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-kafka-jmx
+slug: /applications-kafka-jmx
 title: Kafka
 ---
 import Tabs from '@theme/Tabs';

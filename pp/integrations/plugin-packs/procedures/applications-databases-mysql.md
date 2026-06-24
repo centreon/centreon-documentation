@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-mysql
+slug: /applications-databases-mysql
 title: MySQL/MariaDB
 ---
 import Tabs from '@theme/Tabs';

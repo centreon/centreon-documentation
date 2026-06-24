@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-juniper-ssg-snmp
+slug: /network-firewalls-juniper-ssg-snmp
 title: Juniper SSG SNMP
 ---
 import Tabs from '@theme/Tabs';

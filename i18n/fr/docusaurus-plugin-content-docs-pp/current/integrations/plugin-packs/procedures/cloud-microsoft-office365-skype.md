@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-microsoft-office365-skype
+slug: /cloud-microsoft-office365-skype
 title: Office365 Skype
 ---
 import Tabs from '@theme/Tabs';

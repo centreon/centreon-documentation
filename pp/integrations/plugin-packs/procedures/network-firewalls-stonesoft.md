@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-stonesoft
+slug: /network-firewalls-stonesoft
 title: Stonesoft SNMP
 ---
 import Tabs from '@theme/Tabs';

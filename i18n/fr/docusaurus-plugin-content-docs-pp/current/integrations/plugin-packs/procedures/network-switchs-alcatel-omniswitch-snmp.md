@@ -1,5 +1,6 @@
----
+﻿---
 id: network-switchs-alcatel-omniswitch-snmp
+slug: /network-switchs-alcatel-omniswitch-snmp
 title: Alcatel Omniswitch SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-netapp-restapi
+slug: /hardware-storage-netapp-restapi
 title: Netapp RestAPI (déprécié)
 ---
 

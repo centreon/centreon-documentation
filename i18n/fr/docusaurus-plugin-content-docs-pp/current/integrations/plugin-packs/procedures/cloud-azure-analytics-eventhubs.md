@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-analytics-eventhubs
+slug: /cloud-azure-analytics-eventhubs
 title: Azure Event Hubs
 ---
 import Tabs from '@theme/Tabs';

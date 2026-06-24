@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cambium-cnpilot-snmp
+slug: /network-cambium-cnpilot-snmp
 title: Cambium CnPilot SNMP
 ---
 import Tabs from '@theme/Tabs';

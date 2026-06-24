@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-centreon-poller
+slug: /applications-monitoring-centreon-poller
 title: Centreon Poller
 ---
 import Tabs from '@theme/Tabs';

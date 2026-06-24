@@ -1,5 +1,6 @@
----
+﻿---
 id: network-meru-snmp
+slug: /network-meru-snmp
 title: Meru SNMP
 ---
 import Tabs from '@theme/Tabs';

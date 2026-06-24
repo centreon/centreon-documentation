@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-wlc-snmp
+slug: /network-cisco-wlc-snmp
 title: Cisco WLC SNMP
 ---
 import Tabs from '@theme/Tabs';

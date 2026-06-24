@@ -1,5 +1,6 @@
----
+﻿---
 id: network-juniper-isg-snmp
+slug: /network-juniper-isg-snmp
 title: Juniper ISG SNMP
 ---
 import Tabs from '@theme/Tabs';

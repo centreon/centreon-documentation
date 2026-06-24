@@ -1,5 +1,6 @@
----
+﻿---
 id: network-digi-anywhereusb-snmp
+slug: /network-digi-anywhereusb-snmp
 title: Digi Anywhere USB SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-rittal-cmc3-snmp
+slug: /hardware-sensors-rittal-cmc3-snmp
 title: Rittal CMC3 SNMP
 ---
 import Tabs from '@theme/Tabs';

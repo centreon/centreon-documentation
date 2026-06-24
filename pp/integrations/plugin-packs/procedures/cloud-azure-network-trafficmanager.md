@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-trafficmanager
+slug: /cloud-azure-network-trafficmanager
 title: Azure Traffic Manager
 ---
 import Tabs from '@theme/Tabs';

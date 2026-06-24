@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-oracle-zs-restapi
+slug: /hardware-storage-oracle-zs-restapi
 title: Oracle ZS Rest API
 ---
 import Tabs from '@theme/Tabs';

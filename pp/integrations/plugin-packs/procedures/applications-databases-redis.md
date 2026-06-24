@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-redis
+slug: /applications-databases-redis
 title: Redis Database
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-as400-connector
+slug: /operatingsystems-as400-connector
 title: IBM AS400 Connector
 ---
 import Tabs from '@theme/Tabs';

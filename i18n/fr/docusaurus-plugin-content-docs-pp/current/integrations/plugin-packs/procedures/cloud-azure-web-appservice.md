@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-web-appservice
+slug: /cloud-azure-web-appservice
 title: Azure App Service
 ---
 import Tabs from '@theme/Tabs';

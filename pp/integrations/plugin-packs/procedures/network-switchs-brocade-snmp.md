@@ -1,5 +1,6 @@
----
+﻿---
 id: network-switchs-brocade-snmp
+slug: /network-switchs-brocade-snmp
 title: Brocade Switch SNMP
 ---
 import Tabs from '@theme/Tabs';

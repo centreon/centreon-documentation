@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-ebs
+slug: /cloud-aws-ebs
 title: Amazon EBS
 ---
 import Tabs from '@theme/Tabs';

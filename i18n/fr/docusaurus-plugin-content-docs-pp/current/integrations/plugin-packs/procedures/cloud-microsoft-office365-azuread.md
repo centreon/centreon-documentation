@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-microsoft-office365-azuread
+slug: /cloud-microsoft-office365-azuread
 title: Office 365 Azure AD
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-microsoft-office365-exchange
+slug: /cloud-microsoft-office365-exchange
 title: Office365 Exchange
 ---
 import Tabs from '@theme/Tabs';

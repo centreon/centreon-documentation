@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-proxmox-ve-restapi
+slug: /virtualization-proxmox-ve-restapi
 title: Proxmox VE Rest API
 ---
 import Tabs from '@theme/Tabs';

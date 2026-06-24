@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-cloudtrail
+slug: /cloud-aws-cloudtrail
 title: AWS CloudTrail
 ---
 import Tabs from '@theme/Tabs';

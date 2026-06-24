@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-linux-nrpe3
+slug: /operatingsystems-linux-nrpe3
 title: Linux NRPE3 (deprecated)
 ---
 import Tabs from '@theme/Tabs';

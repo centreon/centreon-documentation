@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-hwgste-snmp
+slug: /hardware-sensors-hwgste-snmp
 title: HWg-STE Sensor SNMP
 ---
 import Tabs from '@theme/Tabs';

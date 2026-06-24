@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-printers-standard-rfc3805-snmp
+slug: /hardware-printers-standard-rfc3805-snmp
 title: Printer standard SNMP
 ---
 import Tabs from '@theme/Tabs';

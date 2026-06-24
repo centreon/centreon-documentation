@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-backupexec-nscp-restapi
+slug: /applications-backupexec-nscp-restapi
 title: Veritas Backup Exec NSCP API
 ---
 import Tabs from '@theme/Tabs';

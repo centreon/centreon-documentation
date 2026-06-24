@@ -1,5 +1,6 @@
----
+﻿---
 id: network-beeware-snmp
+slug: /network-beeware-snmp
 title: Bee Ware SNMP
 ---
 import Tabs from '@theme/Tabs';

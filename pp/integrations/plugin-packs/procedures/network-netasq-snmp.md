@@ -1,5 +1,6 @@
----
+﻿---
 id: network-netasq-snmp
+slug: /network-netasq-snmp
 title: NetASQ Network (deprecated)
 ---
 

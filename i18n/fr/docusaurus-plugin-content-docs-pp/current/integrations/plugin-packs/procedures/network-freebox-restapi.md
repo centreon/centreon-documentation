@@ -1,5 +1,6 @@
----
+﻿---
 id: network-freebox-restapi
+slug: /network-freebox-restapi
 title: Freebox RestAPI
 ---
 import Tabs from '@theme/Tabs';

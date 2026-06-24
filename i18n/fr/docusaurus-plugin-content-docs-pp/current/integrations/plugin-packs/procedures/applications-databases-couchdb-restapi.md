@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-couchdb-restapi
+slug: /applications-databases-couchdb-restapi
 title: CouchDB Rest API
 ---
 import Tabs from '@theme/Tabs';

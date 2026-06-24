@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-squid-snmp
+slug: /applications-squid-snmp
 title: Squid SNMP
 ---
 import Tabs from '@theme/Tabs';

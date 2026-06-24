@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hitachi-hnas-snmp
+slug: /hardware-storage-hitachi-hnas-snmp
 title: Hitachi NAS SNMP
 ---
 import Tabs from '@theme/Tabs';

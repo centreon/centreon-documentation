@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-checkpoint-snmp
+slug: /network-firewalls-checkpoint-snmp
 title: CheckPoint firewall
 ---
 import Tabs from '@theme/Tabs';

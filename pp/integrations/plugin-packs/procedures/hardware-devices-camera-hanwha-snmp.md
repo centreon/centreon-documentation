@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-camera-hanwha-snmp
+slug: /hardware-devices-camera-hanwha-snmp
 title: Hanwha camera SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-loadbalancers-a10-ax-snmp
+slug: /network-loadbalancers-a10-ax-snmp
 title: A10 AX SNMP
 ---
 import Tabs from '@theme/Tabs';

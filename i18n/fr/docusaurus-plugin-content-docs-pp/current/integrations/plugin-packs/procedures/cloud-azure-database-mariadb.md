@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-database-mariadb
+slug: /cloud-azure-database-mariadb
 title: Azure Database for MariaDB
 ---
 import Tabs from '@theme/Tabs';

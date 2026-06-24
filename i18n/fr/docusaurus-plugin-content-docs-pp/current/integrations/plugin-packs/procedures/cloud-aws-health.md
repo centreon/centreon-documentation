@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-health
+slug: /cloud-aws-health
 title: AWS Health
 ---
 import Tabs from '@theme/Tabs';

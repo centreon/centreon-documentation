@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-policyinsights-policystates
+slug: /cloud-azure-policyinsights-policystates
 title: Azure Policy States
 ---
 import Tabs from '@theme/Tabs';

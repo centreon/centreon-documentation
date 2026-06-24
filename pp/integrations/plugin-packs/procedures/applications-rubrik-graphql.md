@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-rubrik-graphql
+slug: /applications-rubrik-graphql
 title: Rubrik Security Cloud GraphQL API
 ---
 import Tabs from '@theme/Tabs';

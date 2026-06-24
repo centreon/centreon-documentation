@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-exchange-nsclient-restapi
+slug: /applications-exchange-nsclient-restapi
 title: Microsoft Exchange NSClient RestAPI
 ---
 import Tabs from '@theme/Tabs';

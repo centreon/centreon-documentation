@@ -1,5 +1,6 @@
----
+﻿---
 id: network-aviat-snmp
+slug: /network-aviat-snmp
 title: Aviat Networks SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-snmp
+slug: /applications-protocol-snmp
 title: Generic SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-whois
+slug: /applications-protocol-whois
 title: Protocol WHOIS
 ---
 import Tabs from '@theme/Tabs';

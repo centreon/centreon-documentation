@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-windows-wsman
+slug: /operatingsystems-windows-wsman
 title: Windows WSMAN
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-fiberstore-snmp
+slug: /network-fiberstore-snmp
 title: Fiberstore SNMP
 ---
 import Tabs from '@theme/Tabs';

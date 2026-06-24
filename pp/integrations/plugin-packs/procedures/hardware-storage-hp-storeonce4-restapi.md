@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hp-storeonce4-restapi
+slug: /hardware-storage-hp-storeonce4-restapi
 title: HP StoreOnce 4 Rest API
 ---
 import Tabs from '@theme/Tabs';

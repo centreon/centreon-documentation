@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-synology-snmp
+slug: /hardware-storage-synology-snmp
 title: Synology SNMP
 ---
 import Tabs from '@theme/Tabs';

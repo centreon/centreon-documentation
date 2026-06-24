@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-management-applicationinsights
+slug: /cloud-azure-management-applicationinsights
 title: Azure Application Insights
 ---
 import Tabs from '@theme/Tabs';

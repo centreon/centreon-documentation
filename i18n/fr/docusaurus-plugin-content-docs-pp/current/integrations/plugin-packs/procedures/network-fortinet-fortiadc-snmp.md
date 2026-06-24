@@ -1,5 +1,6 @@
----
+﻿---
 id: network-fortinet-fortiadc-snmp
+slug: /network-fortinet-fortiadc-snmp
 title: Fortinet FortiADC SNMP
 ---
 import Tabs from '@theme/Tabs';

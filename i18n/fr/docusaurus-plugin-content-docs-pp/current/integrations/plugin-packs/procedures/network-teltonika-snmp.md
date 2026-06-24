@@ -1,5 +1,6 @@
----
+﻿---
 id: network-teltonika-snmp
+slug: /network-teltonika-snmp
 title: Teltonika SNMP
 ---
 import Tabs from '@theme/Tabs';

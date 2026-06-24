@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-emc-symmetrix-nsclient-05-restapi
+slug: /hardware-storage-emc-symmetrix-nsclient-05-restapi
 title: EMC Symmetrix NSClient++ API
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-huawei-snmp
+slug: /network-huawei-snmp
 title: Huawei Standard SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-nmap-cli
+slug: /applications-nmap-cli
 title: Nmap CLI Discovery
 ---
 import Tabs from '@theme/Tabs';

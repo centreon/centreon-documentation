@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-graylog-restapi
+slug: /applications-graylog-restapi
 title: Graylog
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-device-safenet-keysecure-snmp
+slug: /hardware-device-safenet-keysecure-snmp
 title: Safenet Keysecure SNMP
 ---
 import Tabs from '@theme/Tabs';

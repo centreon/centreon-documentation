@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-mulesoft-restapi
+slug: /applications-mulesoft-restapi
 title: Mulesoft Anypoint
 ---
 import Tabs from '@theme/Tabs';

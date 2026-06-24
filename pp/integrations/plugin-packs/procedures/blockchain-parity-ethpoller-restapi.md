@@ -1,5 +1,6 @@
----
+﻿---
 id: blockchain-parity-ethpoller-restapi
+slug: /blockchain-parity-ethpoller-restapi
 title: Parity Ethpoller API
 ---
 import Tabs from '@theme/Tabs';

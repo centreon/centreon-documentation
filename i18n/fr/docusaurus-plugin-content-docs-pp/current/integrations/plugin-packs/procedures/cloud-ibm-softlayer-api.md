@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-ibm-softlayer-api
+slug: /cloud-ibm-softlayer-api
 title: IBM Softlayer API
 ---
 import Tabs from '@theme/Tabs';

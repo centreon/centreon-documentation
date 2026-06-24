@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-apc-snmp
+slug: /hardware-ups-apc-snmp
 title: APC UPS SNMP
 ---
 import Tabs from '@theme/Tabs';

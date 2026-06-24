@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-socomec-netvision-snmp
+slug: /hardware-ups-socomec-netvision-snmp
 title: UPS Socomec Net Vision SNMP
 ---
 import Tabs from '@theme/Tabs';

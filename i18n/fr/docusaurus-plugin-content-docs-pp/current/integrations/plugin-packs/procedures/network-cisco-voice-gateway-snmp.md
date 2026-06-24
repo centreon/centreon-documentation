@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-voice-gateway-snmp
+slug: /network-cisco-voice-gateway-snmp
 title: Cisco Voice Gateway SNMP
 ---
 import Tabs from '@theme/Tabs';

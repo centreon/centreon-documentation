@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-elasticache
+slug: /cloud-aws-elasticache
 title: Amazon ElastiCache
 ---
 import Tabs from '@theme/Tabs';

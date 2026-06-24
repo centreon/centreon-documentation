@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-pdu-cyberpower-snmp
+slug: /hardware-pdu-cyberpower-snmp
 title: CyberPower Systems PDU SNMP
 ---
 import Tabs from '@theme/Tabs';

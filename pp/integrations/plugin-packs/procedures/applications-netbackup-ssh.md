@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-netbackup-ssh
+slug: /applications-netbackup-ssh
 title: Symantec Netbackup SSH
 ---
 import Tabs from '@theme/Tabs';

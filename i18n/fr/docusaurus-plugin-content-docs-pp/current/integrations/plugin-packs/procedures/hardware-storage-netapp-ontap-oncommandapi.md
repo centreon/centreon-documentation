@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-netapp-ontap-oncommandapi
+slug: /hardware-storage-netapp-ontap-oncommandapi
 title: NetApp Ontap OnCommand API
 ---
 import Tabs from '@theme/Tabs';

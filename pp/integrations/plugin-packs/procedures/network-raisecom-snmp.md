@@ -1,5 +1,6 @@
----
+﻿---
 id: network-raisecom-snmp
+slug: /network-raisecom-snmp
 title: Raisecom SNMP
 ---
 import Tabs from '@theme/Tabs';

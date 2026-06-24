@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-ibm-ds4000-smcli
+slug: /hardware-storage-ibm-ds4000-smcli
 title: IBM DS4000 SMcli
 ---
 import Tabs from '@theme/Tabs';

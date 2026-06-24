@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-sybase
+slug: /applications-databases-sybase
 title: Sybase
 ---
 import Tabs from '@theme/Tabs';

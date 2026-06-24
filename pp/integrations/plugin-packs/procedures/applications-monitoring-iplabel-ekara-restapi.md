@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-iplabel-ekara-restapi
+slug: /applications-monitoring-iplabel-ekara-restapi
 title: IP-Label Ekara Rest API
 ---
 import Tabs from '@theme/Tabs';

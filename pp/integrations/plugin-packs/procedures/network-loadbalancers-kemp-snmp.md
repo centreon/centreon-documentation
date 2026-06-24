@@ -1,5 +1,6 @@
----
+﻿---
 id: network-loadbalancers-kemp-snmp
+slug: /network-loadbalancers-kemp-snmp
 title: Kemp Loadbalancer SNMP
 ---
 import Tabs from '@theme/Tabs';

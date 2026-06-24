@@ -1,5 +1,6 @@
----
+﻿---
 id: network-3com-snmp
+slug: /network-3com-snmp
 title: 3com Network SNMP
 ---
 import Tabs from '@theme/Tabs';

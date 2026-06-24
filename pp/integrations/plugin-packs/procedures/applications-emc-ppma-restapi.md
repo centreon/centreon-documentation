@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-emc-ppma-restapi
+slug: /applications-emc-ppma-restapi
 title: EMC PPMA Rest API
 ---
 import Tabs from '@theme/Tabs';

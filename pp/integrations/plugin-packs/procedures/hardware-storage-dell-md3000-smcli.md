@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-dell-md3000-smcli
+slug: /hardware-storage-dell-md3000-smcli
 title: Dell MD3000 SMcli
 ---
 import Tabs from '@theme/Tabs';

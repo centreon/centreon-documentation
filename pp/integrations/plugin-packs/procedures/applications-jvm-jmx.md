@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-jvm-jmx
+slug: /applications-jvm-jmx
 title: JVM JMX
 ---
 import Tabs from '@theme/Tabs';

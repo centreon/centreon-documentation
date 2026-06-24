@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-polycom-rprm-snmp
+slug: /hardware-devices-polycom-rprm-snmp
 title: Polycom RPRM SNMP
 ---
 import Tabs from '@theme/Tabs';

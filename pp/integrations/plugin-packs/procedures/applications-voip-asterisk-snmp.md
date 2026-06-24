@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-voip-asterisk-snmp
+slug: /applications-voip-asterisk-snmp
 title: Asterisk VoIP SNMP
 ---
 import Tabs from '@theme/Tabs';

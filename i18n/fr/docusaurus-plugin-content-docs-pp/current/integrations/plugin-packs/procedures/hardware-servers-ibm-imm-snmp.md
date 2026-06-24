@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-ibm-imm-snmp
+slug: /hardware-servers-ibm-imm-snmp
 title: IBM IMM SNMP
 ---
 import Tabs from '@theme/Tabs';

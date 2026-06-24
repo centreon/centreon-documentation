@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-bgp-snmp
+slug: /applications-protocol-bgp-snmp
 title: BGP Protocol SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-emc-unisphere-restapi
+slug: /hardware-storage-emc-unisphere-restapi
 title: EMC Unisphere Rest API
 ---
 import Tabs from '@theme/Tabs';

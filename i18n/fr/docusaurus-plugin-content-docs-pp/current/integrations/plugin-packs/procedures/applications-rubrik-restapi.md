@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-rubrik-restapi
+slug: /applications-rubrik-restapi
 title: Rubrik Rest API
 ---
 import Tabs from '@theme/Tabs';

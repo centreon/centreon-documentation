@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-elb
+slug: /cloud-aws-elb
 title: AWS ELB
 ---
 import Tabs from '@theme/Tabs';

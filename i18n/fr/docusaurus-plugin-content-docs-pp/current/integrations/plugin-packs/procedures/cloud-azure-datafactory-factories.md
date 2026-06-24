@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-datafactory-factories
+slug: /cloud-azure-datafactory-factories
 title: Azure Data Factory
 ---
 import Tabs from '@theme/Tabs';

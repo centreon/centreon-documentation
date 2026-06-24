@@ -1,5 +1,6 @@
----
+﻿---
 id: network-aruba-cppm-snmp
+slug: /network-aruba-cppm-snmp
 title: Aruba CPPM SNMP
 ---
 import Tabs from '@theme/Tabs';

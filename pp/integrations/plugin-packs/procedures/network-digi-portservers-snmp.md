@@ -1,5 +1,6 @@
----
+﻿---
 id: network-digi-portservers-snmp
+slug: /network-digi-portservers-snmp
 title: Digi PortServers TS (deprecated)
 ---
 

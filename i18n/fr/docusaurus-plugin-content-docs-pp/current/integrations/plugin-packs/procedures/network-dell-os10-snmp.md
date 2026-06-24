@@ -1,5 +1,6 @@
----
+﻿---
 id: network-dell-os10-snmp
+slug: /network-dell-os10-snmp
 title: Dell OS10 SNMP
 ---
 import Tabs from '@theme/Tabs';

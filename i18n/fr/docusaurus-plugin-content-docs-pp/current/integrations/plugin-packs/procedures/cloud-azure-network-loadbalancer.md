@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-loadbalancer
+slug: /cloud-azure-network-loadbalancer
 title: Azure Load Balancer
 ---
 import Tabs from '@theme/Tabs';

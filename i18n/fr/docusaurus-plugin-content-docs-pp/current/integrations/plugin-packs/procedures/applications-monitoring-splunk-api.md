@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-splunk-api
+slug: /applications-monitoring-splunk-api
 title: Splunk
 ---
 import Tabs from '@theme/Tabs';

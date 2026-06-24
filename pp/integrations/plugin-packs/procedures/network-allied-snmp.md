@@ -1,5 +1,6 @@
----
+﻿---
 id: network-allied-snmp
+slug: /network-allied-snmp
 title: Allied Telesis SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-iplabel-newtest-restapi
+slug: /applications-monitoring-iplabel-newtest-restapi
 title: IP-Label Newtest Rest API
 ---
 import Tabs from '@theme/Tabs';

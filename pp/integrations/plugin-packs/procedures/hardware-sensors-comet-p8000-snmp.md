@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-comet-p8000-snmp
+slug: /hardware-sensors-comet-p8000-snmp
 title: Comet P8000 Sensor SNMP
 ---
 import Tabs from '@theme/Tabs';

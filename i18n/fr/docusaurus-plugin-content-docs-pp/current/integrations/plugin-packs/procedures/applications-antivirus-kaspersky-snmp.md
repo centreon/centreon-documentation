@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-antivirus-kaspersky-snmp
+slug: /applications-antivirus-kaspersky-snmp
 title: Kaspersky
 ---
 import Tabs from '@theme/Tabs';

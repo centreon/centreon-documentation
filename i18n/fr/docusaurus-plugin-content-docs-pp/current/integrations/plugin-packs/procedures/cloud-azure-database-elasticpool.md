@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-database-elasticpool
+slug: /cloud-azure-database-elasticpool
 title: Azure Elastic Pool
 ---
 import Tabs from '@theme/Tabs';

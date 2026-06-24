@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-gcp-storage
+slug: /cloud-gcp-storage
 title: Google Storage
 ---
 import Tabs from '@theme/Tabs';

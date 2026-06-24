@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-kinesis
+slug: /cloud-aws-kinesis
 title: Amazon Kinesis
 ---
 import Tabs from '@theme/Tabs';

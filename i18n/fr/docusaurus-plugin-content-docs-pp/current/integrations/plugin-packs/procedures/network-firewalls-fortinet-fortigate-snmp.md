@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-fortinet-fortigate-snmp
+slug: /network-firewalls-fortinet-fortigate-snmp
 title: Fortinet Fortigate SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-hyperv-nscp-restapi
+slug: /virtualization-hyperv-nscp-restapi
 title: Hyper-V NSCP Rest API
 ---
 import Tabs from '@theme/Tabs';

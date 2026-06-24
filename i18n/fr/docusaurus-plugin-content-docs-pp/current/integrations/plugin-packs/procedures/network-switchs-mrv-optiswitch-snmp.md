@@ -1,5 +1,6 @@
----
+﻿---
 id: network-switchs-mrv-optiswitch-snmp
+slug: /network-switchs-mrv-optiswitch-snmp
 title: Mrv Optiswitch SNMP
 ---
 import Tabs from '@theme/Tabs';

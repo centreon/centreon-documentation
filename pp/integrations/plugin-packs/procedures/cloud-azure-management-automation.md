@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-management-automation
+slug: /cloud-azure-management-automation
 title: Azure Automation
 ---
 import Tabs from '@theme/Tabs';

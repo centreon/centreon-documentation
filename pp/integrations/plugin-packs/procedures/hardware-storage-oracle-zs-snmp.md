@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-oracle-zs-snmp
+slug: /hardware-storage-oracle-zs-snmp
 title: Oracle ZS SNMP
 ---
 import Tabs from '@theme/Tabs';

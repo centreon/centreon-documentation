@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-pdu-schleifenbauer-gateway-snmp
+slug: /hardware-pdu-schleifenbauer-gateway-snmp
 title: Schleifenbauer Gateway SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-rudder-restapi
+slug: /applications-rudder-restapi
 title: Rudder
 ---
 import Tabs from '@theme/Tabs';

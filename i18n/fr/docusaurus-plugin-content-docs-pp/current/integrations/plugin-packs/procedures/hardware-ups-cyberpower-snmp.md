@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-cyberpower-snmp
+slug: /hardware-ups-cyberpower-snmp
 title: CyberPower Systems UPS SNMP
 ---
 import Tabs from '@theme/Tabs';

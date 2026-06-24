@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-microsoft-office365-teams
+slug: /cloud-microsoft-office365-teams
 title: Office365 Teams
 ---
 import Tabs from '@theme/Tabs';

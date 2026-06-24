@@ -1,5 +1,6 @@
----
+﻿---
 id: network-denyall-snmp
+slug: /network-denyall-snmp
 title: DenyAll SNMP (Rohde & Schwarz)
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-switchs-arista-snmp
+slug: /network-switchs-arista-snmp
 title: Arista Switch SNMP
 ---
 import Tabs from '@theme/Tabs';

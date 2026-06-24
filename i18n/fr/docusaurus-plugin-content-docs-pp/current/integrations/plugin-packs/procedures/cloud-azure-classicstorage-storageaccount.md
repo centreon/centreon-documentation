@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-classicstorage-storageaccount
+slug: /cloud-azure-classicstorage-storageaccount
 title: Azure Classic Storage
 ---
 import Tabs from '@theme/Tabs';

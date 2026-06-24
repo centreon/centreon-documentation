@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hp-lefthand-snmp
+slug: /hardware-storage-hp-lefthand-snmp
 title: HP Lefthand SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-versa-director-restapi
+slug: /network-versa-director-restapi
 title: Versa Director Rest API
 ---
 import Tabs from '@theme/Tabs';

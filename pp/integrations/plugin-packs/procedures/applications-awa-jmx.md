@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-awa-jmx
+slug: /applications-awa-jmx
 title: AWA (Automic Workload Automation) JMX
 ---
 import Tabs from '@theme/Tabs';

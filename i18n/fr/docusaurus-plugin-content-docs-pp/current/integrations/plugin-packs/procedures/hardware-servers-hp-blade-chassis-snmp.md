@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-hp-blade-chassis-snmp
+slug: /hardware-servers-hp-blade-chassis-snmp
 title: HP Blade Chassis SNMP
 ---
 import Tabs from '@theme/Tabs';

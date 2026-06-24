@@ -1,5 +1,6 @@
----
+﻿---
 id: network-aruba-aoscx-snmp
+slug: /network-aruba-aoscx-snmp
 title: ArubaOS-CX SNMP
 ---
 import Tabs from '@theme/Tabs';

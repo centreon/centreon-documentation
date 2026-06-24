@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-mac-snmp
+slug: /operatingsystems-mac-snmp
 title: Mac SNMP
 ---
 import Tabs from '@theme/Tabs';

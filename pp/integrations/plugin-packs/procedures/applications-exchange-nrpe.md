@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-exchange-nrpe
+slug: /applications-exchange-nrpe
 title: Microsoft Exchange NSClient NRPE
 ---
 import Tabs from '@theme/Tabs';

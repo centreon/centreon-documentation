@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-openstack-restapi
+slug: /cloud-openstack-restapi
 title: OpenStack RESTAPI
 ---
 import Tabs from '@theme/Tabs';

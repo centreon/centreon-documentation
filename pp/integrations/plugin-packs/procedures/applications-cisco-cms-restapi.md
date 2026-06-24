@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-cisco-cms-restapi
+slug: /applications-cisco-cms-restapi
 title: Cisco CMS
 ---
 import Tabs from '@theme/Tabs';

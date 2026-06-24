@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-latencetech-restapi
+slug: /applications-monitoring-latencetech-restapi
 title: LatenceTech RestAPI
 ---
 import Tabs from '@theme/Tabs';

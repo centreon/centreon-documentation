@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-pexip-infinity-managementapi
+slug: /hardware-devices-pexip-infinity-managementapi
 title: Pexip Infinity ManagementAPI
 ---
 import Tabs from '@theme/Tabs';

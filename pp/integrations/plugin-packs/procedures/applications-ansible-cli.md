@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-ansible-cli
+slug: /applications-ansible-cli
 title: Ansible CLI
 ---
 import Tabs from '@theme/Tabs';

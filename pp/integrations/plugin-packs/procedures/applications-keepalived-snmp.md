@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-keepalived-snmp
+slug: /applications-keepalived-snmp
 title: Keepalived SNMP
 ---
 import Tabs from '@theme/Tabs';

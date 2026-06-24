@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-ironport-snmp
+slug: /network-cisco-ironport-snmp
 title: Cisco IronPort SNMP
 ---
 import Tabs from '@theme/Tabs';

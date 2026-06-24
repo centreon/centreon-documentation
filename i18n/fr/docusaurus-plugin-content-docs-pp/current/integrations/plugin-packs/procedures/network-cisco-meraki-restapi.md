@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-meraki-restapi
+slug: /network-cisco-meraki-restapi
 title: Cisco Meraki Rest API
 ---
 import Tabs from '@theme/Tabs';

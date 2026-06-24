@@ -1,5 +1,6 @@
----
+﻿---
 id: network-switchs-aruba-standard-snmp
+slug: /network-switchs-aruba-standard-snmp
 title: Aruba Standard SNMP
 ---
 import Tabs from '@theme/Tabs';

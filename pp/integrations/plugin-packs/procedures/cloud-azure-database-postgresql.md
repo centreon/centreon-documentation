@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-database-postgresql
+slug: /cloud-azure-database-postgresql
 title: Azure Database for PostgreSQL
 ---
 import Tabs from '@theme/Tabs';

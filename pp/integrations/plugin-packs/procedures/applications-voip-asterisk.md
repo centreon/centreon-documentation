@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-voip-asterisk
+slug: /applications-voip-asterisk
 title: Asterisk VoIP Server (deprecated)
 ---
 

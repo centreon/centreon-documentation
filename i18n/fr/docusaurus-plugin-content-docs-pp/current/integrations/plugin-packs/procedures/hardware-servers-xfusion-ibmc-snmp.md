@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-xfusion-ibmc-snmp
+slug: /hardware-servers-xfusion-ibmc-snmp
 title: xFusion iBMC SNMP
 ---
 import Tabs from '@theme/Tabs';

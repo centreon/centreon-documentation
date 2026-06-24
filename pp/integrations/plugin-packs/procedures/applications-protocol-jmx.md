@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-jmx
+slug: /applications-protocol-jmx
 title: JMX value
 ---
 import Tabs from '@theme/Tabs';

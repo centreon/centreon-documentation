@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-talend-tmc-api
+slug: /cloud-talend-tmc-api
 title: Talend TMC API
 ---
 import Tabs from '@theme/Tabs';

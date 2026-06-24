@@ -1,5 +1,6 @@
----
+﻿---
 id: network-perle-ids-snmp
+slug: /network-perle-ids-snmp
 title: Perle IDS SNMP
 ---
 import Tabs from '@theme/Tabs';

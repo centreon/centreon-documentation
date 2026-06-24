@@ -1,5 +1,6 @@
----
+﻿---
 id: network-oneaccess-snmp
+slug: /network-oneaccess-snmp
 title: OneAccess SNMP
 ---
 import Tabs from '@theme/Tabs';

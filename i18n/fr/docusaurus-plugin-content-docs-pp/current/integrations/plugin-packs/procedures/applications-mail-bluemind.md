@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-mail-bluemind
+slug: /applications-mail-bluemind
 title: BlueMind (déprécié)
 ---
 

@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-cadvisor-api
+slug: /cloud-cadvisor-api
 title: cAdvisor API
 ---
 import Tabs from '@theme/Tabs';

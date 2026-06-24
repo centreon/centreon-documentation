@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-docker-ssh
+slug: /applications-docker-ssh
 title: Docker SSH
 ---
 import Tabs from '@theme/Tabs';

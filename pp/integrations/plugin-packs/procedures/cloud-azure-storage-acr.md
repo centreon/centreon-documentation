@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-storage-acr
+slug: /cloud-azure-storage-acr
 title: Azure Container Registry
 ---
 import Tabs from '@theme/Tabs';

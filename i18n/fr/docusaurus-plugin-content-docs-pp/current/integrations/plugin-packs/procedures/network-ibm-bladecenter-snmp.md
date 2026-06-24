@@ -1,5 +1,6 @@
----
+﻿---
 id: network-ibm-bladecenter-snmp
+slug: /network-ibm-bladecenter-snmp
 title: IBM Bladecenter Switch SNMP
 ---
 import Tabs from '@theme/Tabs';

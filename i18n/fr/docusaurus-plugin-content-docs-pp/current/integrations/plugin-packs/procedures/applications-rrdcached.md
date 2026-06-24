@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-rrdcached
+slug: /applications-rrdcached
 title: RRDCached
 ---
 import Tabs from '@theme/Tabs';

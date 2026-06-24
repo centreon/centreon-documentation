@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-prometheus-alertmanager-api
+slug: /cloud-prometheus-alertmanager-api
 title: Prometheus Alertmanager API
 ---
 import Tabs from '@theme/Tabs';

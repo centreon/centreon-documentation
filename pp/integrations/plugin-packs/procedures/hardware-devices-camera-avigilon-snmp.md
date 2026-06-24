@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-camera-avigilon-snmp
+slug: /hardware-devices-camera-avigilon-snmp
 title: Avigilon camera SNMP
 ---
 import Tabs from '@theme/Tabs';

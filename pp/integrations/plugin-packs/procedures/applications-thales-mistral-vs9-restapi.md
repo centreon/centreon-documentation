@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-thales-mistral-vs9-restapi
+slug: /applications-thales-mistral-vs9-restapi
 title: Thales Mistral VS9 Rest API
 ---
 import Tabs from '@theme/Tabs';

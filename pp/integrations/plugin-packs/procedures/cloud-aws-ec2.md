@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-ec2
+slug: /cloud-aws-ec2
 title: Amazon EC2
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-mscs-nrpe
+slug: /applications-mscs-nrpe
 title: Microsoft Cluster Server NSClient++ NRPE
 ---
 import Tabs from '@theme/Tabs';

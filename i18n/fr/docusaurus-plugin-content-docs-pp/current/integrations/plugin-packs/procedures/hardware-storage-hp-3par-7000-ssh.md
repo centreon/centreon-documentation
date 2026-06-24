@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hp-3par-7000-ssh
+slug: /hardware-storage-hp-3par-7000-ssh
 title: HP 3PAR 7000 (déprécié)
 ---
 

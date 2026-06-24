@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-haproxy-web
+slug: /applications-haproxy-web
 title: HAProxy Web API
 ---
 import Tabs from '@theme/Tabs';

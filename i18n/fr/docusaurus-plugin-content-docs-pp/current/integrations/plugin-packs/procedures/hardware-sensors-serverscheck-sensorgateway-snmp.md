@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-serverscheck-sensorgateway-snmp
+slug: /hardware-sensors-serverscheck-sensorgateway-snmp
 title: SensorGateway SNMP
 ---
 import Tabs from '@theme/Tabs';

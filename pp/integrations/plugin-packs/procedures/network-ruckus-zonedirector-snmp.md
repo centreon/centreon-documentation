@@ -1,5 +1,6 @@
----
+﻿---
 id: network-ruckus-zonedirector-snmp
+slug: /network-ruckus-zonedirector-snmp
 title: Ruckus Zonedirector SNMP
 ---
 import Tabs from '@theme/Tabs';

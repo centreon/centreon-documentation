@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-lenovo-iomega-snmp
+slug: /hardware-storage-lenovo-iomega-snmp
 title: Lenovo Iomega SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-hp-ilo-restapi
+slug: /hardware-servers-hp-ilo-restapi
 title: HP iLO Rest API
 ---
 import Tabs from '@theme/Tabs';

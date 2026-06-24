@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-linux-snmpv3
+slug: /operatingsystems-linux-snmpv3
 title: Linux SNMP v3
 ---
 import Tabs from '@theme/Tabs';

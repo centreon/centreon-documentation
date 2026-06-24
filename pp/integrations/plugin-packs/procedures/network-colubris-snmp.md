@@ -1,5 +1,6 @@
----
+﻿---
 id: network-colubris-snmp
+slug: /network-colubris-snmp
 title: Colubris SNMP
 ---
 import Tabs from '@theme/Tabs';

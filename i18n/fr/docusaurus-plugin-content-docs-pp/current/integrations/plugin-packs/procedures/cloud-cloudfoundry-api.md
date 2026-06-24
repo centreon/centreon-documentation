@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-cloudfoundry-api
+slug: /cloud-cloudfoundry-api
 title: Cloud Foundry API
 ---
 import Tabs from '@theme/Tabs';

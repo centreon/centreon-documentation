@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-management-recovery
+slug: /cloud-azure-management-recovery
 title: Azure Recovery
 ---
 import Tabs from '@theme/Tabs';

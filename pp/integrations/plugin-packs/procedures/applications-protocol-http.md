@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-http
+slug: /applications-protocol-http
 title: HTTP Server
 ---
 import Tabs from '@theme/Tabs';

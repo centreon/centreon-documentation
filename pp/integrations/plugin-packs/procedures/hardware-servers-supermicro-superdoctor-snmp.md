@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-supermicro-superdoctor-snmp
+slug: /hardware-servers-supermicro-superdoctor-snmp
 title: Supermicro SuperDoctor SNMP
 ---
 

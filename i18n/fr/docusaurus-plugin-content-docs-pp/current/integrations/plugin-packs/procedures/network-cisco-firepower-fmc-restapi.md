@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-firepower-fmc-restapi
+slug: /network-cisco-firepower-fmc-restapi
 title: Cisco Firepower Management Console Rest API
 ---
 import Tabs from '@theme/Tabs';

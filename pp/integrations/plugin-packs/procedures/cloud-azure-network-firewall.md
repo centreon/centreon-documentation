@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-firewall
+slug: /cloud-azure-network-firewall
 title: Azure Firewall
 ---
 import Tabs from '@theme/Tabs';

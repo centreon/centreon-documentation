@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-mscs-cma
+slug: /applications-mscs-cma
 title: Microsoft Cluster Server CMA
 ---
 import Tabs from '@theme/Tabs';

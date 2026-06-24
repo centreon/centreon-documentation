@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-phoenixtec-snmp
+slug: /hardware-ups-phoenixtec-snmp
 title: Phoenixtec UPS SNMP
 ---
 import Tabs from '@theme/Tabs';

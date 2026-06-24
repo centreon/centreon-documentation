@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-pacemaker-ssh
+slug: /applications-pacemaker-ssh
 title: Pacemaker
 ---
 import Tabs from '@theme/Tabs';

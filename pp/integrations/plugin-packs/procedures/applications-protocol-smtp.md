@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-smtp
+slug: /applications-protocol-smtp
 title: SMTP Server
 ---
 import Tabs from '@theme/Tabs';

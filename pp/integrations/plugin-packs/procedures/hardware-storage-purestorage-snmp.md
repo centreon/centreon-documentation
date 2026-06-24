@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-purestorage-snmp
+slug: /hardware-storage-purestorage-snmp
 title: Pure Storage SNMP
 ---
 import Tabs from '@theme/Tabs';

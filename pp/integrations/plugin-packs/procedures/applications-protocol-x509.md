@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-x509
+slug: /applications-protocol-x509
 title: X509 Certificate
 ---
 import Tabs from '@theme/Tabs';

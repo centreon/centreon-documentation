@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-camera-mobotix-snmp
+slug: /hardware-devices-camera-mobotix-snmp
 title: Mobotix Camera SNMP
 ---
 import Tabs from '@theme/Tabs';

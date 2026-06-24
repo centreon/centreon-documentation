@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-veeam-nsclient-05-restapi
+slug: /applications-veeam-nsclient-05-restapi
 title: Veeam NSClient++ API
 ---
 import Tabs from '@theme/Tabs';

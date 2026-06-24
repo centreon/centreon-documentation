@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-vtom-restapi
+slug: /applications-vtom-restapi
 title: Absyss VTOM Rest API
 ---
 import Tabs from '@theme/Tabs';

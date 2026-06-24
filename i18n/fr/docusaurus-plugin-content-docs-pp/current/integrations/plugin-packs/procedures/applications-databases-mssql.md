@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-mssql
+slug: /applications-databases-mssql
 title: Microsoft SQL Server
 ---
 import Tabs from '@theme/Tabs';

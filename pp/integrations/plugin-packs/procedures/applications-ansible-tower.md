@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-ansible-tower
+slug: /applications-ansible-tower
 title: Ansible Tower
 ---
 import Tabs from '@theme/Tabs';

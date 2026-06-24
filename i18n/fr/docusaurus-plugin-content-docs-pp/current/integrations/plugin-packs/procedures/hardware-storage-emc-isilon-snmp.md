@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-emc-isilon-snmp
+slug: /hardware-storage-emc-isilon-snmp
 title: EMC Isilon SNMP
 ---
 import Tabs from '@theme/Tabs';

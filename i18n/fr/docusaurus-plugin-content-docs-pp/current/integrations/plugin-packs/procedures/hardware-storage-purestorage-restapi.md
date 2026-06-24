@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-purestorage-restapi
+slug: /hardware-storage-purestorage-restapi
 title: Pure Storage RestAPI (Deprecated)
 ---
 

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-hpe-athonet-alertmanager-api
+slug: /network-hpe-athonet-alertmanager-api
 title: HPE Athonet Alertmanager w/ Prometheus
 ---
 import Tabs from '@theme/Tabs';

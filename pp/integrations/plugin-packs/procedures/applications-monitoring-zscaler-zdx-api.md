@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-zscaler-zdx-api
+slug: /applications-monitoring-zscaler-zdx-api
 title: Zscaler ZDX API
 ---
 import Tabs from '@theme/Tabs';

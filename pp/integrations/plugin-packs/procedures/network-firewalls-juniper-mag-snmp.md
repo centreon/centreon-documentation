@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-juniper-mag-snmp
+slug: /network-firewalls-juniper-mag-snmp
 title: Juniper Mag SNMP
 ---
 import Tabs from '@theme/Tabs';

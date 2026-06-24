@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-netapp-snmp
+slug: /hardware-storage-netapp-snmp
 title: Netapp SNMP (deprecated)
 ---
 

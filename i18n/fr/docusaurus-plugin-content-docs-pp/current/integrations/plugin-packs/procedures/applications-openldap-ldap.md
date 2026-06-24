@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-openldap-ldap
+slug: /applications-openldap-ldap
 title: OpenLDAP
 ---
 import Tabs from '@theme/Tabs';

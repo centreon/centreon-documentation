@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-ntp
+slug: /applications-protocol-ntp
 title: NTP Server
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-skype-2015-mssql
+slug: /applications-skype-2015-mssql
 title: Skype 2015
 ---
 import Tabs from '@theme/Tabs';

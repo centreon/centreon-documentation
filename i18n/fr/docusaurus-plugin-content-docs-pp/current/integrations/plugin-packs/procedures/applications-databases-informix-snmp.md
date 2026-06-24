@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-informix-snmp
+slug: /applications-databases-informix-snmp
 title: Informix DB SNMP
 ---
 import Tabs from '@theme/Tabs';

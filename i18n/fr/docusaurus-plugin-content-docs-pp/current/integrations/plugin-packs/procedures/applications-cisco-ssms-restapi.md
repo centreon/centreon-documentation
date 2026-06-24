@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-cisco-ssms-restapi
+slug: /applications-cisco-ssms-restapi
 title: Cisco SSMS
 ---
 import Tabs from '@theme/Tabs';

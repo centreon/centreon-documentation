@@ -1,5 +1,6 @@
----
+﻿---
 id: network-switchs-cisco-smallbusiness-standard-snmp
+slug: /network-switchs-cisco-smallbusiness-standard-snmp
 title: Cisco Small Business SNMP
 ---
 import Tabs from '@theme/Tabs';

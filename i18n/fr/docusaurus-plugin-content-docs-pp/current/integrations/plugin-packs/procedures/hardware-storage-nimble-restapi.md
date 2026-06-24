@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-nimble-restapi
+slug: /hardware-storage-nimble-restapi
 title: Nimble Storage Rest API
 ---
 import Tabs from '@theme/Tabs';

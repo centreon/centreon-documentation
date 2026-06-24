@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-compute-aks
+slug: /cloud-azure-compute-aks
 title: Azure Kubernetes Service
 ---
 import Tabs from '@theme/Tabs';

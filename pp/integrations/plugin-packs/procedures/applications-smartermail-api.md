@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-smartermail-api
+slug: /applications-smartermail-api
 title: Smartermail Server
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-veeam-centreon-monitoring-agent
+slug: /applications-veeam-centreon-monitoring-agent
 title: Veeam CMA
 ---
 import Tabs from '@theme/Tabs';

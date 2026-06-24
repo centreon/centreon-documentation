@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-ses
+slug: /cloud-aws-ses
 title: Amazon SES
 ---
 import Tabs from '@theme/Tabs';

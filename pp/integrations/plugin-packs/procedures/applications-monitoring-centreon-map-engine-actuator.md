@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-centreon-map-engine-actuator
+slug: /applications-monitoring-centreon-map-engine-actuator
 title: Centreon Map Engine
 ---
 import Tabs from '@theme/Tabs';

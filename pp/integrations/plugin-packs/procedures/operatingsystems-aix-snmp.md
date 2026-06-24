@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-aix-snmp
+slug: /operatingsystems-aix-snmp
 title: AIX SNMP
 ---
 import Tabs from '@theme/Tabs';

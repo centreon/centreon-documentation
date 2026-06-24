@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-telephony-avaya-mediagateway-snmp
+slug: /hardware-telephony-avaya-mediagateway-snmp
 title: Avaya Media Gateway SNMP
 ---
 import Tabs from '@theme/Tabs';

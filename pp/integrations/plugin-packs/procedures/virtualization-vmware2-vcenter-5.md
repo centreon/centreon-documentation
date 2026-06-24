@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-vmware2-vcenter-5
+slug: /virtualization-vmware2-vcenter-5
 title: VMware vCenter v5 (deprecated)
 ---
 import Tabs from '@theme/Tabs';

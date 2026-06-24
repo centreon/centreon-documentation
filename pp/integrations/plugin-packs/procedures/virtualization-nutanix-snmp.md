@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-nutanix-snmp
+slug: /virtualization-nutanix-snmp
 title: Nutanix SNMP
 ---
 import Tabs from '@theme/Tabs';

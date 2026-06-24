@@ -1,5 +1,6 @@
----
+﻿---
 id: network-hpe-athonet-node-exporter-api
+slug: /network-hpe-athonet-node-exporter-api
 title: HPE Athonet w/ Prometheus API
 ---
 import Tabs from '@theme/Tabs';

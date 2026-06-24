@@ -1,5 +1,6 @@
----
+﻿---
 id: network-symbol-wing-snmp
+slug: /network-symbol-wing-snmp
 title: Symbol WiNG SNMP
 ---
 import Tabs from '@theme/Tabs';

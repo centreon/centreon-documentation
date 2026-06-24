@@ -1,5 +1,6 @@
----
+﻿---
 id: network-acmepacket-snmp
+slug: /network-acmepacket-snmp
 title: Acme Packet SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: blockchain-hyperledger-exporter
+slug: /blockchain-hyperledger-exporter
 title: Hyperledger API
 ---
 import Tabs from '@theme/Tabs';

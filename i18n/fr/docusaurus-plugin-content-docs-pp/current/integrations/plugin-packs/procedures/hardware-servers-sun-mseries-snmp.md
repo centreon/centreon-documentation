@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-sun-mseries-snmp
+slug: /hardware-servers-sun-mseries-snmp
 title: Sun Mseries SNMP
 ---
 import Tabs from '@theme/Tabs';

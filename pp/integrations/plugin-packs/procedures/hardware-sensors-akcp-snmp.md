@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-akcp-snmp
+slug: /hardware-sensors-akcp-snmp
 title: AKCP Sensor SNMP
 ---
 import Tabs from '@theme/Tabs';

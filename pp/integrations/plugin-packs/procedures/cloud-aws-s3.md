@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-s3
+slug: /cloud-aws-s3
 title: Amazon S3
 ---
 import Tabs from '@theme/Tabs';

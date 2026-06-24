@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-management-costs
+slug: /cloud-azure-management-costs
 title: Azure Management Costs
 ---
 import Tabs from '@theme/Tabs';

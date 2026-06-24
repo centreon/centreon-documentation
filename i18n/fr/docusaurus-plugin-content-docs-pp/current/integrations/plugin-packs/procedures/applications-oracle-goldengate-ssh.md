@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-oracle-goldengate-ssh
+slug: /applications-oracle-goldengate-ssh
 title: Oracle GoldenGate SSH
 ---
 import Tabs from '@theme/Tabs';

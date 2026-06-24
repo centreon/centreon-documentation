@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-proxmox-mg-api
+slug: /applications-proxmox-mg-api
 title: Proxmox Mail Gateway
 ---
 import Tabs from '@theme/Tabs';

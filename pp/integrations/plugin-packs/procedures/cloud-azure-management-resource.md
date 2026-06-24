@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-management-resource
+slug: /cloud-azure-management-resource
 title: Azure Resource
 ---
 import Tabs from '@theme/Tabs';

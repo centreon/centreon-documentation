@@ -1,5 +1,6 @@
----
+﻿---
 id: network-stormshield-ssh
+slug: /network-stormshield-ssh
 title: Stormshield SSH
 ---
 import Tabs from '@theme/Tabs';

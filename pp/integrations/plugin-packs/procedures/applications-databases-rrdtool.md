@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-rrdtool
+slug: /applications-databases-rrdtool
 title: RRDtool
 ---
 import Tabs from '@theme/Tabs';

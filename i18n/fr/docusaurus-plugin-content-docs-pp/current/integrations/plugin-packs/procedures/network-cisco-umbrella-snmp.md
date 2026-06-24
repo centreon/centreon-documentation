@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-umbrella-snmp
+slug: /network-cisco-umbrella-snmp
 title: Cisco Umbrella SNMP
 ---
 import Tabs from '@theme/Tabs';

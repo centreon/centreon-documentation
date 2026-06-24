@@ -1,5 +1,6 @@
----
+﻿---
 id: network-dell-n4000
+slug: /network-dell-n4000
 title: Dell N4000 (deprecated)
 ---
 

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-barracuda-cloudgen-snmp
+slug: /network-barracuda-cloudgen-snmp
 title: Barracuda Cloudgen SNMP
 ---
 import Tabs from '@theme/Tabs';

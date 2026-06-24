@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-hddtemp-tcp
+slug: /applications-hddtemp-tcp
 title: Hddtemp TCP
 ---
 import Tabs from '@theme/Tabs';

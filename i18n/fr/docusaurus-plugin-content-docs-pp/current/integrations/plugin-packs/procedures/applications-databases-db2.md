@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-db2
+slug: /applications-databases-db2
 title: DB2 Database
 ---
 import Tabs from '@theme/Tabs';

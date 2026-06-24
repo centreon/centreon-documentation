@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-security-keyvault
+slug: /cloud-azure-security-keyvault
 title: Azure Key Vault
 ---
 import Tabs from '@theme/Tabs';

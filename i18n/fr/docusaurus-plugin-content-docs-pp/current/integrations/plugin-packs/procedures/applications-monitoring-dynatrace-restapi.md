@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-dynatrace-restapi
+slug: /applications-monitoring-dynatrace-restapi
 title: Dynatrace Rest API
 ---
 import Tabs from '@theme/Tabs';

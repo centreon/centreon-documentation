@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-gcp-management-stackdriver
+slug: /cloud-gcp-management-stackdriver
 title: Google Stackdriver
 ---
 import Tabs from '@theme/Tabs';

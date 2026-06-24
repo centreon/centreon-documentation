@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-vmware2-vm
+slug: /virtualization-vmware2-vm
 title: VMware VM
 ---
 import Tabs from '@theme/Tabs';

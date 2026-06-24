@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-kadiska-restapi
+slug: /applications-monitoring-kadiska-restapi
 title: Kadiska Rest API
 ---
 import Tabs from '@theme/Tabs';

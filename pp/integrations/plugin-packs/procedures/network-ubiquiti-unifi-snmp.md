@@ -1,5 +1,6 @@
----
+﻿---
 id: network-ubiquiti-unifi-snmp
+slug: /network-ubiquiti-unifi-snmp
 title: Ubiquiti UniFi SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-emc-datadomain-snmp
+slug: /hardware-storage-emc-datadomain-snmp
 title: EMC Data Domain SNMP
 ---
 import Tabs from '@theme/Tabs';

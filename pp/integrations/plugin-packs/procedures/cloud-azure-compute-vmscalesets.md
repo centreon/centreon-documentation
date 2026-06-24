@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-compute-vmscalesets
+slug: /cloud-azure-compute-vmscalesets
 title: Azure Virtual Machine Scale Sets
 ---
 import Tabs from '@theme/Tabs';

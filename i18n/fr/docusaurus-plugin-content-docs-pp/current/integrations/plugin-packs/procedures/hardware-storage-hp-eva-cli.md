@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hp-eva-cli
+slug: /hardware-storage-hp-eva-cli
 title: HP EVA Cli
 ---
 import Tabs from '@theme/Tabs';

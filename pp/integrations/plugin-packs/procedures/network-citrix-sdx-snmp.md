@@ -1,5 +1,6 @@
----
+﻿---
 id: network-citrix-sdx-snmp
+slug: /network-citrix-sdx-snmp
 title: Citrix SDX
 ---
 import Tabs from '@theme/Tabs';

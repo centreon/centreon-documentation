@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-oracle-ucp-jmx
+slug: /applications-oracle-ucp-jmx
 title: Oracle UCP JMX
 ---
 import Tabs from '@theme/Tabs';

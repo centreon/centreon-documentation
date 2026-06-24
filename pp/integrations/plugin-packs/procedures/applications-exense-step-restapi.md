@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-exense-step-restapi
+slug: /applications-exense-step-restapi
 title: Exense Step REST API
 ---
 import Tabs from '@theme/Tabs';

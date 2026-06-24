@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-redis-cli
+slug: /applications-redis-cli
 title: Redis Cli (déprécié)
 ---
 

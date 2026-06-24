@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-transitgateway
+slug: /cloud-aws-transitgateway
 title: AWS Transit Gateway
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-emc-vplex-restapi
+slug: /hardware-storage-emc-vplex-restapi
 title: EMC Vplex Rest API
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-dell-cmc-snmp
+slug: /hardware-servers-dell-cmc-snmp
 title: Dell CMC SNMP
 ---
 import Tabs from '@theme/Tabs';

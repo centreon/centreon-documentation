@@ -1,5 +1,6 @@
----
+﻿---
 id: network-watchguard-snmp
+slug: /network-watchguard-snmp
 title: Watchguard SNMP
 ---
 import Tabs from '@theme/Tabs';

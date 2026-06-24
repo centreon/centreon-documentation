@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-jmeter
+slug: /applications-jmeter
 title: JMeter
 ---
 import Tabs from '@theme/Tabs';

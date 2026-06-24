@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-web-appserviceplan
+slug: /cloud-azure-web-appserviceplan
 title: Azure App Service Plan
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-silverpeak-snmp
+slug: /network-silverpeak-snmp
 title: Silverpeak SNMP
 ---
 import Tabs from '@theme/Tabs';

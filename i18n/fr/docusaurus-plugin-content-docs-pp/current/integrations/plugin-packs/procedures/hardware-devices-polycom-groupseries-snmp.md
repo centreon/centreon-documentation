@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-polycom-groupseries-snmp
+slug: /hardware-devices-polycom-groupseries-snmp
 title: Polycom GroupSeries SNMP
 ---
 import Tabs from '@theme/Tabs';

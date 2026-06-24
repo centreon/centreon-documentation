@@ -1,5 +1,6 @@
----
+﻿---
 id: network-switchs-dell-xseries-snmp
+slug: /network-switchs-dell-xseries-snmp
 title: Dell Xseries SNMP
 ---
 import Tabs from '@theme/Tabs';

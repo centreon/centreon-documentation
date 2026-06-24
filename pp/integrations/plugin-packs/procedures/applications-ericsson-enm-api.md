@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-ericsson-enm-api
+slug: /applications-ericsson-enm-api
 title: Ericsson ENM API
 ---
 import Tabs from '@theme/Tabs';

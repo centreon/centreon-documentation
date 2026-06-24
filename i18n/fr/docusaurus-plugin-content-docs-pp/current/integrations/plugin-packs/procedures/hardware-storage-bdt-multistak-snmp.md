@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-bdt-multistak-snmp
+slug: /hardware-storage-bdt-multistak-snmp
 title: BDT MultiStak SNMP
 ---
 import Tabs from '@theme/Tabs';

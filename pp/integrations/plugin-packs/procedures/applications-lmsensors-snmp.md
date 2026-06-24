@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-lmsensors-snmp
+slug: /applications-lmsensors-snmp
 title: LM Sensors SNMP
 ---
 import Tabs from '@theme/Tabs';

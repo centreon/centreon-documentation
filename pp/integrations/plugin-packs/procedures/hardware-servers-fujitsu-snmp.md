@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-fujitsu-snmp
+slug: /hardware-servers-fujitsu-snmp
 title: Fujitsu Server SNMP
 ---
 import Tabs from '@theme/Tabs';

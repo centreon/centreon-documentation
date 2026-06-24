@@ -1,5 +1,6 @@
----
+﻿---
 id: network-sonus-sbc-snmp
+slug: /network-sonus-sbc-snmp
 title: Sonus SBC SNMP
 ---
 import Tabs from '@theme/Tabs';

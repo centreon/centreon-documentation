@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-cisco-dnac-restapi
+slug: /applications-cisco-dnac-restapi
 title: Cisco DNA Center Rest API
 ---
 import Tabs from '@theme/Tabs';

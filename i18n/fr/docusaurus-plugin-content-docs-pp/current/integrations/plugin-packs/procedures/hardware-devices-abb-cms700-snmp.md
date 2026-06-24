@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-abb-cms700-snmp
+slug: /hardware-devices-abb-cms700-snmp
 title: ABB CMS-700 SNMP
 ---
 import Tabs from '@theme/Tabs';

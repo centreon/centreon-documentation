@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-storagetek-sl-snmp
+slug: /hardware-storage-storagetek-sl-snmp
 title: Storagetek SL SNMP
 ---
 import Tabs from '@theme/Tabs';

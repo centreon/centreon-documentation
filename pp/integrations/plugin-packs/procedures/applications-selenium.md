@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-selenium
+slug: /applications-selenium
 title: Selenium
 ---
 import Tabs from '@theme/Tabs';

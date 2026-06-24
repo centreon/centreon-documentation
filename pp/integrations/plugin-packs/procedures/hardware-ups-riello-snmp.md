@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-riello-snmp
+slug: /hardware-ups-riello-snmp
 title: Riello UPS SNMP
 ---
 import Tabs from '@theme/Tabs';

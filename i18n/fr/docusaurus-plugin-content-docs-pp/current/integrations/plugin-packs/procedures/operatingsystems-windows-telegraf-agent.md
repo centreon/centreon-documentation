@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-windows-telegraf-agent
+slug: /operatingsystems-windows-telegraf-agent
 title: Windows Telegraf Agent
 ---
 import Tabs from '@theme/Tabs';

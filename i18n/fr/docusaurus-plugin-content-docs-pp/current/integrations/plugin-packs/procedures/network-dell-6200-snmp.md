@@ -1,5 +1,6 @@
----
+﻿---
 id: network-dell-6200-snmp
+slug: /network-dell-6200-snmp
 title: Dell 6200 SNMP
 ---
 import Tabs from '@theme/Tabs';

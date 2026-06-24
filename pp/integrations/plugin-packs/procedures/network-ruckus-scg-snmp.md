@@ -1,5 +1,6 @@
----
+﻿---
 id: network-ruckus-scg-snmp
+slug: /network-ruckus-scg-snmp
 title: Ruckus SCG SNMP
 ---
 import Tabs from '@theme/Tabs';

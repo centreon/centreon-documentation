@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-aix-ssh
+slug: /operatingsystems-aix-ssh
 title: AIX SSH
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-adva-fsp150-snmp
+slug: /network-adva-fsp150-snmp
 title: Adva FSP 150 SNMP
 ---
 import Tabs from '@theme/Tabs';

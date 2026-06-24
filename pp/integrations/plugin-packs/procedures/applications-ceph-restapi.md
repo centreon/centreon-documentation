@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-ceph-restapi
+slug: /applications-ceph-restapi
 title: Ceph Rest API
 ---
 import Tabs from '@theme/Tabs';

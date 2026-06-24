@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-dell-openmanage-snmp
+slug: /hardware-servers-dell-openmanage-snmp
 title: Dell OpenManage SNMP
 ---
 import Tabs from '@theme/Tabs';

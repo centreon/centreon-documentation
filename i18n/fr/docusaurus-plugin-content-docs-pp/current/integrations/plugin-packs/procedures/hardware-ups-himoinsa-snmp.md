@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-himoinsa-snmp
+slug: /hardware-ups-himoinsa-snmp
 title: Himoinsa SNMP
 ---
 import Tabs from '@theme/Tabs';

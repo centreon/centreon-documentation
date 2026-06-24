@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-dell-me4-restapi
+slug: /hardware-storage-dell-me4-restapi
 title: Dell ME4 Rest API
 ---
 import Tabs from '@theme/Tabs';

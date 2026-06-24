@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-dell-powerstore-restapi
+slug: /hardware-storage-dell-powerstore-restapi
 title: Dell PowerStore Rest API
 ---
 import Tabs from '@theme/Tabs';

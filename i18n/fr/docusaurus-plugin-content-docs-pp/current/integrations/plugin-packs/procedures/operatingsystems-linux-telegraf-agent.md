@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-linux-telegraf-agent
+slug: /operatingsystems-linux-telegraf-agent
 title: Linux Telegraf Agent
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-bgp
+slug: /applications-protocol-bgp
 title: BGP Protocol (déprécié)
 ---
 

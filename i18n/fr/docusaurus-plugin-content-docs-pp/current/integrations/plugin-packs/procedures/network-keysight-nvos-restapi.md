@@ -1,5 +1,6 @@
----
+﻿---
 id: network-keysight-nvos-restapi
+slug: /network-keysight-nvos-restapi
 title: Keysight NVOS Rest API
 ---
 import Tabs from '@theme/Tabs';

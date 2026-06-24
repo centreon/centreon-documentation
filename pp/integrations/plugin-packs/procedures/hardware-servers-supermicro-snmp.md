@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-supermicro-snmp
+slug: /hardware-servers-supermicro-snmp
 title: Supermicro (deprecated)
 ---
 

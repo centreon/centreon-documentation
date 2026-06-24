@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-antivirus-mcafee-webgateway-snmp
+slug: /applications-antivirus-mcafee-webgateway-snmp
 title: McAfee Web Gateway
 ---
 

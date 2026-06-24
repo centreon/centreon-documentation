@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-hms-ewon-snmp
+slug: /hardware-devices-hms-ewon-snmp
 title: HMS Ewon SNMP
 ---
 import Tabs from '@theme/Tabs';

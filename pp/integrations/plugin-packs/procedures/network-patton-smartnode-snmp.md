@@ -1,5 +1,6 @@
----
+﻿---
 id: network-patton-smartnode-snmp
+slug: /network-patton-smartnode-snmp
 title: Patton SmartNode SNMP
 ---
 import Tabs from '@theme/Tabs';

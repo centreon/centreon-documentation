@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-netbotz-snmp
+slug: /hardware-sensors-netbotz-snmp
 title: Netbotz Sensor SNMP
 ---
 import Tabs from '@theme/Tabs';

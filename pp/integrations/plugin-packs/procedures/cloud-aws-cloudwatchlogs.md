@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-cloudwatchlogs
+slug: /cloud-aws-cloudwatchlogs
 title: Amazon CloudWatch Logs
 ---
 import Tabs from '@theme/Tabs';

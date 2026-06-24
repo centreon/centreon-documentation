@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-modbus
+slug: /applications-protocol-modbus
 title: Modbus
 ---
 import Tabs from '@theme/Tabs';

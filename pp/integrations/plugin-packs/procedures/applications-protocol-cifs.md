@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-cifs
+slug: /applications-protocol-cifs
 title: Protocol CIFS
 ---
 import Tabs from '@theme/Tabs';

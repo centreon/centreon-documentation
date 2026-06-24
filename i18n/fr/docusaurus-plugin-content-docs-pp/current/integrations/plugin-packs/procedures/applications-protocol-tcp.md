@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-tcp
+slug: /applications-protocol-tcp
 title: TCP Protocol
 ---
 import Tabs from '@theme/Tabs';

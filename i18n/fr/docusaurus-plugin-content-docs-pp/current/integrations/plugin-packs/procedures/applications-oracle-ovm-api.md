@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-oracle-ovm-api
+slug: /applications-oracle-ovm-api
 title: Oracle VM Manager API
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-dell-omem-snmp
+slug: /hardware-servers-dell-omem-snmp
 title: Dell OME-Modular SNMP
 ---
 import Tabs from '@theme/Tabs';

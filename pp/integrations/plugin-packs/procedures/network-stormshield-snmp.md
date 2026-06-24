@@ -1,5 +1,6 @@
----
+﻿---
 id: network-stormshield-snmp
+slug: /network-stormshield-snmp
 title: Stormshield SNMP
 ---
 import Tabs from '@theme/Tabs';

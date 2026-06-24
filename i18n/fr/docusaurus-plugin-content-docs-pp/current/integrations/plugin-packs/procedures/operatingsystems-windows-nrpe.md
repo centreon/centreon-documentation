@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-windows-nrpe
+slug: /operatingsystems-windows-nrpe
 title: Windows NRPE (déprécié)
 ---
 

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-vmware-vcsa-snmp
+slug: /applications-vmware-vcsa-snmp
 title: VMware VCSA SNMP
 ---
 import Tabs from '@theme/Tabs';

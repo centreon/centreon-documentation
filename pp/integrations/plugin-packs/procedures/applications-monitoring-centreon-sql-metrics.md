@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-centreon-sql-metrics
+slug: /applications-monitoring-centreon-sql-metrics
 title: Centreon SQL Metrics
 ---
 import Tabs from '@theme/Tabs';

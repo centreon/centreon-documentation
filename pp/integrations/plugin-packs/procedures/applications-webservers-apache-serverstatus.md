@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-webservers-apache-serverstatus
+slug: /applications-webservers-apache-serverstatus
 title: Apache Server
 ---
 import Tabs from '@theme/Tabs';

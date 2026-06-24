@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-biztalk
+slug: /applications-biztalk
 title: MS Biztalk
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-nokia-isam-snmp
+slug: /network-nokia-isam-snmp
 title: Nokia Isam SNMP
 ---
 import Tabs from '@theme/Tabs';

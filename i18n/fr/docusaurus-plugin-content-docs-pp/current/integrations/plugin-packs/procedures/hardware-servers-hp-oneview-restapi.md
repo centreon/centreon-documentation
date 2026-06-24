@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-hp-oneview-restapi
+slug: /hardware-servers-hp-oneview-restapi
 title: HP OneView Rest API
 ---
 import Tabs from '@theme/Tabs';

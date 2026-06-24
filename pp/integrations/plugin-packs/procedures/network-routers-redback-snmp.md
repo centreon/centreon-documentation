@@ -1,5 +1,6 @@
----
+﻿---
 id: network-routers-redback-snmp
+slug: /network-routers-redback-snmp
 title: RedBack Router SNMP
 ---
 import Tabs from '@theme/Tabs';

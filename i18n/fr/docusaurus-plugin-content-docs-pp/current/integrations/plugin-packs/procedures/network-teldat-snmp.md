@@ -1,5 +1,6 @@
----
+﻿---
 id: network-teldat-snmp
+slug: /network-teldat-snmp
 title: Teldat SNMP
 ---
 import Tabs from '@theme/Tabs';

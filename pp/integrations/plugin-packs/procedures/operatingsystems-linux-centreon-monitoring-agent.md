@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-linux-centreon-monitoring-agent
+slug: /operatingsystems-linux-centreon-monitoring-agent
 title: Linux CMA
 ---
 import Tabs from '@theme/Tabs';

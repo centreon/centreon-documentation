@@ -1,5 +1,6 @@
----
+﻿---
 id: network-riverbed-steelhead-snmp
+slug: /network-riverbed-steelhead-snmp
 title: Riverbed SteelHead SNMP
 ---
 import Tabs from '@theme/Tabs';

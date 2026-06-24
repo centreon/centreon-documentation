@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-openshift-api
+slug: /cloud-openshift-api
 title: OpenShift API
 ---
 import Tabs from '@theme/Tabs';

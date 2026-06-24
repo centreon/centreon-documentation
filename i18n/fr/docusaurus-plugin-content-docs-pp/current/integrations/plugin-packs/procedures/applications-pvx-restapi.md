@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-pvx-restapi
+slug: /applications-pvx-restapi
 title: PVX
 ---
 import Tabs from '@theme/Tabs';

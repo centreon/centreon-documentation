@@ -1,5 +1,6 @@
----
+﻿---
 id: network-backbox-restapi
+slug: /network-backbox-restapi
 title: Backbox Rest API
 ---
 import Tabs from '@theme/Tabs';

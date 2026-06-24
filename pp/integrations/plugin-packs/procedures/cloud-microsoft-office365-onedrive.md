@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-microsoft-office365-onedrive
+slug: /cloud-microsoft-office365-onedrive
 title: Office 365 OneDrive
 ---
 import Tabs from '@theme/Tabs';

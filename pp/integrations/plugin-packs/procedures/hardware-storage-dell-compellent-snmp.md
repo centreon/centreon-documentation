@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-dell-compellent-snmp
+slug: /hardware-storage-dell-compellent-snmp
 title: Dell Compellent SNMP
 ---
 import Tabs from '@theme/Tabs';

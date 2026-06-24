@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-ssh
+slug: /applications-protocol-ssh
 title: Protocol SSH
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-sccm-nsclient
+slug: /applications-sccm-nsclient
 title: Microsoft SCCM
 ---
 import Tabs from '@theme/Tabs';

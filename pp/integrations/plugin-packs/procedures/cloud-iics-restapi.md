@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-iics-restapi
+slug: /cloud-iics-restapi
 title: IICS Rest API
 ---
 import Tabs from '@theme/Tabs';

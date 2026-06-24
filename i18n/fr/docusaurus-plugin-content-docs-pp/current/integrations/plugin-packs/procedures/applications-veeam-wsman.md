@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-veeam-wsman
+slug: /applications-veeam-wsman
 title: Veeam WSMAN
 ---
 import Tabs from '@theme/Tabs';

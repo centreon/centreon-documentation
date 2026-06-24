@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hp-p2000-xmlapi
+slug: /hardware-storage-hp-p2000-xmlapi
 title: HP P2000 XML API
 ---
 import Tabs from '@theme/Tabs';

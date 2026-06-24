@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-sailpoint-identitynow-restapi
+slug: /applications-sailpoint-identitynow-restapi
 title: SailPoint IdentityNow Rest API
 ---
 import Tabs from '@theme/Tabs';

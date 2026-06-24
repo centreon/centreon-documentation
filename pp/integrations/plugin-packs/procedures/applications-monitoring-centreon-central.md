@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-centreon-central
+slug: /applications-monitoring-centreon-central
 title: Centreon Central
 ---
 import Tabs from '@theme/Tabs';

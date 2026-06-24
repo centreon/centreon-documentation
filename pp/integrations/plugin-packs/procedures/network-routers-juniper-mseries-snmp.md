@@ -1,5 +1,6 @@
----
+﻿---
 id: network-routers-juniper-mseries-snmp
+slug: /network-routers-juniper-mseries-snmp
 title: Juniper M-Series SNMP
 ---
 import Tabs from '@theme/Tabs';

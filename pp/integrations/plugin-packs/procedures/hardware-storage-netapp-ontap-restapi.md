@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-netapp-ontap-restapi
+slug: /hardware-storage-netapp-ontap-restapi
 title: NetApp Ontap Rest API
 ---
 import Tabs from '@theme/Tabs';

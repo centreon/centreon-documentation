@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-apache-cxf-jmx
+slug: /applications-apache-cxf-jmx
 title: Apache CXF
 ---
 import Tabs from '@theme/Tabs';

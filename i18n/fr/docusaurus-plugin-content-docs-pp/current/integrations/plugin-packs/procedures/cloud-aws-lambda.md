@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-lambda
+slug: /cloud-aws-lambda
 title: AWS Lambda
 ---
 import Tabs from '@theme/Tabs';

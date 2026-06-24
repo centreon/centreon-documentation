@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-compute-virtualmachine
+slug: /cloud-azure-compute-virtualmachine
 title: Azure Virtual Machine
 ---
 import Tabs from '@theme/Tabs';

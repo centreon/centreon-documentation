@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-telephony-avaya-cm-snmp
+slug: /hardware-telephony-avaya-cm-snmp
 title: Avaya CM SNMP
 ---
 import Tabs from '@theme/Tabs';

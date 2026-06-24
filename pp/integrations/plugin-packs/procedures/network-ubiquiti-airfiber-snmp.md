@@ -1,5 +1,6 @@
----
+﻿---
 id: network-ubiquiti-airfiber-snmp
+slug: /network-ubiquiti-airfiber-snmp
 title: Ubiquiti AirFiber SNMP
 ---
 import Tabs from '@theme/Tabs';

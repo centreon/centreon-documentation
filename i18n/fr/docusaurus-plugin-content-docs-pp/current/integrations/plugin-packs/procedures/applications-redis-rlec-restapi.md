@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-redis-rlec-restapi
+slug: /applications-redis-rlec-restapi
 title: Redis Labs Enterprise Cluster Rest API
 ---
 import Tabs from '@theme/Tabs';

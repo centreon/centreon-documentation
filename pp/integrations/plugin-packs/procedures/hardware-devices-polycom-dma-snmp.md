@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-polycom-dma-snmp
+slug: /hardware-devices-polycom-dma-snmp
 title: Polycom DMA SNMP
 ---
 import Tabs from '@theme/Tabs';

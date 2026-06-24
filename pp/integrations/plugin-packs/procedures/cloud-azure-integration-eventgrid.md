@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-integration-eventgrid
+slug: /cloud-azure-integration-eventgrid
 title: Azure Event Grid
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-nvidia-gpu-smi-ssh
+slug: /hardware-devices-nvidia-gpu-smi-ssh
 title: NVIDIA GPU SMI SSH
 ---
 import Tabs from '@theme/Tabs';

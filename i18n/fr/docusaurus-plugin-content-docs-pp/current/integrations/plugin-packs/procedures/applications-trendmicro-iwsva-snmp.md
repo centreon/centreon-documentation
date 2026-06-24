@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-trendmicro-iwsva-snmp
+slug: /applications-trendmicro-iwsva-snmp
 title: TrendMicro Iwsva
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-activemq-jmx
+slug: /applications-activemq-jmx
 title: ActiveMQ JMX
 ---
 import Tabs from '@theme/Tabs';

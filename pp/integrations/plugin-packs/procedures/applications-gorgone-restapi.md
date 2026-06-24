@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-gorgone-restapi
+slug: /applications-gorgone-restapi
 title: Gorgone Restapi
 ---
 import Tabs from '@theme/Tabs';

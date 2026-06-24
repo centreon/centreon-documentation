@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-expressroute
+slug: /cloud-azure-network-expressroute
 title: Azure ExpressRoute
 ---
 import Tabs from '@theme/Tabs';

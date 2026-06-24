@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-as400
+slug: /operatingsystems-as400
 title: IBM AS400 (déprécié)
 ---
 

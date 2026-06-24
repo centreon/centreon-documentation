@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-huawei-oceanstor-snmp
+slug: /hardware-storage-huawei-oceanstor-snmp
 title: Huawei OceanStor SNMP
 ---
 import Tabs from '@theme/Tabs';

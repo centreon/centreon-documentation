@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-sqs
+slug: /cloud-aws-sqs
 title: Amazon SQS
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-ovh-restapi
+slug: /cloud-ovh-restapi
 title: OVH Rest API
 ---
 import Tabs from '@theme/Tabs';

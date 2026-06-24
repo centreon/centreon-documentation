@@ -1,5 +1,6 @@
----
+﻿---
 id: network-dell-nseries-snmp
+slug: /network-dell-nseries-snmp
 title: Dell N-series SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-dell-6200
+slug: /network-dell-6200
 title: Dell 6200 (déprécié)
 ---
 

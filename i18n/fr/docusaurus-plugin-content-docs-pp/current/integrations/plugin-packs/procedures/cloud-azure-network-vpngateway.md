@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-vpngateway
+slug: /cloud-azure-network-vpngateway
 title: Azure VPN Gateway
 ---
 import Tabs from '@theme/Tabs';

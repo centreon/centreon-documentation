@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-avid-isis-snmp
+slug: /hardware-storage-avid-isis-snmp
 title: Avid Isis SNMP
 ---
 import Tabs from '@theme/Tabs';

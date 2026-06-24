@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-github-restapi
+slug: /applications-github-restapi
 title: GitHub Rest API
 ---
 import Tabs from '@theme/Tabs';

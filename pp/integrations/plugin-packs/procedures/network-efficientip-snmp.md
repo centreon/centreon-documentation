@@ -1,5 +1,6 @@
----
+﻿---
 id: network-efficientip-snmp
+slug: /network-efficientip-snmp
 title: Efficient IP SNMP
 ---
 import Tabs from '@theme/Tabs';

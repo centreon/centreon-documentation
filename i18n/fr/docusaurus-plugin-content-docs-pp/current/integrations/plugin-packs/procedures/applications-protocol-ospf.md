@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-ospf
+slug: /applications-protocol-ospf
 title: OSPF Protocol
 ---
 import Tabs from '@theme/Tabs';

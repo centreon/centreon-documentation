@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-geist-snmp
+slug: /hardware-sensors-geist-snmp
 title: Geist Sensor SNMP
 ---
 import Tabs from '@theme/Tabs';

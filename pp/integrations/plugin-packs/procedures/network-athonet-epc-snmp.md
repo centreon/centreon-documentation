@@ -1,5 +1,6 @@
----
+﻿---
 id: network-athonet-epc-snmp
+slug: /network-athonet-epc-snmp
 title: Athonet ePC SNMP
 ---
 import Tabs from '@theme/Tabs';

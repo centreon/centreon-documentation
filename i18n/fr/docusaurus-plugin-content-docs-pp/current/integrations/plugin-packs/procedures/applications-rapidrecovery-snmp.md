@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-rapidrecovery-snmp
+slug: /applications-rapidrecovery-snmp
 title: Rapid Recovery SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-radius
+slug: /applications-protocol-radius
 title: Radius Service
 ---
 import Tabs from '@theme/Tabs';

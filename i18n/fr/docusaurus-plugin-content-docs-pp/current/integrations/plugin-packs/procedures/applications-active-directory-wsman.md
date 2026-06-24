@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-active-directory-wsman
+slug: /applications-active-directory-wsman
 title: Microsoft Active Directory WSMAN
 ---
 import Tabs from '@theme/Tabs';

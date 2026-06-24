@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-netbackup-nrpe
+slug: /applications-netbackup-nrpe
 title: Symantec Netbackup NSClient++ NRPE
 ---
 import Tabs from '@theme/Tabs';

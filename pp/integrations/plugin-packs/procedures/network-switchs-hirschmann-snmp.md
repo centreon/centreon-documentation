@@ -1,5 +1,6 @@
----
+﻿---
 id: network-switchs-hirschmann-snmp
+slug: /network-switchs-hirschmann-snmp
 title: Hirschmann switch SNMP
 ---
 import Tabs from '@theme/Tabs';

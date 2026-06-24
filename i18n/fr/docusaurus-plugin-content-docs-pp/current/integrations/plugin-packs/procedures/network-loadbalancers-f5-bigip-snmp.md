@@ -1,5 +1,6 @@
----
+﻿---
 id: network-loadbalancers-f5-bigip-snmp
+slug: /network-loadbalancers-f5-bigip-snmp
 title: F5 BigIP SNMP
 ---
 import Tabs from '@theme/Tabs';

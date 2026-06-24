@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-jboss-jmx
+slug: /applications-jboss-jmx
 title: JBoss Server
 ---
 import Tabs from '@theme/Tabs';

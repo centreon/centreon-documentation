@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-hyperv-2012-cma
+slug: /virtualization-hyperv-2012-cma
 title: Hyper-V 2012 CMA
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-riverbed-interceptor-snmp
+slug: /network-riverbed-interceptor-snmp
 title: Riverbed Interceptor SNMP
 ---
 import Tabs from '@theme/Tabs';

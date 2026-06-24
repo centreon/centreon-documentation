@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-windows-nsclient-05-restapi
+slug: /operatingsystems-windows-nsclient-05-restapi
 title: Windows NSClient API
 ---
 import Tabs from '@theme/Tabs';

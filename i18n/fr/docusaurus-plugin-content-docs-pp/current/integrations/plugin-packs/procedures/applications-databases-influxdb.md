@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-influxdb
+slug: /applications-databases-influxdb
 title: InfluxDB
 ---
 import Tabs from '@theme/Tabs';

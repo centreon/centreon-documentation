@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-prime-restapi
+slug: /network-cisco-prime-restapi
 title: Cisco Prime RestAPI
 ---
 import Tabs from '@theme/Tabs';

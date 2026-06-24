@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-efs
+slug: /cloud-aws-efs
 title: Amazon EFS
 ---
 import Tabs from '@theme/Tabs';

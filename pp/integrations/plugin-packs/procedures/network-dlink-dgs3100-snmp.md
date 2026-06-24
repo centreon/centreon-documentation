@@ -1,5 +1,6 @@
----
+﻿---
 id: network-dlink-dgs3100-snmp
+slug: /network-dlink-dgs3100-snmp
 title: D-Link DGS 3100 SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-emc-symmetrix-nrpe
+slug: /hardware-storage-emc-symmetrix-nrpe
 title: EMC Symmetrix NRPE
 ---
 import Tabs from '@theme/Tabs';

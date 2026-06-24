@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-telephony-avaya-aes-snmp
+slug: /hardware-telephony-avaya-aes-snmp
 title: Avaya AES SNMP
 ---
 import Tabs from '@theme/Tabs';

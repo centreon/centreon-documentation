@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hp-3par-ssh
+slug: /hardware-storage-hp-3par-ssh
 title: HP 3PAR SSH
 ---
 import Tabs from '@theme/Tabs';

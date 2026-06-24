@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-cisco-ces-restapi
+slug: /hardware-devices-cisco-ces-restapi
 title: Cisco Collaboration Endpoint Rest API
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-quanta-restapi
+slug: /applications-monitoring-quanta-restapi
 title: Quanta Rest API (deprecated)
 ---
 import Tabs from '@theme/Tabs';

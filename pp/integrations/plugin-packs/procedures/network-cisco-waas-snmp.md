@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-waas-snmp
+slug: /network-cisco-waas-snmp
 title: Cisco Waas SNMP
 ---
 import Tabs from '@theme/Tabs';

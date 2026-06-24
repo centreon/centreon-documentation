@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-ibm-ts3100-snmp
+slug: /hardware-storage-ibm-ts3100-snmp
 title: IBM TS3100 SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-ipfabric-api
+slug: /applications-ipfabric-api
 title: IP Fabric API
 ---
 import Tabs from '@theme/Tabs';

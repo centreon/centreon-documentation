@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-appgateway
+slug: /cloud-azure-network-appgateway
 title: Azure Application Gateway
 ---
 import Tabs from '@theme/Tabs';

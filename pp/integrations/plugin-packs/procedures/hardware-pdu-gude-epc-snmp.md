@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-pdu-gude-epc-snmp
+slug: /hardware-pdu-gude-epc-snmp
 title: Gude EPC PDU SNMP
 ---
 import Tabs from '@theme/Tabs';

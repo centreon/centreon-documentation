@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-pdu-emerson-snmp
+slug: /hardware-pdu-emerson-snmp
 title: Emerson PDU SNMP
 ---
 import Tabs from '@theme/Tabs';

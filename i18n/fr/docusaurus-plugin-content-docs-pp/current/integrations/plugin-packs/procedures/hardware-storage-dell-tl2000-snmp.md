@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-dell-tl2000-snmp
+slug: /hardware-storage-dell-tl2000-snmp
 title: Dell TL2000 SNMP
 ---
 import Tabs from '@theme/Tabs';

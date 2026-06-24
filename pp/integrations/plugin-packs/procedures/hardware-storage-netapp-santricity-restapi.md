@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-netapp-santricity-restapi
+slug: /hardware-storage-netapp-santricity-restapi
 title: Netapp Santricity Restapi
 ---
 import Tabs from '@theme/Tabs';

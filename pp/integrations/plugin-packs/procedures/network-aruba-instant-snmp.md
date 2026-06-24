@@ -1,5 +1,6 @@
----
+﻿---
 id: network-aruba-instant-snmp
+slug: /network-aruba-instant-snmp
 title: Aruba Instant SNMP
 ---
 import Tabs from '@theme/Tabs';

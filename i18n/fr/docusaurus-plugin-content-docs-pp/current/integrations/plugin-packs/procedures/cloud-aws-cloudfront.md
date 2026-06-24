@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-cloudfront
+slug: /cloud-aws-cloudfront
 title: Amazon CloudFront
 ---
 import Tabs from '@theme/Tabs';

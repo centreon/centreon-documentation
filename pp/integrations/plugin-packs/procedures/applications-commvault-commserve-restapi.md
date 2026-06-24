@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-commvault-commserve-restapi
+slug: /applications-commvault-commserve-restapi
 title: Commvault CommServe Rest API
 ---
 import Tabs from '@theme/Tabs';

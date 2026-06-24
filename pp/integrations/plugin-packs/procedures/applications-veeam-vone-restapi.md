@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-veeam-vone-restapi
+slug: /applications-veeam-vone-restapi
 title: Veeam ONE Rest API
 ---
 import Tabs from '@theme/Tabs';

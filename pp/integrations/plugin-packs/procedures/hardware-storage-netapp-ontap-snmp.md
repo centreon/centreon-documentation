@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-netapp-ontap-snmp
+slug: /hardware-storage-netapp-ontap-snmp
 title: NetApp Ontap SNMP
 ---
 import Tabs from '@theme/Tabs';

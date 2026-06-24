@@ -1,5 +1,6 @@
----
+﻿---
 id: network-microsens-g6-snmp
+slug: /network-microsens-g6-snmp
 title: Microsens G6 SNMP
 ---
 import Tabs from '@theme/Tabs';

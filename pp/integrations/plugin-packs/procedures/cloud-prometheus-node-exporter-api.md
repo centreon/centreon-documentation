@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-prometheus-node-exporter-api
+slug: /cloud-prometheus-node-exporter-api
 title: Node Exporter w/ Prometheus API
 ---
 import Tabs from '@theme/Tabs';

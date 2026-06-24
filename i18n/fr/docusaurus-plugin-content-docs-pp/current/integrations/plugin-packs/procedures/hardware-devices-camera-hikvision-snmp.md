@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-camera-hikvision-snmp
+slug: /hardware-devices-camera-hikvision-snmp
 title: Hikvision camera SNMP
 ---
 import Tabs from '@theme/Tabs';

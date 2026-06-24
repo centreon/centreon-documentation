@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-dhcp
+slug: /applications-protocol-dhcp
 title: Protocol DHCP
 ---
 import Tabs from '@theme/Tabs';

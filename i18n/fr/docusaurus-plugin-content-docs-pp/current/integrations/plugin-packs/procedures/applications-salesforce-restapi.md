@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-salesforce-restapi
+slug: /applications-salesforce-restapi
 title: Salesforce
 ---
 import Tabs from '@theme/Tabs';

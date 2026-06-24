@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-ldap
+slug: /applications-protocol-ldap
 title: LDAP Server
 ---
 import Tabs from '@theme/Tabs';

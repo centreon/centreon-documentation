@@ -1,5 +1,6 @@
----
+﻿---
 id: network-audiocodes-snmp
+slug: /network-audiocodes-snmp
 title: AudioCodes SNMP
 ---
 import Tabs from '@theme/Tabs';

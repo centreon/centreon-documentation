@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hp-msl-snmp
+slug: /hardware-storage-hp-msl-snmp
 title: HP MSL SNMP
 ---
 import Tabs from '@theme/Tabs';

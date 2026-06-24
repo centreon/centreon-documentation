@@ -1,5 +1,6 @@
----
+﻿---
 id: network-h3c-snmp
+slug: /network-h3c-snmp
 title: H3C Network SNMP
 ---
 import Tabs from '@theme/Tabs';

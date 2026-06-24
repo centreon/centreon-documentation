@@ -1,5 +1,6 @@
----
+﻿---
 id: network-lenovo-flexsystem-snmp
+slug: /network-lenovo-flexsystem-snmp
 title: Lenovo Flexsystem Switch SNMP
 ---
 import Tabs from '@theme/Tabs';

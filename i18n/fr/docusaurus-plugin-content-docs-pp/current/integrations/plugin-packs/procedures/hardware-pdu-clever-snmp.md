@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-pdu-clever-snmp
+slug: /hardware-pdu-clever-snmp
 title: Clever PDU SNMP
 ---
 import Tabs from '@theme/Tabs';

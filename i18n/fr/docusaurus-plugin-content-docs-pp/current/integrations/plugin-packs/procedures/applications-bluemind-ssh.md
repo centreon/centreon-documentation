@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-bluemind-ssh
+slug: /applications-bluemind-ssh
 title: BlueMind SSH
 ---
 import Tabs from '@theme/Tabs';

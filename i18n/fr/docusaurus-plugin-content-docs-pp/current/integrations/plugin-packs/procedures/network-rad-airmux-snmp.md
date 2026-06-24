@@ -1,5 +1,6 @@
----
+﻿---
 id: network-rad-airmux-snmp
+slug: /network-rad-airmux-snmp
 title: Rad Airmux SNMP
 ---
 import Tabs from '@theme/Tabs';

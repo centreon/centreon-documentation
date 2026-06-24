@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-linux-nrpe
+slug: /operatingsystems-linux-nrpe
 title: Linux NRPE (déprécié)
 ---
 

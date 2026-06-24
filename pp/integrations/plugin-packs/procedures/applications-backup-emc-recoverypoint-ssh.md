@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-backup-emc-recoverypoint-ssh
+slug: /applications-backup-emc-recoverypoint-ssh
 title: EMC RecoveryPoint SSH
 ---
 import Tabs from '@theme/Tabs';

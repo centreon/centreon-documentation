@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-database-sqlserver
+slug: /cloud-azure-database-sqlserver
 title: Azure SQL Server
 ---
 import Tabs from '@theme/Tabs';

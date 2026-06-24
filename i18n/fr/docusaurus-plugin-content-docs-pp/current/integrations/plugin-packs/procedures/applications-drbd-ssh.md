@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-drbd-ssh
+slug: /applications-drbd-ssh
 title: DRBD SSH
 ---
 import Tabs from '@theme/Tabs';

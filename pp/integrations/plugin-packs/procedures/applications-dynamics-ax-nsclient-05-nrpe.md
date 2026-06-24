@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-dynamics-ax-nsclient-05-nrpe
+slug: /applications-dynamics-ax-nsclient-05-nrpe
 title: Dynamics AX NSClient 0.5 NRPE
 ---
 import Tabs from '@theme/Tabs';

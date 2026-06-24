@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-webservers-tomcat-webmanager
+slug: /applications-webservers-tomcat-webmanager
 title: Tomcat Webmanager
 ---
 import Tabs from '@theme/Tabs';

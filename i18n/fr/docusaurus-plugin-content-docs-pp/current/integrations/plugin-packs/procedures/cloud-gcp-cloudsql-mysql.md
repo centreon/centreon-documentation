@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-gcp-cloudsql-mysql
+slug: /cloud-gcp-cloudsql-mysql
 title: Google CloudSQL MySQL
 ---
 import Tabs from '@theme/Tabs';

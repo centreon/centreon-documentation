@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-polycom-trio-restapi
+slug: /hardware-devices-polycom-trio-restapi
 title: Polycom Trio Rest API
 ---
 import Tabs from '@theme/Tabs';

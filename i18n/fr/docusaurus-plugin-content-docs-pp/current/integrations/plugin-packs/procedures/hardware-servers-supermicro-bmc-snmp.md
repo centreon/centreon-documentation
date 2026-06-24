@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-supermicro-bmc-snmp
+slug: /hardware-servers-supermicro-bmc-snmp
 title: Supermicro BMC SNMP
 ---
 import Tabs from '@theme/Tabs';

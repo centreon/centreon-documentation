@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-openmetrics
+slug: /applications-monitoring-openmetrics
 title: OpenMetrics
 ---
 import Tabs from '@theme/Tabs';

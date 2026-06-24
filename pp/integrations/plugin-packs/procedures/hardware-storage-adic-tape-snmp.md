@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-adic-tape-snmp
+slug: /hardware-storage-adic-tape-snmp
 title: Adic Tape SNMP
 ---
 import Tabs from '@theme/Tabs';

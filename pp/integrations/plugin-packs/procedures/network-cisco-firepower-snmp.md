@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-firepower-snmp
+slug: /network-cisco-firepower-snmp
 title: Cisco Firepower SNMP
 ---
 import Tabs from '@theme/Tabs';

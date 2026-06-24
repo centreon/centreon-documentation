@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-ntopng-restapi
+slug: /applications-monitoring-ntopng-restapi
 title: NtopNG Rest API
 ---
 import Tabs from '@theme/Tabs';

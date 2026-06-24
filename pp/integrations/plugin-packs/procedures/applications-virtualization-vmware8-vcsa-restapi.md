@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-virtualization-vmware8-vcsa-restapi
+slug: /applications-virtualization-vmware8-vcsa-restapi
 title: VMware8 VCSA REST API
 ---
 import Tabs from '@theme/Tabs';

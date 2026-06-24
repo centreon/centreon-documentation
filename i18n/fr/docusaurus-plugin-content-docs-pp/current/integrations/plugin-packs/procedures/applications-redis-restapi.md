@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-redis-restapi
+slug: /applications-redis-restapi
 title: Redis Restapi (déprécié)
 ---
 

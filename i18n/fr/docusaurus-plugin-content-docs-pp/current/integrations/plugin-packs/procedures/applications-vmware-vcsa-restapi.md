@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-vmware-vcsa-restapi
+slug: /applications-vmware-vcsa-restapi
 title: VMware VCSA RestAPI
 ---
 import Tabs from '@theme/Tabs';

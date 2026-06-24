@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-arkoon-snmp
+slug: /network-firewalls-arkoon-snmp
 title: Arkoon SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-moxa-switch-snmp
+slug: /network-moxa-switch-snmp
 title: Moxa Switch SNMP
 ---
 import Tabs from '@theme/Tabs';

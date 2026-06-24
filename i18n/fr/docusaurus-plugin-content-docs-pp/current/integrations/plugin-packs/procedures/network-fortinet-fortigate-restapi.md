@@ -1,5 +1,6 @@
----
+﻿---
 id: network-fortinet-fortigate-restapi
+slug: /network-fortinet-fortigate-restapi
 title: Fortinet Fortigate Rest API
 ---
 import Tabs from '@theme/Tabs';

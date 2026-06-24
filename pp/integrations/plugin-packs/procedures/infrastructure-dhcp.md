@@ -1,5 +1,6 @@
----
+﻿---
 id: infrastructure-dhcp
+slug: /infrastructure-dhcp
 title: DHCP Server
 ---
 import Tabs from '@theme/Tabs';

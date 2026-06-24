@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-mip-restapi
+slug: /applications-monitoring-mip-restapi
 title: Maltem Insight Rest API
 ---
 import Tabs from '@theme/Tabs';

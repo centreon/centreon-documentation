@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-cdn
+slug: /cloud-azure-network-cdn
 title: Azure CDN
 ---
 import Tabs from '@theme/Tabs';

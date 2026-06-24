@@ -1,5 +1,6 @@
----
+﻿---
 id: network-aerohive-snmp
+slug: /network-aerohive-snmp
 title: Aerohive SNMP
 ---
 import Tabs from '@theme/Tabs';

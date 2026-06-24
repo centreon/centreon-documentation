@@ -1,5 +1,6 @@
----
+﻿---
 id: network-zyxel-snmp
+slug: /network-zyxel-snmp
 title: Zyxel SNMP
 ---
 import Tabs from '@theme/Tabs';

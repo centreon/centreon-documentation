@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-hp-ilo-xmlapi
+slug: /hardware-servers-hp-ilo-xmlapi
 title: HP Ilo XMLAPI
 ---
 import Tabs from '@theme/Tabs';

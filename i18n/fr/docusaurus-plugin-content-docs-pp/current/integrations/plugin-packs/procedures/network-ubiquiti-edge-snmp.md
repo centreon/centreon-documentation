@@ -1,5 +1,6 @@
----
+﻿---
 id: network-ubiquiti-edge-snmp
+slug: /network-ubiquiti-edge-snmp
 title: Ubiquiti Edge SNMP
 ---
 import Tabs from '@theme/Tabs';

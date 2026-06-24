@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-fujitsu-eternus-dx-ssh
+slug: /hardware-storage-fujitsu-eternus-dx-ssh
 title: Fujitsu Eternus DX SSH
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-podman-restapi
+slug: /applications-podman-restapi
 title: Podman Rest API
 ---
 import Tabs from '@theme/Tabs';

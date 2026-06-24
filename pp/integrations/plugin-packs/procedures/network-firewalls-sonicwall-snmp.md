@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-sonicwall-snmp
+slug: /network-firewalls-sonicwall-snmp
 title: Sonicwall SNMP
 ---
 import Tabs from '@theme/Tabs';

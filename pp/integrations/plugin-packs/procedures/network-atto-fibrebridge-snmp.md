@@ -1,5 +1,6 @@
----
+﻿---
 id: network-atto-fibrebridge-snmp
+slug: /network-atto-fibrebridge-snmp
 title: Atto Fibrebridge SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-hyperv-2012-nrpe
+slug: /virtualization-hyperv-2012-nrpe
 title: Hyper-V 2012 NSClient++ NRPE
 ---
 import Tabs from '@theme/Tabs';

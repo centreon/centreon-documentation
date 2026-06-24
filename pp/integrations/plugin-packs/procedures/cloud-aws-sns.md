@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-sns
+slug: /cloud-aws-sns
 title: Amazon SNS
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-chapsvision-crossing-snmp
+slug: /network-chapsvision-crossing-snmp
 title: ChapsVision CrossinG SNMP
 ---
 import Tabs from '@theme/Tabs';

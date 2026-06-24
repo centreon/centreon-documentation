@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-ees-snmp
+slug: /hardware-ups-ees-snmp
 title: EES UPS SNMP
 ---
 import Tabs from '@theme/Tabs';

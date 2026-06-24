@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-f5os-snmp
+slug: /operatingsystems-f5os-snmp
 title: F5OS SNMP
 ---
 import Tabs from '@theme/Tabs';

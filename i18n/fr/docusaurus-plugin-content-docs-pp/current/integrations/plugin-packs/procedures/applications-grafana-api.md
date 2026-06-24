@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-grafana-api
+slug: /applications-grafana-api
 title: Grafana
 ---
 import Tabs from '@theme/Tabs';

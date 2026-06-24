@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-windows-centreon-monitoring-agent
+slug: /operatingsystems-windows-centreon-monitoring-agent
 title: Windows CMA
 ---
 import Tabs from '@theme/Tabs';

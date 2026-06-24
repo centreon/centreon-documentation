@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ats-apc
+slug: /hardware-ats-apc
 title: APC ATS SNMP
 ---
 import Tabs from '@theme/Tabs';

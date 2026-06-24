@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-callmanager-sxml
+slug: /network-cisco-callmanager-sxml
 title: Cisco Callmanager SXML
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-inmatics-sputnik-snmp
+slug: /hardware-ups-inmatics-sputnik-snmp
 title: Inmatics PSU Sputnik SNMP
 ---
 import Tabs from '@theme/Tabs';

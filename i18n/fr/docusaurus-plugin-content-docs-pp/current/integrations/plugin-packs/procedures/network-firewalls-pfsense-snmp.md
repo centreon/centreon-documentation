@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-pfsense-snmp
+slug: /network-firewalls-pfsense-snmp
 title: pfSense SNMP
 ---
 import Tabs from '@theme/Tabs';

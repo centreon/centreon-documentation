@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-database-sqldatabase
+slug: /cloud-azure-database-sqldatabase
 title: Azure SQL Database
 ---
 import Tabs from '@theme/Tabs';

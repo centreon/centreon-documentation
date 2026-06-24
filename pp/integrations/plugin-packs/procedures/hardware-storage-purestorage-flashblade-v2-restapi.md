@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-purestorage-flashblade-v2-restapi
+slug: /hardware-storage-purestorage-flashblade-v2-restapi
 title: Pure Storage FlashBlade v2 Rest API
 ---
 import Tabs from '@theme/Tabs';

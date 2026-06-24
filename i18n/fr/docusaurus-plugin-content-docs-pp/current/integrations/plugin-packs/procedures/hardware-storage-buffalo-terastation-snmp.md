@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-buffalo-terastation-snmp
+slug: /hardware-storage-buffalo-terastation-snmp
 title: Buffalo TeraStation SNMP
 ---
 import Tabs from '@theme/Tabs';

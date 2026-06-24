@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-management-apimanagement
+slug: /cloud-azure-management-apimanagement
 title: Azure API Management
 ---
 import Tabs from '@theme/Tabs';

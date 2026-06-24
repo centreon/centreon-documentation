@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-web-signalr
+slug: /cloud-azure-web-signalr
 title: Azure SignalR
 ---
 import Tabs from '@theme/Tabs';

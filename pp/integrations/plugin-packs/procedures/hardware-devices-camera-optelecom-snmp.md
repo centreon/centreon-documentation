@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-camera-optelecom-snmp
+slug: /hardware-devices-camera-optelecom-snmp
 title: Optelecom camera SNMP
 ---
 import Tabs from '@theme/Tabs';

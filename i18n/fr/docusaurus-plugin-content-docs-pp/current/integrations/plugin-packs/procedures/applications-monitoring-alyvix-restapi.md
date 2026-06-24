@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-alyvix-restapi
+slug: /applications-monitoring-alyvix-restapi
 title: Alyvix Server
 ---
 import Tabs from '@theme/Tabs';

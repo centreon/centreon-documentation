@@ -1,5 +1,6 @@
----
+﻿---
 id: network-peplink-pepwave-snmp
+slug: /network-peplink-pepwave-snmp
 title: Peplink Pepwave SNMP
 ---
 import Tabs from '@theme/Tabs';

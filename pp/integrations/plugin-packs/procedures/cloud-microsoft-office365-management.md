@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-microsoft-office365-management
+slug: /cloud-microsoft-office365-management
 title: Office 365 Management
 ---
 import Tabs from '@theme/Tabs';

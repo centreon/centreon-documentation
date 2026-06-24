@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-vmware2-esx-wsman
+slug: /virtualization-vmware2-esx-wsman
 title: VMware ESX WS-MAN
 ---
 import Tabs from '@theme/Tabs';

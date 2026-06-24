@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-webservers-iis-restapi
+slug: /applications-webservers-iis-restapi
 title: Microsoft IIS Server Restapi
 ---
 import Tabs from '@theme/Tabs';

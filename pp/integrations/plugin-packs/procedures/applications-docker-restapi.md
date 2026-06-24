@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-docker-restapi
+slug: /applications-docker-restapi
 title: Docker REST API
 ---
 import Tabs from '@theme/Tabs';

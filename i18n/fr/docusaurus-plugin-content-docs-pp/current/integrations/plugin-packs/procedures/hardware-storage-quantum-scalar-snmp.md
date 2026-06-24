@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-quantum-scalar-snmp
+slug: /hardware-storage-quantum-scalar-snmp
 title: Quantum Scalar SNMP
 ---
 import Tabs from '@theme/Tabs';

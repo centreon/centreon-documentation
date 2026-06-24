@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-wsus-cma
+slug: /applications-wsus-cma
 title: Microsoft WSUS CMA
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-pfsense-fauxapi
+slug: /applications-pfsense-fauxapi
 title: Pfsense Fauxapi
 ---
 import Tabs from '@theme/Tabs';

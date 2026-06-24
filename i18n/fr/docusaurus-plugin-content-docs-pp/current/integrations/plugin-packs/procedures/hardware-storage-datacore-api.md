@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-datacore-api
+slug: /hardware-storage-datacore-api
 title: Datacore RestApi
 ---
 import Tabs from '@theme/Tabs';

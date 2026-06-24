@@ -1,5 +1,6 @@
----
+﻿---
 id: network-extreme-snmp
+slug: /network-extreme-snmp
 title: Extreme Networks SNMP
 ---
 import Tabs from '@theme/Tabs';

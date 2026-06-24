@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-standard-ssh
+slug: /network-cisco-standard-ssh
 title: Cisco Standard SSH
 ---
 import Tabs from '@theme/Tabs';

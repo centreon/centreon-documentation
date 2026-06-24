@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-esa-restapi
+slug: /network-cisco-esa-restapi
 title: Cisco ESA Rest API
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-redis-sentinel
+slug: /applications-redis-sentinel
 title: Redis Sentinel
 ---
 import Tabs from '@theme/Tabs';

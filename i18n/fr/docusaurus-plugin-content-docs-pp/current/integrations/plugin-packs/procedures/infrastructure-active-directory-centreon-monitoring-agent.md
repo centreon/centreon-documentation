@@ -1,5 +1,6 @@
----
+﻿---
 id: infrastructure-active-directory-centreon-monitoring-agent
+slug: /infrastructure-active-directory-centreon-monitoring-agent
 title: Microsoft Active Directory CMA
 ---
 import Tabs from '@theme/Tabs';

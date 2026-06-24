@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-kubernetes-api
+slug: /cloud-kubernetes-api
 title: Kubernetes API
 ---
 import Tabs from '@theme/Tabs';

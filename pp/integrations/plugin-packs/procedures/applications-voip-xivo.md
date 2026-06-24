@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-voip-xivo
+slug: /applications-voip-xivo
 title: XiVO VoIP Server
 ---
 import Tabs from '@theme/Tabs';

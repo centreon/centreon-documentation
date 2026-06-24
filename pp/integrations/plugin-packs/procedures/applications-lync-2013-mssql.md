@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-lync-2013-mssql
+slug: /applications-lync-2013-mssql
 title: Lync 2013
 ---
 import Tabs from '@theme/Tabs';

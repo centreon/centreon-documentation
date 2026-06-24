@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-microsoft-dhcp-snmp
+slug: /applications-microsoft-dhcp-snmp
 title: Microsoft DHCP SNMP
 ---
 import Tabs from '@theme/Tabs';

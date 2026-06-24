@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-sccm-cma
+slug: /applications-sccm-cma
 title: Microsoft SCCM CMA
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-kvm-adder-aim-snmp
+slug: /hardware-kvm-adder-aim-snmp
 title: Adder AIM SNMP
 ---
 import Tabs from '@theme/Tabs';

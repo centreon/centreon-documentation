@@ -1,5 +1,6 @@
----
+﻿---
 id: network-switchs-hp-procurve-snmp
+slug: /network-switchs-hp-procurve-snmp
 title: HP Procurve SNMP
 ---
 import Tabs from '@theme/Tabs';

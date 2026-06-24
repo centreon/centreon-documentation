@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-hibernate-jmx
+slug: /applications-hibernate-jmx
 title: Hibernate
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-linux-libvirt-ssh
+slug: /virtualization-linux-libvirt-ssh
 title: Linux Libvirt SSH
 ---
 import Tabs from '@theme/Tabs';

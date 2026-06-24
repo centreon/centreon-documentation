@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-tftp
+slug: /applications-protocol-tftp
 title: TFTP Server
 ---
 import Tabs from '@theme/Tabs';

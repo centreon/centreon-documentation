@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ats-eaton-snmp
+slug: /hardware-ats-eaton-snmp
 title: Eaton ATS SNMP
 ---
 import Tabs from '@theme/Tabs';

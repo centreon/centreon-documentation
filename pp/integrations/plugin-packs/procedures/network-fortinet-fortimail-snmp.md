@@ -1,5 +1,6 @@
----
+﻿---
 id: network-fortinet-fortimail-snmp
+slug: /network-fortinet-fortimail-snmp
 title: Fortinet FortiMail SNMP
 ---
 import Tabs from '@theme/Tabs';

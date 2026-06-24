@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-purestorage-flasharray-v2-restapi
+slug: /hardware-storage-purestorage-flasharray-v2-restapi
 title: Pure Storage FlashArray Rest API v2
 ---
 import Tabs from '@theme/Tabs';

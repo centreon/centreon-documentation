@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-node-exporter-linux
+slug: /applications-monitoring-node-exporter-linux
 title: Node Exporter Linux Metrics
 ---
 import Tabs from '@theme/Tabs';

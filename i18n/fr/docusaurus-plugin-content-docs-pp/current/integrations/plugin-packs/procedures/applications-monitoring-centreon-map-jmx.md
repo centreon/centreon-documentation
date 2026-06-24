@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-centreon-map-jmx
+slug: /applications-monitoring-centreon-map-jmx
 title: Centreon Map (déprécié)
 ---
 

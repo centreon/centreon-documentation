@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-jvm-actuator
+slug: /applications-jvm-actuator
 title: JVM Actuator
 ---
 import Tabs from '@theme/Tabs';

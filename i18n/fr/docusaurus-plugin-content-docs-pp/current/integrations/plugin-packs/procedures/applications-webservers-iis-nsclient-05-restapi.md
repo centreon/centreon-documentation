@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-webservers-iis-nsclient-05-restapi
+slug: /applications-webservers-iis-nsclient-05-restapi
 title: Microsoft IIS Server NSClient API (déprécié)
 ---
 

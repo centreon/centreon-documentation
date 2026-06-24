@@ -1,5 +1,6 @@
----
+﻿---
 id: infrastructure-active-directory-nsclient-05-restapi
+slug: /infrastructure-active-directory-nsclient-05-restapi
 title: Microsoft Active Directory NSClient++ API
 ---
 import Tabs from '@theme/Tabs';

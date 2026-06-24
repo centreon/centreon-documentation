@@ -1,5 +1,6 @@
----
+﻿---
 id: network-juniper-trapeze-snmp
+slug: /network-juniper-trapeze-snmp
 title: Juniper Trapeze SNMP
 ---
 import Tabs from '@theme/Tabs';

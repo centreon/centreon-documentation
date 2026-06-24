@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-postgresql
+slug: /applications-databases-postgresql
 title: PostgreSQL DB
 ---
 import Tabs from '@theme/Tabs';

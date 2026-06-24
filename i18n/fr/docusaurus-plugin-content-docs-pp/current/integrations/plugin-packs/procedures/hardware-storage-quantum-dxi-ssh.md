@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-quantum-dxi-ssh
+slug: /hardware-storage-quantum-dxi-ssh
 title: Quantum DXi Series SSH
 ---
 import Tabs from '@theme/Tabs';

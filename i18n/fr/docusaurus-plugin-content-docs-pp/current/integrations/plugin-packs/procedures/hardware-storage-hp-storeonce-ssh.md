@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hp-storeonce-ssh
+slug: /hardware-storage-hp-storeonce-ssh
 title: HP StoreOnce SSH
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-wallix-bastion-snmp
+slug: /applications-wallix-bastion-snmp
 title: Wallix Bastion SNMP
 ---
 import Tabs from '@theme/Tabs';

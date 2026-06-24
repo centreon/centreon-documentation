@@ -1,5 +1,6 @@
----
+﻿---
 id: network-vectra-restapi
+slug: /network-vectra-restapi
 title: Vectra Rest API
 ---
 import Tabs from '@theme/Tabs';

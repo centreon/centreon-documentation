@@ -1,5 +1,6 @@
----
+﻿---
 id: operatingsystems-picos-snmp
+slug: /operatingsystems-picos-snmp
 title: PICOS SNMP
 ---
 import Tabs from '@theme/Tabs';

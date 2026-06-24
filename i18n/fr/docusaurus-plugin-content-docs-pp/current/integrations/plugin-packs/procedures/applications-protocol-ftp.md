@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-ftp
+slug: /applications-protocol-ftp
 title: FTP Server
 ---
 import Tabs from '@theme/Tabs';

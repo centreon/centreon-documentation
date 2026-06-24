@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-overland-neo-snmp
+slug: /hardware-storage-overland-neo-snmp
 title: Overland Neo SNMP
 ---
 import Tabs from '@theme/Tabs';

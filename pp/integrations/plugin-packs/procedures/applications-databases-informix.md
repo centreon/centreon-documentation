@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-informix
+slug: /applications-databases-informix
 title: Informix DB
 ---
 import Tabs from '@theme/Tabs';

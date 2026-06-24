@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-antivirus-clamav-ssh
+slug: /applications-antivirus-clamav-ssh
 title: Antivirus ClamAV
 ---
 import Tabs from '@theme/Tabs';

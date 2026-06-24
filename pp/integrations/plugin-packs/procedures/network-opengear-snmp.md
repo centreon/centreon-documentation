@@ -1,5 +1,6 @@
----
+﻿---
 id: network-opengear-snmp
+slug: /network-opengear-snmp
 title: Opengear SNMP
 ---
 import Tabs from '@theme/Tabs';

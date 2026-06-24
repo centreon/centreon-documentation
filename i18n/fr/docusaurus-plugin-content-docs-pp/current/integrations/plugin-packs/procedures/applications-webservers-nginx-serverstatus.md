@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-webservers-nginx-serverstatus
+slug: /applications-webservers-nginx-serverstatus
 title: Nginx Server
 ---
 import Tabs from '@theme/Tabs';

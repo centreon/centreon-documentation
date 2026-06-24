@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-centreon-map4-jmx
+slug: /applications-monitoring-centreon-map4-jmx
 title: Centreon Map4 (deprecated)
 ---
 

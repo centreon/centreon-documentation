@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-openvpn-omi
+slug: /applications-openvpn-omi
 title: OpenVPN OMI
 ---
 import Tabs from '@theme/Tabs';

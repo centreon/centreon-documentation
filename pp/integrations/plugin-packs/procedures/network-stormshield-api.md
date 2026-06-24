@@ -1,5 +1,6 @@
----
+﻿---
 id: network-stormshield-api
+slug: /network-stormshield-api
 title: Stormshield API
 ---
 import Tabs from '@theme/Tabs';

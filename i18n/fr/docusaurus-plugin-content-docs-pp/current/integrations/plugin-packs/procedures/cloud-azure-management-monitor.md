@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-management-monitor
+slug: /cloud-azure-management-monitor
 title: Azure Monitor
 ---
 import Tabs from '@theme/Tabs';

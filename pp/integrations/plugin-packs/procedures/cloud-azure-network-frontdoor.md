@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-frontdoor
+slug: /cloud-azure-network-frontdoor
 title: Azure Front Door
 ---
 import Tabs from '@theme/Tabs';

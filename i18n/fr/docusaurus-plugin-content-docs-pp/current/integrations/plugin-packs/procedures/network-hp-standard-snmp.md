@@ -1,5 +1,6 @@
----
+﻿---
 id: network-hp-standard-snmp
+slug: /network-hp-standard-snmp
 title: HP Standard Network SNMP
 ---
 import Tabs from '@theme/Tabs';

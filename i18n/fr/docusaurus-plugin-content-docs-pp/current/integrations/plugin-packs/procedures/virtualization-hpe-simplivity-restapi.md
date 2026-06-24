@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-hpe-simplivity-restapi
+slug: /virtualization-hpe-simplivity-restapi
 title: HPE Simplivity Rest API
 ---
 import Tabs from '@theme/Tabs';

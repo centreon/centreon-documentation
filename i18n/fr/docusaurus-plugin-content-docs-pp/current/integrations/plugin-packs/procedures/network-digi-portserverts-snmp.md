@@ -1,5 +1,6 @@
----
+﻿---
 id: network-digi-portserverts-snmp
+slug: /network-digi-portserverts-snmp
 title: Digi PortServers TS SNMP
 ---
 import Tabs from '@theme/Tabs';

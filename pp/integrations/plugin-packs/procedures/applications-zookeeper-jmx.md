@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-zookeeper-jmx
+slug: /applications-zookeeper-jmx
 title: Zookeeper
 ---
 import Tabs from '@theme/Tabs';

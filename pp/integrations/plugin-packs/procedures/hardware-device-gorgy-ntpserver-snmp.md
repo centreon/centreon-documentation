@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-device-gorgy-ntpserver-snmp
+slug: /hardware-device-gorgy-ntpserver-snmp
 title: Gorgy NTP Server SNMP
 ---
 import Tabs from '@theme/Tabs';

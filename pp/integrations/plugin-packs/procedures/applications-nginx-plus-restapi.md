@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-nginx-plus-restapi
+slug: /applications-nginx-plus-restapi
 title: Nginx Plus Restapi
 ---
 import Tabs from '@theme/Tabs';

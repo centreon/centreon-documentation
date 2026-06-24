@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-exchange-2010-nsclient-05-restapi
+slug: /applications-exchange-2010-nsclient-05-restapi
 title: Microsoft Exchange 2010 Nsclient Restapi (deprecated)
 ---
 

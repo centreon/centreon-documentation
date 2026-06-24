@@ -1,5 +1,6 @@
----
+﻿---
 id: network-loadbalancers-netscaler-snmp
+slug: /network-loadbalancers-netscaler-snmp
 title: Citrix Netscaler SNMP
 ---
 import Tabs from '@theme/Tabs';

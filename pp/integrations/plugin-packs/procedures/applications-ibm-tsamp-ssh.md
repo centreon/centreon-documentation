@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-ibm-tsamp-ssh
+slug: /applications-ibm-tsamp-ssh
 title: IBM TSAMP SSH
 ---
 import Tabs from '@theme/Tabs';

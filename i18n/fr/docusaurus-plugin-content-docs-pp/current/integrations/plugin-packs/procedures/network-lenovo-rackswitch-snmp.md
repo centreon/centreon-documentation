@@ -1,5 +1,6 @@
----
+﻿---
 id: network-lenovo-rackswitch-snmp
+slug: /network-lenovo-rackswitch-snmp
 title: Lenovo RackSwitch SNMP
 ---
 import Tabs from '@theme/Tabs';

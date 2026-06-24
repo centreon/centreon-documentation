@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-emc-celerra-ssh
+slug: /hardware-storage-emc-celerra-ssh
 title: EMC Celerra SSH
 ---
 import Tabs from '@theme/Tabs';

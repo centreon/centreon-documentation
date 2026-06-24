@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-management-discover
+slug: /cloud-azure-management-discover
 title: Azure Discover
 ---
 import Tabs from '@theme/Tabs';

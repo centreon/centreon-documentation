@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-huawei-hmm-snmp
+slug: /hardware-servers-huawei-hmm-snmp
 title: Huawei HMM SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-sun-sfxxk-pssh
+slug: /hardware-servers-sun-sfxxk-pssh
 title: Sun SFxxK PSSH
 ---
 import Tabs from '@theme/Tabs';

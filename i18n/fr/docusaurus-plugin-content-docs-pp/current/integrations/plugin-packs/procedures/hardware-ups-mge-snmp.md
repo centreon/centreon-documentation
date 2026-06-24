@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-mge-snmp
+slug: /hardware-ups-mge-snmp
 title: MGE UPS System SNMP
 ---
 import Tabs from '@theme/Tabs';

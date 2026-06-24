@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-udp
+slug: /applications-protocol-udp
 title: Protocol UDP
 ---
 import Tabs from '@theme/Tabs';

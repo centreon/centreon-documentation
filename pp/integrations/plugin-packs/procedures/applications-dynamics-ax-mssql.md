@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-dynamics-ax-mssql
+slug: /applications-dynamics-ax-mssql
 title: Dynamics AX Database
 ---
 import Tabs from '@theme/Tabs';

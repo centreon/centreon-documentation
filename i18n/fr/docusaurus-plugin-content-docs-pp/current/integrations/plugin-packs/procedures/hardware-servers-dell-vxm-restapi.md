@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-dell-vxm-restapi
+slug: /hardware-servers-dell-vxm-restapi
 title: Dell VxRail Manager Rest API
 ---
 import Tabs from '@theme/Tabs';

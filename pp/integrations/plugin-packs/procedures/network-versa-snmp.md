@@ -1,5 +1,6 @@
----
+﻿---
 id: network-versa-snmp
+slug: /network-versa-snmp
 title: Versa SNMP
 ---
 import Tabs from '@theme/Tabs';

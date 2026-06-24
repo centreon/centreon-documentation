@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-netbackup-cma
+slug: /applications-netbackup-cma
 title: Symantec Netbackup CMA
 ---
 import Tabs from '@theme/Tabs';

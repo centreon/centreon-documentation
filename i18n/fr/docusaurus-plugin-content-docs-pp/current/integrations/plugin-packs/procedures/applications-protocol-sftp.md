@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-sftp
+slug: /applications-protocol-sftp
 title: Protocol SFTP
 ---
 import Tabs from '@theme/Tabs';

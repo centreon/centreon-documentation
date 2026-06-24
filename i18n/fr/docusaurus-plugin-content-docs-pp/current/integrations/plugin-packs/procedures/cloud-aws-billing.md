@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-billing
+slug: /cloud-aws-billing
 title: AWS Billing
 ---
 import Tabs from '@theme/Tabs';

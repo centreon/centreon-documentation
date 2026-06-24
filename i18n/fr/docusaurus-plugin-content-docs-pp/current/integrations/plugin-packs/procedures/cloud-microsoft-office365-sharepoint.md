@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-microsoft-office365-sharepoint
+slug: /cloud-microsoft-office365-sharepoint
 title: Office365 SharePoint
 ---
 import Tabs from '@theme/Tabs';

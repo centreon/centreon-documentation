@@ -1,5 +1,6 @@
----
+﻿---
 id: network-enterasys-snmp
+slug: /network-enterasys-snmp
 title: Enterasys SNMP
 ---
 import Tabs from '@theme/Tabs';

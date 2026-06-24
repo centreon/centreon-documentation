@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-alpha-snmp
+slug: /hardware-ups-alpha-snmp
 title: Alpha UPS SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-ibm-tsm-dsmadmc
+slug: /applications-ibm-tsm-dsmadmc
 title: IBM Tivoli Storage M
 ---
 import Tabs from '@theme/Tabs';

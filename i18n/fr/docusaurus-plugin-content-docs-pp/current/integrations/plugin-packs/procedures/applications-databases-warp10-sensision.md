@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-warp10-sensision
+slug: /applications-databases-warp10-sensision
 title: Warp10 Sensision
 ---
 import Tabs from '@theme/Tabs';

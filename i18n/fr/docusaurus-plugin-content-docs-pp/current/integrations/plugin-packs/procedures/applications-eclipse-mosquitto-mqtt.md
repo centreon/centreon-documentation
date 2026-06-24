@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-eclipse-mosquitto-mqtt
+slug: /applications-eclipse-mosquitto-mqtt
 title: Eclipse Mosquitto MQTT
 ---
 import Tabs from '@theme/Tabs';

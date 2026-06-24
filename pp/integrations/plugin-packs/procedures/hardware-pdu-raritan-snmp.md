@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-pdu-raritan-snmp
+slug: /hardware-pdu-raritan-snmp
 title: Raritan PDU SNMP
 ---
 import Tabs from '@theme/Tabs';

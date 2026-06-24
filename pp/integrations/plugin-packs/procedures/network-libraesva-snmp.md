@@ -1,5 +1,6 @@
----
+﻿---
 id: network-libraesva-snmp
+slug: /network-libraesva-snmp
 title: Libraesva SNMP
 ---
 import Tabs from '@theme/Tabs';

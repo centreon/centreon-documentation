@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hitachi-standard-snmp
+slug: /hardware-storage-hitachi-standard-snmp
 title: Hitachi Standard SNMP
 ---
 import Tabs from '@theme/Tabs';

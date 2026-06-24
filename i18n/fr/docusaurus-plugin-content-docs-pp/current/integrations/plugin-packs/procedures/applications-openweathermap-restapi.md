@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-openweathermap-restapi
+slug: /applications-openweathermap-restapi
 title: OpenWeatherMap
 ---
 import Tabs from '@theme/Tabs';

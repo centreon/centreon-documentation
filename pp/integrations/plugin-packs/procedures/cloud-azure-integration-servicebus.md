@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-integration-servicebus
+slug: /cloud-azure-integration-servicebus
 title: Azure ServiceBus
 ---
 import Tabs from '@theme/Tabs';

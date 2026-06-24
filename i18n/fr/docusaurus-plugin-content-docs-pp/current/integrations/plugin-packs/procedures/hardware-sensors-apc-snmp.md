@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-apc-snmp
+slug: /hardware-sensors-apc-snmp
 title: APC Sensor SNMP
 ---
 import Tabs from '@theme/Tabs';

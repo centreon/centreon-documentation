@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-weblogic-jmx
+slug: /applications-weblogic-jmx
 title: Weblogic Server
 ---
 import Tabs from '@theme/Tabs';

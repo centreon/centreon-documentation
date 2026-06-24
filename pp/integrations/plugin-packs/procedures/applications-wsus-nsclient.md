@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-wsus-nsclient
+slug: /applications-wsus-nsclient
 title: Microsoft WSUS Server
 ---
 import Tabs from '@theme/Tabs';

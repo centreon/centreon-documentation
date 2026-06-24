@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-netgear-readynas-snmp
+slug: /hardware-storage-netgear-readynas-snmp
 title: Netgear Readynas SNMP
 ---
 import Tabs from '@theme/Tabs';

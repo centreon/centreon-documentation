@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-backup
+slug: /cloud-aws-backup
 title: Amazon Backup Vault
 ---
 import Tabs from '@theme/Tabs';

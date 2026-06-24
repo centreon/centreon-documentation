@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-standard-snmp
+slug: /network-cisco-standard-snmp
 title: Cisco Standard SNMP
 ---
 import Tabs from '@theme/Tabs';

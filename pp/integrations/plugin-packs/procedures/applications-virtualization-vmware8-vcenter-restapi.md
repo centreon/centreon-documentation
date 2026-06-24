@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-virtualization-vmware8-vcenter-restapi
+slug: /applications-virtualization-vmware8-vcenter-restapi
 title: VMware8 vCenter REST API
 ---
 import Tabs from '@theme/Tabs';

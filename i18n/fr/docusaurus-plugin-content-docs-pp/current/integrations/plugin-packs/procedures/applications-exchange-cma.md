@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-exchange-cma
+slug: /applications-exchange-cma
 title: Microsoft Exchange CMA
 ---
 import Tabs from '@theme/Tabs';

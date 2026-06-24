@@ -1,5 +1,6 @@
----
+﻿---
 id: network-ucopia-snmp
+slug: /network-ucopia-snmp
 title: Ucopia SNMP
 ---
 import Tabs from '@theme/Tabs';

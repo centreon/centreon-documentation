@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hpe-primera-restapi
+slug: /hardware-storage-hpe-primera-restapi
 title: HPE Primera REST API
 ---
 import Tabs from '@theme/Tabs';

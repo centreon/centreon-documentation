@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-haproxy-snmp
+slug: /applications-haproxy-snmp
 title: Haproxy SNMP
 ---
 import Tabs from '@theme/Tabs';

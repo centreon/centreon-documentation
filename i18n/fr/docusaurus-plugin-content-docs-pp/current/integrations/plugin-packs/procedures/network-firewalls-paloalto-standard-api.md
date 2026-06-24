@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-paloalto-standard-api
+slug: /network-firewalls-paloalto-standard-api
 title: Palo Alto firewall API
 ---
 import Tabs from '@theme/Tabs';

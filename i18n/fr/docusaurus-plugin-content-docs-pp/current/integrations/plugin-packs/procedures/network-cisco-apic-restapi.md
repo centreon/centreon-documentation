@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-apic-restapi
+slug: /network-cisco-apic-restapi
 title: Cisco Apic Rest API
 ---
 import Tabs from '@theme/Tabs';

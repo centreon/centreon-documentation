@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-voip-3cx-restapi
+slug: /applications-voip-3cx-restapi
 title: 3CX
 ---
 import Tabs from '@theme/Tabs';

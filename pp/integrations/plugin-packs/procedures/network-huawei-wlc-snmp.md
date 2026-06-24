@@ -1,5 +1,6 @@
----
+﻿---
 id: network-huawei-wlc-snmp
+slug: /network-huawei-wlc-snmp
 title: Huawei WLC SNMP
 ---
 import Tabs from '@theme/Tabs';

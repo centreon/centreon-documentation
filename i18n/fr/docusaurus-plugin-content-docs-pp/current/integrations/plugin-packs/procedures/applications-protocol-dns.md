@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-protocol-dns
+slug: /applications-protocol-dns
 title: DNS Service
 ---
 import Tabs from '@theme/Tabs';

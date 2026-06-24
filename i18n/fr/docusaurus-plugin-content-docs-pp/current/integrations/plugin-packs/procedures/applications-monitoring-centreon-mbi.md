@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-centreon-mbi
+slug: /applications-monitoring-centreon-mbi
 title: Centreon MBI
 ---
 import Tabs from '@theme/Tabs';

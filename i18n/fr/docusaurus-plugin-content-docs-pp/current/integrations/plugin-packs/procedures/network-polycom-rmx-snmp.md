@@ -1,5 +1,6 @@
----
+﻿---
 id: network-polycom-rmx-snmp
+slug: /network-polycom-rmx-snmp
 title: Polycom RMX SNMP
 ---
 import Tabs from '@theme/Tabs';

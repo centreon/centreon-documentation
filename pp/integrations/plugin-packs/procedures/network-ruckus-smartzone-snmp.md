@@ -1,5 +1,6 @@
----
+﻿---
 id: network-ruckus-smartzone-snmp
+slug: /network-ruckus-smartzone-snmp
 title: Ruckus Smartzone SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-veeam-nrpe
+slug: /applications-veeam-nrpe
 title: Veeam NRPE
 ---
 import Tabs from '@theme/Tabs';

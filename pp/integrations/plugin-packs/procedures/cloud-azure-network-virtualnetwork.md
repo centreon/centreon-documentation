@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-network-virtualnetwork
+slug: /cloud-azure-network-virtualnetwork
 title: Azure Virtual Network
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-management-insightsmetrics
+slug: /cloud-azure-management-insightsmetrics
 title: Azure InsightsMetrics
 ---
 import Tabs from '@theme/Tabs';

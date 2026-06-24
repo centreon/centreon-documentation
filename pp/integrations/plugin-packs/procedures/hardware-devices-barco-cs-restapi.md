@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-barco-cs-restapi
+slug: /hardware-devices-barco-cs-restapi
 title: Barco ClickShare Rest API
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-vmware2-esx
+slug: /virtualization-vmware2-esx
 title: VMware ESX
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-controlm-restapi
+slug: /applications-controlm-restapi
 title: Control-M Rest API
 ---
 import Tabs from '@theme/Tabs';

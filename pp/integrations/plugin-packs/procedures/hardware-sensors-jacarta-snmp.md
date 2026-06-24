@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-jacarta-snmp
+slug: /hardware-sensors-jacarta-snmp
 title: Jacarta Sensor SNMP
 ---
 import Tabs from '@theme/Tabs';

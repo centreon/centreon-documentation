@@ -1,5 +1,6 @@
----
+﻿---
 id: virtualization-vmware2-vcenter-generic
+slug: /virtualization-vmware2-vcenter-generic
 title: VMware vCenter
 ---
 import Tabs from '@theme/Tabs';

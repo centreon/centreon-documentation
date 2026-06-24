@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-rds
+slug: /cloud-aws-rds
 title: Amazon RDS
 ---
 import Tabs from '@theme/Tabs';

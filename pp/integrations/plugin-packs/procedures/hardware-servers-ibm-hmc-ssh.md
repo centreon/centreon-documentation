@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-ibm-hmc-ssh
+slug: /hardware-servers-ibm-hmc-ssh
 title: IBM HMC SSH
 ---
 import Tabs from '@theme/Tabs';

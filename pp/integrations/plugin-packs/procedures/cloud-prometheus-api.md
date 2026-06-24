@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-prometheus-api
+slug: /cloud-prometheus-api
 title: Prometheus Server API
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-firewalls-paloalto-standard-snmp
+slug: /network-firewalls-paloalto-standard-snmp
 title: Palo Alto firewall SNMP
 ---
 import Tabs from '@theme/Tabs';

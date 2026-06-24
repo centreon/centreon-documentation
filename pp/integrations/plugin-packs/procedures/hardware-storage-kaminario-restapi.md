@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-kaminario-restapi
+slug: /hardware-storage-kaminario-restapi
 title: Kaminario RestAPI
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-masterclock-ntp100gps-snmp
+slug: /hardware-devices-masterclock-ntp100gps-snmp
 title: Masterclock NTP100GP SNMP
 ---
 import Tabs from '@theme/Tabs';

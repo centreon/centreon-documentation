@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-compute-functions
+slug: /cloud-azure-compute-functions
 title: Azure Functions
 ---
 import Tabs from '@theme/Tabs';

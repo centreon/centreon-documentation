@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cisco-wap-snmp
+slug: /network-cisco-wap-snmp
 title: Cisco WAP SNMP
 ---
 import Tabs from '@theme/Tabs';

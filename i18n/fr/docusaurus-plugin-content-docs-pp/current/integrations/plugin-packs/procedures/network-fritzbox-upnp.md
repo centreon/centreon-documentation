@@ -1,5 +1,6 @@
----
+﻿---
 id: network-fritzbox-upnp
+slug: /network-fritzbox-upnp
 title: Fritz!Box UPnP
 ---
 import Tabs from '@theme/Tabs';

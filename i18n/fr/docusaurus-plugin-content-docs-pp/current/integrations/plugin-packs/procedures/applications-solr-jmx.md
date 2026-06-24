@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-solr-jmx
+slug: /applications-solr-jmx
 title: Solr
 ---
 import Tabs from '@theme/Tabs';

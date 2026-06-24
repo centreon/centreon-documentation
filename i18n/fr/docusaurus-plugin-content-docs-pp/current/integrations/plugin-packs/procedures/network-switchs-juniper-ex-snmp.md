@@ -1,5 +1,6 @@
----
+﻿---
 id: network-switchs-juniper-ex-snmp
+slug: /network-switchs-juniper-ex-snmp
 title: Juniper EX Series SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: network-cambium-epmp-snmp
+slug: /network-cambium-epmp-snmp
 title: Cambium ePMP SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-sensormetrix-em01-web
+slug: /hardware-sensors-sensormetrix-em01-web
 title: Sensormetrix
 ---
 import Tabs from '@theme/Tabs';

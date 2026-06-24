@@ -1,5 +1,6 @@
----
+﻿---
 id: application-virtualization-vmware8-esx-restapi
+slug: /application-virtualization-vmware8-esx-restapi
 title: VMware8 ESX REST API
 ---
 import Tabs from '@theme/Tabs';

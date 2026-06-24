@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hp-storeonce-restapi
+slug: /hardware-storage-hp-storeonce-restapi
 title: HP StoreOnce (déprécié)
 ---
 

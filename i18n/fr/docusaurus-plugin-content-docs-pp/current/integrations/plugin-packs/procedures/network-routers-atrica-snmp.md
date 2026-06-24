@@ -1,5 +1,6 @@
----
+﻿---
 id: network-routers-atrica-snmp
+slug: /network-routers-atrica-snmp
 title: Atrica Routeur SNMP
 ---
 import Tabs from '@theme/Tabs';

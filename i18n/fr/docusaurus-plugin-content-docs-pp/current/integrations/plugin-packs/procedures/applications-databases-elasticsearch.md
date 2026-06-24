@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-elasticsearch
+slug: /applications-databases-elasticsearch
 title: Elasticsearch
 ---
 import Tabs from '@theme/Tabs';

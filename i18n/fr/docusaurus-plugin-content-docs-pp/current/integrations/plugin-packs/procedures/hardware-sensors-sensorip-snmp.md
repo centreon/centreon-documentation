@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-sensors-sensorip-snmp
+slug: /hardware-sensors-sensorip-snmp
 title: Sensor IP SNMP
 ---
 import Tabs from '@theme/Tabs';

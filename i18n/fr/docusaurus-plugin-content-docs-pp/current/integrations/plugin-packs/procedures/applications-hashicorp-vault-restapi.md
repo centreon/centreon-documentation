@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-hashicorp-vault-restapi
+slug: /applications-hashicorp-vault-restapi
 title: HashiCorp Vault Rest API
 ---
 import Tabs from '@theme/Tabs';

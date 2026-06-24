@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-varnish-nrpe
+slug: /applications-varnish-nrpe
 title: Varnish NRPE
 ---
 import Tabs from '@theme/Tabs';

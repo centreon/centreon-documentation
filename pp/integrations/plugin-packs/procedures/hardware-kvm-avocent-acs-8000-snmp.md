@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-kvm-avocent-acs-8000-snmp
+slug: /hardware-kvm-avocent-acs-8000-snmp
 title: Avocent ACS 8000 SNMP
 ---
 import Tabs from '@theme/Tabs';

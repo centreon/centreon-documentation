@@ -1,5 +1,6 @@
----
+﻿---
 id: network-tplink-snmp
+slug: /network-tplink-snmp
 title: TP-Link SNMP
 ---
 import Tabs from '@theme/Tabs';

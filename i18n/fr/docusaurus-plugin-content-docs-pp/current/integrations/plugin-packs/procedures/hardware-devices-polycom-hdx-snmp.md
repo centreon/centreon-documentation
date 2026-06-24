@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-polycom-hdx-snmp
+slug: /hardware-devices-polycom-hdx-snmp
 title: Polycom HDX SNMP
 ---
 import Tabs from '@theme/Tabs';

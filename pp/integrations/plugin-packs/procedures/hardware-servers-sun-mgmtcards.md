@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-servers-sun-mgmtcards
+slug: /hardware-servers-sun-mgmtcards
 title: Sun MgmtCard
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-exagrid-snmp
+slug: /hardware-storage-exagrid-snmp
 title: Exagrid SNMP
 ---
 import Tabs from '@theme/Tabs';

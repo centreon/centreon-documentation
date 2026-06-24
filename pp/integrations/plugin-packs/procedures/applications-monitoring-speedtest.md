@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-speedtest
+slug: /applications-monitoring-speedtest
 title: Speedtest
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-webservers-tomcat-jmx
+slug: /applications-webservers-tomcat-jmx
 title: Tomcat JMX
 ---
 import Tabs from '@theme/Tabs';

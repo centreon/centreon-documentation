@@ -1,5 +1,6 @@
----
+﻿---
 id: base-generic
+slug: /base-generic
 title: Base Pack
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-monitoring-netdata-restapi
+slug: /applications-monitoring-netdata-restapi
 title: Netdata RestAPI
 ---
 import Tabs from '@theme/Tabs';

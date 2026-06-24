@@ -1,5 +1,6 @@
----
+﻿---
 id: network-alvarion-breezeaccess-snmp
+slug: /network-alvarion-breezeaccess-snmp
 title: Alvarion BreezeACCESS SNMP
 ---
 import Tabs from '@theme/Tabs';

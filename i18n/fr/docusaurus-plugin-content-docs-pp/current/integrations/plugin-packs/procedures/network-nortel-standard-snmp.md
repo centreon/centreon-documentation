@@ -1,5 +1,6 @@
----
+﻿---
 id: network-nortel-standard-snmp
+slug: /network-nortel-standard-snmp
 title: Extreme (formerly Nortel/Avaya) SNMP
 ---
 import Tabs from '@theme/Tabs';

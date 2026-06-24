@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-nitram-snmp
+slug: /hardware-ups-nitram-snmp
 title: Nitram UPS SNMP
 ---
 import Tabs from '@theme/Tabs';

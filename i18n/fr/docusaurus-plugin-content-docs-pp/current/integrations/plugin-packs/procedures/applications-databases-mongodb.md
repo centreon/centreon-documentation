@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-databases-mongodb
+slug: /applications-databases-mongodb
 title: MongoDB
 ---
 import Tabs from '@theme/Tabs';

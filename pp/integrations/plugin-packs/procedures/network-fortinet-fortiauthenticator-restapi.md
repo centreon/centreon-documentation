@@ -1,5 +1,6 @@
----
+﻿---
 id: network-fortinet-fortiauthenticator-restapi
+slug: /network-fortinet-fortiauthenticator-restapi
 title: Fortinet FortiAuthenticator RestAPI
 ---
 import Tabs from '@theme/Tabs';

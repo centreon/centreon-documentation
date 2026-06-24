@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-ibm-storwize-ssh
+slug: /hardware-storage-ibm-storwize-ssh
 title: IBM Storwize SSH
 ---
 import Tabs from '@theme/Tabs';

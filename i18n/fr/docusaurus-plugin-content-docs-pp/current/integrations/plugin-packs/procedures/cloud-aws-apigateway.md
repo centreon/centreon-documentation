@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-aws-apigateway
+slug: /cloud-aws-apigateway
 title: Amazon API Gateway
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: infrastructure-active-directory-nrpe
+slug: /infrastructure-active-directory-nrpe
 title: Microsoft Active Directory NRPE
 ---
 import Tabs from '@theme/Tabs';

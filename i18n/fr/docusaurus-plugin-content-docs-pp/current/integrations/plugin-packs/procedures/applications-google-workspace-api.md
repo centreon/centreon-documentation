@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-google-workspace-api
+slug: /applications-google-workspace-api
 title: Google Workspace
 ---
 import Tabs from '@theme/Tabs';

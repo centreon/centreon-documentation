@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-devtools-appconfiguration
+slug: /cloud-azure-devtools-appconfiguration
 title: Azure App Configuration
 ---
 import Tabs from '@theme/Tabs';

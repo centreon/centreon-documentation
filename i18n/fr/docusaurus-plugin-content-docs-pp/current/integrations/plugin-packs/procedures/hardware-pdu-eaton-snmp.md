@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-pdu-eaton-snmp
+slug: /hardware-pdu-eaton-snmp
 title: Eaton PDU SNMP
 ---
 import Tabs from '@theme/Tabs';

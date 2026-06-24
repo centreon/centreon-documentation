@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-pineapp-securemail-snmp
+slug: /applications-pineapp-securemail-snmp
 title: PineApp Mail Secure
 ---
 import Tabs from '@theme/Tabs';

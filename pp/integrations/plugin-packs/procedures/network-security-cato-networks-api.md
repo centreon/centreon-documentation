@@ -1,5 +1,6 @@
----
+﻿---
 id: network-security-cato-networks-api
+slug: /network-security-cato-networks-api
 title: Cato Networks API
 ---
 import Tabs from '@theme/Tabs';

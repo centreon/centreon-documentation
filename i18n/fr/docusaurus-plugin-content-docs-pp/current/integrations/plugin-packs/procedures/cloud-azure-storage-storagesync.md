@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-storage-storagesync
+slug: /cloud-azure-storage-storagesync
 title: Azure Storage Sync
 ---
 import Tabs from '@theme/Tabs';

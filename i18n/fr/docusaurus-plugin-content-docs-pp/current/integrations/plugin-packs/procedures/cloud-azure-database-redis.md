@@ -1,5 +1,6 @@
----
+﻿---
 id: cloud-azure-database-redis
+slug: /cloud-azure-database-redis
 title: Azure Cache for Redis
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-devices-video-appeartv-snmp
+slug: /hardware-devices-video-appeartv-snmp
 title: Appear TV SNMP
 ---
 import Tabs from '@theme/Tabs';

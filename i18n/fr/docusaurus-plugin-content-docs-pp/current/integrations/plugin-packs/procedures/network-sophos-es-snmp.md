@@ -1,5 +1,6 @@
----
+﻿---
 id: network-sophos-es-snmp
+slug: /network-sophos-es-snmp
 title: Sophos ES SNMP
 ---
 import Tabs from '@theme/Tabs';

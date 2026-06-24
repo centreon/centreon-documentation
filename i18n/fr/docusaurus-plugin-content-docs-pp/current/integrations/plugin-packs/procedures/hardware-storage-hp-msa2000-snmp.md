@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-hp-msa2000-snmp
+slug: /hardware-storage-hp-msa2000-snmp
 title: HP MSA2000 SNMP
 ---
 import Tabs from '@theme/Tabs';

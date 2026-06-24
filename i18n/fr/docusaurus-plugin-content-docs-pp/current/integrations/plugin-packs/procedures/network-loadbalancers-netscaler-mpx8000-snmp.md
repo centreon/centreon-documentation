@@ -1,5 +1,6 @@
----
+﻿---
 id: network-loadbalancers-netscaler-mpx8000-snmp
+slug: /network-loadbalancers-netscaler-mpx8000-snmp
 title: Netscaler MPX 8000 (déprécié)
 ---
 

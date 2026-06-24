@@ -1,5 +1,6 @@
----
+﻿---
 id: network-routers-juniper-mseries-netconf
+slug: /network-routers-juniper-mseries-netconf
 title: Juniper M-Series Netconf
 ---
 import Tabs from '@theme/Tabs';

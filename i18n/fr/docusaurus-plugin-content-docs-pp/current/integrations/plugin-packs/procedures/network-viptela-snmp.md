@@ -1,5 +1,6 @@
----
+﻿---
 id: network-viptela-snmp
+slug: /network-viptela-snmp
 title: Viptela SNMP
 ---
 import Tabs from '@theme/Tabs';

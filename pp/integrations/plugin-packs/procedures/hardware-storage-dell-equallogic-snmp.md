@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-storage-dell-equallogic-snmp
+slug: /hardware-storage-dell-equallogic-snmp
 title: Dell Equallogic SNMP
 ---
 import Tabs from '@theme/Tabs';

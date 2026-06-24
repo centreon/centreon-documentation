@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-video-zixi-restapi
+slug: /applications-video-zixi-restapi
 title: ZIXI
 ---
 import Tabs from '@theme/Tabs';

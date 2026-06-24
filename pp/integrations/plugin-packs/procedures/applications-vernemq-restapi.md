@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-vernemq-restapi
+slug: /applications-vernemq-restapi
 title: VerneMQ Restapi
 ---
 import Tabs from '@theme/Tabs';

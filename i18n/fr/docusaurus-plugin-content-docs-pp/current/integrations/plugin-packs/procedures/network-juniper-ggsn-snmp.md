@@ -1,5 +1,6 @@
----
+﻿---
 id: network-juniper-ggsn-snmp
+slug: /network-juniper-ggsn-snmp
 title: Juniper GGSN SNMP
 ---
 import Tabs from '@theme/Tabs';

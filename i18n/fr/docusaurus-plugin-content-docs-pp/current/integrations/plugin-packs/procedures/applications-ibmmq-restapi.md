@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-ibmmq-restapi
+slug: /applications-ibmmq-restapi
 title: IBM MQ Rest API
 ---
 import Tabs from '@theme/Tabs';

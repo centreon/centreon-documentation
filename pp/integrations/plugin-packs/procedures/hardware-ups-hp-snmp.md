@@ -1,5 +1,6 @@
----
+﻿---
 id: hardware-ups-hp-snmp
+slug: /hardware-ups-hp-snmp
 title: HP UPS SNMP
 ---
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,6 @@
----
+﻿---
 id: applications-bind9-web
+slug: /applications-bind9-web
 title: Bind9 Web
 ---
 import Tabs from '@theme/Tabs';
