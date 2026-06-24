@@ -27,8 +27,6 @@ Notre API s’enclenche via un simple appel HTTP sur l'URL `https://app.quanta.i
 
 Vous devrez également spécifier un token API pour authentifier la requête. Ce token peut être généré dans la section "Intégrations" des paramètres de votre site dans Experience Monitoring. Vous avez également la possibilité d'ajouter une icône personnalisée.
 
-![image](../assets/installation/monitor-prod-events-1.png)
-
 Ce token devra être au choix:
 
 - Inséré dans le header HTTP "Authorization" sous la forme *Authorization: Token `<`votre_token`>`*
