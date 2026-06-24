@@ -89,7 +89,7 @@ This configuration is deployed on the poller in the **/etc/centreon-engine/otl_s
 This section applies:
 
 * if the poller initiates the connection to the agent
-* if the agent initiates the connection ro the poller but the option **Create hosts automatically** is not selected.
+* if the agent initiates the connection to the poller but the option **Create hosts automatically** is not selected.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
@@ -467,7 +467,8 @@ Available parameters are :
 | /CUSTOMCHECKFILE | Path to custom commands file, if you have one.                                                                                                                                                                                                                                                                                                                                                                                                               |                                                   |
 | /VERSION         | Version of centagent.exe                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                   |                                                                                                                                                                                                                                                      
                                                                                          
-If **/PLUGINSRC=auto** and the download fails, the installer will automatically switch to **embedded** mode.
+If **/PLUGINSRC=auto** and the download fails, the installer will automatically switch to **embedded** mode.  In this mode, plugins embedded in installer will be installed.
+
 
 Silent mode execution errors and the output of /VERSION are written to ./installer_output.log.
 
@@ -1082,9 +1083,9 @@ systemctl daemon-reload
 * To completely uninstall CMA (all instances and user groups), run the following commands (**for each instance**, if multiple instances are deployed):
 
 ```shell
-systemctl stop centagent centagent
-rm /lib/systemd/system/centagent.service /lib/systemd/system/centagent.service
-rm /etc/centreon-monitoring-agent/centagent.json /etc/centreon-monitoring-agent/centagent.json
+systemctl stop $(systemctl list-units --no-legend 'centagent*' | awk '{print $1}')
+rm /lib/systemd/system/centagent*.service
+rm -r /etc/centreon-monitoring-agent
 ```
 
 Then run the following commands:

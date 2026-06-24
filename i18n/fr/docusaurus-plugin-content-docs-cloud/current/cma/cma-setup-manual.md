@@ -1079,9 +1079,9 @@ systemctl daemon-reload
 * Pour désinstaller complètement CMA (toutes les instances et groupes utilisateurs), exécutez les commandes suivantes (**pour chaque instance**, si plusieurs instances sont déployées) :
 
 ```shell
-systemctl stop centagent centagent
-rm /lib/systemd/system/centagent.service /lib/systemd/system/centagent.service
-rm /etc/centreon-monitoring-agent/centagent.json /etc/centreon-monitoring-agent/centagent.json
+systemctl stop $(systemctl list-units --no-legend 'centagent*' | awk '{print $1}')
+rm /lib/systemd/system/centagent*.service
+rm -r /etc/centreon-monitoring-agent
 ```
 
 Puis exécutez les commandes suivantes :
