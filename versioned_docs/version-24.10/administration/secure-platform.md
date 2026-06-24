@@ -169,7 +169,8 @@ Depending on the type of server, install the packages with the following command
 <TabItem value="MBI server" label="MBI server">
 
    ```shell
-   dnf install centreon-mbi-selinux
+   dnf install centreon-mbi-selinux \
+   centreon-gorgoned-selinux
    ```
 
 </TabItem>
@@ -206,17 +207,25 @@ centreon-web	0.0.8
 Before enabling SELinux in **enforcing** mode, you need to be sure that no errors appear using the following command:
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+ausearch --start week-ago --message AVC,USER_AVC
 ```
 
 If errors appear, you must analyze them and decide if these errors are regular and should be added to
 the Centreon default SELinux rules. To do this, use the following command to transform errors into SELinux rules:
 
+To analyze the logs:
+
 ```shell
-audit2allow -a
+ausearch --start week-ago --message AVC,USER_AVC | audit2why
+ausearch --start week-ago --message AVC,USER_AVC | audit2allow --module <modulename>
 ```
 
-Then execute the proposed rules.
+To create and install the proposed rules:
+
+```shell
+ausearch --start week-ago --message AVC,USER_AVC | audit2allow -M <modulename>
+semodule -i <modulename>.pp
+```
 
 If after a while, no error is present, you can activate SELinux in full mode by
 following this [procedure](#activate-selinux) using **enforcing** mode.
