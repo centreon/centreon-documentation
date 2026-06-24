@@ -34,6 +34,8 @@ Multi-site comparisons are only possible from the [dashboards](../dashboards.md)
 
    ![image](../../assets/configuration/user-journey/organization-page.png)
 
+   You can also access the organization page by clicking your profile icon at the top right of the screen, then clicking **Organizations**.
+
 2. Click the **Licenses & Sites** tab. The number of sites in this organization is displayed on the right.
 3. Click **Create a site**.
 4. Enter the homepage's URL, then click **Create** and confirm. The site appears in the list of sites on the page, and in the site selector.
