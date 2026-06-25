@@ -22,4 +22,4 @@ Users can then look into reducing both their environmental impact and their host
 
 The main source of data for Experience Monitoring are [User journeys](../getting-started/real-user-monitoring.md). These are pre-established navigation paths of your website, usually configured to imitate what the average user does on your website.
 
-Another key feature is [Real User Monitoring (RUM)](../getting-started/real-user-monitoring.md). While user journeys follow a theorical navigation, RUM gathers data from what real users do on your website.
+Another key feature is [Real User Monitoring (RUM)](../getting-started/real-user-monitoring.md). While user journeys follow a theoretical navigation, RUM gathers data from what real users do on your website.

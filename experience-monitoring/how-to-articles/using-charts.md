@@ -15,7 +15,7 @@ Every graph can be downloaded as a .png to facilitate sharing information. To do
 In addition to the color attributed to each metric in a graph, you may see red zones or grey zones.
 
 - Grey zones indicates there is no information available for this time period. This is normal if you just configured your [User Journey](../getting-started/synthetic-monitoring.md) for example because there is no data prior to when the probe started running. Isolated grey zones are not cause for concern.
-- Red zones zones indicates Experience Monitoring attempted to collect the data for this chart but failed. Isolated red spikes can be due to a large variety of reasons and shouldn't be cause for concern. Large red zones however indicate an issue over a period of time. Your site may be or have been down.
+- Red zones indicate Experience Monitoring attempted to collect the data for this chart but failed. Isolated red spikes can be due to a large variety of reasons and shouldn't be cause for concern. Large red zones however indicate an issue over a period of time. Your site may be or have been down.
 
 ## Manipulating and annotating the graphs
 

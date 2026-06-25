@@ -4,7 +4,7 @@ title: Using dashboards
 ---
 
 **Dashboards** are a space customizable with widgets to gather the information you need from Experience Monitoring in one place.
-While **Global View** offers an overview of the site's general performance, **Dashboards** are about getting specific, detailled information.
+While **Global View** offers an overview of the site's general performance, **Dashboards** are about getting specific, detailed information.
 The widgets can be freely placed, resized and configured to show different sets of data.
 
 Dashboards can be accessed at any time using the button at the top right of your screen.
@@ -26,7 +26,7 @@ Use the navigation bar to switch between your dashboards.
 This is just to get started, you can add more widgets later.
 4. Click on **Create widget(s)**
 
-Note that to create widgets, the dashboard must be in **Edit** mode. Verify this is the case in the top right: the **Edit** button should be brighter than the **Visualize** buton. 
+Note that to create widgets, the dashboard must be in **Edit** mode. Verify this is the case in the top right: the **Edit** button should be brighter than the **Visualize** button. 
 **Visualize** removes the ability to modify or move the widgets for a better view of what your dashboard will look like.
 
 Once the widgets are created, you can freely resize them from the bottom right corner. You can also drag and drop the widgets to reposition them in the dashboard.
@@ -41,9 +41,9 @@ Every widget added to the dashboard has a header area.
 This area indicates what site the widget relates to and, in some cases, what configuration and metric.
 You can click on the corresponding dropdown menu to change the site, the configuration and the metric displayed by the widget.
 
-Additionnaly, using the buttons in the top right of the widget, you can hide the header to save space, duplicate the widget, or remove it from the dashboard.
+Additionally, using the buttons in the top right of the widget, you can hide the header to save space, duplicate the widget, or remove it from the dashboard.
 
 
 On the same row containing the **Create a new dashboard** you will find buttons duplicate the dashboard you are currently viewing. This will also duplicate all the widgets with their current configuration.
 
-You can also choose to share this dashoard with your organization, rename it or remove it entirely.
+You can also choose to share this dashboard with your organization, rename it or remove it entirely.

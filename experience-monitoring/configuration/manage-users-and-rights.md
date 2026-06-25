@@ -29,7 +29,7 @@ All actions described here are performed from the **Organization** page accessed
 
 To add or remove a user or to manage their permissions, you must have the **Administrator** or **Owner** role.
 
-From the **Organization's configuration** page, click on the the **User Accounts** tab
+From the **Organization's configuration** page, click on the **User Accounts** tab
 
 Existing users are listed according to their role.
 

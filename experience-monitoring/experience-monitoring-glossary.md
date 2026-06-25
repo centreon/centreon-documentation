@@ -39,7 +39,7 @@ Onload is the metric of how long it takes for all elements of the page to have f
 
 ## Ping
 
-A ping is network test. A request is sent to a server to check for a response and measure how long it takes to receive that response.
+A ping is a network test. A request is sent to a server to check for a response and measure how long it takes to receive that response.
 Experience Monitoring uses [TCP and ICMP](https://docs.centreon.com/experience-monitoring/experience-monitoring/performance-analysis/network-tab-indicators/#difference-between-tcp-ping-and-icmp-ping) for its tests.
 
 ## Real User Monitoring
@@ -75,5 +75,5 @@ A probe is configured to follow a set navigation path of your site and measure t
 
 ## Webhook
 
-One-way communication between applications triggered by a specified event. Webhooks allow for the integration of applications that may not have been originally been designed to work together.
+One-way communication between applications triggered by a specified event. Webhooks allow for the integration of applications that may not have been originally designed to work together.
 In Experience Monitoring, webhooks are used to send [notifications](./configuration/user-journey/experience-monitoring-notifications.md) to applications.

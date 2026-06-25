@@ -5,7 +5,7 @@ title: Receiving and configuring notifications
 
 You can configure Experience Monitoring to send you a notification when one of your [user journeys](./user-journey-intro.md) fails or times out.
 
-Email notifications are available to all users. Additionaly, some licenses allow receiving notifications by SMS, Slack, or [webhooks](../../experience-monitoring-glossary.md#webhook).
+Email notifications are available to all users. Additionally, some licenses allow receiving notifications by SMS, Slack, or [webhooks](../../experience-monitoring-glossary.md#webhook).
 To subscribe to this option, contact your sales representative.
 Notifications are also available within the Experience Monitoring platform. Click on your own icon at the top right then click **Notifications**.
 
@@ -20,11 +20,11 @@ Each user must individually set the phone number or accounts on which they will 
 
 The email, phone number and slack accounts listed on your profile information are the ones that will be used to send you notifications.
 
-Additionaly, Experience Monitoring allows users to receive alerts via a webhook for better integration with other tools and systems.
+Additionally, Experience Monitoring allows users to receive alerts via a webhook for better integration with other tools and systems.
 For example, if you use Microsoft Teams instead of Slack, a webhook will allow the integration.
 When an incident is detected on a monitored web application, Experience Monitoring can send an HTTP POST request to a URL specified by the user.
 This URL can be protected by htaccess, and the user can also define **HTTP headers** if needed.
-You can configure this URL by clicking the word **Webhoo** for a newly created or existing alert, then clicking the pencil icon.
+You can configure this URL by clicking the word **Webhook** for a newly created or existing alert, then clicking the pencil icon.
 
 ### Alerting schedule
 
@@ -33,7 +33,7 @@ By default, users are considered available 24/7, click on the green bars to add 
 
 ![image](../../assets/configuration/receive-and-configure-alerts-4.png)
 
-Additionaly, each alert can be enabled/disabled for specific time ranges so it doesn't notify subscribed people regardless of their personal schedule.
+Additionally, each alert can be enabled/disabled for specific time ranges so it doesn't notify subscribed people regardless of their personal schedule.
 
 ### Enabling notifications
 

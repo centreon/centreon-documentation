@@ -137,7 +137,7 @@ For example, if your backoffice URL is "http://admin.mysite.com/admin_123456/", 
 quanta_mon.admin_url="/admin_123456/"
 ```
 
-### Setp 3: Restart the web server
+### Step 3: Restart the web server
 
 After installing the module, you must restart your web service so that the PHP extension is loaded and activated.
 

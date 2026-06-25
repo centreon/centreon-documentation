@@ -60,7 +60,7 @@ To calculate your DSS, Experience Monitoring needs two things:
 
 Go to **Configuration > Site** to fill in these details.
 
-The DSS is calculated data from either your user journeys or RUM. To determine which one should be used go to the configuration page.
+The DSS is calculated from data from either your user journeys or RUM. To determine which one should be used go to the configuration page.
 In the **Global view** tab, you can select whether to use RUM or user journeys for the calculations.
 
 ## Simple audit vs. full audit

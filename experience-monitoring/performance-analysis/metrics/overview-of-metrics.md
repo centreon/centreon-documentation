@@ -7,7 +7,7 @@ Experience Monitoring offers several performance metrics listed in this topic. C
 
 ## [Hero Time](./hero-time.md)
 
-Hero Time is a Experience Monitoring-specific metric. It measures the time the Experience Monitoring probe takes from the start of the interaction until the success verification occurs (examples: the page is loaded, the cookie consent popup appears, etc.).
+Hero Time is an Experience Monitoring-specific metric. It measures the time the Experience Monitoring probe takes from the start of the interaction until the success verification occurs (examples: the page is loaded, the cookie consent popup appears, etc.).
 
 Improving this metric means the interactivity is better: clicks produce visible results faster.
 
