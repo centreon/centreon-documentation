@@ -71,7 +71,7 @@ Two modes are available:
 
 ### Data source of calculations for the digital sobriety score
 
-Select whether you want the **Digital sobriety score** widget to diplay data based on STM or RUM.
+Select whether you want the **Digital sobriety score** widget to display data based on STM or RUM.
 
 ### Site screenshot reference
 
