@@ -16,7 +16,7 @@ Le Largest Contentful Paint ou LCP ou impression du plus grand contenu est une m
 
 ## Qu’est ce qu’un bon score LCP ?
 
-Pour donner une bonne expérience, les sites internet devrait avoir un LCP inférieur à 2,5 secondes. Pour être certain que vous atteignez cet objectif pour la majorité de vos utilisateurs, vous pouvez vérifier que 75% de vos utilisateurs (sur mobile et sur ordinateur) ont ce score. Le Real User Monitoring d'Experience Monitoring permet de faire cela.
+Pour donner une bonne expérience, les sites internet devraient avoir un LCP inférieur à 2,5 secondes. Pour être certain que vous atteignez cet objectif pour la majorité de vos utilisateurs, vous pouvez vérifier que 75% de vos utilisateurs (sur mobile et sur ordinateur) ont ce score. Le Real User Monitoring d'Experience Monitoring permet de faire cela.
 
 
 ## Quels éléments peuvent être considéré comme contenu le plus grand ?

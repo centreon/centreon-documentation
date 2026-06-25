@@ -19,9 +19,9 @@ Notre API s’enclenche via un simple appel HTTP sur l'URL `https://app.quanta.i
     - *code_deploy* (déploiement de code)
     - *config_change* (modification de configuration système)
     - *comment* (commentaire)
-    - *cron* (tache planifiée)
+    - *cron* (tâche planifiée)
     - *custom* (évènement générique)
-- *content*: **Le message associé à l'évènement. Cela peut-être la version de l'application ou les modifications effectuées. Ce champ est libre.
+- *content*: **Le message associé à l'évènement. Cela peut être la version de l'application ou les modifications effectuées. Ce champ est libre.
 
 ## Authentification et génération de token
 

@@ -21,7 +21,7 @@ Le Real User Monitoring (RUM) nécessite l'insertion d'un tag JavaScript dans le
 
 ### Utiliser Google Tag Manager (GTM) pour ajouter un tag Centreon RUM à vos pages
 
-1. Créez un nouvelle balise : connectez-vous à votre compte GTM et sélectionnez le conteneur correspondant à votre site web. Cliquez sur **Ajouter une nouvelle balise**.
+1. Créez une nouvelle balise : connectez-vous à votre compte GTM et sélectionnez le conteneur correspondant à votre site web. Cliquez sur **Ajouter une nouvelle balise**.
 
 2. Configurez la balise :
 

@@ -65,4 +65,4 @@ S’il s'agit bien d'une erreur et que la page ne s'affiche pas correctement, il
 
 ### Impossible de résoudre l'hôte
 
-Assez rare, cela indique qu'il n'a pas été possible de récupérer l'IP du site, ce qui est le plus souvent révélateur d'un problème au niveau du DNS qui est sensé la fournir.
+Assez rare, cela indique qu'il n'a pas été possible de récupérer l'IP du site, ce qui est le plus souvent révélateur d'un problème au niveau du DNS qui est censé la fournir.
