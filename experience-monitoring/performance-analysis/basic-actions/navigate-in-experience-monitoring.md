@@ -30,7 +30,7 @@ Multi-site comparisons are only possible from the [dashboards](../dashboards.md)
 
 ### Adding a site to an organization
 
-1. Hover over the site name in the top navigation bar to open the **Sites** panel, then click **Go to the organization page** for the organization you want.
+1. In the navigation bar at the top, hover your site's link to open the **Sites** panel, then click **Go to the organization page** for the organization you want.
 
    ![image](../../assets/configuration/user-journey/organization-page.png)
 

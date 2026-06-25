@@ -1,22 +1,22 @@
 ---
 id: performing-load-tests
-title: Tests de charge
+title: Tests de montée en charge
 ---
 
-Les tests de charge génèrent un trafic important sur votre site afin d'évaluer sa réponse. Un [parcours utilisateur](../configuration/user-journey/user-journey-intro.md) fonctionnel est requis, car le trafic généré par le test naviguera sur le site en suivant le parcours utilisateur sélectionné.
+Les tests de montée en charge génèrent un trafic important sur votre site afin d'évaluer sa réponse. Un [parcours utilisateur](../configuration/user-journey/user-journey-intro.md) fonctionnel est requis, car le trafic généré par le test naviguera sur le site en suivant le parcours utilisateur sélectionné.
 
-> Notez que les tests de charge génèrent du trafic réel sur le site web, ce qui peut impacter les utilisateurs en direct s'ils sont effectués sur un site en production. Les tests de charge peuvent également être réalisés dans des environnements de test.
+> Notez que les tests de charge génèrent du trafic réel sur le site web, ce qui peut impacter les utilisateurs en direct s'ils sont effectués sur un site en production. Les tests de montée en charge peuvent également être réalisés dans des environnements de test.
 
 ![image](../assets/getting-started/load-tests-1.png)
 
 ## Prérequis
 
-- Un parcours utilisateur configuré
-- Un test de charge disponible. Contactez votre représentant commercial pour acquérir des tests de charge.
+- Un parcours utilisateur configuré.
+- Un test de montée en charge disponible. Contactez votre représentant commercial pour acquérir des tests.
 
 ## Exécuter un test de charge
 
-1. Depuis la page **Tests de charge**, cliquez sur le bouton **Lancer un test de charge**.
+1. Depuis la page **Tests de montée en charge**, cliquez sur le bouton **Lancer un test de montée en charge**.
 
 2. Sélectionnez le parcours utilisateur qui sera utilisé pour le test et indiquez si le test doit attendre l'événement **onLoad**. Seules les pages incluses dans le parcours utilisateur seront testées.
 

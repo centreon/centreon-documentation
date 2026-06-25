@@ -1,6 +1,6 @@
 ﻿---
 id: install-system-agents
-title: Installer l'es 'agent sur un serveur statique
+title: Installer l'agent sur un serveur statique
 --- 
 
 import Tabs from '@theme/Tabs';

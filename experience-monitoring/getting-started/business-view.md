@@ -3,7 +3,7 @@ id: business-view
 title: Business Data
 ---
 
-The **Business Data module** facilitates the analysis of the site's business-related metrics.
+The **Business Data** module facilitates the analysis of the site's business-related metrics.
 To use this module, you must link your Google Analytics 4 or Matomo account.
 
 ![image](../assets/getting-started/business-view-1.png)

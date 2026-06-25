@@ -9,7 +9,7 @@ Experience Monitoring offers several performance metrics listed in this topic. C
 
 Hero Time is an Experience Monitoring-specific metric. It measures the time the Experience Monitoring probe takes from the start of the interaction until the success verification occurs (examples: the page is loaded, the cookie consent popup appears, etc.).
 
-Improving this metric means the interactivity is better: clicks produce visible results faster.
+Improving this metric means the interactivity is better: interaction results are visible faster.
 
 ## [TTFB (Time To First Byte)](./time-to-first-byte.md)
 
@@ -39,7 +39,7 @@ LCP is a Core Web Vitals metric monitored by Google. Improving LCP enhances perc
 
 Total Blocking Time quantifies how unusable a page is before it becomes stable and smooth.
 
-During the loading page, many files are parsed and executed by the browser. These executions can block the main thread (i.e. the user cannot interact with the page during that time and may perceive it). TBT measures the cumulative duration of such blocking between the time the first visual element appears and the time the page becomes fully interactive.
+During page loading, many files are parsed and executed by the browser. These executions can block the main thread (i.e. the user cannot interact with the page during that time and may perceive it). TBT measures the cumulative duration of such blocking between the time the first visual element appears and the time the page becomes fully interactive.
 
 Improving TBT helps ensure the page is usable even before it is fully loaded.
 

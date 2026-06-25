@@ -12,7 +12,7 @@ title: LCP - Largest Contentful Paint (Web Vital)
 
 ## Qu’est ce que le LCP ?
 
-Le Largest Contentful Paint ou LCP ou impression du plus grand contenu est un métrique qui mesure le temps de rendu du plus grand texte ou de la plus grande image visible depuis le début du chargement de la page.
+Le Largest Contentful Paint ou LCP ou impression du plus grand contenu est une métrique qui mesure le temps de rendu du plus grand texte ou de la plus grande image visible depuis le début du chargement de la page.
 
 ## Qu’est ce qu’un bon score LCP ?
 

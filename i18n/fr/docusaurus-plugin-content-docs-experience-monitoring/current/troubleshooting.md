@@ -23,11 +23,11 @@ Si vous ne vous souvenez plus de l'adresse e-mail utilisée pour vous connecter 
 
 Il est également possible que vous n'ayez pas encore de compte. Dans ce cas, un administrateur de votre organisation (dans Experience Monitoring) peut vous envoyer une invitation par e-mail. Les instructions sont disponibles ici :
 
-[Gérer les utilisateurs et les droits](https://docs.centreon.com/experience-monitoring/experience-monitoring/configuration/manage-users-and-rights.md)
+[Gérer les utilisateurs et les droits](https://docs.centreon.com/experience-monitoring/configuration/manage-users-and-rights/)
 
 ## Autres ressources de dépannage
 
-* [Dépanner les parcours utilisateurs](https://docs.centreon.com/experience-monitoring/experience-monitoring/performance-analysis/errors-and-unavailability-front-end.md)
+* [Dépanner les parcours utilisateurs](https://docs.centreon.com/experience-monitoring/performance-analysis/errors-and-unavailability-front-end/)
 * [Dépanner RUM](./how-to-articles/rum-blocked-by-csp.md)
 
 ## Support Centreon

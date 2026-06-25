@@ -19,7 +19,7 @@ CSS Selectors are less sensitive to site changes so they are a reliable element 
 A score ranging from 0 to 100 that indicates the overall efficiency of your site to help you reduce its environmental impact.
 Calculated using data from either [Real User Monitoring](#real-user-monitoring) or your [user journeys](#user-journey).
 
-## Hero time
+## Hero Time
 
 A metric exclusive to Experience Monitoring. It measures the time the [User Journey](#user-journey) probe takes between the start and the end of a step.
 
@@ -29,7 +29,7 @@ Largest Contentful Paint (LCP) is the metric of the render time of the largest i
 
 ## Load Test
 
-[Load Tests](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/load-tests/) are a module of Experience Monitoring.
+[Load Tests](https://docs.centreon.com/experience-monitoring/getting-started/load-tests/) are a module of Experience Monitoring.
 The test consists of simulating heavy traffic on your site to evaluate how it behaves in these conditions and identify bottlenecks.
 The users are simulated by Experience Monitoring but results in real traffic on your site.
 
@@ -40,11 +40,11 @@ Onload is the metric of how long it takes for all elements of the page to have f
 ## Ping
 
 A ping is a network test. A request is sent to a server to check for a response and measure how long it takes to receive that response.
-Experience Monitoring uses [TCP and ICMP](https://docs.centreon.com/experience-monitoring/experience-monitoring/performance-analysis/network-tab-indicators/#difference-between-tcp-ping-and-icmp-ping) for its tests.
+Experience Monitoring uses [TCP and ICMP](https://docs.centreon.com/experience-monitoring/performance-analysis/network-tab-indicators/#difference-between-tcp-ping-and-icmp-ping) for its tests.
 
 ## Real User Monitoring
 
-[Real User Monitoring (or RUM)](https://docs.centreon.com/experience-monitoring/getting-started/real-user-monitoring.md) is a module of Experience Monitoring.
+[Real User Monitoring (or RUM)](https://docs.centreon.com/experience-monitoring/getting-started/real-user-monitoring/) is a module of Experience Monitoring.
 Using an HTML tag inserted into your site's code, Experience Monitoring can measure the loading times experienced by real users.
 The tag is loaded separately to avoid it influencing the data.
 

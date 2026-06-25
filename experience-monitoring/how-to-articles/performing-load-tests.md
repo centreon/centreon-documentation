@@ -11,7 +11,7 @@ Load tests create heavy traffic on your site to evaluate its response. A functio
 
 ## Prerequisites
 
-- A configured user journey
+- A configured user journey.
 - An available load test. Contact your sales representative to acquire load tests.
 
 ## Running a load test

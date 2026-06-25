@@ -44,6 +44,6 @@ You can click on the corresponding dropdown menu to change the site, the configu
 Additionally, using the buttons in the top right of the widget, you can hide the header to save space, duplicate the widget, or remove it from the dashboard.
 
 
-On the same row containing the **Create a new dashboard** you will find buttons duplicate the dashboard you are currently viewing. This will also duplicate all the widgets with their current configuration.
+On the same row containing the **Create a new dashboard** you will find buttons to duplicate the dashboard you are currently viewing. This will also duplicate all the widgets with their current configuration.
 
 You can also choose to share this dashboard with your organization, rename it or remove it entirely.

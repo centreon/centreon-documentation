@@ -30,9 +30,9 @@ Les comparaisons multi-sites ne sont possibles qu'à partir des [tableaux de bor
 
 ### Ajouter un site à une organisation
 
-1. Survolez le nom du site dans la barre de navigation du haut pour ouvrir le panneau **Sites**, puis cliquez sur **Accéder à la page de l'organisation** pour l'organisation souhaitée.
+1. Dans la barre de navigation du haut, survolez le lien de votre site pour ouvrir le panneau **Sites**, puis cliquez sur **Accéder à la page de l'organisation** pour l'organisation souhaitée.
 
-   ![image](../assets/configuration/user-journey/organization-page.png)
+   ![image](../../assets/configuration/user-journey/organization-page.png)
 
    Vous pouvez également accéder à la page de l'organisation en cliquant sur votre icône de profil en haut à droite, puis sur **Organisations**.
 

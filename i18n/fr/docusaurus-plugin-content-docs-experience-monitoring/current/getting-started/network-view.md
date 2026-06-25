@@ -14,4 +14,4 @@ Votre site est régulièrement pingué par une sonde pour vérifier qu'il répon
 - Le ping ICMP mesure la connectivité réseau de base vers le serveur via internet. Il est courant que les machines en production soient configurées pour ignorer l'ICMP (pour des raisons de sécurité, par exemple). Pour couvrir les cas où l'ICMP n'est pas autorisé, nous effectuons un second test ciblant un service qui est tenu de répondre : un ping TCP.
 - Le ping TCP fonctionne sur le même principe que l'ICMP, mais sur le port 80. Le port 80 est le port standard pour le trafic HTTP et doit être ouvert pour que votre site soit accessible ; le ping TCP constitue donc un recours fiable lorsque l'ICMP est bloqué.
 
-Consultez notre [article dédié](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/load-tests/) pour en savoir plus sur ce module.
+Consultez notre [article dédié](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/network-tab-indicators/) pour en savoir plus sur ce module.
