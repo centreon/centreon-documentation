@@ -1,57 +1,65 @@
-﻿---
+---
 id: install-system-agents
-title: Install System Agents
+title: Install the agent on a static server
 ---
 
-To add, modify, or delete a server in Experience Monitoring, you must have “Admin” or “Owner” permissions on your Organization. Ask your administrator or Experience Monitoring support to grant you the correct rights ([support@quanta.io](mailto:support@quanta.io)).
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-At this time, it is not possible to link a server to multiple sites, whether within the same Organization or not.
+Sending system information to Experience Monitoring requires installing the Experience Monitoring agent on all servers you wish to monitor.
 
-Sending information to the Experience Monitoring application requires installing the Experience Monitoring agent on all servers you wish to monitor.
+* The agent is only compatible with Linux.
+* This procedure can be used directly if your application or site is hosted on a static server. For autoscaling environments (including Docker), it must be adapted to manage the **hostid** correctly. See [Install the agent in autoscaling environments](cloud-configuration-of-agents.md).
 
-> System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](../experience-monitoring-ip-addresses.md).
+## Compatibility
 
-## Get the Token
+<ul><li>Debian 10, 11, 12</li><li>Ubuntu Jammy, Kinetic, Lunar</li><li>CentOS 7, CentOS 8 Stream</li></ul>
 
-To install Experience Monitoring System Agents, you will need your **auto-registration token**. It is available in *Configuration > System.*
+<!--| Agent version | Distributions |
+| --- | --- |
+| main (x.x) | <ul><li>Debian 10, 11, 12</li><li>Ubuntu Jammy, Kinetic, Lunar</li><li>CentOS 7, CentOS 8 Stream</li></ul> |
+| beta | ... |-->
 
-See where to find the token in this video:
+## Prerequisites
 
-[Find the token for system agents](https://www.loom.com/share/8e1958d64017451a8a0b7a63ab5c8185)
+* To install the Experience Monitoring agent, you will need an **auto-registration token**. Each site has its own token. To retrieve a token, in the site you want, go to **Settings > System**. The token is displayed in a green box.
 
-## Proceed with Installation
+* System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](#endpoint-addresses-for-server-agents).
 
-> If you are using Docker containers or autoscaling systems (AWS ASG, Azure Scale Set, or others), refer to the **Installation for Docker and Autoscaling Systems** section before installing on the OS.
+* To add, modify, or delete a server in Experience Monitoring, you must have **Admin** or **Owner** permissions on your organization. Ask your administrator or support to grant you the correct rights.
 
-### Installation for Debian
+## Installation procedure
 
-To install the Experience Monitoring agent:
+<Tabs groupId="os">
+<TabItem value="Debian" label="Debian">
 
 1. Add the following line to the **/etc/apt/sources.list.d/quanta.list** file.
- 
-*For Buster (versions 10.*)*
+
+   <Tabs groupId="debian">
+   <TabItem value="Buster (versions 10.*)" label="Buster (versions 10.*)">
 
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] http://apt.quanta.io/debian buster main
     ```
 
-    *For Bullseye (versions 11.*)*
+   </TabItem>
+   <TabItem value="Bullseye (versions 11.*)" label="Bullseye (versions 11.*)">
 
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/debian bullseye main
     ```
 
-    *For Bookworm (versions 12.*)*
+   </TabItem>
+   <TabItem value="Bookworm (versions 12.*)" label="Bookworm (versions 12.*)">
 
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/debian bookworm main
     ```
 
-    If unsure of your version, you can read the **/etc/debian_version** file.
+   </TabItem>
+   </Tabs>
 
-    ### `BETA` Version
-
-> To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
+   If unsure of your version of Debian, you can read the **/etc/debian_version** file.
 
 2. Download and add the **GPG** key for our repository:
 
@@ -71,35 +79,24 @@ To install the Experience Monitoring agent:
     apt install quanta-agent
     ```
 
-You will be prompted for the token during installation, and system data should appear in Experience Monitoring within a minute.
+   You will be prompted for the token during installation, and system data should appear in Experience Monitoring within a minute. You can then install [application agents](./add-advanced-metrics.md) if you need them.
 
-### Installation for Ubuntu
+</TabItem>
+<TabItem value="Ubuntu" label="Ubuntu">
 
 To install the Experience Monitoring agent:
 
 1. Add the following line to the **/etc/apt/sources.list.d/quanta.list** file.
 
-*For Jammy*
+   <Tabs groupId="ubuntu">
+   <TabItem value="Jammy" label="Jammy">
 
-    ```bash
-    deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu jammy main
-    ```
+   ```bash
+   deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu jammy main
+   ```
 
-    *For Kinetic*
-
-    ```bash
-    deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu kinetic main
-    ```
-
-    *For Lunar*
-
-    ```bash
-    deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu lunar main
-    ```
-
-    ### `BETA` Version
-
-> To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
+   </TabItem>
+   </Tabs>
 
 2. Download and add the **GPG** key for our repository:
 
@@ -119,9 +116,10 @@ To install the Experience Monitoring agent:
     apt install quanta-agent
     ```
 
-You will be prompted for the token during installation, and system data should appear in Experience Monitoring within a minute.
+   You will be prompted for the token during installation, and system data should appear in Experience Monitoring within a minute. You can then install [application agents](./add-advanced-metrics.md) or [the PHP profiler](install-php-magento-orocommerce-profiler.md) if you need them.
 
-### Installation for CentOS / RHEL
+</TabItem>
+<TabItem value="CentOS/RHEL" label="CentOS/RHEL">
 
 **Supported Versions:**
 
@@ -132,75 +130,67 @@ To install the Experience Monitoring agent:
 
 1. Create the repository configuration file **/etc/yum.repos.d/quanta.repo**. You can download the configuration file available here: [https://rpm.quanta.io/quanta-centos-repo.txt](https://rpm.quanta.io/quanta-centos-repo.txt)
 
-   > To use the **BETA** version, simply replace the line `baseurl=http://rpm.quanta.io/centos/$releasever/main` with `baseurl=http://rpm.quanta.io/centos/$releasever/beta`.
-
 2. Install the **GPG** key for our repository:
 
-    ```
+    ```shell
     curl https://rpm.quanta.io/quanta-repo-key.gpg -o /tmp/quanta.key && rpm --import /tmp/quanta.key && rm -f /tmp/quanta.key
     ```
 
 3. Update the package list:
 
-    ```
+    ```shell
     yum makecache
     ```
 
 4. Install the agent:
 
-    ```
+    ```shell
     yum install quanta-agent
     ```
 
-5. Edit the file **/etc/quanta/agent.yml** and replace *with your previously obtained **auto-registration token***:
+5. Edit the file **/etc/quanta/agent.yml** and replace __YOUR_EXPERIENCE_MONITORING_TOKEN__ with [your **auto-registration token**](#prerequisites):
 
-    ```
-    __YOUR_QUANTA_TOKEN__
+    ```shell
+    __YOUR_EXPERIENCE_MONITORING_TOKEN__
     ```
 
 6. Start the agent:
 
-    ```
+    ```shell
     systemctl start quanta-agent
     ```
 
 7. Enable the agent to start automatically on boot:
 
-    ```
+    ```shell
     systemctl enable quanta-agent
     ```
 
-You should see system data appear in Experience Monitoring within a minute.
+   You should see system data appear in Experience Monitoring within a minute.  You can then install [application agents](./add-advanced-metrics.md) or [the PHP profiler](install-php-magento-orocommerce-profiler.md) if you need them.
 
-### Installation for Docker and Autoscaling Systems
-
-The use of the Experience Monitoring agent is fully compatible with containerized infrastructures, but **it requires a slight variation in the installation process**.
-
-[Configuration of our agents for the cloud](cloud-configuration-of-agents.md)
-
-#### Explanation
-
-The **hostid** is an internal parameter that allows Experience Monitoring to uniquely identify a server. Each server must have a unique **hostid**, which is automatically configured by the installation script (using the MAC address of the first network interface without `:` characters).
-
-However, in the case of Docker containers, the configuration prevents the installation script from finding this value. In autoscaling systems (like AWS ASG or Azure Scale Set), the image copy also duplicates the **hostid**.
-
-#### Workaround
-
-To have a unique **hostid**, you can configure it in the **/etc/quanta/agent.yml** file via a script at container or VM startup (**bootstrap script**). You can specify a unique identifier generated at runtime (e.g., using AWS metadata or Docker environment variables) or use a unique element like the UUID value from **/proc/sys/kernel/random/uuid**.
-
-### Installation on Other OSs
+</TabItem>
+<TabItem value="Other OSs" label="Other OSs">
 
 We do not provide packages for other OSs, but [the source code is publicly available on GitHub and can be compiled](https://github.com/quanta-computing/quanta-agent).
 
-The agent is **only compatible with Linux**.
+</TabItem>
+</Tabs>
 
-## Modifying an Existing Installation
+## Troubleshooting agent installation
 
-If you want to modify the configuration of an Experience Monitoring agent **already installed** on one of your servers, you will find its configuration in the **/etc/quanta/agent.yml** file. It contains the main connection information, including the Experience Monitoring token corresponding to the relevant site. Access to this file can be useful if you monitor multiple sites with the same Experience Monitoring account and wish to specify the correct token to associate each server with its hosted site (e.g., for separate production and pre-production servers).
+**I don't see data coming in, where can I find information to troubleshoot?**
+
+The agent uses syslog for logging; you will generally find logs in **/var/log/daemon.log** or **/var/log/syslog**. If you can't find the source of the error, please contact [Centreon support](http://support.centreon.com/).
+
+You can send logs to another file by changing the **file** variable under the **logger** section in **/etc/quanta/agent.yml** (make sure to set up log rotation).
+
+## Modifying an existing installation
+
+If you want to modify the configuration of an Experience Monitoring agent that is already installed on one of your servers, you will find its configuration in the **/etc/quanta/agent.yml** file. It contains the main connection information, including the Experience Monitoring token corresponding to the relevant site. Access to this file can be useful if you monitor multiple sites with the same Experience Monitoring account and wish to specify the correct token to associate each server with its hosted site (e.g., for separate production and pre-production servers).
 
 Here is an excerpt from the **/etc/quanta/agent.yml** file:
 
-```jsx
+```yaml
 user: quanta-agent
 directory: /var/run/quanta
 pidfile: /var/run/quanta/agent.pid
@@ -219,8 +209,12 @@ quanta_token: [...] <- insert here the token corresponding to your site
 [...]
 ```
 
-## To Go Further
+## Endpoint addresses for server agents
 
-You can now install application modules to get metrics on your Apache, Nginx, MySQL, Varnish, Magento systems, etc.
+If you use the Experience Monitoring agent, each of your servers regularly sends data (once per minute) to the Experience Monitoring service.
 
-If in doubt, refer to the [installation checklist](../installation-checklist.md).
+This is outbound HTTPS traffic (port 443) and is often allowed by default. However, if your firewall rules are strict and you need to allow specific destinations for Experience Monitoring, list the following destination IP addresses:
+
+- 52.215.166.110
+- 52.215.179.235
+- 52.215.180.115

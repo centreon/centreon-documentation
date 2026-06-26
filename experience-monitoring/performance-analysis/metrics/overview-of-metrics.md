@@ -3,13 +3,13 @@ id: overview-of-metrics
 title: Overview of metrics
 --- 
 
-Experience Monitoring presents several performance metrics; this page describes them **very briefly**. Click any metric to open a dedicated page with more details.
+Experience Monitoring offers several performance metrics listed in this topic. Click any metric to open a dedicated page with more details.
 
 ## [Hero Time](./hero-time.md)
 
-Hero Time is a Experience Monitoring-specific metric. It doesn't exist anywhere else. It measures the time the Experience Monitoring probe takes from the start of the interaction until the success verification occurs (examples: the page is loaded, the cookie consent popup appears, etc.).
+Hero Time is an Experience Monitoring-specific metric. It measures the time the Experience Monitoring probe takes from the start of the interaction until the success verification occurs (examples: the page is loaded, the cookie consent popup appears, etc.).
 
-Improving this metric means interactivity is better: clicks produce visible results faster.
+Improving this metric means the interactivity is better: interaction results are visible faster.
 
 ## [TTFB (Time To First Byte)](./time-to-first-byte.md)
 
@@ -31,7 +31,7 @@ A long Onload may indicate the page is too heavy or complex.
 
 ## [LCP (Largest Contentful Paint)](./largest-contentful-paint.md)
 
-LCP measures when the most visually significant element appears. This can be an image or a text block. On an ecommerce homepage it is often the main banner; on a product page it is usually the product image.
+LCP measures when the most visually significant element appears. This can be an image or a text block. On an ecommerce homepage it is often the main banner. On a product page it is usually the product image.
 
 LCP is a Core Web Vitals metric monitored by Google. Improving LCP enhances perceived rendering speed and can improve SEO.
 
@@ -39,7 +39,7 @@ LCP is a Core Web Vitals metric monitored by Google. Improving LCP enhances perc
 
 Total Blocking Time quantifies how unusable a page is before it becomes stable and smooth.
 
-During page load many files are parsed and executed by the browser. These executions can block the main thread (i.e. the user cannot interact with the page during that time and may perceive it). TBT measures the cumulative duration of such blocking between the time the first visual element appears and the time the page becomes fully interactive.
+During page loading, many files are parsed and executed by the browser. These executions can block the main thread (i.e. the user cannot interact with the page during that time and may perceive it). TBT measures the cumulative duration of such blocking between the time the first visual element appears and the time the page becomes fully interactive.
 
 Improving TBT helps ensure the page is usable even before it is fully loaded.
 

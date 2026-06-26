@@ -1,30 +1,52 @@
-﻿---
+---
 id: faq
-title: FAQ
+title: Agent FAQ
 ---
 
 ## Which firewall ports should be opened for the Experience Monitoring agent?
 
-To ensure the agent works, outgoing HTTPS connections [to our IP addresses](../installation/experience-monitoring-ip-addresses.md) must be allowed.
+To ensure the agent works, outgoing HTTPS connections to our IP addresses must be allowed.
+
+<details>
+  <summary>IP addresses</summary>
+
+- 18.200.8.204
+- 34.241.126.134
+- 34.242.201.38
+- 34.243.127.23
+- 34.248.113.181
+- 34.250.75.1
+- 34.252.162.102
+- 34.255.79.251
+- 52.17.157.120
+- 52.18.157.52
+- 52.19.60.226
+- 52.30.194.126
+- 52.31.137.223
+- 52.48.148.3
+- 52.48.151.164
+- 52.50.31.122
+- 52.51.174.216
+- 52.208.14.10
+- 52.209.27.6
+- 52.210.233.251
+- 52.212.161.58
+- 52.214.41.253
+- 54.78.224.201
+- 54.154.70.169
+- 54.170.78.117
+- 54.170.157.253
+- 63.34.122.21
+- 63.34.67.195
+- 99.81.201.50
+- 176.34.232.22
+- 185.48.122.159
+
+</details>
 
 For package installation, your server must also be allowed to connect via HTTP to `apt.quanta.io`.
 
 You can also set up an HTTP proxy if your server does not have direct internet access. Add your proxy URL in the agent configuration (**/etc/quanta/agent.yml**) by adding a line like `proxy_url: http://user:password@1.2.3.4` under the "server" category.
-
-## I don't see data coming in, where can I find information to troubleshoot?
-
-The agent uses syslog for logging; you will generally find logs in **/var/log/daemon.log** or **/var/log/syslog**. If you can't find the source of the error, please contact us.
-
-You can send logs to another file by changing the **file** variable under the **logger** section in **/etc/quanta/agent.yml** (make sure to set up log rotation).
-
-## I have Varnish on my server and installed the Varnish module but see no data, how can I fix this?
-
-It's likely that your Varnish instance is not the default one, meaning you use the -n `name` flag to start Varnish and for admin commands.
-If so, just add the following configuration in **/etc/quanta/modules.d/varnish.yml**:
-
-*varnish:*
-
-*instance: your_instance_name*
 
 ## I have multiple Redis, Memcached, or Varnish instances, can I monitor them all?
 
@@ -34,27 +56,23 @@ You need to specify a configuration file per instance in **/etc/quanta/agent.yml
 
 - **/etc/quanta/modules.d/redis_sessions.yml**
 
-*module: redis*
-
-*redis:*
-
-*instance: sessions*
-
-*host: 127.0.0.1*
-
-*port: 6379*
+```
+module: redis
+redis:
+instance: sessions
+host: 127.0.0.1
+port: 6379
+```
 
 - **/etc/quanta/modules.d/redis_cache.yml**
 
-*module: redis*
-
-*redis:*
-
-*instance: cache*
-
-*host: 127.0.0.1*
-
-*port: 6378*
+```
+module: redis
+redis:
+instance: cache
+host: 127.0.0.1
+port: 6378
+```
 
 This configuration works the same for Memcached and Varnish. Don't forget to change the "module" parameter and the configuration key.
 
@@ -62,7 +80,7 @@ For Varnish, the "instance" parameter is also used as the Varnish instance name,
 
 ## Can I monitor services not on the same machine?
 
-We recommend installing the agent on all servers in your infrastructure. However, if you can't on some servers (e.g., on a database) and still want to monitor MySQL, you can change the **host** parameter in the agent configuration (**/etc/quanta/modules.d/service.yml**).
+We recommend installing the agent on all servers in your infrastructure. However, if you can't on some servers (e.g., on a database) and still want to monitor MySQL, you can change the **host** parameter in the agent configuration.
 
 ## My server is shared between several sites, each with an Experience Monitoring subscription. How can data be visible on both sites?
 
@@ -72,14 +90,8 @@ The server will be created on both sites and system data will be sent to both.
 
 There are some limitations if both sites use the PHP module:
 
-- Magento events will be sent to both sites, regardless of which site generated them.
-- Information in the Magento section of the Experience Monitoring interface will be from one site or the other (and may not be correct).
-
-## I already installed the Magento module, how does the update work?
-
-The update is automatic; when we receive the first metrics from the new PHP extension, we stop querying the old Magento module. When a scenario uses the new PHP module, you will see a "new module" flag in your scenario configuration.
-
-We recommend uninstalling the old module once the new one is installed.
+- PHP events will be sent to both sites, regardless of which site generated them.
+- Information in the PHP section of the Experience Monitoring interface will be from one site or the other (and may not be correct).
 
 ## Do I need to create my server in Experience Monitoring?
 
@@ -87,7 +99,7 @@ No, creation is automatic the first time we receive data. If your server already
 
 You must manually delete the server in Experience Monitoring if you remove it from your infrastructure.
 
-# I'm concerned about my server's security, can you explain how the Experience Monitoring agent and PHP module work?
+## I'm concerned about my server's security, can you explain how the Experience Monitoring agent and PHP module work?
 
 We care as much as you do about the security of our tools. Here is a technical description:
 
@@ -108,19 +120,17 @@ The agent starts as root for initialization (socket opening, config loading, etc
 
 Data collected by the agent is stored in memory before being sent to Experience Monitoring and is never stored elsewhere.
 
-### PHP module
+### PHP profiler
 
-The PHP module is a PHP extension (dynamic library) loaded by PHP during execution.
+The PHP profiler is a PHP extension (dynamic library) loaded by PHP during execution.
 
 It collects data only:
 
 - When you perform actions in your back office
 - During requests made by our probes (identified by a specific header).
 
-The module does not alter application behavior; it only collects profiling information about Magento.
+The module does not alter application behavior; it only collects profiling information about PHP.
 
 The module also has an "xhprof" mode (full execution profiling), which works similarly but is never activated by Experience Monitoring without user action.
 
 Data is sent to the agent via the designated Unix socket and is never stored or sent elsewhere.
-
-If you have further questions, feel free to contact our support team; we will be happy to help.
