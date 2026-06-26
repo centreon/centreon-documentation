@@ -328,7 +328,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 > Before running the plugin, ensure that:
 > - a valid Kerberos ticket is available (verify with `klist`)
 > - the ticket has been obtained using kinit or an equivalent mechanism
-> - the target host name matches the Kerberos SPN
+> - the target host name matches the Service Principal Name (SPN) registered in Active Directory
 > - the Kerberos client is correctly configured (for example, `/etc/krb5.conf` on Linux)
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
