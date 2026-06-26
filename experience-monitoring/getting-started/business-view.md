@@ -9,8 +9,10 @@ To use this module, you must link your Google Analytics 4 or Matomo account.
 ![image](../assets/getting-started/business-view-1.png)
 
 
-**Business Data** An accurate (minute-by-minute), historical measurement of business metrics from Google Analytics 4 or Matomo.
-- Measurement of conversion losses and gains related to technical incidents and slowdowns on the site.
+**Business Data** allows you to obtain:
+
+- An accurate (minute-by-minute), historical measurement of business metrics from Google Analytics 4 or Matomo.
+- Measurements of conversion losses and gains related to technical incidents and slowdowns on the site.
 - A ranked list of pages that need performance improvements and that have the greatest potential impact if optimized. 
 
 To calculate this, Experience Monitoring analyzes the traffic each page generates together with each page's response times.

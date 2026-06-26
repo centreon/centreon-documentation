@@ -9,7 +9,9 @@ Pour utiliser ce module, vous devez lier votre compte Google Analytics 4 ou Mato
 ![image](../assets/getting-started/business-view-1.png)
 
 
-**Business Data** Une mesure précise (minute par minute) et historique des métriques commerciales issues de Google Analytics 4 ou Matomo.
+**Données Business** vous permet d'obtenir
+
+- Une mesure précise (minute par minute) et historique des métriques commerciales issues de Google Analytics 4 ou Matomo.
 - Mesure des pertes et gains de conversion liés aux incidents techniques et aux ralentissements du site.
 - Une liste classée des pages nécessitant des améliorations de performance et ayant le plus fort potentiel d'impact si elles sont optimisées.
 
