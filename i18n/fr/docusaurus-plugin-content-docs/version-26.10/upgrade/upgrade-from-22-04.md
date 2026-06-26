@@ -80,6 +80,8 @@ Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian
 
 > Lorsque vous lancez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
+> Si vous avez installé MariaDB depuis leurs dépôts officiels, il se peut que vous rencontriez des problèmes de conflits. Suivez notre [procédure sur le sujet](../resources/known-issues.md#vous-avez-un-conflit-entre-les-paquets-mysql-common-et-mariadb-common) pour une solution de contournement.
+
 ### Installer les nouveaux dépôts
 
 <Tabs groupId="sync">
