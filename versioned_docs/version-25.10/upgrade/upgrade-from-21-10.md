@@ -75,8 +75,6 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
-> If you installed MariaDB from their official repositiories, you may run into a conflict issue. Read our [dedicated procedure](../resources/known-issues.md#you-have-a-conflict-between-packages-mysql-common-and-mariadb-common) for a workaround.
-
 ### Install the new repositories
 
 1. On your 21.10 platform, replace `https://packages.centreon.com/rpm-standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).

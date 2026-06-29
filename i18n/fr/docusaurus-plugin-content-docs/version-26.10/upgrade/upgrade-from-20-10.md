@@ -96,8 +96,6 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 >
 > MariaDB sera mis à jour après.
 
-> Si vous avez installé MariaDB depuis leurs dépôts officiels, il se peut que vous rencontriez des problèmes de conflits. Suivez notre [procédure sur le sujet](../resources/known-issues.md#vous-avez-un-conflit-entre-les-paquets-mysql-common-et-mariadb-common) pour une solution de contournement.
-
 ### Installer les nouveaux dépôts
 
 1. Sur votre plateforme 20.10, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).

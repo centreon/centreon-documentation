@@ -79,8 +79,6 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 
 > Lorsque vous lancez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
-> Si vous avez installé MariaDB depuis leurs dépôts officiels, il se peut que vous rencontriez des problèmes de conflits. Suivez notre [procédure sur le sujet](../resources/known-issues.md#vous-avez-un-conflit-entre-les-paquets-mysql-common-et-mariadb-common) pour une solution de contournement.
-
 ### Installer les nouveaux dépôts
 
 1. Sur votre plateforme 21.04, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).

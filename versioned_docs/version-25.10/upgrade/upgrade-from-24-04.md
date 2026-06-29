@@ -77,8 +77,6 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
-> If you installed MariaDB from their official repositiories, you may run into a conflict issue. Read our [dedicated procedure](../resources/known-issues.md#you-have-a-conflict-between-packages-mysql-common-and-mariadb-common) for a workaround.
-
 ### Install the new repositories
 
 <Tabs groupId="sync">
@@ -846,6 +844,8 @@ dnf update centreon\*
 ```shell
 dnf update centreon\*
 ```
+
+> If you installed MariaDB from their official repositiories, you may run into a conflict issue. Read our [dedicated procedure](../resources/known-issues.md#you-have-a-conflict-between-packages-mysql-common-and-mariadb-common) for a workaround.
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
