@@ -50,11 +50,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'collector/collector-simple'
+          id: 'collector/collector-generator'
         },
         {
           type: 'doc',
-          id: 'collector/collector-generator'
+          id: 'collector/collector-simple'
         },
         {
           type: 'doc',
