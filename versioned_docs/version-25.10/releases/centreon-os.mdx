@@ -13,13 +13,120 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 | Component | Releases |
 |----------|----------|
-| **Centreon Web** | [25.10.14 (June 9, 2026)](#centreon-web-251014)<br/>[25.10.13 (June 3, 2026)](#centreon-web-251013)<br/>[25.10.12 (May 26, 2026)](#centreon-web-251012)<br/>[25.10.11 (April 28, 2026)](#centreon-web-251011)<br/>[25.10.10 (March 30, 2026)](#centreon-web-251010)<br/>[25.10.9 (February 25, 2026)](#centreon-web-25109)<br/>[25.10.8 (February 23, 2026)](#centreon-web-25108)<br/>[25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
-| **Centreon Collect** | [25.10.8 (June 8, 2026)](#centreon-collect-25108)<br/>[25.10.7 (June 2, 2026)](#centreon-collect-25107)<br/>[25.10.6 (May 26, 2026)](#centreon-collect-25106)<br/>[25.10.5 (April 28, 2026)](#centreon-collect-25105)<br/>[25.10.4 (March 30, 2026)](#centreon-collect-25104)<br/>[25.10.3 (February 25, 2026)](#centreon-collect-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-collect-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-collect-25101) |
-| **Centreon Gorgone** |  [25.10.7 (May 26, 2026)](#centreon-gorgone-25107)<br/>[25.10.6 (April 28, 2026)](#centreon-gorgone-25106)<br/>[25.10.5 (March 30, 2026)](#centreon-gorgone-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-gorgone-25104)<br/>[25.10.3 (January 29, 2026)](#centreon-gorgone-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-gorgone-25102)<br/>[25.10.1 (November 17, 2025)](#centreon-gorgone-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-gorgone-25100) |
-| **Centreon Monitoring Agent** | [25.10.6 (May 26, 2026)](#centreon-monitoring-agent-25106)<br/>[25.10.5 (April 28, 2026)](#centreon-monitoring-agent-25105)<br/>[25.10.4 (March 30, 2026)](#centreon-monitoring-agent-25104)<br/>[25.10.3 (February 25, 2026)](#centreon-monitoring-agent-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-monitoring-agent-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-monitoring-agent-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-monitoring-agent-25100)  |
-| **Centreon Open Tickets** | [25.10.7 (May 26, 2026)](#centreon-open-tickets-25107)<br/>[25.10.6 (April 28, 2026)](#centreon-open-tickets-25106)<br/>[25.10.5 (March 30, 2026)](#centreon-open-tickets-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-open-tickets-25104)<br/>[25.10.3 (February 23, 2026)](#centreon-open-tickets-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
-| **Centreon AWIE** | [25.10.6 (April 28, 2026)](#centreon-awie-25106)<br/>[25.10.5 (Febuary 25, 2026)](#centreon-awie-25105)<br/>[25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
-| **Centreon DSM** | [25.10.3 (April 28, 2026)](#centreon-dsm-25103)<br/>[25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
+| **Centreon Web** | [25.10.15 (June 29, 2026)](#centreon-web-251015)<br/>[25.10.14 (June 9, 2026)](#centreon-web-251014)<br/>[25.10.13 (June 3, 2026)](#centreon-web-251013)<br/>[25.10.12 (May 26, 2026)](#centreon-web-251012)<br/>[25.10.11 (April 28, 2026)](#centreon-web-251011)<br/>[25.10.10 (March 30, 2026)](#centreon-web-251010)<br/>[25.10.9 (February 25, 2026)](#centreon-web-25109)<br/>[25.10.8 (February 23, 2026)](#centreon-web-25108)<br/>[25.10.7 (February 10, 2026)](#centreon-web-25107)<br/>[25.10.6 (January 29, 2026)](#centreon-web-25106)<br/>[25.10.5 (January 15, 2026)](#centreon-web-25105)<br/>[25.10.4 (December 31, 2025)](#centreon-web-25104)<br/>[25.10.3 (December 23, 2025)](#centreon-web-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-web-25102)<br/>[25.10.1 (November 10, 2025)](#centreon-web-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-web-25100) |
+| **Centreon Collect** | [25.10.9 (June 29, 2026)](#centreon-collect-25109)<br/>[25.10.8 (June 8, 2026)](#centreon-collect-25108)<br/>[25.10.7 (June 2, 2026)](#centreon-collect-25107)<br/>[25.10.6 (May 26, 2026)](#centreon-collect-25106)<br/>[25.10.5 (April 28, 2026)](#centreon-collect-25105)<br/>[25.10.4 (March 30, 2026)](#centreon-collect-25104)<br/>[25.10.3 (February 25, 2026)](#centreon-collect-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-collect-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-collect-25101) |
+| **Centreon Gorgone** |  [25.10.8 (June 29, 2026)](#centreon-gorgone-25108)<br/>[25.10.7 (May 26, 2026)](#centreon-gorgone-25107)<br/>[25.10.6 (April 28, 2026)](#centreon-gorgone-25106)<br/>[25.10.5 (March 30, 2026)](#centreon-gorgone-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-gorgone-25104)<br/>[25.10.3 (January 29, 2026)](#centreon-gorgone-25103)<br/>[25.10.2 (December 17, 2025)](#centreon-gorgone-25102)<br/>[25.10.1 (November 17, 2025)](#centreon-gorgone-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-gorgone-25100) |
+| **Centreon Monitoring Agent** | [25.10.7 (June 29, 2026)](#centreon-monitoring-agent-25107)<br/>[25.10.6 (May 26, 2026)](#centreon-monitoring-agent-25106)<br/>[25.10.5 (April 28, 2026)](#centreon-monitoring-agent-25105)<br/>[25.10.4 (March 30, 2026)](#centreon-monitoring-agent-25104)<br/>[25.10.3 (February 25, 2026)](#centreon-monitoring-agent-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-monitoring-agent-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-monitoring-agent-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-monitoring-agent-25100)  |
+| **Centreon Open Tickets** | [25.10.8 (June 29, 2026)](#centreon-open-tickets-25108)<br/>[25.10.7 (May 26, 2026)](#centreon-open-tickets-25107)<br/>[25.10.6 (April 28, 2026)](#centreon-open-tickets-25106)<br/>[25.10.5 (March 30, 2026)](#centreon-open-tickets-25105)<br/>[25.10.4 (February 25, 2026)](#centreon-open-tickets-25104)<br/>[25.10.3 (February 23, 2026)](#centreon-open-tickets-25103)<br/>[25.10.2 (January 29, 2026)](#centreon-open-tickets-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-open-tickets-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-open-tickets-25100) |
+| **Centreon AWIE** | [25.10.7 (June 29, 2026)](#centreon-awie-25107)<br/>[25.10.6 (April 28, 2026)](#centreon-awie-25106)<br/>[25.10.5 (Febuary 25, 2026)](#centreon-awie-25105)<br/>[25.10.3 (January 26, 2026)](#centreon-awie-25103)<br/>[25.10.2 (December 31, 2025)](#centreon-awie-25102)<br/>[25.10.1 (December 17, 2025)](#centreon-awie-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-awie-25100) |
+| **Centreon DSM** | [25.10.4 (June 29, 2026)](#centreon-dsm-25104)<br/>[25.10.3 (April 28, 2026)](#centreon-dsm-25103)<br/>[25.10.1 (December 17, 2025)](#centreon-dsm-25101)<br/>[25.10.0 (November 4, 2025)](#centreon-dsm-25100) |
+
+</details>
+
+## June 29, 2026
+
+### Centreon Web 25.10.15
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+- [Configuration] Users can now change the log level of the event_script broker output from the broker configuration page.
+- [Report] Corrected page break issues in the "Hostgroup-graphs-v2" report when displaying a large number of services.
+- [Upgrade] Made APIv2 update endpoint fully compatible with upgrade endpoint.
+- [VMware Connector] Do not restart VMware connector if associated configuration doesn't change on a poller.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue on host edition/creation API internal calls.
+- Fixed an issue where configuration for centreon trapd could not be pushed on pollers.
+- Fixed an issue where upgrade to version 25.10.10 failed when the central broker configuration was not linked to the broker daemon, as commonly configured on HA platforms.
+- [API] Replaced an incorrect error message (The HTTP status code "10" is not valid) that was displayed when the database connection timed out.
+- [CLAPI] Fixed an issue that resulted in a PHP error when using the APPLYCFG command while Anomaly Detection was configured.
+- [Configuration] Fixed an issue on export via top counter button.
+- [Configuration] The agent installation command no longer fails for pollers with empty certificate fields.
+- [Custom Views] Removed unnecessary PHP warnings on host-monitoring and service-monitoring widgets.
+- [Dashboards] Fixed an issue with the Single Metric widget that resulted in a 404 error when using metrics that contained slashes in their name.
+- [Dashboards] Implemented performance optimizations to eliminate unnecessary widget reloads.
+- [Dashboards] It is now possible for users to share a dashboard with:Contact groups part of a common ACL access group.Individual contacts listed in the contact groups they belongs to.
+- [Monitoring] Removed unnecessary PHP warnings on service details page.
+- [Monitoring] Removed unnecessary PHP warnings triggered by "Add Downtime" action from Service/Host details pages.
+- [Navigation] Fixed an issue in legacy pages where applying a filter to a specific resource would incorrectly redirect the user to the Resource Status page.
+- [Packaging] Fixed cache rebuild missing commands.
+
+</details>
+
+### Centreon Open Tickets 25.10.8
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue where tickets were lost when custom variables were modified after ticket creation.
+
+</details>
+
+### Centreon AWIE 25.10.7
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+
+</details>
+
+### Centreon DSM 25.10.4
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+
+</details>
+
+### Centreon Collect 25.10.9
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue when moving a host or a service, it might be removed from cache.
+- [Centengine] Fixed an issue where time period was only active on time range exception day.
+
+</details>
+
+### Centreon Gorgone 25.10.8
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug where invalid data could crash the Autodiscovery module.
+- Fixed an issue where configuration for centreon trapd could not be pushed on pollers.
+- [ETL] Fixed a critical ETL failure path and corrected calculation logic to ensure data accuracy and processing stability.
+
+</details>
+
+### Centreon Monitoring Agent 25.10.7
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Installer now handles upgrade of existing instance.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed the collection of the used swap value on Windows Server 2025.
 
 </details>
 
