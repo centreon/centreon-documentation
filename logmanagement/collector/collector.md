@@ -1,16 +1,18 @@
 ﻿---
 id: collector
-title: Full collector configuration (multiple log sources)
+title: Manual collector configuration
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-[Simple collector configurations](opentelemetry-collector.md) provides a configuration file to set up log collection from a Windows machine. The procedure below is better suited to cases where multiple log types are collected on the same host (Windows or Linux).
+The [Generating an OTel collector configuration file](./collector-generator.md) page provides a simplified procedure covering certain data sources. If you cannot find the snippet you need in the list of available data sources, use the procedure below.
 
-> **Save time with Centreon templates**
+<!-- [Simple collector configurations](opentelemetry-collector.md) provides a configuration file to set up log collection from a Windows machine. The procedure below is better suited to cases where multiple log types are collected on the same host (Windows or Linux). -->
+
+<!-- > **Save time with Centreon templates**
 >
-> Centreon provides [ready-to-use configuration templates for the most common log sources](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main). Use them as a starting point to quickly configure your collector.
+> Centreon provides [ready-to-use configuration templates for the most common log sources](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main). Use them as a starting point to quickly configure your collector. -->
 
 If you run into any problems, refer to the [Troubleshooting](collector-troubleshooting.md) page.
 
