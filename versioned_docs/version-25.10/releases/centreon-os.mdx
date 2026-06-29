@@ -31,30 +31,30 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
   <summary>Enhancements</summary>
 
 - Updated Symfony components.
-- [Configuration] Users can now change the log level of the event_script broker output from the broker configuration page.
-- [Report] Corrected page break issues in the "Hostgroup-graphs-v2" report when displaying a large number of services.
-- [Upgrade] Made APIv2 update endpoint fully compatible with upgrade endpoint.
-- [VMware Connector] Do not restart VMware connector if associated configuration doesn't change on a poller.
+- [Configuration] Users can now add the log level of the event_script broker output from the broker configuration page
+- [Report] Corrected an issue with the "Hostgroup-graphs-v2" report. The report no longer fails to page break when displaying a large number of services.
+- [Upgrade] Made the APIv2 update endpoint fully compatible with the upgrade endpoint.
+- [VMware Connector] The VMware connector no longer restarts at every configuration export if its associated configuration wasn't changed.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [API ]Fixed an issue on host edition/creation API internal calls.
+- [API] Fixed an issue that occurred when saving the host edition/creation form.
 - [API] Replaced an incorrect error message (The HTTP status code "10" is not valid) that was displayed when the database connection timed out.
 - [CLAPI] Fixed an issue that resulted in a PHP error when using the APPLYCFG command while Anomaly Detection was configured.
-- [Configuration] Fixed an issue on export via top counter button.
-- [Configuration] Fixed an issue where configuration for centreon trapd could not be pushed on pollers.
+- [Configuration] Fixed an issue with the export configuration button located in the top counter that would occasionally saturate the file system.
+- [Configuration] Fixed an issue where configuration for Centreon trapd could not be pushed on pollers.
 - [Configuration] The agent installation command no longer fails for pollers with empty certificate fields.
-- [Custom Views] Removed unnecessary PHP warnings on host-monitoring and service-monitoring widgets.
+- [Custom Views] Removed unnecessary PHP warnings on the host-monitoring and service-monitoring widgets.
 - [Dashboards] Fixed an issue with the Single Metric widget that resulted in a 404 error when using metrics that contained slashes in their name.
-- [Dashboards] Implemented performance optimizations to eliminate unnecessary widget reloads.
-- [Dashboards] It is now possible for users to share a dashboard with:Contact groups part of a common ACL access group.Individual contacts listed in the contact groups they belongs to.
-- [Monitoring] Removed unnecessary PHP warnings on service details page.
+- [Dashboards] Optimized the widgets reload rates to avoid lag.
+- [Dashboards] It is now possible for users to share a dashboard with contact groups that are part of a common ACL access group and individual contacts listed in the contact groups they belongs to.
+- [Monitoring] Removed unnecessary PHP warnings on the service details page.
 - [Monitoring] Removed unnecessary PHP warnings triggered by "Add Downtime" action from Service/Host details pages.
 - [Navigation] Fixed an issue in legacy pages where applying a filter to a specific resource would incorrectly redirect the user to the Resource Status page.
-- [Packaging] Fixed cache rebuild missing commands.
+- [Packaging] Fixed an issue with missing commands that resulted in the cache not being rebuilt.
 - [Upgrade] Fixed an issue where upgrade to version 25.10.10 failed when the central broker configuration was not linked to the broker daemon, as commonly configured on HA platforms.
 
 </details>
@@ -98,8 +98,8 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- [Broker] Fixed an issue when moving a host or a service, it might be removed from cache.
-- [Centengine] Fixed an issue where time period was only active on time range exception day.
+- [Broker] Fixed an issue that occurred when moving a host or a service to a different poller, causing it to be removed from the cache.
+- [Centengine] Fixed an issue where using time period with an exception as a template for another time period caused the new one to only be active during the exception.
 
 </details>
 
@@ -108,9 +108,9 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed a bug where invalid data could crash the Autodiscovery module.
+- Fixed an issue where invalid data could crash the Autodiscovery module.
 - Fixed an issue where configuration for centreon trapd could not be pushed on pollers.
-- [ETL] Fixed a critical ETL failure path and corrected calculation logic to ensure data accuracy and processing stability.
+- [ETL] Fixed a critical ETL failure path that resulted in empty reports and corrected calculation logic.
 
 </details>
 
@@ -119,14 +119,14 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [CMA] Installer now handles upgrade of existing instance.
+- [CMA] Installer now handles the upgrade of existing instances.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [CMA] Fixed the collection of the used swap value on Windows Server 2025.
+- [CMA] Fixed the Swap value on Windows Server 2025 hosts.
 
 </details>
 
