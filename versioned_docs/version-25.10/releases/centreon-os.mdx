@@ -41,12 +41,11 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue on host edition/creation API internal calls.
-- Fixed an issue where configuration for centreon trapd could not be pushed on pollers.
-- Fixed an issue where upgrade to version 25.10.10 failed when the central broker configuration was not linked to the broker daemon, as commonly configured on HA platforms.
+- [API ]Fixed an issue on host edition/creation API internal calls.
 - [API] Replaced an incorrect error message (The HTTP status code "10" is not valid) that was displayed when the database connection timed out.
 - [CLAPI] Fixed an issue that resulted in a PHP error when using the APPLYCFG command while Anomaly Detection was configured.
 - [Configuration] Fixed an issue on export via top counter button.
+- [Configuration] Fixed an issue where configuration for centreon trapd could not be pushed on pollers.
 - [Configuration] The agent installation command no longer fails for pollers with empty certificate fields.
 - [Custom Views] Removed unnecessary PHP warnings on host-monitoring and service-monitoring widgets.
 - [Dashboards] Fixed an issue with the Single Metric widget that resulted in a 404 error when using metrics that contained slashes in their name.
@@ -56,6 +55,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 - [Monitoring] Removed unnecessary PHP warnings triggered by "Add Downtime" action from Service/Host details pages.
 - [Navigation] Fixed an issue in legacy pages where applying a filter to a specific resource would incorrectly redirect the user to the Resource Status page.
 - [Packaging] Fixed cache rebuild missing commands.
+- [Upgrade] Fixed an issue where upgrade to version 25.10.10 failed when the central broker configuration was not linked to the broker daemon, as commonly configured on HA platforms.
 
 </details>
 
@@ -98,7 +98,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue when moving a host or a service, it might be removed from cache.
+- [Broker] Fixed an issue when moving a host or a service, it might be removed from cache.
 - [Centengine] Fixed an issue where time period was only active on time range exception day.
 
 </details>
@@ -126,7 +126,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed the collection of the used swap value on Windows Server 2025.
+- [CMA] Fixed the collection of the used swap value on Windows Server 2025.
 
 </details>
 
