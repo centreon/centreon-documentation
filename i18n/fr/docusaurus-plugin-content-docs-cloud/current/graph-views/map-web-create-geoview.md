@@ -16,7 +16,7 @@ L'affichage du bouton **Ajouter une carte** signifie que vous êtes autorisé à
 
 ## Prérequis
 
-Afin d'appliquer les coordonnées géographiques lors de la configuration d'une nouvelle vue géographique, il est nécessaire de les fournir dans l'onglet **Informations détaillées** correspondant à la ressource que vous voulez superviser (un hôte, un groupe d'hôtes ou une activité métier ou une carte).
+Afin d'appliquer les coordonnées géographiques lors de la configuration d'une nouvelle vue géographique, il est nécessaire de les fournir dans l'onglet **Informations détaillées** correspondant à la ressource que vous voulez superviser (un hôte, un groupe d'hôtes, ou une activité métier).
 
 Par exemple, pour renseigner les coordonnées géographiques de l'hôte **Central** :
 
@@ -24,7 +24,7 @@ Par exemple, pour renseigner les coordonnées géographiques de l'hôte **Centra
 2. Cliquez sur l'onglet **Informations détaillées de l'hôte**.
 3. Remplissez le champ **Coordonnées géographiques** avec le format `Latitude, Longitude`. Cliquez ensuite sur **Sauvegarder**.
 
-Pour une carte, vous pouvez saisir les **coordonnées géographiques** dans la fenêtre d'édition de la carte (ouvrez la carte depuis la page **Supervision > Map**, section **Cartes standard**).
+> Pour une carte, vous pouvez saisir les **coordonnées géographiques** dans la fenêtre d'édition de la carte (allez dans le menu **Supervision > Carte**, section **Cartes standard**, puis cliquez sur le bouton **Configuration** pour accéder aux propriétés de la carte).
 
 ## Créer une vue géographique
 

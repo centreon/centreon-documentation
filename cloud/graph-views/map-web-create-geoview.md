@@ -9,7 +9,7 @@ The display of the **Add a new Geographic view** button on the **Map** page mean
 
 ## Requirement
 
-In order to apply geographic coordinates while configuring a new geographic view, it is necessary to provide them on the **Extended infos** tab corresponding to the resource you want to monitor (a host, a hostgroup or a business activity, or a map).
+In order to apply geographic coordinates while configuring a new geographic view, it is necessary to provide them on the **Extended infos** tab corresponding to the resource you want to monitor (a host, a hostgroup, or a business activity).
 
 For example, to fill in geographic coordinates for the **Central** host:
 
@@ -17,7 +17,7 @@ For example, to fill in geographic coordinates for the **Central** host:
 2. Click the **Host Extended Infos** tab.
 3. Fill in the **Geographic coordinates** field with the `Latitude, Longitude` format. Then click **Save**.
 
-For a map, you can enter the **Geo coordinates** in the map edition window (open the map from the **Monitoring > Map** page, **Standard maps** section).
+> For a map, you can enter the **Geo coordinates** in the map editing window (go to the **Monitoring > Map** menu, **Standard maps** section, then click the **configuration** button to access the map properties).
 
 ## Create a geographic view
 
