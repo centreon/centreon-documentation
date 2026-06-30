@@ -9,40 +9,17 @@ Only one TCP flow must be open from the host to the poller.
 |----------------|-------------|----------|------|------------------------------------------------------|
 | Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow |
 
-### System prerequisites on the poller
-
-> To be able to use the Centreon Monitoring agent, you must use a poller with at least version 24.10 for On Prem users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
-
-### Configure Engine
-
-<Tabs groupId="version" queryString>
-<TabItem value="OnPrem" label="OnPrem">
-
-[Configure how the poller and the agent will communicate](/docs/cma/cma-setup-manual#configure-polleragent-communication). (This link directs you to the latest version of the OnPrem documentation. Use the version selector in the top right corner to switch to another version if you need to.)
-
-</TabItem>
-<TabItem value="Cloud" label="Cloud">
-
-[Configure how the poller and the agent will communicate](/cloud/cma/cma-setup-manual#configure-polleragent-communication).
-
-</TabItem>
-</Tabs>
-
-### System prerequisites on the monitored host
-
-The installer can be downloaded from the [centreon-collect's releases page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
-
 ### Installing the Centreon Monitoring Agent
 
 <Tabs groupId="version" queryString>
 <TabItem value="OnPrem" label="OnPrem">
 
-The installation and configuration procedure of the Centreon Monitoring Agent is detailed in [this dedicated page](/docs/cma/cma-setup-manual#step-3-prepare-the-host). This includes installing the agent, and installing the plugins that will execute the non-native checks. (This link directs you to the latest version of the OnPrem documentation. Use the version selector in the top right corner to switch to another version if you need to.)
+The installation and configuration procedure of the Centreon Monitoring Agent is detailed in [this dedicated page](/docs/cma/cma-setup). This includes installing the agent, and installing the plugins that will execute the non-native checks. (This link directs you to the latest version of the OnPrem documentation. Use the version selector in the top right corner to switch to another version if you need to.)
 
 </TabItem>
 <TabItem value="Cloud" label="Cloud">
 
-The installation and configuration procedure of the Centreon Monitoring Agent is detailed in [this dedicated page](/cloud/cma/cma-setup-manual#step-3-prepare-the-host). This includes installing the agent, and installing the plugins that will execute the non-native checks.
+The installation and configuration procedure of the Centreon Monitoring Agent is detailed in [this dedicated page](/cloud/cma/cma-setup). This includes installing the agent, and installing the plugins that will execute the non-native checks.
 
 </TabItem>
 </Tabs>
