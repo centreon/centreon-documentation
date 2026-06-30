@@ -45,6 +45,15 @@ Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 Le tableau ci-dessous présente les différents types de flux, par défaut,
 entre le serveur BI dédié, le serveur Centreon et les bases de données :
 
+| **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
+|-----------------|--------------------------|--------------------------------------|----------|--------------|
+| ETL/CBIS        | Serveur de reporting     | Serveur de bases de données Centreon | 3306     | TCP          |
+| ETL             | Localhost                | Localhost                            | 8085     | TCP          |
+| SSH             | Serveur de reporting     | Serveur Centreon                     | 22       | TCP          |
+| CBIS            | Serveur de reporting     | Serveur Centreon                     | 80       | HTTP*        |
+| CBIS            | Centreon                 | Serveur de reporting                 | 1234     | TCP          |
+| Widgets         | Serveur central Centreon | Serveur de reporting                 | 3306     | TCP          |
+=======
 | **Application** | **Source**               | **Destination**                      | **Port**     | **Protocole**      | **Objet**                                                  |
 |-----------------|--------------------------|--------------------------------------|--------------|--------------------|------------------------------------------------------------|
 | ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Récupérer la configuration et d'autres données de Centreon |
@@ -121,6 +130,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
+- Lors de la création de l'utilisateur CentreonBI, éxecutez la commande suivante : `adduser centreonBI --force-badname`
 
 #### Utilisateurs et groupes
 

@@ -1,69 +1,40 @@
 ---
 id: api-tokens
-title: API tokens
+title: Using APIs with Centreon Cloud
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Using an API token, a third-party application can call the Centreon API to perform actions in Centreon (webhooks).
+## API tokens
 
-A token is linked to one [Centreon user](../users/users.md) and is valid only for a certain period of time. API calls will be executed according to the [rights assigned to this user](../users/users.md#user-roles). A specific user can have several tokens.
+You need an API Token (a type of [authentication token](./authentication_tokens.md)) to authenticate with the Centreon APIs. To generate one, go to **Administration > Authentication tokens**.
 
-## Who can create API tokens?
+An API token is linked to one [Centreon user](../users/users.md) and is valid only for a certain period of time. API calls will be executed according to the [rights assigned to this user](../users/users.md#user-roles). A specific user can have several tokens.
 
-[Users with an **Administrator** role](../users/users.md#user-roles) can access the **Administration > Authentication tokens** page and can:
-* create tokens for themselves. 
-* see tokens created by other users.
-* create tokens for other users, and can disable or delete them.
-
-## Creating an API token
-
-1. Go to **Administration > API Tokens**.
-2. Click **Add**. A pop-up window appears.
-3. Fill in the required fields, select **API**  from the **Type** list, then click **Generate new token**. A **Token** field appears in the window. You can click the eye icon to display the token if you want.
-4. Copy the token using the "copy" button to the right of the field. Store the token carefully: you will not be able to display it a second time.
-5. Click **Close**.
-
-## Managing API tokens
-
-The list of tokens shows the status of each token in the far left column (enabled, valid but disabled, expired). The date when the token was last used is also shown.
-
-Users with the **Administrator** role can:
-
-* Disable a valid API token using the **Enabled/Disabled** switch to the right of the line. The token can still be reenabled later.
-* Delete a token using the **Delete** button.
-
-## Using a token in the Centreon MAP API
-
-- You need to know the URL of the MAP server in order to use MAP APIs. It looks like the following:
+Insert your API token in the header of your API call:
   
-  <Tabs groupId="sync">
-  <TabItem value="HTTP" label="HTTP">
-  
-  ```
-  http://serverURL:8081/_centreon/centreon-map/api/latest/
-  ```
-  
-  </TabItem>
-  
-  <TabItem value="HTTPS" label="HTTPS">
-  
-  ```
-  https://serverURL:9443/_centreon/centreon-map/api/latest/
-  ```
-  
-  </TabItem>
-  </Tabs>
+```
+Headers {
+    Content-Type = application/json
+    X-AUTH-TOKEN = your-centreon-token
+}
+```
 
-- Then update the header with a Centreon token:
-  
-  ```
-  Headers {
-      Content-Type = application/json
-      X-client-version =  25.09.0
-      Authorization = Bearer \{jwtToken\}
-  }
-  ```
+If authentication fails, check whether the token is not revoked or expired.
 
-  Replace ``Authorization = Bearer \{jwtToken\}`` with ``X-AUTH-TOKEN = your-centreon-token``. Ensure the token is not revoked or expired.
+## Centreon Cloud, BAM, and Autodiscovery API address
+
+```shell
+https://[organization].[region].centreon.cloud/[instance-name]/api/latest/...
+```
+
+**Example**: `https://my-organization.euwest1.centreon.cloud/centreon/api/latest/...`
+
+## Centreon MAP API address
+
+Replace **serverURL** with the URL of your MAP server (not your central server).
+  
+```shell
+https://[organization].[region].centreon.cloud/_[instance-name]/centreon-map/api/latest/...
+```

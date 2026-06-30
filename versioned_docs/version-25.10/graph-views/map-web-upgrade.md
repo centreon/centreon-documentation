@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 > changes) you need to install the new Business
 > repository. You can find its address on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-> From Centreon 24.10, MAP Legacy is no longer available. Whether you were still using MAP Legacy or not, see [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> From Centreon 24.10, MAP Legacy is no longer available. Follow this [link](https://archives-docs.centreon.com/24.04/docs/graph-views/introduction/) to see the latest available version of the MAP Legacy documentation (archived version).
 
 ## Prerequisites
 

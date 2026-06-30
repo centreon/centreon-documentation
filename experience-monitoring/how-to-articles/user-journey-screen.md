@@ -1,22 +1,25 @@
 ---
 id: user-journey-screen
-title: User Journey Screen
+title: Journey overview
 ---
 
-On the "User Journey" page, you will find all the scenarios that have been created for your site.
+By clicking **User Journey** from the main menu, you will be taken to a page regrouping all the scenarios that have been created for your site.
 
-This first page is an overview of all your scenarios. It allows you to quickly and efficiently analyze your site's performance.
+This page gives a brief summary of the performance of each scenario. 
 
-![Image](../assets/how-to-articles/user-journey-screen-1.png)
+![image](../assets/configuration/user-journey/journey-widget.png)
 
-First, you will find the **availability** (uptime, downtime) as well as the number of incidents per scenario for the selected period.
+On each of these User Journeys you can:
 
-Then you will see the **average** and the **variation** for the following 4 performance metrics:
+- Add a journey to your dashboards by clicking the star icon.
+- Save each journey's summary as a screenshot by clicking the camera icon.
+- Access the Digest and Notification settings for each journey or its configuration by clicking the three dots.
+- See and export the list of incidents on a journey by clicking the magnifying glass next to the number of incidents.
+- See a more detailed graph for each of the metrics by clicking the magnifying glass next to each metric's graph.
 
-[Hero Time](../performance-analysis/metrics/hero-time.md)
+## Overview of a journey
 
-[TTFB (“Time To First Byte”)](../performance-analysis/metrics/time-to-first-byte.md)
+The button **Overview of this journey** takes you to a more detailed breakdown of each aspect of this journey.
+You can click on each of the metrics on the **Overview** to get a per-step evaluation of it according to each metric.
 
-[Speed Index](../performance-analysis/metrics/speed-index.md)
-
-[OnLoad](../performance-analysis/metrics/on-load.md)
+The tabs at the top also allow you to better evaluate each step's performance.

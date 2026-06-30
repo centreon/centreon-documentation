@@ -88,7 +88,7 @@ module.exports = {
         {
           "collapsed": true,
           "type": "category",
-          "label": "Managing alerts",
+          "label": "Managing alerts and notifications",
           "link": {
             "type": "generated-index",
           },
@@ -96,6 +96,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'alert-events'
+        },
+        {
+          type: 'doc',
+          id: 'notifications'
         }
        ]
     },
