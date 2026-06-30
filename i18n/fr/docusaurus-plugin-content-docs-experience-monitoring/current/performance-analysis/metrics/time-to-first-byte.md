@@ -17,10 +17,10 @@ Avoir un TTFB le plus bas possible est particulièrement important afin de garan
 - un bon taux de conversion
 - un bon référencement (Google est particulièrement sévère avec les pages ayant un TTFB élevé)
 
-Enfin, lorsque le TTFB est très long, en règle général il se produit car l’application web n’utilise pas de cache complet (ex: Varnish, Full Page Cache, etc.). Par conséquent, le temps d’attente est lié au temps que met l’applicatif pour générer la page. Ce temps, représente également des ressources machines (typiquement de la charge CPU) ce qui peut avoir un impact sur :
+Enfin, lorsque le TTFB est très long, en règle générale il se produit car l’application web n’utilise pas de cache complet (ex: Varnish, Full Page Cache, etc.). Par conséquent, le temps d’attente est lié au temps que met l’applicatif pour générer la page. Ce temps, représente également des ressources machines (typiquement de la charge CPU) ce qui peut avoir un impact sur :
 
 - les ressources cloud utilisées
-- l’impact environnementale de l’application
+- l’impact environnemental de l’application
 
 Dans Experience Monitoring, le TTFB est visible dans les analyses synthétiques des Parcours Utilisateurs, mais également dans le [Real User Monitoring](../../getting-started/real-user-monitoring.md).
 

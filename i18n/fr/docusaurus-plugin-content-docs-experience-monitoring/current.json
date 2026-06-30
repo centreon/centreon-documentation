@@ -46,5 +46,51 @@
   "sidebar.experience-monitoring.category.How-to articles": {
     "message": "Articles How-to",
     "description": "The label for category How-to articles in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.What can I do with Experience Monitoring?": {
+    "message": "Que faire avec Experience Monitoring?",
+    "description": "The label for category What can I do with Experience Monitoring? in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Understanding metrics": {
+    "message": "Comprendre les métriques",
+    "description": "The label for category Understanding metrics in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Working with charts": {
+    "message": "Travailler avec les graphiques",
+    "description": "The label for category Working with charts in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Setting up Experience Monitoring": {
+    "message": "Mettre en place Experience Monitoring",
+    "description": "The label for category Setting up Experience Monitoring in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.User journeys (STM)": {
+    "message": "Parcours utilisateur (STM)",
+    "description": "The label for category User journeys (STM) in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Real User Monitoring (RUM)": {
+    "message": "Real User Monitoring (RUM)",
+    "description": "The label for category Real User Monitoring (RUM) in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Business data (Google Analytics/Matomo)": {
+    "message": "Données business (Google Analytics/Matomo)",
+    "description": "The label for category Business data (Google Analytics/Matomo) in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.System data (host server health)": {
+    "message": "Données système (santé du serveur hôte)",
+    "description": "The label for category System data (host server health) in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Resources": {
+    "message": "Ressources",
+    "description": "The label for category Resources in sidebar Experience Monitoring"
   }
 }
+
+
+
+
+
+
+
+
+
+
