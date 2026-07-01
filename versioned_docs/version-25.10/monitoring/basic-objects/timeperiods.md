@@ -14,7 +14,7 @@ Time periods define a time interval for each day of the week. They enable the fu
 
 To configure a time period, go to **Configuration \> Users \> Time periods**.
 
-The button to the left of the description of each time period lets us visualize the active timeframes.
+The button to the left of the description of each time period lets us visualize the active timeframes. 
 
 1. In the **Time Period Name** and **Alias** fields, enter a name and a description.
 
