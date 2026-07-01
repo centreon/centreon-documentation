@@ -91,7 +91,7 @@ Les deux sens de connexion peuvent être combinés au sein d'un même collecteur
 
 La connexion entre le collecteur et l'agent doit être sécurisée en production. Vous devez utiliser :
 
-- [une connexion TLS avec certificats](cma-certificates.md)
+- [une connexion TLS avec certificats](cma-certificates.md). Les certificats seront générés automatiquement si vous utilisez la [procédure d'installation automatique](cma-setup.md).
 - [un jeton d'authentification](cma-setup-manual.md#créez-un-jeton-dauthentification).
 
 <!-- 2 options are possible:-->

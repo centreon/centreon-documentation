@@ -8,7 +8,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Using the ready-to-run installation command
 
-> This procedure only applies to the "Agent-initiated connection" mode.
+> This procedure only applies to the "Agent-initiated connection" mode. For Poller-initiated mode, either adapt the procedure to the correct parameters, or use the [manual installation procedure](cma-setup-manual.md).
 
 1. Go to **Configuration > Pollers > Agent configurations**, then click **Command**.
 2. In the window that appears, fill in the details corresponding to your environment (poller that will monitor your hosts, type of OS for your hosts).

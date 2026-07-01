@@ -8,7 +8,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Utilisation de la commande d'installation prête à l'emploi
 
-> Cette procédure n'est valable que pour le mode "Connexion initiée par l'agent"
+> Cette procédure n'est valable que pour le mode "Connexion initiée par l'agent". Pour le mode "Connexion inistiée par le collecteur", adaptez la procédure avec les paramètres corrects, ou utilisez la [procédure d'installation manuelle](cma-setup-manual.md).
 
 1. Accédez à **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Commande**.
 2. Dans la fenêtre qui s'affiche, renseignez les informations correspondant à votre environnement (collecteur qui supervisera vos hôtes, type de système d'exploitation de vos hôtes).
@@ -20,6 +20,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 ### Comment sont gérés les certificats ?
 
 A la création d'un collecteur, les certificats sont gérés automatiquement :
+
 * le certificat CA est généré et stocké dans **/etc/pki/centreon-engine** (TTL de 10 ans).
 * une paire clé privée/publique est générée, à partir des fichiers CA (TTL faible, renouvelée automatiquement tous les 30 jours). Cette paire sera stockée dans la mémoire du collecteur et son empreinte stockée dans la base de données.
 * CMA, une fois déployé, utilisera cette empreinte pour récupérer et valider la clé publique et établir la connexion TLS avec le collecteur.

@@ -8,7 +8,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Using the ready-to-run installation command
 
-> This procedure only applies to the "Agent-initiated connection" mode.
+> This procedure only applies to the "Agent-initiated connection" mode. For Poller-initiated mode, either adapt the procedure to the correct parameters, or use the [manual installation procedure](cma-setup-manual.md).
 
 1. Go to **Configuration > Pollers > Agent configurations**, then click **Command**.
 2. In the window that appears, fill in the details corresponding to your environment (poller that will monitor your hosts, type of OS for your hosts).
@@ -20,6 +20,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 ### How are certificates managed?
 
 When a poller is created, certificates are managed automatically:
+
 * The CA certificate is generated and stored in **/etc/pki/centreon-engine** (TTL of 10 years).
 * A private/public key pair is generated from the CA files (low TTL, renewed automatically every 30 days). This pair is stored in the poller's memory, and its fingerprint is stored in the database.
 * Once deployed, CMA will use this fingerprint to retrieve and validate the public key and establish the TLS connection with the poller.
