@@ -3,17 +3,22 @@ id: collector-generator
 title: Générer un fichier de configuration de collecteur OTel
 ---
 
-La configuration d'un collecteur OpenTelemetry peut être complexe. Log Management fournit une interface dans laquelle vous pouvez sélectionner des snippets de configuration pour vos sources de données, les modifier pour les adapter à votre environnement, et télécharger le résultat prêt à l'emploi. D'autres sources de données seront ajoutées au fil du temps. Si votre source de données ne figure pas dans la liste, utilisez plutôt la [procédure de configuration manuelle](collector.md).
+La configuration d'un collecteur OpenTelemetry peut être complexe. Log Management propose une interface où vous sélectionnez des extraits de configuration pour vos sources de données (snippets), puis les adaptez à votre environnement. Vous téléchargez ensuite le résultat, prêt à l'emploi.
+
+D'autres sources de données seront ajoutées au fil du temps. Si votre source de données ne figure pas dans la liste, utilisez plutôt la [procédure de configuration manuelle](collector.md).
 
 Le fichier généré contient des receivers, des processors et des exporters, comme expliqué dans [Fonctionnement d'un collecteur OpenTelemetry](opentelemetry-collector.md).
 
 ## Étape 1 : Configurer les receivers
 
 1. Allez à la page **OTel collector configurator**, puis cliquez sur **Create**.
-2. Dans la fenêtre qui s'ouvre, sélectionnez le pack correspondant à la source de données souhaitée. (Pour le moment, un pack contient un seul snippet) :
+2. Dans la fenêtre qui s'ouvre, sélectionnez le pack correspondant à la source de données souhaitée :
    * Utilisez la barre de recherche en haut de la fenêtre, ou
    * Cliquez sur **Add pack** dans la section **Configure packs**.
-   Une fois le pack sélectionné, un résumé apparaît dans la section **Configure packs**, et le panneau **Preview configuration YAML** est mis à jour : votre source de données est ajoutée à la section **receivers** du fichier de configuration.
+   
+   Pour le moment, un pack contient un seul snippet.
+   
+   Une fois le pack sélectionné, un résumé apparaît dans la section **Configure packs** et le panneau **Preview configuration YAML** est mis à jour. Votre source de données est alors ajoutée à la section **receivers** du fichier de configuration.
 3. Vérifiez que le fichier de log affiché dans la section **Configure packs** pour votre source de données est correct.
 
 ## Étape 2 : Configurer les processors
