@@ -36,6 +36,13 @@ Always produce a file, not just a conversational answer — this is a deliverabl
   ```
   Group link/anchor issues in a dedicated "Links & Anchors" section at the end instead of inline, since they don't attach to a single sentence the same way.
 - store the HTML file in a folder called "_review", located at the root of the centreon-documentation folder.
+- **The HTML file must be a complete, self-contained, styled document** — never emit bare tags with no `<!DOCTYPE html>`/`<head>`/`<style>`, since that renders as unstyled default-browser text. Always include:
+  - A `<head>` with a `<title>` and an embedded `<style>` block (no external stylesheets/CDNs).
+  - Readable typography: a system sans-serif font stack, a max-width content column (e.g. `~840px`, centered), comfortable line-height (~1.6) and spacing between sections.
+  - Distinct, color-coded styling per annotation type so issues are scannable at a glance — e.g. a colored left border + tinted background on each annotation block, with the color keyed to the criterion (pick 5 consistent colors for Plain English / Idiomaticity / Spelling / Style/terminology / Links & anchors and reuse them for the criterion tag badge and the summary table row).
+  - Flagged original sentences visually distinguished from surrounding body text (e.g. light highlight or left rule) so the reader can tell "this is quoted from the source" apart from the annotation itself.
+  - Styled tables (bordered cells, padded, header row visually distinct, zebra-striped rows) for the Links & Anchors and Summary tables — do not rely on bare `<table border="1">` with no CSS.
+  - A short intro line stating the source file reviewed and the date, and anchor links (a small fixed or top-of-page nav) jumping to each of the 5 criteria sections if the document is long.
 
 ## Things to avoid
 
