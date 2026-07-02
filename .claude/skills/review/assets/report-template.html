@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editorial review</title>
+<style>
+  :root {
+    --plain:    #2563eb;   /* Plain language   */
+    --idiom:    #7c3aed;   /* Idiomaticity     */
+    --spelling: #dc2626;   /* Spelling         */
+    --style:    #d97706;   /* Style/terminology*/
+    --links:    #059669;   /* Links & anchors  */
+    --ink: #1f2328; --muted: #57606a; --line: #d0d7de; --bg: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink); background: #f6f8fa; margin: 0; padding: 2rem 1rem;
+  }
+  main { max-width: 840px; margin: 0 auto; background: var(--bg);
+         border: 1px solid var(--line); border-radius: 10px; padding: 2rem 2.5rem; }
+  h1 { margin: 0 0 .25rem; font-size: 1.6rem; }
+  .meta { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+  nav { position: sticky; top: 0; background: var(--bg); padding: .6rem 0;
+        border-bottom: 1px solid var(--line); margin-bottom: 1.5rem; font-size: .85rem; }
+  nav a { margin-right: 1rem; text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--ink); }
+  section { margin: 2rem 0; }
+  h2 { font-size: 1.2rem; padding-left: .6rem; border-left: 4px solid var(--line); }
+  section#plain    h2 { border-color: var(--plain); }
+  section#idiom    h2 { border-color: var(--idiom); }
+  section#spelling h2 { border-color: var(--spelling); }
+  section#style    h2 { border-color: var(--style); }
+  section#links    h2 { border-color: var(--links); }
+
+  blockquote.src {
+    margin: .8rem 0 .2rem; padding: .5rem .8rem; background: #f6f8fa;
+    border-left: 3px solid var(--line); color: var(--muted); font-style: italic;
+  }
+  .note { margin: 0 0 1.2rem; padding: .7rem .9rem; border-radius: 6px;
+          border-left: 4px solid var(--line); }
+  .note .badge { display: inline-block; font-size: .72rem; font-weight: 600;
+                 text-transform: uppercase; letter-spacing: .03em; color: #fff;
+                 padding: .12rem .5rem; border-radius: 999px; margin-right: .5rem; }
+  .note.plain    { background: #eff4ff; border-color: var(--plain); }
+  .note.plain    .badge { background: var(--plain); }
+  .note.idiom    { background: #f5f0ff; border-color: var(--idiom); }
+  .note.idiom    .badge { background: var(--idiom); }
+  .note.spelling { background: #fef2f2; border-color: var(--spelling); }
+  .note.spelling .badge { background: var(--spelling); }
+  .note.style    { background: #fff8ef; border-color: var(--style); }
+  .note.style    .badge { background: var(--style); }
+  .clean { color: var(--muted); font-style: italic; }
+
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .92rem; }
+  th, td { border: 1px solid var(--line); padding: .5rem .7rem; text-align: left; vertical-align: top; }
+  thead th { background: #f0f3f6; }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+  .wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Editorial review</h1>
+  <p class="meta"><!-- META: source file + date --></p>
+
+  <nav>
+    <a href="#plain">Plain language</a>
+    <a href="#idiom">Idiomaticity</a>
+    <a href="#spelling">Spelling</a>
+    <a href="#style">Style &amp; terminology</a>
+    <a href="#links">Links &amp; anchors</a>
+    <a href="#summary">Summary</a>
+  </nav>
+
+  <section id="plain">
+    <h2>1 · Plain language</h2>
+    <!-- SECTION:plain — blockquote.src + div.note.plain per issue, or <p class="clean"> if none -->
+  </section>
+
+  <section id="idiom">
+    <h2>2 · Idiomaticity</h2>
+    <!-- SECTION:idiom -->
+  </section>
+
+  <section id="spelling">
+    <h2>3 · Spelling</h2>
+    <!-- SECTION:spelling -->
+  </section>
+
+  <section id="style">
+    <h2>4 · Style &amp; terminology</h2>
+    <!-- SECTION:style -->
+  </section>
+
+  <section id="links">
+    <h2>5 · Links &amp; anchors</h2>
+    <div class="wrap">
+      <!-- SECTION:links — table from extract_refs.py + check_links.sh output -->
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th>Criterion</th><th>Issues</th><th>Takeaway</th></tr></thead>
+        <tbody>
+          <!-- SUMMARY: one row per criterion -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+</body>
+</html>
