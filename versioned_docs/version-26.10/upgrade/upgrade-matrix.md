@@ -9,7 +9,7 @@ Pour rappel, les [OS supportés en version 26.10](../installation/compatibility.
 * RHEL/Oracle Linux/Alma Linux 10
 * Debian 13 (trixie)
 
-Cela signifie qu'une montée de version n'est possible que si vous utilisiez une version 23.04 ou supérieure, avec certains OS. Pour toute autre version et OS, vous devrez effectuer une [migration](../migrate/introduction.md).
+Cela signifie qu'une simple montée de version n'est possible que si vous utilisiez une version 23.04 ou supérieure, avec RHEL/Oracle Linux/Alma Linux 9. Pour toute autre version et OS, vous devrez effectuer une [migration](../migrate/introduction.md).
 
 ## Montée de version ou migration?
 

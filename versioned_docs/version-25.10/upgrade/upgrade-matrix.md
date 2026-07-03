@@ -9,7 +9,7 @@ Pour rappel, les [OS supportés en version 25.10](../installation/compatibility.
 * RHEL/Oracle/Alma Linux 9
 * Debian 12 (bookworm)
 
-Cela signifie qu'une montée de version n'est possible que si vous utilisiez une version 20.10 ou supérieure. Pour toute autre version, vous devrez effectuer une [migration](../migrate/introduction.md).
+Cela signifie qu'une montée de version n'est possible que si vous utilisiez une version 20.10 ou supérieure, avec RHEL/Oracle Linux/Alma Linux 8 ou 9, ou Debian 12. Pour toute autre version ou OS, vous devrez effectuer une [migration](../migrate/introduction.md).
 
 ## Montée de version ou migration?
 
