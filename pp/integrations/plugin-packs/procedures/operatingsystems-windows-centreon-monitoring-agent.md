@@ -646,7 +646,7 @@ CRITICAL= 0
 |:---------------|:-----------------------------------------------------------------|:--------------------------------------|:---------:|
 | PROCESS        | Name of the executable                                           |                                       |     X     |
 | WARNINGSTATUS  | Filter to apply on processes to identify those in WARNING state  | `status != 'started'`                 |           |
-| CRITICALSTATUS | Filter to apply on processes to identify those in CRITICAL state | `status == 'stopped'`                 |           |
+| CRITICALSTATUS | Filter to apply on processes to identify those in CRITICAL state |                                       |           |
 | WARNINGRULES   | Condition to match for the overall status to be WARNING          | `warn_count > 0`                      |           |
 | CRITICALRULES  | Condition to match for the overall status to be CRITICAL         | `crit_count > 0`                      |           |
 | EMPTYSTATE     | Message to display when no process is found                      | `No files found matching this filter` |           |
@@ -654,6 +654,9 @@ CRITICAL= 0
 | OKSYNTAX       | Format of the output when the status is OK                       | `{status}: All processes are ok`      |           |
 | DETAILSYNTAX   | How each process is displayed in the output                      | `{exe}={state}`                       |           |
 | VERBOSE        | Display all not ok processes in long output                      | true                                  |           |
+
+> To trigger a CRITICAL alert if a process is not found in the list of currently running processes, you can specify the following values for
+> the macros `PROCESS = executable name` and `CRITICALRULES = ok_count < 1`.
 
 </TabItem>
 <TabItem value="Services" label="Services">
