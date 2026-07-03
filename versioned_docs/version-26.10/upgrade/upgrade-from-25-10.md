@@ -5,7 +5,7 @@ title: Upgrade from Centreon 25.10
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon platform from version 24.10 to version 25.10.
+This chapter describes how to upgrade your Centreon platform from version 25.10 to version 26.10.
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
 >
@@ -14,8 +14,6 @@ This chapter describes how to upgrade your Centreon platform from version 24.10 
 > In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
 
 > If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
-
-> If you were using MySQL 8.0, you may want to [upgrade to MySQL 8.4](upgrade-mysql.md) before the end of support for version 8.0. at the end of April 2026.
 
 ## Prerequisites
 
@@ -70,7 +68,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Update your Centreon 24.10 to the latest minor version.
+1. Update your Centreon 25.10 to the latest minor version.
 
 2. Remove the repository files:
 
@@ -83,7 +81,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
    ```shell
    dnf install -y dnf-plugins-core
-   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
    systemctl stop cbd
    dnf clean all --enablerepo=*
    ```
@@ -91,12 +89,12 @@ Before upgrading your Centreon platform, make sure the following package reposit
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-1. Update your Centreon 24.10 to the latest minor version.
+1. Update your Centreon 25.10 to the latest minor version.
 
 2. Remove the repository files:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-24.10.repo
+   rm /etc/yum.repos.d/centreon-25.10.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
@@ -104,19 +102,19 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-1. Update your Centreon 24.10 to the latest minor version.
+1. Update your Centreon 25.10 to the latest minor version.
 
 2. Run the following commands:
 
 ```shell
-rm -f /etc/apt/sources.list.d/centreon-25.10-stable.list
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
+rm -f /etc/apt/sources.list.d/centreon-26.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -166,7 +164,7 @@ rm /etc/apt/sources.list.d/centreon-business.list
 </TabItem>
 </Tabs>
 
-3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+3. Install the 26.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
 
@@ -503,14 +501,14 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
    -  port: 80
-   -  version: 25.10
+   -  version: 26.10
    -  login: Admin
    -  password: xxxxx
 
 2. Enter the following request:
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v25.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v26.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -675,7 +673,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/e
 
 ```shell
 rm -f /etc/apt/sources.list.d/centreon*
-echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-26.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 apt update
 ```
 

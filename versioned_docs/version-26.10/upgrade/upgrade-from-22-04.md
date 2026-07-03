@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 22.04
-to version 25.10.
+to version 26.10.
 
 > Version 22.04 is no longer supported. Upgrade from this version has not been tested by the Centreon QA team.
 
@@ -14,9 +14,9 @@ to version 25.10.
 
 > If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
-> Business edition users: MAP Legacy is no longer available in Centreon 25.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> Business edition users: MAP Legacy is no longer available in Centreon 26.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
-> Version 25.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+> Version 26.10 means the end of support for Debian 12. If you were using Debian 12, you must first migrate to Debian 13 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
 
 > Warning: If you were using the following monitoring connectors, from version 25.10 you must declare all of their configurations using [the **Configuration \> Additional connector configurations** page](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) before deploying the configuration of the corresponding poller:
 > * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
@@ -74,7 +74,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 ## Upgrade the Centreon Central server
 
-Version 25.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+Version 26.10 means the end of support for Debian 12. If you were using Debian 12, you must first migrate to Debian 13 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
@@ -102,7 +102,7 @@ Version 25.10 means the end of support for Debian 11. If you were using Debian 1
 
    ```shell
    dnf install -y dnf-plugins-core
-   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
    systemctl stop cbd
    dnf clean all --enablerepo=*
    ```
@@ -115,7 +115,7 @@ Version 25.10 means the end of support for Debian 11. If you were using Debian 1
 
 ```shell
 rm -f /etc/apt/sources.list.d/centreon.list
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -165,7 +165,7 @@ rm /etc/apt/sources.list.d/centreon-business.list
 </TabItem>
 </Tabs>
 
-3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+3. Install the 26.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
 
@@ -183,7 +183,7 @@ rm /var/lib/centreon-broker/* -f
 
 ### Upgrade PHP
 
-Centreon 25.10 uses PHP in version 8.2.
+Centreon 26.10 uses PHP in version 8.4.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -494,14 +494,14 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
    -  port: 80
-   -  version: 25.10
+   -  version: 26.10
    -  login: Admin
    -  password: xxxxx
 
 2. Enter the following request:
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v25.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v26.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -645,7 +645,7 @@ Run the following command:
 ```shell
 dnf install -y dnf-plugins-core && \
 rm -f /etc/yum.repos.d/centreon* && \
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
 ```
 
 </TabItem>
@@ -653,7 +653,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 
 ```shell
 rm -f /etc/apt/sources.list.d/centreon*
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 apt update
 ```
 

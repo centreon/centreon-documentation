@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 21.04
-to version 25.10.
+to version 26.10.
 
 > Version 21.04 is no longer supported. Upgrade from this version has not been tested by the Centreon QA team.
 
@@ -15,7 +15,7 @@ to version 25.10.
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8
 > you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
-> Business edition users: MAP Legacy is no longer available in Centreon 25.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> Business edition users: MAP Legacy is no longer available in Centreon 26.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
 > Warning: If you were using the following monitoring connectors, from version 25.10 you must declare all of their configurations using [the **Configuration \> Additional connector configurations** page](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) before deploying the configuration of the corresponding poller:
 > * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
@@ -96,7 +96,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
    ```shell
    dnf install -y dnf-plugins-core
-   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
    systemctl stop cbd
    dnf clean all --enablerepo=*
    ```
@@ -129,7 +129,7 @@ rm /etc/yum.repos.d/centreon-business-21.04.repo
 </TabItem>
 </Tabs>
 
-3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+3. Install the 26.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 5. Stop the Centreon Broker process:
 
@@ -145,7 +145,7 @@ rm /var/lib/centreon-broker/* -f
 
 ### Upgrade PHP
 
-Centreon 25.10 uses PHP in version 8.2.
+Centreon 26.10 uses PHP in version 8.4.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -445,7 +445,7 @@ Run the following command:
 ```shell
 dnf install -y dnf-plugins-core && \
 rm -f /etc/yum.repos.d/centreon* && \
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
 ```
 
 </TabItem>

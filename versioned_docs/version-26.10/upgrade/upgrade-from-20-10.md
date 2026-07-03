@@ -6,15 +6,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 20.10
-to version 25.10.
+to version 26.10.
 
 > Version 20.10 is no longer supported. Upgrade from this version has not been tested by the Centreon QA team.
 
-You cannot simply upgrade Centreon from a version earlier than 20.10 to version 25.10, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../migrate/introduction.md).
+You cannot simply upgrade Centreon from a version earlier than 20.10 to version 26.10, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../migrate/introduction.md).
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
 
-> Business edition users: MAP Legacy is no longer available in Centreon 25.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> Business edition users: MAP Legacy is no longer available in Centreon 26.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8 or 9
 > you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
@@ -22,7 +22,7 @@ You cannot simply upgrade Centreon from a version earlier than 20.10 to version 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
 > If not, please follow [this](./upgrade-mariadb.md)
 > procedure in order to update MariaDB before you can continue with the upgrade
-> from version 20.10 to version 25.10 as described by this document.
+> from version 20.10 to version 26.10 as described by this document.
 
 > Warning: following the correction of a problem relating to the database schema, it will be necessary to stop the 
 > insertion of data collected in the database during the update. These will be stored in temporary files and then
@@ -113,7 +113,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
    ```shell
    dnf install -y dnf-plugins-core
-   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
    systemctl stop cbd
    dnf clean all --enablerepo=*
    ```
@@ -158,7 +158,7 @@ rm /etc/yum.repos.d/centreon-business-20.10.repo
 </TabItem>
 </Tabs>
 
-3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+3. Install the 26.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 5. Stop the Centreon Broker process:
 
@@ -174,7 +174,7 @@ rm /var/lib/centreon-broker/* -f
 
 ### Upgrade PHP
 
-Centreon 25.10 uses PHP in version 8.2.
+Centreon 26.10 uses PHP in version 8.4.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -373,7 +373,7 @@ Run the following command on the dedicated DBMS server:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
 ```
 
 </TabItem>
@@ -568,7 +568,7 @@ Run the following command:
 ```shell
 dnf install -y dnf-plugins-core && \
 rm -f /etc/yum.repos.d/centreon* && \
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
 ```
 
 </TabItem>

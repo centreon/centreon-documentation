@@ -1,11 +1,11 @@
 ---
 id: update-centreon-platform
-title: Update a Centreon 25.10 platform
+title: Update a Centreon 26.10 platform
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to update your Centreon 25.10 platform (i.e. switch from version 25.10.x to version 25.10.y).
+This chapter describes how to update your Centreon 26.10 platform (i.e. switch from version 26.10.x to version 26.10.y).
 
 >After updating your central server, make sure you also update all your remote servers and your pollers.
 >
@@ -168,14 +168,14 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
    -  port: 80
-   -  version: 25.10
+   -  version: 26.10
    -  login: Admin
    -  password: xxxxx
 
 2. Enter the following request:
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v25.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v26.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -324,7 +324,7 @@ You can perform an unattended update of your platform using the **unattended.sh*
 1. Download the script using the following command:
 
 ```shell
-curl -L https://download.centreon.com/25.10/unattended.sh -O /tmp/unattended
+curl -L https://download.centreon.com/26.10/unattended.sh -O /tmp/unattended
 ```
 
 2. Run the script:
@@ -332,17 +332,17 @@ curl -L https://download.centreon.com/25.10/unattended.sh -O /tmp/unattended
 * For a central server:
 
 ```shell
-bash unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 26.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * For a remote server:
 
 ```shell
-bash unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 26.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * For a poller:
 
 ```shell
-bash unattended.sh update -t poller -v 25.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t poller -v 26.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```

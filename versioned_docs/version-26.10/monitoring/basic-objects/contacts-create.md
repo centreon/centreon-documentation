@@ -41,7 +41,7 @@ http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_use
 > The Possibility of automatic connection (auto login) should be enabled in the menu: **Administration \> Options**.
 
 * The **Authentication Source** field specifies if the connection information comes from an LDAP directory or information stored locally on the server.
-* The next 3 fields are for authorizing users to perform calls to our [API v1](../../api/rest-api-v1.md#api-calls) and [API v2](https://docs-api.centreon.com/api/centreon-web/25.10/) (note: our API documentation is written for developers familiar with HTTP requests and JSON).
+* The next 3 fields are for authorizing users to perform calls to our [API v1](../../api/rest-api-v1.md#api-calls) and [API v2](https://docs-api.centreon.com/api/centreon-web/26.10/) (note: our API documentation is written for developers familiar with HTTP requests and JSON).
   - The **Configuration API** field only applies to the v2 API as only administrators can call this API using v1.
   - The [**Realtime API**](../../api/rest-api-v1.md#realtime-information) can be called by a non-administrator user in both versions as long as this field is checked.
   - Administrators are able to call both the **Configuration API** and the [**Realtime API**](../../api/rest-api-v1.md#realtime-information) even if these fields are not checked. This is true for both v1 and v2. They are also the only ones allowed to use [**CLAPI**](../../api/clapi.md) while others can only use the Rest API.
