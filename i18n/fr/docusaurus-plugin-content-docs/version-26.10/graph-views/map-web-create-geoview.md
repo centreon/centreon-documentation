@@ -16,7 +16,7 @@ L'affichage du bouton **Ajouter une carte** signifie que vous êtes autorisé à
 
 ## Prérequis
 
-Afin d'appliquer les coordonnées géographiques lors de la configuration d'une nouvelle vue géographique, il est nécessaire de les fournir dans l'onglet **Informations détaillées** correspondant à la ressource que vous voulez superviser (un hôte, un groupe d'hôtes ou une activité).
+Afin d'appliquer les coordonnées géographiques lors de la configuration d'une nouvelle vue géographique, il est nécessaire de les fournir dans l'onglet **Informations détaillées** correspondant à la ressource que vous voulez superviser (un hôte, un groupe d'hôtes, ou une activité métier).
 
 Par exemple, pour renseigner les coordonnées géographiques de l'hôte **Central** :
 
@@ -24,19 +24,24 @@ Par exemple, pour renseigner les coordonnées géographiques de l'hôte **Centra
 2. Cliquez sur l'onglet **Informations détaillées de l'hôte**.
 3. Remplissez le champ **Coordonnées géographiques** avec le format `Latitude, Longitude`. Cliquez ensuite sur **Sauvegarder**.
 
+> Pour une carte, vous pouvez saisir les **coordonnées géographiques** dans la fenêtre d'édition de la carte (allez dans le menu **Supervision > Carte**, section **Cartes standard**, puis cliquez sur le bouton **Configuration** pour accéder aux propriétés de la carte).
+
 ## Créer une vue géographique
 
 1. Dans la page **Supervision > Map**, cliquez sur le bouton **Ajouter une vue géographique** situé dans la section **Vues géographiques**.
 
-2. Définissez les propriétés de la nouvelle vue géographique :
-   - Nom : nommez la vue géographique.
+2. Remplissez la section **Nom** :
+   - Nom et image : attribuez un nom à la vue géographique et sélectionnez une image dans la liste déroulante.
 
-3. Cliquez sur **Ajouter** pour confirmer la création de la vue.
-La nouvelle vue s'affiche dans la liste des **Vues géographiques**.
+3. Remplissez la section **Ajouter des ressources** en sélectionnant les ressources listées par type. Chaque champ propose une liste des ressources disponibles :
+   - Cartes
+   - Groupes d'hôtes
+   - Hôtes par Groupe d'hôtes
+   - Activités métier par VM
 
-4. Cliquez sur la vue pour l'ouvrir, puis sur le bouton **Éditer** pour compléter les paramètres.
+4. Cliquez sur **Ajouter**.
 
-5. Cliquez sur **Éditer** pour confirmer les paramètres.
+La nouvelle vue géographique s'ouvre directement dans l'interface de l'éditeur.
 
 ## Informations complémentaires
 

@@ -1,22 +1,25 @@
-﻿---
+---
 id: experience-monitoring-solution
-title: The Centreon Experience Monitoring Solution
+title: What can I do with Experience Monitoring?
 ---
 
-**Centreon Experience Monitoring (formerly Quanta) is a Digital Experience Monitoring platform designed to combine web performance and digital sustainability.** It enables tech, product, and business teams to collaborate efficiently to deliver fast and reliable digital experiences while saving hardware resources.
+Centreon Experience Monitoring (formerly Quanta) is a platform designed to monitor both web performance and digital sustainability.
+It provides tools designed to help optimize online business performance and reduce the digital carbon footprint.
 
-The solution combines several complementary components:
+To do this, Experience Monitoring offers an array of features for an encompassing overview.
 
-- **Synthetic Monitoring**: Simulates user journeys via web browsers to measure loading times (notably through Core Web Vitals) and detect slowdowns or malfunctions.
-- **Real User Monitoring (RUM)**: Detailed analysis of the actual experience of visitors on the application.
-- **Digital Sustainability Monitoring**: Continuous assessment of the carbon footprint and eco-design score of each page.
-- **Load Testing**: Validates the technical robustness of the site under high traffic conditions.
+![image](../assets/switching-between-modules.png)
 
-Experience Monitoring provides a clear and unified interface, enhanced by:
+## What does Experience Monitoring measure?
 
-- **Dynamic graphs** to visualize loading times,
-- **Customizable and intelligent alerts**,
-- **Comprehensive audit reports**,
-- And human support from our experts (the *Perfgurus*), to identify the most impactful areas for improvement.
+Experience Monitoring collects data on your website's loading times, taking into consideration how much time the different elements of the website take.
+Users can then identify which sections may require optimization.
 
-**Objective: to help you improve user experience, boost your SEO performance, secure your traffic peaks, and concretely reduce your environmental impact.**
+Experience Monitoring also measures the website's carbon footprint. This is done by calculating the weight of the website and the processing power required to stock it and displaying it to users.
+Users can then look into reducing both their environmental impact and their hosting-related costs.
+
+## Where do I start with Experience Monitoring?
+
+The main source of data for Experience Monitoring are [User journeys](../getting-started/synthetic-monitoring.md). These are pre-established navigation paths of your website, usually configured to imitate what the average user does on your website.
+
+Another key feature is [Real User Monitoring (RUM)](../getting-started/real-user-monitoring.md). While user journeys follow a theoretical navigation, RUM gathers data from what real users do on your website.

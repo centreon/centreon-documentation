@@ -13,6 +13,7 @@ Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser
 - Une machine située dans votre infrastructure devra héberger une sonde. Elle devra pouvoir accéder à l'application à superviser.
 - Les identifiants Docker fournis par Centreon. Les identifiants vous sont transmis par Centreon via un lien sécurisé Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
 - Un parcours utilisateur configuré sur l'application interne à superviser.
+- L'installation du [profileur](../../installation/servers/install-php-magento-orocommerce-profiler.md).
 
 ## Étape 1 : Créer une nouvelle zone STM
 
@@ -58,7 +59,7 @@ Vous pouvez également créer des sondes de recommandations. Ces dernières tour
 
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**. Les sondes de recommandations se différencient des sondes STM grâce à leur icône de jumelles.
 
-Notez qu'il faut attendre juqu'à 24 heures pour que la sonde ait assez de données pour commencer à faire des recommandations.
+Notez qu'il faut attendre jusqu'à 24 heures pour que la sonde ait assez de données pour commencer à faire des recommandations.
 
 </TabItem>
 </Tabs>

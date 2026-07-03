@@ -3,6 +3,55 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## June 22nd, 2026
+
+### Centreon IT Edition
+
+**REST API**
+
+This release delivers a significant expansion of the Centreon REST API, enabling broader automation and integration capabilities across the platform.
+* A new endpoint is now available to retrieve Services (GET).
+* New endpoints have been introduced for retrieving and deleting Media resources (GET, DELETE).
+* A new endpoint allows retrieving Host configurations (GET).
+* New endpoints are available for Host Templates (GET) and Service Templates (GET).
+* Service Categories can now be retrieved and updated via API (GET, UPDATE).
+* Service Groups can now be retrieved and updated via API (GET, UPDATE).
+* Missing filter parameters have been added to the GET Maps API specification.
+
+**Authentication**
+
+* A new token type has been introduced: poller tokens. Dedicated tokens and agent configurations are now automatically created when deploying or upgrading a platform.
+* The accepted list of special characters has been improved for better compatibility.
+
+**Configuration**
+
+* Macros can now reference other macros (recursive macros), enabling more flexible and dynamic configurations.
+* BBDO state synchronization reliability has been improved: the default periodic reload is now disabled, while a manual sync API remains available.
+* The commands configuration page has been reworked for improved usability.
+
+**Collect**
+
+Several important improvements have been made to Centreon Broker to enhance performance, security, and protocol support:
+* The broker event queue capacity has been expanded to enhance overall performance.
+* The fixed-size BBDO message queue has been replaced with a dynamic scaling queue, preventing message loss while maintaining strict memory usage limits.
+
+**Centreon Monitoring Agent (CMA)**
+
+* The CMA installer now handles upgrades of existing instances, ensuring seamless version transitions.
+A new feature allows retrieving a public CA certificate using its fingerprint and establishing a TLS connection from it.
+* A dedicated window now allows you to automatically generate the correct CMA installation command for your target host. Simply copy the command and run it on the host.
+### Centreon Pro Edition
+
+**Service Mapping**
+
+A new streamlined and guided mode has been introduced for creating Business Activities, simplifying the setup process step by step.
+
+**MAP**
+
+The logo used as the MAP default image has been modernized to align with the current product branding.
+The Viewer now features a modernized resource display and updated status indicators, improving readability and consistency with Centreon's design standards.
+Host group tooltips in the Viewer now explicitly display each host's status alongside its most degraded service state, providing clearer incident visibility at a glance.
+
 ## April 8th, 2026
 
 ### Centreon IT Edition
@@ -12,15 +61,10 @@ title: Centreon Cloud release notes
 This release focuses on streamlining the deployment lifecycle of the Centreon Monitoring Agent, from installation to automated host provisioning:
 
 * Automated Host Creation: To accelerate large-scale deployments, hosts can now be automatically created in the Centreon configuration upon agent registration. This behavior can be enabled via a new option in the Agent configuration menu.
-
 * Simplified Deployment: New helper scripts for both Linux and Windows are now available to simplify the download, installation, and initial registration of the agent.
-
 * Enhanced Native Checks: The **File** native check has been improved and can now trigger alerts when a result set is empty, providing better visibility into missing critical files.
-
 * Certificate Management: The Centreon Engine is now capable of automatically generating and renewing CMA certificates, reducing manual administrative overhead and ensuring continuous secure communication.
-
 * Threshold Compatibility: A dedicated script is now provided to help administrators adapt threshold formats specifically for CMA native checks.
-
 * Certificate Authority: New columns dedicated to CA certificates have been integrated into the instances database to support enhanced security tracking.
 
 **Centreon Dashboards**
@@ -30,11 +74,8 @@ This release focuses on streamlining the deployment lifecycle of the Centreon Mo
 **Configuration & Poller Wizard**
 
 * Global Macros: In an effort to clarify configuration terminology, **Resource macros** have been renamed **Global macros** throughout the interface.
-
 * Poller Setup: When creating a new poller, the system now automatically generates the dedicated token and agent configuration, ensuring a "ready-to-monitor" state immediately.
-
 * Poller Commands: The poller wizard has been updated to use systemctl instead of the legacy service command for Engine and Broker management, aligning with modern OS standards.
-
 * Broker Enhancements: A new Broker output has been added to handle script execution, and a mechanism has been implemented to delay write retries in specific scenarios where the system call does not return a boolean.
 
 **Centreon Customer Identity and Access Management**

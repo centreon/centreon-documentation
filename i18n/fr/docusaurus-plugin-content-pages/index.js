@@ -57,12 +57,12 @@ const cards = [
         href: "experience-monitoring/getting-started/welcome/",
       },
       {
-        label: "Le Monitoring Synthétique (STM)",
-        href: "experience-monitoring/getting-started/synthetic-monitoring/",
+        label: "Le Monitoring Synthétique/Parcours utilisateur (STM)",
+        href: "experience-monitoring/configuration/user-journey/user-journey-intro/",
       },
       {
         label: "Le Real User Monitoring (RUM)",
-        href: "experience-monitoring/getting-started/real-user-monitoring/",
+        href: "experience-monitoring/rum/rum-intro/",
       },
       {
         label: "Sobriété numérique",

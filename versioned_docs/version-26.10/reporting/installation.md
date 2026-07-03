@@ -43,13 +43,14 @@ The diagram below highlights the main components of Centreon MBI:
 The table below shows the different types of flows, by default,
 between the dedicated BI server, the Centreon server and the databases:
 
-| **Application** | **Source**               | **Destination**                      | **Port**     | **Protocol**       | **Purpose**                                         |
-|-----------------|--------------------------|--------------------------------------|--------------|--------------------|-----------------------------------------------------|
-| ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Retrieve configuration and other data from Centreon |
-| SSH             | Reporting server         |  Centreon Server                     | 22           | TCP                | Send generated reports to central server            |
-| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentication and data retrieval                     |
-| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Central contacts CBIS to generate jobs               |
-| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Retrieve aggregated data to display in widgets      |
+| **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
+|-----------------|--------------------------|--------------------------------------|----------|--------------|
+| ETL/CBIS        | Reporting server         | Centreon database server             | 3306     | TCP          |
+| ETL             | Localhost                | Localhost                            | 8085     | TCP          |
+| SSH             | Reporting server         | Centreon Server                      | 22       | TCP          |
+| CBIS            | Reporting server         | Centreon Server                      | 80       | HTTP*        |
+| CBIS            | Centreon                 | Reporting server                     | 1234     | TCP          |
+| Widgets         | Centreon central server  | Reporting server                     | 3306     | TCP          |
 
 *Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use the Centreon API to generate graphs.*
 
@@ -123,6 +124,7 @@ considerations.
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
+- When creating the CentreonBI user, you must execute the following command: `adduser centreonBI --force-badname`
 
 #### Users and groups
 

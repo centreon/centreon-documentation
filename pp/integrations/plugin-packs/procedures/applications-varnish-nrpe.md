@@ -5,109 +5,389 @@ title: Varnish NRPE
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
 
-## Overview
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Varnish NRPE**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
-The Monitoring Connector *Varnish* works with the NRPE monitoring agent on Linux to check 
-the performance and behavior of a Varnish HTTP Cache Server. 
+## Contenu du pack
 
-## Pack assets
+### Modèles
 
-### Monitored objects
+Le connecteur de supervision **Varnish NRPE** apporte un modèle d'hôte :
 
-* Varnish Cache statistics
+* **App-Varnish-NRPE-custom**
 
-### Collected metrics
-
-*Coming soon*
-
-## Prerequisites
-
-### Command-line utility
-
-The Plugin uses the *varnishstat* binary. 
-
-### NRPE Server
-
-On RPM-Based distribution, you can use the centreon-nrpe3-daemon package deploying 
-a preconfigured version of the NRPE Server. 
-
-Most of the Linux distributions provide a NRPE package you can deploy using the system
-package default manager. When using these, it's important to modify following directives
-in the config files: 
-
-* `allowed_hosts`
-
-```shell
-[...]
-# ALLOWED HOST ADDRESSES
-# This is an optional comma-delimited list of IP address or hostnames
-# that are allowed to talk to the NRPE daemon. Network addresses with a bit mask
-# (i.e. 192.168.1.0/24) are also supported. Hostname wildcards are not currently
-# supported.
-allowed_hosts=X.X.X.X,X.Y.Z.V
-[...]
-```
-
-* `dont_blame_nrpe`
-
-```shell
-[...]
-# ALLOWED HOST ADDRESSES
-# This is an optional comma-delimited list of IP address or hostnames
-# that are allowed to talk to the NRPE daemon. Network addresses with a bit mask
-# (i.e. 192.168.1.0/24) are also supported. Hostname wildcards are not currently
-# supported.
-dont_blame_nrpe=1
-[...]
-```
-
-**Important note: the `NASTY_METACHARS` parameter should be left as its default value.
-Modifying it might open serious security hole and RCE exploitation from an attacker.** 
-
-## Installation 
+Le connecteur apporte le modèle de service suivant
+(classé selon le modèle d'hôte auquel il est rattaché) :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+<TabItem value="App-Varnish-NRPE-custom" label="App-Varnish-NRPE-custom">
 
-1. Install the Centreon NRPE Client package on every Poller expected to monitor *Varnish*:
+| Alias         | Modèle de service             | Description                                              |
+|:--------------|:------------------------------|:---------------------------------------------------------|
+| Varnish-Stats | App-Varnish-Stats-NRPE-custom | Contrôle permettant de vérifier les statistiques Varnish |
 
-```bash
-yum install centreon-nrpe3-plugin
-```
-
-2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
-from the **Configuration > Connectors > Monitoring Connectors** page
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Varnish-NRPE-custom** est utilisé.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
+</Tabs>
 
-1. Install the Centreon package on every Poller expected to monitor *Varnish*:
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
+
+<Tabs groupId="sync">
+<TabItem value="Varnish-Stats" label="Varnish-Stats">
+
+| Nom                 | Unité      |
+|--------------------------|------------|
+| client_conn              | /s  |
+| client_drop              | /s  |
+| client_req               | /s  |
+| client_drop_late         | /s  |
+| client_req_400           | /s  |
+| client_req_411           | /s  |
+| client_req_413           | /s  |
+| client_req_417           | /s  |
+| backend_conn             | /s  |
+| backend_unhealthy        | /s  |
+| backend_busy             | /s  |
+| backend_fail             | /s  |
+| backend_reuse            | /s  |
+| backend_recycle          | /s  |
+| backend_retry            | /s  |
+| backend_req              | /s  |
+| cache_hit                | /s  |
+| cache_hitpass            | /s  |
+| cache_miss               | /s  |
+| n_sess_mem               | count      |
+| n_sess                   | count      |
+| n_object                 | count      |
+| n_vampireobject          | count      |
+| n_objectcore             | count      |
+| n_objecthead             | count      |
+| n_waitinglist            | count      |
+| n_vbc                    | count      |
+| n_backend                | count      |
+| n_expired                | count      |
+| n_lru_nuked              | count      |
+| n_lru_moved              | count      |
+| n_objsendfile            | /s  |
+| n_objwrite               | /s  |
+| n_objoverflow            | /s  |
+| shm_records              | /s  |
+| shm_writes               | /s  |
+| shm_flushes              | /s  |
+| shm_cont                 | /s  |
+| shm_cycles               | /s  |
+| sms_nreq                 | /s  |
+| sms_nobj                 | count      |
+| sms_nbytes               | bytes      |
+| sms_balloc               | bytes      |
+| sms_bfree                | bytes      |
+| fetch_head               | /s  |
+| fetch_length             | /s  |
+| fetch_chunked            | /s  |
+| fetch_eof                | /s  |
+| fetch_bad                | /s  |
+| fetch_close              | /s  |
+| fetch_oldhttp            | /s  |
+| fetch_zero               | /s  |
+| fetch_failed             | /s  |
+| fetch_1xx                | /s  |
+| fetch_204                | /s  |
+| fetch_304                | /s  |
+| n_ban                    | count      |
+| n_ban_add                | /s  |
+| n_ban_retire             | /s  |
+| n_ban_obj_test           | /s  |
+| n_ban_re_test            | /s  |
+| n_ban_dups               | /s  |
+| dir_dns_lookups          | /s  |
+| dir_dns_failed           | /s  |
+| dir_dns_hit              | /s  |
+| dir_dns_cache_full       | /s  |
+| esi_errors               | /s  |
+| esi_warnings             | /s  |
+| hcb_nolock               | /s  |
+| hcb_lock                 | /s  |
+| hcb_insert               | /s  |
+| n_vcl                    | count      |
+| n_vcl_avail              | count      |
+| n_vcl_discard            | count      |
+| sess_conn                | count      |
+| sess_drop                | count      |
+| sess_fail                | count      |
+| sess_pipe_overflow       | count      |
+| sess_queued              | count      |
+| sess_readahead           | count      |
+| sess_closed              | count      |
+| sess_herd                | count      |
+| sess_linger              | count      |
+| sess_pipeline            | count      |
+| threads                  | count      |
+| threads_created          | count      |
+| threads_limited          | count      |
+| threads_destroyed        | count      |
+| threads_failed           | count      |
+| thread_queue_len         | count      |
+| s_sess                   | count      |
+| s_req                    | count      |
+| s_fetch                  | count      |
+| n_wrk                    | count      |
+| n_wrk_create             | count      |
+| n_wrk_failed             | count      |
+| n_wrk_max                | count      |
+| n_wrk_lqueue             | count      |
+| n_wrk_queued             | count      |
+| n_wrk_drop               | count      |
+| s0.g_space               | bytes      |
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+### Centreon NSClient++
+
+Pour superviser des ressources *Varnish* via NRPE, installez la version Centreon
+de l'agent NSClient++. Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur NRPE** est correcte.
+
+## Installer le connecteur de supervision
+
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-nrpe-plugin
+dnf install centreon-pack-applications-varnish-nrpe
 ```
 
-2. Install the Centreon Pack RPM on the Centreon Central server:
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-applications-varnish-nrpe
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-varnish-nrpe
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-varnish-nrpe
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
-from the **Configuration > Connectors > Monitoring Connectors** page
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Varnish NRPE**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+
+### Plugin
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install nagios-plugins-nrpe
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install nagios-plugins-nrpe
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install nagios-plugins-nrpe
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install nagios-plugins-nrpe
+```
 
 </TabItem>
 </Tabs>
 
-## Host configuration
+## Utiliser le connecteur de supervision
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the *App-Varnish-NRPE-custom* template and configure all the mandatory Macros:
+### Utiliser un modèle d'hôte issu du connecteur
 
-| Mandatory | Name             | Description                                                      |
-|:----------|:-----------------|:---------------------------------------------------------------- |
-| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
-| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
-| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |
-| X         | NRPEEXTRAOPTIONS | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Varnish-NRPE-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+
+| Macro            | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| NRPEPORT         | Port used to reach the NRPE server                                                                                                       | 5666              |             |
+| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                    | check\_nrpe       |             |
+| NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                    | 55                |             |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). |                   |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Varnish-Stats" label="Varnish-Stats">
+
+| Macro          | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMMAND        | Command to get information. Used it you have output in a file                                      | varnishstat       |             |
+| COMMANDPATH    | Command path                                                                                       | /usr/bin          |             |
+| COMMANDOPTIONS | Command options                                                                                    |  -1 -j 2\>&1      |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+
+```bash
+/usr/lib64/nagios/plugins//check\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::varnish::local::plugin' 'stats'  ' \
+	--command="varnishstat" \
+	--command-path="/usr/bin" \
+	--command-options=" -1 -j 2>&1" '
+```
+
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: client connections accepted: 350.00/s, cache hits: 920.00/s, backend failures: 2.00/s | 'client_conn'=350;;;0; 'cache_hit'=920;;;0; 'backend_fail'=2;;;0;
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
+
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib64/nagios/plugins//check\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::varnish::local::plugin' 'stats'  ' \
+	--command="varnishstat" \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                           | Modèle de service associé     |
+|:---------------------------------------------------------------------------------------------------------------|:------------------------------|
+| stats [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/varnish/local/mode/stats.pm)] | App-Varnish-Stats-NRPE-custom |
+
+### Options disponibles
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Varnish-Stats" label="Varnish-Stats">
+
+| Option                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                                |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --warning-[countername] --critical-[countername] |   Thresholds. Use option --list-counters to see available counters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --mode                                           |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                       |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                      |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                                   |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                        |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                                     |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                                |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                       |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                                   |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                        |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                          |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                                |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                            |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                           |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata              |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                          |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                                    |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                              |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                                 |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                                     |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                       |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                         |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                            |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                                     |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                                    |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                             |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                                    |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                                   |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                                     |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                                |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                                |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --ssh-backend                                    |   Define the backend you want to use. It can be: C\<sshcli\> (default), C\<plink\> and C\<libssh\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --ssh-username                                   |   Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --ssh-password                                   |   Define the password associated with the user name. Cannot be used with the C\<sshcli\> backend. Warning: using a password is not recommended. Use C\<--ssh-priv-key\> instead.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --ssh-port                                       |   Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --ssh-priv-key                                   |   Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --hostname                                       |   Hostname to query in ssh.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --timeout                                        |   Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --command                                        |   Command to get information. Used it you have output in a file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --command-path                                   |   Command path.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --command-options                                |   Command options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --sudo                                           |   sudo command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib64/nagios/plugins//check\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::varnish::local::plugin' 'stats'  ' \
+	--command="varnishstat" \
+	--command-path="/usr/bin" \
+	--help
+```
