@@ -1071,6 +1071,10 @@
             },
             {
               "type": "doc",
+              "id": "upgrade/upgrade-matrix"
+            },
+            {
+              "type": "doc",
               "id": "upgrade/upgrade-from-24-04"
             },
             {
