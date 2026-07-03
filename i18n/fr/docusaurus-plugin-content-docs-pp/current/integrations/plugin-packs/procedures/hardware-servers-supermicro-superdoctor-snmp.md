@@ -2,117 +2,339 @@
 id: hardware-servers-supermicro-superdoctor-snmp
 title: Supermicro SuperDoctor SNMP
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
 
-## Contenu du Pack de supervision
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Supermicro SuperDoctor SNMP** depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
-### Objets supervisés
+## Contenu du pack
 
-Le Pack Supermicro SuperDoctor collecte les données pour:
-* Hardware
+### Modèles
 
-### Métriques collectées 
+Le connecteur de supervision **Supermicro SuperDoctor SNMP** apporte un modèle d'hôte :
+
+* **HW-Server-Supermicro-Superdoctor-SNMP-custom**
+
+Le connecteur apporte le modèle de service suivant
+(classé selon le modèle d'hôte auquel il est rattaché) :
+
+<Tabs groupId="sync">
+<TabItem value="HW-Server-Supermicro-Superdoctor-SNMP-custom" label="HW-Server-Supermicro-Superdoctor-SNMP-custom">
+
+| Alias    | Modèle de service                              | Description          |
+|:---------|:-----------------------------------------------|:---------------------|
+| Hardware | HW-Supermicro-Superdoctor-Hardware-SNMP-custom | Contrôle le matériel |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Supermicro-Superdoctor-SNMP-custom** est utilisé.
+
+</TabItem>
+</Tabs>
+
+### Règles de découverte
+
+#### Découverte d'hôtes
+
+| Nom de la règle | Description                                                                                                                                                                                                                                                   |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Server-Supermicro-Superdoctor-SNMP-custom**. |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name                                         | Description               | Unit  |
-| :-------------------------------------------------- | :------------------------ | :---- |
-| cpu status                                          | Status of the cpu         |       |
-| disk status                                         | Status of the disk        |       |
-| memory status                                       | Status of the memory      |       |
-| sensor status                                       | Status of the sensor      |       |
-| *sensor\_name*\#hardware.sensor.fan.rpm             | Speed of the fan          | rpm   |
-| *sensor\_name*\#hardware.sensor.temperature.celsius | temperature of the sensor | C     |
-| *sensor\_name*\#hardware.sensor.voltage.volt        | Voltage of the sensor     | V     |
-| *sensor\_name*\#hardware.sensor.discrete.xxx        | Discrete sensor           |       |
+| Nom                   | Unité |
+|:----------------------|:------|
+| hardware.sensor.count | count |
+| sensor status         | N/A   |
+| hardware.memory.count | count |
+| memory status         | N/A   |
+| hardware.disk.count   | count |
+| disk status           | N/A   |
+| hardware.cpu.count    | count |
+| cpu status            | N/A   |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-Afin de contrôler vos équipements Supermicro, l'agent SuperDoctor SNMP doit être configuré.
-Pour plus d'information, vous pouvez vous référer à la page officiel :
-https://www.supermicro.com/en/solutions/management-software/superdoctor
+### Configuration SNMP
 
-## Installation
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la [documentation officielle](https://www.supermicro.com/en/solutions/management-software/superdoctor).
+
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
+
+## Installer le connecteur de supervision
+
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
+dnf install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 ```
-
-2. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
+dnf install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le Pack via le RPM:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Supermicro SuperDoctor SNMP**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-hardware-servers-supermicro-superdoctor-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Utiliser le connecteur de supervision
 
-* Ajoutez un nouvel Hôte depuis la page **Configuration > Hôtes**
-* Complétez les champs *Adresse IP/DNS*, *Communauté SNMP* et *Version SNMP*
-* Appliquez le Modèle d'Hôte *HW-Server-Supermicro-Superdoctor-SNMP-custom*
+### Utiliser un modèle d'hôte issu du connecteur
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3). 
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **HW-Server-Supermicro-Superdoctor-SNMP-custom**.
 
-| Mandatory   | Name                    | Description                       |
-| :---------- | :---------------------- | :---------------------------------|
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ?
+4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine* :
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'sensor', 'disk', 'memory'                                                                                     | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_supermicro_superdoctor_snmp.pl
-    --plugin=hardware::server::supermicro::superdoctor::snmp::plugin
-    --mode=hardware
-    --hostname=10.30.2.114
-    --snmp-version='2c'
-    --snmp-community='supermicro_ro'
+/usr/lib/centreon/plugins/centreon_supermicro_superdoctor_snmp.pl \
+    --plugin=hardware::server::supermicro::superdoctor::snmp::plugin \
+    --mode=hardware \
+    --hostname=10.0.0.1 \
+    --snmp-version='2c' \
+    --snmp-community='my-snmp-community'  \
+    --component='.*' \
     --verbose
 ```
 
-Cette commande contrôle le matériel (```--mode=hardware```) d'un équipement Supermicro ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
-en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *supermicro_ro* (```--snmp-community='supermicro_ro'```).
- 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
-en ajoutant le paramètre ```--help``` à la commande:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_supermicro_superdoctor_snmp.pl
-    --plugin=hardware::server::supermicro::superdoctor::snmp::plugin
-    --mode=hardware
-    --help
+OK: All 4 components are ok [1/1 sensor, 1/1 memory, 1/1 disk, 1/1 cpu]. | 'hardware.sensor.count'=1;;;; 'hardware.memory.count'=1;;;; 'hardware.disk.count'=1;;;; 'hardware.cpu.count'=1;;;; 
 ```
 
-## Diagnostique
+### Diagnostic des erreurs communes
 
-[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_supermicro_superdoctor_snmp.pl \
+    --plugin=hardware::server::supermicro::superdoctor::snmp::plugin \
+    --list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                          | Modèle de service associé                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/server/supermicro/superdoctor/snmp/mode/hardware.pm)] | HW-Supermicro-Superdoctor-Hardware-SNMP-custom |
+
+### Options disponibles
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
+
+| Option                                     | Description                                                                                                                                                                           |
+|:-------------------------------------------|:-------------------------|
+| --component                                | Which component to check (default: '.*'). Can be: 'sensor', 'disk', 'memory'.                                                                                                         |
+| --filter                                   | Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter=sensor,temperature.*                                                           |
+| --no-component                             | Define the expected status if no components are found (default: critical).                                                                                                            |
+| --threshold-overload                       | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='sensor.temperature,OK,warning'                                                                                                                                                                                                                     |
+| --warning                                  | Set warning threshold (syntax: type,regexp,threshold) Example: --warning='sensor.temperature,.*,30'                                                                                   |
+| --critical                                 | Set critical threshold (syntax: type,regexp,threshold) Example: --critical='sensor.temperature,.*,40'    package hardware::server::supermicro::superdoctor::snmp::mode::components::sensor;  use strict; use warnings;  my %map\_sensor\_status = (0 =\> 'ok', 1 =\> 'warning', 2 =\> 'critical'); my %map\_sensor\_type = (     0 =\> 'fan', 1 =\> 'voltage', 2 =\> 'temperature', 3 =\> 'discrete' ); my %map\_sensor\_monitored = (     0 =\> 'not monitored', 1 =\> 'monitored', );  my $mapping = \{     smHealthMonitorName         =\> \{ oid =\> '.1.3.6.1.4.1.10876.2.1.1.1.1.2' \},     smHealthMonitorType         =\> \{ oid =\> '.1.3.6.1.4.1.10876.2.1.1.1.1.3', map =\> \%map\_sensor\_type \},     smHealthMonitorReading      =\> \{ oid =\> '.1.3.6.1.4.1.10876.2.1.1.1.1.4' \},     smHealthMonitorMonitor      =\> \{ oid =\> '.1.3.6.1.4.1.10876.2.1.1.1.1.10', map =\> \%map\_sensor\_monitored \},     smHealthMonitorReadingUnit  =\> \{ oid =\> '.1.3.6.1.4.1.10876.2.1.1.1.1.11' \},     smHealthMonitorStatus       =\> \{ oid =\> '.1.3.6.1.4.1.10876.2.1.1.1.1.12', map =\> \%map\_sensor\_status \} \}; my $oid\_smHealthMonitorEntry = '.1.3.6.1.4.1.10876.2.1.1.1.1';  sub load \{     my ($self) = @\_;      push @\{$self-\>\{request\}\}, \{ oid =\> $oid\_smHealthMonitorEntry \}; \}  sub check \{     my ($self) = @\_;      $self-\>\{output\}-\>output\_add(long\_msg =\> "Checking sensors");     $self-\>\{components\}-\>\{sensor\} = \{name =\> 'sensors', total =\> 0, skip =\> 0\};     return if ($self-\>check\_filter(section =\> 'sensor'));      foreach my $oid ($self-\>\{snmp\}-\>oid\_lex\_sort(keys %\{$self-\>\{results\}-\>\{$oid\_smHealthMonitorEntry\}\})) \{         next if ($oid !~ /^$mapping-\>\{smHealthMonitorReading\}-\>\{oid\}\.(.*)$/);         my $instance = $1;         my $result = $self-\>\{snmp\}-\>map\_instance(mapping =\> $mapping, results =\> $self-\>\{results\}-\>\{$oid\_smHealthMonitorEntry\}, instance =\> $instance);          next if (defined($result-\>\{smHealthMonitorMonitor\}) && $result-\>\{smHealthMonitorMonitor\} eq 'not monitored');          next if ($self-\>check\_filter(section =\> 'sensor', instance =\> $result-\>\{smHealthMonitorType\} . '.' . $instance));          $self-\>\{components\}-\>\{sensor\}-\>\{total\}++;         $self-\>\{output\}-\>output\_add(             long\_msg =\> sprintf(                 "sensor '%s' status is '%s' \[instance: %s, value: %s\]",                 $result-\>\{smHealthMonitorName\},                  defined($result-\>\{smHealthMonitorStatus\}) ? $result-\>\{smHealthMonitorStatus\} : 'undefined',                  $result-\>\{smHealthMonitorType\} . '.' . $instance,                 defined($result-\>\{smHealthMonitorReading\}) ? $result-\>\{smHealthMonitorReading\} : '-'             )         );          if (defined($result-\>\{smHealthMonitorStatus\})) \{             my $exit = $self-\>get\_severity(label =\> 'sensor', section =\> 'sensor.' . $result-\>\{smHealthMonitorType\}, value =\> $result-\>\{smHealthMonitorStatus\});             if (!$self-\>\{output\}-\>is\_status(value =\> $exit, compare =\> 'ok', litteral =\> 1)) \{                 $self-\>\{output\}-\>output\_add(                     severity =\> $exit,                     short\_msg =\> sprintf(                         "Sensor '%s' status is '%s'",                         $result-\>\{smHealthMonitorName\},                         $result-\>\{smHealthMonitorStatus\}                     )                 );             \}         \}          next if ($result-\>\{smHealthMonitorReading\} !~ /\[0-9\]/);         $result-\>\{smHealthMonitorReadingUnit\} = '' if (defined($result-\>\{smHealthMonitorReadingUnit\}) && $result-\>\{smHealthMonitorReadingUnit\} =~ /N\/A/i);          my $component = 'sensor.' . $result-\>\{smHealthMonitorType\};         my ($exit2, $warn, $crit, $checked) = $self-\>get\_severity\_numeric(section =\> $component, instance =\> $instance, value =\> $result-\>\{smHealthMonitorReading\});         if (!$self-\>\{output\}-\>is\_status(value =\> $exit2, compare =\> 'ok', litteral =\> 1)) \{             $self-\>\{output\}-\>output\_add(                 severity =\> $exit2,                 short\_msg =\> sprintf(                     "Sensor '%s' is %s %s",                     $result-\>\{smHealthMonitorName\},                     $result-\>\{smHealthMonitorReading\},                      defined($result-\>\{smHealthMonitorReadingUnit\}) ? $result-\>\{smHealthMonitorReadingUnit\} : ''                 )             );         \}          # need some snmpwalk to do unit mapping!! experimental         $self-\>\{output\}-\>perfdata\_add(             nlabel =\> 'hardware.sensor.' . $result-\>\{smHealthMonitorType\} . '.' . $result-\>\{smHealthMonitorReadingUnit\},             unit =\> $result-\>\{smHealthMonitorReadingUnit\},             instances =\> $result-\>\{smHealthMonitorName\},             value =\> $result-\>\{smHealthMonitorReading\},             warning =\> $warn,             critical =\> $crit         );     \} \}  1;  package hardware::server::supermicro::superdoctor::snmp::mode::components::memory;  use strict; use warnings;  my %map\_memory\_status = (0 =\> 'ok', 2 =\> 'critical');  my $mapping\_memory = \{     memTag          =\> \{ oid =\> '.1.3.6.1.4.1.10876.100.1.3.1.1' \},     memDeviceStatus =\> \{ oid =\> '.1.3.6.1.4.1.10876.100.1.3.1.3', map =\> \%map\_memory\_status \} \}; my $oid\_memEntry = '.1.3.6.1.4.1.10876.100.1.3.1';  sub load \{     my ($self) = @\_;      push @\{$self-\>\{request\}\}, \{ oid =\> $oid\_memEntry, end =\> $mapping\_memory-\>\{memDeviceStatus\}-\>\{oid\} \}; \}  sub check \{     my ($self) = @\_;      $self-\>\{output\}-\>output\_add(long\_msg =\> "Checking memories");     $self-\>\{components\}-\>\{memory\} = \{name =\> 'memory', total =\> 0, skip =\> 0\};     return if ($self-\>check\_filter(section =\> 'memory'));      foreach my $oid ($self-\>\{snmp\}-\>oid\_lex\_sort(keys %\{$self-\>\{results\}-\>\{$oid\_memEntry\}\})) \{         next if ($oid !~ /^$mapping\_memory-\>\{memDeviceStatus\}-\>\{oid\}\.(.*)$/);         my $instance = $1;         my $result = $self-\>\{snmp\}-\>map\_instance(mapping =\> $mapping\_memory, results =\> $self-\>\{results\}-\>\{$oid\_memEntry\}, instance =\> $instance);          next if ($self-\>check\_filter(section =\> 'memory', instance =\> $instance));          $self-\>\{components\}-\>\{memory\}-\>\{total\}++;         $self-\>\{output\}-\>output\_add(             long\_msg =\> sprintf(                 "memory '%s' status is '%s' \[instance: %s\]",                 $result-\>\{memTag\},                  $result-\>\{memDeviceStatus\},                 $instance             )         );          my $exit = $self-\>get\_severity(label =\> 'default', section =\> 'memory', value =\> $result-\>\{memDeviceStatus\});         if (!$self-\>\{output\}-\>is\_status(value =\> $exit, compare =\> 'ok', litteral =\> 1)) \{             $self-\>\{output\}-\>output\_add(                 severity =\> $exit,                 short\_msg =\> sprintf(                     "Memory '%s' status is '%s'",                     $result-\>\{memTag\},                     $result-\>\{memDeviceStatus\}                 )             );         \}     \} \}  1;  package hardware::server::supermicro::superdoctor::snmp::mode::components::disk;  use strict; use warnings;  my %map\_disk\_status = (0 =\> 'ok', 2 =\> 'critical', 3 =\> 'unknown');  my $mapping\_disk = \{     diskName        =\> \{ oid =\> '.1.3.6.1.4.1.10876.100.1.4.1.2' \},     diskSmartStatus =\> \{ oid =\> '.1.3.6.1.4.1.10876.100.1.4.1.4', map =\> \%map\_disk\_status \}, \}; my $oid\_diskEntry = '.1.3.6.1.4.1.10876.100.1.4.1';  sub load \{     my ($self) = @\_;      push @\{$self-\>\{request\}\}, \{ oid =\> $oid\_diskEntry, end =\> $mapping\_disk-\>\{diskSmartStatus\}-\>\{oid\} \}; \}  sub check \{     my ($self) = @\_;      $self-\>\{output\}-\>output\_add(long\_msg =\> "Checking disks");     $self-\>\{components\}-\>\{disk\} = \{name =\> 'disk', total =\> 0, skip =\> 0\};     return if ($self-\>check\_filter(section =\> 'disk'));      foreach my $oid ($self-\>\{snmp\}-\>oid\_lex\_sort(keys %\{$self-\>\{results\}-\>\{$oid\_diskEntry\}\})) \{         next if ($oid !~ /^$mapping\_disk-\>\{diskSmartStatus\}-\>\{oid\}\.(.*)$/);         my $instance = $1;         my $result = $self-\>\{snmp\}-\>map\_instance(mapping =\> $mapping\_disk, results =\> $self-\>\{results\}-\>\{$oid\_diskEntry\}, instance =\> $instance);          next if ($self-\>check\_filter(section =\> 'disk', instance =\> $instance));          $self-\>\{components\}-\>\{memory\}-\>\{total\}++;         $self-\>\{output\}-\>output\_add(             long\_msg =\> sprintf(                 "disk '%s' status is '%s' \[instance: %s\]",                 $result-\>\{diskName\},                  $result-\>\{diskSmartStatus\},                 $instance             )         );          my $exit = $self-\>get\_severity(label =\> 'default', section =\> 'disk', value =\> $result-\>\{diskSmartStatus\});         if (!$self-\>\{output\}-\>is\_status(value =\> $exit, compare =\> 'ok', litteral =\> 1)) \{             $self-\>\{output\}-\>output\_add(                 severity =\> $exit,                 short\_msg =\> sprintf(                     "Disk '%s' status is '%s'",                     $result-\>\{diskName\},                     $result-\>\{diskSmartStatus\}                 )             );         \}     \} \}  1;  package hardware::server::supermicro::superdoctor::snmp::mode::components::cpu;  use strict; use warnings;  my %map\_cpu\_status = (0 =\> 'ok', 2 =\> 'critical');  my $mapping\_cpu = \{     cpuDeviceStatus =\> \{ oid =\> '.1.3.6.1.4.1.10876.100.1.2.1.5', map =\> \%map\_cpu\_status \}, \};  sub load \{     my ($self) = @\_;      push @\{$self-\>\{request\}\}, \{ oid =\> $mapping\_cpu-\>\{cpuDeviceStatus\}-\>\{oid\} \}; \}  sub check \{     my ($self) = @\_;      $self-\>\{output\}-\>output\_add(long\_msg =\> "Checking cpu");     $self-\>\{components\}-\>\{cpu\} = \{name =\> 'cpu', total =\> 0, skip =\> 0\};     return if ($self-\>check\_filter(section =\> 'cpu'));      foreach my $oid ($self-\>\{snmp\}-\>oid\_lex\_sort(keys %\{$self-\>\{results\}-\>\{$mapping\_cpu-\>\{cpuDeviceStatus\}-\>\{oid\}\}\})) \{         $oid =~ /^$mapping\_cpu-\>\{cpuDeviceStatus\}-\>\{oid\}\.(.*)$/;         my $instance = $1;         my $result = $self-\>\{snmp\}-\>map\_instance(mapping =\> $mapping\_cpu, results =\> $self-\>\{results\}-\>\{$mapping\_cpu-\>\{cpuDeviceStatus\}-\>\{oid\}\}, instance =\> $instance);          next if ($self-\>check\_filter(section =\> 'cpu', instance =\> $instance));          $self-\>\{components\}-\>\{cpu\}-\>\{total\}++;         $self-\>\{output\}-\>output\_add(             long\_msg =\> sprintf(                 "cpu '%s' status is '%s' \[instance: %s\]",                 $instance,                  $result-\>\{cpuDeviceStatus\},                 $instance             )         );          my $exit = $self-\>get\_severity(label =\> 'default', section =\> 'cpu', value =\> $result-\>\{cpuDeviceStatus\});         if (!$self-\>\{output\}-\>is\_status(value =\> $exit, compare =\> 'ok', litteral =\> 1)) \{             $self-\>\{output\}-\>output\_add(                 severity =\> $exit,                 short\_msg =\> sprintf(                     "CPU '%s' status is '%s'",                     $instance,                     $result-\>\{cpuDeviceStatus\}                 )             );         \}     \} \}  1; |
+| --mode                                     | Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                        |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                     |
+| --list-mode                                | List all available modes.                                                                                                                                                             |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                 |
+| --version                                  | Return the version of the plugin.                                                                                                                                                     |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                         |
+| --hostname                                 | Name or address of the host to monitor (mandatory).                                                                                                                                   |
+| --snmp-community                           | SNMP community (default value: public). It is recommended to use a read-only community.                                                                                               |
+| --snmp-version                             | Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                 |
+| --snmp-port                                | UDP port to send the SNMP request to (default: 161).                                                                                                                                  |
+| --snmp-timeout                             | Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                        |
+| --snmp-retries                             | Maximum number of retries (default: 5).                                                                                                                                               |
+| --maxrepetitions                           | Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                        |
+| --subsetleef                               | How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                              |
+| --snmp-autoreduce                          | Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (by default, the number is divided by 2).                                               |
+| --snmp-force-getnext                       | Use SNMP get-next function in SNMP v2c and v3. This will request one OID at a time.                                                                                                   |
+| --snmp-cache-file                          | Use SNMP cache file.                                                                                                                                                                  |
+| --snmp-username                            | SNMP v3 only: User name (`securityName`).                                                                                                                                             |
+| --authpassphrase                           | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the  --authprotocol option.                                                                             |
+| --authprotocol                             | SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                |
+| --privpassphrase                           | SNMP v3 only: Privacy pass phrase (`privPassword`) to encrypt messages using the protocol defined in the --privprotocol option.                                                       |
+| --privprotocol                             | SNMP v3 only: Privacy protocol (`privProtocol`) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.               |
+| --contextname                              | SNMP v3 only: Context name (`contextName`), if relevant for the monitored host.                                                                                                       |
+| --contextengineid                          | SNMP v3 only: Context engine ID (`contextEngineID`), if relevant for the monitored host, given as a hexadecimal string.                                                               |
+| --securityengineid                         | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                      |
+| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                    |
+| --snmp-tls-transport                       | Transport protocol for TLS communication (can be: `dtlsudp`, `tlstcp`).                                                                                                               |
+| --snmp-tls-our-identity                    | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                     |
+| --snmp-tls-their-identity                  | X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                        |
+| --snmp-tls-their-hostname                  | Common Name (`CN`) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                             |
+| --snmp-tls-trust-cert                      | A trusted CA certificate used to verify a remote host's certificate.  If you use this option, you must also define --snmp-tls-their-hostname.                                         |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                    |
+| --debug                                    | Display debug messages.                                                                                                                                                               |
+| --show-password                            | By default, sensitive information in command lines is hidden in debug output and replaced with `***` (however, debug logs may still display sensitive information). Using the C option will display the passwords in plain text.                                                                                                                                                                                                                 |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                               |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                          |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                              |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                      |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  um wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back                                                                                                                                                                                                                                                      |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                               |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                             |
+| --change-output-adv                        | Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will change the following specific UNKNOWN result to an OK result.                                                                                          |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                               |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                    |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                             |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                          |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                        |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                              |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                             |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                    |
+| --output-file                              | Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                       |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                          |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                        |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                               |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  \<output\>.                                                                           |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_supermicro_superdoctor_snmp.pl \
+    --plugin=hardware::server::supermicro::superdoctor::snmp::plugin \
+    --mode=hardware \
+    --help
+```

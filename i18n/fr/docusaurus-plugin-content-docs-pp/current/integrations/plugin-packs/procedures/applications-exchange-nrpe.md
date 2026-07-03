@@ -190,7 +190,7 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 
 ```bash
 dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -198,7 +198,7 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -206,7 +206,7 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 apt install centreon-plugin-operatingsystems-windows-restapi
-apt install centreon-nrpe3-plugin
+apt install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -214,7 +214,7 @@ apt install centreon-nrpe3-plugin
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
-yum install centreon-nrpe3-plugin
+yum install nagios-plugins-nrpe
 ```
 
 </TabItem>

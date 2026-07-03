@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+> Starting june 2026, the **nmap** command-line tool must be installed manually. The command is available in the prerequisites section.
+
 ### Templates
 
 The **Nmap CLI Discovery** monitoring connector brings no host templates.
@@ -71,6 +73,34 @@ yum install centreon-pack-applications-nmap-cli
 2. Whatever the license type (*online* or *offline*), install the **Nmap CLI Discovery** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
+### nmap command-line tool
+
+The license applicable to **nmap** does not allow to automatically embed it in a software solution, so it must be installed manually.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install nmap
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install nmap
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install nmap
+```
+
+</TabItem>
+</Tabs>
+
 ### Plugin
 
 Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
@@ -103,13 +133,6 @@ dnf install centreon-plugin-Applications-Nmap-Cli
 
 ```bash
 apt install centreon-plugin-applications-nmap-cli
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Nmap-Cli
 ```
 
 </TabItem>

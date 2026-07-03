@@ -5,6 +5,10 @@ title: Opengear SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Compatibility
+
+This connector is designed for use with Opengear equipment, including the CM8100 series.
+
 ## Pack assets
 
 ### Templates
@@ -401,7 +405,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--filter-name='' \
+	--include-name='' \
+	--exclude-name='' \
 	--units-traffic='' \
 	--speed='' \
 	--warning-traffic-in='' \
@@ -445,7 +450,6 @@ The plugin brings the following modes:
 | cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/opengear/snmp/mode/cpudetailed.pm)]          | Net-Opengear-Cpu-Detailed-SNMP-custom |
 | interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/opengear/snmp/mode/interfaces.pm)]             | Net-Opengear-Interfaces-SNMP-custom   |
 | list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]            | Used for service discovery            |
-| list-serial-ports [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/opengear/snmp/mode/listserialports.pm)] | Used for service discovery            |
 | load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/opengear/snmp/mode/load.pm)]                         | Net-Opengear-Load-SNMP-custom         |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/opengear/snmp/mode/memory.pm)]                     | Net-Opengear-Memory-SNMP-custom       |
 | serial-ports [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/opengear/snmp/mode/serialports.pm)]          | Net-Opengear-Serial-Ports-SNMP-custom |
@@ -622,9 +626,13 @@ All available options for each service template are listed below:
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
 | --units-traffic          | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                         |
-| --filter-name            | Filter serial port name (regexp can be used).                                                                                                                                                                                                 |
+| --include-name           | Filter serial port name (regexp can be used).                                                                                                                                                                                                 |
+| --exclude-name           | Exclude serial port name (regexp can be used).                                                                                                                                                                                                |
 | --speed                  | Set serial port speed (in Mb).                                                                                                                                                                                                                |
-| --warning-* --critical-* | Thresholds. Can be: 'traffic-in', 'traffic-out'.                                                                                                                                                                                              |
+| --warning-traffic-in     | Thresholds.                                                                                                                                                                                                                                   |
+| --critical-traffic-in    | Thresholds.                                                                                                                                                                                                                                   |
+| --warning-traffic-out    | Thresholds.                                                                                                                                                                                                                                   |
+| --critical-traffic-out   | Thresholds.                                                                                                                                                                                                                                   |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

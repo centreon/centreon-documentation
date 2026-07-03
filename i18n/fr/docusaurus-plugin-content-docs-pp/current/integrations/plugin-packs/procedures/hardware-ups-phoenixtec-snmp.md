@@ -70,7 +70,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 |:-----------------------------|:------|
 | status                       | N/A   |
 | lines.output.load.percentage | %     |
-| lines.output.frequence.hertz | Hz    |
+| lines.output.frequency.hertz | Hz    |
 | lines.output.voltage.volt    | V     |
 
 </TabItem>
@@ -224,16 +224,16 @@ yum install centreon-plugin-Hardware-Ups-Phoenixtec-Snmp
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Macro             | Description                                                                                                                                                  | Valeur par défaut | Obligatoire |
-|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGFREQUENCE  | Thresholds                                                                                                                                                             |                   |             |
-| CRITICALFREQUENCE | Thresholds                                                                                                                                                             |                   |             |
-| WARNINGLOAD       | Thresholds                                                                                                                                                   |                   |             |
-| CRITICALLOAD      | Thresholds                                                                                                                                                   |                   |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /rebooting\|onBypass/i'). You can use the following variables: %\{status\} |                   |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /onBattery/i'). You can use the following variables: %\{status\}          |                   |             |
-| WARNINGVOLTAGE    | Thresholds                                                                                                                                                   |                   |             |
-| CRITICALVOLTAGE   | Thresholds                                                                                                                                                   |                   |             |
+| Macro             | Description                                                                                                    | Valeur par défaut                     | Obligatoire |
+|:------------------|:---------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
+| WARNINGFREQUENCE  | Threshold in Hertz                                                                                             |                                       |             |
+| CRITICALFREQUENCE | Threshold in Hertz                                                                                             |                                       |             |
+| WARNINGLOAD       | Threshold                                                                                                      |                                       |             |
+| CRITICALLOAD      | Threshold                                                                                                      |                                       |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}  | %\{status\} =~ /rebooting\|onBypass/i |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\} | %\{status\} =~ /onBattery/i           |             |
+| WARNINGVOLTAGE    | Threshold in Volts                                                                                             |                                       |             |
+| CRITICALVOLTAGE   | Threshold in Volts                                                                                             |                                       |             |
 
 </TabItem>
 </Tabs>
@@ -383,12 +383,17 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">
 
-| Option                   | Description                                                                                                                                                     |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}.               |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /rebooting\|onBypass/i'). You can use the following variables: %\{status\}.   |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /onBattery/i'). You can use the following variables: %\{status\}.            |
-| --warning-* --critical-* | Thresholds. Can be: 'load', 'voltage', 'current', 'power'.                                                                                                      |
+| Option               | Description                                                                                                                                                       |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --unknown-status     | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}.             |
+| --warning-status     | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /rebooting\|onBypass/i'). You can use the following variables: %\{status\}. |
+| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /onBattery/i'). You can use the following variables: %\{status\}.          |
+| --warning-load       | Threshold.                                                                                                                                                        |
+| --critical-load      | Threshold.                                                                                                                                                        |
+| --warning-voltage    | Threshold in Volts.                                                                                                                                               |
+| --critical-voltage   | Threshold in Volts.                                                                                                                                               |
+| --warning-frequency  | Threshold in Hertz.                                                                                                                                               |
+| --critical-frequency | Threshold in Hertz.                                                                                                                                               |
 
 </TabItem>
 </Tabs>

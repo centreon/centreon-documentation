@@ -337,231 +337,231 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 <Tabs groupId="sync">
 <TabItem value="Active-Sessions" label="Active-Sessions">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                    | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
-| COUNTERNAME  | Performance counter to check                                                                                                             | \\Terminal Services\\Active Sessions |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                 |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none                                 |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                             |             |
+| Macro        | Description                                                                                                                            | Default value                        | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:---------:|
+| COUNTERNAME  | Performance counter to check                                                                                                           | \\Terminal Services\\Active Sessions |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | none                                 |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | none                                 |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                             |           |
 
 </TabItem>
 <TabItem value="Certificates" label="Certificates">
 
-| Macro                        | Description                                                                                                                                                 | Valeur par défaut | Obligatoire |
-|:-----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERSUBJECT                | Filter certificate by subject (can be a regexp).                                                                                                            |                   |             |
-| FILTERTHUMBPRINT             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |                   |             |
-| FILTERPATH                   | Filter certificate by path (can be a regexp).                                                                                                               |                   |             |
-| THRESHOLDSUNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. | s                 |             |
-| WARNINGCERTIFICATEEXPIRES    | Thresholds                                                                                                                                                  |                   |             |
-| CRITICALCERTIFICATEEXPIRES   | Thresholds                                                                                                                                                  |                   |             |
-| WARNINGCERTIFICATESDETECTED  | Thresholds                                                                                                                                                  |                   |             |
-| CRITICALCERTIFICATESDETECTED | Thresholds                                                                                                                                                  |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                    | --verbose         |             |
+| Macro                        | Description                                                                                                                                                 | Default value | Mandatory |
+|:-----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERSUBJECT                | Filter certificate by subject (can be a regexp).                                                                                                            |               |           |
+| FILTERTHUMBPRINT             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |               |           |
+| FILTERPATH                   | Filter certificate by path (can be a regexp).                                                                                                               |               |           |
+| THRESHOLDSUNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. | s             |           |
+| WARNINGCERTIFICATEEXPIRES    | Thresholds                                                                                                                                                  |               |           |
+| CRITICALCERTIFICATEEXPIRES   | Thresholds                                                                                                                                                  |               |           |
+| WARNINGCERTIFICATESDETECTED  | Thresholds                                                                                                                                                  |               |           |
+| CRITICALCERTIFICATESDETECTED | Thresholds                                                                                                                                                  |               |           |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                      | --verbose     |           |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COUNTERNAME  | Performance counter to check                                                                                                             |                   |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | none              |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| COUNTERNAME  | Performance counter to check                                                                                                           |               |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | none          |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | none          |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |               |           |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut         | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
-| WARNING      | Filter which marks items which generates a warning state                                                                                 | time = '5m' and load > 80 |             |
-| CRITICAL     | Filter which marks items which generates a critical state                                                                                | time = '5m' and load > 80 |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                  |             |
+| Macro        | Description                                                                                                                            | Default value             | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:---------:|
+| WARNING      | Filter which marks items which generates a warning state                                                                               | time = '5m' and load > 80 |           |
+| CRITICAL     | Filter which marks items which generates a critical state                                                                              | time = '5m' and load > 80 |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                  |           |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                            | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
-| DRIVE        | The drives to check.                                                                                                                     | *                                            |             |
-| PERFCONFIG   | Performance data generation configuration                                                                                                | used(unit:B)used %(ignored:true)             |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    | type = 'fixed' and name not regexp '.*yst.*' |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | total_used>80%                               |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | total_used>90%                               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                                              |             |
+| Macro        | Description                                                                                                                            | Default value                                | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:---------:|
+| DRIVE        | The drives to check.                                                                                                                   | *                                            |           |
+| PERFCONFIG   | Performance data generation configuration                                                                                              | used(unit:B)used %(ignored:true)             |           |
+| FILTER       | Filter which marks interesting items.                                                                                                  | type = 'fixed' and name not regexp '.*yst.*' |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | total_used>80%                               |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | total_used>90%                               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                                              |           |
 
 </TabItem>
 <TabItem value="Eventlog-Generic" label="Eventlog-Generic">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                                | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
-| FILE         | The logfile name                                                                                                                         |                                                  |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    | written > -60m and level in ('error', 'warning') |             |
-| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{count} $\{problem_list}           |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{source} $\{id}                                |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | count>0                                          |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | count>5                                          |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | count>5                                          |             |
+| Macro        | Description                                                                                                                            | Default value                                    | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:---------:|
+| FILE         | The logfile name                                                                                                                       |                                                  |           |
+| FILTER       | Filter which marks interesting items.                                                                                                  | written > -60m and level in ('error', 'warning') |           |
+| TOPSYNTAX    | The top level syntax string                                                                                                            | $\{status}: $\{count} $\{problem_list}           |           |
+| DETAILSYNTAX | Detail level syntax                                                                                                                    | $\{source} $\{id}                                |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | count>0                                          |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | count>5                                          |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | count>5                                          |           |
 
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                                                | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:-----------:|
-| PATHS        | The path to search for files under                                                                                                       |                                                                  |             |
-| PATTERN      | The pattern of files to search for (works like a filter but is faster and can be combined with a filter)                                 |                                                                  |             |
-| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{problem_count}/$\{count} files ($\{problem_list}) |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}                                                         |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    |                                                                  |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                |                                                                  |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               |                                                                  |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                                                         |             |
+| Macro        | Description                                                                                                                            | Default value                                                    | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------:|
+| PATHS        | The path to search for files under                                                                                                     |                                                                  |           |
+| PATTERN      | The pattern of files to search for (works like a filter but is faster and can be combined with a filter)                               |                                                                  |           |
+| TOPSYNTAX    | The top level syntax string                                                                                                            | $\{status}: $\{problem_count}/$\{count} files ($\{problem_list}) |           |
+| DETAILSYNTAX | Detail level syntax                                                                                                                    | $\{name}                                                         |           |
+| FILTER       | Filter which marks interesting items.                                                                                                  |                                                                  |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              |                                                                  |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             |                                                                  |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                                                         |           |
 
 </TabItem>
 <TabItem value="Logfiles-Generic" label="Logfiles-Generic">
 
-| Macro    | Description                                                | Valeur par défaut | Obligatoire |
-|:-------- |:-----------------------------------------------------------|:----------------- |:-----------:|
-| LOGFILE  | Logfile path                                               |                   |      X      |
-| TAG      | Tag to use in output and perfdata                          |                   |             |
-| CRITICAL | Filter which marks items which generates a critical state. |                   |             |
-| WARNING  | Filter which marks items which generates a warning state.  |                   |             |
+| Macro    | Description                                                | Default value | Mandatory |
+|:---------|:-----------------------------------------------------------|:--------------|:---------:|
+| LOGFILE  | Logfile path                                               |               |     X     |
+| TAG      | Tag to use in output and perfdata                          |               |           |
+| CRITICAL | Filter which marks items which generates a critical state. |               |           |
+| WARNING  | Filter which marks items which generates a warning state.  |               |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                                  | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
-| PERFCONFIG   | Performance data generation configuration                                                                                                | used(unit:B)%(ignored:true)                        |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | $%(type) free: %(free) used: %(used) size: %(size) |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    | type = 'physical'                                  |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | used > 80%                                         |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | used > 90%                                         |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | perf-syntax=used                                   |             |
+| Macro        | Description                                                                                                                            | Default value                                      | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:---------:|
+| PERFCONFIG   | Performance data generation configuration                                                                                              | used(unit:B)%(ignored:true)                        |           |
+| DETAILSYNTAX | Detail level syntax                                                                                                                    | $%(type) free: %(free) used: %(used) size: %(size) |           |
+| FILTER       | Filter which marks interesting items.                                                                                                  | type = 'physical'                                  |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | used > 80%                                         |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | used > 90%                                         |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | perf-syntax=used                                   |           |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NTPADDR      | Set the ntp hostname (if not set, we try to find it with w32tm command)                                                                  |                   |             |
-| WARNING      | Warning threshold                                                                                                                        | -1:1              |             |
-| CRITICAL     | Critical threshold                                                                                                                       | -2:2              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| NTPADDR      | Set the ntp hostname (if not set, we try to find it with w32tm command)                                                                |               |           |
+| WARNING      | Warning threshold                                                                                                                      | -1:1          |           |
+| CRITICAL     | Critical threshold                                                                                                                     | -2:2          |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |               |           |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Macro          | Description                                                                                                                                                                                                                  | Valeur par défaut             | Obligatoire |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}  | %\{RebootPending\} =~ /true/i |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} |                               |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                                                                                     |                               |             |
+| Macro          | Description                                                                                                                                                                                                                  | Default value                 | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}  | %\{RebootPending\} =~ /true/i |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} |                               |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                                                                                       |                               |           |
 
 </TabItem>
 <TabItem value="Process-generic" label="Process-generic">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut            | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| PROCESS      | The service to check, set this to * to check all services                                                                                |                              |             |
-| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{problem_list} |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{exe}=$\{state}            |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    | none                         |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                         |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none                         |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                     |             |
+| Macro        | Description                                                                                                                            | Default value                | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:---------:|
+| PROCESS      | The service to check, set this to * to check all services                                                                              |                              |           |
+| TOPSYNTAX    | The top level syntax string                                                                                                            | $\{status}: $\{problem_list} |           |
+| DETAILSYNTAX | Detail level syntax                                                                                                                    | $\{exe}=$\{state}            |           |
+| FILTER       | Filter which marks interesting items.                                                                                                  | none                         |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | none                         |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | none                         |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | show-all                     |           |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                      | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
-| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                        |             |
-| EXCLUDE2     | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                        |             |
-| SERVICE      | The service to check, set this to * to check all services                                                                                | *                                      |             |
-| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{problem_list}                       |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}=$\{state} ($\{start_type})    |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    | start_type = 'auto' and is_trigger = 0 |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | not state_is_perfect()                 |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                      |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | 'perf-config=none'                     |             |
+| Macro        | Description                                                                                                                            | Default value                          | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:---------:|
+| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                             |                                        |           |
+| EXCLUDE2     | A list of services to ignore (mainly useful in combination with service=*)                                                             |                                        |           |
+| SERVICE      | The service to check, set this to * to check all services                                                                              | *                                      |           |
+| TOPSYNTAX    | The top level syntax string                                                                                                            | $\{problem_list}                       |           |
+| DETAILSYNTAX | Detail level syntax                                                                                                                    | $\{name}=$\{state} ($\{start_type})    |           |
+| FILTER       | Filter which marks interesting items.                                                                                                  | start_type = 'auto' and is_trigger = 0 |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | not state_is_perfect()                 |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | not state_is_ok()                      |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | 'perf-config=none'                     |           |
 
 </TabItem>
 <TabItem value="Services-Generic-Name" label="Services-Generic-Name">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                   | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
-| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                     |             |
-| OK           | Filter which marks items which generates an ok state                                                                                     | state_is_ok()                       |             |
-| SERVICE      | The service to check, set this to * to check all services                                                                                | $\{name}=$\{state} ($\{start_type}) |             |
-| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{problem_list}                    |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}=$\{state} ($\{start_type}) |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    | none                                |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | 'perf-config=none'                  |             |
+| Macro        | Description                                                                                                                            | Default value                       | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------:|
+| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                             |                                     |           |
+| OK           | Filter which marks items which generates an ok state                                                                                   | state_is_ok()                       |           |
+| SERVICE      | The service to check, set this to * to check all services                                                                              | $\{name}=$\{state} ($\{start_type}) |           |
+| TOPSYNTAX    | The top level syntax string                                                                                                            | $\{problem_list}                    |           |
+| DETAILSYNTAX | Detail level syntax                                                                                                                    | $\{name}=$\{state} ($\{start_type}) |           |
+| FILTER       | Filter which marks interesting items.                                                                                                  | none                                |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | none                                |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | not state_is_ok()                   |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | 'perf-config=none'                  |           |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Macro                        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| LANGUAGE                     | Set the language used in the config file                                                                                                             | en                |             |
-| FILTERSESSIONNAME            | Filter session name (can be a regexp)                                                                                                                |                   |             |
-| CONFIG                       | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |                   |             |
-| WARNINGSESSIONSACTIVE        | Thresholds                                                                                                                                           |                   |             |
-| CRITICALSESSIONSACTIVE       | Thresholds                                                                                                                                           |                   |             |
-| WARNINGSESSIONSCREATED       | Thresholds                                                                                                                                           |                   |             |
-| CRITICALSESSIONSCREATED      | Thresholds                                                                                                                                           |                   |             |
-| WARNINGSESSIONSDISCONNECTED  | Thresholds                                                                                                                                           |                   |             |
-| CRITICALSESSIONSDISCONNECTED | Thresholds                                                                                                                                           |                   |             |
-| WARNINGSESSIONSRECONNECTED   | Thresholds                                                                                                                                           |                   |             |
-| CRITICALSESSIONSRECONNECTED  | Thresholds                                                                                                                                           |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)             |                   |             |
+| Macro                        | Description                                                                                                                                          | Default value | Mandatory |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| LANGUAGE                     | Set the language used in the config file                                                                                                             | en            |           |
+| FILTERSESSIONNAME            | Filter session name (can be a regexp)                                                                                                                |               |           |
+| CONFIG                       | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |               |           |
+| WARNINGSESSIONSACTIVE        | Thresholds                                                                                                                                           |               |           |
+| CRITICALSESSIONSACTIVE       | Thresholds                                                                                                                                           |               |           |
+| WARNINGSESSIONSCREATED       | Thresholds                                                                                                                                           |               |           |
+| CRITICALSESSIONSCREATED      | Thresholds                                                                                                                                           |               |           |
+| WARNINGSESSIONSDISCONNECTED  | Thresholds                                                                                                                                           |               |           |
+| CRITICALSESSIONSDISCONNECTED | Thresholds                                                                                                                                           |               |           |
+| WARNINGSESSIONSRECONNECTED   | Thresholds                                                                                                                                           |               |           |
+| CRITICALSESSIONSRECONNECTED  | Thresholds                                                                                                                                           |               |           |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)               |               |           |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                         | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
-| PERFCONFIG   | Performance data generation configuration                                                                                                | *(prefix:'used_')*(unit:B)%(ignored:true) |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | $$\{name} $\{used} ($\{size})             |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    | size > 0 and name = 'total'               |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                      |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | used > 0                                  |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | perf-syntax=swap                          |             |
+| Macro        | Description                                                                                                                            | Default value                             | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:---------:|
+| PERFCONFIG   | Performance data generation configuration                                                                                              | *(prefix:'used_')*(unit:B)%(ignored:true) |           |
+| DETAILSYNTAX | Detail level syntax                                                                                                                    | $$\{name} $\{used} ($\{size})             |           |
+| FILTER       | Filter which marks interesting items.                                                                                                  | size > 0 and name = 'total'               |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | none                                      |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | used > 0                                  |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | perf-syntax=swap                          |           |
 
 </TabItem>
 <TabItem value="Task-Generic" label="Task-Generic">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                                        | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:-----------:|
-| PERFCONFIG   | Performance data generation configuration                                                                                                | *(ignored:true)                                          |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    | enabled eq 1 and has_run eq 1                            |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | task_status = 'running' and most_recent_run_time < -60m  |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | task_status not in ('running') and exit_code > 0         |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                                                          |             |
+| Macro        | Description                                                                                                                            | Default value                                           | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:---------:|
+| PERFCONFIG   | Performance data generation configuration                                                                                              | *(ignored:true)                                         |           |
+| FILTER       | Filter which marks interesting items.                                                                                                  | enabled eq 1 and has_run eq 1                           |           |
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | task_status = 'running' and most_recent_run_time < -60m |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | task_status not in ('running') and exit_code > 0        |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                                                         |           |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Macro                  | Description                                                                                                                              | Valeur par défaut           | Obligatoire |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| FILTERTITLE            | Filter windows updates by title (can be a regexp)                                                                                        |                             |             |
-| EXCLUDETITLE           | Exclude windows updates by title (regexp can be used)                                                                                    |                             |             |
-| FILTERMANDATORY        | Filter only mandatory Windows updates.                                                                                                   | false                       |             |
-| WARNINGPENDINGUPDATES  | Thresholds                                                                                                                               |                             |             |
-| CRITICALPENDINGUPDATES | Thresholds                                                                                                                               |                             |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | --verbose --display-updates |             |
+| Macro                  | Description                                                                                                                            | Default value               | Mandatory |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:---------:|
+| FILTERTITLE            | Filter windows updates by title (can be a regexp)                                                                                      |                             |           |
+| EXCLUDETITLE           | Exclude windows updates by title (regexp can be used)                                                                                  |                             |           |
+| FILTERMANDATORY        | Filter only mandatory Windows updates.                                                                                                 | false                       |           |
+| WARNINGPENDINGUPDATES  | Thresholds                                                                                                                             |                             |           |
+| CRITICALPENDINGUPDATES | Thresholds                                                                                                                             |                             |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) | --verbose --display-updates |           |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | none              |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Filter which marks items which generates a warning state.                                                                              | none          |           |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                             | none          |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |               |           |
 
 </TabItem>
 </Tabs>
