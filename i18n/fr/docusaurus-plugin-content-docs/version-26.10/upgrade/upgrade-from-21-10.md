@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon depuis la version 21.10 vers la version 25.10.
+Centreon depuis la version 21.10 vers la version 26.10.
 
 > La version 21.10 n'est plus supportée. La montée de version à partir de cette version n'a pas été testée par l'équipe d'assurance qualité de Centreon.
 
@@ -15,7 +15,7 @@ Centreon depuis la version 21.10 vers la version 25.10.
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
 > / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md). Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
-> Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 25.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 26.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
 > Attention, si vous utilisiez les connecteurs suivants, à partir de la version 24.10 il est obligatoire de déclarer la configuration de tous ceux-ci [**à la page Configuration > Additional connector configurations**](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) avant de déployer la configuration du collecteur correspondant :
 > * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
@@ -92,7 +92,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 
    ```shell
    dnf install -y dnf-plugins-core
-   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
    systemctl stop cbd
    dnf clean all --enablerepo=*
    ```
@@ -125,7 +125,7 @@ rm /etc/yum.repos.d/centreon-business-21.10.repo
 </TabItem>
 </Tabs>
 
-3. Installez le dépôt business en 25.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
+3. Installez le dépôt business en 26.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 4. Arrêtez le processus Centreon Broker :
 
@@ -141,7 +141,7 @@ rm /var/lib/centreon-broker/* -f
 
 ### Montée de version de PHP
 
-Centreon 25.10 utilise PHP en version 8.2.
+Centreon 26.10 utilise PHP en version 8.4.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -222,7 +222,7 @@ rm /etc/yum.repos.d/centreon-business-21.10.repo
 </TabItem>
 </Tabs>
 
-3. Installez le dépôt business en 25.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
+3. Installez le dépôt business en 26.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 5. Arrêtez le processus Centreon Broker :
 
@@ -469,7 +469,7 @@ Exécutez la commande suivante :
 ```shell
 dnf install -y dnf-plugins-core && \
 rm -f /etc/yum.repos.d/centreon* && \
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
 ```
 
 </TabItem>

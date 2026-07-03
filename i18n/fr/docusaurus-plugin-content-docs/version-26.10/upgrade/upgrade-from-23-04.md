@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon depuis la version 23.04 vers la version 25.10.
+Centreon depuis la version 23.04 vers la version 26.10.
 
 > La version 23.04 n'est plus supportée. La montée de version à partir de cette version n'a pas été testée par l'équipe d'assurance qualité de Centreon.
 
@@ -16,7 +16,7 @@ Centreon depuis la version 23.04 vers la version 25.10.
 > / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
 > Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
-> Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 25.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 26.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
 > Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian 11, vous devez d'abord migrer en Debian 12 avant d'upgrader Centreon. Voir [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874). Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
@@ -102,7 +102,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 
    ```shell
    dnf install -y dnf-plugins-core
-   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
    systemctl stop cbd
    dnf clean all --enablerepo=*
    ```
@@ -128,7 +128,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 3. Installez le nouveau dépôt :
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 ```
 
 </TabItem>
@@ -139,7 +139,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 
 ```shell
 rm -f /etc/apt/sources.list.d/centreon.list
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -189,7 +189,7 @@ rm /etc/apt/sources.list.d/centreon-business.list
 </TabItem>
 </Tabs>
 
-3. Installez le dépôt business en 25.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
+3. Installez le dépôt business en 26.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 4. Si votre système d'exploitation est Debian et que vous utilisez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
 
@@ -207,7 +207,7 @@ rm /var/lib/centreon-broker/* -f
 
 ### Montée de version de PHP
 
-Centreon 25.10 utilise PHP en version 8.2.
+Centreon 26.10 utilise PHP en version 8.4.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -585,14 +585,14 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 25.10
+   - version : 26.10
    - identifiant : Admin
    - mot de passe : xxxxx
 
 2. Entrez la requête suivante :
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v25.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v26.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -746,7 +746,7 @@ Exécutez la commande suivante :
 ```shell
 dnf install -y dnf-plugins-core && \
 rm -f /etc/yum.repos.d/centreon* && \
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
 ```
 
 </TabItem>
@@ -755,7 +755,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 ```shell
 dnf install -y dnf-plugins-core && \
 rm -f /etc/yum.repos.d/centreon* && \
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 ```
 
 </TabItem>
@@ -763,7 +763,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 
 ```shell
 rm -f /etc/apt/sources.list.d/centreon*
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 apt update
 ```
 

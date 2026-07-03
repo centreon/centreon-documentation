@@ -5,7 +5,7 @@ title: Mettre à jour MySQL
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Si vous utilisiez Centreon 24.04 ou 24.10 avec MySQL, sachez que le support de MySQL 8.0 prendra fin en avril 2026. Assurez-vous que votre Centreon utilise toujours [une version supportée de MySQL](#versions-de-mysql-compatibles-avec-centreon-2510).
+Si vous utilisiez Centreon 24.04 ou 24.10 avec MySQL, sachez que le support de MySQL 8.0 prendra fin en avril 2026. Assurez-vous que votre Centreon utilise toujours [une version supportée de MySQL](#versions-de-mysql-compatibles-avec-centreon-2610).
 
 Vous pouvez potentiellement avoir plusieurs bases MySQL dans votre architecture. Le serveur central a une base, chaque serveur distant a une base, et les modules MBI et MAP ont chacun une base dédiée. Dans une architecture, toutes les bases doivent avoir la même version de MySQL.
 
@@ -13,10 +13,9 @@ Vous pouvez potentiellement avoir plusieurs bases MySQL dans votre architecture.
 
 Ne mettez pas à jour votre version de Centreon et votre version de MySQL en même temps. Vous pouvez effectuer les deux mises à jour l'une après l'autre dans l'ordre que vous souhaitez, mais assurez-vous que la première procédure de mise à jour soit entièrement terminée avant d'effectuer la seconde.
 
-## Versions de MySQL compatibles avec Centreon 25.10
+## Versions de MySQL compatibles avec Centreon 26.10
 
-* MySQL 8.4 est recommandé pour les nouvelles installations.
-* MySQL 8.0 peut encore être utilisé jusqu'à la fin de son support (fin avril 2026), mais après cette date, vous devrez passer à MySQL 8.4.
+* MySQL 8.4
 
 ## Connaître la version de MySQL
 

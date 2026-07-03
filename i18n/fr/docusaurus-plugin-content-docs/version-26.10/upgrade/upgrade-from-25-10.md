@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon depuis la version 24.10 vers la version 25.10.
+Centreon depuis la version 25.10 vers la version 26.10.
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
 >
@@ -17,9 +17,7 @@ Centreon depuis la version 24.10 vers la version 25.10.
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
 > Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
-> Si vous utilisiez MySQL 8.0, prévoyez de [passer à MySQL 8.4](upgrade-mysql.md) avant la fin du support de la version 8.0, prévue fin avril 2026.
-
-> Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 25.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> Si vous utilisiez MySQL 8.0, vous devez [passer à MySQL 8.4](upgrade-mysql.md).
 
 ## Prérequis
 
@@ -100,25 +98,25 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 2. Supprimez les fichiers des dépôts :
 
    ```shell
-   rm /etc/yum.repos.d/centreon-24.10.repo
+   rm /etc/yum.repos.d/centreon-25.10.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
 3. Installez le nouveau dépôt :
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
+1. Mettez à jour votre Centreon 25.10 jusqu'à la dernière version mineure.
 2. Exécutez les commandes suivantes :
 
 ```shell
-rm -f /etc/apt/sources.list.d/centreon-25.10-stable.list
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
+rm -f /etc/apt/sources.list.d/centreon-26.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -503,14 +501,14 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 24.10
+   - version : 26.10
    - identifiant : Admin
    - mot de passe : xxxxx
 
 2. Entrez la requête suivante :
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v25.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v26.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -669,7 +667,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 ```shell
 dnf install -y dnf-plugins-core && \
 rm -f /etc/yum.repos.d/centreon* && \
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 ```
 
 </TabItem>
@@ -677,7 +675,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 
 ```shell
 rm -f /etc/apt/sources.list.d/centreon*
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 apt update
 ```
 
