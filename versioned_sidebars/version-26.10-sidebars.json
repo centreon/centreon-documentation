@@ -1124,6 +1124,10 @@
             {
               "type": "doc",
               "id": "upgrade/introduction"
+            },            
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-matrix"
             },
             {
               "type": "doc",
