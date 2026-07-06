@@ -14,7 +14,7 @@ Pour superviser un hôte dans Centreon Cloud :
 1. Pour créer l'hôte, allez à la page **Configuration > Hôtes > Hôtes** puis cliquez sur **Ajouter**.
 2. Liez le nouvel hôte au collecteur qui doit le superviser.
 3. Liez le nouvel hôte au modèle d'hôte correspondant fourni par un [Connecteur de supervision](../monitoring/pluginpacks.md).
-4. [Exportez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). L'hôte apparaitra à la page **Supervision > Statut des ressources** sous peu. De là, vous pouvez suivre tout changement de statut.
+4. [Exportez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). L'hôte apparaîtra à la page **Supervision > Statut des ressources** sous peu. De là, vous pouvez suivre tout changement de statut.
 
 ## Voir aussi
 
