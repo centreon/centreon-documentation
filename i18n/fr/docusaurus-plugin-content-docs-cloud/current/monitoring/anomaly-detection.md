@@ -36,7 +36,7 @@ pour mettre en évidence les écarts et générer des alertes. Pour ne pas fauss
 
 ### Ajouter votre jeton
 
-1. Récupérez votre jeton dans la page de votre organisation dans le [CIAM](../ciam/ciam.md).
+1. Récupérez votre jeton dans la page de votre organisation dans [Centreon Hub](../users/centreon-hub.md).
 
 2. Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et
 cliquez sur le bouton **Add Centreon Cloud Token**.

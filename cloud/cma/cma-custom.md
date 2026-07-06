@@ -13,7 +13,7 @@ Executing custom plugins requires declaring their commands in a dedicated file o
 ## Actions on the host
 
 1. Copy the plugin to the host, in the directory of your choice.
-2. Create the commands file. Supported formats are **.txt** or **.ini**. Example content:
+2. Create the commands file. Supported formats are **.txt** or **.ini**. The file must be encoded in **UTF-8** (without BOM). Other encodings such as UTF-16 or UTF-16 LE BOM will prevent custom checks from working. Example content:
 
    ```bash
    [custom_checks]

@@ -13,6 +13,7 @@ A private Synthetic Monitoring Zone (STM Zone) allows you to monitor your user j
 - A machine inside your infrastructure to host the probe. The machine must be able to access the application you will monitor.
 - The Docker credentials provided by Centreon. The credentials are sent by Centreon using a secure Keeper link. Save these credentials in your own safe.
 - A user journey configured on the internal application to monitor.
+- Installing the [profiler](../../installation/servers/install-php-magento-orocommerce-profiler.md).
 
 ## Step 1: Create a new STM zone
 

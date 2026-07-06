@@ -792,6 +792,81 @@ centreon-monitoring-agent-modify.exe /VERYSILENT
 </TabItem>
 </Tabs>
 
+### Mettre à jour l'agent
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+Mettez à jour l'agent à l'aide de votre gestionnaire de paquets.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf update centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
+
+```shell
+apt-get update && apt-get upgrade centreon-monitoring-agent
+```
+
+</TabItem>
+</Tabs>
+
+Redémarrez ensuite l'agent :
+
+```shell
+systemctl restart centagent
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+Sous Centreon 24.10, la mise à jour de l'agent sous Windows nécessite de désinstaller la version actuelle et de réinstaller la nouvelle. Veillez à sauvegarder votre configuration avant de procéder, car elle sera perdue lors de la désinstallation.
+
+#### Étape 1 : Sauvegardez votre configuration
+
+La configuration de l'agent est stockée dans la base de registre Windows. Exportez la clé suivante avant de désinstaller :
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent
+```
+
+#### Étape 2 : Désinstallez la version actuelle
+
+Exécutez le programme de désinstallation situé dans le répertoire d'installation de CMA.
+
+#### Étape 3 : Installez la nouvelle version
+
+[Téléchargez le nouvel installer de l'agent](https://download.centreon.com) et exécutez-le en renseignant les valeurs de configuration sauvegardées à l'étape 1.
+
+</TabItem>
+</Tabs>
+
 ## Étape 4 : Tester le fonctionnement de l'agent
 
 Voir [section dédiée](cma-troubleshooting.md).

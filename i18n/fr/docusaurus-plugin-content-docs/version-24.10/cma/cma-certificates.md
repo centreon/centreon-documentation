@@ -35,6 +35,8 @@ Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans le
 Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats (connexion initiée par l'agent).
 Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration faite sur l'hôte (colonne "Configuration de l'hôte" du tableau ci-dessous).
 
+> **Magasin de certificats Windows** : sous Windows, CMA lit les certificats CA depuis le magasin de certificats Windows **Ordinateur local** (Local Computer). Il s'agit du magasin de confiance standard à l'échelle du système, accessible en lecture par tous les processus de la machine, mais qui nécessite des privilèges d'administrateur pour y écrire. L'emplacement correct pour les certificats de CA racine et intermédiaires est : **Ordinateur local > Autorités de certification racines de confiance** (Local Computer > Trusted Root Certification Authorities).
+
 ### Synthèse des configurations possibles
 
 <Tabs groupId="sync">

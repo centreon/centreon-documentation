@@ -1,40 +1,34 @@
 ﻿---
 id: cloud-configuration-of-agents
-title: Configuration de nos agents pour le cloud
+title: Installer l'agent dans un environnement en autoscaling
 --- 
 
-Avec l'avènement du cloud, des services managés, des IaaS et des PaaS, nos paquets ne se suffisent plus à eux même et chaque infrastructure utilise ses propres processus d'orchestration quant au déploiement de nouveaux serveurs (VM ou conteneurs).
+Cette page s'applique si votre application ou votre site est hébergé sur Docker ou dans un environnement en autoscaling.
 
-Si c'est votre cas alors cet article est fait pour vous, vous y découvrirez comment configurer nos agents à l'aide de vos orchestrateurs.
+Avec l'essor du cloud, des services gérés, de l'IaaS et du PaaS, chaque infrastructure utilise ses propres processus d'orchestration pour déployer de nouveaux serveurs (machines virtuelles ou conteneurs). Les environnements en autoscaling sont dynamiques : des machines sont constamment créées et supprimées. Vous devrez déployer l'agent système et les agents d'application sur chaque machine.
 
-## Procédure standard d'installation
+## Fonctionnement de l'**hostid**
 
-Afin de bien comprendre la suite vous trouverez  le guide d'installation standard de notre agent est ici:
+L’utilisation de l’agent Experience Monitoring est entièrement compatible avec les infrastructures conteneurisées, mais elle nécessite une légère adaptation du processus d’installation.
 
-[Installer les agents systèmes](./install-system-agents.md)
+### Explication
 
- Et le guide d'installation de notre module PHP (si vous utilisez cette technologie) ici:
+L’**hostid** est un paramètre interne qui permet à Experience Monitoring d’identifier de manière unique un serveur. Chaque serveur doit disposer d’un **hostid** unique, qui est automatiquement configuré par le script d’installation (à partir de l’adresse MAC de la première interface réseau, sans les caractères `:`).
 
-[Installer le profiler PHP / Magento / OroCommerce](./install-php-magento-orocommerce-profiler.md)
+Cependant, dans le cas des conteneurs Docker, la configuration empêche le script d’installation de trouver cette valeur. Dans les systèmes en autoscaling (tels que AWS ASG ou Azure Scale Set), la copie de l’image duplique également l’**hostid**.
 
-## Dynamisation pour le cloud
+### Solution de contournement
 
-Dans le cas de déploiement automatique ou semi-automatique d'instances (VM ou conteneurs) certains champs de configurations devront être modifiés ou répliqués entre chaque instance nouvellement créées:
+Pour disposer d'un **hostid** unique, vous pouvez le configurer dans le fichier **/etc/quanta/agent.yml** à l'aide d'un script exécuté au démarrage du conteneur ou de la machine virtuelle (**script de démarrage**). Vous pouvez spécifier un identifiant unique généré au moment de l’exécution (par exemple, à l’aide des métadonnées AWS ou des variables d’environnement Docker) ou utiliser un élément unique tel que la valeur UUID issue de **/proc/sys/kernel/random/uuid**.
 
-- **Token**: Le token d'identification doit être le même pour tous les agents Experience Monitoring d'une même licence et d'un même site, celui-ci se trouve dans le fichier de configuration "/etc/quanta/agent.yml". Le token indique à l'agent à quel site appartiennent les données monitorées.
-- **Hostid**: Celui-ci se trouve également dans le fichier de configuration "/etc/quanta/agent.yml". Le hostid est un identifiant unique permettant à Experience Monitoring d'identifier de manière unique une instance:
-    - Dans la grande majorité des cas le hostid doit être différents pour chaque nouvelle instance, ainsi votre nouvelle instance "front-nginx-3" n'essaiera pas d'écraser les données envoyées par l'instance "front-nginx-2"
-    - Dans le cas d'auto-scaling vous pouvez avoir besoin de conserver un identifiant unique lorsque une instance est supprimée puis recréée plus tard. Par exemple si tous les soirs vers 19h vous ajoutez un quatrième front pour gérer la charge de début de soirée et le supprimez vers 21h vous voudrez surement éviter d'avoir tous les jours un nouveau graphique qui apparaisse dans vos données Experience Monitoring (et vous retrouver avec une liste très rapidement trop longues de graphiques). Dans ce cas précis il vous faudra conserver un identifiant unique à chaque fois que vous supprimez et re-créez le front en question, ainsi les données apparaitrons toujours dans le même graphique.
-- **Hostname**: Toujours dans le même fichier "/etc/quanta/agent.yml", cette variable de configuration vous permet d'attribuer un label à votre instance, contrairement au hostid ce n'est pas un identifiant mais uniquement un nom afin de vous faciliter la lecture dans les graphiques, par exemple "VM prod 006 - Varnish - 3". Vous pouvez également le modifier depuis l'interface Experience Monitoring.
+## Adapter la procédure standard
 
-## Adaptation
+Pour [installer l’agent système, vous devez suivre la procédure de base](./install-system-agents.md), mais veillez à gérer correctement les paramètres suivants.
 
-Certains fournisseurs de Cloud proposent des services managés, AWS propose RDS et ElastiCache par exemple pour les services de base de données et de gestion de cache espectivement. Ces services managés viennent généralement clés en main et ne vous permettent pas d'installer des packets sur leurs instances.
+Lorsque des instances (machines virtuelles ou conteneurs) sont déployées automatiquement ou de manière semi-automatique, certains champs de configuration doivent être modifiés ou répliqués pour chaque instance nouvellement créée :
 
-Pour palier à cette situation vous pouvez installer un agent sur une autre instance sur laquelle vous avez la main, par exemple un front, et lui demander de monitorer également une machine distante en lui indiquant l'ip et le port du service managé concerné.
-
-Par exemple, dans le cas de RDS il vous suffit de déployer l'agent "quanta-agent-mysql" (cf le guide standard) et de modifier le fichier de configuration de l'agent "/etc/quanta/modules.d/mysqlstat.yml" pour y indiquer le host et le port du service managé (IP et port).
-
-De plus si vous utilisez plusieurs instances de ElastiCache ou équivalent (plusieurs types de cache ainsi que sessions) vous pouvez facilement configurer l'agent Redis (ou Varnish ou Memcached) afin de lui indiquer les différentes bases à cibler. Le guide pour ce point se trouve là:
-
-[Ajouter les métriques avancées](./add-advanced-metrics.md)
+- **Token** : le jeton d’identification doit être identique pour tous les agents Experience Monitoring appartenant à la même licence et au même site. Il est stocké dans le fichier de configuration `/etc/quanta/agent.yml`. Le jeton indique à l’agent à quel site appartiennent les données supervisées.
+- **Hostid** : également situé dans `/etc/quanta/agent.yml`. L’hostid est un identifiant unique utilisé par Experience Monitoring pour identifier de manière univoque une instance :
+    - Pour les serveurs statiques, l’hostid doit être différent pour chaque nouvelle instance, afin que votre nouvelle instance `front-nginx-3` n’écrase pas les données envoyées par `front-nginx-2`.
+    - Dans les scénarios d'autoscaling', vous devrez peut-être conserver un identifiant stable lorsqu’une instance est supprimée puis recréée ultérieurement. Par exemple, si vous ajoutez un quatrième serveur front chaque soir à 19 h pour gérer les pics de trafic et que vous le supprimez à 21 h, vous souhaiterez probablement éviter de voir un nouveau graphique créé chaque jour dans Experience Monitoring (et une liste de graphiques qui s'allonge rapidement). Dans ce cas, vous devriez réutiliser un `hostid` issu d’un ensemble d’identifiants uniques chaque fois que vous supprimez et recréez ce serveur  afin que ses données apparaissent toujours dans le même graphique.
+- **Nom d’hôte** : Également dans `/etc/quanta/agent.yml`, ce paramètre vous permet d’attribuer une étiquette à votre instance. Contrairement à l’identifiant d’hôte, le nom d’hôte est simplement un nom convivial destiné à faciliter la lecture des graphiques (par exemple `VM prod 006 - Varnish - 3`). Vous pouvez également le modifier depuis l’interface utilisateur d’Experience Monitoring.

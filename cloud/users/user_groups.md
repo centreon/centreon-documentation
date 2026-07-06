@@ -4,13 +4,13 @@ title: User groups in Centreon Cloud
 ---
 
 In Centreon Cloud, user groups are used to [grant rights on resources](../administration/resource_access.md) more easily.
-Users and user groups are managed in [Centreon CIAM](../ciam/ciam.md). Only CIAM Administrators can create and manage user groups.
+Users and user groups are managed in [Centreon Hub](../users/centreon-hub.md). Only Centreon Hub Administrators can create and manage user groups.
 
 A user can belong to several user groups.
 
 ## Creating a user group
 
-1. In Centreon CIAM, go to **Users > User groups**.
+1. In Centreon Hub, go to **Users > User groups**.
 2. Click **Add group**. A popup window appears.
 3. Enter a name and a description for your user group, then select the names of the users you want to be in the group.
 4. Click **Save**. The new user group appears in the list. You will be able to see it in your Centreon Cloud platform shortly. If a user that was added to the group was already logged in to Centreon, they may need to log out and back in to see the resources that have been authorized via this group by a [resource access rule](../administration/resource_access.md).

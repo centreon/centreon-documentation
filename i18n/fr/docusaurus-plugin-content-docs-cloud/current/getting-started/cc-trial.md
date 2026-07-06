@@ -15,7 +15,7 @@ Centreon Cloud permet de profiter de la plateforme de supervision Centreon en ve
 
 ### Information sur les comptes utilisateurs
 
-Les comptes utilisateurs sont gérés dans le module [Centreon CIAM](../ciam/ciam.md) (Customer Identity and Access Management), l'application de gestion des accès à Centreon. La personne qui fait la demande d'un Cloud Trial pour votre entreprise devient l'administrateur et pourra inviter d'autres utilisateurs à rejoindre la plateforme.
+Les comptes utilisateurs sont gérés dans le module [Centreon Hub](../users/centreon-hub.md), l'application de gestion des accès à Centreon. La personne qui fait la demande d'un Cloud Trial pour votre entreprise devient l'administrateur et pourra inviter d'autres utilisateurs à rejoindre la plateforme.
 
 ### Comment créer une organisation pour votre plateforme d'essai ?
 
@@ -23,11 +23,11 @@ La mise en place de la plateforme d'essai de Centreon Cloud se fait en trois ét
 
 - Le futur administrateur remplit le [formulaire disponible sur notre site web](https://www.centreon.com/fr/essai-gratuit/#essayez_la_version_saas) en utilisant une adresse email professionnelle.
 
-- Un email est envoyé à cette adresse pour créer son mot de passe sur le Centreon CIAM.
+- Un email est envoyé à cette adresse pour créer son mot de passe sur Centreon Hub.
 
 - La plateforme est créée automatiquement. Cette étape peut prendre quelques minutes, vous serez notifié par email lorsque la plateforme aura fini d'être construite.
 
-- La plateforme est prête : l'administrateur invite d'autres utilisateurs à créer leurs propres comptes sur Centreon CIAM et rejoindre la plateforme d'essai.
+- La plateforme est prête : l'administrateur invite d'autres utilisateurs à créer leurs propres comptes sur Centreon Hub et rejoindre la plateforme d'essai.
 
 Une fois la plateforme mise en place, vous pouvez tester la version d'essai de Centreon Cloud pendant 7 jours et superviser jusqu'à 125 hôtes.
 

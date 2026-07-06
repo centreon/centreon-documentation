@@ -28,16 +28,16 @@ Dans Centreon Cloud, les utilisateurs peuvent avoir 3 rôles, chacun avec des dr
   * voir la liste des collecteurs, exporter la configuration et accéder à la commande d'installation de collecteurs.
   * installer des connecteurs de supervision.
 
-* **Administrator**. Les administrateurs peuvent faire les mêmes choses que les éditeurs, mais ils peuvent également inviter des utilisateurs via le CIAM, créer des groupes d'utilisateurs, et [leur attribuer des droits sur les ressources](../administration/resource_access.md).
+* **Administrator**. Les administrateurs peuvent faire les mêmes choses que les éditeurs, mais ils peuvent également inviter des utilisateurs via Centreon Hub, créer des groupes d'utilisateurs, et [leur attribuer des droits sur les ressources](../administration/resource_access.md).
 
 ## Créer des utilisateurs
 
-Les utilisateurs sont gérés via [Centreon CIAM](../ciam/ciam.md). Seuls les administrateurs CIAM peuvent inviter des utilisateurs dans une organisation (et donc sur une plateforme Centreon Cloud).
+Les utilisateurs sont gérés via [Centreon Hub](../users/centreon-hub.md). Seuls les administrateurs Centreon Hub peuvent inviter des utilisateurs dans une organisation (et donc sur une plateforme Centreon Cloud).
 
 Une fois créés, les utilisateurs peuvent être placés dans des groupes d'utilisateurs, afin d'accélérer la création de [règles d'accès aux ressources](../administration/resource_access.md). Celles-ci servent à définir quels utilisateurs peuvent voir quelles ressources.
 
 ## Supprimer un utilisateur d'une organisation
 
-Vous pouvez supprimer des utilisateurs d'une organisation : bien qu'ils continueront à exister dans le CIAM et pourront toujours s'y connecter, ils ne pourront plus accéder à cette organisation, ni accéder à aucune des applications de cette organisation, notamment leurs plateformes Centreon.
+Vous pouvez supprimer des utilisateurs d'une organisation : bien qu'ils continueront à exister dans Centreon Hub et pourront toujours s'y connecter, ils ne pourront plus accéder à cette organisation, ni accéder à aucune des applications de cette organisation, notamment leurs plateformes Centreon.
 
 Pour supprimer un utilisateur d'une organisation, allez à la page **Users > User list** pour cette organisation, puis cliquez sur **Remove user** dans la colonne **Action**.

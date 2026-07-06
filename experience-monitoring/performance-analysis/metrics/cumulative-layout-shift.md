@@ -11,8 +11,8 @@ CLS helps by measuring how frequently this happens for users on your site.
 
 ## What is CLS?
 
-CLS measures the sum of scores of unexpected layout shifts occurring during the page's lifecycle.
+- CLS measures the sum of scores of unexpected layout shifts occurring during the page's lifecycle.
 
-A layout shift occurs when a visible element changes position on the page.
+- A layout shift occurs when a visible element changes position on the page.
 
-The score depends on the size of the element and the distance it moves.
+- The score depends on the size of the element and the distance it moves.

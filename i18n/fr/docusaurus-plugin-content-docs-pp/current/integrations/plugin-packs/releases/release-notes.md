@@ -8,6 +8,97 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+### Juin
+
+> **Attention information importante :** [**Nmap CLI**](../procedures/applications-nmap-cli.md) - `nmap` does not install automatically anymore.
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Centreon Log Management Rest API**](../procedures/applications-monitoring-centreon-clm-restapi.md) - Initial release.
+- [**OpenShift API**](../procedures/cloud-openshift-api.md) - Initial release.
+- [**Symantec Netbackup CMA**](../procedures/applications-netbackup-cma.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Azure API Management**](../procedures/cloud-azure-management-apimanagement.md) - Changed host status checks output.
+- [**Azure App Configuration**](../procedures/cloud-azure-devtools-appconfiguration.md) - Changed host status checks output.
+- [**Azure Automation**](../procedures/cloud-azure-management-automation.md) - Changed host status checks output.
+- [**Azure CDN**](../procedures/cloud-azure-network-cdn.md) - Changed host status checks output.
+- [**Azure Container Registry**](../procedures/cloud-azure-storage-acr.md) - Changed host status checks output.
+- [**Azure Database for MariaDB**](../procedures/cloud-azure-database-mariadb.md) - Changed host status checks output.
+- [**Azure Database for MySQL**](../procedures/cloud-azure-database-mysql.md) - Changed host status checks output.
+- [**Azure Database for PostgreSQL**](../procedures/cloud-azure-database-postgresql.md) - Changed host status checks output.
+- [**Azure Elastic Pool**](../procedures/cloud-azure-database-elasticpool.md) - Changed host status checks output.
+- [**Azure Event Grid**](../procedures/cloud-azure-integration-eventgrid.md) - Changed host status checks output.
+- [**Azure InsightsMetrics**](../procedures/cloud-azure-management-insightsmetrics.md) - Changed host status checks output.
+- [**Azure Key Vault**](../procedures/cloud-azure-security-keyvault.md) - Changed host status checks output.
+- [**Azure Log Analytics**](../procedures/cloud-azure-management-loganalytics.md) - Changed host status checks output.
+- [**Azure Network Interface**](../procedures/cloud-azure-network-networkinterface.md) - Changed host status checks output.
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Updated help section on **storage** mode.
+- [**Azure ServiceBus**](../procedures/cloud-azure-integration-servicebus.md) - Changed host status checks output.
+- [**Azure SignalR**](../procedures/cloud-azure-web-signalr.md) - Changed host status checks output.
+- [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - Added native SNMP v3 host macro.
+- [**Dell iDRAC SNMP**](../procedures/hardware-servers-dell-idrac-snmp.md) - Added native SNMP v3 host macro.
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added native SNMP v3 host macro.
+- [**FreeBSD SNMP**](../procedures/operatingsystems-freebsd-snmp.md) - Added native SNMP v3 host macro.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Added service template for **response-time** mode and added native SNMP v3 host macro.
+- [**HP MSL SNMP**](../procedures/hardware-storage-hp-msl-snmp.md) - Added native SNMP v3 host macro.
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Added native SNMP v3 host macro.
+- [**HP Standard Network SNMP**](../procedures/network-hp-standard-snmp.md) - Added native SNMP v3 host macro.
+- [**HP-UX SNMP**](../procedures/operatingsystems-hpux-snmp.md) - Added native SNMP v3 host macro.
+- [**Kairos SNMP**](../procedures/network-kairos-snmp.md) - Added native SNMP v3 host macro.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Added **ResourceQuota-Status** service and enhanced **Deployment-Status** service with label filter, based on a community contribution [PR 5812](https://github.com/centreon/centreon-plugins/pull/5812).
+- [**Linux SNMP v3**](../procedures/operatingsystems-linux-snmpv3.md) - Deprecated with the enhancement of [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md).
+- [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) - Added native SNMP v3 host macro.
+- [**Mac SNMP**](../procedures/operatingsystems-mac-snmp.md) - Added native SNMP v3 host macro.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Enhanced status threshold for **failed-jobs** mode.
+- [**Mrv Optiswitch SNMP**](../procedures/network-switchs-mrv-optiswitch-snmp.md) - Added native SNMP v3 host macro.
+- [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - Added native SNMP v3 host macro.
+- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - `nmap` does not install automatically anymore.
+- [**Opengear SNMP**](../procedures/network-opengear-snmp.md) - Added CM8100 series compatibility.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Added native SNMP v3 host macro.
+- [**Printer standard SNMP**](../procedures/hardware-printers-standard-rfc3805-snmp.md) - Added native SNMP v3 host macro.
+- [**RedBack Router SNMP**](../procedures/network-routers-redback-snmp.md) - Added native SNMP v3 host macro.
+- [**Rubrik Security Cloud GraphQL API**](../procedures/applications-rubrik-graphql.md) - Added **SLA Unprotected** service and misc enhancements.
+- [**Silverpeak SNMP**](../procedures/network-silverpeak-snmp.md) - Added native SNMP v3 host macro.
+- [**Sonicwall SNMP**](../procedures/network-firewalls-sonicwall-snmp.md) - Added native SNMP v3 host macro.
+- [**Stonesoft SNMP**](../procedures/network-firewalls-stonesoft.md) - Added native SNMP v3 host macro.
+- [**Synology SNMP**](../procedures/hardware-storage-synology-snmp.md) - Added native SNMP v3 host macro.
+- [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - Added support for API version 9.2.4.18.
+- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - Added native SNMP v3 host macro.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Dynamics AX NSClient 0.5 NRPE**](../procedures/applications-dynamics-ax-nsclient-05-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**Dynamics365 NSClient 0.5 NRPE**](../procedures/applications-dynamics-365-nsclient-05-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**EMC Symmetrix NRPE**](../procedures/hardware-storage-emc-symmetrix-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**Hyper-V 2012 NRPE**](../procedures/virtualization-hyperv-2012-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**Microsoft SCCM NSClient**](../procedures/applications-sccm-nsclient.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**Microsoft WSUS NSClient**](../procedures/applications-wsus-nsclient.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**Quadstor NRPE**](../procedures/applications-quadstor-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**Symantec Netbackup NRPE**](../procedures/applications-netbackup-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Added new filtering and threshold options 
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Fixed issues related to tokens in commands and removed undefined ARRAY value if no jobs have been sent in **jobs** mode.
+- [**Fritz!Box UPnP**](../procedures/network-fritzbox-upnp.md) - Fixed **system** mode status thresholds.
+- [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Fixed handling of `--insecure` option.
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed daemon CVEs related to Log4j.
+- [**Phoenixtec UPS SNMP**](../procedures/hardware-ups-phoenixtec-snmp.md) - Removed thresholds for non-existent counters in --help section.
+- [**Powerware UPS SNMP**](../procedures/hardware-ups-powerware-snmp.md) - Fixed the output when the plugin does not detect the absence of an input line in **input-lines** mode.
+- [**Veritas Backup Exec NSCP API**](../procedures/applications-backupexec-nscp-restapi.md) - Fixed discovery macro command.
+
+</TabItem>
+</Tabs>
+
 ### Mai
 
 <Tabs groupId="sync">

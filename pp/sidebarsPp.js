@@ -650,6 +650,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-netbackup-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-netbackup-nrpe'
         },
         {
@@ -779,6 +783,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-experience-monitoring-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-clm-restapi'
         },
         {
           type: 'doc',
@@ -1189,6 +1197,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-microsoft-office365-teams'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-openshift-api'
         },
         {
           type: 'doc',

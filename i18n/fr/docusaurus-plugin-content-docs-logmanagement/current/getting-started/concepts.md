@@ -21,7 +21,7 @@ Voici les principales fonctionnalités de Centreon Log Management :
 
 3. Log Management vous permet d'[analyser ces logs en temps réel](../explore-analyze.md), à l'aide de filtres, de [requêtes](../query-syntax.md) ou de [tableaux de bord](../dashboards.md). Cela vous aide à détecter les anomalies, les erreurs, les incidents de sécurité ou les comportements inattendus : consultez les [**cas d'utilisation**](use-cases.md) pour des exemples détaillés.
 
-4. Log Management crée des [évènements d'alerte](../resources/glossary.md#évènement-dalertestatut-dalerte) (alert events) en cas de problème ou de dépassement des seuils critiques, conformément aux [règles d'alerte](../alerts.md) (alert rules) que vous avez définies.
+4. Log Management crée des [évènements d'alerte](../resources/glossary.md#évènement-dalerte) (alert events) en cas de problème ou de dépassement des seuils critiques, conformément aux [règles d'alerte](../alerts.md) (alert rules) que vous avez définies.
 
 5. Log Management vous permet de stocker les logs en toute sécurité pendant de longues périodes (à des fins de conformité, de sécurité ou d'analyse historique).
 
@@ -83,7 +83,7 @@ Voici un exemple d'entrée de log brute envoyée par l'Observateur d'évènement
   * **k8s.container.name** : nom du conteneur Kubernetes.
   * **deployment.environment** : environnement tel que prod ou staging.
 
-Dans Log Management, vous pouvez filtrer vos données en utilisant ces attributs dans les [requêtes](../query-syntax.md), dans [**Log explorer**](../explore-analyze.md#utiliser-la-page-log-explorer) ou dans les [tableaux de bord](../dashboards.md).
+Dans Log Management, vous pouvez filtrer vos données en utilisant ces attributs dans les [requêtes](../query-syntax.md), dans [**Log explorer**](../log-explorer.md) ou dans les [tableaux de bord](../dashboards.md).
 
 ## Quel attribut OpenTelemetry gère l'heure des logs?
 

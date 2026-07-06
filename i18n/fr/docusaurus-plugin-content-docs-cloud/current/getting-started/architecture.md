@@ -3,7 +3,7 @@ id: architecture
 title: Architecture de Centreon Cloud
 ---
 
-Votre plateforme Centreon Cloud est constituée principalement d'une plateforme SaaS fournie par Centreon, et de collecteurs que vous installez dans votre infrastructure. De plus, le module Centreon [CIAM](../ciam/ciam.md) vous permet de gérer vos organisations et vos utilisateurs, et de vous connecter à Centreon Cloud.
+Votre plateforme Centreon Cloud est constituée principalement d'une plateforme SaaS fournie par Centreon, et de collecteurs que vous installez dans votre infrastructure. De plus, le module [Centreon Hub](../users/centreon-hub.md) vous permet de gérer vos organisations et vos utilisateurs, et de vous connecter à Centreon Cloud.
 
 ![image](../assets/getting-started/infra3.png)
 
@@ -22,7 +22,7 @@ Votre plateforme Centreon Cloud est constituée principalement d'une plateforme 
   * Vous [installez vos collecteurs](../installation/deploy-poller.md) à l'aide d'un simple script.
   * La communication entre le central et les collecteurs se fait en HTTPS.
 
-## Centreon CIAM
+## Centreon Hub
 
-* Le [CIAM](../ciam/ciam.md) a une interface utilisateur distincte de celle de la plateforme SaaS.
-* Avant de pouvoir utiliser Centreon Cloud, vous devez configurer votre organisation dans le CIAM, et inviter vos utilisateurs sur la plateforme.
+* [Centreon Hub](../users/centreon-hub.md) a une interface utilisateur distincte de celle de la plateforme SaaS.
+* Avant de pouvoir utiliser Centreon Cloud, vous devez configurer votre organisation dans Centreon Hub, et inviter vos utilisateurs sur la plateforme.

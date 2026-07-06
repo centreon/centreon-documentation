@@ -21,7 +21,7 @@ Here are the main features of Centreon Log Management:
 
 3. Log Management allows you to [analyze these logs in real time](../explore-analyze.md), using filters, [queries](../query-syntax.md), or [dashboards](../dashboards.md). This helps you detect detect anomalies, errors, security incidents, or unexpected behavior: see [**Use cases**](use-cases.md) for detailed examples.
 
-4. Log Management creates [alert events](../resources/glossary.md#alert-eventalert-status) in case problems occur or critical thresholds are exceeded, according to [alert rules](../alerts.md) you have defined.
+4. Log Management creates [alert events](../resources/glossary.md#alert-event) in case problems occur or critical thresholds are exceeded, according to [alert rules](../alerts.md) you have defined.
 
 5. Log Management allows you to store logs securely over long periods of time (for compliance, security, or historical analysis).
 
@@ -83,7 +83,7 @@ Here is an example of a raw log entry sent by the Windows Event Viewer, collecte
   * **k8s.container.name** – Kubernetes container name
   * **deployment.environment** – environment like prod or staging.
 
-In Log Management, you can filter your data by using these attributes in [queries](../query-syntax.md), in [**Log explorer**](../explore-analyze.md#using-the-log-explorer-page) or [dashboards](../dashboards.md).
+In Log Management, you can filter your data by using these attributes in [queries](../query-syntax.md), in [**Log explorer**](../log-explorer.md) or [dashboards](../dashboards.md).
 
 ## Which OpenTelemetry attribute determines the date and time of logs?
 
