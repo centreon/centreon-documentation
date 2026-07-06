@@ -33,7 +33,7 @@ When upgrading from an older version, you need to go through the [key rotation p
 
 ### Update the centreon_central_sync script (MBI only)
 
-This step is only necessary if you use [MBI](../../reporting/introduction.md). Update the script `/usr/share/centreon-ha/bin/centreon_central_sync` at the following lines:
+This step is only necessary if you use [MBI](https://docs.centreon.com/docs/reporting/introduction.md). Update the script `/usr/share/centreon-ha/bin/centreon_central_sync` at the following lines:
 
 ```shell
 rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
