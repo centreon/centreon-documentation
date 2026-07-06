@@ -4,15 +4,15 @@ title: Upgrade from Centreon 23.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import intro from './_intro.mdx'
+import Intro from './_intro.mdx'
 
-<intro type="23.04" />
+<Intro type="23.04" />
 
 > Version 23.04 is no longer supported. Upgrade from this version has not been tested by the Centreon QA team.
 
-## What components need upgrading
+## Which components need upgrading
 
-| Component | version in 23.04 | Version in 26.10 |
+| Component | Version in 23.04 | Version in 26.10 |
 | --- | --- | --- |
 | PHP | 8.1 | 8.4 |
 | Database | MariaDB 10.5.x | MariaDB 11.8 |

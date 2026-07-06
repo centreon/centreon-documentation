@@ -4,13 +4,13 @@ title: Upgrade from Centreon 25.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import intro from './_intro.mdx'
+import Intro from './_intro.mdx'
 
-<intro type="25.10" />
+<Intro type="25.10" />
 
-## What components need upgrading
+## Which components need upgrading
 
-| Component | version in 25.10 | Version in 26.10 |
+| Component | Version in 25.10 | Version in 26.10 |
 | --- | --- | --- |
 | PHP | 8.2 | 8.4 |
 | Database | <ul><li>MariaDB 10.11.x</li><li>MySQL 8.0 or 8.4</li></ul> | <ul><li>MariaDB 11.8</li><li>MySQL 8.4</li></ul> |
