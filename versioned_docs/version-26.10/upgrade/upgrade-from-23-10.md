@@ -4,16 +4,20 @@ title: Upgrade from Centreon 23.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import intro from './_intro.mdx'
 
-This chapter describes how to upgrade your Centreon platform from version 23.10 to version 25.10.
+<intro type="23.10" />
 
-> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
+> Version 23.10 is no longer supported. Upgrade from this version has not been tested by the Centreon QA team.
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
+## What components need upgrading
+
+| Component | version in 23.10 | Version in 26.10 |
+| --- | --- | --- |
+| PHP | 8.1 | 8.4 |
+| Database | MariaDB 10.5.x | MariaDB 11.8 |
 
 > Business edition users: MAP Legacy is no longer available in Centreon 25.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
-
-> Version 25.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
 
 > Warning: If you were using the following monitoring connectors, from version 25.10 you must declare all of their configurations using [the **Configuration \> Additional connector configurations** page](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) before deploying the configuration of the corresponding poller:
 > * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)

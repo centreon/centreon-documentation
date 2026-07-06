@@ -8,6 +8,13 @@ import intro from './_intro.mdx'
 
 <intro type="25.10" />
 
+## What components need upgrading
+
+| Component | version in 25.10 | Version in 26.10 |
+| --- | --- | --- |
+| PHP | 8.2 | 8.4 |
+| Database | <ul><li>MariaDB 10.11.x</li><li>MySQL 8.0 or 8.4</li></ul> | <ul><li>MariaDB 11.8</li><li>MySQL 8.4</li></ul> |
+
 ## Prerequisites
 
 ### Perform a backup
@@ -70,13 +77,13 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/e
 
 1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
 
-2. If you have installed Business extensions, delete the configuration of the 24.10 repository:
+2. If you have installed Business extensions, delete the configuration of the 25.10 repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-rm /etc/yum.repos.d/centreon-business-24.10.repo
+rm /etc/yum.repos.d/centreon-business-25.10.repo
 ```
 
 </TabItem>

@@ -4,20 +4,18 @@ title: Upgrade from Centreon 24.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import intro from './_intro.mdx'
 
-This chapter describes how to upgrade your Centreon platform from version 24.04 to version 25.10.
+<intro type="24.04" />
 
-> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
->
-> All servers in your architecture must have the same version of Centreon.
->
-> In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
+> Version 24.04 is no longer supported. Upgrade from this version has not been tested by the Centreon QA team.
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
+## What components need upgrading
 
-> Version 25.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
-
-> If you were using MySQL 8.0, you may want to [upgrade to MySQL 8.4](upgrade-mysql.md) before the end of support for version 8.0. at the end of April 2026.
+| Component | version in 24.04 | Version in 26.10 |
+| --- | --- | --- |
+| PHP | 8.1 | 8.4 |
+| Database | MariaDB 10.11.x | MariaDB 11.8 |
 
 > Warning: If you were using the following monitoring connectors, from version 24.10 you must declare all of their configurations using [the **Configuration \> Additional connector configurations** page](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) before deploying the configuration of the corresponding poller:
 > * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)

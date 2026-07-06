@@ -4,18 +4,16 @@ title: Upgrade from Centreon 24.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import intro from './_intro.mdx'
 
-This chapter describes how to upgrade your Centreon platform from version 24.10 to version 25.10.
+<intro type="24.10" />
 
-> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
->
-> All servers in your architecture must have the same version of Centreon.
->
-> In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
+## What components need upgrading
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
-
-> If you were using MySQL 8.0, you may want to [upgrade to MySQL 8.4](upgrade-mysql.md) before the end of support for version 8.0. at the end of April 2026.
+| Component | version in 24.10 | Version in 26.10 |
+| --- | --- | --- |
+| PHP | 8.2 | 8.4 |
+| Database | <ul><li>MariaDB 10.11.x</li><li>MySQL 8.0 or 8.4</li></ul> | <ul><li>MariaDB 11.8</li><li>MySQL 8.4</li></ul> |
 
 ## Prerequisites
 
