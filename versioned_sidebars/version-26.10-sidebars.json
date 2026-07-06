@@ -1131,6 +1131,10 @@
             },
             {
               "type": "doc",
+              "id": "upgrade/upgrade-from-25-10"
+            },
+            {
+              "type": "doc",
               "id": "upgrade/upgrade-from-24-10"
             },
             {
@@ -1144,26 +1148,6 @@
             {
               "type": "doc",
               "id": "upgrade/upgrade-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-22-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-21-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-21-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-20-10"
             },
             {
               "type": "doc",
