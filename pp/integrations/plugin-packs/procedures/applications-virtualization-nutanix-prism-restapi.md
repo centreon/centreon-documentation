@@ -1,5 +1,5 @@
 ---
-id: applications-monitoring-nutanix-prism-restapi
+id: applications-virtualization-nutanix-prism-restapi
 title: Nutanix Prism Element REST API
 ---
 
@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The **Nutanix Prism Element REST API** monitoring connector supervises Nutanix
+The **Nutanix Prism Element REST API** virtualization connector supervises Nutanix
 hyperconverged infrastructure through the Prism Element management interface.
 
 It covers the full stack: cluster health, physical hosts, virtual machines,
@@ -30,36 +30,36 @@ through a single API connection on port 9440.
 
 | Template | Description |
 |---|---|
-| `App-Monitoring-Nutanix-Prism-Restapi-custom` | Applied to the Prism Element controller VM (CVM) or cluster VIP address |
+| `App-virtualization-Nutanix-Prism-Restapi-custom` | Applied to the Prism Element controller VM (CVM) or cluster VIP address |
 
 ### Service Templates
 
 | Service Alias | Template Name | Description |
 |---|---|---|
-| Alerts | `App-Monitoring-Nutanix-Prism-Alerts-Restapi-custom` | Active unresolved alerts by severity |
-| Capacity | `App-Monitoring-Nutanix-Prism-Capacity-Restapi-custom` | Cluster-wide CPU, memory and storage capacity |
-| Cluster-Status | `App-Monitoring-Nutanix-Prism-Cluster-Status-Restapi-custom` | Cluster health state and node count |
-| Disks-Status | `App-Monitoring-Nutanix-Prism-Disks-Status-Restapi-custom` | Per-disk health status and capacity |
-| Health-Checks | `App-Monitoring-Nutanix-Prism-Health-Checks-Restapi-custom` | NCC health check results (PASS/FAIL/WARNING/ERROR) |
-| Hosts-Usage | `App-Monitoring-Nutanix-Prism-Hosts-Usage-Restapi-custom` | Per-host CPU, memory and VM count |
-| Protection-Domains | `App-Monitoring-Nutanix-Prism-Protection-Domains-Restapi-custom` | Protection domain replication health and pending count |
-| Snapshots | `App-Monitoring-Nutanix-Prism-Snapshots-Restapi-custom` | VM snapshot count and age |
-| Storage-Containers | `App-Monitoring-Nutanix-Prism-Storage-Containers-Restapi-custom` | Storage container usage, compression and dedup savings |
-| Storage-Usage | `App-Monitoring-Nutanix-Prism-Storage-Usage-Restapi-custom` | Storage pool used/free bytes and usage percentage |
-| Tasks | `App-Monitoring-Nutanix-Prism-Tasks-Restapi-custom` | Recent background task counts by status |
-| Vms-Count | `App-Monitoring-Nutanix-Prism-Vms-Count-Restapi-custom` | Total VM count, split by power state |
-| Vms-Nics | `App-Monitoring-Nutanix-Prism-Vms-Nics-Restapi-custom` | Per-VM NIC link state and traffic |
-| Vms-Performance | `App-Monitoring-Nutanix-Prism-Vms-Performance-Restapi-custom` | Per-VM CPU and memory usage percentage |
+| Alerts | `App-virtualization-Nutanix-Prism-Alerts-Restapi-custom` | Active unresolved alerts by severity |
+| Capacity | `App-virtualization-Nutanix-Prism-Capacity-Restapi-custom` | Cluster-wide CPU, memory and storage capacity |
+| Cluster-Status | `App-virtualization-Nutanix-Prism-Cluster-Status-Restapi-custom` | Cluster health state and node count |
+| Disks-Status | `App-virtualization-Nutanix-Prism-Disks-Status-Restapi-custom` | Per-disk health status and capacity |
+| Health-Checks | `App-virtualization-Nutanix-Prism-Health-Checks-Restapi-custom` | NCC health check results (PASS/FAIL/WARNING/ERROR) |
+| Hosts-Usage | `App-virtualization-Nutanix-Prism-Hosts-Usage-Restapi-custom` | Per-host CPU, memory and VM count |
+| Protection-Domains | `App-virtualization-Nutanix-Prism-Protection-Domains-Restapi-custom` | Protection domain replication health and pending count |
+| Snapshots | `App-virtualization-Nutanix-Prism-Snapshots-Restapi-custom` | VM snapshot count and age |
+| Storage-Containers | `App-virtualization-Nutanix-Prism-Storage-Containers-Restapi-custom` | Storage container usage, compression and dedup savings |
+| Storage-Usage | `App-virtualization-Nutanix-Prism-Storage-Usage-Restapi-custom` | Storage pool used/free bytes and usage percentage |
+| Tasks | `App-virtualization-Nutanix-Prism-Tasks-Restapi-custom` | Recent background task counts by status |
+| Vms-Count | `App-virtualization-Nutanix-Prism-Vms-Count-Restapi-custom` | Total VM count, split by power state |
+| Vms-Nics | `App-virtualization-Nutanix-Prism-Vms-Nics-Restapi-custom` | Per-VM NIC link state and traffic |
+| Vms-Performance | `App-virtualization-Nutanix-Prism-Vms-Performance-Restapi-custom` | Per-VM CPU and memory usage percentage |
 
 ### Discovery Rules
 
 | Rule | Description | Mode |
 |---|---|---|
-| `App-Monitoring-Nutanix-Prism-Hosts` | Discovers physical AHV hosts | `list-hosts` |
-| `App-Monitoring-Nutanix-Prism-Vms` | Discovers virtual machines | `list-vms` |
-| `App-Monitoring-Nutanix-Prism-Vms-Nics` | Discovers VM NICs | `list-nics` |
-| `App-Monitoring-Nutanix-Prism-Protection-Domains` | Discovers protection domains | `list-protection-domains` |
-| `App-Monitoring-Nutanix-Prism-Storage-Containers` | Discovers storage containers | `list-storage-containers` |
+| `App-virtualization-Nutanix-Prism-Hosts` | Discovers physical AHV hosts | `list-hosts` |
+| `App-virtualization-Nutanix-Prism-Vms` | Discovers virtual machines | `list-vms` |
+| `App-virtualization-Nutanix-Prism-Vms-Nics` | Discovers VM NICs | `list-nics` |
+| `App-virtualization-Nutanix-Prism-Protection-Domains` | Discovers protection domains | `list-protection-domains` |
+| `App-virtualization-Nutanix-Prism-Storage-Containers` | Discovers storage containers | `list-storage-containers` |
 
 ---
 
@@ -214,24 +214,24 @@ through a single API connection on port 9440.
 ### Nutanix side
 
 - Nutanix Prism Element **5.x or later** (REST API v2.0).
-- A dedicated monitoring account with **Cluster Viewer** role (read-only access is sufficient).
+- A dedicated virtualization account with **Cluster Viewer** role (read-only access is sufficient).
 - Port **9440/TCP** open between the Centreon poller and the Prism Element CVM or cluster VIP.
 - Self-signed TLS certificates are accepted by default (no additional configuration required).
 
-### Creating the monitoring account
+### Creating the virtualization account
 
 1. Log in to Prism Element as admin.
 2. Go to **Settings → Local User Management → + New User**.
-3. Create the user (e.g. `centreon-monitoring`) and assign the **Cluster Viewer** role.
+3. Create the user (e.g. `centreon-virtualization`) and assign the **Cluster Viewer** role.
 4. Use this username and password in the host macros below.
 
 ---
 
-## Installing the Monitoring Connector
+## Installing the virtualization Connector
 
 ### Pack installation (Centreon web interface)
 
-1. Go to **Configuration → Monitoring Connector Manager**.
+1. Go to **Configuration → virtualization Connector Manager**.
 2. Search for **Nutanix Prism Element REST API**.
 3. Click **Install**.
 
@@ -240,18 +240,18 @@ through a single API connection on port 9440.
 Run the following command on each poller that will monitor Nutanix infrastructure:
 
 ```bash
-dnf install centreon-plugin-Applications-Monitoring-Nutanix-Prism-Restapi
+dnf install centreon-plugin-Applications-virtualization-Nutanix-Prism-Restapi
 ```
 
 ---
 
-## Using the Monitoring Connector
+## Using the virtualization Connector
 
 ### Setting up a host
 
 1. Go to **Configuration → Hosts → Hosts** and click **Add**.
 2. Fill in the **Name**, **Alias** and **IP address / DNS** (Prism Element CVM or VIP).
-3. Apply the template `App-Monitoring-Nutanix-Prism-Restapi-custom`.
+3. Apply the template `App-virtualization-Nutanix-Prism-Restapi-custom`.
 4. Set the macros described in the table below.
 5. Click **Save** and deploy the configuration.
 
@@ -414,20 +414,20 @@ dnf install centreon-plugin-Applications-Monitoring-Nutanix-Prism-Restapi
 
 | Mode name | Linked service template | Description |
 |---|---|---|
-| `alerts` | `App-Monitoring-Nutanix-Prism-Alerts-Restapi-custom` | Active unresolved alerts |
-| `capacity` | `App-Monitoring-Nutanix-Prism-Capacity-Restapi-custom` | Cluster capacity (CPU, RAM, storage) |
-| `cluster-status` | `App-Monitoring-Nutanix-Prism-Cluster-Status-Restapi-custom` | Cluster health state |
-| `disks-status` | `App-Monitoring-Nutanix-Prism-Disks-Status-Restapi-custom` | Physical disk health and capacity |
-| `health-checks` | `App-Monitoring-Nutanix-Prism-Health-Checks-Restapi-custom` | NCC health check results |
-| `hosts-usage` | `App-Monitoring-Nutanix-Prism-Hosts-Usage-Restapi-custom` | Per-host CPU, memory, VM count |
-| `protection-domains` | `App-Monitoring-Nutanix-Prism-Protection-Domains-Restapi-custom` | Replication health per protection domain |
-| `snapshots` | `App-Monitoring-Nutanix-Prism-Snapshots-Restapi-custom` | VM snapshot count and age |
-| `storage-containers` | `App-Monitoring-Nutanix-Prism-Storage-Containers-Restapi-custom` | Storage container usage and savings |
-| `storage-usage` | `App-Monitoring-Nutanix-Prism-Storage-Usage-Restapi-custom` | Storage pool capacity |
-| `tasks` | `App-Monitoring-Nutanix-Prism-Tasks-Restapi-custom` | Recent task counts by status |
-| `vms-count` | `App-Monitoring-Nutanix-Prism-Vms-Count-Restapi-custom` | VM count by power state |
-| `vms-nics` | `App-Monitoring-Nutanix-Prism-Vms-Nics-Restapi-custom` | VM NIC traffic and link state |
-| `vms-performance` | `App-Monitoring-Nutanix-Prism-Vms-Performance-Restapi-custom` | Per-VM CPU and memory |
+| `alerts` | `App-virtualization-Nutanix-Prism-Alerts-Restapi-custom` | Active unresolved alerts |
+| `capacity` | `App-virtualization-Nutanix-Prism-Capacity-Restapi-custom` | Cluster capacity (CPU, RAM, storage) |
+| `cluster-status` | `App-virtualization-Nutanix-Prism-Cluster-Status-Restapi-custom` | Cluster health state |
+| `disks-status` | `App-virtualization-Nutanix-Prism-Disks-Status-Restapi-custom` | Physical disk health and capacity |
+| `health-checks` | `App-virtualization-Nutanix-Prism-Health-Checks-Restapi-custom` | NCC health check results |
+| `hosts-usage` | `App-virtualization-Nutanix-Prism-Hosts-Usage-Restapi-custom` | Per-host CPU, memory, VM count |
+| `protection-domains` | `App-virtualization-Nutanix-Prism-Protection-Domains-Restapi-custom` | Replication health per protection domain |
+| `snapshots` | `App-virtualization-Nutanix-Prism-Snapshots-Restapi-custom` | VM snapshot count and age |
+| `storage-containers` | `App-virtualization-Nutanix-Prism-Storage-Containers-Restapi-custom` | Storage container usage and savings |
+| `storage-usage` | `App-virtualization-Nutanix-Prism-Storage-Usage-Restapi-custom` | Storage pool capacity |
+| `tasks` | `App-virtualization-Nutanix-Prism-Tasks-Restapi-custom` | Recent task counts by status |
+| `vms-count` | `App-virtualization-Nutanix-Prism-Vms-Count-Restapi-custom` | VM count by power state |
+| `vms-nics` | `App-virtualization-Nutanix-Prism-Vms-Nics-Restapi-custom` | VM NIC traffic and link state |
+| `vms-performance` | `App-virtualization-Nutanix-Prism-Vms-Performance-Restapi-custom` | Per-VM CPU and memory |
 | `list-hosts` | discovery | Lists physical hosts for service discovery |
 | `list-vms` | discovery | Lists virtual machines for service discovery |
 | `list-nics` | discovery | Lists VM NICs for service discovery |
@@ -450,7 +450,7 @@ The plugin binary is installed on pollers at:
     --hostname='prism.mycompany.local' \
     --port='9440' \
     --proto='https' \
-    --username='centreon-monitoring' \
+    --username='centreon-virtualization' \
     --password='PASSWORD' \
     --warning-cpu-usage-prct='80' \
     --critical-cpu-usage-prct='90' \
@@ -474,7 +474,7 @@ OK: CPU usage: 45.30% - CPU capacity: 128 physical cores - vCPUs allocated: 256 
     --plugin=apps::nutanix::prism::plugin \
     --mode=list-vms \
     --hostname='prism.mycompany.local' \
-    --username='centreon-monitoring' \
+    --username='centreon-virtualization' \
     --password='PASSWORD'
 ```
 
@@ -485,7 +485,7 @@ OK: CPU usage: 45.30% - CPU capacity: 128 physical cores - vCPUs allocated: 256 
     --plugin=apps::nutanix::prism::plugin \
     --mode=vms-performance \
     --hostname='prism.mycompany.local' \
-    --username='centreon-monitoring' \
+    --username='centreon-virtualization' \
     --password='PASSWORD' \
     --filter-name='^prod-' \
     --warning-cpu-usage='80' \
