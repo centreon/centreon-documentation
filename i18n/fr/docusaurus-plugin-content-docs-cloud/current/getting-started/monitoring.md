@@ -7,7 +7,7 @@ Assurez-vous d'avoir lu la page [Bases de la supervision](concepts.md) avant de 
 
 ## Superviser un hôte
 
-> Nous recommandons d'installaer l'[agent de supervision Centreon (Centreon Monitoring Agent, CMA)](../cma/cma.md), une brique logicielle qui supervie l'hôte sur lequel il est installé. Il collecte des métriques, computes des statuts et les envoie à Centreon. Lorsque vous installez CMA, vous pouvez choisir de créer automatiquement un hôte pour lui.
+> Nous recommandons d'installer l'[agent de supervision Centreon (Centreon Monitoring Agent, CMA)](../cma/cma.md), une brique logicielle qui supervise l'hôte sur lequel il est installé. Il collecte des métriques, calcule des statuts et les envoie à Centreon. Lorsque vous installez CMA sur un hôte, vous pouvez choisir de créer automatiquement cet hôte dans Centreon.
 
 Pour superviser un hôte dans Centreon Cloud :
 
