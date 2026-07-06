@@ -1,0 +1,137 @@
+---
+id: upgrade-matrix
+title: Matrice des montées de version possibles
+---
+
+import React, { useState } from 'react';
+
+export const UpgradeTable = () => {
+  const [version, setVersion] = useState('');
+  const [os, setOs] = useState('');
+  const [compat, setCompat] = useState('');
+
+  const rows = [
+    { version: '25.10', os: 'RHEL/Oracle/AlmaLinux 8', compat: 'NON', proc: 'Migration depuis EL', href: '../migrate/introduction.md' },
+    { version: '25.10', os: 'RHEL/Oracle/AlmaLinux 9', compat: 'OUI', proc: 'Montée de version', href: 'upgrade-from-25-10.md' },
+    { version: '25.10', os: 'Debian 12 "bookworm"', compat: 'NON', proc: 'Migration depuis Debian', href: '../migrate/introduction.md' },
+    { version: '24.10', os: 'RHEL/Oracle/AlmaLinux 8', compat: 'NON', proc: 'Migration depuis EL', href: '../migrate/introduction.md' },
+    { version: '24.10', os: 'RHEL/Oracle/AlmaLinux 9', compat: 'OUI', proc: 'Montée de version', href: 'upgrade-from-24-10.md' },
+    { version: '24.10', os: 'Debian 12 "bookworm"', compat: 'NON', proc: 'Migration depuis Debian', href: '../migrate/introduction.md' },
+    { version: '24.04', os: 'RHEL/Oracle/AlmaLinux 8', compat: 'NON', proc: 'Migration depuis EL', href: '../migrate/introduction.md' },
+    { version: '24.04', os: 'RHEL/Oracle/AlmaLinux 9', compat: 'OUI', proc: 'Montée de version', href: 'upgrade-from-24-04.md' },
+    { version: '24.04', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Migration depuis Debian', href: '../migrate/introduction.md' },
+    { version: '24.04', os: 'Debian 12 "bookworm"', compat: 'NON', proc: 'Migration depuis Debian', href: '../migrate/introduction.md' },
+    { version: '23.10', os: 'RHEL/Oracle/AlmaLinux 8', compat: 'NON', proc: 'Migration depuis EL', href: '../migrate/introduction.md' },
+    { version: '23.10', os: 'RHEL/Oracle/AlmaLinux 9', compat: 'OUI', proc: 'Montée de version', href: 'upgrade-from-23-10.md' },
+    { version: '23.10', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Migration depuis Debian', href: '../migrate/introduction.md' },
+    { version: '23.04', os: 'RHEL/Oracle/AlmaLinux 8', compat: 'NON', proc: 'Migration depuis EL', href: '../migrate/introduction.md' },
+    { version: '23.04', os: 'RHEL/Oracle/AlmaLinux 9', compat: 'OUI', proc: 'Montée de version', href: 'upgrade-from-23-04.md' },
+    { version: '23.04', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Migration depuis Debian', href: '../migrate/introduction.md' },
+    { version: '22.10 et antérieures', os: 'Voir documentations correspondantes', compat: 'NON', proc: 'Migration depuis EL ou Debian', href: '../migrate/introduction.md' },
+  ];
+
+  const filtered = rows.filter(r =>
+    (!version || r.version === version) &&
+    (!os || r.os.includes(os)) &&
+    (!compat || r.compat === compat)
+  );
+
+  return (
+    <div style={{ margin: '1.5rem 0' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: '1rem' }}>
+        {[
+          { id: 'version', value: version, setter: setVersion, label: 'Toutes les versions', options: ['25.10','24.10','24.04','23.10','23.04','22.10 et antérieures'] },
+          { id: 'os', value: os, setter: setOs, label: 'Tous les OS', options: ['RHEL/Oracle/Alma Linux 8','RHEL/Oracle/Alma Linux 9','Debian 11','Debian 12'] },
+          { id: 'compat', value: compat, setter: setCompat, label: 'Compatibilité 26.10', options: null },
+        ].map(f => (
+          <select
+            key={f.id}
+            value={f.value}
+            onChange={e => f.setter(e.target.value)}
+            style={{
+              fontSize: 13,
+              padding: '6px 12px',
+              borderRadius: 4,
+              border: '1px solid var(--ifm-color-emphasis-300)',
+              background: 'var(--ifm-background-surface-color)',
+              color: 'var(--ifm-font-color-base)',
+              cursor: 'pointer',
+            }}
+          >
+            <option value="">{f.label}</option>
+            {f.id === 'compat' ? (
+              <>
+                <option value="OUI">Supporté</option>
+                <option value="NON">Non supporté</option>
+              </>
+            ) : f.options.map(o => <option key={o}>{o}</option>)}
+          </select>
+        ))}
+      </div>
+
+      <p style={{ fontSize: 12, color: 'var(--ifm-color-emphasis-500)', marginBottom: 8 }}>
+        {filtered.length} résultat{filtered.length > 1 ? 's' : ''}
+      </p>
+
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
+        <thead>
+          <tr>
+            {['Version de départ', 'OS de départ', 'OS supporté en 26.10', 'Procédure à suivre'].map(h => (
+              <th key={h} style={{
+                textAlign: 'left',
+                padding: '10px 16px',
+                background: 'var(--ifm-color-emphasis-100)',
+                color: 'var(--ifm-color-emphasis-700)',
+                fontWeight: 600,
+                fontSize: 12,
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+                borderBottom: '1px solid var(--ifm-color-emphasis-300)',
+              }}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {filtered.map((r, i) => (
+            <tr key={i} style={{ borderBottom: '1px solid var(--ifm-color-emphasis-200)' }}>
+              <td style={{ padding: '10px 16px', fontWeight: 600 }}>{r.version}</td>
+              <td style={{ padding: '10px 16px' }}>{r.os}</td>
+              <td style={{ padding: '10px 16px' }}>
+                <span style={{
+                  display: 'inline-block',
+                  padding: '2px 10px',
+                  borderRadius: 12,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  background: r.compat === 'OUI' ? 'var(--ifm-color-success-contrast-background)' : 'var(--ifm-color-danger-contrast-background)',
+                  color: r.compat === 'OUI' ? 'var(--ifm-color-success-dark)' : 'var(--ifm-color-danger-dark)',
+                }}>
+                  {r.compat}
+                </span>
+              </td>
+              <td style={{ padding: '10px 16px' }}>
+                <a href={r.href}>{r.proc}</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+Pour rappel, les OS supportés en version 26.10 sont les suivants :
+
+* RHEL/Oracle Linux/Alma Linux 9
+* RHEL/Oracle Linux/Alma Linux 10
+* Debian 13 (trixie)
+
+Cela signifie qu'une simple montée de version n'est possible que si vous utilisiez une version 23.04 ou supérieure, avec RHEL/Oracle Linux/Alma Linux 9. Pour toute autre version et OS, vous devrez effectuer une [migration](../migrate/introduction.md).
+
+## Montée de version ou migration ?
+
+<UpgradeTable />
+
+## Cycle de vie des versions
+
+[Voir le tableau des versions de Centreon supportées](../releases/lifecycle.md#maintenance-table-for-centreon-versions).
