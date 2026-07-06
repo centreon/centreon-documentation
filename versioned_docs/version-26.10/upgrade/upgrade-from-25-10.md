@@ -4,12 +4,9 @@ title: Upgrade from Centreon 25.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import intro from './_intro.mdx'
 
-This chapter describes how to upgrade your Centreon platform from version 25.10 to version 26.10. Upgrading is only possible if your current OS is RHEL/Oracle/AlmaLinux 9. Other OSs are no longer supported: use a [migration procedure](../migrate/introduction.md) to switch to a supported OS. If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
-
-* When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
-* All servers in your architecture must have the same version of Centreon.
-* In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
+<intro type="25.10" />
 
 ## Prerequisites
 
