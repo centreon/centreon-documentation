@@ -1,6 +1,6 @@
 ---
 id: monitoring
-title: Monitoring your first host
+title: How do I monitor my first host?
 ---
 
 Make sure you have read [Centreon basics](concepts.md) before monitoring your first host.

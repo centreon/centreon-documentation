@@ -1,6 +1,6 @@
 ---
 id: monitoring
-title: Comment mettre une ressource en supervision ?
+title: Comment mettre mon premier hôte en supervision ?
 ---
 
 Assurez-vous d'avoir lu la page [Bases de la supervision](concepts.md) avant de mettre votre première ressource en supervision.
