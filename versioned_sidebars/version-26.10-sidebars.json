@@ -1624,6 +1624,10 @@
           "items": [
             {
               "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-25-10"
+            },
+            {
+              "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-24-10"
             },
             {
@@ -1637,22 +1641,6 @@
             {
               "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
             }
           ]
         }
