@@ -5,15 +5,11 @@ title: Upgrade from Centreon 25.10
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon platform from version 25.10 to version 26.10.
+This chapter describes how to upgrade your Centreon platform from version 25.10 to version 26.10. Upgrading is only possible if your current OS is RHEL/Oracle/AlmaLinux 9. Other OSs are no longer supported: use a [migration procedure](../migrate/introduction.md) to switch to a supported OS. If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
-> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
->
-> All servers in your architecture must have the same version of Centreon.
->
-> In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
-
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
+* When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
+* All servers in your architecture must have the same version of Centreon.
+* In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
 
 ## Prerequisites
 
@@ -45,9 +41,9 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
-> If you installed MariaDB from their official repositiories, you may run into a conflict issue. Read our [dedicated procedure](../resources/known-issues.md#you-have-a-conflict-between-packages-mysql-common-and-mariadb-common) for a workaround.
+> If you installed MariaDB from their official repositories, you may run into a conflict issue. Read our [dedicated procedure](../resources/known-issues.md#you-have-a-conflict-between-packages-mysql-common-and-mariadb-common) for a workaround.
 
-### Install the new repositories
+### Step 1: Install the new repositories
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -71,15 +67,13 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/e
 </TabItem>
 </Tabs>
 
-> If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
->
-> You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+4. If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one. You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-### Upgrade the Centreon solution
+### Step 2: Upgrade the Centreon solution
 
 1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
 
-2. If you have installed Business extensions, delete the configuration of the 24.10 repository: 
+2. If you have installed Business extensions, delete the configuration of the 24.10 repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -133,9 +127,9 @@ dnf update centreon\* php-pecl-gnupg
 
 > Accept new GPG keys from the repositories as needed.
 
-### Update your customized Apache configuration
+### Step 3: Update your customized Apache configuration
 
-This section only applies if you customized your Apache configuration. 
+This section only applies if you customized your Apache configuration.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -216,7 +210,7 @@ Add the following code to your Apache configuration file, in both the `<VirtualH
 AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 ```
 
-### Finalizing the upgrade
+### Step 4: Finalizing the upgrade
 
 Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the
 following command:
@@ -339,7 +333,7 @@ usermod -a -G apache centreon-broker
 
 Refer to the [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
-### Post-upgrade actions
+### Step 5: Post-upgrade actions
 
 1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
 with the following:
