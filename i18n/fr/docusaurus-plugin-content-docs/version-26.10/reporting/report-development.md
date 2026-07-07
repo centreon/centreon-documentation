@@ -5,6 +5,8 @@ title: Créer des rapports personnalisés
 
 Compatibilité : BIRT 4.20.0+
 
+> Cette procédure utilise BIRT. Cependant, plusieurs de nos clients qui créent des rapports personnalisés préfèrent utiliser des outils plus modernes tels que Grafana ou Power BI. Pensez à ces outils si vous rencontrez des difficultés avec BIRT.
+
 > La mise à jour de BIRT vers la version 4.20.0 peut entraîner des changements impactant vos modèles personnalisés. Nous vous recommandons de procéder à une vérification complète de ceux-ci après la mise à jour depuis une version précédente.
 
 Ce guide a pour but de présenter les bonnes pratiques sur la mise en
