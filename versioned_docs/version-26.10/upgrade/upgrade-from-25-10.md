@@ -51,12 +51,6 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 <UpgradeCentral centreonVersion='25.10' phpVersion="8.2" showSecondPoint={true} showThirdPoint={true} props.oldMariadbVersion="10.11.x" />
 
-### Step 8: Upgrade the database
-
-* If you were using MariaDB, [upgrade it](upgrade-mariadb.md) to version 11.8.
-* If you were using MySQL 8.0, [upgrade it to version 8.4](upgrade-mysql.md).
-* If you were already using MySQL 8.4, you don't need to do anything.
-
 <UpgradeRemotes />
 
 <UpgradePollers />
