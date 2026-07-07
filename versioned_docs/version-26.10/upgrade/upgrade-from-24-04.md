@@ -11,7 +11,7 @@ import UpgradePollers from './_upgrade-pollers.mdx'
 
 <Intro oldCentreonVersion="24.04" oldMariadbVersion="10.11.x" oldPhpVersion="8.1" oldMysqlVersion="MySQL 8.0 or 8.4"/>
 
-<UpgradeCentral oldCentreonVersion="24.04" props.oldMariadbVersion="10.11.x" oldPhpVersion="8.1" oldMysqlVersion="MySQL 8.0 or 8.4" />
+<UpgradeCentral oldCentreonVersion="24.04" oldMariadbVersion="10.11.x" oldPhpVersion="8.1" oldMysqlVersion="MySQL 8.0 or 8.4" />
 
 <UpgradeRemotes />
 
