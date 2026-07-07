@@ -47,7 +47,7 @@ To find out which version of MariaDB is installed on your machine, enter the fol
 rpm -qa |grep MariaDB
 ```
 
-The results should look like this:
+The results should look like this example:
 
 ```shell
 MariaDB-client-10.5.8-1.el8.centos.x86_64
@@ -64,7 +64,7 @@ MariaDB-compat-10.5.8-1.el8.centos.x86_64
 rpm -qa |grep MariaDB
 ```
 
-The results should look like this:
+The results should look like this example:
 
 ```shell
 MariaDB-client-10.5.8-1.el9.centos.x86_64
@@ -81,7 +81,7 @@ MariaDB-compat-10.5.8-1.el9.centos.x86_64
 dpkg -l |grep MariaDB
 ```
 
-The results should look like this:
+The results should look like this example:
 
 ```shell
 ii  libdbd-mysql-perl:amd64                4.050-3+b1                                                                 amd64        Perl5 database interface to the MariaDB/MySQL database
@@ -100,7 +100,7 @@ ii  mysql-common                           1:10.5.17+maria~deb11      all       
 
 ## Upgrading between major MariaDB versions
 
-You must uninstall then reinstall MariaDB to upgrade between major versions (for example to switch from version 10.11 to version 11.8).
+You must uninstall then reinstall MariaDB to upgrade between major versions. In this example, we will switch from version 10.11 to version 11.8. Adapt the procedure if you are upgrading from another version.
 
 1. Stop the MariaDB service:
 
