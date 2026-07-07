@@ -105,6 +105,31 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
+### Step 3: Upgrade PHP
+
+Centreon 26.10 uses PHP in version 8.4.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+You need to change the PHP stream from version 8.2 to 8.4 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.4
+```
+
+</TabItem>
+</Tabs>
+
+> Accept new GPG keys from the repositories as needed.
+
+Then, finish upgrading the Centreon solution.
+
 7. Clean the cache:
 
 <Tabs groupId="sync">
@@ -131,7 +156,7 @@ dnf update centreon\* php-pecl-gnupg
 
 > Accept new GPG keys from the repositories as needed.
 
-### Step 3: Update your customized Apache configuration
+### Step 4: Update your customized Apache configuration
 
 This section only applies if you customized your Apache configuration.
 
@@ -214,46 +239,46 @@ Add the following code to your Apache configuration file, in both the `<VirtualH
 AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 ```
 
-### Step 4: Finalizing the upgrade
+### Step 5: Finalize the upgrade
 
-Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the
+1. Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the
 following command:
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   <Tabs groupId="sync">
+   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-```shell
-systemctl reload php-fpm httpd
-```
+   ```shell
+   systemctl reload php-fpm httpd
+   ```
 
-</TabItem>
-</Tabs>
+   </TabItem>
+   </Tabs>
 
-Then you need to finalize the upgrade process:
+2. Finalize the upgrade process:
 
 <Tabs groupId="sync">
 <TabItem value="Using the wizard" label="Using the wizard">
 
 1. Log on to the Centreon web interface to continue the update process. Click **Next**:
 
-  ![image](../assets/upgrade/web_update_1.png)
+   ![image](../assets/upgrade/web_update_1.png)
 
 2. Click **Next**:
 
-  ![image](../assets/upgrade/web_update_2.png)
+   ![image](../assets/upgrade/web_update_2.png)
 
 3. The release notes describe the main changes. Click **Next**:
 
-  ![image](../assets/upgrade/web_update_3.png)
+   ![image](../assets/upgrade/web_update_3.png)
 
 4. This process performs the various upgrades. Click **Next**:
 
-  ![image](../assets/upgrade/web_update_4.png)
+   ![image](../assets/upgrade/web_update_4.png)
 
 5. Your Centreon server is now up to date. Click **Finish** to access the login
 page:
 
-  ![image](../assets/upgrade/web_update_5.png)
+   ![image](../assets/upgrade/web_update_5.png)
 
 6. Deploy the central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
@@ -337,7 +362,7 @@ usermod -a -G apache centreon-broker
 
 Refer to the [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
-### Step 5: Post-upgrade actions
+### Step 6: Post-upgrade actions
 
 1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
 with the following:
@@ -366,6 +391,12 @@ with the following:
     ``` shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
+
+### Step 7: Upgrade the database
+
+* If you were using MariaDB, [upgrade it](upgrade-mariadb.md) to version 11.8.
+* If you were using MySQL 8.0, [upgrade it to version 8.4](upgrade-mysql.md).
+* If you were already using MySQL 8.4, you don't need to do anything.
 
 ## Upgrade the Remote Servers
 
