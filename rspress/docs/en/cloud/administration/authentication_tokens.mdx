@@ -1,0 +1,41 @@
+---
+id: authentication-tokens
+title: Authentication tokens
+---
+
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+There are several types of authentication tokens:
+
+* [API tokens](api_tokens.md): used to authenticate requests made to the Centreon API, allowing external tools or scripts to interact with the platform programmatically.
+* [CMA](../cma/cma.md) tokens: used to secure communication between the CMA agent and the poller — the agent includes it in its requests, and the monitoring engine checks that it's present and valid before accepting the connection.
+
+On the **Administration > Authentication tokens** page, you can filter the list of tokens by various criteria, including by type.
+
+## Who can create authentication tokens?
+
+[Users with an **Administrator** role](../users/users.md#user-roles) can access the **Administration > Authentication tokens** page and can:
+
+* create tokens for themselves.
+* see the list of tokens created by other users.
+* create tokens for other users, and can disable or delete them.
+
+## Creating an authentication token
+
+1. Go to **Administration > Authentication Tokens**.
+2. Click **Add**. A pop-up window appears.
+3. Fill in the required fields, select the type of token you want, then click **Generate new token**. A **Token** field appears in the window. You can click the eye icon to display the token if you want.
+4. Copy the token using the **Copy** button to the right of the field.
+   * API tokens: Store the token carefully, as you will not be able to display it a second time.
+   * CMA tokens can be displayed again at any time.
+5. Click **Close**.
+
+## Managing authentication tokens
+
+The list of tokens shows the status of each token in the far left column (enabled, valid but disabled, expired). 
+
+Users with the **Administrator** role can:
+
+* Disable a valid authentication token using the **Enabled/Disabled** switch to the right of the line. The token can still be reenabled later.
+* Delete a token using the **Delete** button.

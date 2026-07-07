@@ -1,0 +1,964 @@
+---
+id: applications-thales-mistral-vs9-restapi
+title: Thales Mistral VS9 Rest API
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Thales Mistral VS9 Rest API** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
+## Pack assets
+
+### Templates
+
+The Monitoring Connector **Thales Mistral VS9 Rest API** brings 2 host templates:
+
+* **App-Thales-Mistral-Vs9-Host-Restapi-custom**
+* **App-Thales-Mistral-Vs9-Mmc-Restapi-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<Tab value="App-Thales-Mistral-Vs9-Host-Restapi-custom" label="App-Thales-Mistral-Vs9-Host-Restapi-custom">
+
+| Service Alias     | Service Template                                                    | Service Description     |
+|:------------------|:--------------------------------------------------------------------|:------------------------|
+| Certificates      | App-Thales-Mistral-Vs9-Host-Device-Certificates-Restapi-custom      | Check certificates      |
+| Certificates      | App-Thales-Mistral-Vs9-Mmc-Certificates-Restapi-custom              | Check CA certificates   |
+| Connection-Status | App-Thales-Mistral-Vs9-Host-Device-Connection-Status-Restapi-custom | Check MMC connection    |
+| Interfaces        | App-Thales-Mistral-Vs9-Host-Device-Interfaces-Restapi-custom        | Check interfaces        |
+| Mistral           | App-Thales-Mistral-Vs9-Host-Device-Mistral-Restapi-custom           | Check Mistral equipment |
+| System            | App-Thales-Mistral-Vs9-Host-Device-System-Restapi-custom            | Check system            |
+| Tunnels           | App-Thales-Mistral-Vs9-Host-Device-Tunnels-Restapi-custom           | Check VPN tunnels       |
+
+> The services listed above are created automatically when the **App-Thales-Mistral-Vs9-Host-Restapi-custom** host template is used.
+
+</Tab>
+<Tab value="App-Thales-Mistral-Vs9-Mmc-Restapi-custom" label="App-Thales-Mistral-Vs9-Mmc-Restapi-custom">
+
+| Service Alias | Service Template                                               | Service Description      |
+|:--------------|:---------------------------------------------------------------|:-------------------------|
+| Certificates  | App-Thales-Mistral-Vs9-Host-Device-Certificates-Restapi-custom | Check certificates       |
+| Certificates  | App-Thales-Mistral-Vs9-Mmc-Certificates-Restapi-custom         | Check CA certificates    |
+| Cluster       | App-Thales-Mistral-Vs9-Mmc-Cluster-Restapi-custom              | Check MMC cluster status |
+
+> The services listed above are created automatically when the **App-Thales-Mistral-Vs9-Mmc-Restapi-custom** host template is used.
+
+</Tab>
+<Tab value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias | Service Template                               | Service Description |
+|:--------------|:-----------------------------------------------|:--------------------|
+| Clusters      | App-Thales-Mistral-Vs9-Clusters-Restapi-custom | Check clusters      |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+</Tab>
+</Tabs>
+
+### Discovery rules
+
+#### Host discovery
+
+| Rule name                  | Description                                        |
+|:---------------------------|:---------------------------------------------------|
+| Thales Mistral VS9 Devices | Discover devices from Thales Mistral MMC inventory |
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+
+<Tabs groupId="sync">
+<Tab value="Certificates" label="Certificates">
+
+| Name                                        | Unit  |
+|:--------------------------------------------|:------|
+| certificate-status                          | N/A   |
+| *certificates1*#certificate.expires.seconds | s     |
+| *certificates2*#certificate.expires.seconds | s     |
+
+</Tab>
+<Tab value="Cluster" label="Cluster">
+
+| Name                                    | Unit  |
+|:----------------------------------------|:------|
+| cluster-status                          | N/A   |
+| cluster.synchronization.done.percentage | %     |
+| node-status                             | N/A   |
+
+</Tab>
+<Tab value="Clusters" label="Clusters">
+
+| Name                                                  | Unit  |
+|:------------------------------------------------------|:------|
+| clusters.detected.count                               | count |
+| cluster-information                                   | N/A   |
+| cluster-status                                        | N/A   |
+| member-status                                         | N/A   |
+| *clusters*~*members*#member.contact.last.time.seconds | s     |
+
+</Tab>
+<Tab value="Connection-Status" label="Connection-Status">
+
+| Name                                                       | Unit  |
+|:-----------------------------------------------------------|:------|
+| devices.detected.count                                     | count |
+| system-version                                             | N/A   |
+| *devices*~system.uptime.seconds                            | s     |
+| *devices*~system.time.offset.seconds                       | s     |
+| connection-status                                          | N/A   |
+| *devices*~device.connection.last.time.seconds              | s     |
+| mistral-version                                            | N/A   |
+| operating-state                                            | N/A   |
+| *devices*~device.temperature.celsius                       | C     |
+| autotest-state                                             | N/A   |
+| interface-status                                           | N/A   |
+| *devices*~*interfaces*#interface.traffic.in.bitspersecond  | b/s   |
+| *devices*~*interfaces*#interface.traffic.out.bitspersecond | b/s   |
+| certificate-status                                         | N/A   |
+| *devices*~*certificates*#certificate.expires.seconds       | s     |
+| vpn-ike-service-state                                      | N/A   |
+| vpn-ike-sa-state                                           | N/A   |
+| vpn-sa-state                                               | N/A   |
+| *devices*~*sa*#vpn.sa.traffic.bitspersecond                | b/s   |
+
+</Tab>
+<Tab value="Interfaces" label="Interfaces">
+
+| Name                                                       | Unit  |
+|:-----------------------------------------------------------|:------|
+| devices.detected.count                                     | count |
+| system-version                                             | N/A   |
+| *devices*~system.uptime.seconds                            | s     |
+| *devices*~system.time.offset.seconds                       | s     |
+| connection-status                                          | N/A   |
+| *devices*~device.connection.last.time.seconds              | s     |
+| mistral-version                                            | N/A   |
+| operating-state                                            | N/A   |
+| *devices*~device.temperature.celsius                       | C     |
+| autotest-state                                             | N/A   |
+| interface-status                                           | N/A   |
+| *devices*~*interfaces*#interface.traffic.in.bitspersecond  | b/s   |
+| *devices*~*interfaces*#interface.traffic.out.bitspersecond | b/s   |
+| certificate-status                                         | N/A   |
+| *devices*~*certificates*#certificate.expires.seconds       | s     |
+| vpn-ike-service-state                                      | N/A   |
+| vpn-ike-sa-state                                           | N/A   |
+| vpn-sa-state                                               | N/A   |
+| *devices*~*sa*#vpn.sa.traffic.bitspersecond                | b/s   |
+
+</Tab>
+<Tab value="Mistral" label="Mistral">
+
+| Name                                                       | Unit  |
+|:-----------------------------------------------------------|:------|
+| devices.detected.count                                     | count |
+| system-version                                             | N/A   |
+| *devices*~system.uptime.seconds                            | s     |
+| *devices*~system.time.offset.seconds                       | s     |
+| connection-status                                          | N/A   |
+| *devices*~device.connection.last.time.seconds              | s     |
+| mistral-version                                            | N/A   |
+| operating-state                                            | N/A   |
+| *devices*~device.temperature.celsius                       | C     |
+| autotest-state                                             | N/A   |
+| interface-status                                           | N/A   |
+| *devices*~*interfaces*#interface.traffic.in.bitspersecond  | b/s   |
+| *devices*~*interfaces*#interface.traffic.out.bitspersecond | b/s   |
+| certificate-status                                         | N/A   |
+| *devices*~*certificates*#certificate.expires.seconds       | s     |
+| vpn-ike-service-state                                      | N/A   |
+| vpn-ike-sa-state                                           | N/A   |
+| vpn-sa-state                                               | N/A   |
+| *devices*~*sa*#vpn.sa.traffic.bitspersecond                | b/s   |
+
+</Tab>
+<Tab value="System" label="System">
+
+| Name                                                       | Unit  |
+|:-----------------------------------------------------------|:------|
+| devices.detected.count                                     | count |
+| system-version                                             | N/A   |
+| *devices*~system.uptime.seconds                            | s     |
+| *devices*~system.time.offset.seconds                       | s     |
+| connection-status                                          | N/A   |
+| *devices*~device.connection.last.time.seconds              | s     |
+| mistral-version                                            | N/A   |
+| operating-state                                            | N/A   |
+| *devices*~device.temperature.celsius                       | C     |
+| autotest-state                                             | N/A   |
+| interface-status                                           | N/A   |
+| *devices*~*interfaces*#interface.traffic.in.bitspersecond  | b/s   |
+| *devices*~*interfaces*#interface.traffic.out.bitspersecond | b/s   |
+| certificate-status                                         | N/A   |
+| *devices*~*certificates*#certificate.expires.seconds       | s     |
+| vpn-ike-service-state                                      | N/A   |
+| vpn-ike-sa-state                                           | N/A   |
+| vpn-sa-state                                               | N/A   |
+| *devices*~*sa*#vpn.sa.traffic.bitspersecond                | b/s   |
+
+</Tab>
+<Tab value="Tunnels" label="Tunnels">
+
+| Name                                                       | Unit  |
+|:-----------------------------------------------------------|:------|
+| devices.detected.count                                     | count |
+| system-version                                             | N/A   |
+| *devices*~system.uptime.seconds                            | s     |
+| *devices*~system.time.offset.seconds                       | s     |
+| connection-status                                          | N/A   |
+| *devices*~device.connection.last.time.seconds              | s     |
+| mistral-version                                            | N/A   |
+| operating-state                                            | N/A   |
+| *devices*~device.temperature.celsius                       | C     |
+| autotest-state                                             | N/A   |
+| interface-status                                           | N/A   |
+| *devices*~*interfaces*#interface.traffic.in.bitspersecond  | b/s   |
+| *devices*~*interfaces*#interface.traffic.out.bitspersecond | b/s   |
+| certificate-status                                         | N/A   |
+| *devices*~*certificates*#certificate.expires.seconds       | s     |
+| vpn-ike-service-state                                      | N/A   |
+| vpn-ike-sa-state                                           | N/A   |
+| vpn-sa-state                                               | N/A   |
+| *devices*~*sa*#vpn.sa.traffic.bitspersecond                | b/s   |
+
+</Tab>
+</Tabs>
+
+## Prerequisites
+
+To monitor, a user with read privileges on MMC API is required.
+
+## Installing the monitoring connector
+
+### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-applications-thales-mistral-vs9-restapi
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-applications-thales-mistral-vs9-restapi
+```
+
+</Tab>
+<Tab value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-thales-mistral-vs9-restapi
+```
+
+</Tab>
+<Tab value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-thales-mistral-vs9-restapi
+```
+
+</Tab>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Thales Mistral VS9 Rest API** connector through
+the **Configuration > Monitoring Connector Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Thales-Mistral-Vs9-Restapi
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Thales-Mistral-Vs9-Restapi
+```
+
+</Tab>
+<Tab value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-thales-mistral-vs9-restapi
+```
+
+</Tab>
+<Tab value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Thales-Mistral-Vs9-Restapi
+```
+
+</Tab>
+</Tabs>
+
+## Using the monitoring connector
+
+### Using a host template provided by the connector
+
+<Tabs groupId="sync">
+<Tab value="App-Thales-Mistral-Vs9-Host-Restapi-custom" label="App-Thales-Mistral-Vs9-Host-Restapi-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Thales-Mistral-Vs9-Host-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MMCAPIHOSTNAME     | Set MMC hostname                                                                                     |                   | X           |
+| MMCAPIUSERNAME     | API username                                                                                         |                   | X           |
+| MMCAPIPASSWORD     | API password                                                                                         |                   | X           |
+| MMCAPIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
+| MMCAPIPORT         | Port used (default: 5572)                                                                            | 5572              |             |
+| DEVICEID           | Filter devices by id                                                                                 |                   |             |
+| DEVICESN           | Filter devices by serial number                                                                      |                   |             |
+| MMCAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</Tab>
+<Tab value="App-Thales-Mistral-Vs9-Mmc-Restapi-custom" label="App-Thales-Mistral-Vs9-Mmc-Restapi-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Thales-Mistral-Vs9-Mmc-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MMCAPIHOSTNAME     | Set MMC hostname                                                                                     |                   | X           |
+| MMCAPIUSERNAME     | API username                                                                                         |                   | X           |
+| MMCAPIPASSWORD     | API password                                                                                         |                   | X           |
+| MMCAPIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
+| MMCAPIPORT         | Port used (default: 5572)                                                                            | 5572              |             |
+| DEVICEID           | Filter devices by id                                                                                 |                   |             |
+| DEVICESN           | Filter devices by serial number                                                                      |                   |             |
+| MMCAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</Tab>
+</Tabs>
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<Tab value="Certificates" label="Certificates">
+
+| Macro                      | Description                                                                                                                                             | Default value     | Mandatory   |
+|:---------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMECERTIFICATEUNIT        | Select the time unit for certificate threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s                 |             |
+| WARNINGCERTIFICATEEXPIRES  | Threshold                                                                                                                                               |                   |             |
+| CRITICALCERTIFICATEEXPIRES | Threshold                                                                                                                                               |                   |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                      | --verbose         |             |
+
+</Tab>
+<Tab value="Cluster" label="Cluster">
+
+| Macro                       | Description                                                                                                                                                                                        | Default value                                  | Mandatory   |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-----------:|
+| UNKNOWNCLUSTERSTATUS        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{enabled\}, %\{replicationStatus\}, %\{state\}  | %\{replicationStatus\} =~ /unknown/i                                                                         |           |
+| WARNINGCLUSTERSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{enabled\}, %\{replicationStatus\}, %\{state\}  | %\{state\} =~ /misconfigured\|configured\_not\_started/i \|\| %\{replicationStatus\} =~ /not\_synchronized/i |           |
+| CRITICALCLUSTERSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{enabled\}, %\{replicationStatus\}, %\{state\} | %\{state\} =~ /split\_brain\|data\_mismatch/i                                                                |           |
+| WARNINGNODESTATUS           | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /disconnected/i'). You can use the following variables: %\{status\}, %\{name\}                               | %\{status\} =~ /disconnected/i                 |             |
+| CRITICALNODESTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                                                          |                                                |             |
+| WARNINGSYNCHRONIZATIONDONE  | Threshold                                                                                                                                                                                          |                                                |             |
+| CRITICALSYNCHRONIZATIONDONE | Threshold                                                                                                                                                                                          |                                                |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                 | --verbose                                      |             |
+
+</Tab>
+<Tab value="Clusters" label="Clusters">
+
+| Macro                         | Description                                                                                                                                                                                                                                                             | Default value                                                                  | Mandatory   |
+|:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:-----------:|
+| FILTERCLUSTERNAME             | Filter clusters by name                                                                                                                                                                                                                                                 |                                                                                |             |
+| TIMECONTACTUNIT               | Select the time unit for contact threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds                                                                                                                     |                                                                                |             |
+| WARNINGCLUSTERINFORMATION     | Threshold                                                                                                                                                                                                                                                                        |                                                                                |             |
+| CRITICALCLUSTERINFORMATION    | Threshold                                                                                                                                                                                                                                                                        |                                                                                |             |
+| WARNINGCLUSTERSDETECTED       | Threshold                                                                                                                                                                                                                                                               |                                                                                |             |
+| CRITICALCLUSTERSDETECTED      | Threshold                                                                                                                                                                                                                                                               |                                                                                |             |
+| WARNINGCLUSTERSTATUS          | Define the conditions to match for the status to be WARNING (default: '%\{gatewaysClusterStatus\} =~ /HAC\_FAILOVER/i'). You can use the following variables: %\{gatewaysClusterStatus\}, %\{availableForSwitching\}, %\{clusterName\}                                  | %\{gatewaysClusterStatus\} =~ /HAC\_FAILOVER/i                                 |             |
+| CRITICALCLUSTERSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%\{gatewaysClusterStatus\} =~ /HAC\_FAILURE\|HAC\_DOWN\|HAC\_BACKUP\_FAILURE/i'). You can use the following variables: %\{gatewaysClusterStatus\}, %\{availableForSwitching\}, %\{clusterName\} | %\{gatewaysClusterStatus\} =~ /HAC\_FAILURE\|HAC\_DOWN\|HAC\_BACKUP\_FAILURE/i |             |
+| WARNINGMEMBERCONTACTLASTTIME  | Threshold                                                                                                                                                                                                                                                               |                                                                                |             |
+| CRITICALMEMBERCONTACTLASTTIME | Threshold                                                                                                                                                                                                                                                               |                                                                                |             |
+| WARNINGMEMBERSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{connectedStatus\}, %\{role\}, %\{memberName\}                                                                                                                      |                                                                                |             |
+| CRITICALMEMBERSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{connectedStatus\}, %\{role\}, %\{memberName\}                                                                                                                     |                                                                                |             |
+| EXTRAOPTIONS                  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                                      | --verbose                                                                      |             |
+
+</Tab>
+<Tab value="Connection-Status" label="Connection-Status">
+
+| Macro                      | Description                                                                                                                                                                                      | Default value                                      | Mandatory   |
+|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
+| TIMECONNECTIONUNIT         | Select the time unit for connection threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds                                           | s                                                  |             |
+| UNKNOWNCONNECTIONSTATUS    | Define the conditions to match for the status to be UNKNOWN (default: '%\{connectionStatus\} =~ /unknown/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                | %\{connectionStatus\} =~ /unknown/i                |             |
+| WARNINGCONNECTIONLASTTIME  | Threshold                                                                                                                                                                                        |                                                    |             |
+| CRITICALCONNECTIONLASTTIME | Threshold                                                                                                                                                                                        |                                                    |             |
+| WARNINGCONNECTIONSTATUS    | Define the conditions to match for the status to be WARNING (default: '%\{connectionStatus\} =~ /disconnected\|unpaired/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\} | %\{connectionStatus\} =~ /disconnected\|unpaired/i |             |
+| CRITICALCONNECTIONSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{sn\}, %\{connectionStatus\}                                                                |                                                    |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                               | --verbose                                          |             |
+
+</Tab>
+<Tab value="Interfaces" label="Interfaces">
+
+| Macro                       | Description                                                                                                                                                                             | Default value                 | Mandatory   |
+|:----------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
+| TRAFFICUNIT                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter')                                                                                    | percent\_delta                |             |
+| SPEED                       | Set interface speed (in Mb)                                                                                                                                                             |                               |             |
+| WARNINGINTERFACESTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                              | %\{operatingStatus\} !~ /up/i |             |
+| CRITICALINTERFACESTATUS     | Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingStatus\} !~ /up/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\} |                               |             |
+| WARNINGINTERFACETRAFFICIN   | Threshold                                                                                                                                                                               |                               |             |
+| CRITICALINTERFACETRAFFICIN  | Threshold                                                                                                                                                                               |                               |             |
+| WARNINGINTERFACETRAFFICOUT  | Threshold                                                                                                                                                                               |                               |             |
+| CRITICALINTERFACETRAFFICOUT | Threshold                                                                                                                                                                               |                               |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                      | --verbose                     |             |
+
+</Tab>
+<Tab value="Mistral" label="Mistral">
+
+| Macro                  | Description                                                                                                                                                                       | Default value                       | Mandatory   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
+| CRITICALAUTOTESTSTATE  | Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} !~ /success/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}          | %\{state\} !~ /success/i            |             |
+| WARNINGAUTOTESTSTATE   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                  |                                     |             |
+| WARNINGMISTRALVERSION  | Threshold                                                                                                                                                                                  |                                     |             |
+| CRITICALMISTRALVERSION | Threshold                                                                                                                                                                                  |                                     |             |
+| CRITICALOPERATINGSTATE | Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingState\} !~ /operating/i'). You can use the following variables: %\{sn\}, %\{operatingState\} | %\{operatingState\} !~ /operating/i |             |
+| WARNINGOPERATINGSTATE  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{operatingState\}                                                    |                                     |             |
+| WARNINGTEMPERATURE     | Threshold                                                                                                                                                                         |                                     |             |
+| CRITICALTEMPERATURE    | Threshold                                                                                                                                                                         |                                     |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                | --verbose                           |             |
+
+</Tab>
+<Tab value="System" label="System">
+
+| Macro                    | Description                                                                                                                                        | Default value     | Mandatory   |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEUPTIMEUNIT           | Select the time unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s                 |             |
+| NTPHOSTNAME              | Set the ntp hostname (if not set, localtime is used)                                                                                               |                   |             |
+| NTPPORT                  | Set the ntp port (default: 123)                                                                                                                    |                   |             |
+| WARNINGSYSTEMTIMEOFFSET  | Threshold                                                                                                                                          |                   |             |
+| CRITICALSYSTEMTIMEOFFSET | Threshold                                                                                                                                          |                   |             |
+| WARNINGSYSTEMUPTIME      | Threshold                                                                                                                                          |                   |             |
+| CRITICALSYSTEMUPTIME     | Threshold                                                                                                                                          |                   |             |
+| WARNINGSYSTEMVERSION     | Threshold                                                                                                                                                   |                   |             |
+| CRITICALSYSTEMVERSION    | Threshold                                                                                                                                                   |                   |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                 | --verbose         |             |
+
+</Tab>
+<Tab value="Tunnels" label="Tunnels">
+
+| Macro                      | Description                                                                                                                                                           | Default value            | Mandatory   |
+|:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
+| CRITICALVPNIKESASTATE      | Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\} | %\{state\} =~ /down/i    |             |
+| WARNINGVPNIKESASTATE       | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                      |                          |             |
+| CRITICALVPNIKESERVICESTATE | Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /stopped/i'). You can use the following variables: %\{sn\}, %\{state\}         | %\{state\} =~ /stopped/i |             |
+| WARNINGVPNIKESERVICESTATE  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{state\}                                                 |                          |             |
+| CRITICALVPNSASTATE         | Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\} | %\{state\} =~ /down/i    |             |
+| WARNINGVPNSASTATE          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                      |                          |             |
+| WARNINGVPNSATRAFFIC        | Threshold                                                                                                                                                             |                          |             |
+| CRITICALVPNSATRAFFIC       | Threshold                                                                                                                                                             |                          |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                    | --verbose                |             |
+
+</Tab>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
+
+```bash
+/usr/lib/centreon/plugins/centreon_thales_mistral_vs9_restapi.pl \
+	--plugin=apps::thales::mistral::vs9::restapi::plugin \
+	--mode=mmc-certificates \
+	--hostname='10.0.0.1' \
+	--port='5572' \
+	--proto='https' \
+	--api-username='xxxxxx' \
+	--api-password='xxxxxx'  \
+	--time-certificate-unit='s' \
+	--warning-certificate-expires='' \
+	--critical-certificate-expires='' \
+	--verbose
+```
+
+The expected command output is shown below:
+
+```bash
+OK: all certificates are ok | 'certificates1#certificate.expires.seconds'=94184s;;;; 'certificates2#certificate.expires.seconds'=31364s;;;;
+```
+
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_thales_mistral_vs9_restapi.pl \
+	--plugin=apps::thales::mistral::vs9::restapi::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                             | Linked service template                                                                                                                                                                                                                                                                                                                                                                               |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| clusters [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/thales/mistral/vs9/restapi/mode/clusters.pm)]                | App-Thales-Mistral-Vs9-Clusters-Restapi-custom                                                                                                                                                                                                                                                                                                                                                        |
+| devices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/thales/mistral/vs9/restapi/mode/devices.pm)]                  | App-Thales-Mistral-Vs9-Host-Device-Certificates-Restapi-custom<br />App-Thales-Mistral-Vs9-Host-Device-Connection-Status-Restapi-custom<br />App-Thales-Mistral-Vs9-Host-Device-Interfaces-Restapi-custom<br />App-Thales-Mistral-Vs9-Host-Device-Mistral-Restapi-custom<br />App-Thales-Mistral-Vs9-Host-Device-System-Restapi-custom<br />App-Thales-Mistral-Vs9-Host-Device-Tunnels-Restapi-custom |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/thales/mistral/vs9/restapi/mode/discovery.pm)]              | Used for host discovery                                                                                                                                                                                                                                                                                                                                                                               |
+| mmc-certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/thales/mistral/vs9/restapi/mode/mmccertificates.pm)] | App-Thales-Mistral-Vs9-Mmc-Certificates-Restapi-custom                                                                                                                                                                                                                                                                                                                                                |
+| mmc-cluster [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/thales/mistral/vs9/restapi/mode/mmccluster.pm)]           | App-Thales-Mistral-Vs9-Mmc-Cluster-Restapi-custom                                                                                                                                                                                                                                                                                                                                                     |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --redis-server                             |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --redis-attribute                          |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --redis-db                                 |   Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --failback-file                            |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --memexpiration                            |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-dir                            |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --statefile-suffix                         |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-concat-cwd                     |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --hostname                                 |   Set MMC hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --port                                     |   Port used (default: 5572)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --proto                                    |   Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --api-username                             |   API username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --api-password                             |   API password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  |   Set timeout in seconds (default: 30).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<Tab value="Certificates" label="Certificates">
+
+| Option                           | Description                                                                                                                                                                                          |
+|:---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                          |
+| --filter-id                      |   Filter devices by id.                                                                                                                                                                              |
+| --filter-sn                      |   Filter devices by serial number.                                                                                                                                                                   |
+| --filter-cert-revoked            |   Skip revoked certificates.                                                                                                                                                                         |
+| --add-status                     |   Check connection status.                                                                                                                                                                           |
+| --add-interfaces                 |   Check interfaces.                                                                                                                                                                                  |
+| --add-system                     |   Check system.                                                                                                                                                                                      |
+| --add-mistral                    |   Check mistral (operating status, temperature, autotests).                                                                                                                                          |
+| --add-certificates               |   Check certificates.                                                                                                                                                                                |
+| --add-tunnels                    |   Check tunnels.                                                                                                                                                                                     |
+| --unknown-certificate-status     |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{active\}, %\{revoked\}, %\{sn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                |
+| --warning-certificate-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{active\}, %\{revoked\}, %\{sn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                |
+| --critical-certificate-status    |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{active\}, %\{revoked\}, %\{sn\}, %\{subjectCommonName\}, %\{issuerCommonName\}               |
+| --unknown-connection-status      |   Define the conditions to match for the status to be UNKNOWN (default: '%\{connectionStatus\} =~ /unknown/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                  |
+| --warning-connection-status      |   Define the conditions to match for the status to be WARNING (default: '%\{connectionStatus\} =~ /disconnected\|unpaired/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}   |
+| --critical-connection-status     |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{sn\}, %\{connectionStatus\}                                                                  |
+| --unknown-operating-state        |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                     |
+| --warning-operating-state        |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                     |
+| --critical-operating-state       |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingState\} !~ /operating/i'). You can use the following variables: %\{sn\}, %\{operatingState\}                  |
+| --unknown-autotest-state         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                   |
+| --warning-autotest-state         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                   |
+| --critical-autotest-state        |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} !~ /success/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                           |
+| --unknown-interface-status       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                         |
+| --warning-interface-status       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                         |
+| --critical-interface-status      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingStatus\} !~ /up/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}            |
+| --unknown-vpn-ike-service-state  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{state\}                                                                              |
+| --warning-vpn-ike-service-state  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{state\}                                                                              |
+| --critical-vpn-ike-service-state |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /stopped/i'). You can use the following variables: %\{sn\}, %\{state\}                                      |
+| --unknown-vpn-ike-sa-state       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                   |
+| --warning-vpn-ike-sa-state       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                   |
+| --critical-vpn-ike-sa-state      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                              |
+| --unknown-vpn-sa-state           |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                   |
+| --warning-vpn-sa-state           |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                   |
+| --critical-vpn-sa-state          |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                              |
+| --ntp-hostname                   |   Set the ntp hostname (if not set, localtime is used).                                                                                                                                              |
+| --ntp-port                       |   Set the ntp port (default: 123).                                                                                                                                                                   |
+| --time-connection-unit           |   Select the time unit for connection threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                            |
+| --time-uptime-unit               |   Select the time unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                |
+| --time-certificate-unit          |   Select the time unit for certificate threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                           |
+| --traffic-unit                   |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                              |
+| --speed                          |   Set interface speed (in Mb).                                                                                                                                                                       |
+| --warning-* --critical-*         |   Thresholds. Can be: 'certificate-expires'.                                                                                                                                                         |
+| --filter-cert-inactive           |   Skip inactive certificates.                                                                                                                                                                        |
+
+</Tab>
+<Tab value="Cluster" label="Cluster">
+
+| Option                    | Description                                                                                                                                                                                            |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters         |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                            |
+| --unknown-cluster-status  |   Define the conditions to match for the status to be UNKNOWN  (default: '%\{replicationStatus\} =~ /unknown/i'). You can use the following variables: %\{enabled\}, %\{replicationStatus\}            |
+| --warning-cluster-status  |   Define the conditions to match for the status to be WARNING (default: '%\{replicationStatus\} =~ /not\_synchronized/i'). You can use the following variables: %\{enabled\}, %\{replicationStatus\}   |
+| --critical-cluster-status |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                                                            |
+| --unknown-node-status     |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                                                             |
+| --warning-node-status     |   Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /disconnected/i'). You can use the following variables: %\{status\}, %\{name\}                                 |
+| --critical-node-status    |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                                                            |
+| --warning-* --critical-*  |   Thresholds. Can be: 'synchronization-done'.                                                                                                                                                          |
+
+</Tab>
+<Tab value="Clusters" label="Clusters">
+
+| Option                    | Description                                                                                                                                                                                                                                                                 |
+|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters         |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                 |
+| --filter-cluster-name     |   Filter clusters by name.                                                                                                                                                                                                                                                  |
+| --unknown-cluster-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{gatewaysClusterStatus\}, %\{availableForSwitching\}, %\{clusterName\}                                                                                                |
+| --warning-cluster-status  |   Define the conditions to match for the status to be WARNING (default: '%\{gatewaysClusterStatus\} =~ /HAC\_FAILOVER/i'). You can use the following variables: %\{gatewaysClusterStatus\}, %\{availableForSwitching\}, %\{clusterName\}                                    |
+| --critical-cluster-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{gatewaysClusterStatus\} =~ /HAC\_FAILURE\|HAC\_DOWN\|HAC\_BACKUP\_FAILURE/i'). You can use the following variables: %\{gatewaysClusterStatus\}, %\{availableForSwitching\}, %\{clusterName\}   |
+| --unknown-member-status   |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{connectedStatus\}, %\{role\}, %\{memberName\}                                                                                                                        |
+| --warning-member-status   |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{connectedStatus\}, %\{role\}, %\{memberName\}                                                                                                                        |
+| --critical-member-status  |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{connectedStatus\}, %\{role\}, %\{memberName\}                                                                                                                       |
+| --time-contact-unit       |   Select the time unit for contact threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                                                                                      |
+| --warning-* --critical-*  |   Thresholds. Can be: 'clusters-detected', 'member-contact-last-time'.                                                                                                                                                                                                      |
+
+</Tab>
+<Tab value="Connection-Status" label="Connection-Status">
+
+| Option                           | Description                                                                                                                                                                                                         |
+|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                         |
+| --filter-id                      |   Filter devices by id.                                                                                                                                                                                             |
+| --filter-sn                      |   Filter devices by serial number.                                                                                                                                                                                  |
+| --filter-cert-revoked            |   Skip revoked certificates.                                                                                                                                                                                        |
+| --add-status                     |   Check connection status.                                                                                                                                                                                          |
+| --add-interfaces                 |   Check interfaces.                                                                                                                                                                                                 |
+| --add-system                     |   Check system.                                                                                                                                                                                                     |
+| --add-mistral                    |   Check mistral (operating status, temperature, autotests).                                                                                                                                                         |
+| --add-certificates               |   Check certificates.                                                                                                                                                                                               |
+| --add-tunnels                    |   Check tunnels.                                                                                                                                                                                                    |
+| --unknown-certificate-status     |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                               |
+| --warning-certificate-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                               |
+| --critical-certificate-status    |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                              |
+| --unknown-connection-status      |   Define the conditions to match for the status to be UNKNOWN (default: '%\{connectionStatus\} =~ /unknown/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                                 |
+| --warning-connection-status      |   Define the conditions to match for the status to be WARNING (default: '%\{connectionStatus\} =~ /disconnected\|unpaired/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                  |
+| --critical-connection-status     |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{sn\}, %\{connectionStatus\}                                                                                 |
+| --unknown-operating-state        |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                                    |
+| --warning-operating-state        |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                                    |
+| --critical-operating-state       |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingState\} !~ /operating/i'). You can use the following variables: %\{sn\}, %\{operatingState\}                                 |
+| --unknown-autotest-state         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-autotest-state         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-autotest-state        |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} !~ /success/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                          |
+| --unknown-interface-status       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                                        |
+| --warning-interface-status       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                                        |
+| --critical-interface-status      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingStatus\} !~ /up/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                           |
+| --unknown-vpn-ike-service-state  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{state\}                                                                                             |
+| --warning-vpn-ike-service-state  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{state\}                                                                                             |
+| --critical-vpn-ike-service-state |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /stopped/i'). You can use the following variables: %\{sn\}, %\{state\}                                                     |
+| --unknown-vpn-ike-sa-state       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-vpn-ike-sa-state       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-vpn-ike-sa-state      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                             |
+| --unknown-vpn-sa-state           |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-vpn-sa-state           |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-vpn-sa-state          |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                             |
+| --ntp-hostname                   |   Set the ntp hostname (if not set, localtime is used).                                                                                                                                                             |
+| --ntp-port                       |   Set the ntp port (default: 123).                                                                                                                                                                                  |
+| --time-connection-unit           |   Select the time unit for connection threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                           |
+| --time-uptime-unit               |   Select the time unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                               |
+| --time-certificate-unit          |   Select the time unit for certificate threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                          |
+| --traffic-unit                   |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                             |
+| --speed                          |   Set interface speed (in Mb).                                                                                                                                                                                      |
+| --warning-* --critical-*         |   Thresholds. Can be: 'devices-detected', 'connection-last-time', 'interface-traffic-in', 'interface-traffic-out', 'system-uptime', 'system-time-offset', temperature', 'certificate-expires', 'vpn-sa-traffic'.    |
+
+</Tab>
+<Tab value="Interfaces" label="Interfaces">
+
+| Option                           | Description                                                                                                                                                                                                         |
+|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                         |
+| --filter-id                      |   Filter devices by id.                                                                                                                                                                                             |
+| --filter-sn                      |   Filter devices by serial number.                                                                                                                                                                                  |
+| --filter-cert-revoked            |   Skip revoked certificates.                                                                                                                                                                                        |
+| --add-status                     |   Check connection status.                                                                                                                                                                                          |
+| --add-interfaces                 |   Check interfaces.                                                                                                                                                                                                 |
+| --add-system                     |   Check system.                                                                                                                                                                                                     |
+| --add-mistral                    |   Check mistral (operating status, temperature, autotests).                                                                                                                                                         |
+| --add-certificates               |   Check certificates.                                                                                                                                                                                               |
+| --add-tunnels                    |   Check tunnels.                                                                                                                                                                                                    |
+| --unknown-certificate-status     |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                               |
+| --warning-certificate-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                               |
+| --critical-certificate-status    |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                              |
+| --unknown-connection-status      |   Define the conditions to match for the status to be UNKNOWN (default: '%\{connectionStatus\} =~ /unknown/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                                 |
+| --warning-connection-status      |   Define the conditions to match for the status to be WARNING (default: '%\{connectionStatus\} =~ /disconnected\|unpaired/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                  |
+| --critical-connection-status     |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{sn\}, %\{connectionStatus\}                                                                                 |
+| --unknown-operating-state        |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                                    |
+| --warning-operating-state        |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                                    |
+| --critical-operating-state       |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingState\} !~ /operating/i'). You can use the following variables: %\{sn\}, %\{operatingState\}                                 |
+| --unknown-autotest-state         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-autotest-state         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-autotest-state        |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} !~ /success/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                          |
+| --unknown-interface-status       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                                        |
+| --warning-interface-status       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                                        |
+| --critical-interface-status      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingStatus\} !~ /up/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                           |
+| --unknown-vpn-ike-service-state  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{state\}                                                                                             |
+| --warning-vpn-ike-service-state  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{state\}                                                                                             |
+| --critical-vpn-ike-service-state |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /stopped/i'). You can use the following variables: %\{sn\}, %\{state\}                                                     |
+| --unknown-vpn-ike-sa-state       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-vpn-ike-sa-state       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-vpn-ike-sa-state      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                             |
+| --unknown-vpn-sa-state           |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-vpn-sa-state           |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-vpn-sa-state          |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                             |
+| --ntp-hostname                   |   Set the ntp hostname (if not set, localtime is used).                                                                                                                                                             |
+| --ntp-port                       |   Set the ntp port (default: 123).                                                                                                                                                                                  |
+| --time-connection-unit           |   Select the time unit for connection threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                           |
+| --time-uptime-unit               |   Select the time unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                               |
+| --time-certificate-unit          |   Select the time unit for certificate threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                          |
+| --traffic-unit                   |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                             |
+| --speed                          |   Set interface speed (in Mb).                                                                                                                                                                                      |
+| --warning-* --critical-*         |   Thresholds. Can be: 'devices-detected', 'connection-last-time', 'interface-traffic-in', 'interface-traffic-out', 'system-uptime', 'system-time-offset', temperature', 'certificate-expires', 'vpn-sa-traffic'.    |
+
+</Tab>
+<Tab value="Mistral" label="Mistral">
+
+| Option                           | Description                                                                                                                                                                                                         |
+|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                         |
+| --filter-id                      |   Filter devices by id.                                                                                                                                                                                             |
+| --filter-sn                      |   Filter devices by serial number.                                                                                                                                                                                  |
+| --filter-cert-revoked            |   Skip revoked certificates.                                                                                                                                                                                        |
+| --add-status                     |   Check connection status.                                                                                                                                                                                          |
+| --add-interfaces                 |   Check interfaces.                                                                                                                                                                                                 |
+| --add-system                     |   Check system.                                                                                                                                                                                                     |
+| --add-mistral                    |   Check mistral (operating status, temperature, autotests).                                                                                                                                                         |
+| --add-certificates               |   Check certificates.                                                                                                                                                                                               |
+| --add-tunnels                    |   Check tunnels.                                                                                                                                                                                                    |
+| --unknown-certificate-status     |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                               |
+| --warning-certificate-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                               |
+| --critical-certificate-status    |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                              |
+| --unknown-connection-status      |   Define the conditions to match for the status to be UNKNOWN (default: '%\{connectionStatus\} =~ /unknown/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                                 |
+| --warning-connection-status      |   Define the conditions to match for the status to be WARNING (default: '%\{connectionStatus\} =~ /disconnected\|unpaired/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                  |
+| --critical-connection-status     |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{sn\}, %\{connectionStatus\}                                                                                 |
+| --unknown-operating-state        |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                                    |
+| --warning-operating-state        |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                                    |
+| --critical-operating-state       |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingState\} !~ /operating/i'). You can use the following variables: %\{sn\}, %\{operatingState\}                                 |
+| --unknown-autotest-state         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-autotest-state         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-autotest-state        |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} !~ /success/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                          |
+| --unknown-interface-status       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                                        |
+| --warning-interface-status       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                                        |
+| --critical-interface-status      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingStatus\} !~ /up/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                           |
+| --unknown-vpn-ike-service-state  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{state\}                                                                                             |
+| --warning-vpn-ike-service-state  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{state\}                                                                                             |
+| --critical-vpn-ike-service-state |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /stopped/i'). You can use the following variables: %\{sn\}, %\{state\}                                                     |
+| --unknown-vpn-ike-sa-state       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-vpn-ike-sa-state       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-vpn-ike-sa-state      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                             |
+| --unknown-vpn-sa-state           |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-vpn-sa-state           |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-vpn-sa-state          |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                             |
+| --ntp-hostname                   |   Set the ntp hostname (if not set, localtime is used).                                                                                                                                                             |
+| --ntp-port                       |   Set the ntp port (default: 123).                                                                                                                                                                                  |
+| --time-connection-unit           |   Select the time unit for connection threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                           |
+| --time-uptime-unit               |   Select the time unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                               |
+| --time-certificate-unit          |   Select the time unit for certificate threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                          |
+| --traffic-unit                   |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                             |
+| --speed                          |   Set interface speed (in Mb).                                                                                                                                                                                      |
+| --warning-* --critical-*         |   Thresholds. Can be: 'devices-detected', 'connection-last-time', 'interface-traffic-in', 'interface-traffic-out', 'system-uptime', 'system-time-offset', temperature', 'certificate-expires', 'vpn-sa-traffic'.    |
+
+</Tab>
+<Tab value="System" label="System">
+
+| Option                           | Description                                                                                                                                                                                                         |
+|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                         |
+| --filter-id                      |   Filter devices by id.                                                                                                                                                                                             |
+| --filter-sn                      |   Filter devices by serial number.                                                                                                                                                                                  |
+| --filter-cert-revoked            |   Skip revoked certificates.                                                                                                                                                                                        |
+| --add-status                     |   Check connection status.                                                                                                                                                                                          |
+| --add-interfaces                 |   Check interfaces.                                                                                                                                                                                                 |
+| --add-system                     |   Check system.                                                                                                                                                                                                     |
+| --add-mistral                    |   Check mistral (operating status, temperature, autotests).                                                                                                                                                         |
+| --add-certificates               |   Check certificates.                                                                                                                                                                                               |
+| --add-tunnels                    |   Check tunnels.                                                                                                                                                                                                    |
+| --unknown-certificate-status     |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                               |
+| --warning-certificate-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                               |
+| --critical-certificate-status    |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                              |
+| --unknown-connection-status      |   Define the conditions to match for the status to be UNKNOWN (default: '%\{connectionStatus\} =~ /unknown/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                                 |
+| --warning-connection-status      |   Define the conditions to match for the status to be WARNING (default: '%\{connectionStatus\} =~ /disconnected\|unpaired/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                  |
+| --critical-connection-status     |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{sn\}, %\{connectionStatus\}                                                                                 |
+| --unknown-operating-state        |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                                    |
+| --warning-operating-state        |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                                    |
+| --critical-operating-state       |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingState\} !~ /operating/i'). You can use the following variables: %\{sn\}, %\{operatingState\}                                 |
+| --unknown-autotest-state         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-autotest-state         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-autotest-state        |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} !~ /success/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                          |
+| --unknown-interface-status       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                                        |
+| --warning-interface-status       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                                        |
+| --critical-interface-status      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingStatus\} !~ /up/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                           |
+| --unknown-vpn-ike-service-state  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{state\}                                                                                             |
+| --warning-vpn-ike-service-state  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{state\}                                                                                             |
+| --critical-vpn-ike-service-state |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /stopped/i'). You can use the following variables: %\{sn\}, %\{state\}                                                     |
+| --unknown-vpn-ike-sa-state       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-vpn-ike-sa-state       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-vpn-ike-sa-state      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                             |
+| --unknown-vpn-sa-state           |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-vpn-sa-state           |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-vpn-sa-state          |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                             |
+| --ntp-hostname                   |   Set the ntp hostname (if not set, localtime is used).                                                                                                                                                             |
+| --ntp-port                       |   Set the ntp port (default: 123).                                                                                                                                                                                  |
+| --time-connection-unit           |   Select the time unit for connection threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                           |
+| --time-uptime-unit               |   Select the time unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                               |
+| --time-certificate-unit          |   Select the time unit for certificate threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                          |
+| --traffic-unit                   |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                             |
+| --speed                          |   Set interface speed (in Mb).                                                                                                                                                                                      |
+| --warning-* --critical-*         |   Thresholds. Can be: 'devices-detected', 'connection-last-time', 'interface-traffic-in', 'interface-traffic-out', 'system-uptime', 'system-time-offset', temperature', 'certificate-expires', 'vpn-sa-traffic'.    |
+
+</Tab>
+<Tab value="Tunnels" label="Tunnels">
+
+| Option                           | Description                                                                                                                                                                                                         |
+|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                         |
+| --filter-id                      |   Filter devices by id.                                                                                                                                                                                             |
+| --filter-sn                      |   Filter devices by serial number.                                                                                                                                                                                  |
+| --filter-cert-revoked            |   Skip revoked certificates.                                                                                                                                                                                        |
+| --add-status                     |   Check connection status.                                                                                                                                                                                          |
+| --add-interfaces                 |   Check interfaces.                                                                                                                                                                                                 |
+| --add-system                     |   Check system.                                                                                                                                                                                                     |
+| --add-mistral                    |   Check mistral (operating status, temperature, autotests).                                                                                                                                                         |
+| --add-certificates               |   Check certificates.                                                                                                                                                                                               |
+| --add-tunnels                    |   Check tunnels.                                                                                                                                                                                                    |
+| --unknown-certificate-status     |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                               |
+| --warning-certificate-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                               |
+| --critical-certificate-status    |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{revoked\}, %\{sn\}, %\{certSn\}, %\{subjectCommonName\}, %\{issuerCommonName\}                              |
+| --unknown-connection-status      |   Define the conditions to match for the status to be UNKNOWN (default: '%\{connectionStatus\} =~ /unknown/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                                 |
+| --warning-connection-status      |   Define the conditions to match for the status to be WARNING (default: '%\{connectionStatus\} =~ /disconnected\|unpaired/i'). You can use the following variables: %\{sn\}, %\{connectionStatus\}                  |
+| --critical-connection-status     |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{sn\}, %\{connectionStatus\}                                                                                 |
+| --unknown-operating-state        |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                                    |
+| --warning-operating-state        |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{operatingState\}                                                                                    |
+| --critical-operating-state       |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingState\} !~ /operating/i'). You can use the following variables: %\{sn\}, %\{operatingState\}                                 |
+| --unknown-autotest-state         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-autotest-state         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-autotest-state        |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} !~ /success/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                          |
+| --unknown-interface-status       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                                        |
+| --warning-interface-status       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                                                                        |
+| --critical-interface-status      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{operatingStatus\} !~ /up/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{operatingStatus\}                           |
+| --unknown-vpn-ike-service-state  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{state\}                                                                                             |
+| --warning-vpn-ike-service-state  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{state\}                                                                                             |
+| --critical-vpn-ike-service-state |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /stopped/i'). You can use the following variables: %\{sn\}, %\{state\}                                                     |
+| --unknown-vpn-ike-sa-state       |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-vpn-ike-sa-state       |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-vpn-ike-sa-state      |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                             |
+| --unknown-vpn-sa-state           |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --warning-vpn-sa-state           |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                                                                  |
+| --critical-vpn-sa-state          |   Define the conditions to match for the status to be CRITICAL  (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{sn\}, %\{name\}, %\{state\}                                             |
+| --ntp-hostname                   |   Set the ntp hostname (if not set, localtime is used).                                                                                                                                                             |
+| --ntp-port                       |   Set the ntp port (default: 123).                                                                                                                                                                                  |
+| --time-connection-unit           |   Select the time unit for connection threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                           |
+| --time-uptime-unit               |   Select the time unit for uptime threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                               |
+| --time-certificate-unit          |   Select the time unit for certificate threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                          |
+| --traffic-unit                   |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                             |
+| --speed                          |   Set interface speed (in Mb).                                                                                                                                                                                      |
+| --warning-* --critical-*         |   Thresholds. Can be: 'devices-detected', 'connection-last-time', 'interface-traffic-in', 'interface-traffic-out', 'system-uptime', 'system-time-offset', temperature', 'certificate-expires', 'vpn-sa-traffic'.    |
+
+</Tab>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_thales_mistral_vs9_restapi.pl \
+	--plugin=apps::thales::mistral::vs9::restapi::plugin \
+	--mode=mmc-certificates \
+	--help
+```

@@ -1,0 +1,181 @@
+---
+id: map-api
+title: MAP API
+---
+
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+If you want to automate standard maps creation or maintenance, you may use the Centreon MAP extension API.
+
+> Please note that the endpoints specified on this page have been updated following the deprecation of the beta version. From 24.10, `beta` is replaced with `latest` in the paths.
+
+## Permissions
+
+With this API, you can create / update / delete standard maps. To be able to use the API, the account you use needs to have one
+of the following privileges:
+
+- Centreon Admin account.
+- Map creation rights and editing rights for maps you wish to update / delete.
+
+## How to use Centreon MAP API
+
+> Because the Centreon MAP API is not trivial to use, here is a scenario to authenticate, then create a map and add a shape on it.
+
+### Authenticate
+
+<Tabs groupId="sync">
+<Tab value="HTTP" label="HTTP">
+
+```
+POST : http://serverURL:8081/centreon-map/api/latest/auth/sign-in
+```
+
+</Tab>
+
+<Tab value="HTTPS" label="HTTPS">
+
+```
+POST : https://serverURL:9443/centreon-map/api/latest/auth/sign-in
+```
+
+</Tab>
+</Tabs>
+
+```
+Headers {
+    Content-Type = application/json
+    X-Client-Version = 25.10.0
+}
+
+Body {
+    "login" : "admin"
+    "password" : "denied"
+}
+```
+
+- In the result, retrieve the **jwtToken**. You will need to use it for all your API calls. The headers will look like this:
+
+```
+Headers {
+    Content-Type = application/json
+    X-client-version = 25.10.0
+    Authorization = Bearer \{jwtToken\}
+}
+```
+
+### Create a map
+
+<Tabs groupId="sync">
+<Tab value="HTTP" label="HTTP">
+
+```
+POST http://serverURL:8081/centreon-map/api/latest/maps
+```
+
+</Tab>
+
+<Tab value="HTTPS" label="HTTPS">
+
+```
+POST https://serverURL:9443/centreon-map/api/latest/maps
+```
+
+</Tab>
+</Tabs>
+
+```
+Headers {
+    Content-Type = application/json
+    X-client-version =  25.10.0
+    Authorization = Bearer \{jwtToken\}
+}
+
+Body {
+      "name": "My new map created from API"
+   }
+```
+
+- Retrieve the ID of the map (mapId) and the view (viewId) returned.
+
+### Open the map
+
+<Tabs groupId="sync">
+<Tab value="HTTP" label="HTTP">
+
+```
+GET http://serverURL:8081/centreon-map/api/latest/maps/_mapId_/views/_viewId_
+```
+
+</Tab>
+
+<Tab value="HTTPS" label="HTTPS">
+
+```
+GET https://serverURL:9443/centreon-map/api/latest/maps/_mapId_/views/_viewId_
+```
+
+</Tab>
+</Tabs>
+
+### Create and attach a "shape" element to the opened map
+
+In this scenario, the "shape" element is a rectangle.
+
+<Tabs groupId="sync">
+<Tab value="HTTP" label="HTTP">
+
+```
+PUT http://serverURL:8081/centreon-map/api/latest/maps/_mapId_/views
+```
+
+</Tab>
+
+<Tab value="HTTPS" label="HTTPS">
+
+```
+PUT https://serverURL:9443/centreon-map/api/latest/maps/_mapId_/views
+```
+
+</Tab>
+</Tabs>
+
+```
+Body: {
+ "id": \{viewId\},
+ "shapes": [
+     {
+        "type": "RECTANGLE",
+        "graphics": {
+             "label": "EN - Rectangle",
+             "x": 120,
+             "y": 120,
+             "width": 130,
+             "height": 53,
+             "color": "#0096FF",
+             "thickness": 1,
+             "borderColor": "#F0F0F0",
+             "line": "SOLID"
+         }
+      }
+   ]
+}
+```
+
+### Using a delegated authentication
+
+A user can use MAP APIs using a Centreon token, as follows in the header:
+
+```
+Headers {
+    Content-Type = application/json
+    X-client-version =  25.10.0
+    Authorization = Bearer \{jwtToken\}
+}
+```
+
+Replace ``Authorization = Bearer \{jwtToken\}`` with ``X-AUTH-TOKEN = your-centreon-token``. Ensure the token is not revoked or expired.
+
+## More information
+
+> Follow this [link](https://docs-api.centreon.com/api/centreon-map/25.10/) to access the Centreon API documentation and preview the API capabilities.

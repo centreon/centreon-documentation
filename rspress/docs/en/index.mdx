@@ -1,0 +1,58 @@
+---
+title: Centreon Documentation
+pageType: custom
+---
+
+import { HomePage } from '../../src/components/HomePage';
+
+<HomePage
+  heading="Welcome to Centreon documentation!"
+  subheading="Use the top-right icon to switch between product documentations at any time."
+  cards={[
+    {
+      title: "Infra Monitoring",
+      href: "/26.10/getting-started/welcome",
+      links: [
+        { label: "Infra Monitoring OnPrem", href: "/26.10/getting-started/welcome" },
+        { label: "Infra Monitoring Cloud", href: "/cloud/getting-started/welcome" },
+        { label: "Monitoring Connectors", href: "/pp/integrations/plugin-packs/getting-started/introduction" },
+      ],
+    },
+    {
+      title: "Experience Monitoring",
+      href: "/experience-monitoring/getting-started/welcome",
+      links: [
+        { label: "Getting started with Centreon Experience Monitoring", href: "/experience-monitoring/getting-started/welcome" },
+        { label: "Synthetic Monitoring (STM)", href: "/experience-monitoring/getting-started/synthetic-monitoring" },
+        { label: "Real User Monitoring (RUM)", href: "/experience-monitoring/getting-started/real-user-monitoring" },
+        { label: "Digital sobriety", href: "/experience-monitoring/digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety" },
+        { label: "Experience Monitoring release notes", href: "/experience-monitoring/release-notes" },
+      ],
+    },
+    {
+      title: "Log Management",
+      href: "/logmanagement/getting-started/welcome",
+      isBeta: true,
+      links: [
+        { label: "Signing up for the BETA program", href: "/logmanagement/getting-started/beta" },
+        { label: "Log Management basics", href: "/logmanagement/getting-started/concepts" },
+        { label: "Configuring an OpenTelemetry collector", href: "/logmanagement/collector/opentelemetry-collector" },
+        { label: "Exploring and analyzing logs", href: "/logmanagement/explore-analyze" },
+      ],
+    },
+  ]}
+  banner={{
+    version: "25.10",
+    label: "New software version available",
+    link: "https://www.centreon.com/centreon-announces-the-25-10-release-of-centreon-infra-monitoring-cornerstone-of-the-new-centreon-observability-platform/",
+  }}
+  community={{
+    badge: "A strong community",
+    joinLabel: "Join the community",
+  }}
+  opensource={{
+    badge: "AN OPEN SOURCE CORE",
+    description: "Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon Infra Monitoring has become the number 1 in open source monitoring in Europe.",
+    contributeLabel: "Contribute to the Open Source project",
+  }}
+/>

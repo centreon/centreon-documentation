@@ -1,0 +1,4 @@
+1. On your central server, go to **Configuration > Pollers > Agent configurations** and click **Add poller/agent configuration**.
+2. In the window that opens, select {props.type}. Additional fields appear.
+3. In the **Parameters** section, select the poller(s) that will receive data from the agent. 
+4. In the **OTLP receiver** section, enter the file names for the certificates for the part of the poller that will receive data from the agent, i.e., the poller's engine. Communication between the agent and the poller is always in HTTPS. Certificate files must have the following formats: .crt (public) & .key (private key). You need to store the certificates in the **/etc/pki/** directory of the poller and make sure the rights on the files are correct by running `chmod 644 /etc/pki/agent*`.

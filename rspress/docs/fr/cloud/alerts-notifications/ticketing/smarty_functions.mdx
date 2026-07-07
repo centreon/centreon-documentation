@@ -1,0 +1,333 @@
+---
+id: ticketing-advanced-smarty-functions
+title: Fonctions Smarty Open Tickets
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+Voici la liste des fonctions disponibles pour [personnaliser le corps des tickets](ticketing-body.md), via le champ **Body list definition** à la page **Configuration > Notifications > Open Tickets > Rules**. Vous pouvez y insérer des informations relatives à la ressource concernée par le ticket. Ces informations sont issues de Centreon.
+
+## Obtenir les groupes d'hôtes
+
+La fonction suivante va permettre d'insérer dans le corps du ticket la liste de tous les groupes d'hôtes auquel appartient l'hôte sur lequel vous créez un ticket, ou auquel appartient l'hôte parent du service sur lequel vous créez un ticket.
+
+```text
+{host_get_hostgroups host_id=$host.host_id}
+{foreach from=$host_get_hostgroups_result item=hostgroup}
+  hostgroup_name: {$hostgroup}
+{/foreach}
+```
+
+### Exemple de corps de ticket
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+#### Hostgroups: ######
+  {host_get_hostgroups host_id=$service.host_id}
+  {foreach from=$host_get_hostgroups_result item=hostgroup}
+    hostgroup_name: {$hostgroup}
+  {/foreach}
+{/foreach}
+{/if}
+```
+
+### Résultat possible
+
+```text
+Host: Api-Host
+Service: Cpu
+State: UNKNOWN
+Duration: 2M 3w
+Output: UNKNOWN: SNMP Table Request: Timeout
+
+#### Hostgroups: ######
+
+hostgroup_name: MyHosts
+hostgroup_name: open-ticket-hg
+```
+
+## Obtenir la sévérité des hôtes
+
+La fonction suivante va permettre d'insérer dans le corps du ticket la sévérité affectée à l'hôte sur lequel vous créez un ticket, ou affectée à l'hôte parent du service sur lequel vous créez un ticket.
+
+```text
+{host_get_severity host_id=$service.host_id}
+{foreach from=$host_get_severity_result item=severity}
+  severity name: {$severity.name}
+  severity level: {$severity.level}
+{/foreach}
+```
+
+### Exemple de corps de ticket
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+#### Severity: ######
+  {host_get_hostgroups host_id=$service.host_id}
+  {foreach from=$host_get_hostgroups_result item=hostgroup}
+    hostgroup_name: {$hostgroup}
+  {/foreach}
+{/foreach}
+{/if}
+```
+
+### Résultat possible
+
+```text
+Host: Api-Host
+Service: proc-broker-rrd
+State: UNKNOWN
+Duration: 3w 22h
+Output: UNKNOWN: SNMP Table Request: Timeout
+
+#### Severity: ######
+severity name: P1
+severity level: 1
+```
+
+## Obtenir les catégories des hôtes
+
+La fonction suivante va permettre d'insérer dans le corps du ticket la liste de toutes les catégories d'hôtes auquel appartient l'hôte sur lequel vous créez un ticket, ou auquel appartient l'hôte parent du service sur lequel vous créez un ticket.
+
+```text
+{host_get_hostcategories host_id=$service.host_id}
+{foreach from=$host_get_hostcategories_result item=category}
+  category name: {$category.name}
+{/foreach}
+```
+
+### Exemple de corps de ticket
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+#### Categories: ######
+  {host_get_hostcategories host_id=$service.host_id}
+  {foreach from=$host_get_hostcategories_result item=category}
+    category name: {$category.name}
+  {/foreach}
+{/foreach}
+{/if}
+```
+
+### Résultat possible
+
+```text
+Host: Api-Host
+Service: proc-broker-rrd
+State: UNKNOWN
+Duration: 3w 22h
+Output: UNKNOWN: SNMP Table Request: Timeout
+
+#### Severity: ######
+category name: P1
+category name: sql-category
+```
+
+## Obtenir les catégories des services
+
+La fonction suivante va permettre d'insérer dans le corps du ticket la liste de toutes les catégories de services auquel appartient le service sur lequel vous créez un ticket.
+
+```text
+{service_get_servicecategories service_id=$service.service_id}
+{foreach from=$service_get_servicecategories_result item=category}
+  category name: {$category.name}
+  category description: {$category.description}
+{/foreach}
+```
+
+### Exemple de corps de ticket
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+#### Categories: ######
+  {service_get_servicecategories service_id=$service.service_id}
+  {foreach from=$service_get_servicecategories_result item=category}
+    category name: {$category.name}
+    category description: {$category.description}
+  {/foreach}
+{/foreach}
+{/if}
+```
+
+### Résultat possible
+
+```text
+Host: Api-Host
+Service: Memory
+State: UNKNOWN
+Duration: 3M 1w
+Output: UNKNOWN: SNMP GET Request: Timeout
+
+#### Categories: ######
+category name: Memory-linux
+category description: category for linux memory
+category name: Memory
+category description: category for memory
+category name: P1
+category description: service with P1 severity
+```
+
+## Obtenir les groupes de services
+
+La fonction suivante va permettre d'insérer dans le corps du ticket la liste de tous les groupes de services auquel appartient le service sur lequel vous créez un ticket.
+
+```text
+{service_get_servicegroups service_id=$service.service_id}
+{foreach from=$service_get_servicegroups_result item=sg}
+  service group name: {$sg.name}
+  service group alias: {$sg.alias}
+{/foreach}
+```
+
+### Exemple de corps de ticket
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+#### Service groups: ######
+  {service_get_servicegroups service_id=$service.service_id}
+  {foreach from=$service_get_servicegroups_result item=sg}
+    service group name: {$sg.name}
+    service group alias: {$sg.alias}
+  {/foreach}
+{/foreach}
+{/if}
+```
+
+### Résultat possible
+
+```text
+Host: Api-Host
+Service: Load
+State: UNKNOWN
+Duration: 3M 1w
+Output: UNKNOWN: SNMP GET Request: Timeout
+
+#### Service groups: ######
+service group name: SG_1
+service group alias: first service group
+service group name: SG_2
+service group alias: second service group
+```
+
+## Obtenir la valeur d'une macro custom d'un hôte
+
+La fonction suivante va permettre d'ajouter la valeur d'une [custom macro](../../monitoring/basic-objects/macros.md#les-macros-personnalisées) d'un hôte au corps du ticket.
+
+```text
+{host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
+macro value: {$host_get_macro_value_in_config_result}
+{/foreach}
+```
+
+### Exemple de corps de ticket
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+### Macro : ######
+{host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
+macro value: {$host_get_macro_value_in_config_result}
+{/foreach}
+{/if}
+```
+
+### Résultat possible
+
+```text
+Host: Api-Host
+Service: Load
+State: UNKNOWN
+Duration: 3M 1w
+Output: UNKNOWN: SNMP GET Request: Timeout
+
+#### Macro: ######
+macro value: /var/lib/centreon-broker/central-rrd-master-stats.json
+```
+
+## Obtenir la valeur d'une macro custom sur les modèles d'hôtes associés à l'hôte
+
+La fonction suivante va permettre d'ajouter la valeur des [custom macros](../../monitoring/basic-objects/macros.md#les-macros-personnalisées) appartenant aux modèles d'hôte associés à l'hôte dans le corps du ticket.
+
+```text
+{host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
+  {foreach $host_get_macro_value_in_config_result item=macro}
+  macro value: {$macro}
+  {/foreach}
+{/foreach}
+```
+
+### Exemple de corps de ticket
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+### Macro : ######
+  {host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
+  {foreach $host_get_macro_value_in_config_result item=macro}
+  macro value: {$macro}
+  {/foreach}
+{/foreach}
+{/foreach}
+{/if}
+```
+
+### Résultat possible
+
+```text
+Host: Api-Host
+Service: Load
+State: UNKNOWN
+Duration: 3M 1w
+Output: UNKNOWN: SNMP GET Request: Timeout
+
+#### Macro: ######
+macro value : VALUE_FROM_TEMPLATE_A
+macro value : VALUE_FROM_TEMPLATE_B
+```

@@ -1,0 +1,36 @@
+---
+id: glossary
+title: Glossaire Open Tickets
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+## Custom lists
+
+Les "custom lists" sont des listes de valeurs possibles pour un champ de l'outil ITSM. Elles sont généralement renseignées dans les cas suivants :
+
+- Ces valeurs ne peuvent être récupérées depuis l'outil ITSM et sont donc configurées directement dans la règle Open Tickets.
+- On souhaite simplifier le module Open Tickets lorsqu'une valeur unique et/ou une paire de valeurs seulement seront utilisées (exemple: le compte utilisateur qui sera indiqué comme créateur du ticket).
+
+## Lists
+
+Les "lists" servent à définir la provenance des données qui seront mises à disposition des [**Mapping arguments**](#mapping-arguments). On retrouve trois types de données :
+
+- Celles en provenance de l'outil ITSM (par exemple une liste de catégories ITSM)
+- Celles en provenance de Centreon (par exemple des groupes d'hôtes)
+- Celles définies par l'utilisateur directement dans la [règle Open Tickets](#rule), qui sont configurées via les [**custom lists**](#custom-lists)
+
+## Mapping arguments
+
+Les "Mapping arguments" sont une liste d'informations qui seront transmises à l'outil ITSM. Ils sont composés de deux éléments.
+
+- Un "argument" qui correspond généralement à un champ de l'outil ITSM.
+- Une valeur, souvent de la forme `{$select.itsm_info.value}`. Cette information fait référence à une [**liste**](#lists).
+
+## Provider
+
+Un provider est un connecteur du module Open Tickets qui permet de gérer la communication entre Centreon et un outil ITSM.
+
+## Rule
+
+Une règle Open Ticket sert à configurer le comportement que le module Open Tickets va avoir lorsqu'il ouvre des tickets ou les ferme.

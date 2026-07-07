@@ -1,0 +1,451 @@
+---
+id: hardware-storage-emc-xtremio-restapi
+title: EMC Xtremio Rest API
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **EMC Xtremio Rest API** connector through the
+**Configuration > Monitoring Connector Manager** menu:
+* [Base Pack](./base-generic.md)
+
+## Pack assets
+
+### Templates
+
+The Monitoring Connector **EMC Xtremio Rest API** brings a host template:
+
+* **HW-Storage-EMC-Xtremio-Restapi-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<Tab value="HW-Storage-EMC-Xtremio-Restapi-custom" label="HW-Storage-EMC-Xtremio-Restapi-custom">
+
+| Service Alias  | Service Template                                     | Service Description                   |
+|:---------------|:-----------------------------------------------------|:--------------------------------------|
+| Cluster-Health | HW-Storage-EMC-Xtremio-Cluster-Health-Restapi-custom | Check cluster state                   |
+| SSDs-Endurance | HW-Storage-EMC-Xtremio-SSDs-Endurance-Restapi-custom | Check SSDs life remaining in percent  |
+| SSDs-Iops      | HW-Storage-EMC-Xtremio-SSDs-Iops-Restapi-custom      | Check Iops on SSDs disks              |
+| XenVS-CPU      | HW-Storage-EMC-Xtremio-XenVS-CPU-Restapi-custom      | Check XenVS CPU usage                 |
+| XenVS-State    | HW-Storage-EMC-Xtremio-XenVS-State-Restapi-custom    | Check XenVS State                     |
+
+> The services listed above are created automatically when the **HW-Storage-EMC-Xtremio-Restatpi-custom** host template is used.
+
+</Tab>
+</Tabs>
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+
+<Tabs groupId="sync">
+<Tab value="Cluster-Health" label="Cluster-Health">
+
+| Name                             | Unit |
+|:---------------------------------|:-----|
+| consistency-state                | N/A  |
+| shared-memory-efficiency-level   | N/A  |
+| free-ud-ssd-space-level          | N/A  |
+| vaai-tp-limit-crossing           | N/A  |
+| shared-memory-in-use-ratio-level | N/A  |
+| sys-health-state                 | N/A  |
+
+</Tab>
+<Tab value="SSDs-Endurance" label="SSDs-Endurance">
+
+| Name          | Unit |
+|:--------------|:-----|
+| ssd-endurence | %    |
+
+</Tab>
+<Tab value="SSDs-Iops" label="SSDs-Iops">
+
+| Name          | Unit  |
+|:--------------|:------|
+| total         | iops  |
+| total-read    | iops  |
+| total-write   | iops  |
+| *ssd1*#global | iops  |
+| *ssd2*#global | iops  |
+| *ssd1*#read   | iops  |
+| *ssd2*#read   | iops  |
+| *ssd1*#write  | iops  |
+| *ssd2*#write  | iops  |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</Tab>
+<Tab value="XenVS-CPU" label="XenVS-CPU">
+
+| Name      | Unit |
+|:----------|:-----|
+| cpu-usage | %    |
+
+</Tab>
+<Tab value="XenVS-State" label="XenVS-State">
+
+| Name        | Unit |
+|:------------|:-----|
+| xenv-status | N/A  |
+
+</Tab>
+</Tabs>
+
+## Prerequisites
+
+An API username and password are required to monitor EMC Xtremio via the REST API.
+
+## Installing the monitoring connector
+
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-hardware-storage-emc-xtremio-restapi
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-hardware-storage-emc-xtremio-restapi
+```
+
+</Tab>
+<Tab value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-hardware-storage-emc-xtremio-restapi
+```
+
+</Tab>
+<Tab value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-hardware-storage-emc-xtremio-restapi
+```
+
+</Tab>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **EMC Xtremio Rest API** connector through
+the **Configuration > Monitoring Connector Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Storage-Emc-Xtremio-Restapi
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Hardware-Storage-Emc-Xtremio-Restapi
+```
+
+</Tab>
+<Tab value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-hardware-storage-emc-xtremio-restapi
+```
+
+</Tab>
+<Tab value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Storage-Emc-Xtremio-Restapi
+```
+
+</Tab>
+</Tabs>
+
+## Using the monitoring connector
+
+### Using a host template provided by the connector
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Storage-EMC-Xtremio-Restatpi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro           | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| XTREMIOUSERNAME | Xtremio username                                                                                                                         |                   |     X       |
+| XTREMIOPASSWORD | Xtremio password                                                                                                                         |                   |     X       |
+| APIEXTRAOPTS    | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<Tab value="Cluster-Health" label="Cluster-Health">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</Tab>
+<Tab value="SSDs-Endurance" label="SSDs-Endurance">
+
+| Macro        | Description                                                                                                                | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER       | Filter some parts (comma separated list) You can also exclude items from specific instances: --filter=ssds,SSD-NAME-NUMBER | ssds,(?!.*)       |             |
+| CRITICAL     | Critical trigger for SSD endurance                                                                                         |                   |             |
+| WARNING      | Warning trigger for SSD endurance                                                                                          |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                         | --verbose         |             |
+
+</Tab>
+<Tab value="SSDs-Iops" label="SSDs-Iops">
+
+| Macro          | Description                                                                                         | Default value     | Mandatory   |
+|:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER         | Filter the SSD names to monitor with a regular expression. Example: --filter-name '.*' for all SSDs |                   |             |
+| CRITICALGLOBAL | Threshold                                                                                           |                   |             |
+| WARNINGGLOBAL  | Threshold                                                                                           |                   |             |
+| CRITICALREAD   | Threshold                                                                                           |                   |             |
+| WARNINGREAD    | Threshold                                                                                           |                   |             |
+| CRITICALWRITE  | Threshold                                                                                           |                   |             |
+| WARNINGWRITE   | Threshold                                                                                           |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).  | --verbose         |             |
+
+</Tab>
+<Tab value="XenVS-CPU" label="XenVS-CPU">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CRITICAL     | Value to trigger a critical alarm on CPU usage                                                     |                   |             |
+| WARNING      | Value to trigger a warning alarm on CPU usage                                                      |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</Tab>
+<Tab value="XenVS-State" label="XenVS-State">
+
+| Macro        | Description                                                                                                                  | Default value     | Mandatory   |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER       | Filter some parts (comma separated list) You can also exclude items from specific instances: --filter=device,cluster-1\_xxxx | device,(?!(.*))   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                           | --verbose         |             |
+
+</Tab>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
+
+```bash
+/usr/lib/centreon/plugins/centreon_emc_xtremio.pl \
+	--plugin storage::emc::xtremio::restapi::plugin \
+	--custommode=xtremioapi \
+	--mode=ssds-iops \
+	--hostname='10.0.0.1' \
+	--xtremio-username='xxxxx' \
+	--xtremio-password='xxxxx'  \
+	--filter-name='' \
+	--warning-read='' \
+	--critical-read='' \
+	--warning-write='' \
+	--critical-write='' \
+	--warning-global='' \
+	--critical-global='' \
+	--verbose
+```
+
+The expected command output is shown below:
+
+```bash
+OK: Total : 84736 iops Total read : 66476 iops Total write : 60811 iops All SSDs usages are ok | 'total'=84736iops;;;0; 'total-read'=66476iops;;;0; 'total-write'=60811iops;;;0; 'ssd1#global'=61190iops;;;0; 'ssd2#global'=61560iops;;;0; 'ssd1#read'=24501iops;;;0; 'ssd2#read'=68513iops;;;0; 'ssd1#write'=95000iops;;;0; 'ssd2#write'=87186iops;;;0;
+```
+
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_emc_xtremio.pl \
+	--plugin storage::emc::xtremio::restapi::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                               | Linked service template                              |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
+| cluster-health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/xtremio/restapi/mode/clusterhealth.pm)]           | HW-Storage-EMC-Xtremio-Cluster-Health-Restapi-custom |
+| dpg [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/xtremio/restapi/mode/dpg.pm)]                                | Not used in this Monitoring Connector                |
+| ssds-endurance [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/xtremio/restapi/mode/ssdendurance.pm)]            | HW-Storage-EMC-Xtremio-SSDs-Endurance-Restapi-custom |
+| ssds-iops [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/xtremio/restapi/mode/ssdiops.pm)]                      | HW-Storage-EMC-Xtremio-SSDs-Iops-Restapi-custom      |
+| storage-controllers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/xtremio/restapi/mode/storagecontrollers.pm)] | Not used in this Monitoring Connector                |
+| xenvs-cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/xtremio/restapi/mode/xenvscpu.pm)]                     | HW-Storage-EMC-Xtremio-XenVS-CPU-Restapi-custom      |
+| xenvs-state [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/xtremio/restapi/mode/xenvsstate.pm)]                 | HW-Storage-EMC-Xtremio-XenVS-State-Restapi-custom    |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --output-file                              |   Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --redis-server                             |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --redis-attribute                          |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --redis-db                                 |   Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --failback-file                            |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --memexpiration                            |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-dir                            |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --statefile-suffix                         |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-concat-cwd                     |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --hostname                                 |   Xtremio hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --xtremio-username                         |   Xtremio username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --xtremio-password                         |   Xtremio password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --timeout                                  |   Set HTTP timeout                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --reload-cache-time                        |   Time in seconds before reloading cache file (default: 180). The cache is used when XMS manages multiple clusters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<Tab value="Cluster-Health" label="Cluster-Health">
+
+| Option               | Description                                                                                                                    |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------|
+| --filter             |   Filter some parts (comma separated list) You can also exclude items from specific instances: --filter=cluster,CLUSTER-NAME   |
+| --threshold-overload |   Overload a specific threshold. Example: --threshold-overload="consistency-state,Xtremio,CRITICAL,healthy"                    |
+
+</Tab>
+<Tab value="SSDs-Endurance" label="SSDs-Endurance">
+
+| Option     | Description                                                                                                                    |
+|:-----------|:-------------------------------------------------------------------------------------------------------------------------------|
+| --filter   |   Filter some parts (comma separated list) You can also exclude items from specific instances: --filter=ssds,SSD-NAME-NUMBER   |
+| --warning  |   Warning trigger for SSD endurance                                                                                            |
+| --critical |   Critical trigger for SSD endurance                                                                                           |
+
+</Tab>
+<Tab value="SSDs-Iops" label="SSDs-Iops">
+
+| Option                   | Description                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --warning-* --critical-* |   Warning threshold (number of iops) Can be: 'total', 'total-read', 'total-write', 'global', 'read', 'write'.                 |
+| --filter-name            |   Filter the SSD names to monitor with a regular expression. Example: --filter-name '.*' for all SSDs.                        |
+
+</Tab>
+<Tab value="XenVS-CPU" label="XenVS-CPU">
+
+| Option     | Description                                                                                                                     |
+|:-----------|:--------------------------------------------------------------------------------------------------------------------------------|
+| --filter   |   Filter some parts (comma separated list) You can also exclude items from specific instances: --filter=cpu,XENVS-NAME-NUMBER   |
+| --warning  |   Value to trigger a warning alarm on CPU usage                                                                                 |
+| --critical |   Value to trigger a critical alarm on CPU usage                                                                                |
+
+</Tab>
+<Tab value="XenVS-State" label="XenVS-State">
+
+| Option               | Description                                                                                                                                                                                                                          |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter             |   Filter some parts (comma separated list) You can also exclude items from specific instances: --filter=device,cluster-1\_xxxx                                                                                                       |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='xenvs\_state,CRITICAL,^(?!(ok)$)'    |
+
+</Tab>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_emc_xtremio.pl \
+	--plugin storage::emc::xtremio::restapi::plugin \
+	--custommode xtremioapi \
+	--help
+```

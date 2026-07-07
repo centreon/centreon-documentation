@@ -1,0 +1,333 @@
+---
+id: ticketing-advanced-smarty-functions
+title: Open Tickets Smarty functions
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+Here is the list of functions available to [customize the body of the ticket](ticketing-body.md) - via the **Body list definition** field on the **Configuration > Notifications > Open Tickets > Rules** page. You can insert information about the resource concerned by the ticket. This information comes from Centreon.
+
+## Getting host groups
+
+The following function inserts into the body of the ticket a list of all hostgroups to which the host on which you're creating a ticket belongs, or to which the parent host of the service on which you're creating a ticket belongs.
+
+```text
+{host_get_hostgroups host_id=$host.host_id}
+{foreach from=$host_get_hostgroups_result item=hostgroup}
+  hostgroup_name: {$hostgroup}
+{/foreach}
+```
+
+### Example of ticket body
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+#### Hostgroups: ######
+  {host_get_hostgroups host_id=$service.host_id}
+  {foreach from=$host_get_hostgroups_result item=hostgroup}
+    hostgroup_name: {$hostgroup}
+  {/foreach}
+{/foreach}
+{/if}
+```
+
+### Possible results
+
+```text
+Host: Api-Host
+Service: Cpu
+State: UNKNOWN
+Duration: 2M 3w
+Output: UNKNOWN: SNMP Table Request: Timeout
+
+#### Hostgroups: ######
+
+hostgroup_name: MyHosts
+hostgroup_name: open-ticket-hg
+```
+
+## Getting host severities
+
+The following function will insert into the body of the ticket the severity assigned to the host on which you are creating a ticket, or assigned to the parent host of the service on which you are creating a ticket.
+
+```text
+{host_get_severity host_id=$service.host_id}
+{foreach from=$host_get_severity_result item=severity}
+  severity name: {$severity.name}
+  severity level: {$severity.level}
+{/foreach}
+```
+
+### Example of ticket body
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+#### Severity: ######
+  {host_get_hostgroups host_id=$service.host_id}
+  {foreach from=$host_get_hostgroups_result item=hostgroup}
+    hostgroup_name: {$hostgroup}
+  {/foreach}
+{/foreach}
+{/if}
+```
+
+### Possible results
+
+```text
+Host: Api-Host
+Service: proc-broker-rrd
+State: UNKNOWN
+Duration: 3w 22h
+Output: UNKNOWN: SNMP Table Request: Timeout
+
+#### Severity: ######
+severity name: P1
+severity level: 1
+```
+
+## Getting host categories
+
+The following function will insert into the body of the ticket a list of all host categories to which the host on which you are creating a ticket belongs, or to which the parent host of the service on which you are creating a ticket belongs.
+
+```text
+{host_get_hostcategories host_id=$service.host_id}
+{foreach from=$host_get_hostcategories_result item=category}
+  category name: {$category.name}
+{/foreach}
+```
+
+### Example of ticket body
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+#### Categories: ######
+  {host_get_hostcategories host_id=$service.host_id}
+  {foreach from=$host_get_hostcategories_result item=category}
+    category name: {$category.name}
+  {/foreach}
+{/foreach}
+{/if}
+```
+
+### Possible results
+
+```text
+Host: Api-Host
+Service: proc-broker-rrd
+State: UNKNOWN
+Duration: 3w 22h
+Output: UNKNOWN: SNMP Table Request: Timeout
+
+#### Severity: ######
+category name: P1
+category name: sql-category
+```
+
+## Getting service categories
+
+The following function will insert into the body of the ticket a list of all the service categories to which the service for which you are creating a ticket belongs.
+
+```text
+{service_get_servicecategories service_id=$service.service_id}
+{foreach from=$service_get_servicecategories_result item=category}
+  category name: {$category.name}
+  category description: {$category.description}
+{/foreach}
+```
+
+### Example of ticket body
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+#### Categories: ######
+  {service_get_servicecategories service_id=$service.service_id}
+  {foreach from=$service_get_servicecategories_result item=category}
+    category name: {$category.name}
+    category description: {$category.description}
+  {/foreach}
+{/foreach}
+{/if}
+```
+
+### Possible results
+
+```text
+Host: Api-Host
+Service: Memory
+State: UNKNOWN
+Duration: 3M 1w
+Output: UNKNOWN: SNMP GET Request: Timeout
+
+#### Categories: ######
+category name: Memory-linux
+category description: category for linux memory
+category name: Memory
+category description: category for memory
+category name: P1
+category description: service with P1 severity
+```
+
+## Getting service groups
+
+The following function inserts into the body of the ticket a list of all the service groups to which the service for which you are creating a ticket belongs.
+
+```text
+{service_get_servicegroups service_id=$service.service_id}
+{foreach from=$service_get_servicegroups_result item=sg}
+  service group name: {$sg.name}
+  service group alias: {$sg.alias}
+{/foreach}
+```
+
+### Example of ticket body
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+#### Service groups: ######
+  {service_get_servicegroups service_id=$service.service_id}
+  {foreach from=$service_get_servicegroups_result item=sg}
+    service group name: {$sg.name}
+    service group alias: {$sg.alias}
+  {/foreach}
+{/foreach}
+{/if}
+```
+
+### Possible results
+
+```text
+Host: Api-Host
+Service: Load
+State: UNKNOWN
+Duration: 3M 1w
+Output: UNKNOWN: SNMP GET Request: Timeout
+
+#### Service groups: ######
+service group name: SG_1
+service group alias: first service group
+service group name: SG_2
+service group alias: second service group
+```
+
+## Getting the value of a host custom macro
+
+The following function will add to the body of the ticket the value of a [custom macro](../../monitoring/basic-objects/macros.md#custom-macros) for a host.
+
+```text
+{host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
+macro value: {$host_get_macro_value_in_config_result}
+{/foreach}
+```
+
+### Example of ticket body
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+### Macro : ######
+{host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
+macro value: {$host_get_macro_value_in_config_result}
+{/foreach}
+{/if}
+```
+
+### Possible results
+
+```text
+Host: Api-Host
+Service: Load
+State: UNKNOWN
+Duration: 3M 1w
+Output: UNKNOWN: SNMP GET Request: Timeout
+
+#### Macro: ######
+macro value: /var/lib/centreon-broker/central-rrd-master-stats.json
+```
+
+## Getting the value of a custom macro defined on a host template linked to the host
+
+The following function will add to the body of the ticket the value of [custom macros](../../monitoring/basic-objects/macros.md#custom-macros) belonging to host templates linked to the host.
+
+```text
+{host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
+  {foreach $host_get_macro_value_in_config_result item=macro}
+  macro value: {$macro}
+  {/foreach}
+{/foreach}
+```
+
+### Example of ticket body
+
+```text
+{if $service_selected|@count gt 0}
+  {foreach from=$service_selected item=service}
+Host: {$service.host_name}
+Service: {$service.description}
+State: {$service.state_str}
+Duration: {$service.last_hard_state_change_duration}
+Output: {$service.output|substr:0:1024}
+
+### Macro : ######
+  {host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
+  {foreach $host_get_macro_value_in_config_result item=macro}
+  macro value: {$macro}
+  {/foreach}
+{/foreach}
+{/foreach}
+{/if}
+```
+
+### Possible results
+
+```text
+Host: Api-Host
+Service: Load
+State: UNKNOWN
+Duration: 3M 1w
+Output: UNKNOWN: SNMP GET Request: Timeout
+
+#### Macro: ######
+macro value : VALUE_FROM_TEMPLATE_A
+macro value : VALUE_FROM_TEMPLATE_B
+```

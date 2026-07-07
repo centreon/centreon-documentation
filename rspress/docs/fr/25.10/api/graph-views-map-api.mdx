@@ -1,0 +1,180 @@
+---
+id: map-api
+title: MAP API
+---
+
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+Si vous souhaitez automatiser la création ou la maintenance de cartes standard, vous pouvez utiliser l'API de Centreon MAP.
+
+> Veuillez noter que les endpoints spécifiés dans cette page ont été mis à jour suite à la dépréciation de la version bêta. Depuis la version 24.10, `beta` est remplacé par `latest` dans les chemins d'accès.
+
+## Permissions
+
+Avec cette API, vous pouvez créer / mettre à jour / supprimer des cartes standard. Pour pouvoir utiliser l'API, le compte que vous utilisez doit avoir l'un des privilèges suivants :
+
+- Un compte Centreon Admin.
+- Les droits de création de carte et de modification sur les cartes que vous souhaitez mettre à jour / supprimer.
+
+## Comment utiliser l'API de Centreon MAP
+
+> Parce que l'API de Centreon MAP n'est pas évidente à utiliser, voici un scénario pour s'authentifier, puis créer une carte et y ajouter une "shape".
+
+### S'authentifier
+
+<Tabs groupId="sync">
+<Tab value="HTTP" label="HTTP">
+
+```
+POST : http://serverURL:8081/centreon-map/api/latest/auth/sign-in
+```
+
+</Tab>
+
+<Tab value="HTTPS" label="HTTPS">
+
+```
+POST : https://serverURL:9443/centreon-map/api/latest/auth/sign-in
+```
+
+</Tab>
+</Tabs>
+
+```
+Headers {
+    Content-Type = application/json
+    X-Client-Version = 25.10.0
+}
+
+Body {
+    "login" : "admin"
+    "password" : "denied"
+}
+```
+
+- Dans le résultat, récupérez le **jwtToken**. Vous devrez l'utiliser pour tous vos appels à l'API. Les headers ressembleront à ceci :
+
+```
+Headers {
+    Content-Type = application/json
+    X-client-version = 25.10.0
+    Authorization = Bearer \{jwtToken\}
+}
+```
+
+### Créer une carte
+
+<Tabs groupId="sync">
+<Tab value="HTTP" label="HTTP">
+
+```
+POST http://serverURL:8081/centreon-map/api/latest/maps
+```
+
+</Tab>
+
+<Tab value="HTTPS" label="HTTPS">
+
+```
+POST https://serverURL:9443/centreon-map/api/latest/maps
+```
+
+</Tab>
+</Tabs>
+
+```
+Headers {
+    Content-Type = application/json
+    X-client-version =  25.10.0
+    Authorization = Bearer \{jwtToken\}
+}
+
+Body {
+      "name": "My new map created from API"
+   }
+```
+
+- Récupérez les identifiants de la carte (mapId) et de la vue (viewId) renvoyés.
+
+### Ouvrir la carte
+
+<Tabs groupId="sync">
+<Tab value="HTTP" label="HTTP">
+
+```
+GET http://serverURL:8081/centreon-map/api/latest/maps/_mapId_/views/_viewId_
+```
+
+</Tab>
+
+<Tab value="HTTPS" label="HTTPS">
+
+```
+GET https://serverURL:9443/centreon-map/api/latest/maps/_mapId_/views/_viewId_
+```
+
+</Tab>
+</Tabs>
+
+### Créer et attacher un élément "shape" à la carte ouverte
+
+Dans ce scénario, l'élément "shape" est un rectangle.
+
+<Tabs groupId="sync">
+<Tab value="HTTP" label="HTTP">
+
+```
+PUT http://serverURL:8081/centreon-map/api/latest/maps/_mapId_/views
+```
+
+</Tab>
+
+<Tab value="HTTPS" label="HTTPS">
+
+```
+PUT https://serverURL:9443/centreon-map/api/latest/maps/_mapId_/views
+```
+
+</Tab>
+</Tabs>
+
+```
+Body: {
+ "id": \{viewId\},
+ "shapes": [
+     {
+        "type": "RECTANGLE",
+        "graphics": {
+             "label": "FR - Rectangle",
+             "x": 120,
+             "y": 120,
+             "width": 130,
+             "height": 53,
+             "color": "#0096FF",
+             "thickness": 1,
+             "borderColor": "#F0F0F0",
+             "line": "SOLID"
+         }
+      }
+   ]
+}
+```
+
+### Avec une authentification déléguée
+
+Un utilisateur peut utiliser les APIs de MAP en utilisant un jeton Centreon, comme ci-dessous dans le header :
+
+```
+Headers {
+    Content-Type = application/json
+    X-client-version =  25.10.0
+    Authorization = Bearer \{jwtToken\}
+}
+```
+
+Remplacer ``Authorization = Bearer \{jwtToken\}`` par ``X-AUTH-TOKEN = your-centreon-token``. Assurez-vous que le jeton n'est pas révoqué ou expiré.
+
+## Pour plus d'informations
+
+> Suivez ce [lien](https://docs-api.centreon.com/api/centreon-map/25.10/) pour accéder à la documentation de l'API Centreon et avoir un aperçu des fonctionnalités de l'API.

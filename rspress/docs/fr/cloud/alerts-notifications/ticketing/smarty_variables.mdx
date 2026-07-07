@@ -1,0 +1,230 @@
+---
+id: ticketing-advanced-smarty-variables
+title: Variables Smarty Open Tickets
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+Voici la liste des variables disponibles pour [personnaliser le corps des tickets](ticketing-body.md), via le champ **Body list definition** à la page **Configuration > Notifications > Open Tickets > Rules**. Vous pouvez y insérer des informations relatives à la ressource concernée par le ticket, ou à l'utilisateur créant le ticket. Ces informations sont issues de Centreon.
+
+## Variables communes
+
+Les variables communes peuvent être utilisées pour l'ouverture de tous types de tickets (sur des hôtes ou sur des services). Utilisez la variable directement dans le champ **Body list definition**.
+
+| Nom de la variable | Description | Exemple de contenu |
+| -- | -- | -- |
+| $custom_message | Insère dans le ticket le message saisi par l'utilisateur dans la popup d'ouverture de ticket | |
+| $user.name | Insère dans le ticket le nom de l'utilisateur ouvrant le ticket | t.rex |
+| $user.alias | Insère dans le ticket l'alias (login) de l'utilisateur ouvrant le ticket | trex |
+| $user.email | Insère dans le ticket l'adresse email de l'utilisateur ouvrant le ticket | `t.rex@jurassic.park` |
+
+## Ticket sur des hôtes
+
+L'ouverture d'un ticket sur des hôtes génère un tableau de valeurs. C'est pourquoi il faut utiliser une boucle **foreach** Smarty pour accéder aux valeurs (comme dans le [corps du ticket fourni par défaut](ticketing-body.md)). Entourez les variables désirées par la boucle suivante :
+
+```text
+{foreach from=$host_selected item=host}
+{/foreach}
+```
+
+| Nom de la variable | Exemple de contenu |
+| -- | -- |
+| $host.host_id | 17 |
+| $host.name | "Api-Host" |
+| $host.instance_id | 1 |
+| $host.acknowledged | 0 |
+| $host.acknowledgement_type | 0 |
+| $host.action_url | "" |
+| $host.active_checks | 1 |
+| $host.address | "127.0.0.1" |
+| $host.alias | "Api-Host" |
+| $host.check_attempt | 1 |
+| $host.check_command | "base_host_alive" |
+| $host.check_freshness | 0 |
+| $host.check_interval | 5 |
+| $host.check_period | "24x7" |
+| $host.check_type | 0 |
+| $host.checked | 1 |
+| $host.command_line | "/usr/lib64/nagios/plugins/check_icmp -H 127.0.0.1 -w 3000.0,80% -c 5000.0,100..." |
+| $host.default_active_checks | 1 |
+| $host.default_event_handler_enabled | 1 |
+| $host.default_failure_prediction | null |
+| $host.default_flap_detection | 1 |
+| $host.default_notify | 1 |
+| $host.default_passive_checks | 0 |
+| $host.default_process_perfdata | null |
+| $host.display_name | "Api-Host" |
+| $host.enabled | 1 |
+| $host.event_handler | "" |
+| $host.event_handler_enabled | 1 |
+| $host.execution_time | 0.093993 |
+| $host.failure_prediction | null |
+| $host.first_notification_delay | 0 |
+| $host.flap_detection | 1 |
+| $host.flap_detection_on_down | 1 |
+| $host.flap_detection_on_unreachable | 1 |
+| $host.flap_detection_on_up | 1 |
+| $host.flapping | 0 |
+| $host.freshness_threshold | 0 |
+| $host.high_flap_threshold | 0 |
+| $host.icon_image | "ppm/operatingsystems-linux-snmp-linux-128.png" |
+| $host.icon_image_alt | "" |
+| $host.last_check | 1738599249 |
+| $host.last_hard_state | 0 |
+| $host.last_hard_state_change | 1731601141 |
+| $host.last_notification | null |
+| $host.last_state_change | 1731601141 |
+| $host.last_time_down | null |
+| $host.last_time_unreachable | null |
+| $host.last_time_up | 1738599251 |
+| $host.last_update | 1735050379 |
+| $host.latency | 0.362 |
+| $host.low_flap_threshold | 0 |
+| $host.max_check_attempts | 3 |
+| $host.modified_attributes | null |
+| $host.next_check | 1738599549 |
+| $host.next_host_notification | null |
+| $host.no_more_notifications | 0 |
+| $host.notes | "" |
+| $host.notes_url | "" |
+| $host.notification_interval | 0 |
+| $host.notification_number | 0 |
+| $host.notification_period | "" |
+| $host.notify | 1 |
+| $host.notify_on_down | 1 |
+| $host.notify_on_downtime | 1 |
+| $host.notify_on_flapping | 1 |
+| $host.notify_on_recovery | 1 |
+| $host.notify_on_unreachable | 1 |
+| $host.obsess_over_host | 1 |
+| $host.output | "OK - 127.0.0.1 rta 0,077ms lost 0%\n" |
+| $host.passive_checks | 0 |
+| $host.percent_state_change | 0 |
+| $host.perfdata | "rta=0,077ms;3000,000;5000,000;0; pl=0%;80;100;0;100 rtmax=0,077ms;;;; rtmin=0..." |
+| $host.process_perfdata | null |
+| $host.retain_nonstatus_information | 1 |
+| $host.retain_status_information | 1 |
+| $host.retry_interval | 1 |
+| $host.scheduled_downtime_depth | 0 |
+| $host.should_be_scheduled | 1 |
+| $host.stalk_on_down | 0 |
+| $host.stalk_on_unreachable | 0 |
+| $host.stalk_on_up | 0 |
+| $host.state | 0 |
+| $host.state_type | 1 |
+| $host.statusmap_image | "" |
+| $host.timezone | "" |
+| $host.real_state | null |
+| $host.host_state | 0 |
+| $host.state_str | "UP" |
+| $host.last_state_change_duration | "2M 2w" |
+| $host.last_hard_state_change_duration | "2M 2w" |
+
+## Ticket sur des services
+
+L'ouverture d'un ticket sur des services génère un tableau de valeurs. C'est pourquoi il faut utiliser une boucle **foreach** Smarty pour accéder aux valeurs (comme dans le [corps du ticket fourni par défaut](ticketing-body.md)). Entourez les variables désirées par la boucle suivante :
+
+```text
+{foreach from=$service_selected item=service}
+{/foreach}
+```
+
+| Nom de la variable | Exemple de contenu |
+| -- | -- |
+| $service.host_id |  17 |
+| $service.description |  "Cpu" |
+| $service.service_id |  124 |
+| $service.acknowledged |  0 |
+| $service.acknowledgement_type |  0 |
+| $service.action_url |  "" |
+| $service.active_checks |  1 |
+| $service.check_attempt |  3 |
+| $service.check_command |  "OS-Linux-SNMP-Cpu" |
+| $service.check_freshness |  0 |
+| $service.check_interval |  5 |
+| $service.check_period |  "24x7" |
+| $service.check_type |  0 |
+| $service.checked |  1 |
+| $service.command_line |  "/usr/lib/centreon/plugins//centreon_linux_snmp.pl --plugin=os::linux::snmp::p..." |
+| $service.default_active_checks |  1 |
+| $service.default_event_handler_enabled |  1 |
+| $service.default_failure_prediction |  null |
+| $service.default_flap_detection |  1 |
+| $service.default_notify |  1 |
+| $service.default_passive_checks |  0 |
+| $service.default_process_perfdata |  null |
+| $service.display_name |  "Cpu" |
+| $service.enabled |  1 |
+| $service.event_handler |  "" |
+| $service.event_handler_enabled |  1 |
+| $service.execution_time |  6.185488 |
+| $service.failure_prediction |  null |
+| $service.failure_prediction_options |  null |
+| $service.first_notification_delay |  0 |
+| $service.flap_detection |  1 |
+| $service.flap_detection_on_critical |  1 |
+| $service.flap_detection_on_ok |  1 |
+| $service.flap_detection_on_unknown |  1 |
+| $service.flap_detection_on_warning |  1 |
+| $service.flapping |  0 |
+| $service.freshness_threshold |  0 |
+| $service.high_flap_threshold |  0 |
+| $service.icon_image |  "" |
+| $service.icon_image_alt |  "" |
+| $service.last_check |  1738662813 |
+| $service.last_hard_state |  3 |
+| $service.last_hard_state_change |  1731601229 |
+| $service.last_notification |  null |
+| $service.last_state_change |  1731601229 |
+| $service.last_time_critical |  null |
+| $service.last_time_ok |  null |
+| $service.last_time_unknown |  1738662813 |
+| $service.last_time_warning |  null |
+| $service.last_update |  1738662213 |
+| $service.latency |  0.238 |
+| $service.low_flap_threshold |  0 |
+| $service.max_check_attempts |  3 |
+| $service.modified_attributes |  null |
+| $service.next_check |  1738663113 |
+| $service.next_notification |  null |
+| $service.no_more_notifications |  0 |
+| $service.notes |  "" |
+| $service.notes_url |  "" |
+| $service.notification_interval |  0 |
+| $service.notification_number |  17723 |
+| $service.notification_period |  "" |
+| $service.notify |  1 |
+| $service.notify_on_critical |  1 |
+| $service.notify_on_downtime |  1 |
+| $service.notify_on_flapping |  1 |
+| $service.notify_on_recovery |  1 |
+| $service.notify_on_unknown |  1 |
+| $service.notify_on_warning |  1 |
+| $service.obsess_over_service |  1 |
+| $service.output |  "UNKNOWN: SNMP Table Request: Timeout\n" |
+| $service.passive_checks |  0 |
+| $service.percent_state_change |  0 |
+| $service.perfdata |  "" |
+| $service.process_perfdata |  null |
+| $service.retain_nonstatus_information |  1 |
+| $service.retain_status_information |  1 |
+| $service.retry_interval |  1 |
+| $service.scheduled_downtime_depth |  0 |
+| $service.should_be_scheduled |  1 |
+| $service.stalk_on_critical |  0 |
+| $service.stalk_on_ok |  0 |
+| $service.stalk_on_unknown |  0 |
+| $service.stalk_on_warning |  0 |
+| $service.state |  3 |
+| $service.state_type |  1 |
+| $service.volatile |  0 |
+| $service.real_state |  null |
+| $service.address |  "127.0.0.1" |
+| $service.host_state |  0 |
+| $service.host_name |  "Api-Host" |
+| $service.instance_id |  1 |
+| $service.service_state |  3 |
+| $service.state_str |  "UNKNOWN" |
+| $service.last_state_change_duration |  "2M 2w" |
+| $service.last_hard_state_change_duration |  "2M 2w" |
+| $service.num_metrics |  0 |

@@ -1,0 +1,95 @@
+/**
+ * Global Centreon branding for the Rspress documentation.
+ * Mirrors the look & feel of the production Docusaurus site (docs.centreon.com):
+ * brand colors, typography (Red Hat Display + Esphimere) and a few component tweaks.
+ */
+
+/* ---- Fonts ---------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap');
+
+@font-face {
+  font-family: 'Esphimere';
+  src: url('./fonts/esphimere/Esphimere_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Esphimere';
+  src: url('./fonts/esphimere/Esphimere_Semi_Bold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Brand palette (light) ------------------------------------------------ */
+:root {
+  /* Centreon blue */
+  --rp-c-brand: #2213e2;
+  --rp-c-brand-dark: #1d10c0;
+  --rp-c-brand-darker: #180d9e;
+  --rp-c-brand-light: #3021ec;
+  --rp-c-brand-lighter: #5a4ef0;
+  --rp-c-brand-tint: rgba(34, 19, 226, 0.08);
+
+  /* Typography */
+  --rp-font-family-base: 'Red Hat Display', ui-sans-serif, system-ui, sans-serif;
+
+  /* Rounding to match Docusaurus (--ifm-global-radius: 5px) */
+  --rp-radius-large: 8px;
+}
+
+/* Taller navbar like docs.centreon.com (--ifm-navbar-height: 96px).
+   Uses html:root to outrank a component-level `:root` default rspress sets
+   later in the bundle. */
+html:root {
+  --rp-nav-height: 96px;
+}
+
+/* ---- Brand palette (dark) ------------------------------------------------- */
+.dark {
+  /* Centreon green is the accent in dark mode, navy is the background */
+  --rp-c-brand: #37d6ae;
+  --rp-c-brand-dark: #27be98;
+  --rp-c-brand-darker: #209c7d;
+  --rp-c-brand-light: #4ddbb7;
+  --rp-c-brand-lighter: #7ae4c9;
+  --rp-c-brand-tint: rgba(55, 214, 174, 0.12);
+
+  --rp-c-bg: #00003d;
+  --rp-c-bg-soft: #0a0a4d;
+  --rp-c-bg-mute: #120950;
+  --rp-c-bg-alt: #00002b;
+}
+
+/* ---- Typography ----------------------------------------------------------- */
+body {
+  font-family: var(--rp-font-family-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.rspress-doc h1,
+.rspress-doc h2,
+.rspress-doc h3 {
+  font-family: 'Esphimere', var(--rp-font-family-base);
+  letter-spacing: 0.01em;
+}
+
+/* ---- Blockquotes (match Docusaurus tinted callout) ------------------------ */
+.rspress-doc blockquote {
+  border-left: 8px solid var(--rp-c-brand);
+  background-color: var(--rp-c-brand-tint);
+  border-radius: 5px;
+  padding: 16px 32px;
+}
+
+/* ---- Inline code ---------------------------------------------------------- */
+.rspress-doc :not(pre) > code {
+  background-color: var(--rp-c-brand-tint);
+}

@@ -1,0 +1,133 @@
+---
+id: update
+title: Update the extension
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+Centreon MBI is updated in two steps:
+
+- Updating the extension interface
+- Updating the reporting server
+
+## Update the extension interface
+
+> Please ensure that the ETL process has been completed before updating the extension.
+
+1. Update the package, run the following commands:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf clean all
+dnf update centreon-bi-server
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf clean all
+dnf update centreon-bi-server
+```
+
+</Tab>
+<Tab value="Debian 12" label="Debian 12">
+
+```shell
+apt clean
+apt --only-upgrade install centreon-bi\*
+```
+
+</Tab>
+</Tabs>
+
+2. Update through the interface: Log on to the Centreon web interface, go to
+the **Administration > Extension > Manager** page and click the
+Update button to update the extension and the widgets.
+
+## Update the reporting server
+
+Connect to your reporting server and stop the scheduler service **CBIS**:
+
+```shell
+systemctl stop cbis
+```
+
+Then stop **gorgoned**:
+
+```shell
+systemctl stop gorgoned
+```
+
+Then run the following commands: :
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf clean all
+dnf update centreon-bi\*
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf clean all
+dnf update centreon-bi\*
+```
+
+</Tab>
+<Tab value="Debian 12" label="Debian 12">
+
+```shell
+apt clean
+apt --only-upgrade install centreon-bi\*
+```
+
+</Tab>
+</Tabs>
+
+You also need to update Centreon Gorgone:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-gorgone\*
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-gorgone\*
+```
+
+</Tab>
+<Tab value="Debian 12" label="Debian 12">
+
+```shell
+apt --only-upgrade install centreon-gorgone\*
+```
+
+</Tab>
+</Tabs>
+
+Start the scheduler service **CBIS**:
+
+```shell
+systemctl start cbis
+```
+
+Then start **gorgoned**:
+
+```shell
+systemctl start gorgoned
+```
+
+MBI is now updated.
+
+> Follow this procedure if [you get an error due to a column update issue](../resources/known-issues.md#you-get-some-errors-during-daily-import-and-statistic-calculation) in the database.

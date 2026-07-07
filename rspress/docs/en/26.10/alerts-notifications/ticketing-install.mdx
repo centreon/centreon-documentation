@@ -1,0 +1,67 @@
+---
+id: ticketing-install
+title: Installing Open Tickets
+---
+
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+**Centreon Open Tickets** is a community module developed to create
+tickets to an ITSM platform using APIs.
+
+Once a provider is configured, the module allows for an operator to
+create tickets for hosts and services in a non-ok state using a
+dedicated widget. A button associated with each host or service
+allows you to connect to the API and create the ticket while offering
+the possibility to acknowledge the object at the same time.
+
+Regarding the widget configuration, it is possible to see the created
+tickets by giving the ID and creation date of the tickets.
+
+## Installing packages
+
+Execute the following command:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-open-tickets
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-open-tickets
+```
+
+</Tab>
+<Tab value="Debian 12" label="Debian 12">
+
+```shell
+apt install centreon-open-tickets
+```
+
+</Tab>
+</Tabs>
+
+## UI installation
+
+After installing the rpm, you must complete the installation of the module
+through the web frontend. Go to the **Administration > Extensions > Manager**
+menu and search **Open Tickets**. Click **Install selection**:
+
+![image](../assets/alerts/open_tickets_install_01.png)
+
+Your Centreon Open Tickets Module is now installed.
+
+![image](../assets/alerts/open_tickets_install_02.png)
+
+## Creating a backup of your custom Open Ticket provider configurations
+
+If you need to [update](../update/update-centreon-platform.md) or [upgrade](../upgrade/introduction.md) Centreon, first backup your custom Open Ticket provider configurations so as not to lose them.
+
+* Make a backup of these folders: **/usr/share/centreon/www/modules/centreon-open-tickets** and **/usr/share/centreon/www/widgets/open-tickets**.
+* After updating, copy and paste the backup **register.php** file(s) to **/usr/share/centreon/www/modules/centreon-open-tickets/providers/**.
+
