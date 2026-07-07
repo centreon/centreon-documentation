@@ -58,9 +58,12 @@ Le champ **Modèles de période temporelle** vous permet de réutiliser des pér
 
 ### Onglet Période d'exception
 
-L'onglet **Période d'exception** permet d’inclure ou d'exclure des jours exceptionnels. Les plages définies ici surchargent la définition du fonctionnement régulier de la journée.
+L'onglet **Période d'exception** permet d’inclure ou d'exclure des jours exceptionnels.
+Les plages définies ici écrasent la définition du fonctionnement régulier des jours établi dans l'onglet **Informations générales** pour faire l'opposé.
+Par exemple, si votre période temporelle inclut les lundis, ajouter un lundi dans l'onglet d'exception aura pour effet d'exclure ce lundi.
+Cependant, si votre période temporelle n'inclut pas les lundis, ajouter un lundi dans l'onglet d'exception aura pour effet d'inclure ce lundi.
 
-Exemple : Un administrateur souhaite définir une période temporelle qui regroupe les heures de fermeture du bureau, c’est à dire :
+Cas d'usage : Un administrateur souhaite définir une période temporelle qui regroupe les heures de fermeture du bureau, c’est à dire :
 
 * De 18h00 à 07h59 les jours de semaine
 * 24 heures sur 24 les weekends

@@ -58,9 +58,12 @@ The timeperiod templates field allows you to reuse timeperiods previously create
 
 ### Time Range Exceptions tab
 
-The **Time Range Exceptions** tab allows you to include exceptional days in the time period. The periods you define here override the definition of regular days defined in **Basic Settings**.
+The **Time Range Exceptions** tab allows you to include or exclude exceptional days in the time period.
+The periods you define here overrides the definition of regular days defined in **Basic Settings** to do the opposite. 
+For example if your time period includes mondays, adding a monday in the exception tab will cause that monday to be excluded.
+However, if your time period doesn't include mondays, adding a monday in the exception tab will cause that monday to be included.
 
-Example: An administrator wants to define a time period which covers the times when the offices are closed, i.e.:
+Use case: An administrator wants to define a time period which covers the times when the offices are closed, i.e.:
 
 * From 6 PM to 7:59 AM on weekdays
 * Around the clock on weekends
