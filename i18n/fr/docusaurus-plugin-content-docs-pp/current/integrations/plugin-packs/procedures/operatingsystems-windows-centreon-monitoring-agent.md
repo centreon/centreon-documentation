@@ -634,7 +634,7 @@ CRITICAL= 0
 | WARNINGSTATUS  | Filter to apply on processes to identify those in WARNING state  | `status != 'started'`                 |             |
 | CRITICALSTATUS | Filter to apply on processes to identify those in CRITICAL state |                                       |             |
 | WARNINGRULES   | Condition to match for the overall status to be WARNING          | `warn_count > 0`                      |             |
-| CRITICALRULES  | Condition to match for the overall status to be CRITICAL         | `crit_count > 0`                      |             |
+| CRITICALRULES  | Condition to match for the overall status to be CRITICAL         | `ok_count <1                      |             |
 | EMPTYSTATE     | Message to display when no process is found                      | `No files found matching this filter` |             |
 | OUTPUTSYNTAX   | Format of the output when the status is not OK                   | `{status}: {problem_list}`            |             |
 | OKSYNTAX       | Format of the output when the status is OK                       | `{status}: All processes are ok`      |             |
