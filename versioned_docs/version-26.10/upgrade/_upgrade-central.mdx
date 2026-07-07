@@ -2,17 +2,23 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
+## Upgrade the Centreon Central server
+
+> When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
+
+> If you installed MariaDB from their official repositories, you may run into a conflict issue. Read our [dedicated procedure](../resources/known-issues.md#you-have-a-conflict-between-packages-mysql-common-and-mariadb-common) for a workaround.
+
 ### Step 1: Install the new repositories
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-1. Update your Centreon {props.centreonVersion} to the latest minor version.
+1. Update your Centreon {props.oldCentreonVersion} to the latest minor version.
 
 2. Remove the repository files:
 
    <CodeBlock language="shell">
-   {`rm /etc/yum.repos.d/centreon-${props.centreonVersion}.repo\nrm /etc/yum.repos.d/centreon.repo`}
+   {`rm /etc/yum.repos.d/centreon-${props.oldCentreonVersion}.repo\nrm /etc/yum.repos.d/centreon.repo`}
    </CodeBlock>
 
 3. Install the new repository:
@@ -31,12 +37,12 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/e
 
 1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
 
-2. If you have installed Business extensions, delete the configuration of the {props.centreonVersion} repository:
+2. If you have installed Business extensions, delete the configuration of the {props.oldCentreonVersion} repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-<CodeBlock language="shell">{`rm /etc/yum.repos.d/centreon-business-${props.centreonVersion}.repo`}</CodeBlock>
+<CodeBlock language="shell">{`rm /etc/yum.repos.d/centreon-business-${props.oldCentreonVersion}.repo`}</CodeBlock>
 
 </TabItem>
 </Tabs>
@@ -64,7 +70,7 @@ Centreon 26.10 uses PHP in version 8.4.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-You need to change the PHP stream from version {props.phpVersion} to 8.4 by executing the following commands and answering **y**
+You need to change the PHP stream from version {props.oldPhpVersion} to 8.4 by executing the following commands and answering **y**
 to confirm:
 
 ```shell

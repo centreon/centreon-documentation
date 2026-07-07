@@ -1,7 +1,43 @@
-This chapter describes how to upgrade your Centreon platform from version {props.type} to version 26.10.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+This chapter describes how to upgrade your Centreon platform from version {props.oldCentreonVersion} to version 26.10.
 
 Upgrading is only possible if your current OS is RHEL/Oracle/AlmaLinux 9. Other OSs are no longer supported: use a [migration procedure](../migrate/introduction.md) to switch to a supported OS. If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
 * When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
 * All servers in your architecture must have the same version of Centreon.
 * In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
+
+## Components other than Centreon that need upgrading
+
+| Component | Version in {props.oldCentreonVersion} | Version in 26.10 |
+| --- | --- | --- |
+| PHP | {props.oldPhpVersion} | 8.4 |
+| Database | <ul><li>{props.oldMariadbVersion}</li><li>{props.oldMysqlVersion}</li></ul> | <ul><li>MariaDB 11.8</li><li>MySQL 8.4</li></ul> |
+
+## Prerequisites
+
+### Perform a backup
+
+Be sure that you have fully backed up your environment for the following
+servers:
+
+- Central server
+- Database server
+
+### Check the repositories
+
+Before upgrading your Centreon platform, make sure the following package repositories are enabled:
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+</Tabs>
