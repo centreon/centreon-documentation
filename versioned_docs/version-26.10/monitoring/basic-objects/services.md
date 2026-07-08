@@ -42,7 +42,7 @@ can be used to hide the value of the macro.
   the service. When the status is validated, the notification process is engaged
 * The **Normal Check Interval** field is expressed in minutes. It defines the interval between checks when the service status is OK.
 * The **Retry Check Interval** field is expressed in minutes. It defines the confirmation interval for the Not-OK service status
-* The **Active Checks Enabled** and **Passive Checks Enabled** fields enable / disable the type of check on the service.
+* The **Active Checks Enabled** and **Passive Checks Enabled** fields enable / disable the type of check on the service. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md) are information the monitored resource sends to the monitoring engine without it having been actively requested. Active checks are information the monitoring engine actively requested from the monitored resource.
 * The **Is Volatile** field indicates if the service is volatile or not (normally only passive services are volatile).
 
 ### Notifications tab
