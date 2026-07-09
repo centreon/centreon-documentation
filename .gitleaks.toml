@@ -20,5 +20,6 @@ regexTarget = "match"
 regexes = [
   '''ABCDEFG1234567890''',
   '''deactivation/expiration/revocation''',
-  '''78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216''' # token example
+  '''78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216''', # token example,
+  '''hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S''' # example token generated at centreon login
 ]
