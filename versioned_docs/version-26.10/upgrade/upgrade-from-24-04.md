@@ -9,7 +9,7 @@ import UpgradeCentral from './_upgrade-central.mdx'
 import UpgradeRemotes from './_upgrade-remotes.mdx'
 import UpgradePollers from './_upgrade-pollers.mdx'
 
-<Intro oldCentreonVersion="24.04" oldMariadbVersion="10.11.x" oldPhpVersion="8.1" oldMysqlVersion="MySQL 8.0 or 8.4"/>
+<Intro oldCentreonVersion="24.04" oldMariadbVersion="10.11.x" oldPhpVersion="8.1" oldMysqlVersion="MySQL 8.0 or 8.4" showVmwareWarning={true} showMapLegacyWarning={true}/>
 
 <UpgradeCentral oldCentreonVersion="24.04" oldMariadbVersion="10.11.x" oldPhpVersion="8.1" oldMysqlVersion="MySQL 8.0 or 8.4" />
 
