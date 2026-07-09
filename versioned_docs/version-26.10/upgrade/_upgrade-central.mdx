@@ -245,46 +245,15 @@ page:
 </TabItem>
 <TabItem value="Using a dedicated API endpoint" label="Using a dedicated API endpoint">
 
-1. Log on to the central server through your terminal to continue the update process.
+1. Go to **Administration > Authentication tokens**, then click **Add**.
 
-  > You need an authentication token to reach the API endpoint. Perform the following procedure to get a token.
+3. Copy the token to use it in the next request. Store it carefully, as it will not be displayed twice.
 
-  In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
-   - address: 10.25.XX.XX
-   -  port: 80
-   -  version: 26.10
-   -  login: Admin
-   -  password: xxxxx
-
-2. Enter the following request:
-
-  ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v26.10/login' \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --data '{
-    "security": {
-      "credentials": {
-        "login": "Admin",
-        "password": "xxxxx"
-      }
-    }
-  }'
-  ```
-
-  This is how the result should look:
-
-    ```shell
-    {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
-    ```
-
-3. Retrieve the token number to use it in the next request.
-
-4. Then enter this request:
+4. In your terminal, enter this request, using the correct IP address for your platform, and replacing **mytoken** with your actual token:
 
   ```shell
   curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
-  --header 'X-AUTH-TOKEN: hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S' \
+  --header 'X-AUTH-TOKEN: mytoken' \
   --header 'Content-Type: application/json' \
   --data '{
       "components": [
@@ -300,26 +269,26 @@ page:
 </TabItem>
 </Tabs>
 
-Finally, restart Broker, Engine and Gorgone on the central server by running this command:
+6. Finally, restart Broker, Engine and Gorgone on the central server by running this command:
 
-  ```shell
-  systemctl restart cbd centengine gorgoned
-  ```
+   ```shell
+   systemctl restart cbd centengine gorgoned
+   ```
 
-Update the permissions on the centreon-broker configuration files.
+7. Update the permissions on the centreon-broker configuration files.
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   <Tabs groupId="sync">
+   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-```shell
-usermod -a -G centreon-broker apache
-usermod -a -G apache centreon-broker
-```
+   ```shell
+   usermod -a -G centreon-broker apache
+   usermod -a -G apache centreon-broker
+   ```
 
-</TabItem>
-</Tabs>
+   </TabItem>
+   </Tabs>
 
-Refer to the [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
+8. Refer to the [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
 ### Step 7: Post-upgrade actions
 
