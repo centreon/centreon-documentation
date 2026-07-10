@@ -1,4 +1,4 @@
-﻿---
+---
 id: collector-simple
 title: Simple collector configurations
 ---

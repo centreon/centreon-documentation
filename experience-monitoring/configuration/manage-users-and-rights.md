@@ -1,4 +1,4 @@
-﻿---
+---
 id: manage-users-and-rights
 title: Manage users and their rights
 ---

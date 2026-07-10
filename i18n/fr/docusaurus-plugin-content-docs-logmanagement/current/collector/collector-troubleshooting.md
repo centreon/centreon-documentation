@@ -1,4 +1,4 @@
-﻿---
+---
 id: collector-troubleshooting
 title: Dépanner votre installation
 ---

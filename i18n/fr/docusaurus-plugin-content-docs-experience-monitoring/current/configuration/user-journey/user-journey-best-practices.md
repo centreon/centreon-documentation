@@ -1,4 +1,4 @@
-﻿---
+---
 id: user-journey-best-practices
 title: Bonnes pratiques des Parcours Utilisateurs
 --- 

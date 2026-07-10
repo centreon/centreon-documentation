@@ -1,4 +1,4 @@
-﻿---
+---
 id: user-journey-best-practices
 title: User Journey Best Practices
 --- 

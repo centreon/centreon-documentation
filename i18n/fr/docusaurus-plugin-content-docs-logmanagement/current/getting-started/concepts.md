@@ -1,4 +1,4 @@
-﻿---
+---
 id: concepts
 title: Bases de Centreon Log Management
 ---

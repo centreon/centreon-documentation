@@ -1,4 +1,4 @@
-﻿---
+---
 id: install-system-agents
 title: Installer l'agent sur un serveur statique
 --- 

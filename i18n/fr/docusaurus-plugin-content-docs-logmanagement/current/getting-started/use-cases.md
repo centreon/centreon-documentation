@@ -1,4 +1,4 @@
-﻿---
+---
 id: use-cases
 title: Cas d'usage
 ---

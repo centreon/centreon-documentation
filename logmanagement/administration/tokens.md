@@ -1,4 +1,4 @@
-﻿---
+---
 id: tokens
 title: Managing authentication tokens
 ---

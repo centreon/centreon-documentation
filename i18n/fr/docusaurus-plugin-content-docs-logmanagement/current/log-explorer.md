@@ -1,4 +1,4 @@
-﻿---
+---
 id: log-explorer
 title: Utiliser log explorer
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 id: cloud-configuration-of-agents
 title: Installer l'agent dans un environnement en autoscaling
 --- 

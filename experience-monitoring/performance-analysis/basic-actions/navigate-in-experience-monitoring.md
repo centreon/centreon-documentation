@@ -1,4 +1,4 @@
-﻿---
+---
 id: navigate-in-experience-monitoring
 title: Navigating in Experience Monitoring
 ---

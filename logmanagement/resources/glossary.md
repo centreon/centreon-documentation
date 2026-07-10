@@ -1,4 +1,4 @@
-﻿---
+---
 id: glossary
 title: Glossary of Centreon Log Management terms
 ---

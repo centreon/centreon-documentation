@@ -1,4 +1,4 @@
-﻿---
+---
 id: synthetic-monitoring
 title: User Journeys
 ---

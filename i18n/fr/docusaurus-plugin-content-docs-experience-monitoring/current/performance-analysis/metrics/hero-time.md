@@ -1,4 +1,4 @@
-﻿---
+---
 id: hero-time
 title: Hero Time
 --- 

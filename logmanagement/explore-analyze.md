@@ -1,4 +1,4 @@
-﻿---
+---
 id: explore-analyze
 title: Exploring and analyzing logs
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 id: overview-of-metrics
 title: Vue d'ensemble des métriques
 --- 

@@ -1,4 +1,4 @@
-﻿---
+---
 id: load-tests
 title: Les tests de montée en charge
 --- 

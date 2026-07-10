@@ -1,4 +1,4 @@
-﻿---
+---
 id: tokens
 title: Gérer les jetons d'authentification
 ---

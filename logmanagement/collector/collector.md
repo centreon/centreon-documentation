@@ -1,4 +1,4 @@
-﻿---
+---
 id: collector
 title: Full collector configuration (multiple log sources)
 ---

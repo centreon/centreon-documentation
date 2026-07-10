@@ -1,4 +1,4 @@
-﻿---
+---
 id: install-php-magento-orocommerce-profiler
 title: Installer le profileur PHP
 ---

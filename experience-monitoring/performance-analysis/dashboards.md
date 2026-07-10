@@ -1,4 +1,4 @@
-﻿---
+---
 id: dashboards
 title: Using dashboards
 ---

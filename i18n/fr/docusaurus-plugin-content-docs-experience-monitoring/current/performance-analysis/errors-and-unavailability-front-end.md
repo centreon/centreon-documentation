@@ -1,4 +1,4 @@
-﻿---
+---
 id: errors-and-unavailability-front-end
 title: Comprendre les erreurs & indisponibilités dans Experience Monitoring
 --- 

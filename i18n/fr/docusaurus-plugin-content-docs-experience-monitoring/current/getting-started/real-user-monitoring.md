@@ -1,4 +1,4 @@
-﻿---
+---
 id: real-user-monitoring
 title: Le Real User Monitoring (ou RUM)
 --- 

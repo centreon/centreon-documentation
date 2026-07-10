@@ -1,4 +1,4 @@
-﻿---
+---
 id: faq
 title: FAQ agents
 ---

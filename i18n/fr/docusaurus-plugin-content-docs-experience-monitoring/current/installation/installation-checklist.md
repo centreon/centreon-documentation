@@ -1,4 +1,4 @@
-﻿---
+---
 id: installation-checklist
 title: Checklist d'installation Experience Monitoring
 ---

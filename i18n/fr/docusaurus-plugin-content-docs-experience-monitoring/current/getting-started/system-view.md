@@ -1,4 +1,4 @@
-﻿---
+---
 id: system-view
 title: Les Données Système
 --- 

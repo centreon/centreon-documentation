@@ -1,4 +1,4 @@
-﻿---
+---
 id: enable-disable-scenario-or-alert-via-api
 title: Automate enabling/disabling a journey or an alert via API
 --- 

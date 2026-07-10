@@ -1,4 +1,4 @@
-﻿---
+---
 id: load-tests
 title: Load tests
 ---

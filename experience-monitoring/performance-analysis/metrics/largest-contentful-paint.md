@@ -1,4 +1,4 @@
-﻿---
+---
 id: largest-contentful-paint
 title: LCP - Largest Contentful Paint (Web Vitals)
 --- 

@@ -1,4 +1,4 @@
-﻿---
+---
 id: configure-google-analytics
 title: Configurer Google Analytics avec Experience Monitoring
 --- 

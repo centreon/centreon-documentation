@@ -1,4 +1,4 @@
-﻿---
+---
 id: errors-and-unavailability-front-end
 title: Understanding errors & unavailability
 --- 

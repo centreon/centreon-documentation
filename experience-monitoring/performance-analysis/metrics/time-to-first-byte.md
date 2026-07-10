@@ -1,4 +1,4 @@
-﻿---
+---
 id: time-to-first-byte
 title: TTFB - Time To First Byte
 --- 

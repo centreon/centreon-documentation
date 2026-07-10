@@ -1,4 +1,4 @@
-﻿---
+---
 id: collector
 title: Configuration complète de collecteur (sources de logs multiples)
 ---

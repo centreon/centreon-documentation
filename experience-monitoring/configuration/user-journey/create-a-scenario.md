@@ -1,4 +1,4 @@
-﻿---
+---
 id: create-a-scenario
 title: Creating a User Journey
 ---

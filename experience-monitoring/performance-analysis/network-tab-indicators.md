@@ -1,4 +1,4 @@
-﻿---
+---
 id: network-tab-indicators
 title: Network data
 --- 

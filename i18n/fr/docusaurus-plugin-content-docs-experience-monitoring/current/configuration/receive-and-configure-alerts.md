@@ -1,4 +1,4 @@
-﻿---
+---
 id: receive-and-configure-alerts
 title: Recevoir et configurer les alertes
 ---

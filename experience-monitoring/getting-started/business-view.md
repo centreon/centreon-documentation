@@ -1,4 +1,4 @@
-﻿---
+---
 id: business-view
 title: Business Data
 ---

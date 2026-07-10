@@ -1,4 +1,4 @@
-﻿---
+---
 id: add-advanced-metrics
 title: Installer des agents d'application
 --- 

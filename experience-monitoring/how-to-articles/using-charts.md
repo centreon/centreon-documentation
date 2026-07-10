@@ -1,4 +1,4 @@
-﻿---
+---
 id: using-charts
 title: Using graphs
 ---

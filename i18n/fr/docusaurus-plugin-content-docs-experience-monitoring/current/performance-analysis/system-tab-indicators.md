@@ -1,4 +1,4 @@
-﻿---
+---
 id: system-tab-indicators
 title: Comprendre les indicateurs de l’onglet Système
 --- 

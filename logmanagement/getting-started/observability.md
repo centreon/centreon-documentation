@@ -1,4 +1,4 @@
-﻿---
+---
 id: observability
 title: Centreon Log Management and observability
 ---

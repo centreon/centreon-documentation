@@ -1,4 +1,4 @@
-﻿---
+---
 id: real-user-monitoring-installation
 title: Installer le Real User Monitoring
 --- 
