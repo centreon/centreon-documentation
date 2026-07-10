@@ -172,10 +172,6 @@ const config = {
           trackingID: 'G-BGL69N5GPJ',
           anonymizeIP: true,
         },
-        googleAnalytics: {
-          trackingID: 'UA-8418698-13',
-          anonymizeIP: true,
-        },
       }),
     ],
   ],
