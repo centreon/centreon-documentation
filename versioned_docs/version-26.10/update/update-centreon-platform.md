@@ -121,7 +121,7 @@ Clean the cache:
 Then upgrade all the components with the following command:
 
   ```shell
-  apt install --only-upgrade centreon
+  apt install --only-upgrade "centreon*"
   ```
 
 </TabItem>
