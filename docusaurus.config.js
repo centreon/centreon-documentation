@@ -92,13 +92,13 @@ const config = {
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl,
-  onBrokenLinks: archivedVersion || !cloud || !pp || !experienceMonitoring ? 'log' : 'throw',
+  onBrokenLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !experienceMonitoring ? 'log' : 'throw',
+      onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
     }
   },
-  onBrokenAnchors: archivedVersion || !cloud || !pp || !experienceMonitoring ? 'log' : 'throw',
+  onBrokenAnchors: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -521,4 +521,3 @@ const config = {
 };
 
 export default config;
-
