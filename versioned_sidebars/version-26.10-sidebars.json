@@ -1545,6 +1545,10 @@
             },
             {
               "type": "doc",
+              "id": "developer/developer-gorgone-pullwss-mode"
+            },
+            {
+              "type": "doc",
               "id": "developer/developer-gorgone-rebound-mode"
             }
           ]
