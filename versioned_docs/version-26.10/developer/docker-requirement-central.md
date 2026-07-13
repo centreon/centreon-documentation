@@ -35,7 +35,7 @@ Ensure the Central server and Gorgone are already installed and up to date to th
 ### Configure Gorgone
 
 In previous version of Centreon, gorgone could listen for pullwss connections directly on the network if manually configured to do so. Starting with version 26.10, the default method is to use Apache as a reverse proxy for Gorgone.
-If you already use pullwss, see the [compatibility mode](##compatibility-mode) section below.
+If you already use pullwss, see the [compatibility mode](#Apache reverse proxy configuration) section below.
 
 update the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows:
 
@@ -100,7 +100,6 @@ If this is the first time you setup pullwss on your Central, you don't need to d
 If you already used pullwss in previous version, you have multiples options : 
 - Update all poller to the same version, and configure them to acces the central on port 443.
 - If you can not update all poller in the same time, you can add an apache configuration to hold the legacy pullwss port 8086, and redirect the traffic to gorgone. This is explained in the next section.
-
 
 #### Old poller configuration with no certificate (plain HTTP)
 
