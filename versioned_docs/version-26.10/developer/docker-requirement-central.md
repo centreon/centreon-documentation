@@ -2,6 +2,8 @@
 id: docker-requirement-central
 title : Configuring Centreon for receiving docker poller connection
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 This procedure describes how to configure Gorgone (a submodule of Centreon) between a distant poller and a Central server using **pullwss** mode. This is the only method allowed for pollers running in a Docker container, because the poller cannot be reached from the Central server.
 
