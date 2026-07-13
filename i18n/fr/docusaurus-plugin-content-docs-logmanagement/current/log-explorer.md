@@ -51,6 +51,33 @@ Cliquez sur un log pour afficher toutes les informations associées dans le pann
 * Copiez ou téléchargez l'intégralité du log au format JSON depuis la section **Raw OTel log**.
 * La barre de recherche regarde dans les noms et les valeurs des attributs.
 
+## Enregistrer ou charger une vue
+
+Les vues enregistrées (Bookmarked views) vous permettent de sauvegarder une configuration complète de Log Explorer — requête, plage temporelle et disposition des colonnes — sous un seul nom. Plutôt que de reconstruire la même requête à chaque session, vous pouvez recharger un contexte d'investigation sauvegardé en un clic.
+
+Vous pouvez choisir comment la période est enregistrée : relative (par exemple « dernière 1h », qui se réexécute en direct au chargement) ou fixe (horodatages exacts).
+
+### Enregistrer une vue
+
+1. Définissez votre requête, votre plage temporelle et vos colonnes dans Log Explorer comme d'habitude, puis cliquez sur le bouton de la barre d'outils **Bookmark or load a view**.
+2. Cliquez sur **Bookmark this view**.
+3. Nommez votre vue, puis sélectionnez un mode temporel. Si votre vue a une période relative (« dernières `n` minutes/heures »), choisissez comment vous souhaitez que la période soit enregistrée :
+
+   * **Relative** : idéale pour les opérations quotidiennes et la surveillance : la vue affiche toujours les données les plus récentes, en réexécutant la même fenêtre relative (par exemple « dernière 1h ») à chaque chargement.
+   * **Absolute** : la période fixe est idéale pour l'analyse post-incident : des horodatages exacts vous donnent une vue reproductible de ce qui s'est passé.
+
+5. Cliquez sur **Bookmark**. La vue enregistrée est sauvegardée.
+
+### Charger une vue enregistrée
+
+1. Cliquez sur le bouton de la barre d'outils **Bookmark or load a view**.
+2. Dans la liste des vues enregistrées, cliquez sur la vue souhaitée : la requête, les colonnes et la plage temporelle sont toutes appliquées automatiquement. Log Explorer se remplit immédiatement avec les résultats.
+
+### Partager une vue enregistrée
+
+1. Cliquez sur le bouton de la barre d'outils **Bookmark or load a view**.
+2. Dans la liste des vues enregistrées, cliquez sur les 3 points à droite d'une vue, puis cliquez sur **Copy link** pour générer une URL partageable — utile pour la coller dans votre outil de messagerie instantanée ou un ticket d'incident.
+
 ## Résumé automatique (Log summary)
 
 Vous pouvez générer automatiquement un résumé de tous les logs correspondant à une requête. Le résumé identifie les problèmes récurrents, les regroupe par type, répertorie leurs causes probables et suggère les étapes suivantes pour les résoudre.

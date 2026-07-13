@@ -51,6 +51,33 @@ Click a log to see all related information in the **Log details** panel, includi
 * Copy or download the whole log in json format from the **Raw OTel log** section.
 * The search bar will inspect attribute names and values.
 
+## Bookmarking or loading a view
+
+Bookmarked views let you save a complete Log Explorer configuration — query, time range, and column layout — under a single name. Instead of rebuilding the same query every session, you can reload a saved investigation context in one click.
+
+You can choose how time is saved: relative (e.g. "last 1h", re-runs live on load) or fixed (exact timestamps).
+
+### Bookmarking a view
+
+1. Set your query, time range and columns in Log Explorer as usual, then click the **Bookmark or load a view** toolbar button.
+2. Click **Bookmark this view**.
+3. Name your view, then select a time mode. If your view has a relative time period ("last `n` minutes/hours"), select how you want the time period to be saved:
+
+   * **Relative**: Best for daily operations and monitoring: the view always shows the freshest data, re-executing the same relative window (e.g. "last 1h") every time you load it.
+   * **Absolute**: Fixed time is best for post-incident forensics: exact timestamps give you a reproducible view of what happened.
+
+5. Click **Bookmark**. The bookmarked view is saved.
+
+### Loading a bookmarked view
+
+1. Click the **Bookmark or load a view** toolbar button.
+2. In the list of bookmarked views, click the view you want: query, columns and time range are all applied automatically. Log Explorer populates with results right away.
+
+### Sharing a Bookmarked view
+
+1. Click the **Bookmark or load a view** toolbar button.
+2. In the list of bookmarked views, click the 3 dots on the right of a view, then click **Copy link** to generate a shareable URL — useful for pasting into your instant messaging tool or an incident ticket.
+
 ## Summarizing logs
 
 You can automatically generate a summary of all logs matching a query. The summary identifies recurring issues, groups them by type, lists their likely root causes, and suggests next steps to resolve them.
@@ -71,13 +98,3 @@ Click the **Log Summary** button next to the time range selector to open the sum
 * You can drag columns to a different position in the table.
 
    ![image](assets/column-management.png)
-
-<!-- ## Generating a summary of your logs
-
-Once the **Log explorer** page only shows the logs you want, generate a summary of the displayed logs to see what they can tell you: click the **Summarize logs** button to the right of the search bar.
-Log summaries are a list of the main events detected for a period:
-
-- Critical errors and failures
-- Security-related events
-- Unusual system behavior
-- Important updates or configuration changes -->
