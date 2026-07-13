@@ -73,7 +73,7 @@ Si plusieurs modèles tentaient de modifier le même champ, les caractéristique
 * **Intervalle normal de contrôle** : exprimé en minutes. Il définit l’intervalle entre chaque contrôle lorsque
   le statut de l’hôte est OK.
 * **Intervalle non-régulier de contrôle** : exprimé en minutes, désigne l'intervalle de temps entre chaque contrôle réalisé afin de confirmer l'état non-OK de l'hôte. Une fois le nombre de contrôles de validation réalisé, l'intervalle entre deux contrôles revient à son rythme normal.
-* **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les contrôles actifs et passifs. [Les contrôles passifs](../../monitoring/passive-monitoring/enable-snmp-traps.md) sont les informations que la ressource supervisée envoie au moteur de supervision sans que celles-ci aient été activement demandées.
+* **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les [contrôles actifs et passifs](../active-passive-checks.md) sur l'hôte.
 
 ## Onglet Notification
 Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifications/notif-concept.md) et les [contacts](contacts.md) pour en savoir plus sur ces sujets.
