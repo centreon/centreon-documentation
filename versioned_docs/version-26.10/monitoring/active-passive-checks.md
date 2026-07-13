@@ -10,7 +10,7 @@ A check can be performed either by the monitoring engine (active check) or by th
 
 An active check is initiated by the monitoring engine, which triggers data collection at regular intervals defined in the configuration (except for forced checks, which run on demand outside that interval).
 
-This mode is used by all monitoring connectors except [CMA](../cma.md)-type connectors. Connectors typically rely on the following collection methods:
+This mode is used by all monitoring connectors except [CMA](../cma/cma.md)-type connectors. Connectors typically rely on the following collection methods:
 
 * ICMP
 * SNMP

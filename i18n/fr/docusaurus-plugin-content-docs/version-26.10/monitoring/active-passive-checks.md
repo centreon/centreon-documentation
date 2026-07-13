@@ -10,7 +10,7 @@ Un contrôle peut être effectué soit par le moteur de supervision (contrôle a
 
 Un contrôle actif est initié par le moteur de supervision, qui déclenche lui-même la collecte de la donnée, à intervalles réguliers définis dans la configuration (à l'exception des vérifications forcées, exécutées à la demande en dehors de cet intervalle).
 
-Ce mode est utilisé par l'ensemble des connecteurs de supervision, à l'exception des connecteurs de type [CMA](../cma.md). Les connecteurs peuvent utiliser typiquement les méthodes de collecte suivantes :
+Ce mode est utilisé par l'ensemble des connecteurs de supervision, à l'exception des connecteurs de type [CMA](../cma/cma.md). Les connecteurs peuvent utiliser typiquement les méthodes de collecte suivantes :
 
 * ICMP
 * SNMP
