@@ -12,30 +12,18 @@ This procedure describes how to configure Gorgone (a submodule of Centreon) betw
 - Because the connection uses HTTP(S), certificates are needed to secure the connection. To simplify certificate lifecycle management, apache (which already host the Centreon web interface) is used as a reverse proxy to terminate the TLS connection and forward the traffic to Gorgone.
 
 
-
-
-Central server:
-- address: 10.30.2.203
-
-Distant Poller:
-- id: 6 (configured in the Centreon interface as zmq. You can get this ID from the Centreon interface).
-- address: 10.30.2.179
-
-
-
 ### Installation requirements
 
 Ensure the Central server and Gorgone are already installed and up to date to the last major version.
 
-> [!CAUTION]
->Requirement : Configure certificates for apache, you can see the documentation to auto generate them [here](secure-platform.md#Secure the web server with HTTPS)
+>Requirement : If not already done, configure certificates for apache, you can see the documentation to auto generate them [here](secure-platform.md#secure-the-web-server-with-https)
 
 > The poller must be able to reach the Central server and use the last major version of Centreon.
 
 ### Configure Gorgone
 
 In previous version of Centreon, gorgone could listen for pullwss connections directly on the network if manually configured to do so. Starting with version 26.10, the default method is to use Apache as a reverse proxy for Gorgone.
-If you already use pullwss, see the [compatibility mode](#Apache reverse proxy configuration) section below.
+If you already use pullwss, see the [compatibility mode](#apache-reverse-proxy-configuration) section below.
 
 update the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows:
 
