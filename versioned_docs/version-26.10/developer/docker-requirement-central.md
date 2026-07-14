@@ -22,7 +22,7 @@ Ensure the Central server and Gorgone are already installed and up to date to th
 
 ### Configure Gorgone
 
-In previous version of Centreon, gorgone could listen for pullwss connections directly on the network if manually configured to do so. Starting with version 26.10, the default method is to use Apache as a reverse proxy for Gorgone.
+In previous version of Centreon, gorgone could listen for pullwss connections directly on the network if manually configured to do so. Starting with version 26.10, the recommended method is to use Apache as a reverse proxy for Gorgone.
 If you already use pullwss, see the [compatibility mode](#apache-reverse-proxy-configuration) section below.
 
 update the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows:
@@ -49,7 +49,7 @@ the `nodes` module should already be present, and do not need modifications in a
 Explanation of the configuration:
 
 - `ssl: false` and `address: "127.0.0.1"`: Gorgone only accepts connections from the local machine, in plain HTTP. Apache is the one terminating TLS for the pollers and forwarding the traffic locally, so Gorgone itself does not need a certificate.
-- `port: 8087`: internal port used only for the connection between Apache and Gorgone on the same host. It does not need to be exposed to the network.
+- `port: 8087`: internal port used only for the connection between Apache and Gorgone on the same host. It should not be exposed to the network.
 
 Restart Gorgone after this change:
 
@@ -139,92 +139,7 @@ there is an example of apache configuration to redirect the traffic from port 80
   </Tabs>
 
 
+## Poller configuration
 
-
-
-```apache
-Listen 8086
-
-<VirtualHost *:8086>
-    <IfModule mod_proxy_wstunnel.c>
-        ProxyPass "/" "ws://127.0.0.1:8087/"
-        ProxyPassReverse "/" "ws://127.0.0.1:8087/"
-    </IfModule>
-</VirtualHost>
-```
-
-If pollers must reach the Central over TLS (recommended in production), terminate SSL/TLS on this virtual host instead, using a certificate signed by a trusted CA:
-
-```apache
-Listen 8086
-
-<VirtualHost *:8086>
-    SSLEngine On
-    SSLCertificateFile /etc/pki/tls/certs/your_cert.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/your_key.key
-
-    <IfModule mod_proxy_wstunnel.c>
-        ProxyPass "/" "ws://127.0.0.1:8087/"
-        ProxyPassReverse "/" "ws://127.0.0.1:8087/"
-    </IfModule>
-</VirtualHost>
-```
-
-Enable the site and reload Apache:
-
-```shell
-# Debian/Ubuntu
-a2ensite centreon-gorgone-pullwss
-systemctl reload apache2
-
-# RHEL/CentOS/Alma
-systemctl reload httpd
-```
-
-Make sure port 8086 is open on the firewall between the poller and the Central.
-
-## On the distant poller side
-
-### Installation requirements
-
-Ensure the poller and Gorgone are already installed.
-
-### Configuration
-
-Configure the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows:
-
-```yaml
-name: distant-server
-description: Configuration for distant server
-gorgone:
-  gorgonecore:
-    id: 6
-    privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
-    pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
-
-  modules:
-    - name: engine
-      package: gorgone::modules::centreon::engine::hooks
-      enable: true
-      command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
-
-    - name: pullwss
-      package: "gorgone::modules::core::pullwss::hooks"
-      enable: true
-      ssl: true
-      port: 8086
-      token: "your_secret_token"
-      address: 10.30.2.203
-```
-
-- `address` and `port`: point to the Central's address and the port 8086 Apache is listening on, not to Gorgone's internal port.
-- `ssl`: set to `true` if Apache terminates TLS on port 8086 (recommended), or `false` if you kept the plain HTTP example above.
-- `token`: shared secret used to authenticate the poller; it must match the `httpserver.token` directive configured on the Central, or be a valid Centreon API token name.
-
-Restart Gorgone on the poller:
-
-```shell
-systemctl restart gorgoned
-```
-
-The poller then opens a WebSocket connection to `https://10.30.2.203:8086/`, which Apache forwards locally to Gorgone.
+You can now add a poller in the Central web interface, and configure it as a "docker" poller.
+Once done, you can use the one line command to configure the poller to connect to the Central using pullwss.
