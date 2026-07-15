@@ -11,12 +11,11 @@ This procedure describes how to configure Gorgone (a submodule of Centreon) betw
 
 - Because the connection uses HTTP(S), certificates are needed to secure the connection. To simplify certificate lifecycle management, apache (which already host the Centreon web interface) is used as a reverse proxy to terminate the TLS connection and forward the traffic to Gorgone.
 
-
 ### Installation requirements
 
 Ensure the Central server and Gorgone are already installed and up to date to the last major version.
 
->Requirement : If not already done, configure certificates for apache, you can see the documentation to auto generate them [here](secure-platform.md#secure-the-web-server-with-https)
+>Requirement : If not already done, configure certificates for apache, you can see the documentation to auto generate them [here](../administration/secure-platform.md#secure-the-web-server-with-https).
 
 > The poller must be able to reach the Central server and use the last major version of Centreon.
 
