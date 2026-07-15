@@ -973,7 +973,7 @@ Exécutez la commande suivante pour vérifier que le service **centreon-map-engi
   Voici un exemple de résultat :
   
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)
@@ -1084,7 +1084,7 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
   Voici un exemple de résultat :
   
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)
