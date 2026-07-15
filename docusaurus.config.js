@@ -89,7 +89,7 @@ const config = {
   },
 
   title: 'Centreon Documentation',
-  tagline: '',
+  tagline: 'Centreon Documentation - Infra Monitoring, Experience Monitoring, Log Management',
   url: 'https://docs.centreon.com',
   baseUrl,
   onBrokenLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
@@ -113,7 +113,7 @@ const config = {
   },
 ],
 
-  noIndex: false,
+  noIndex: !!archivedVersion,
 
   i18n: {
     defaultLocale: 'en',
