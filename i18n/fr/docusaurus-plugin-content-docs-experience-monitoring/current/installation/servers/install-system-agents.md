@@ -1,5 +1,6 @@
 ﻿---
 id: install-system-agents
+description: Installer l'agent de supervision sur un serveur Linux statique
 title: Installer l'agent sur un serveur statique
 --- 
 

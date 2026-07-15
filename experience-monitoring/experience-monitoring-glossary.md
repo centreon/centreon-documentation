@@ -1,6 +1,7 @@
 ---
 id: experience-monitoring-glossary
 title: Experience Monitoring glossary
+description: Definitions of key Experience Monitoring terms
 ---
 
 ## Action

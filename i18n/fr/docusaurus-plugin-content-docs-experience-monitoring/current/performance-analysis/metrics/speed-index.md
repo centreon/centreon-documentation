@@ -1,5 +1,6 @@
 ---
 id: speed-index
+description: Métrique Speed Index pour la rapidité d'affichage du contenu visuel
 title: Speed Index
 --- 
 

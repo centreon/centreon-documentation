@@ -1,5 +1,6 @@
 ---
 id: on-load
+description: Métrique OnLoad pour le temps de chargement complet de la page et des ressources
 title: OnLoad
 --- 
 

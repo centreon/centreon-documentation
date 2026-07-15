@@ -1,5 +1,6 @@
 ﻿---
 id: dashboards
+description: Créer des tableaux de bord personnalisables avec des widgets, tous sites et organisations confondus
 title: Utiliser les tableaux de bord
 ---
 

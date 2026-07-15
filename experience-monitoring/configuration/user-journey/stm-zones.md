@@ -1,6 +1,7 @@
 ---
 id: stm-zones
 title: Monitoring non-public user journeys (closed beta)
+description: Set up a private zone to monitor internal, non-public journeys
 ---
 
 import Tabs from '@theme/Tabs';

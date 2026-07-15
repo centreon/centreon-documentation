@@ -1,6 +1,7 @@
 ---
 id: business-alerts
 title: Business alerts
+description: Configure alerts on abnormal traffic or conversion drops from Google Analytics
 ---
 
 > Available by default on Business and Full licenses; optional on other plans.
