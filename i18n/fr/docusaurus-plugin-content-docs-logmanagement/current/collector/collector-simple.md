@@ -1,6 +1,7 @@
 ﻿---
 id: collector-simple
 title: Configurations simples de collecteur
+description: Exemples de configuration rapide de collecteur pour des sources de logs courantes
 ---
 
 import Tabs from '@theme/Tabs';
