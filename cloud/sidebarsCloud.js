@@ -785,6 +785,27 @@ module.exports = {
         }
       ]
     },
+        {
+      "type": "category",
+      "label": "Troubleshooting Centreon Cloud",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "resources/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "resources/known-issues"
+        },
+        {
+          "type": "doc",
+          "id": "resources/licenses"
+        },
+      ]
+    },
     {
       "type": "category",
       "label": "Resources",
@@ -792,10 +813,6 @@ module.exports = {
         "type": "generated-index",
       },
       "items": [
-        {
-          "type": "doc",
-          "id": "resources/known-issues"
-        },
         {
           "type": "doc",
           "id": "resources/glossary"
