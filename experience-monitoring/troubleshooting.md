@@ -1,6 +1,7 @@
 ---
 id: troubleshooting
 title: Troubleshooting Experience Monitoring
+description: Fix common login and account access issues
 ---
 
 ## I am unable to connect

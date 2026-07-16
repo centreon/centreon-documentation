@@ -1,6 +1,7 @@
 ---
 id: configure-google-analytics
 title: Configure Google Analytics with Experience Monitoring
+description: Link a Google Analytics account to correlate traffic with performance
 ---
 
 By integrating Google Analytics data into Experience Monitoring, you can correlate web scenario execution times and technical metrics such as response time and server load with business data like traffic and conversions. This helps you analyze how traffic impacts page load times and draw meaningful conclusions.

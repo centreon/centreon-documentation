@@ -1,6 +1,7 @@
 ---
 id: faq
 title: Agent FAQ
+description: Firewall ports and IP addresses required for the monitoring agent
 ---
 
 ## Which firewall ports should be opened for the Experience Monitoring agent?

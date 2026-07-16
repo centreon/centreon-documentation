@@ -1,6 +1,7 @@
 ﻿---
 id: log-explorer
 title: Utiliser log explorer
+description: Rechercher et filtrer les logs dans log explorer pour analyser les causes profondes
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

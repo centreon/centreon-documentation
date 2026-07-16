@@ -1,6 +1,7 @@
 ---
 id: cloud-configuration-of-agents
 title: Install the agent in autoscaling environments
+description: Configure a unique hostid for agents in autoscaling environments
 ---
 
 This page applies if your application or site is hosted on Docker or in an autoscaling environment.

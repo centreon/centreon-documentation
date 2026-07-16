@@ -1,6 +1,7 @@
 ---
 id: log-explorer
 title: Using the log explorer
+description: Search and filter logs in the log explorer for root-cause analysis
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

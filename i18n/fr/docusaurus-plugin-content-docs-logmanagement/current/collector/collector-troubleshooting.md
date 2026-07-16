@@ -1,6 +1,7 @@
 ﻿---
 id: collector-troubleshooting
 title: Dépanner votre installation
+description: Dépanner l'installation du collecteur OpenTelemetry et les problèmes de collecte de logs
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ﻿---
 id: using-charts
 title: Using graphs
+description: Zoom, filter, annotate, and export Experience Monitoring graphs
 ---
 
 A lot of the information gathered by Experience Monitoring is converted into graphs to make it easier to read.

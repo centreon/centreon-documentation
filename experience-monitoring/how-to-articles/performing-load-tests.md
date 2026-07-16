@@ -1,6 +1,7 @@
 ---
 id: performing-load-tests
 title: Load tests
+description: Configure and run a load test on a user journey
 ---
 
 Load tests create heavy traffic on your site to evaluate its response. A functional [user journey](../configuration/user-journey/user-journey-intro.md) is required as the traffic created by the test will navigate the site following the selected user journey.

@@ -1,6 +1,7 @@
 ---
 id: user-journey-notifications
 title: Receiving and configuring notifications
+description: Set up notifications for failed or timed-out user journeys
 ---
 
 You can configure Experience Monitoring to send you a notification when one of your [user journeys](./user-journey-intro.md) fails or times out.

@@ -1,6 +1,7 @@
 ﻿---
 id: concepts
 title: Centreon Log Management basics
+description: Key concepts and terminology behind Centreon Log Management
 ---
 
 ## What are logs?

@@ -1,6 +1,7 @@
 ---
 id: user-journey-screen
 title: Journey overview
+description: Navigate the Journey overview screen and its actions
 ---
 
 By clicking **User Journey** from the main menu, you will be taken to a page regrouping all the scenarios that have been created for your site.

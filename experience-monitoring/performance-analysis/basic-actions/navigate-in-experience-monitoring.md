@@ -1,6 +1,7 @@
 ﻿---
 id: navigate-in-experience-monitoring
 title: Navigating in Experience Monitoring
+description: Switch between sites, modules, and time periods in the UI
 ---
 
 In the Centreon Experience Monitoring interface, you can:

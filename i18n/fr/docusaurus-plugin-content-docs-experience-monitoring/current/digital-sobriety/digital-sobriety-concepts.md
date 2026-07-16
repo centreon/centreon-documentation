@@ -1,6 +1,7 @@
 ---
 id: digital-sobriety-concepts
 title: Introduction à la sobriété numérique
+description: Comment le Score de Sobriété Numérique mesure l'impact environnemental
 ---
 
 Bien que les sites web soient immatériels, ils reposent sur une infrastructure physique : serveurs, réseaux et appareils des utilisateurs finaux, qui consomment tous de l'énergie.
