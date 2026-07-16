@@ -1,6 +1,7 @@
 ---
 id: collector-troubleshooting
 title: Troubleshooting your installation
+description: Troubleshoot OpenTelemetry collector installation and log collection issues
 ---
 
 import Tabs from '@theme/Tabs';

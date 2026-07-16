@@ -1,6 +1,7 @@
 ---
 id: opentelemetry-collector
 title: How an OpenTelemetry collector works
+description: How OpenTelemetry collectors receive, process, and export logs
 ---
 
 import Tabs from '@theme/Tabs';

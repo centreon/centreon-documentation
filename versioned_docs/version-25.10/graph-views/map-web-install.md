@@ -978,7 +978,7 @@ Run the following command to check that the **centreon-map-engine** service is p
   This is an example of results:
 
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)
@@ -1092,7 +1092,7 @@ By default, the MAP module is not enabled. Perform the following procedure to en
   This is an example of results:
 
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)

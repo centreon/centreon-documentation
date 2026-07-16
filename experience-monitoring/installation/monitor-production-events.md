@@ -1,19 +1,20 @@
-﻿---
+---
 id: monitor-production-events
-title: Track production deployment events
+title: Adding event markers to charts
+description: Mark deployments and config changes on performance graphs via API
 ---
 
-## Automatically track production deployment events
+When something changes in production — a new deployment, a configuration update, a scheduled task — it can directly affect your monitoring data. Correlating these events with performance metrics helps you understand whether a spike in errors or a drop in availability is linked to a recent change.
 
-You can automatically record your code deployments or system configuration changes in Experience Monitoring:
+You can make markers appear on all your graphs, so you can instantly see whether a change in your metrics coincides with a deployment or configuration update.
 
 ![image](../assets/installation/monitor-prod-events-1.png)
 
 These events can be created **automatically** via our API. The best practice is to integrate a call to our API in your deployment scripts and in your configuration management tooling where appropriate.
 
-### How the API works
+## How the API works
 
-Our API is triggered with a simple HTTP call to the URL *"https://app.quanta.io/api/events/push"*. The parameters to provide are:
+Our API is triggered with a simple HTTP call to the URL `https://app.quanta.io/api/events/push`. The parameters to provide are:
 
 - *type*: The event type. It may have one of the following values:
     - *code_deploy* (code deployment)
@@ -23,18 +24,16 @@ Our API is triggered with a simple HTTP call to the URL *"https://app.quanta.io/
     - *custom* (generic event)
 - *content*: **The message associated with the event.** This can be the application version or a description of the changes made. This field is free-form.
 
-### Authentication and token generation
+## Authentication and token generation
 
 You must also provide an API token to authenticate the request. This token can be generated from the "Integrations" section of your site settings in Experience Monitoring. You can also add a custom icon.
-
-![image](../assets/installation/monitor-prod-events-1.png)
 
 This token should be provided:
 
 - Either in the HTTP header "Authorization" as `Authorization: Token <your_token>`
 - Or passed directly in the request by adding the parameter `?auth_token=<your_token>` at the end of the URL.
 
-### Usage examples
+## Usage examples
 
 Here's an example cURL request that adds a code deployment event with the message "version 42.0". Note the presence of the "Content-Type" header which is required for our API to accept the request:
 

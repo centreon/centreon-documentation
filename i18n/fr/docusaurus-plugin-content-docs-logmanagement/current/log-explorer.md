@@ -1,6 +1,7 @@
 ﻿---
 id: log-explorer
 title: Utiliser log explorer
+description: Rechercher et filtrer les logs dans log explorer pour analyser les causes profondes
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -50,6 +51,17 @@ Cliquez sur un log pour afficher toutes les informations associées dans le pann
 * Vous pouvez ouvrir plusieurs logs dans le panneau.
 * Copiez ou téléchargez l'intégralité du log au format JSON depuis la section **Raw OTel log**.
 * La barre de recherche regarde dans les noms et les valeurs des attributs.
+
+## Résumé automatique (Log summary)
+
+Vous pouvez générer automatiquement un résumé de tous les logs correspondant à une requête. Le résumé identifie les problèmes récurrents, les regroupe par type, répertorie leurs causes probables et suggère les étapes suivantes pour les résoudre.
+
+Cliquez sur le bouton **Log summary** situé à côté du sélecteur de plage horaire pour ouvrir le résumé dans un nouvel onglet.
+
+![image](assets/log-summary-button.png)
+
+* Les résumés ne sont disponibles que pour les requêtes renvoyant 2 000 lignes ou moins.
+* Vous devrez peut-être autoriser l'ouverture de nouveaux onglets pour le même domaine dans votre navigateur.
 
 ## Réorganiser les colonnes
 

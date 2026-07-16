@@ -1,40 +1,35 @@
-﻿---
+---
 id: cloud-configuration-of-agents
-title: Configuring our agents for the cloud
+title: Install the agent in autoscaling environments
+description: Configure a unique hostid for agents in autoscaling environments
 ---
 
-With the rise of cloud, managed services, IaaS and PaaS, our packages are no longer sufficient by themselves and each infrastructure uses its own orchestration processes for deploying new servers (VMs or containers).
+This page applies if your application or site is hosted on Docker or in an autoscaling environment.
 
-If this applies to you, this article explains how to configure our agents using your orchestrators.
+With the rise of cloud, managed services, IaaS and PaaS, each infrastructure uses its own orchestration processes for deploying new servers (VMs or containers). Autoscaling environments are dynamic: machines are constantly being created and destroyed. You will need to deploy the system agent and application agents on each machine.
 
-## Standard installation procedure
+## How the hostid works
 
-To understand the following steps, you can find the standard installation guide for our agent here:
+The use of the Experience Monitoring agent is fully compatible with containerized infrastructures, but it requires a slight variation in the installation process.
 
-[Install system agents](./install-system-agents.md)
+### Explanation
 
-And the installation guide for our PHP module (if you use that technology) here:
+The **hostid** is an internal parameter that allows Experience Monitoring to uniquely identify a server. Each server must have a unique **hostid**, which is automatically configured by the installation script (using the MAC address of the first network interface without `:` characters).
 
-[Install the PHP / Magento / OroCommerce profiler](./install-php-magento-orocommerce-profiler.md)
+However, in the case of Docker containers, the configuration prevents the installation script from finding this value. In autoscaling systems (like AWS ASG or Azure Scale Set), the image copy also duplicates the **hostid**.
 
-## Cloud-specific considerations
+### Workaround
+
+To have a unique **hostid**, you can configure it in the **/etc/quanta/agent.yml** file via a script at container or VM startup (**bootstrap script**). You can specify a unique identifier generated at runtime (e.g., using AWS metadata or Docker environment variables) or use a unique element like the UUID value from **/proc/sys/kernel/random/uuid**.
+
+## Adapting the standard procedure
+
+To [install the system agent, you must follow the basic procedure](./install-system-agents.md), but make sure you manage the following parameters correctly.
 
 When instances (VMs or containers) are deployed automatically or semi-automatically, some configuration fields must be modified or replicated for each newly created instance:
 
 - **Token**: The identification token must be the same for all Experience Monitoring agents that belong to the same license and site. It is stored in the `/etc/quanta/agent.yml` configuration file. The token tells the agent which site the monitored data belongs to.
 - **Hostid**: Also located in `/etc/quanta/agent.yml`. The hostid is a unique identifier used by Experience Monitoring to uniquely identify an instance:
-    - In most cases the hostid must be different for each new instance, so your new instance `front-nginx-3` won't overwrite the data sent by `front-nginx-2`.
-    - In auto-scaling scenarios you may need to preserve a stable identifier when an instance is removed and later recreated. For example, if you add a fourth front each evening at 19:00 to handle peak traffic and remove it at 21:00, you probably want to avoid seeing a new chart created every day in Experience Monitoring (and a rapidly growing list of charts). In that case you should use a unique identifier each time you remove and recreate that front so its data always appears in the same chart.
+    - For static servers, the hostid must be different for each new instance, so your new instance `front-nginx-3` won't overwrite the data sent by `front-nginx-2`.
+    - In auto-scaling scenarios, you may need to preserve a stable identifier when an instance is removed and later recreated. For example, if you add a fourth front each evening at 19:00 to handle peak traffic and remove it at 21:00, you probably want to avoid seeing a new chart created every day in Experience Monitoring (and a rapidly growing list of charts). In that case you should reuse a hostid in a pool of unique identifiers each time you remove and recreate that front so its data always appears in the same chart.
 - **Hostname**: Also in `/etc/quanta/agent.yml`, this setting lets you assign a label to your instance. Unlike hostid, hostname is just a human-friendly name to make charts easier to read (for example `VM prod 006 - Varnish - 3`). You can also change it from the Experience Monitoring UI.
-
-## Adaptation for managed/cloud services
-
-Some cloud providers offer managed services - for example AWS provides RDS and ElastiCache for managed databases and caching. These managed services are typically provided as a black box and do not allow you to install packages on their instances.
-
-To work around this, install an agent on another instance you control (for example a front) and have it monitor the remote managed service by pointing it at the service's IP and port.
-
-For example, for RDS you can deploy the `quanta-agent-mysql` agent (see the standard guide) and edit the `/etc/quanta/modules.d/mysqlstat.yml` agent configuration file to specify the host and port of the managed service (IP and port).
-
-If you use multiple ElastiCache instances or equivalents (multiple cache types and session stores), you can configure the Redis (or Varnish or Memcached) agent to target the different backends. The guide for this is here:
-
-[Add advanced metrics](./add-advanced-metrics.md)
