@@ -802,7 +802,7 @@ module.exports = {
         },
         {
           "type": "doc",
-          "id": "resources/licenses"
+          "id": "resources/licenses-faq"
         },
       ]
     },
