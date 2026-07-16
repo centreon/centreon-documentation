@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias    | Modèle de service               | Description                             |
 |:---------|:--------------------------------|:----------------------------------------|
 | Hardware | HW-Pdu-Apc-Hardware-SNMP-custom | Contrôle le matériel                    |
-| Load     | HW-Pdu-Apc-SNMP-Load-custom     | Contrôle la charge (courant en Amperes) |
+| Load     | HW-Pdu-Apc-SNMP-Load-custom     | Contrôle la charge (courant en ampères) |
 | Outlet   | HW-Pdu-Apc-SNMP-Outlet-custom   | Contrôle les sorties PDU                |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Pdu-Apc-SNMP-custom** est utilisé.
@@ -71,6 +71,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | humidity status            | N/A   |
 | hardware.temperature.count | count |
 | temperature status         | N/A   |
+| hardware.sensor.humidity.percentage | %     |
+| hardware.sensor.temperature.celsius | C     |
 
 </TabItem>
 <TabItem value="Load" label="Load">

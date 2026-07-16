@@ -66,8 +66,8 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                   | Description                                                                                            |
 |:----------------------------------|:-------------------------------------------------------------------------------------------------------|
-| HW-Storage-Qnap-SNMP-Disk-Name    | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé                    |
-| HW-Storage-Qnap-SNMP-Traffic-Name | Utilise le nom du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace |
+| HW-Storage-Qnap-SNMP-Disk-Name    | Découvre les partitions du disque et supervise l'occupation de son espace |
+| HW-Storage-Qnap-SNMP-Traffic-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation     |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -114,6 +114,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | raid status                | N/A   |
 | hardware.temperature.count | count |
 | temperature status         | N/A   |
+| hardware.temperature.celsius       | C     |
+| hardware.disk.temperature.celsius  | C     |
+| hardware.mdisk.temperature.celsius | C     |
+| hardware.fan.speed.rpm             | rpm   |
+| hardware.powersupply.fan.speed.rpm | N/A   |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

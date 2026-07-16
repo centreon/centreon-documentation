@@ -113,6 +113,11 @@ Here is the list of services for this connector, detailing all metrics and statu
 | raid status                | N/A   |
 | hardware.temperature.count | count |
 | temperature status         | N/A   |
+| hardware.temperature.celsius       | C    |
+| hardware.disk.temperature.celsius  | C    |
+| hardware.mdisk.temperature.celsius | C    |
+| hardware.fan.speed.rpm             | rpm  |
+| hardware.powersupply.fan.speed.rpm | N/A  |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

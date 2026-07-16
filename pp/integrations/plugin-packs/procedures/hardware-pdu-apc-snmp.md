@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                | Service Description            |
 |:--------------|:--------------------------------|:-------------------------------|
 | Hardware      | HW-Pdu-Apc-Hardware-SNMP-custom | Check hardware                 |
-| Load          | HW-Pdu-Apc-SNMP-Load-custom     | Check load (current in Amperes |
+| Load          | HW-Pdu-Apc-SNMP-Load-custom     | Check load (current in amperes |
 | Outlet        | HW-Pdu-Apc-SNMP-Outlet-custom   | Check PDU outlets              |
 
 > The services listed above are created automatically when the **HW-Pdu-Apc-SNMP-custom** host template is used.
@@ -70,6 +70,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 | humidity status            | N/A   |
 | hardware.temperature.count | count |
 | temperature status         | N/A   |
+| hardware.sensor.humidity.percentage | %     |
+| hardware.sensor.temperature.celsius | C     |
 
 </TabItem>
 <TabItem value="Load" label="Load">
