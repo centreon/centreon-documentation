@@ -20,7 +20,7 @@ Le bouton situé à gauche de la description de chaque période temporelle perme
 2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-temporelle). 
 
     - Ces définitions seront appliquées chaque semaine, indéfiniment.
-    - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période de temporelle.
+    - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période temporelle.
 
 3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure ou exclure d'une période temporelle des jours spécifiques.
 
