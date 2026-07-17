@@ -41,5 +41,6 @@ Lorsque les besoins de supervision ne sont pas entièrement couverts par un seul
 Ordre de mise en œuvre recommandé :
 
 1. Supervision système active
-2. Supervision applicative
-3. Complément par de la supervision passive.
+2. Supervision matérielle active (dans le cas d'un serveur physique par exemple)
+3. Supervision applicative active via des protocoles applicatifs (HTTP, connexion à des bases de données, ...)
+4. Complément par de la supervision passive.
