@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 This topic describes how to install Centreon MAP. We recommend that you install MAP on a dedicated server. However, if you do not have large volumes of data, you can install it on the central server.
 
+> If you plan to use MAP in HTTPS, please note that securing the HTTPS protocol requires configuration on both the Centreon platform and the MAP server. It is therefore easier to plan for this before beginning the installation. See the [Secure MAP in HTTPS](#secure-map-in-https) page for the full procedure.
+
 ## License
 
 If you need an additional [license](../administration/licenses.md) for Centreon MAP, please contact the [Centreon support
