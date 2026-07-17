@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-camera-mobotix-snmp
 title: Mobotix Camera SNMP
-description: Supervisez les caméras Mobotix en SNMP : trafic des interfaces, erreurs, usage de la carte SD, température, luminosité et framerate vidéo.
+description: "Supervisez les caméras Mobotix en SNMP : trafic des interfaces, erreurs, usage de la carte SD, température, luminosité et framerate vidéo."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

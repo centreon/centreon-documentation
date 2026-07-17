@@ -1,7 +1,7 @@
 ---
 id: applications-veeam-wsman
 title: Veeam WSMAN
-description: Supervisez Veeam Backup & Replication via WSMAN : état des jobs de sauvegarde, licences, dépôts, jobs sur bande et jobs SureBackup.
+description: "Supervisez Veeam Backup & Replication via WSMAN : état des jobs de sauvegarde, licences, dépôts, jobs sur bande et jobs SureBackup."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

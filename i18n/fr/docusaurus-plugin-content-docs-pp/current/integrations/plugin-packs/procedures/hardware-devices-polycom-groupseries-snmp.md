@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-polycom-groupseries-snmp
 title: Polycom GroupSeries SNMP
-description: Supervisez les systèmes de vidéoconférence Polycom GroupSeries via SNMP : statut matériel et nombre de conférences actives.
+description: "Supervisez les systèmes de vidéoconférence Polycom GroupSeries via SNMP : statut matériel et nombre de conférences actives."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

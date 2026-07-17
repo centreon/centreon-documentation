@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-emc-clariion-navisphere
 title: EMC Clariion Navisphere
-description: Supervisez les baies de stockage EMC Clariion/VNX via Navisphere CLI : cache, contrôleur, disques, erreurs, état des HBA et des ports.
+description: "Supervisez les baies de stockage EMC Clariion/VNX via Navisphere CLI : cache, contrôleur, disques, erreurs, état des HBA et des ports."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

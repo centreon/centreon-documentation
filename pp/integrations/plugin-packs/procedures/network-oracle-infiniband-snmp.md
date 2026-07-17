@@ -1,7 +1,7 @@
 ---
 id: network-oracle-infiniband-snmp
 title: Oracle Infiniband SNMP
-description: Monitor Oracle Infiniband switches via SNMP, tracking CPU, memory, load, hardware status, and Infiniband interface bandwidth.
+description: "Monitor Oracle Infiniband switches via SNMP, tracking CPU, memory, load, hardware status, and Infiniband interface bandwidth."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

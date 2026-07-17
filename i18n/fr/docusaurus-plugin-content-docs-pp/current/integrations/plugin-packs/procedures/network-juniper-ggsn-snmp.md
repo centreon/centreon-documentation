@@ -1,7 +1,7 @@
 ---
 id: network-juniper-ggsn-snmp
 title: Juniper GGSN SNMP
-description: Supervisez les nœuds Juniper GGSN via SNMP : trafic, paquets perdus et statistiques des contextes PDP, par APN ou au global.
+description: "Supervisez les nœuds Juniper GGSN via SNMP : trafic, paquets perdus et statistiques des contextes PDP, par APN ou au global."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

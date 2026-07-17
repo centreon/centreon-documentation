@@ -1,7 +1,7 @@
 ---
 id: applications-vtom-restapi
 title: Absyss VTOM Rest API
-description: Supervisez l'ordonnanceur de jobs Absyss VTOM via l'API REST : statut des jobs, compteurs d'exécution et taux de succès.
+description: "Supervisez l'ordonnanceur de jobs Absyss VTOM via l'API REST : statut des jobs, compteurs d'exécution et taux de succès."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

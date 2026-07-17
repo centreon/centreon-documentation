@@ -1,7 +1,7 @@
 ---
 id: applications-redis-rlec-restapi
 title: Redis Labs Enterprise Cluster Rest API
-description: Supervisez Redis Labs Enterprise Cluster (RLEC) via l'API REST : métriques et statuts des clusters, bases de données, noeuds et shards.
+description: "Supervisez Redis Labs Enterprise Cluster (RLEC) via l'API REST : métriques et statuts des clusters, bases de données, noeuds et shards."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

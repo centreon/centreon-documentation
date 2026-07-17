@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hitachi-standard-snmp
 title: Hitachi Standard SNMP
-description: Monitor Hitachi Standard storage systems via SNMP, tracking hardware component, controller chassis, and drive chassis status.
+description: "Monitor Hitachi Standard storage systems via SNMP, tracking hardware component, controller chassis, and drive chassis status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

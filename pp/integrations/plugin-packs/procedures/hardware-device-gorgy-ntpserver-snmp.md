@@ -1,7 +1,7 @@
 ---
 id: hardware-device-gorgy-ntpserver-snmp
 title: Gorgy NTP Server SNMP
-description: Monitor Gorgy NTP servers via SNMP: sync status, timebase status, NTP requests, and network traffic.
+description: "Monitor Gorgy NTP servers via SNMP: sync status, timebase status, NTP requests, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

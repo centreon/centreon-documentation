@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-udp
 title: Protocol UDP
-description: Monitor UDP port connectivity by checking that a target resource responds on a specified port within a given timeout.
+description: "Monitor UDP port connectivity by checking that a target resource responds on a specified port within a given timeout."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

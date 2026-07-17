@@ -1,7 +1,7 @@
 ---
 id: blockchain-hyperledger-exporter
 title: Hyperledger API
-description: Monitor Hyperledger Fabric via its exporter API over HTTP/HTTPS: channel transactions, gossip peers, ledger and blockchain height.
+description: "Monitor Hyperledger Fabric via its exporter API over HTTP/HTTPS: channel transactions, gossip peers, ledger and blockchain height."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

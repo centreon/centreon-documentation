@@ -1,7 +1,7 @@
 ---
 id: network-vectra-restapi
 title: Vectra Rest API
-description: Monitor Vectra network detection appliances via REST API: CPU, disk, memory, uptime, interfaces, and sensor status.
+description: "Monitor Vectra network detection appliances via REST API: CPU, disk, memory, uptime, interfaces, and sensor status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-centreon-central
 title: Centreon Central
-description: Monitor a Centreon Central server via SNMP and SSH, tracking Broker statistics and key system processes like centengine, httpd, and sshd.
+description: "Monitor a Centreon Central server via SNMP and SSH, tracking Broker statistics and key system processes like centengine, httpd, and sshd."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

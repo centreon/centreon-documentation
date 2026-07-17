@@ -1,7 +1,7 @@
 ---
 id: network-radware-alteon-snmp
 title: Radware Alteon SNMP
-description: Supervisez les équipements Radware Alteon via SNMP : utilisation CPU, état du matériel, mémoire et statut des serveurs virtuels.
+description: "Supervisez les équipements Radware Alteon via SNMP : utilisation CPU, état du matériel, mémoire et statut des serveurs virtuels."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

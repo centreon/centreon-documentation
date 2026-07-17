@@ -1,7 +1,7 @@
 ---
 id: applications-thales-mistral-vs9-restapi
 title: Thales Mistral VS9 Rest API
-description: Supervisez les chiffreurs Thales Mistral VS9 via l'API REST : certificats, interfaces, système, cluster et tunnels VPN.
+description: "Supervisez les chiffreurs Thales Mistral VS9 via l'API REST : certificats, interfaces, système, cluster et tunnels VPN."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

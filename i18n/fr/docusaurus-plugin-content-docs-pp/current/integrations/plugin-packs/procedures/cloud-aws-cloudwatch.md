@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-cloudwatch
 title: Amazon CloudWatch
-description: Supervisez Amazon CloudWatch via l'API AWS (awscli ou paws) : suivez l'état des alarmes et vos métriques CloudWatch personnalisées.
+description: "Supervisez Amazon CloudWatch via l'API AWS (awscli ou paws) : suivez l'état des alarmes et vos métriques CloudWatch personnalisées."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-database-sqlserver
 title: Azure SQL Server
-description: Supervisez l'état des serveurs Azure SQL Server via l'API Azure Monitor ou az CLI, avec découverte automatique des hôtes, grâce au connecteur Centreon.
+description: "Supervisez l'état des serveurs Azure SQL Server via l'API Azure Monitor ou az CLI, avec découverte automatique des hôtes, grâce au connecteur Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

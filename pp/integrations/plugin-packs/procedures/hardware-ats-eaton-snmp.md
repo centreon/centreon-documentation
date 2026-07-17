@@ -1,7 +1,7 @@
 ---
 id: hardware-ats-eaton-snmp
 title: Eaton ATS SNMP
-description: Monitor Eaton ATS automatic transfer switches via SNMP, tracking input/output line voltage, current, frequency, temperature, and humidity.
+description: "Monitor Eaton ATS automatic transfer switches via SNMP, tracking input/output line voltage, current, frequency, temperature, and humidity."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

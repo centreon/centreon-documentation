@@ -1,7 +1,7 @@
 ---
 id: network-rad-airmux-snmp
 title: Rad Airmux SNMP
-description: Monitor RAD Airmux radio links via SNMP, tracking alarms, radio signal power, bad frames, interfaces, and uptime.
+description: "Monitor RAD Airmux radio links via SNMP, tracking alarms, radio signal power, bad frames, interfaces, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

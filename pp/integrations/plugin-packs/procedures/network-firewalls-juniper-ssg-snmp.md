@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-juniper-ssg-snmp
 title: Juniper SSG SNMP
-description: Monitor Juniper SSG firewalls via SNMP: CPU, memory, hardware, sessions, interface traffic, and VPN tunnels.
+description: "Monitor Juniper SSG firewalls via SNMP: CPU, memory, hardware, sessions, interface traffic, and VPN tunnels."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

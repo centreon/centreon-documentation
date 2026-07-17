@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-windows-snmp
 title: Windows SNMP
-description: Monitor Windows servers via SNMP: CPU, memory, swap, disk space, processes, services, network traffic, and uptime.
+description: "Monitor Windows servers via SNMP: CPU, memory, swap, disk space, processes, services, network traffic, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-databases-postgresql
 title: PostgreSQL DB
-description: Monitor PostgreSQL databases: connections, cache hit ratio, locks, query time, vacuum, bloat, and tablespace size.
+description: "Monitor PostgreSQL databases: connections, cache hit ratio, locks, query time, vacuum, bloat, and tablespace size."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

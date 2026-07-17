@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-compute-functions
 title: Azure Functions
-description: Monitor Azure Functions via the Azure Monitor API or Azure CLI: CPU time, memory, HTTP requests, executions, and app status.
+description: "Monitor Azure Functions via the Azure Monitor API or Azure CLI: CPU time, memory, HTTP requests, executions, and app status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

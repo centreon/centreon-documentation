@@ -1,7 +1,7 @@
 ---
 id: applications-exchange-nsclient-restapi
 title: Microsoft Exchange NSClient RestAPI
-description: Supervisez Microsoft Exchange via l'API REST NSClient++ : bases de données, services, files d'attente et connectivité des boîtes aux lettres.
+description: "Supervisez Microsoft Exchange via l'API REST NSClient++ : bases de données, services, files d'attente et connectivité des boîtes aux lettres."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

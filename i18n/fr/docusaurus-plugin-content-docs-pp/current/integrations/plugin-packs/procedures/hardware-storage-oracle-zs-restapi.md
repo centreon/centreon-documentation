@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-oracle-zs-restapi
 title: Oracle ZS Rest API
-description: Supervisez les baies de stockage Oracle ZFS via l'API REST : état des composants matériels et espace utilisé des pools de stockage.
+description: "Supervisez les baies de stockage Oracle ZFS via l'API REST : état des composants matériels et espace utilisé des pools de stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

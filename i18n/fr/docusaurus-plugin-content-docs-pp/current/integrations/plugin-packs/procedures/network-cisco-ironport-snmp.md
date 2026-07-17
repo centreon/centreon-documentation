@@ -1,7 +1,7 @@
 ---
 id: network-cisco-ironport-snmp
 title: Cisco IronPort SNMP
-description: Supervisez les appliances Cisco IronPort en SNMP : CPU, mémoire, matériel, utilisation mail/proxy et trafic des interfaces.
+description: "Supervisez les appliances Cisco IronPort en SNMP : CPU, mémoire, matériel, utilisation mail/proxy et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

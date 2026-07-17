@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-devtools-appconfiguration
 title: Azure App Configuration
-description: Monitor Azure App Configuration via the Azure API or Azure CLI: track HTTP request counts, throttled requests, and request latency.
+description: "Monitor Azure App Configuration via the Azure API or Azure CLI: track HTTP request counts, throttled requests, and request latency."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

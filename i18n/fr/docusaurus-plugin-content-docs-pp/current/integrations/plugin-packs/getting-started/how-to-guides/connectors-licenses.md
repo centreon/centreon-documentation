@@ -1,7 +1,7 @@
 ---
 id: connectors-licenses
 title: Licences offline/online et connecteurs
-description: Découvrez les différences entre licences offline et online pour les connecteurs de supervision Centreon, et comment installer ou mettre à jour vos connecteurs.
+description: "Découvrez les différences entre licences offline et online pour les connecteurs de supervision Centreon, et comment installer ou mettre à jour vos connecteurs."
 ---
 
 import Tabs from '@theme/Tabs';

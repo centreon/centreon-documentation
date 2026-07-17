@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-cloudwatch-discover
 title: AWS Discover
-description: Auto-discover AWS resources such as EC2, RDS, S3, and Lambda via the AWS API using the AWS Discover monitoring connector.
+description: "Auto-discover AWS resources such as EC2, RDS, S3, and Lambda via the AWS API using the AWS Discover monitoring connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

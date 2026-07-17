@@ -1,7 +1,7 @@
 ---
 id: network-digi-portserverts-snmp
 title: Digi PortServers TS SNMP
-description: Supervisez les serveurs Digi PortServers TS via SNMP : utilisation du CPU, de la mémoire et trafic des interfaces réseau.
+description: "Supervisez les serveurs Digi PortServers TS via SNMP : utilisation du CPU, de la mémoire et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

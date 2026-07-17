@@ -1,7 +1,7 @@
 ---
 id: cloud-gcp-management-stackdriver
 title: Google Stackdriver
-description: Monitor Google Cloud Stackdriver via the API: collect custom metrics with configurable dimensions, aggregation, and thresholds.
+description: "Monitor Google Cloud Stackdriver via the API: collect custom metrics with configurable dimensions, aggregation, and thresholds."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

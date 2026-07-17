@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-vpngateway
 title: Azure VPN Gateway
-description: Supervisez la passerelle VPN Azure via l'API : statut de santé, état de provisionnement et trafic des tunnels site-to-site et point-to-site.
+description: "Supervisez la passerelle VPN Azure via l'API : statut de santé, état de provisionnement et trafic des tunnels site-to-site et point-to-site."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

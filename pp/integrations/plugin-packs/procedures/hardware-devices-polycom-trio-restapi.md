@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-polycom-trio-restapi
 title: Polycom Trio Rest API
-description: Monitor Polycom Trio phones via REST API: call quality, CPU, memory, network traffic, paired devices, and SIP registration.
+description: "Monitor Polycom Trio phones via REST API: call quality, CPU, memory, network traffic, paired devices, and SIP registration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

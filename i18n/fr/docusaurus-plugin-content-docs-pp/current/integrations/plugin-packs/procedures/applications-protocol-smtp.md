@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-smtp
 title: SMTP Server
-description: Supervisez vos serveurs SMTP en contrôlant la connexion et l'envoi de messages, avec le temps de réponse pour chaque vérification.
+description: "Supervisez vos serveurs SMTP en contrôlant la connexion et l'envoi de messages, avec le temps de réponse pour chaque vérification."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

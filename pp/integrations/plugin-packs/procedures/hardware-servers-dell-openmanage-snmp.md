@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-dell-openmanage-snmp
 title: Dell OpenManage SNMP
-description: Monitor Dell OpenManage servers via SNMP: hardware status, fans, temperatures, power supplies, storage, and memory.
+description: "Monitor Dell OpenManage servers via SNMP: hardware status, fans, temperatures, power supplies, storage, and memory."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

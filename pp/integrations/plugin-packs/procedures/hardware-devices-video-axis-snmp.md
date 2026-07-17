@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-video-axis-snmp
 title: Axis Video SNMP
-description: Monitor Axis Video network cameras via SNMP: environment components (video, audio, PSU, fan, temperature, storage) and uptime.
+description: "Monitor Axis Video network cameras via SNMP: environment components (video, audio, PSU, fan, temperature, storage) and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

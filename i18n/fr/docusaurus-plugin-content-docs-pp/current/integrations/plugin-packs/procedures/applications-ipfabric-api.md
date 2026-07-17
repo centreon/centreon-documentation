@@ -1,7 +1,7 @@
 ---
 id: applications-ipfabric-api
 title: IP Fabric API
-description: Supervisez IP Fabric via son API REST pour découvrir les équipements réseau et vérifier l'état des routes entre les hôtes.
+description: "Supervisez IP Fabric via son API REST pour découvrir les équipements réseau et vérifier l'état des routes entre les hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

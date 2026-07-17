@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-quantum-scalar-snmp
 title: Quantum Scalar SNMP
-description: Monitor Quantum Scalar tape libraries via SNMP: hardware status, temperature, humidity, voltage, and power supply metrics.
+description: "Monitor Quantum Scalar tape libraries via SNMP: hardware status, temperature, humidity, voltage, and power supply metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

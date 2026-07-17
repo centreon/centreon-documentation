@@ -1,7 +1,7 @@
 ---
 id: applications-hddtemp-tcp
 title: Hddtemp TCP
-description: Supervisez la température des disques durs via TCP grâce au connecteur Hddtemp, avec configuration des statuts et des seuils.
+description: "Supervisez la température des disques durs via TCP grâce au connecteur Hddtemp, avec configuration des statuts et des seuils."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

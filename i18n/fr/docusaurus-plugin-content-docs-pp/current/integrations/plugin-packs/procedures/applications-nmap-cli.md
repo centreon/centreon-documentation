@@ -1,7 +1,7 @@
 ---
 id: applications-nmap-cli
 title: Nmap CLI Discovery
-description: Installez et configurez le connecteur Nmap CLI Discovery pour découvrir automatiquement les équipements, serveurs et services de votre réseau.
+description: "Installez et configurez le connecteur Nmap CLI Discovery pour découvrir automatiquement les équipements, serveurs et services de votre réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

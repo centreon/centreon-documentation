@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-centreon-experience-monitoring-restapi
 title: Centreon Experience Monitoring (formerly Quanta) Rest API
-description: Monitor Centreon Experience Monitoring (formerly Quanta) via REST API: RUM sessions, site performance scores, and user journey incidents/statistics.
+description: "Monitor Centreon Experience Monitoring (formerly Quanta) via REST API: RUM sessions, site performance scores, and user journey incidents/statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

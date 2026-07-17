@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-arkoon-snmp
 title: Arkoon SNMP
-description: Supervisez les pare-feu Arkoon via SNMP : charge CPU, mémoire, swap, trafic réseau, paquets en erreur et état des processus.
+description: "Supervisez les pare-feu Arkoon via SNMP : charge CPU, mémoire, swap, trafic réseau, paquets en erreur et état des processus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

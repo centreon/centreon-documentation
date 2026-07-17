@@ -1,7 +1,7 @@
 ---
 id: cloud-gcp-compute-computeengine
 title: Google Compute Engine
-description: Supervisez les instances Google Compute Engine via l'API GCP : utilisation CPU, entrées/sorties disque et trafic réseau.
+description: "Supervisez les instances Google Compute Engine via l'API GCP : utilisation CPU, entrées/sorties disque et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

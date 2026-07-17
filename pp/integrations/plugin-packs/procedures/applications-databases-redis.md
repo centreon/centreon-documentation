@@ -1,7 +1,7 @@
 ---
 id: applications-databases-redis
 title: Redis Database
-description: Monitor Redis databases via redis-cli or Perl: clients, commands, connections, CPU, memory, persistence, and replication.
+description: "Monitor Redis databases via redis-cli or Perl: clients, commands, connections, CPU, memory, persistence, and replication."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

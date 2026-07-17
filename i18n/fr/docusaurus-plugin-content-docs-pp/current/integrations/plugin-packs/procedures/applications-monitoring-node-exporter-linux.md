@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-node-exporter-linux
 title: Node Exporter Linux Metrics
-description: Supervisez des serveurs Linux via Prometheus Node Exporter : CPU, charge, mémoire, stockage et trafic réseau.
+description: "Supervisez des serveurs Linux via Prometheus Node Exporter : CPU, charge, mémoire, stockage et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

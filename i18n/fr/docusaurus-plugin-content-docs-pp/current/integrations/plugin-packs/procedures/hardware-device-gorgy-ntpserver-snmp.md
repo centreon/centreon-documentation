@@ -1,7 +1,7 @@
 ---
 id: hardware-device-gorgy-ntpserver-snmp
 title: Gorgy NTP Server SNMP
-description: Supervisez les serveurs NTP Gorgy via SNMP : statut de synchronisation, statut de la base de temps, requêtes NTP et trafic réseau.
+description: "Supervisez les serveurs NTP Gorgy via SNMP : statut de synchronisation, statut de la base de temps, requêtes NTP et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

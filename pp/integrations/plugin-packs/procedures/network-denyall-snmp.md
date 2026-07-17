@@ -1,7 +1,7 @@
 ---
 id: network-denyall-snmp
 title: DenyAll SNMP (Rohde & Schwarz)
-description: Monitor DenyAll (Rohde & Schwarz) appliances via SNMP: CPU, memory, load, storage, swap, interfaces, and reverse proxies.
+description: "Monitor DenyAll (Rohde & Schwarz) appliances via SNMP: CPU, memory, load, storage, swap, interfaces, and reverse proxies."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-juniper-mag-snmp
 title: Juniper Mag SNMP
-description: Monitor Juniper MAG SNMP appliances via SNMP: CPU, memory, swap, disk, logfile, temperature, connected users, and interface traffic.
+description: "Monitor Juniper MAG SNMP appliances via SNMP: CPU, memory, swap, disk, logfile, temperature, connected users, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

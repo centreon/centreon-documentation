@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-ibm-ds4000-smcli
 title: IBM DS4000 SMcli
-description: Supervisez les baies de stockage IBM DS4000 via la CLI SMcli en contrôlant l'état de santé global du stockage.
+description: "Supervisez les baies de stockage IBM DS4000 via la CLI SMcli en contrôlant l'état de santé global du stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

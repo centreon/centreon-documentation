@@ -1,7 +1,7 @@
 ---
 id: applications-databases-sap-hana
 title: SAP HANA
-description: Monitor SAP HANA databases via SQL: track blocked transactions, connected users, connection time, disk/volume usage, and host CPU/memory.
+description: "Monitor SAP HANA databases via SQL: track blocked transactions, connected users, connection time, disk/volume usage, and host CPU/memory."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-database-elasticpool
 title: Azure Elastic Pool
-description: Supervisez les pools élastiques Azure SQL Database via l'API Azure ou Azure CLI : CPU, DTU, stockage, sessions et usage des journaux.
+description: "Supervisez les pools élastiques Azure SQL Database via l'API Azure ou Azure CLI : CPU, DTU, stockage, sessions et usage des journaux."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: virtualization-linux-libvirt-cma
 title: Linux Libvirt CMA
-description: Monitor Linux libvirt hypervisors and VMs via virsh: CPU, memory, disk I/O, network, and storage pool/volume status.
+description: "Monitor Linux libvirt hypervisors and VMs via virsh: CPU, memory, disk I/O, network, and storage pool/volume status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

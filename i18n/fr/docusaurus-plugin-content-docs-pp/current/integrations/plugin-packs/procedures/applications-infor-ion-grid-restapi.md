@@ -1,7 +1,7 @@
 ---
 id: applications-infor-ion-grid-restapi
 title: Infor ION Grid Rest API
-description: Supervisez les applications et noeuds Infor ION Grid via API REST : statut, CPU, utilisation de la mémoire heap, uptime et erreurs de log.
+description: "Supervisez les applications et noeuds Infor ION Grid via API REST : statut, CPU, utilisation de la mémoire heap, uptime et erreurs de log."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

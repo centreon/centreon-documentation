@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hp-lefthand-snmp
 title: HP Lefthand SNMP
-description: Supervisez les baies de stockage HP Lefthand via SNMP : état du matériel, utilisation des volumes, débit, IOPS, latence et statut de réplication.
+description: "Supervisez les baies de stockage HP Lefthand via SNMP : état du matériel, utilisation des volumes, débit, IOPS, latence et statut de réplication."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-pdu-raritan-snmp
 title: Raritan PDU SNMP
-description: Supervisez les PDU Raritan via SNMP : sondes d'entrée, de sortie, externes et OCPRT (tension, courant, puissance, température).
+description: "Supervisez les PDU Raritan via SNMP : sondes d'entrée, de sortie, externes et OCPRT (tension, courant, puissance, température)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: collect-openmetrics
 title: Collect OpenMetrics
-description: Install the OpenMetrics Monitoring Connector and collect Prometheus metrics via CLI or host/service templates, with filtering and thresholds.
+description: "Install the OpenMetrics Monitoring Connector and collect Prometheus metrics via CLI or host/service templates, with filtering and thresholds."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

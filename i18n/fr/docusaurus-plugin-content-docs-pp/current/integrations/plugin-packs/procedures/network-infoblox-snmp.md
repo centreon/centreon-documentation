@@ -1,7 +1,7 @@
 ---
 id: network-infoblox-snmp
 title: Infoblox SNMP
-description: Supervisez les appliances Infoblox en SNMP : utilisation DHCP/DNS, trafic et statut des interfaces, et santé du système (CPU, mémoire, HA).
+description: "Supervisez les appliances Infoblox en SNMP : utilisation DHCP/DNS, trafic et statut des interfaces, et santé du système (CPU, mémoire, HA)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

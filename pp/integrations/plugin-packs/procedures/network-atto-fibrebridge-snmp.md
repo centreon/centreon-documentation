@@ -1,7 +1,7 @@
 ---
 id: network-atto-fibrebridge-snmp
 title: Atto Fibrebridge SNMP
-description: Monitor ATTO FibreBridge storage bridges via SNMP: track fiber channel port traffic, errors, and hardware temperature and alarms.
+description: "Monitor ATTO FibreBridge storage bridges via SNMP: track fiber channel port traffic, errors, and hardware temperature and alarms."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

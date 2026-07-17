@@ -1,7 +1,7 @@
 ---
 id: network-athonet-epc-snmp
 title: Athonet ePC SNMP
-description: Monitor Athonet ePC (Evolved Packet Core) via SNMP: interfaces, APNs, LTE sessions, license usage, and traffic statistics.
+description: "Monitor Athonet ePC (Evolved Packet Core) via SNMP: interfaces, APNs, LTE sessions, license usage, and traffic statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

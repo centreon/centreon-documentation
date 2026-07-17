@@ -1,7 +1,7 @@
 ---
 id: applications-video-openheadend-snmp
 title: OpenHeadend
-description: Supervisez les plateformes vidéo OpenHeadend via SNMP en suivant l'utilisation des nœuds (bitrate) et le statut des opérations.
+description: "Supervisez les plateformes vidéo OpenHeadend via SNMP en suivant l'utilisation des nœuds (bitrate) et le statut des opérations."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: cloud-ovh-restapi
 title: OVH Rest API
-description: Supervisez les services cloud OVH via l'API REST : usage du quota d'hébergement web et nombre de SMS restants.
+description: "Supervisez les services cloud OVH via l'API REST : usage du quota d'hébergement web et nombre de SMS restants."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

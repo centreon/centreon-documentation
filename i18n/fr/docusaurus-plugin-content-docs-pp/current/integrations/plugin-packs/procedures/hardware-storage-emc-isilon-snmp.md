@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-emc-isilon-snmp
 title: EMC Isilon SNMP
-description: Supervisez les clusters de stockage EMC Isilon via SNMP : santé du cluster, utilisation de la capacité et état du matériel.
+description: "Supervisez les clusters de stockage EMC Isilon via SNMP : santé du cluster, utilisation de la capacité et état du matériel."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

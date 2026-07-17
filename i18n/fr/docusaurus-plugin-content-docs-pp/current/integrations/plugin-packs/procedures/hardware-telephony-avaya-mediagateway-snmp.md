@@ -1,7 +1,7 @@
 ---
 id: hardware-telephony-avaya-mediagateway-snmp
 title: Avaya Media Gateway SNMP
-description: Supervisez les passerelles Avaya Media Gateway via SNMP : état des contrôleurs, utilisation du CPU et de la mémoire, alarmes matérielles.
+description: "Supervisez les passerelles Avaya Media Gateway via SNMP : état des contrôleurs, utilisation du CPU et de la mémoire, alarmes matérielles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-patton-smartnode-snmp
 title: Patton SmartNode SNMP
-description: Supervisez les passerelles Patton SmartNode via SNMP : appels, CPU, mémoire et température.
+description: "Supervisez les passerelles Patton SmartNode via SNMP : appels, CPU, mémoire et température."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

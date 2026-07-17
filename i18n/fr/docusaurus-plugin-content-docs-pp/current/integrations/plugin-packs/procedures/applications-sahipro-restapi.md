@@ -1,7 +1,7 @@
 ---
 id: applications-sahipro-restapi
 title: Sahi Pro Rest API
-description: Supervisez les scénarios de test Sahi Pro via l'API REST : statut d'exécution, étapes, échecs et erreurs.
+description: "Supervisez les scénarios de test Sahi Pro via l'API REST : statut d'exécution, étapes, échecs et erreurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

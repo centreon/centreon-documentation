@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hpe-alletra-restapi
 title: HPE Alletra REST API
-description: Monitor HPE Alletra storage arrays via REST API: track disk and volume status, capacity, usage, and license expiration.
+description: "Monitor HPE Alletra storage arrays via REST API: track disk and volume status, capacity, usage, and license expiration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

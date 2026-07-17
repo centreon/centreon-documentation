@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-dell-powerstore-restapi
 title: Dell PowerStore Rest API
-description: Supervisez les systèmes de stockage Dell PowerStore via l'API REST : alertes, clusters, matériel et mémoire.
+description: "Supervisez les systèmes de stockage Dell PowerStore via l'API REST : alertes, clusters, matériel et mémoire."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

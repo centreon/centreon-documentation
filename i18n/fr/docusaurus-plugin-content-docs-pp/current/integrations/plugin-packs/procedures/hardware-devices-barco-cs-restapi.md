@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-barco-cs-restapi
 title: Barco ClickShare Rest API
-description: Supervisez les équipements Barco ClickShare via l'API REST : statut, températures, vitesse des ventilateurs et processus.
+description: "Supervisez les équipements Barco ClickShare via l'API REST : statut, températures, vitesse des ventilateurs et processus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

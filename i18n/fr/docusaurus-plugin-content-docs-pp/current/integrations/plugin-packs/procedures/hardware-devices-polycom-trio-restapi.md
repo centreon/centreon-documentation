@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-polycom-trio-restapi
 title: Polycom Trio Rest API
-description: Supervisez les téléphones Polycom Trio via l'API REST : qualité des appels, CPU, mémoire, trafic réseau, équipements appairés et enregistrement SIP.
+description: "Supervisez les téléphones Polycom Trio via l'API REST : qualité des appels, CPU, mémoire, trafic réseau, équipements appairés et enregistrement SIP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

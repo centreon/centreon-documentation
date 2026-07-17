@@ -1,7 +1,7 @@
 ---
 id: applications-rubrik-restapi
 title: Rubrik Rest API
-description: Monitor Rubrik clusters via REST API: cluster health, nodes, disks, storage, backup compliance, jobs, and tasks.
+description: "Monitor Rubrik clusters via REST API: cluster health, nodes, disks, storage, backup compliance, jobs, and tasks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

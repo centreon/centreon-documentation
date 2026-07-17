@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-web-appserviceplan
 title: Azure App Service Plan
-description: Monitor Azure App Service Plan via REST API: CPU, memory, data transfer, queue length, sockets, TCP connections, and health status.
+description: "Monitor Azure App Service Plan via REST API: CPU, memory, data transfer, queue length, sockets, TCP connections, and health status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

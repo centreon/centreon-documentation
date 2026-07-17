@@ -1,7 +1,7 @@
 ---
 id: hardware-ups-socomec-netvision-snmp
 title: UPS Socomec Net Vision SNMP
-description: Supervisez les onduleurs Socomec Net Vision en SNMP : alarmes, état de la batterie et métriques des lignes d'entrée/sortie.
+description: "Supervisez les onduleurs Socomec Net Vision en SNMP : alarmes, état de la batterie et métriques des lignes d'entrée/sortie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

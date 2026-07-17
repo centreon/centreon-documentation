@@ -1,7 +1,7 @@
 ---
 id: applications-netbackup-cma
 title: Symantec Netbackup CMA
-description: Supervisez Symantec NetBackup via l'agent de supervision Centreon (CMA) : état de la déduplication, des lecteurs, des jobs et utilisation des bandes.
+description: "Supervisez Symantec NetBackup via l'agent de supervision Centreon (CMA) : état de la déduplication, des lecteurs, des jobs et utilisation des bandes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

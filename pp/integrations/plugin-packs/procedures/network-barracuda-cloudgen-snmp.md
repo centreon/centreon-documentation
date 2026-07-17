@@ -1,7 +1,7 @@
 ---
 id: network-barracuda-cloudgen-snmp
 title: Barracuda Cloudgen SNMP
-description: Monitor Barracuda CloudGen firewalls via SNMP: CPU, memory, load, storage, interfaces, VPN status, and hardware health.
+description: "Monitor Barracuda CloudGen firewalls via SNMP: CPU, memory, load, storage, interfaces, VPN status, and hardware health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

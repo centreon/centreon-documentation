@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-ibm-ts3200-snmp
 title: IBM TS3200 SNMP
-description: Supervisez les bibliothèques de bandes IBM TS3200 via SNMP en contrôlant l'état global de l'équipement.
+description: "Supervisez les bibliothèques de bandes IBM TS3200 via SNMP en contrôlant l'état global de l'équipement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

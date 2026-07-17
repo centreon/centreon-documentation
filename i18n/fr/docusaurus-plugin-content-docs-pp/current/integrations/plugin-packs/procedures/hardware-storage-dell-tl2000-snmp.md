@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-dell-tl2000-snmp
 title: Dell TL2000 SNMP
-description: Supervisez les librairies de sauvegarde Dell TL2000 via SNMP en surveillant l'état global de l'équipement avec Centreon.
+description: "Supervisez les librairies de sauvegarde Dell TL2000 via SNMP en surveillant l'état global de l'équipement avec Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

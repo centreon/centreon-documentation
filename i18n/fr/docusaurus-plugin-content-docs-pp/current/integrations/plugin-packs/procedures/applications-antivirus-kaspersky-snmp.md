@@ -1,7 +1,7 @@
 ---
 id: applications-antivirus-kaspersky-snmp
 title: Kaspersky
-description: Supervisez Kaspersky Security Center en SNMP : déploiement antivirus, statut de la protection, mises à jour, évènements et découverte réseau.
+description: "Supervisez Kaspersky Security Center en SNMP : déploiement antivirus, statut de la protection, mises à jour, évènements et découverte réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

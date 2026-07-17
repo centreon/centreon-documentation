@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-vpngateway
 title: Azure VPN Gateway
-description: Monitor Azure VPN Gateway via API: gateway health, provisioning status, and site-to-site and point-to-site tunnel traffic.
+description: "Monitor Azure VPN Gateway via API: gateway health, provisioning status, and site-to-site and point-to-site tunnel traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-meru-snmp
 title: Meru SNMP
-description: Monitor Meru Networks wireless equipment via SNMP: alarms, CPU, memory, interfaces, and wireless statistics.
+description: "Monitor Meru Networks wireless equipment via SNMP: alarms, CPU, memory, interfaces, and wireless statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

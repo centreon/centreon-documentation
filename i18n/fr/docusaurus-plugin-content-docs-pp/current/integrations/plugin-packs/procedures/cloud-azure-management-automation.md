@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-management-automation
 title: Azure Automation
-description: Supervisez les jobs Azure Automation via l'API ou Azure CLI, avec le nombre de jobs, les machine runs et les déploiements de mise à jour.
+description: "Supervisez les jobs Azure Automation via l'API ou Azure CLI, avec le nombre de jobs, les machine runs et les déploiements de mise à jour."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

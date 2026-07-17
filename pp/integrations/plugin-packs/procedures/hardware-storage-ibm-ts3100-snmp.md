@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-ibm-ts3100-snmp
 title: IBM TS3100 SNMP
-description: Monitor IBM TS3100 tape libraries via SNMP with Centreon, tracking the overall device status.
+description: "Monitor IBM TS3100 tape libraries via SNMP with Centreon, tracking the overall device status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-ats-apc
 title: APC ATS SNMP
-description: Monitor APC Automatic Transfer Switches (ATS) via SNMP: device status, input/output voltage, current, power, and load.
+description: "Monitor APC Automatic Transfer Switches (ATS) via SNMP: device status, input/output voltage, current, power, and load."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

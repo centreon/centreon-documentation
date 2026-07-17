@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-sftp
 title: Protocol SFTP
-description: Monitor SFTP servers via SSH: connection status, file counts, file modification times, and scenario execution.
+description: "Monitor SFTP servers via SSH: connection status, file counts, file modification times, and scenario execution."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

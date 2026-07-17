@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-hp-ilo-xmlapi
 title: HP Ilo XMLAPI
-description: Monitor HP servers via the iLO XML API: hardware health status for fans, temperature, power supplies, CPU, and memory.
+description: "Monitor HP servers via the iLO XML API: hardware health status for fans, temperature, power supplies, CPU, and memory."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

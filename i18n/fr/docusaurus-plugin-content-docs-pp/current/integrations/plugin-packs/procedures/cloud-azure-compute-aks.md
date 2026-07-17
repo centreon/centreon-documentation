@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-compute-aks
 title: Azure Kubernetes Service
-description: Superviser Azure Kubernetes Service (AKS) via l'API Azure ou Azure CLI : santé du cluster, CPU, mémoire, stockage, état des noeuds/pods et trafic.
+description: "Superviser Azure Kubernetes Service (AKS) via l'API Azure ou Azure CLI : santé du cluster, CPU, mémoire, stockage, état des noeuds/pods et trafic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-qsan-nas-snmp
 title: QSAN NAS SNMP
-description: Supervisez les baies QSAN NAS via SNMP : statuts et métriques des disques, ventilateurs, alimentations, température et tension.
+description: "Supervisez les baies QSAN NAS via SNMP : statuts et métriques des disques, ventilateurs, alimentations, température et tension."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

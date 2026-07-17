@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-akcp-snmp
 title: AKCP Sensor SNMP
-description: Monitor AKCP environmental sensors via SNMP, tracking temperature, humidity, switch, serial, and water status.
+description: "Monitor AKCP environmental sensors via SNMP, tracking temperature, humidity, switch, serial, and water status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

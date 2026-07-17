@@ -1,7 +1,7 @@
 ---
 id: network-barracuda-bma-snmp
 title: Barracuda Message Archiver SNMP
-description: Supervisez Barracuda Message Archiver via SNMP : charge processeur, activité des mails et utilisation du stockage.
+description: "Supervisez Barracuda Message Archiver via SNMP : charge processeur, activité des mails et utilisation du stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

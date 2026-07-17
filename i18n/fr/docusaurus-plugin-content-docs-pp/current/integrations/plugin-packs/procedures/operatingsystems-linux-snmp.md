@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-linux-snmp
 title: Linux SNMP
-description: Supervisez vos serveurs Linux via SNMP : CPU, mémoire, swap, espace disque, trafic réseau, processus et synchronisation NTP.
+description: "Supervisez vos serveurs Linux via SNMP : CPU, mémoire, swap, espace disque, trafic réseau, processus et synchronisation NTP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

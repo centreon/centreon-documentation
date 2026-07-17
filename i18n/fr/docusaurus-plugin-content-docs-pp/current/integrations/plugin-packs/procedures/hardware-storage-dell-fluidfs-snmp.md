@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-dell-fluidfs-snmp
 title: Dell FluidFS SNMP
-description: Supervisez les systèmes de stockage Dell FluidFS via SNMP : état des composants et utilisation des volumes.
+description: "Supervisez les systèmes de stockage Dell FluidFS via SNMP : état des composants et utilisation des volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

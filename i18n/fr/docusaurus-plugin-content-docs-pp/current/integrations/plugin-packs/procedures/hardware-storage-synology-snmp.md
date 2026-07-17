@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-synology-snmp
 title: Synology SNMP
-description: Supervisez les NAS Synology via SNMP : CPU, mémoire, espace disque, température, onduleur et trafic réseau.
+description: "Supervisez les NAS Synology via SNMP : CPU, mémoire, espace disque, température, onduleur et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

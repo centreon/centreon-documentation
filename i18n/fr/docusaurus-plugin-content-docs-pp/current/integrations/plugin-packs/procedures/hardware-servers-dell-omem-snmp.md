@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-dell-omem-snmp
 title: Dell OME-Modular SNMP
-description: Supervisez les châssis Dell OpenManage Enterprise Modular via SNMP : état matériel, alimentation, température et disponibilité.
+description: "Supervisez les châssis Dell OpenManage Enterprise Modular via SNMP : état matériel, alimentation, température et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

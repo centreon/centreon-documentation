@@ -1,7 +1,7 @@
 ---
 id: network-oneaccess-snmp
 title: OneAccess SNMP
-description: Supervisez les routeurs OneAccess via SNMP : CPU, mémoire, interfaces, modules radio cellulaires et sondes de temps de réponse.
+description: "Supervisez les routeurs OneAccess via SNMP : CPU, mémoire, interfaces, modules radio cellulaires et sondes de temps de réponse."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-hms-netbiter-argos-restapi
 title: HMS Netbiter Argos RestAPI
-description: Supervisez les systèmes HMS Netbiter Argos via l'API REST : alarmes et relevés de sondes depuis Centreon.
+description: "Supervisez les systèmes HMS Netbiter Argos via l'API REST : alarmes et relevés de sondes depuis Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

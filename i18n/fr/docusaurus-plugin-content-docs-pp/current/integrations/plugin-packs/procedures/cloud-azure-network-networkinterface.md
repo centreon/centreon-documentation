@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-networkinterface
 title: Azure Network Interface
-description: Supervisez le trafic des interfaces réseau Azure via l'API, avec le suivi des débits d'octets et de paquets envoyés et reçus.
+description: "Supervisez le trafic des interfaces réseau Azure via l'API, avec le suivi des débits d'octets et de paquets envoyés et reçus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

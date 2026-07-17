@@ -1,7 +1,7 @@
 ---
 id: virtualization-vmware2-vcenter-generic
 title: VMware vCenter
-description: Supervisez VMware vCenter via son API : statut des VMs, serveurs ESX, datastores, clusters et datacenters, CPU, mémoire et alarmes.
+description: "Supervisez VMware vCenter via son API : statut des VMs, serveurs ESX, datastores, clusters et datacenters, CPU, mémoire et alarmes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

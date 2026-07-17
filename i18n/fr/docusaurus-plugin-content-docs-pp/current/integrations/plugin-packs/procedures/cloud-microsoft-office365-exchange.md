@@ -1,7 +1,7 @@
 ---
 id: cloud-microsoft-office365-exchange
 title: Office365 Exchange
-description: Supervisez Microsoft Office 365 Exchange Online via l'API Office 365 Management : activité des e-mails et utilisation/quotas des boîtes mail.
+description: "Supervisez Microsoft Office 365 Exchange Online via l'API Office 365 Management : activité des e-mails et utilisation/quotas des boîtes mail."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-fsx
 title: Amazon FSx
-description: Supervisez les systèmes de fichiers Amazon FSx via l'API AWS : utilisation des données (E/S) et espace de stockage libre.
+description: "Supervisez les systèmes de fichiers Amazon FSx via l'API AWS : utilisation des données (E/S) et espace de stockage libre."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

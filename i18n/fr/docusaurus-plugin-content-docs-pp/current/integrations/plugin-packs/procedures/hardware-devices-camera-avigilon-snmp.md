@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-camera-avigilon-snmp
 title: Avigilon camera SNMP
-description: Supervisez les caméras Avigilon en SNMP : mémoire, stockage, température, disponibilité et interfaces réseau.
+description: "Supervisez les caméras Avigilon en SNMP : mémoire, stockage, température, disponibilité et interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

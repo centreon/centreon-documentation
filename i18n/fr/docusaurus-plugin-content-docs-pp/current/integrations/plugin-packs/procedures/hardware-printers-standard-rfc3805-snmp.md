@@ -1,7 +1,7 @@
 ---
 id: hardware-printers-standard-rfc3805-snmp
 title: Printer standard SNMP
-description: Supervisez les imprimantes compatibles RFC3805 via SNMP : statut du capot, impressions, niveau des consommables, bacs à papier et erreurs matérielles.
+description: "Supervisez les imprimantes compatibles RFC3805 via SNMP : statut du capot, impressions, niveau des consommables, bacs à papier et erreurs matérielles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

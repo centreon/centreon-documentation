@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-sensorip-snmp
 title: Sensor IP SNMP
-description: Monitor AKCP Sensor IP devices via SNMP, tracking temperature, humidity, switch, and sensor probe status.
+description: "Monitor AKCP Sensor IP devices via SNMP, tracking temperature, humidity, switch, and sensor probe status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

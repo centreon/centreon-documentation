@@ -1,7 +1,7 @@
 ---
 id: applications-eclipse-mosquitto-mqtt
 title: Eclipse Mosquitto MQTT
-description: Supervisez les serveurs Eclipse Mosquitto MQTT : clients connectés, statistiques de messages et disponibilité du serveur.
+description: "Supervisez les serveurs Eclipse Mosquitto MQTT : clients connectés, statistiques de messages et disponibilité du serveur."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-pdu-raritan-snmp
 title: Raritan PDU SNMP
-description: Monitor Raritan PDUs via SNMP: inlet, outlet, external, and OCPRT sensor metrics like voltage, current, power, and temperature.
+description: "Monitor Raritan PDUs via SNMP: inlet, outlet, external, and OCPRT sensor metrics like voltage, current, power, and temperature."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

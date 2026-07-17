@@ -1,7 +1,7 @@
 ---
 id: applications-mscs-cma
 title: Microsoft Cluster Server CMA
-description: Monitor Microsoft Cluster Server (MSCS) via CMA: cluster network, node, resource, and resource group status.
+description: "Monitor Microsoft Cluster Server (MSCS) via CMA: cluster network, node, resource, and resource group status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

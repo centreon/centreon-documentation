@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-windows-centreon-monitoring-agent
 title: Windows CMA
-description: Monitor Windows servers via the Centreon Monitoring Agent (CMA): CPU, memory, disks, services, uptime, and more.
+description: "Monitor Windows servers via the Centreon Monitoring Agent (CMA): CPU, memory, disks, services, uptime, and more."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

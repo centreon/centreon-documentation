@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-windows-wsman
 title: Windows WSMAN
-description: Supervisez les serveurs Windows via WSMAN : CPU, mémoire, espace disque, services, processus, disponibilité et certificats.
+description: "Supervisez les serveurs Windows via WSMAN : CPU, mémoire, espace disque, services, processus, disponibilité et certificats."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

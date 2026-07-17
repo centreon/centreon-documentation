@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-dell-vxm-restapi
 title: Dell VxRail Manager Rest API
-description: Monitor Dell VxRail Manager via REST API: chassis and power supply status, host status, NIC status, and disk status.
+description: "Monitor Dell VxRail Manager via REST API: chassis and power supply status, host status, NIC status, and disk status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-cisco-prime-restapi
 title: Cisco Prime RestAPI
-description: Supervisez les points d'accès Cisco Prime via l'API REST : utilisation, statut et disponibilité des clients.
+description: "Supervisez les points d'accès Cisco Prime via l'API REST : utilisation, statut et disponibilité des clients."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

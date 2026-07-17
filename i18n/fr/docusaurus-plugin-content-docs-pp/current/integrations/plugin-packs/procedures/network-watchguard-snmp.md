@@ -1,7 +1,7 @@
 ---
 id: network-watchguard-snmp
 title: Watchguard SNMP
-description: Supervisez les pare-feux WatchGuard via SNMP : CPU, matériel, statut du cluster, tunnels IPsec, policies et trafic.
+description: "Supervisez les pare-feux WatchGuard via SNMP : CPU, matériel, statut du cluster, tunnels IPsec, policies et trafic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

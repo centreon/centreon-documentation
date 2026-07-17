@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-ibm-bladecenter-snmp
 title: IBM BladeCenter SNMP
-description: Supervisez les châssis IBM BladeCenter via SNMP : température ambiante, blades, blowers, statut du châssis, modules d'alimentation et état système.
+description: "Supervisez les châssis IBM BladeCenter via SNMP : température ambiante, blades, blowers, statut du châssis, modules d'alimentation et état système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

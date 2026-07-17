@@ -1,7 +1,7 @@
 ---
 id: network-lenovo-rackswitch-snmp
 title: Lenovo RackSwitch SNMP
-description: Monitor Lenovo RackSwitch devices via SNMP, tracking CPU, memory, hardware sensors, uptime, and network interfaces.
+description: "Monitor Lenovo RackSwitch devices via SNMP, tracking CPU, memory, hardware sensors, uptime, and network interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-hpe-athonet-node-exporter-api
 title: HPE Athonet w/ Prometheus API
-description: Monitor HPE Athonet 5G core via Prometheus API: CPU, memory, load, storage, licenses, interfaces, and core network functions (CHF, DRA, MME, SMF, UPF, and more).
+description: "Monitor HPE Athonet 5G core via Prometheus API: CPU, memory, load, storage, licenses, interfaces, and core network functions (CHF, DRA, MME, SMF, UPF, and more)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

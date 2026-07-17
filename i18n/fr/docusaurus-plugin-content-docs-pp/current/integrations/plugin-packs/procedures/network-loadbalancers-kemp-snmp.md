@@ -1,7 +1,7 @@
 ---
 id: network-loadbalancers-kemp-snmp
 title: Kemp Loadbalancer SNMP
-description: Supervisez les équipements Kemp Loadbalancer via SNMP : CPU, charge, mémoire, statut HA, serveurs virtuels/réels et trafic des interfaces.
+description: "Supervisez les équipements Kemp Loadbalancer via SNMP : CPU, charge, mémoire, statut HA, serveurs virtuels/réels et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

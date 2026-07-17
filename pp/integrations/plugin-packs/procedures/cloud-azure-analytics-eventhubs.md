@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-analytics-eventhubs
 title: Azure Event Hubs
-description: Monitor Azure Event Hubs via REST API or Azure CLI: track backlog, connections, errors, health, messages, requests, and throughput.
+description: "Monitor Azure Event Hubs via REST API or Azure CLI: track backlog, connections, errors, health, messages, requests, and throughput."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

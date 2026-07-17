@@ -1,7 +1,7 @@
 ---
 id: cloud-vmware-velocloud-restapi
 title: VMware VeloCloud Rest API
-description: Monitor VMware VeloCloud SD-WAN edges via REST API: link status, link usage, edge QoE, and application/category bandwidth.
+description: "Monitor VMware VeloCloud SD-WAN edges via REST API: link status, link usage, edge QoE, and application/category bandwidth."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

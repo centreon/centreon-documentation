@@ -1,7 +1,7 @@
 ---
 id: applications-databases-sybase
 title: Sybase
-description: Monitor Sybase databases via SQL queries: blocked processes, connected users, connection time, and database size.
+description: "Monitor Sybase databases via SQL queries: blocked processes, connected users, connection time, and database size."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

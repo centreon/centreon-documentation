@@ -1,7 +1,7 @@
 ---
 id: network-ruggedcom
 title: Ruggedcom Network SNMP
-description: Supervisez les commutateurs réseau Ruggedcom via SNMP : matériel, mémoire, température et trafic des interfaces.
+description: "Supervisez les commutateurs réseau Ruggedcom via SNMP : matériel, mémoire, température et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

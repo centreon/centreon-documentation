@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-http
 title: HTTP Server
-description: Supervisez des serveurs web en HTTP/HTTPS grâce aux contrôles du temps de réponse, du contenu attendu, du JSON et du SOAP.
+description: "Supervisez des serveurs web en HTTP/HTTPS grâce aux contrôles du temps de réponse, du contenu attendu, du JSON et du SOAP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

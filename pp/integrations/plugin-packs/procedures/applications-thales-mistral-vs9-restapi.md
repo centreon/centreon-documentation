@@ -1,7 +1,7 @@
 ---
 id: applications-thales-mistral-vs9-restapi
 title: Thales Mistral VS9 Rest API
-description: Monitor Thales Mistral VS9 encryptors via REST API: certificates, interfaces, system status, cluster health, and VPN tunnels.
+description: "Monitor Thales Mistral VS9 encryptors via REST API: certificates, interfaces, system status, cluster health, and VPN tunnels."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

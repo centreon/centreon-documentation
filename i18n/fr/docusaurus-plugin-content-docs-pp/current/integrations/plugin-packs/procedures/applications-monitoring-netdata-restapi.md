@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-netdata-restapi
 title: Netdata RestAPI
-description: Supervisez Netdata via son API REST : CPU, mémoire, espace disque, inodes, charge système, swap et trafic réseau.
+description: "Supervisez Netdata via son API REST : CPU, mémoire, espace disque, inodes, charge système, swap et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

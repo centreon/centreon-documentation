@@ -1,7 +1,7 @@
 ---
 id: applications-webservers-nginx-serverstatus
 title: Nginx Server
-description: Monitor Nginx web servers via HTTP stub_status: connections (active, reading, writing, waiting) and request throughput.
+description: "Monitor Nginx web servers via HTTP stub_status: connections (active, reading, writing, waiting) and request throughput."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

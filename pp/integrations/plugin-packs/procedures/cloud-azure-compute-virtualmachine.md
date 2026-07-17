@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-compute-virtualmachine
 title: Azure Virtual Machine
-description: Monitor Azure Virtual Machines via API: CPU, disk I/O, memory, network usage, VM health, and automatic host discovery.
+description: "Monitor Azure Virtual Machines via API: CPU, disk I/O, memory, network usage, VM health, and automatic host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

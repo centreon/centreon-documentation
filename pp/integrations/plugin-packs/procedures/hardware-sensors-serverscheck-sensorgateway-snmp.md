@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-serverscheck-sensorgateway-snmp
 title: SensorGateway SNMP
-description: Monitor ServersCheck SensorGateway devices via SNMP, tracking sensor counts and status for connected environmental sensors.
+description: "Monitor ServersCheck SensorGateway devices via SNMP, tracking sensor counts and status for connected environmental sensors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

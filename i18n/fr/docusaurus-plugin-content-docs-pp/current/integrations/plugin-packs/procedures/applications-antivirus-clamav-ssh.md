@@ -1,7 +1,7 @@
 ---
 id: applications-antivirus-clamav-ssh
 title: Antivirus ClamAV
-description: Supervisez l'antivirus ClamAV via SSH et contrôlez le statut des mises à jour du moteur et des bases virales (main.cvd, daily.cvd).
+description: "Supervisez l'antivirus ClamAV via SSH et contrôlez le statut des mises à jour du moteur et des bases virales (main.cvd, daily.cvd)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-oracle-infiniband-snmp
 title: Oracle Infiniband SNMP
-description: Supervisez les commutateurs Oracle Infiniband en SNMP : CPU, mémoire, charge, statut matériel et bande passante des interfaces Infiniband.
+description: "Supervisez les commutateurs Oracle Infiniband en SNMP : CPU, mémoire, charge, statut matériel et bande passante des interfaces Infiniband."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

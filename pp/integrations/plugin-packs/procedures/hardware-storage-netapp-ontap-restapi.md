@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-netapp-ontap-restapi
 title: NetApp Ontap Rest API
-description: Monitor NetApp ONTAP storage systems via REST API: aggregates, cluster health, hardware, LUNs, quotas, snapmirrors, and volumes.
+description: "Monitor NetApp ONTAP storage systems via REST API: aggregates, cluster health, hardware, LUNs, quotas, snapmirrors, and volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

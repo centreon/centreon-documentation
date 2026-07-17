@@ -1,7 +1,7 @@
 ---
 id: infrastructure-active-directory-nsclient-05-restapi
 title: Microsoft Active Directory NSClient++ API
-description: Supervisez Microsoft Active Directory via l'API REST NSClient++ : diagnostic du contrôleur de domaine et backlog de réplication DFSR.
+description: "Supervisez Microsoft Active Directory via l'API REST NSClient++ : diagnostic du contrôleur de domaine et backlog de réplication DFSR."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

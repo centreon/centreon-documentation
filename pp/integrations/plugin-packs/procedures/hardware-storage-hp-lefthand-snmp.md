@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hp-lefthand-snmp
 title: HP Lefthand SNMP
-description: Monitor HP Lefthand storage arrays via SNMP, tracking hardware health and volume usage, I/O throughput, IOPS, latency, and replication status.
+description: "Monitor HP Lefthand storage arrays via SNMP, tracking hardware health and volume usage, I/O throughput, IOPS, latency, and replication status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

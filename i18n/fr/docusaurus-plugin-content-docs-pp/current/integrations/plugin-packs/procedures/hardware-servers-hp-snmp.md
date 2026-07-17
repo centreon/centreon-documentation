@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-hp-snmp
 title: HP Proliant SNMP
-description: Supervisez les serveurs HP Proliant via SNMP : statut du CPU, des ventilateurs, alimentations, stockage, température et cartes réseau.
+description: "Supervisez les serveurs HP Proliant via SNMP : statut du CPU, des ventilateurs, alimentations, stockage, température et cartes réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

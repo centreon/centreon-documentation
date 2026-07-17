@@ -1,7 +1,7 @@
 ---
 id: network-ubiquiti-airfiber-snmp
 title: Ubiquiti AirFiber SNMP
-description: Monitor Ubiquiti AirFiber devices via SNMP: interface traffic, load average, memory usage, and radio signal metrics.
+description: "Monitor Ubiquiti AirFiber devices via SNMP: interface traffic, load average, memory usage, and radio signal metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

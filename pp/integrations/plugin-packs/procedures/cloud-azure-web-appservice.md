@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-web-appservice
 title: Azure App Service
-description: Monitor Azure App Service via the Azure API: track CPU time, memory, HTTP requests, response time, and app health.
+description: "Monitor Azure App Service via the Azure API: track CPU time, memory, HTTP requests, response time, and app health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

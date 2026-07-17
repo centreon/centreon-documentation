@@ -1,7 +1,7 @@
 ---
 id: release-notes
 title: Release Notes
-description: Browse monthly release notes for Centreon Monitoring Connectors, covering new connectors, enhancements, breaking changes, and bug fixes.
+description: "Browse monthly release notes for Centreon Monitoring Connectors, covering new connectors, enhancements, breaking changes, and bug fixes."
 ---
 
 import Tabs from '@theme/Tabs';

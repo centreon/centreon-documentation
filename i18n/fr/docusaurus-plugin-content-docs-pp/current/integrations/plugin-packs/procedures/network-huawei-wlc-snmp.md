@@ -1,7 +1,7 @@
 ---
 id: network-huawei-wlc-snmp
 title: Huawei WLC SNMP
-description: Supervisez les contrôleurs WLAN Huawei via SNMP : CPU, mémoire, uptime, matériel, points d'accès et réseaux WLAN.
+description: "Supervisez les contrôleurs WLAN Huawei via SNMP : CPU, mémoire, uptime, matériel, points d'accès et réseaux WLAN."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

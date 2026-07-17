@@ -1,7 +1,7 @@
 ---
 id: applications-sendmail-snmp
 title: Sendmail
-description: Supervisez l'utilisation MTA de Sendmail via SNMP en suivant les messages et volumes reçus, stockés, transmis et rejetés.
+description: "Supervisez l'utilisation MTA de Sendmail via SNMP en suivant les messages et volumes reçus, stockés, transmis et rejetés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

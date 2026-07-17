@@ -1,7 +1,7 @@
 ---
 id: network-colubris-snmp
 title: Colubris SNMP
-description: Monitor Colubris SNMP devices: access point usage, CPU, memory, load, storage, and network interfaces.
+description: "Monitor Colubris SNMP devices: access point usage, CPU, memory, load, storage, and network interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

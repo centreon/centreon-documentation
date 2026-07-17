@@ -1,7 +1,7 @@
 ---
 id: applications-sccm-cma
 title: Microsoft SCCM CMA
-description: Monitor Microsoft SCCM via CMA: track database replication status and site status.
+description: "Monitor Microsoft SCCM via CMA: track database replication status and site status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

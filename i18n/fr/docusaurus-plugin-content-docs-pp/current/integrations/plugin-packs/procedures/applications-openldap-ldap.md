@@ -1,7 +1,7 @@
 ---
 id: applications-openldap-ldap
 title: OpenLDAP
-description: Supervisez les serveurs OpenLDAP via le protocole LDAP : connexions, utilisation des threads, trafic et opérations de recherche, bind, ajout et suppression.
+description: "Supervisez les serveurs OpenLDAP via le protocole LDAP : connexions, utilisation des threads, trafic et opérations de recherche, bind, ajout et suppression."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

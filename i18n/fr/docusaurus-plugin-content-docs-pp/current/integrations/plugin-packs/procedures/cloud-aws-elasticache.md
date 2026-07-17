@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-elasticache
 title: Amazon ElastiCache
-description: Supervisez AWS ElastiCache (Redis et Memcached) via l'API CloudWatch : CPU, connexions, évictions, réseau et réplication.
+description: "Supervisez AWS ElastiCache (Redis et Memcached) via l'API CloudWatch : CPU, connexions, évictions, réseau et réplication."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

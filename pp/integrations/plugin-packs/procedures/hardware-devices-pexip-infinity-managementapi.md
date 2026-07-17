@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-pexip-infinity-managementapi
 title: Pexip Infinity ManagementAPI
-description: Monitor Pexip Infinity video conferencing via the ManagementAPI (HTTPS/REST): alarms and conference/participant call quality metrics.
+description: "Monitor Pexip Infinity video conferencing via the ManagementAPI (HTTPS/REST): alarms and conference/participant call quality metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

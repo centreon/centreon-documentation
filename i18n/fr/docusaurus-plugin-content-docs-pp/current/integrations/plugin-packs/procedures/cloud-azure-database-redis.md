@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-database-redis
 title: Azure Cache for Redis
-description: Supervisez Azure Cache for Redis via l'API Azure ou Azure CLI : latence, débit, CPU, mémoire, erreurs et santé du cache.
+description: "Supervisez Azure Cache for Redis via l'API Azure ou Azure CLI : latence, débit, CPU, mémoire, erreurs et santé du cache."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

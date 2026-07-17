@@ -1,7 +1,7 @@
 ---
 id: cloud-microsoft-office365-onedrive
 title: Office 365 OneDrive
-description: Supervisez Microsoft Office 365 OneDrive via les API REST Microsoft Graph et Office 365 Management : utilisation des sites, fichiers et activité des utilisateurs.
+description: "Supervisez Microsoft Office 365 OneDrive via les API REST Microsoft Graph et Office 365 Management : utilisation des sites, fichiers et activité des utilisateurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

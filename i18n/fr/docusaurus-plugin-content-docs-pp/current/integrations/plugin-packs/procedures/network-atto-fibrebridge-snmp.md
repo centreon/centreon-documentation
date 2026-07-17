@@ -1,7 +1,7 @@
 ---
 id: network-atto-fibrebridge-snmp
 title: Atto Fibrebridge SNMP
-description: Supervisez les ponts de stockage ATTO FibreBridge via SNMP : trafic et erreurs des ports fiber channel, température et alarmes matérielles.
+description: "Supervisez les ponts de stockage ATTO FibreBridge via SNMP : trafic et erreurs des ports fiber channel, température et alarmes matérielles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

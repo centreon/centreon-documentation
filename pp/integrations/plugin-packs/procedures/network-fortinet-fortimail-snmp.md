@@ -1,7 +1,7 @@
 ---
 id: network-fortinet-fortimail-snmp
 title: Fortinet FortiMail SNMP
-description: Monitor Fortinet FortiMail appliances via SNMP: CPU, memory, disk, load, interfaces, mail queues, HA status, and uptime.
+description: "Monitor Fortinet FortiMail appliances via SNMP: CPU, memory, disk, load, interfaces, mail queues, HA status, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

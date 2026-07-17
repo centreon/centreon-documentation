@@ -1,7 +1,7 @@
 ---
 id: network-aruba-cppm-snmp
 title: Aruba CPPM SNMP
-description: Supervisez Aruba ClearPass Policy Manager (CPPM) en SNMP : CPU, mémoire, disques, swap, interfaces, RADIUS et TACACS.
+description: "Supervisez Aruba ClearPass Policy Manager (CPPM) en SNMP : CPU, mémoire, disques, swap, interfaces, RADIUS et TACACS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

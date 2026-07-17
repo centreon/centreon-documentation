@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-firewall
 title: Azure Firewall
-description: Supervisez Azure Firewall via l'API ou le CLI Azure : santé, statistiques de hits et débit dans Centreon.
+description: "Supervisez Azure Firewall via l'API ou le CLI Azure : santé, statistiques de hits et débit dans Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

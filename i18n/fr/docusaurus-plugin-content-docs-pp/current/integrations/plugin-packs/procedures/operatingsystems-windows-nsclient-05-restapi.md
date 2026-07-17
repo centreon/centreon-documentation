@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-windows-nsclient-05-restapi
 title: Windows NSClient API
-description: Supervisez les serveurs Windows via l'API REST NSClient++ : CPU, mémoire, disques, services, événements et mises à jour en attente.
+description: "Supervisez les serveurs Windows via l'API REST NSClient++ : CPU, mémoire, disques, services, événements et mises à jour en attente."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

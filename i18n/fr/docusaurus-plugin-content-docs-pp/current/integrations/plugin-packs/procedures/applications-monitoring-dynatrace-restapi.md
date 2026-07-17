@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-dynatrace-restapi
 title: Dynatrace Rest API
-description: Supervisez Dynatrace via son API REST : suivez l'Apdex, la disponibilité des Synthetic Monitors, les évènements et les problèmes ouverts.
+description: "Supervisez Dynatrace via son API REST : suivez l'Apdex, la disponibilité des Synthetic Monitors, les évènements et les problèmes ouverts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

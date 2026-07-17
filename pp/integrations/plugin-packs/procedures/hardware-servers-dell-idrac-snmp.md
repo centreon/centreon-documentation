@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-dell-idrac-snmp
 title: Dell iDRAC SNMP
-description: Monitor Dell iDRAC servers via SNMP: global hardware status plus component health such as fans, PSUs, temperature, and storage.
+description: "Monitor Dell iDRAC servers via SNMP: global hardware status plus component health such as fans, PSUs, temperature, and storage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

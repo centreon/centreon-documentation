@@ -1,7 +1,7 @@
 ---
 id: azure-credential-configuration
 title: Azure Monitoring Prerequisites
-description: Configure Azure API or Azure CLI credentials to let Centreon retrieve monitoring metrics from Azure resources.
+description: "Configure Azure API or Azure CLI credentials to let Centreon retrieve monitoring metrics from Azure resources."
 ---
 Two methods are available to get metrics from Azure:
 * Azure API ('api').

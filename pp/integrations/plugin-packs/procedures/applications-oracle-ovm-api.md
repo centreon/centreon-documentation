@@ -1,7 +1,7 @@
 ---
 id: applications-oracle-ovm-api
 title: Oracle VM Manager API
-description: Monitor Oracle VM Manager via its REST API: file servers, manager jobs, server pools, servers, and virtual machines.
+description: "Monitor Oracle VM Manager via its REST API: file servers, manager jobs, server pools, servers, and virtual machines."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

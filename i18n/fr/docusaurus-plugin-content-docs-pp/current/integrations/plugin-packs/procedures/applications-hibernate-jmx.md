@@ -1,7 +1,7 @@
 ---
 id: applications-hibernate-jmx
 title: Hibernate
-description: Supervisez les statistiques Hibernate via JMX et l'agent Jolokia : connexions, requêtes, insertions, mises à jour et fermetures.
+description: "Supervisez les statistiques Hibernate via JMX et l'agent Jolokia : connexions, requêtes, insertions, mises à jour et fermetures."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

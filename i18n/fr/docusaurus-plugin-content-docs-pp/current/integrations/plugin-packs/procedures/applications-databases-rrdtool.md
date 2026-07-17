@@ -1,7 +1,7 @@
 ---
 id: applications-databases-rrdtool
 title: RRDtool
-description: Supervisez les sources de données RRDtool en ligne de commande ou en SSH, en vérifiant les valeurs minimale, maximale et moyenne sur une période donnée.
+description: "Supervisez les sources de données RRDtool en ligne de commande ou en SSH, en vérifiant les valeurs minimale, maximale et moyenne sur une période donnée."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

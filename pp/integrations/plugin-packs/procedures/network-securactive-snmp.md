@@ -1,7 +1,7 @@
 ---
 id: network-securactive-snmp
 title: Securactive SNMP
-description: Monitor SecurActive business-critical applications and networks via SNMP, tracking BCA and BCN status and availability.
+description: "Monitor SecurActive business-critical applications and networks via SNMP, tracking BCA and BCN status and availability."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

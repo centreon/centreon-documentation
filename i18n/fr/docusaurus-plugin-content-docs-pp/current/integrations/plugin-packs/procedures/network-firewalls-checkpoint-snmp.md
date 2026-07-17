@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-checkpoint-snmp
 title: CheckPoint firewall
-description: Supervisez les pare-feux CheckPoint via SNMP : CPU, mémoire, disque, haute disponibilité, matériel, VPN, VRRP et trafic.
+description: "Supervisez les pare-feux CheckPoint via SNMP : CPU, mémoire, disque, haute disponibilité, matériel, VPN, VRRP et trafic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

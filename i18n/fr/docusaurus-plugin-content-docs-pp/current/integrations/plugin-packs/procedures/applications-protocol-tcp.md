@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-tcp
 title: TCP Protocol
-description: Supervisez les ports TCP avec Centreon : contrôlez l'état de la connexion et mesurez le temps de réponse ainsi que la perte de paquets.
+description: "Supervisez les ports TCP avec Centreon : contrôlez l'état de la connexion et mesurez le temps de réponse ainsi que la perte de paquets."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

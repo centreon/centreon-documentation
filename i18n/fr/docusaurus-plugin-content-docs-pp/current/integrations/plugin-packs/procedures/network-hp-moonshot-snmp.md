@@ -1,7 +1,7 @@
 ---
 id: network-hp-moonshot-snmp
 title: HP Moonshot SNMP
-description: Supervisez les châssis HP Moonshot via SNMP : CPU, mémoire et interfaces réseau.
+description: "Supervisez les châssis HP Moonshot via SNMP : CPU, mémoire et interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

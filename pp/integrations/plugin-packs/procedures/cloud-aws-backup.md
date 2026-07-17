@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-backup
 title: Amazon Backup Vault
-description: Monitor AWS Backup Vault via the AWS API: track backup, copy, and recovery job status and counts using CloudWatch metrics.
+description: "Monitor AWS Backup Vault via the AWS API: track backup, copy, and recovery job status and counts using CloudWatch metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

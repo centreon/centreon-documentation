@@ -1,7 +1,7 @@
 ---
 id: network-cisco-callmanager-sxml
 title: Cisco Callmanager SXML
-description: Supervisez les alertes Cisco Unified Communications Manager via l'API SXML, avec le décompte par niveau de sévérité.
+description: "Supervisez les alertes Cisco Unified Communications Manager via l'API SXML, avec le décompte par niveau de sévérité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

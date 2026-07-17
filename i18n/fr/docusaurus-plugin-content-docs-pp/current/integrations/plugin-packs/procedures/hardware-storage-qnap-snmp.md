@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-qnap-snmp
 title: Qnap SNMP
-description: Supervisez les NAS Qnap via SNMP : CPU, mémoire, matériel, disques, volumes, pools et trafic réseau.
+description: "Supervisez les NAS Qnap via SNMP : CPU, mémoire, matériel, disques, volumes, pools et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

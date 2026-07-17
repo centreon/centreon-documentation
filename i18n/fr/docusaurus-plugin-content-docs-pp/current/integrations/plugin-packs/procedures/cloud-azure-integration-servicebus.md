@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-integration-servicebus
 title: Azure ServiceBus
-description: Supervisez les espaces de noms Azure Service Bus via l'API REST ou Azure CLI : connexions, messages, ressources allouées et requêtes.
+description: "Supervisez les espaces de noms Azure Service Bus via l'API REST ou Azure CLI : connexions, messages, ressources allouées et requêtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

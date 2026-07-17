@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-rittal-cmc3-snmp
 title: Rittal CMC3 SNMP
-description: Supervisez les unités Rittal CMC3 via SNMP : charge système, statut de l'unité, équipements et disponibilité (uptime).
+description: "Supervisez les unités Rittal CMC3 via SNMP : charge système, statut de l'unité, équipements et disponibilité (uptime)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

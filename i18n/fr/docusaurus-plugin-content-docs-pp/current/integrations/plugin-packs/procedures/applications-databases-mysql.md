@@ -1,7 +1,7 @@
 ---
 id: applications-databases-mysql
 title: MySQL/MariaDB
-description: Supervisez MySQL/MariaDB via des requêtes SQL : connexions, débit de requêtes, réplication, tampons, sauvegardes et taille des bases de données.
+description: "Supervisez MySQL/MariaDB via des requêtes SQL : connexions, débit de requêtes, réplication, tampons, sauvegardes et taille des bases de données."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-emc-symmetrix-nrpe
 title: EMC Symmetrix NRPE
-description: Superviser les baies de stockage EMC Symmetrix (DMX et VMAX) via NRPE : état des composants matériels, température, alimentation et disques.
+description: "Superviser les baies de stockage EMC Symmetrix (DMX et VMAX) via NRPE : état des composants matériels, température, alimentation et disques."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

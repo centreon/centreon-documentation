@@ -1,7 +1,7 @@
 ---
 id: applications-dynamics-365-nsclient-05-nrpe
 title: Dynamics365 NSClient 0.5 NRPE
-description: Supervisez les fichiers de nouvelles commandes Microsoft Dynamics 365 via NSClient++ et NRPE, en vérifiant leur présence et leur âge.
+description: "Supervisez les fichiers de nouvelles commandes Microsoft Dynamics 365 via NSClient++ et NRPE, en vérifiant leur présence et leur âge."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

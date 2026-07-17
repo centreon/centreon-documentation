@@ -1,7 +1,7 @@
 ---
 id: applications-backup-emc-recoverypoint-ssh
 title: EMC RecoveryPoint SSH
-description: Supervisez les appliances EMC RecoveryPoint via SSH : statut système et paramètres surveillés.
+description: "Supervisez les appliances EMC RecoveryPoint via SSH : statut système et paramètres surveillés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

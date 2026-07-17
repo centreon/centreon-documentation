@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-dns
 title: DNS Service
-description: Monitor DNS resolution and response time for a domain name with the Centreon DNS Service connector.
+description: "Monitor DNS resolution and response time for a domain name with the Centreon DNS Service connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

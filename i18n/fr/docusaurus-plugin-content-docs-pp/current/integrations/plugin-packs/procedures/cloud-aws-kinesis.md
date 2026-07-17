@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-kinesis
 title: Amazon Kinesis
-description: Supervisez les flux Amazon Kinesis via l'API AWS : débit, latence et taux de succès des enregistrements et des flux.
+description: "Supervisez les flux Amazon Kinesis via l'API AWS : débit, latence et taux de succès des enregistrements et des flux."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

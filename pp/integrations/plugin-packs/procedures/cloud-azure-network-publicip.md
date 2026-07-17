@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-publicip
 title: Azure Public IP
-description: Monitor Azure Public IP resources via REST API or Azure CLI, tracking DDoS traffic and provisioning status.
+description: "Monitor Azure Public IP resources via REST API or Azure CLI, tracking DDoS traffic and provisioning status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

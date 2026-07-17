@@ -1,7 +1,7 @@
 ---
 id: network-fortinet-fortiadc-snmp
 title: Fortinet FortiADC SNMP
-description: Monitor Fortinet FortiADC appliances via SNMP: CPU, memory, hardware, interfaces, uptime, virtual servers, and DDoS security status.
+description: "Monitor Fortinet FortiADC appliances via SNMP: CPU, memory, hardware, interfaces, uptime, virtual servers, and DDoS security status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

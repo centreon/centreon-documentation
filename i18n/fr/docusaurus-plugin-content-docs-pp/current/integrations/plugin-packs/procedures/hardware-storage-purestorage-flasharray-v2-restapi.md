@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-purestorage-flasharray-v2-restapi
 title: Pure Storage FlashArray Rest API v2
-description: Supervisez Pure Storage FlashArray via l'API REST v2 : alertes, état du matériel, baies de stockage et métriques d'espace/IO des volumes.
+description: "Supervisez Pure Storage FlashArray via l'API REST v2 : alertes, état du matériel, baies de stockage et métriques d'espace/IO des volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

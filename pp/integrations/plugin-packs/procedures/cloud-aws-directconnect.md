@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-directconnect
 title: Amazon Direct Connect
-description: Monitor AWS Direct Connect connections and virtual interfaces via the AWS API: bandwidth, packet rates, status, and optical light levels.
+description: "Monitor AWS Direct Connect connections and virtual interfaces via the AWS API: bandwidth, packet rates, status, and optical light levels."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

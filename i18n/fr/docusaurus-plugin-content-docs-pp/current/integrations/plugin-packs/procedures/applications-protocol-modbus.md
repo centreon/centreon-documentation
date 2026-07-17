@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-modbus
 title: Modbus
-description: Supervisez des équipements Modbus (TCP/RTU) avec Centreon : installez le connecteur et configurez registres, seuils et métriques calculées.
+description: "Supervisez des équipements Modbus (TCP/RTU) avec Centreon : installez le connecteur et configurez registres, seuils et métriques calculées."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

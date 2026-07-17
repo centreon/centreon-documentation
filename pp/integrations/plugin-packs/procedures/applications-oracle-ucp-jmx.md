@@ -1,7 +1,7 @@
 ---
 id: applications-oracle-ucp-jmx
 title: Oracle UCP JMX
-description: Monitor Oracle UCP connection pools via JMX/Jolokia: track pool usage, free connections, and utilization percentage.
+description: "Monitor Oracle UCP connection pools via JMX/Jolokia: track pool usage, free connections, and utilization percentage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

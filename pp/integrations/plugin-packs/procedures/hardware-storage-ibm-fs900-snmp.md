@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-ibm-fs900-snmp
 title: IBM FlashSystem 900 SNMP
-description: Monitor IBM FlashSystem 900 storage via SNMP: array status and usage, fibre channel usage, and hardware health.
+description: "Monitor IBM FlashSystem 900 storage via SNMP: array status and usage, fibre channel usage, and hardware health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-cambium-cnpilot-snmp
 title: Cambium CnPilot SNMP
-description: Monitor Cambium cnPilot access points via SNMP: connection status, CPU, memory, interfaces, and radios.
+description: "Monitor Cambium cnPilot access points via SNMP: connection status, CPU, memory, interfaces, and radios."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

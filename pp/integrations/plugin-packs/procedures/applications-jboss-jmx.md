@@ -1,7 +1,7 @@
 ---
 id: applications-jboss-jmx
 title: JBoss Server
-description: Monitor JBoss Server via JMX/Jolokia: Java heap and non-heap memory, memory pools, class count, threads, and datasource usage.
+description: "Monitor JBoss Server via JMX/Jolokia: Java heap and non-heap memory, memory pools, class count, threads, and datasource usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

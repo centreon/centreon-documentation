@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-ses
 title: Amazon SES
-description: Supervisez Amazon SES via l'API CloudWatch d'AWS : emails envoyés, délivrés, rejetés et signalés comme spam.
+description: "Supervisez Amazon SES via l'API CloudWatch d'AWS : emails envoyés, délivrés, rejetés et signalés comme spam."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

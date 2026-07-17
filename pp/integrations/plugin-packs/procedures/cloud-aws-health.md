@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-health
 title: AWS Health
-description: Monitor AWS Health events via the AWS API (awscli or paws): track total, open, closed, and upcoming event counts.
+description: "Monitor AWS Health events via the AWS API (awscli or paws): track total, open, closed, and upcoming event counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

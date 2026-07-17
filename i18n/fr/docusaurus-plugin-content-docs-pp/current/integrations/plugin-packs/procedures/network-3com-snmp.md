@@ -1,7 +1,7 @@
 ---
 id: network-3com-snmp
 title: 3com Network SNMP
-description: Supervisez les équipements réseau 3com via SNMP : CPU, matériel (ventilateurs, alimentations), mémoire et trafic des interfaces.
+description: "Supervisez les équipements réseau 3com via SNMP : CPU, matériel (ventilateurs, alimentations), mémoire et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

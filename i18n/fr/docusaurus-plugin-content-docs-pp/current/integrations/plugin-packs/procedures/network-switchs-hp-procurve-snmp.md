@@ -1,7 +1,7 @@
 ---
 id: network-switchs-hp-procurve-snmp
 title: HP Procurve SNMP
-description: Supervisez les commutateurs réseau HP Procurve via SNMP : CPU, mémoire, environnement, uptime, trafic et Spanning Tree.
+description: "Supervisez les commutateurs réseau HP Procurve via SNMP : CPU, mémoire, environnement, uptime, trafic et Spanning Tree."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

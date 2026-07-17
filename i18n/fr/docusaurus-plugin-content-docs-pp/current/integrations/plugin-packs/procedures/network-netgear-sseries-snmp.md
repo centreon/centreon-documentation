@@ -1,7 +1,7 @@
 ---
 id: network-netgear-sseries-snmp
 title: Netgear SSeries SNMP
-description: Supervisez les commutateurs Netgear S-Series via SNMP : utilisation CPU, mémoire, état matériel et trafic des interfaces réseau.
+description: "Supervisez les commutateurs Netgear S-Series via SNMP : utilisation CPU, mémoire, état matériel et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

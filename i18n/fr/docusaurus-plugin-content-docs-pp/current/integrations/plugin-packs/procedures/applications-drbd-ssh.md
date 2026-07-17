@@ -1,7 +1,7 @@
 ---
 id: applications-drbd-ssh
 title: DRBD SSH
-description: Supervisez les ressources de stockage répliqué DRBD via SSH : état des disques, rôle de réplication et connexions aux pairs.
+description: "Supervisez les ressources de stockage répliqué DRBD via SSH : état des disques, rôle de réplication et connexions aux pairs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

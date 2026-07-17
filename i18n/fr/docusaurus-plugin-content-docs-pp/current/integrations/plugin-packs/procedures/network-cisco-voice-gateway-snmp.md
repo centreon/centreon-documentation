@@ -1,7 +1,7 @@
 ---
 id: network-cisco-voice-gateway-snmp
 title: Cisco Voice Gateway SNMP
-description: Supervisez les passerelles vocales Cisco (Voice Gateway) via SNMP : utilisation des canaux RNIS, trafic des interfaces et statistiques d'appels.
+description: "Supervisez les passerelles vocales Cisco (Voice Gateway) via SNMP : utilisation des canaux RNIS, trafic des interfaces et statistiques d'appels."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

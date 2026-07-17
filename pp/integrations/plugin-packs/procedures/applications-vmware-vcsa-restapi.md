@@ -1,7 +1,7 @@
 ---
 id: applications-vmware-vcsa-restapi
 title: VMware VCSA Rest API
-description: Monitor VMware vCenter Server Appliance (VCSA) health status via REST API using this Centreon connector.
+description: "Monitor VMware vCenter Server Appliance (VCSA) health status via REST API using this Centreon connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

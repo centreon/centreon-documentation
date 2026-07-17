@@ -1,7 +1,7 @@
 ---
 id: applications-gorgone-restapi
 title: Gorgone Restapi
-description: Supervisez le démon Gorgone de Centreon via son API REST : suivez le nombre d'événements et le statut des noeuds.
+description: "Supervisez le démon Gorgone de Centreon via son API REST : suivez le nombre d'événements et le statut des noeuds."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

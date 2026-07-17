@@ -1,7 +1,7 @@
 ---
 id: virtualization-nutanix-snmp
 title: Nutanix SNMP
-description: Supervisez les hyperviseurs, VM, containers et le stockage Nutanix via SNMP : CPU, mémoire, IOPS, latence et statut.
+description: "Supervisez les hyperviseurs, VM, containers et le stockage Nutanix via SNMP : CPU, mémoire, IOPS, latence et statut."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

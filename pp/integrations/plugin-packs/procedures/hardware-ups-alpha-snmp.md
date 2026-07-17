@@ -1,7 +1,7 @@
 ---
 id: hardware-ups-alpha-snmp
 title: Alpha UPS SNMP
-description: Monitor Alpha UPS devices via SNMP: alarms and battery status, including load, current, voltage, and temperature.
+description: "Monitor Alpha UPS devices via SNMP: alarms and battery status, including load, current, voltage, and temperature."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

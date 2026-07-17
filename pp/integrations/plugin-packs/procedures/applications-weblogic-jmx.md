@@ -1,7 +1,7 @@
 ---
 id: applications-weblogic-jmx
 title: Weblogic Server
-description: Monitor WebLogic Server via JMX/Jolokia, tracking Java heap and non-heap memory, class counts, threads, and work managers.
+description: "Monitor WebLogic Server via JMX/Jolokia, tracking Java heap and non-heap memory, class counts, threads, and work managers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-zscaler-zdx-api
 title: Zscaler ZDX API
-description: Supervisez les applications Zscaler ZDX via l'API REST : nombre d'utilisateurs, score ZDX et temps de chargement des pages par site.
+description: "Supervisez les applications Zscaler ZDX via l'API REST : nombre d'utilisateurs, score ZDX et temps de chargement des pages par site."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

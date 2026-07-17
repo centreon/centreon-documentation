@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-openmetrics
 title: OpenMetrics
-description: Supervisez les applications compatibles OpenMetrics via HTTP/HTTPS en collectant les métriques depuis des fichiers ou des pages web.
+description: "Supervisez les applications compatibles OpenMetrics via HTTP/HTTPS en collectant les métriques depuis des fichiers ou des pages web."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

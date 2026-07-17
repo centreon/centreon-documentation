@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-lenovo-sseries-snmp
 title: Lenovo S Series SNMP
-description: Supervisez le matériel de stockage Lenovo S Series via SNMP : statut des unités, capteurs et ports, ainsi que le trafic réseau.
+description: "Supervisez le matériel de stockage Lenovo S Series via SNMP : statut des unités, capteurs et ports, ainsi que le trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

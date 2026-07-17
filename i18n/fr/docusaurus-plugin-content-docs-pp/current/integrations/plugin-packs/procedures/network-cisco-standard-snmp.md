@@ -1,7 +1,7 @@
 ---
 id: network-cisco-standard-snmp
 title: Cisco Standard SNMP
-description: Supervisez les commutateurs et routeurs Cisco via SNMP : CPU, mémoire, interfaces, BGP, HSRP, QoS et environnement matériel.
+description: "Supervisez les commutateurs et routeurs Cisco via SNMP : CPU, mémoire, interfaces, BGP, HSRP, QoS et environnement matériel."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

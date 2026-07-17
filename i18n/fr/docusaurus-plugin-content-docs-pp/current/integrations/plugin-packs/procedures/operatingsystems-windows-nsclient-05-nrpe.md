@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NSClient 0.5 NRPE
-description: Supervisez les serveurs Windows via NSClient++ et NRPE : CPU, mémoire, disques, services, sessions, certificats et plus.
+description: "Supervisez les serveurs Windows via NSClient++ et NRPE : CPU, mémoire, disques, services, sessions, certificats et plus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

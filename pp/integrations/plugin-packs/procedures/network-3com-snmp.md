@@ -1,7 +1,7 @@
 ---
 id: network-3com-snmp
 title: 3com Network SNMP
-description: Monitor 3com network devices via SNMP: CPU usage, hardware status (fans, PSUs), memory, and interface traffic.
+description: "Monitor 3com network devices via SNMP: CPU usage, hardware status (fans, PSUs), memory, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

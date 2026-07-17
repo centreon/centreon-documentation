@@ -1,7 +1,7 @@
 ---
 id: applications-exchange-nsclient-restapi
 title: Microsoft Exchange NSClient RestAPI
-description: Monitor Microsoft Exchange via the NSClient++ REST API: databases, services, queues, and mailbox connectivity checks.
+description: "Monitor Microsoft Exchange via the NSClient++ REST API: databases, services, queues, and mailbox connectivity checks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

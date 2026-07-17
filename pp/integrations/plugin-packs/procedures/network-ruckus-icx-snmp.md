@@ -1,7 +1,7 @@
 ---
 id: network-ruckus-icx-snmp
 title: Ruckus ICX SNMP
-description: Monitor Ruckus ICX switches via SNMP: CPU, memory, hardware status, and interface traffic.
+description: "Monitor Ruckus ICX switches via SNMP: CPU, memory, hardware status, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

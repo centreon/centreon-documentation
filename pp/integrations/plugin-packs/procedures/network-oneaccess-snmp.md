@@ -1,7 +1,7 @@
 ---
 id: network-oneaccess-snmp
 title: OneAccess SNMP
-description: Monitor OneAccess routers via SNMP: CPU, memory, interfaces, cellular radio modules, and round-trip time probes.
+description: "Monitor OneAccess routers via SNMP: CPU, memory, interfaces, cellular radio modules, and round-trip time probes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

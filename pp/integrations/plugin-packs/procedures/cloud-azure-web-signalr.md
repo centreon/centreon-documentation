@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-web-signalr
 title: Azure SignalR
-description: Monitor Azure SignalR resources via REST API: track errors, inbound/outbound traffic, and connection/message usage.
+description: "Monitor Azure SignalR resources via REST API: track errors, inbound/outbound traffic, and connection/message usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

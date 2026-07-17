@@ -1,7 +1,7 @@
 ---
 id: network-fortinet-fortigate-restapi
 title: Fortinet Fortigate Rest API
-description: Supervisez les pare-feu Fortinet FortiGate via l'API REST : certificats, santé, licences, ressources système des VDOM et clusters HA.
+description: "Supervisez les pare-feu Fortinet FortiGate via l'API REST : certificats, santé, licences, ressources système des VDOM et clusters HA."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

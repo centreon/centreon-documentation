@@ -1,7 +1,7 @@
 ---
 id: hardware-kvm-avocent-acs-8000-snmp
 title: Avocent ACS 8000 SNMP
-description: Supervisez les serveurs de console KVM Avocent ACS 8000 via SNMP : CPU, mémoire, charge, matériel et statut des ports série.
+description: "Supervisez les serveurs de console KVM Avocent ACS 8000 via SNMP : CPU, mémoire, charge, matériel et statut des ports série."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

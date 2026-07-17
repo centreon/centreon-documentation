@@ -1,7 +1,7 @@
 ---
 id: virtualization-linux-libvirt-ssh
 title: Linux Libvirt SSH
-description: Monitor Linux libvirt hypervisors and VMs via SSH: storage pools, volumes, CPU, disk I/O, memory, network, and status.
+description: "Monitor Linux libvirt hypervisors and VMs via SSH: storage pools, volumes, CPU, disk I/O, memory, network, and status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

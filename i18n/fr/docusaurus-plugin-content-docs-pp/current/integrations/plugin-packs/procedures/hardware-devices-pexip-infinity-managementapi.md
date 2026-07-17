@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-pexip-infinity-managementapi
 title: Pexip Infinity ManagementAPI
-description: Supervisez Pexip Infinity via l'API ManagementAPI (HTTPS/REST) : alarmes et qualité des conférences et des participants.
+description: "Supervisez Pexip Infinity via l'API ManagementAPI (HTTPS/REST) : alarmes et qualité des conférences et des participants."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

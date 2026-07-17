@@ -1,7 +1,7 @@
 ---
 id: network-cambium-epmp-snmp
 title: Cambium ePMP SNMP
-description: Monitor Cambium ePMP SNMP wireless devices via SNMP: antenna gain, CPU, network interfaces, license status, and uptime.
+description: "Monitor Cambium ePMP SNMP wireless devices via SNMP: antenna gain, CPU, network interfaces, license status, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

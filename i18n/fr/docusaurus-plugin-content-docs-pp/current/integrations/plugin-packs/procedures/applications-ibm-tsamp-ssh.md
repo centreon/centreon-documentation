@@ -1,7 +1,7 @@
 ---
 id: applications-ibm-tsamp-ssh
 title: IBM TSAMP SSH
-description: Supervisez les groupes de ressources IBM TSAMP via SSH en suivant leur statut opérationnel et en configurant des seuils d'alerte dans Centreon.
+description: "Supervisez les groupes de ressources IBM TSAMP via SSH en suivant leur statut opérationnel et en configurant des seuils d'alerte dans Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

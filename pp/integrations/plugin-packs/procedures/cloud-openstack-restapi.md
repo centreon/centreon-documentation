@@ -1,7 +1,7 @@
 ---
 id: cloud-openstack-restapi
 title: OpenStack RESTAPI
-description: Monitor OpenStack via REST API: hypervisors, instances, networks, volumes, load balancers, and core services like Nova, Neutron, and Keystone.
+description: "Monitor OpenStack via REST API: hypervisors, instances, networks, volumes, load balancers, and core services like Nova, Neutron, and Keystone."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

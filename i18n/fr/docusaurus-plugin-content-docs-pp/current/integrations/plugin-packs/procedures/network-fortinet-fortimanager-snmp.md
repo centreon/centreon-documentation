@@ -1,7 +1,7 @@
 ---
 id: network-fortinet-fortimanager-snmp
 title: Fortinet Fortimanager SNMP
-description: Supervisez Fortinet FortiManager via SNMP : suivez l'utilisation du CPU, du disque, de la mémoire et le statut des équipements.
+description: "Supervisez Fortinet FortiManager via SNMP : suivez l'utilisation du CPU, du disque, de la mémoire et le statut des équipements."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

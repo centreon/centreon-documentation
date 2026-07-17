@@ -1,7 +1,7 @@
 ---
 id: applications-webservers-apache-serverstatus
 title: Apache Server
-description: Monitor Apache web servers via the mod_status page: requests, response time, worker slots, and CPU load.
+description: "Monitor Apache web servers via the mod_status page: requests, response time, worker slots, and CPU load."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

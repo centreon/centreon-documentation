@@ -1,7 +1,7 @@
 ---
 id: network-loadbalancers-f5-bigip-snmp
 title: F5 BigIP SNMP
-description: Monitor F5 BIG-IP load balancers via SNMP: pool/node status, virtual servers, CPU, certificates, and hardware health.
+description: "Monitor F5 BIG-IP load balancers via SNMP: pool/node status, virtual servers, CPU, certificates, and hardware health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

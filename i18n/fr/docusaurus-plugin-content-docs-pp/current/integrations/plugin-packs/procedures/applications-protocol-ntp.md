@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-ntp
 title: NTP Server
-description: Supervisez des serveurs NTP avec le connecteur NTP Server de Centreon : décalage horaire et temps de réponse.
+description: "Supervisez des serveurs NTP avec le connecteur NTP Server de Centreon : décalage horaire et temps de réponse."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

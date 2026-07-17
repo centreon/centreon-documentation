@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-latencetech-restapi
 title: LatenceTech RestAPI
-description: Supervisez les sondes réseau LatenceTech via l'API REST : connectivité, latence, débit, radio et métriques TWAMP.
+description: "Supervisez les sondes réseau LatenceTech via l'API REST : connectivité, latence, débit, radio et métriques TWAMP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

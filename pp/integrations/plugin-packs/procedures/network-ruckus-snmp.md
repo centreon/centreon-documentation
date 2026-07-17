@@ -1,7 +1,7 @@
 ---
 id: network-ruckus-snmp
 title: Ruckus SNMP
-description: Monitor Ruckus access points via SNMP: CPU usage, memory usage, connected users, and network interface traffic.
+description: "Monitor Ruckus access points via SNMP: CPU usage, memory usage, connected users, and network interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

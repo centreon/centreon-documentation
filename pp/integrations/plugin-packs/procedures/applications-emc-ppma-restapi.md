@@ -1,7 +1,7 @@
 ---
 id: applications-emc-ppma-restapi
 title: EMC PPMA Rest API
-description: Monitor Dell EMC PowerPath Management Appliance (PPMA) via REST API: host path and volume counts, dead/degraded status.
+description: "Monitor Dell EMC PowerPath Management Appliance (PPMA) via REST API: host path and volume counts, dead/degraded status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

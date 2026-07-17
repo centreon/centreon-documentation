@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-purestorage-flasharray-legacy-restapi
 title: Pure Storage FlashArray Legacy Rest API
-description: Supervisez les baies de stockage Pure Storage FlashArray via l'ancienne API REST : alarmes, état matériel et utilisation des volumes.
+description: "Supervisez les baies de stockage Pure Storage FlashArray via l'ancienne API REST : alarmes, état matériel et utilisation des volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

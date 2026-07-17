@@ -1,7 +1,7 @@
 ---
 id: virtualization-hyperv-2012-cma
 title: Hyper-V 2012 CMA
-description: Supervisez Hyper-V 2012 (nœuds et SCVMM) via l'agent CMA : statut des VM, services d'intégration, réplication et snapshots.
+description: "Supervisez Hyper-V 2012 (nœuds et SCVMM) via l'agent CMA : statut des VM, services d'intégration, réplication et snapshots."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

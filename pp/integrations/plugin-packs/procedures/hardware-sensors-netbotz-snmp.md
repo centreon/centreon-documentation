@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-netbotz-snmp
 title: Netbotz Sensor SNMP
-description: Monitor APC Netbotz environmental sensors via SNMP, tracking temperature, humidity, dewpoint, airflow, door switches, and cameras.
+description: "Monitor APC Netbotz environmental sensors via SNMP, tracking temperature, humidity, dewpoint, airflow, door switches, and cameras."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-adva-fsp150-snmp
 title: Adva FSP 150 SNMP
-description: Supervisez les équipements Adva FSP 150 via SNMP : alarmes, matériel, trafic des interfaces, ainsi que CPU et mémoire.
+description: "Supervisez les équipements Adva FSP 150 via SNMP : alarmes, matériel, trafic des interfaces, ainsi que CPU et mémoire."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

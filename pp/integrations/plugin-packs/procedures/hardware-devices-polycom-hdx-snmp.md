@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-polycom-hdx-snmp
 title: Polycom HDX SNMP
-description: Monitor Polycom HDX video conferencing devices via SNMP: CPU, memory, load, uptime, interfaces, and call statistics.
+description: "Monitor Polycom HDX video conferencing devices via SNMP: CPU, memory, load, uptime, interfaces, and call statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

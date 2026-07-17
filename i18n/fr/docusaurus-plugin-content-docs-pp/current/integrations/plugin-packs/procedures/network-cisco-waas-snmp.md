@@ -1,7 +1,7 @@
 ---
 id: network-cisco-waas-snmp
 title: Cisco WaaS SNMP
-description: Supervisez les équipements Cisco WaaS via SNMP en suivant le nombre de connexions TCP en mode passthrough et optimisé.
+description: "Supervisez les équipements Cisco WaaS via SNMP en suivant le nombre de connexions TCP en mode passthrough et optimisé."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-integration-eventgrid
 title: Azure Event Grid
-description: Supervisez Azure Event Grid via l'API Azure ou Azure CLI : évènements traités, échecs de livraison et latence de traitement.
+description: "Supervisez Azure Event Grid via l'API Azure ou Azure CLI : évènements traités, échecs de livraison et latence de traitement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

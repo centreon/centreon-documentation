@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-database-sqlmanagedinstance
 title: Azure SQL Managed Instance
-description: Supervisez Azure SQL Managed Instance via l'API Azure ou Azure CLI : CPU, E/S disque, disponibilité et stockage.
+description: "Supervisez Azure SQL Managed Instance via l'API Azure ou Azure CLI : CPU, E/S disque, disponibilité et stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

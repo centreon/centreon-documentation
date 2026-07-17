@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-stonesoft
 title: Stonesoft SNMP
-description: Supervisez les pare-feux Stonesoft via SNMP : CPU, mémoire, connexions, paquets rejetés/droppés, disques, état du cluster et trafic des interfaces.
+description: "Supervisez les pare-feux Stonesoft via SNMP : CPU, mémoire, connexions, paquets rejetés/droppés, disques, état du cluster et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

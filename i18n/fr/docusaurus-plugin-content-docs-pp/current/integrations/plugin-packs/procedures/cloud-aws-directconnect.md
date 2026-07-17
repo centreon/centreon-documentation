@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-directconnect
 title: Amazon Direct Connect
-description: Supervisez les connexions et interfaces virtuelles AWS Direct Connect via l'API AWS : bande passante, paquets, statut et niveau optique.
+description: "Supervisez les connexions et interfaces virtuelles AWS Direct Connect via l'API AWS : bande passante, paquets, statut et niveau optique."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

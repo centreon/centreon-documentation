@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-virtualnetwork
 title: Azure Virtual Network
-description: Monitor Azure Virtual Network peering status via the Azure API with this Centreon monitoring connector.
+description: "Monitor Azure Virtual Network peering status via the Azure API with this Centreon monitoring connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: base-generic
 title: Base Pack
-description: Set up the Base Pack Monitoring Connector for host/service templates covering active, passive, and Ping (ICMP) monitoring.
+description: "Set up the Base Pack Monitoring Connector for host/service templates covering active, passive, and Ping (ICMP) monitoring."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

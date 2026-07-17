@@ -1,7 +1,7 @@
 ---
 id: applications-jvm-actuator
 title: JVM Actuator
-description: Supervisez les applications Java via l'API REST Spring Boot Actuator : charge CPU, mémoire, threads, descripteurs de fichiers et classes de la JVM.
+description: "Supervisez les applications Java via l'API REST Spring Boot Actuator : charge CPU, mémoire, threads, descripteurs de fichiers et classes de la JVM."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

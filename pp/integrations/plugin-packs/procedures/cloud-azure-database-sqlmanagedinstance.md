@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-database-sqlmanagedinstance
 title: Azure SQL Managed Instance
-description: Monitor Azure SQL Managed Instance via the Azure API or Azure CLI: track CPU, disk I/O, health status, and storage usage.
+description: "Monitor Azure SQL Managed Instance via the Azure API or Azure CLI: track CPU, disk I/O, health status, and storage usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

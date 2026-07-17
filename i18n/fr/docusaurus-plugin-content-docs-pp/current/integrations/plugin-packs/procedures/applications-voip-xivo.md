@@ -1,7 +1,7 @@
 ---
 id: applications-voip-xivo
 title: XiVO VoIP Server
-description: Supervisez XiVO VoIP Server via SNMP en vérifiant l'état des processus critiques (nginx, postgres, xivo-agentd, etc.).
+description: "Supervisez XiVO VoIP Server via SNMP en vérifiant l'état des processus critiques (nginx, postgres, xivo-agentd, etc.)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

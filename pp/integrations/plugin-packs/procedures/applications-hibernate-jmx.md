@@ -1,7 +1,7 @@
 ---
 id: applications-hibernate-jmx
 title: Hibernate
-description: Monitor Hibernate ORM statistics via JMX and the Jolokia agent, tracking connection, query, insert, update, and close counts.
+description: "Monitor Hibernate ORM statistics via JMX and the Jolokia agent, tracking connection, query, insert, update, and close counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

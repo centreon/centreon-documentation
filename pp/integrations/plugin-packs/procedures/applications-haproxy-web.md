@@ -1,7 +1,7 @@
 ---
 id: applications-haproxy-web
 title: HAProxy Web API
-description: Monitor HAProxy load balancers via the JSON stats API: backend and frontend usage, sessions, traffic, and status checks.
+description: "Monitor HAProxy load balancers via the JSON stats API: backend and frontend usage, sessions, traffic, and status checks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

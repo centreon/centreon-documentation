@@ -1,7 +1,7 @@
 ---
 id: network-ruckus-smartzone-snmp
 title: Ruckus Smartzone SNMP
-description: Supervisez les contrôleurs Ruckus SmartZone via SNMP : CPU, mémoire, charge, stockage, interfaces et points d'accès.
+description: "Supervisez les contrôleurs Ruckus SmartZone via SNMP : CPU, mémoire, charge, stockage, interfaces et points d'accès."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

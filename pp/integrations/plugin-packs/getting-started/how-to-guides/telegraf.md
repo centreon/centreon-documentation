@@ -1,7 +1,7 @@
 ---
 id: telegraf
 title: Telegraf
-description: Learn how to install, configure, and deploy the Telegraf agent with Centreon's OpenTelemetry processor to monitor Linux and Windows hosts.
+description: "Learn how to install, configure, and deploy the Telegraf agent with Centreon's OpenTelemetry processor to monitor Linux and Windows hosts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

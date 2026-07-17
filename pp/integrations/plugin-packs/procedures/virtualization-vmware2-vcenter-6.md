@@ -1,7 +1,7 @@
 ---
 id: virtualization-vmware2-vcenter-6
 title: VMware vCenter v6
-description: Monitor VMware vCenter v6 via the Centreon VMware daemon: VM snapshot age and CPU, memory, and disk limits.
+description: "Monitor VMware vCenter v6 via the Centreon VMware daemon: VM snapshot age and CPU, memory, and disk limits."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

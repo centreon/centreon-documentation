@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-linux-telegraf-agent
 title: Linux Telegraf Agent
-description: Supervisez des serveurs Linux avec l'agent Telegraf via OpenTelemetry : CPU, mémoire, disque, réseau et services systemd.
+description: "Supervisez des serveurs Linux avec l'agent Telegraf via OpenTelemetry : CPU, mémoire, disque, réseau et services systemd."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

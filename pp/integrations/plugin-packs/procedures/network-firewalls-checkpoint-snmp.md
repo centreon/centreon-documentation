@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-checkpoint-snmp
 title: CheckPoint firewall
-description: Monitor CheckPoint firewalls via SNMP: CPU, memory, disk, HA state, hardware health, VPN tunnels, VRRP, and traffic.
+description: "Monitor CheckPoint firewalls via SNMP: CPU, memory, disk, HA state, hardware health, VPN tunnels, VRRP, and traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

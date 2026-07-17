@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-as400-connector
 title: IBM AS400 Connector
-description: Monitor IBM AS400/iSeries systems via the Centreon connector: track jobs, disks, subsystems, message queues, and system usage.
+description: "Monitor IBM AS400/iSeries systems via the Centreon connector: track jobs, disks, subsystems, message queues, and system usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

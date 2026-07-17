@@ -1,7 +1,7 @@
 ---
 id: network-oracle-otd-snmp
 title: Oracle Traffic Director SNMP
-description: Monitor Oracle Traffic Director via SNMP: track virtual server (vserver) inbound and outbound traffic usage.
+description: "Monitor Oracle Traffic Director via SNMP: track virtual server (vserver) inbound and outbound traffic usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

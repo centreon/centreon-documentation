@@ -1,7 +1,7 @@
 ---
 id: applications-netbackup-ssh
 title: Symantec Netbackup SSH
-description: Monitor Symantec NetBackup via SSH: deduplication status, drive status and cleaning, backup job status, and tape usage.
+description: "Monitor Symantec NetBackup via SSH: deduplication status, drive status and cleaning, backup job status, and tape usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

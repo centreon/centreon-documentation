@@ -1,7 +1,7 @@
 ---
 id: applications-databases-mssql
 title: Microsoft SQL Server
-description: Monitor Microsoft SQL Server with the Centreon Perl plugin: blocked processes, deadlocks, backups, database size, and failed jobs.
+description: "Monitor Microsoft SQL Server with the Centreon Perl plugin: blocked processes, deadlocks, backups, database size, and failed jobs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

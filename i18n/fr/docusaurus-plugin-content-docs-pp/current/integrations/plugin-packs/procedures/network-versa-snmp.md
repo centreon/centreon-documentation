@@ -1,7 +1,7 @@
 ---
 id: network-versa-snmp
 title: Versa SNMP
-description: Supervisez les équipements SD-WAN Versa Networks via SNMP : interfaces, pairs BGP, tunnels IPsec, politiques QoS et règles SD-WAN.
+description: "Supervisez les équipements SD-WAN Versa Networks via SNMP : interfaces, pairs BGP, tunnels IPsec, politiques QoS et règles SD-WAN."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

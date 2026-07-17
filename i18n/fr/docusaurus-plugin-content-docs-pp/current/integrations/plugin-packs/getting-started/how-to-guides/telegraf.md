@@ -1,7 +1,7 @@
 ---
 id: telegraf
 title: Telegraf
-description: Découvrez comment installer, configurer et déployer l'agent Telegraf avec le processeur OpenTelemetry de Centreon pour superviser des hôtes Linux et Windows.
+description: "Découvrez comment installer, configurer et déployer l'agent Telegraf avec le processeur OpenTelemetry de Centreon pour superviser des hôtes Linux et Windows."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

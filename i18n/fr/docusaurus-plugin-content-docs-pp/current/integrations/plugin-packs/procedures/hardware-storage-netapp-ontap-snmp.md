@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-netapp-ontap-snmp
 title: NetApp Ontap SNMP
-description: Supervisez les systèmes de stockage NetApp ONTAP via SNMP : CPU, disques, agrégats, snapshots, noeuds de cluster et état matériel.
+description: "Supervisez les systèmes de stockage NetApp ONTAP via SNMP : CPU, disques, agrégats, snapshots, noeuds de cluster et état matériel."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

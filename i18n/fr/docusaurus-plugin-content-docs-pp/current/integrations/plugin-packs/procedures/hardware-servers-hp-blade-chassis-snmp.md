@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-hp-blade-chassis-snmp
 title: HP Blade Chassis SNMP
-description: Supervisez le matériel des châssis HP Blade via SNMP : baie, blades, ventilateurs, alimentations, température et manager.
+description: "Supervisez le matériel des châssis HP Blade via SNMP : baie, blades, ventilateurs, alimentations, température et manager."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

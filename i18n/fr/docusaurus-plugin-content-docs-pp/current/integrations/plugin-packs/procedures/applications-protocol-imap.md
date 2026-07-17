@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-imap
 title: IMAP Server
-description: Supervisez vos serveurs de messagerie IMAP avec Centreon Plugins : contrôlez la connexion et recherchez des messages via des filtres IMAP.
+description: "Supervisez vos serveurs de messagerie IMAP avec Centreon Plugins : contrôlez la connexion et recherchez des messages via des filtres IMAP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-ibm-tsm-dsmadmc
 title: IBM Tivoli Storage M
-description: Supervisez IBM Tivoli Storage Manager (TSM) via la CLI dsmadmc : journaux d'activité, lecteurs, nœuds, sessions et volumes.
+description: "Supervisez IBM Tivoli Storage Manager (TSM) via la CLI dsmadmc : journaux d'activité, lecteurs, nœuds, sessions et volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

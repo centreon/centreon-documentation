@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-cifs
 title: Protocol CIFS
-description: Monitor CIFS file shares by connecting with a username and password: check connection status, file counts, file dates, sizes, and scenarios.
+description: "Monitor CIFS file shares by connecting with a username and password: check connection status, file counts, file dates, sizes, and scenarios."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: additional-connector-configuration
 title: Additional configurations
-description: Learn how to set up additional configurations in Centreon to store VMware connector credentials and deploy them to pollers.
+description: "Learn how to set up additional configurations in Centreon to store VMware connector credentials and deploy them to pollers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

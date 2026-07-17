@@ -1,7 +1,7 @@
 ---
 id: applications-video-zixi-restapi
 title: ZIXI
-description: Monitor Zixi Broadcaster via REST API: input, output, license, and system usage, including CPU, memory, and disk.
+description: "Monitor Zixi Broadcaster via REST API: input, output, license, and system usage, including CPU, memory, and disk."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

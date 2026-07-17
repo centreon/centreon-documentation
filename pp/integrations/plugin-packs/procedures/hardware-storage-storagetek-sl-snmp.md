@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-storagetek-sl-snmp
 title: Storagetek SL SNMP
-description: Monitor Storagetek SL tape libraries via SNMP: hardware status for fans, PSUs, robots, controllers, and temperature.
+description: "Monitor Storagetek SL tape libraries via SNMP: hardware status for fans, PSUs, robots, controllers, and temperature."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-alyvix-restapi
 title: Alyvix Server
-description: Monitor Alyvix Server via its REST API to track testcase execution status, duration, and transaction-level details.
+description: "Monitor Alyvix Server via its REST API to track testcase execution status, duration, and transaction-level details."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

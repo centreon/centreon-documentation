@@ -1,7 +1,7 @@
 ---
 id: network-kairos-snmp
 title: Kairos SNMP
-description: Monitor Kairos devices via SNMP: CPU, memory, load, hardware, uptime, alarms, and network interfaces.
+description: "Monitor Kairos devices via SNMP: CPU, memory, load, hardware, uptime, alarms, and network interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

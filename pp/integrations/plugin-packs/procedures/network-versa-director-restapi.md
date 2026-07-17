@@ -1,7 +1,7 @@
 ---
 id: network-versa-director-restapi
 title: Versa Director Rest API
-description: Monitor Versa Director devices via REST API: device system stats, memory, disk, alarms, and network path status.
+description: "Monitor Versa Director devices via REST API: device system stats, memory, disk, alarms, and network path status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

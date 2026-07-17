@@ -1,7 +1,7 @@
 ---
 id: network-colubris-snmp
 title: Colubris SNMP
-description: Supervisez les équipements Colubris via SNMP : points d'accès, CPU, mémoire, charge, stockage et interfaces réseau.
+description: "Supervisez les équipements Colubris via SNMP : points d'accès, CPU, mémoire, charge, stockage et interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-kvm-avocent-acs-6000-snmp
 title: Avocent ACS 6000 SNMP
-description: Supervisez les serveurs de console KVM Avocent ACS 6000 via SNMP : matériel, charge CPU, mémoire et espace d'échange (swap).
+description: "Supervisez les serveurs de console KVM Avocent ACS 6000 via SNMP : matériel, charge CPU, mémoire et espace d'échange (swap)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

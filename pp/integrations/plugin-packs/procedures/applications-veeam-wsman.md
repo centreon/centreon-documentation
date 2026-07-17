@@ -1,7 +1,7 @@
 ---
 id: applications-veeam-wsman
 title: Veeam WSMAN
-description: Monitor Veeam Backup & Replication via WSMAN: backup job status, licenses, repositories, tape jobs, and SureBackup jobs.
+description: "Monitor Veeam Backup & Replication via WSMAN: backup job status, licenses, repositories, tape jobs, and SureBackup jobs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

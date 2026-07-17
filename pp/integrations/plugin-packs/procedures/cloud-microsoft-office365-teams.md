@@ -1,7 +1,7 @@
 ---
 id: cloud-microsoft-office365-teams
 title: Office365 Teams
-description: Monitor Microsoft Office 365 Teams via the Graph and Management APIs: device usage counts and user activity like calls, meetings, and chats.
+description: "Monitor Microsoft Office 365 Teams via the Graph and Management APIs: device usage counts and user activity like calls, meetings, and chats."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

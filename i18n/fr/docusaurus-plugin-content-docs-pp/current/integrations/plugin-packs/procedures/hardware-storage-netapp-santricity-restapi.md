@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-netapp-santricity-restapi
 title: Netapp Santricity Restapi
-description: Supervisez les systèmes de stockage NetApp SANtricity via l'API REST : matériel, contrôleurs, pools, systèmes et volumes.
+description: "Supervisez les systèmes de stockage NetApp SANtricity via l'API REST : matériel, contrôleurs, pools, systèmes et volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-dell-me4-restapi
 title: Dell ME4 Rest API
-description: Supervisez vos baies de stockage Dell ME4 via API REST : statistiques des contrôleurs, matériel, volumes et interfaces.
+description: "Supervisez vos baies de stockage Dell ME4 via API REST : statistiques des contrôleurs, matériel, volumes et interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

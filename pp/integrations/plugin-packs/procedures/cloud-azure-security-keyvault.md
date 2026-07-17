@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-security-keyvault
 title: Azure Key Vault
-description: Monitor Azure Key Vault via REST API or Azure CLI: track service API usage, vault availability, and vault capacity.
+description: "Monitor Azure Key Vault via REST API or Azure CLI: track service API usage, vault availability, and vault capacity."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

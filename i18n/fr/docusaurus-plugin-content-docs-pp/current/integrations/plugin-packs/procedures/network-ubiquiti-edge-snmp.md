@@ -1,7 +1,7 @@
 ---
 id: network-ubiquiti-edge-snmp
 title: Ubiquiti Edge SNMP
-description: Supervisez les commutateurs Ubiquiti Edge via SNMP : CPU, mémoire, matériel et trafic des interfaces.
+description: "Supervisez les commutateurs Ubiquiti Edge via SNMP : CPU, mémoire, matériel et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

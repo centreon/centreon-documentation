@@ -1,7 +1,7 @@
 ---
 id: network-mitel-3300icp-snmp
 title: Mitel 3300ICP SNMP
-description: Supervisez les serveurs d'appel Mitel 3300ICP via SNMP : licences, disponibilité, bande passante et appels des zones de points d'accès.
+description: "Supervisez les serveurs d'appel Mitel 3300ICP via SNMP : licences, disponibilité, bande passante et appels des zones de points d'accès."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

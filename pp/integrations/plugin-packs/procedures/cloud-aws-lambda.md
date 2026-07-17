@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-lambda
 title: AWS Lambda
-description: Monitor AWS Lambda functions via the CloudWatch API: track invocations, errors, duration, throttles, and iterator age.
+description: "Monitor AWS Lambda functions via the CloudWatch API: track invocations, errors, duration, throttles, and iterator age."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

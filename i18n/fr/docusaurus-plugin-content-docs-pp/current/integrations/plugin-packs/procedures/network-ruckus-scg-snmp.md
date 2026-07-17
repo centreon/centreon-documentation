@@ -1,7 +1,7 @@
 ---
 id: network-ruckus-scg-snmp
 title: Ruckus SCG SNMP
-description: Supervisez les contrôleurs Ruckus SCG via SNMP : statut des points d'accès, utilisation des SSID, CPU, mémoire, trafic et uptime.
+description: "Supervisez les contrôleurs Ruckus SCG via SNMP : statut des points d'accès, utilisation des SSID, CPU, mémoire, trafic et uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

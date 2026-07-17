@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-lenovo-iomega-snmp
 title: Lenovo Iomega SNMP
-description: Monitor Lenovo Iomega storage devices via SNMP: CPU, memory, hardware status, disks, and network interfaces.
+description: "Monitor Lenovo Iomega storage devices via SNMP: CPU, memory, hardware status, disks, and network interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-ups-hp-snmp
 title: HP UPS SNMP
-description: Monitor HP UPS devices via SNMP: battery status, charge remaining, input/output line metrics, and environment conditions.
+description: "Monitor HP UPS devices via SNMP: battery status, charge remaining, input/output line metrics, and environment conditions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

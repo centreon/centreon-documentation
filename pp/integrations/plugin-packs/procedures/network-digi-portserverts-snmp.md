@@ -1,7 +1,7 @@
 ---
 id: network-digi-portserverts-snmp
 title: Digi PortServers TS SNMP
-description: Monitor Digi PortServers TS terminal servers via SNMP, tracking CPU usage, memory usage, and network interface traffic.
+description: "Monitor Digi PortServers TS terminal servers via SNMP, tracking CPU usage, memory usage, and network interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

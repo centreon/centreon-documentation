@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-dell-equallogic-snmp
 title: Dell Equallogic SNMP
-description: Supervisez les baies de stockage SAN Dell EqualLogic via SNMP : utilisation des arrays, disques, pools, matériel et trafic réseau.
+description: "Supervisez les baies de stockage SAN Dell EqualLogic via SNMP : utilisation des arrays, disques, pools, matériel et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

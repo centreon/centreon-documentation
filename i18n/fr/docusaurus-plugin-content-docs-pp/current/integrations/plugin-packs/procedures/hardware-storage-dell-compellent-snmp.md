@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-dell-compellent-snmp
 title: Dell Compellent SNMP
-description: Supervisez les baies de stockage Dell Compellent via SNMP : état du matériel, des contrôleurs et trafic des interfaces réseau.
+description: "Supervisez les baies de stockage Dell Compellent via SNMP : état du matériel, des contrôleurs et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

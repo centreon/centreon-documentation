@@ -1,7 +1,7 @@
 ---
 id: network-switchs-alcatel-omniswitch-snmp
 title: Alcatel Omniswitch SNMP
-description: Supervisez les commutateurs Alcatel OmniSwitch via SNMP : CPU, mémoire, mémoire flash, hardware, interfaces, spanning tree et châssis virtuels.
+description: "Supervisez les commutateurs Alcatel OmniSwitch via SNMP : CPU, mémoire, mémoire flash, hardware, interfaces, spanning tree et châssis virtuels."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

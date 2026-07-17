@@ -1,7 +1,7 @@
 ---
 id: collect-openmetrics
 title: Collecter des OpenMetrics
-description: Installez le connecteur de supervision OpenMetrics et collectez des métriques Prometheus via la CLI ou des modèles d'hôtes/services, avec filtrage et seuils.
+description: "Installez le connecteur de supervision OpenMetrics et collectez des métriques Prometheus via la CLI ou des modèles d'hôtes/services, avec filtrage et seuils."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

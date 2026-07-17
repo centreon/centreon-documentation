@@ -1,7 +1,7 @@
 ---
 id: network-ruckus-zonedirector-snmp
 title: Ruckus Zonedirector SNMP
-description: Supervisez les contrôleurs Wi-Fi Ruckus ZoneDirector via SNMP : statut du système et des points d'accès, CPU, mémoire et trafic.
+description: "Supervisez les contrôleurs Wi-Fi Ruckus ZoneDirector via SNMP : statut du système et des points d'accès, CPU, mémoire et trafic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-cisco-ucs-snmp
 title: Cisco UCS SNMP
-description: Monitor Cisco UCS servers via SNMP: hardware equipment status, faults, audit logs, management entities, and service profiles.
+description: "Monitor Cisco UCS servers via SNMP: hardware equipment status, faults, audit logs, management entities, and service profiles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

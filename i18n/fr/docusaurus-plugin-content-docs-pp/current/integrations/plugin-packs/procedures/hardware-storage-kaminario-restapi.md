@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-kaminario-restapi
 title: Kaminario RestAPI
-description: Supervisez les baies de stockage Kaminario via l'API REST en suivant les IOPS, le débit et la latence de l'utilisation système et des volumes.
+description: "Supervisez les baies de stockage Kaminario via l'API REST en suivant les IOPS, le débit et la latence de l'utilisation système et des volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

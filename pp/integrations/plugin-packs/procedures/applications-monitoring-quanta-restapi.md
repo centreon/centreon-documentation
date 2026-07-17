@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-quanta-restapi
 title: Quanta Rest API (deprecated)
-description: This deprecated Quanta REST API connector has been replaced by the Centreon Experience Monitoring REST API connector.
+description: "This deprecated Quanta REST API connector has been replaced by the Centreon Experience Monitoring REST API connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

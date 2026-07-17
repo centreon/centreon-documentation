@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-management-discover
 title: Azure Discover
-description: Automatically discover Microsoft Azure resources and tenants via the Azure API to create hosts for monitoring in Centreon.
+description: "Automatically discover Microsoft Azure resources and tenants via the Azure API to create hosts for monitoring in Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

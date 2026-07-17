@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-dell-md3000-smcli
 title: Dell MD3000 SMcli
-description: Supervisez les baies de stockage Dell (ou IBM) MD3000 via l'outil en ligne de commande SMcli, avec le contrôle de l'état de santé du stockage.
+description: "Supervisez les baies de stockage Dell (ou IBM) MD3000 via l'outil en ligne de commande SMcli, avec le contrôle de l'état de santé du stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

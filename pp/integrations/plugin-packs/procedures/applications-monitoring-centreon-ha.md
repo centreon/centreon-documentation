@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-centreon-ha
 title: Centreon-HA
-description: Monitor Centreon-HA Pacemaker clusters via SSH and SNMP: node status, resource constraints, quorum, and cluster processes.
+description: "Monitor Centreon-HA Pacemaker clusters via SSH and SNMP: node status, resource constraints, quorum, and cluster processes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

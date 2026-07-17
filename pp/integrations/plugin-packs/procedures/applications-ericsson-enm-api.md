@@ -1,7 +1,7 @@
 ---
 id: applications-ericsson-enm-api
 title: Ericsson ENM API
-description: Monitor Ericsson Network Manager via its REST API: node synchronization status, field replaceable units, and TDD cell status.
+description: "Monitor Ericsson Network Manager via its REST API: node synchronization status, field replaceable units, and TDD cell status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

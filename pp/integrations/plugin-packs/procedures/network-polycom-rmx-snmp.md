@@ -1,7 +1,7 @@
 ---
 id: network-polycom-rmx-snmp
 title: Polycom RMX SNMP
-description: Monitor Polycom RMX video conferencing units via SNMP: CPU, hardware, load, memory, and videoconferencing usage.
+description: "Monitor Polycom RMX video conferencing units via SNMP: CPU, hardware, load, memory, and videoconferencing usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

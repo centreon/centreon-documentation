@@ -1,7 +1,7 @@
 ---
 id: network-oracle-otd-snmp
 title: Oracle Traffic Director SNMP
-description: Supervisez Oracle Traffic Director via SNMP en suivant le trafic entrant et sortant des vservers.
+description: "Supervisez Oracle Traffic Director via SNMP en suivant le trafic entrant et sortant des vservers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

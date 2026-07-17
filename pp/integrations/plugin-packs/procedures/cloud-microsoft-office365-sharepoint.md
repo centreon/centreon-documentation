@@ -1,7 +1,7 @@
 ---
 id: cloud-microsoft-office365-sharepoint
 title: Office365 SharePoint
-description: Monitor Microsoft Office 365 SharePoint via REST API: track site usage, storage, file activity, and user engagement metrics.
+description: "Monitor Microsoft Office 365 SharePoint via REST API: track site usage, storage, file activity, and user engagement metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

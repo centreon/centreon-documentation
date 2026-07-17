@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-policyinsights-policystates
 title: Azure Policy States
-description: Supervisez la conformité des stratégies Azure via l'API REST, avec le nombre de politiques non conformes et l'état de conformité global.
+description: "Supervisez la conformité des stratégies Azure via l'API REST, avec le nombre de politiques non conformes et l'état de conformité global."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

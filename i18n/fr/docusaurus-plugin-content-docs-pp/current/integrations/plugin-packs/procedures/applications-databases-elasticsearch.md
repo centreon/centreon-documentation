@@ -1,7 +1,7 @@
 ---
 id: applications-databases-elasticsearch
 title: Elasticsearch
-description: Supervisez les clusters Elasticsearch via l'API REST : santé du cluster, statistiques des nœuds et des index, licence et requêtes personnalisées.
+description: "Supervisez les clusters Elasticsearch via l'API REST : santé du cluster, statistiques des nœuds et des index, licence et requêtes personnalisées."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

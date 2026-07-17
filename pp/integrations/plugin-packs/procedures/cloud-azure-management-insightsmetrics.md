@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-management-insightsmetrics
 title: Azure InsightsMetrics
-description: Monitor Azure virtual machines via the LogAnalytics API InsightsMetrics database: CPU, memory, and logical disk usage.
+description: "Monitor Azure virtual machines via the LogAnalytics API InsightsMetrics database: CPU, memory, and logical disk usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

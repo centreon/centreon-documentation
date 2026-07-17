@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-sun-sfxxk-pssh
 title: Sun SFxxK PSSH
-description: Monitor Sun SFxxK servers via SSH: track board status, environment conditions, and system controller failover.
+description: "Monitor Sun SFxxK servers via SSH: track board status, environment conditions, and system controller failover."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hp-storeonce3-restapi
 title: HP StoreOnce 3 Rest API
-description: Monitor HP StoreOnce 3 storage systems via REST API, tracking cluster, service set, NAS, and FCS usage and status.
+description: "Monitor HP StoreOnce 3 storage systems via REST API, tracking cluster, service set, NAS, and FCS usage and status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

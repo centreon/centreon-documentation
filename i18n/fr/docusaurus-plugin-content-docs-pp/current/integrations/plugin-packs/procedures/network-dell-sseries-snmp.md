@@ -1,7 +1,7 @@
 ---
 id: network-dell-sseries-snmp
 title: Dell S-series SNMP
-description: Supervisez les commutateurs réseau Dell S-series via SNMP : CPU, mémoire, état du matériel et trafic des interfaces.
+description: "Supervisez les commutateurs réseau Dell S-series via SNMP : CPU, mémoire, état du matériel et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

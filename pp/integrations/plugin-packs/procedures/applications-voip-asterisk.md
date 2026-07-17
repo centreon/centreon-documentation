@@ -1,7 +1,7 @@
 ---
 id: applications-voip-asterisk
 title: Asterisk VoIP Server (deprecated)
-description: This deprecated Asterisk VoIP monitoring connector has been replaced by the Asterisk VoIP SNMP connector.
+description: "This deprecated Asterisk VoIP monitoring connector has been replaced by the Asterisk VoIP SNMP connector."
 ---
 
 > This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Asterisk VoIP SNMP](applications-voip-asterisk-snmp.md) connector.

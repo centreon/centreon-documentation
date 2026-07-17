@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-devtools-appconfiguration
 title: Azure App Configuration
-description: Supervisez Azure App Configuration via les API Azure ou Azure CLI : requêtes HTTP, requêtes limitées et temps de réponse.
+description: "Supervisez Azure App Configuration via les API Azure ou Azure CLI : requêtes HTTP, requêtes limitées et temps de réponse."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

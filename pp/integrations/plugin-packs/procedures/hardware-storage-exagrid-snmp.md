@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-exagrid-snmp
 title: Exagrid SNMP
-description: Monitor ExaGrid storage appliances via SNMP, tracking server status, landing usage, and retention usage.
+description: "Monitor ExaGrid storage appliances via SNMP, tracking server status, landing usage, and retention usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

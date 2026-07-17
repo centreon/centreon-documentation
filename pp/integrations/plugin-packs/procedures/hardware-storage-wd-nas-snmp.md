@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-wd-nas-snmp
 title: WD NAS SNMP
-description: Monitor Western Digital NAS storage appliances via SNMP: hardware temperature, fan status, and volume space usage.
+description: "Monitor Western Digital NAS storage appliances via SNMP: hardware temperature, fan status, and volume space usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

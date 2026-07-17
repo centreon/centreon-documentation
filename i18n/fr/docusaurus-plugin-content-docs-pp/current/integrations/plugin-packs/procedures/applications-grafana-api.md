@@ -1,7 +1,7 @@
 ---
 id: applications-grafana-api
 title: Grafana
-description: Supervisez Grafana via son API REST pour contrôler son état opérationnel grâce au modèle d'hôte App-Grafana-Api-custom.
+description: "Supervisez Grafana via son API REST pour contrôler son état opérationnel grâce au modèle d'hôte App-Grafana-Api-custom."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

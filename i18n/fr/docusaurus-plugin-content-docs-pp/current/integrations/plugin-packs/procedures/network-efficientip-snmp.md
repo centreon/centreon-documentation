@@ -1,7 +1,7 @@
 ---
 id: network-efficientip-snmp
 title: Efficient IP SNMP
-description: Supervisez les serveurs EfficientIP SOLID via SNMP : utilisation DHCP, trafic DNS, validation DNSSEC et statut du serveur.
+description: "Supervisez les serveurs EfficientIP SOLID via SNMP : utilisation DHCP, trafic DNS, validation DNSSEC et statut du serveur."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-patton-smartnode-snmp
 title: Patton SmartNode SNMP
-description: Monitor Patton SmartNode SNMP gateways via SNMP: call activity, CPU, memory, and temperature.
+description: "Monitor Patton SmartNode SNMP gateways via SNMP: call activity, CPU, memory, and temperature."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

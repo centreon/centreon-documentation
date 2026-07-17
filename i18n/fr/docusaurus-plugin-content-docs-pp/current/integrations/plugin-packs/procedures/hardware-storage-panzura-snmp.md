@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-panzura-snmp
 title: Panzura SNMP
-description: Supervisez les systèmes de stockage Panzura via SNMP : CPU, mémoire, espace disque, charge, swap, ratios de déduplication/compression et trafic réseau.
+description: "Supervisez les systèmes de stockage Panzura via SNMP : CPU, mémoire, espace disque, charge, swap, ratios de déduplication/compression et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

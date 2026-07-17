@@ -1,7 +1,7 @@
 ---
 id: applications-lync-2013-mssql
 title: Lync 2013
-description: Supervisez Microsoft Lync 2013 via sa base MSSQL : qualité audio/vidéo (QoE), types de sessions, appels de mauvaise qualité et nombre d'utilisateurs.
+description: "Supervisez Microsoft Lync 2013 via sa base MSSQL : qualité audio/vidéo (QoE), types de sessions, appels de mauvaise qualité et nombre d'utilisateurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

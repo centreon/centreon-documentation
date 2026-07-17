@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-kadiska-restapi
 title: Kadiska Rest API
-description: Monitor Kadiska via REST API: track alert rules, runner target statistics, and watcher network performance metrics.
+description: "Monitor Kadiska via REST API: track alert rules, runner target statistics, and watcher network performance metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

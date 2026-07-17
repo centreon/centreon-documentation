@@ -1,7 +1,7 @@
 ---
 id: network-dell-os10-snmp
 title: Dell OS10 SNMP
-description: Monitor Dell OS10 network switches via SNMP, covering CPU, memory, hardware status, interfaces, load, disk usage, and uptime.
+description: "Monitor Dell OS10 network switches via SNMP, covering CPU, memory, hardware status, interfaces, load, disk usage, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

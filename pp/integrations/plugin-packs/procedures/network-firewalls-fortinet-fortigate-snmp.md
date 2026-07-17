@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-fortinet-fortigate-snmp
 title: Fortinet Fortigate SNMP
-description: Monitor Fortinet FortiGate firewalls via SNMP: CPU, memory, sessions, VPN tunnels, SD-WAN links, and cluster status.
+description: "Monitor Fortinet FortiGate firewalls via SNMP: CPU, memory, sessions, VPN tunnels, SD-WAN links, and cluster status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

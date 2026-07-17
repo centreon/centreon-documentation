@@ -1,7 +1,7 @@
 ---
 id: cloud-outscale
 title: Outscale API
-description: Supervisez les ressources cloud Outscale via l'API OSC CLI : machines virtuelles, volumes, connexions VPN, load balancers, etc.
+description: "Supervisez les ressources cloud Outscale via l'API OSC CLI : machines virtuelles, volumes, connexions VPN, load balancers, etc."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

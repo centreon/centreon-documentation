@@ -1,7 +1,7 @@
 ---
 id: network-ibm-bladecenter-snmp
 title: IBM Bladecenter Switch SNMP
-description: Monitor IBM BladeCenter switch modules via SNMP: CPU, memory, storage, network traffic, temperature, and uptime.
+description: "Monitor IBM BladeCenter switch modules via SNMP: CPU, memory, storage, network traffic, temperature, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

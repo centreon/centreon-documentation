@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hp-storeonce4-restapi
 title: HP StoreOnce 4 Rest API
-description: Supervisez les appliances HP StoreOnce 4 via l'API REST : espace disque, taux de déduplication, statut matériel et catalyst stores.
+description: "Supervisez les appliances HP StoreOnce 4 via l'API REST : espace disque, taux de déduplication, statut matériel et catalyst stores."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

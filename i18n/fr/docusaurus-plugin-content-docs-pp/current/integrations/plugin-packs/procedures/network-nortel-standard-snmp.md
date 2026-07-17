@@ -1,7 +1,7 @@
 ---
 id: network-nortel-standard-snmp
 title: Extreme (formerly Nortel/Avaya) SNMP
-description: Supervisez en SNMP les commutateurs Extreme (anciennement Nortel/Avaya) : CPU, mémoire, matériel, stack units et trafic/erreurs des interfaces réseau.
+description: "Supervisez en SNMP les commutateurs Extreme (anciennement Nortel/Avaya) : CPU, mémoire, matériel, stack units et trafic/erreurs des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

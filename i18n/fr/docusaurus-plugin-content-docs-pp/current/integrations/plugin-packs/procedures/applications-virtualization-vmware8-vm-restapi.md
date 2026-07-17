@@ -1,7 +1,7 @@
 ---
 id: applications-virtualization-vmware8-vm-restapi
 title: VMware8 VM REST API
-description: Supervisez les machines virtuelles VMware vSphere 8 via l'API REST : CPU, mémoire, E/S disque, réseau, consommation électrique et VMware Tools.
+description: "Supervisez les machines virtuelles VMware vSphere 8 via l'API REST : CPU, mémoire, E/S disque, réseau, consommation électrique et VMware Tools."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

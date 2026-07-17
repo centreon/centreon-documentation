@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-qnap-snmp
 title: Qnap SNMP
-description: Monitor Qnap NAS devices via SNMP, covering CPU, memory, hardware health, disks, volumes, pools, and network traffic.
+description: "Monitor Qnap NAS devices via SNMP, covering CPU, memory, hardware health, disks, volumes, pools, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

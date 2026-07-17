@@ -1,7 +1,7 @@
 ---
 id: applications-rubrik-graphql
 title: Rubrik Security Cloud GraphQL API
-description: Supervisez Rubrik Security Cloud via l'API GraphQL : statut des clusters, disques, nœuds, stockage, tâches, jobs et conformité SLA.
+description: "Supervisez Rubrik Security Cloud via l'API GraphQL : statut des clusters, disques, nœuds, stockage, tâches, jobs et conformité SLA."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

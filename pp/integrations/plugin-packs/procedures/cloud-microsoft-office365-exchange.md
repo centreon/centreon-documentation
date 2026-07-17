@@ -1,7 +1,7 @@
 ---
 id: cloud-microsoft-office365-exchange
 title: Office365 Exchange
-description: Monitor Microsoft Office 365 Exchange Online via the Office 365 Management API: email activity and mailbox usage/quota status.
+description: "Monitor Microsoft Office 365 Exchange Online via the Office 365 Management API: email activity and mailbox usage/quota status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

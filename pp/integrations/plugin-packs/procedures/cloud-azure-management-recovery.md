@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-management-recovery
 title: Azure Recovery
-description: Monitor Azure Backup and Site Recovery vaults via API: backup item and job status, and replication/failover health.
+description: "Monitor Azure Backup and Site Recovery vaults via API: backup item and job status, and replication/failover health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

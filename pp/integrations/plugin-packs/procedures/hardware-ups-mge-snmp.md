@@ -1,7 +1,7 @@
 ---
 id: hardware-ups-mge-snmp
 title: MGE UPS System SNMP
-description: Monitor MGE UPS systems via SNMP: battery status, environment, input/output lines, and output source.
+description: "Monitor MGE UPS systems via SNMP: battery status, environment, input/output lines, and output source."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

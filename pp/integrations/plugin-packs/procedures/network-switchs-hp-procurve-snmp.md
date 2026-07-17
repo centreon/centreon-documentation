@@ -1,7 +1,7 @@
 ---
 id: network-switchs-hp-procurve-snmp
 title: HP Procurve SNMP
-description: Monitor HP Procurve network switches via SNMP: CPU, memory, environment, uptime, traffic, and spanning tree status.
+description: "Monitor HP Procurve network switches via SNMP: CPU, memory, environment, uptime, traffic, and spanning tree status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

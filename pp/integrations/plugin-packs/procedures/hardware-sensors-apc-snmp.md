@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-apc-snmp
 title: APC Sensor SNMP
-description: Monitor APC sensor hardware via SNMP, tracking temperature, humidity, and fluid status across sensor modules.
+description: "Monitor APC sensor hardware via SNMP, tracking temperature, humidity, and fluid status across sensor modules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

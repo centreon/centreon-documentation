@@ -1,7 +1,7 @@
 ---
 id: network-extreme-snmp
 title: Extreme Networks SNMP
-description: Monitor Extreme Networks switches via SNMP: CPU, memory, hardware components, stack status, and interface traffic.
+description: "Monitor Extreme Networks switches via SNMP: CPU, memory, hardware components, stack status, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

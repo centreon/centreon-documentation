@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-storage-acr
 title: Azure Container Registry
-description: Monitor Azure Container Registry via the Azure API or Azure CLI, tracking storage usage with the ACR connector.
+description: "Monitor Azure Container Registry via the Azure API or Azure CLI, tracking storage usage with the ACR connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-sun-mseries-snmp
 title: Sun Mseries SNMP
-description: Monitor Sun Mseries servers via SNMP, tracking domain status and hardware health such as sensors and components.
+description: "Monitor Sun Mseries servers via SNMP, tracking domain status and hardware health such as sensors and components."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-databases-postgresql
 title: PostgreSQL DB
-description: Supervisez vos bases PostgreSQL : connexions, cache hitratio, locks, temps de requête, vacuum, bloat et taille des tablespaces.
+description: "Supervisez vos bases PostgreSQL : connexions, cache hitratio, locks, temps de requête, vacuum, bloat et taille des tablespaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

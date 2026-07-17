@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-purestorage-restapi
 title: Pure Storage RestAPI (Deprecated)
-description: Ce connecteur déprécié supervisait les baies Pure Storage via API REST ; utilisez plutôt les connecteurs FlashArray Legacy ou v2 REST API.
+description: "Ce connecteur déprécié supervisait les baies Pure Storage via API REST ; utilisez plutôt les connecteurs FlashArray Legacy ou v2 REST API."
 ---
 
 ## **ATTENTION** Ce Pack est déprécié

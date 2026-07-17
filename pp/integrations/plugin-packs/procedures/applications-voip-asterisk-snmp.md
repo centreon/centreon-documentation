@@ -1,7 +1,7 @@
 ---
 id: applications-voip-asterisk-snmp
 title: Asterisk VoIP SNMP
-description: Monitor Asterisk VoIP servers via SNMP: track active calls and channel usage.
+description: "Monitor Asterisk VoIP servers via SNMP: track active calls and channel usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

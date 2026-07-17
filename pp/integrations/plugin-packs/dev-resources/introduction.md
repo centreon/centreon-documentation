@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Getting started - Plugin development
-description: Learn how to use the centreon-plugins Perl framework to develop your own Centreon monitoring plugins and packs.
+description: "Learn how to use the centreon-plugins Perl framework to develop your own Centreon monitoring plugins and packs."
 ---
 
 import Tabs from '@theme/Tabs';

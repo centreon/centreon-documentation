@@ -1,7 +1,7 @@
 ---
 id: hardware-pdu-cyberpower-snmp
 title: CyberPower Systems PDU SNMP
-description: Monitor CyberPower Systems PDUs via SNMP, tracking load (banks, phases) and outlet status and current.
+description: "Monitor CyberPower Systems PDUs via SNMP, tracking load (banks, phases) and outlet status and current."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

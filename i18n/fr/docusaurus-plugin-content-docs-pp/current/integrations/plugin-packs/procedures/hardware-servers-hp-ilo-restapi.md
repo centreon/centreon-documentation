@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-hp-ilo-restapi
 title: HP iLO Rest API
-description: Supervisez le matériel HP iLO via l'API REST : châssis, disques, ventilateurs, alimentations, stockage et température.
+description: "Supervisez le matériel HP iLO via l'API REST : châssis, disques, ventilateurs, alimentations, stockage et température."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

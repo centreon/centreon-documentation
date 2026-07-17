@@ -1,7 +1,7 @@
 ---
 id: applications-ibmmq-mqi
 title: IBM MQ MQI
-description: Supervisez IBM MQ via la bibliothèque cliente MQI : suivez le trafic des canaux, les connexions du gestionnaire de files et la profondeur des queues.
+description: "Supervisez IBM MQ via la bibliothèque cliente MQI : suivez le trafic des canaux, les connexions du gestionnaire de files et la profondeur des queues."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

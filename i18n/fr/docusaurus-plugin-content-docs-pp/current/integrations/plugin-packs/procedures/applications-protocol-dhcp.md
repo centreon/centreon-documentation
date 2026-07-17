@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-dhcp
 title: Protocol DHCP
-description: Supervisez vos serveurs DHCP avec le connecteur Protocol DHCP de Centreon : contrôle de la connexion et du temps de réponse.
+description: "Supervisez vos serveurs DHCP avec le connecteur Protocol DHCP de Centreon : contrôle de la connexion et du temps de réponse."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

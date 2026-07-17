@@ -1,7 +1,7 @@
 ---
 id: applications-wsus-cma
 title: Microsoft WSUS CMA
-description: Supervisez les serveurs Microsoft WSUS via CMA : statut des ordinateurs, statistiques serveur, synchronisation et mises à jour.
+description: "Supervisez les serveurs Microsoft WSUS via CMA : statut des ordinateurs, statistiques serveur, synchronisation et mises à jour."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

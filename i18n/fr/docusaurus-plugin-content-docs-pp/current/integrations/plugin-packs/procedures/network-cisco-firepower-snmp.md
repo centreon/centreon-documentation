@@ -1,7 +1,7 @@
 ---
 id: network-cisco-firepower-snmp
 title: Cisco Firepower SNMP
-description: Supervisez les équipements Cisco Firepower via SNMP : processeur, mémoire, matériel, erreurs et interfaces réseau.
+description: "Supervisez les équipements Cisco Firepower via SNMP : processeur, mémoire, matériel, erreurs et interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

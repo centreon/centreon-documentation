@@ -1,7 +1,7 @@
 ---
 id: applications-grafana-api
 title: Grafana
-description: Monitor Grafana via its REST API to check operational health status using the App-Grafana-Api-custom host template.
+description: "Monitor Grafana via its REST API to check operational health status using the App-Grafana-Api-custom host template."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-publicip
 title: Azure Public IP
-description: Supervisez les adresses IP publiques Azure via l'API REST ou Azure CLI : trafic DDOS et état du provisionnement.
+description: "Supervisez les adresses IP publiques Azure via l'API REST ou Azure CLI : trafic DDOS et état du provisionnement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

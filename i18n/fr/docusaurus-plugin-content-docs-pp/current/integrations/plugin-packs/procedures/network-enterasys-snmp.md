@@ -1,7 +1,7 @@
 ---
 id: network-enterasys-snmp
 title: Enterasys SNMP
-description: Supervisez les équipements réseau Enterasys via SNMP (CPU, mémoire, stockage, uptime et trafic des interfaces).
+description: "Supervisez les équipements réseau Enterasys via SNMP (CPU, mémoire, stockage, uptime et trafic des interfaces)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

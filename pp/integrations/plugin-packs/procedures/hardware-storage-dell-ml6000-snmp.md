@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-dell-ml6000-snmp
 title: Dell ML6000 SNMP
-description: Monitor Dell ML6000 tape libraries via SNMP: global hardware status, physical drives, subsystems, temperature, and fans.
+description: "Monitor Dell ML6000 tape libraries via SNMP: global hardware status, physical drives, subsystems, temperature, and fans."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

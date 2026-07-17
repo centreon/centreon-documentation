@@ -1,7 +1,7 @@
 ---
 id: applications-mscs-nrpe
 title: Microsoft Cluster Server NSClient++ NRPE
-description: Supervisez Microsoft Cluster Server (MSCS) via NRPE et NSClient++ : statut du réseau, des nœuds, des ressources et des groupes de ressources du cluster.
+description: "Supervisez Microsoft Cluster Server (MSCS) via NRPE et NSClient++ : statut du réseau, des nœuds, des ressources et des groupes de ressources du cluster."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

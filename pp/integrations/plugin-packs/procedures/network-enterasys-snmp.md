@@ -1,7 +1,7 @@
 ---
 id: network-enterasys-snmp
 title: Enterasys SNMP
-description: Monitor Enterasys network devices via SNMP: CPU, memory, storage, uptime, and interface traffic.
+description: "Monitor Enterasys network devices via SNMP: CPU, memory, storage, uptime, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

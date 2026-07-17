@@ -1,7 +1,7 @@
 ---
 id: applications-virtualization-vmware8-vcenter-restapi
 title: VMware8 vCenter REST API
-description: Supervisez VMware vCenter 8 via l'API REST : statut des clusters (HA/DRS), utilisation des datastores et nombre de machines virtuelles.
+description: "Supervisez VMware vCenter 8 via l'API REST : statut des clusters (HA/DRS), utilisation des datastores et nombre de machines virtuelles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-databases-mongodb
 title: MongoDB
-description: Supervisez MongoDB via son protocole natif : connexions, requêtes, statistiques des collections/bases et statut de réplication du replicaset.
+description: "Supervisez MongoDB via son protocole natif : connexions, requêtes, statistiques des collections/bases et statut de réplication du replicaset."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

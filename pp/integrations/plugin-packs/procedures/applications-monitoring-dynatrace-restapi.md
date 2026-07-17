@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-dynatrace-restapi
 title: Dynatrace Rest API
-description: Monitor Dynatrace via its REST API: track Apdex scores, Synthetic Monitor availability, events, and open problems.
+description: "Monitor Dynatrace via its REST API: track Apdex scores, Synthetic Monitor availability, events, and open problems."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

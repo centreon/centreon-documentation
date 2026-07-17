@@ -1,7 +1,7 @@
 ---
 id: network-security-cato-networks-api
 title: Cato Networks API
-description: Monitor Cato Networks via its GraphQL API: site connectivity, security events, and custom queries.
+description: "Monitor Cato Networks via its GraphQL API: site connectivity, security events, and custom queries."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-netapp-santricity-restapi
 title: Netapp Santricity Restapi
-description: Monitor NetApp SANtricity storage systems via the REST API, tracking hardware, controllers, pools, systems, and volumes.
+description: "Monitor NetApp SANtricity storage systems via the REST API, tracking hardware, controllers, pools, systems, and volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

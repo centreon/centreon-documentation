@@ -1,7 +1,7 @@
 ---
 id: applications-slack-restapi
 title: Slack
-description: Supervisez Slack via l'API REST : nombre de chaînes, nombre de membres et statut des services de l'espace de travail.
+description: "Supervisez Slack via l'API REST : nombre de chaînes, nombre de membres et statut des services de l'espace de travail."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

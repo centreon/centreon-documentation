@@ -1,7 +1,7 @@
 ---
 id: hardware-kvm-avocent-acs-8000-snmp
 title: Avocent ACS 8000 SNMP
-description: Monitor Avocent ACS 8000 KVM console servers via SNMP: CPU, memory, load, hardware, and serial port status.
+description: "Monitor Avocent ACS 8000 KVM console servers via SNMP: CPU, memory, load, hardware, and serial port status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

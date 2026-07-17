@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-camera-optelecom-snmp
 title: Optelecom camera SNMP
-description: Monitor Optelecom SNMP cameras: alarms, network traffic, temperatures, interfaces, and uptime.
+description: "Monitor Optelecom SNMP cameras: alarms, network traffic, temperatures, interfaces, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

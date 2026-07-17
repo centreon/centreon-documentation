@@ -1,7 +1,7 @@
 ---
 id: network-fiberstore-snmp
 title: Fiberstore SNMP
-description: Supervisez les commutateurs réseau Fiberstore via SNMP : utilisation CPU, mémoire, statut matériel et trafic des interfaces.
+description: "Supervisez les commutateurs réseau Fiberstore via SNMP : utilisation CPU, mémoire, statut matériel et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

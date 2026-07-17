@@ -1,7 +1,7 @@
 ---
 id: applications-openweathermap-restapi
 title: OpenWeatherMap
-description: Monitor OpenWeatherMap current weather data via REST API: temperature, humidity, cloud coverage, and wind speed by city.
+description: "Monitor OpenWeatherMap current weather data via REST API: temperature, humidity, cloud coverage, and wind speed by city."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

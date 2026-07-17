@@ -1,7 +1,7 @@
 ---
 id: network-juniper-ggsn-snmp
 title: Juniper GGSN SNMP
-description: Monitor Juniper GGSN network nodes via SNMP: traffic, packet drops, and PDP context statistics per APN or globally.
+description: "Monitor Juniper GGSN network nodes via SNMP: traffic, packet drops, and PDP context statistics per APN or globally."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

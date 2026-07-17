@@ -1,7 +1,7 @@
 ---
 id: network-lenovo-rackswitch-snmp
 title: Lenovo RackSwitch SNMP
-description: Supervisez les commutateurs Lenovo RackSwitch via SNMP : CPU, mémoire, capteurs matériels, uptime et interfaces réseau.
+description: "Supervisez les commutateurs Lenovo RackSwitch via SNMP : CPU, mémoire, capteurs matériels, uptime et interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-compute-vmscalesets
 title: Azure Virtual Machine Scale Sets
-description: Supervisez les Azure Virtual Machine Scale Sets via l'API Azure : CPU, E/S disque, statut, mémoire et trafic réseau.
+description: "Supervisez les Azure Virtual Machine Scale Sets via l'API Azure : CPU, E/S disque, statut, mémoire et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

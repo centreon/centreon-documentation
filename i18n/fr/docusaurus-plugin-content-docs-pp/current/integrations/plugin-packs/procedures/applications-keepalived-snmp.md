@@ -1,7 +1,7 @@
 ---
 id: applications-keepalived-snmp
 title: Keepalived SNMP
-description: Supervisez le statut VRRP de Keepalived via SNMP avec Centreon : configuration des modèles d'hôtes/services et options du plugin.
+description: "Supervisez le statut VRRP de Keepalived via SNMP avec Centreon : configuration des modèles d'hôtes/services et options du plugin."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-sensorip-snmp
 title: Sensor IP SNMP
-description: Supervisez les équipements AKCP Sensor IP via SNMP en suivant la température, l'humidité, le switch et le statut des sondes.
+description: "Supervisez les équipements AKCP Sensor IP via SNMP en suivant la température, l'humidité, le switch et le statut des sondes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

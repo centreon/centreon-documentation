@@ -1,7 +1,7 @@
 ---
 id: connectors-licenses
 title: Offline/online licenses and connectors
-description: Learn the differences between offline and online licenses for Centreon monitoring connectors, and how to install or update connectors under each.
+description: "Learn the differences between offline and online licenses for Centreon monitoring connectors, and how to install or update connectors under each."
 ---
 
 import Tabs from '@theme/Tabs';

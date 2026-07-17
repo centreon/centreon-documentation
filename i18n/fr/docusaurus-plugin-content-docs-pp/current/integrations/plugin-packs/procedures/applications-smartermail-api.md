@@ -1,7 +1,7 @@
 ---
 id: applications-smartermail-api
 title: Smartermail Server
-description: Supervisez SmarterMail Server via son API REST : état des licences, des services et des files d'attente de messages.
+description: "Supervisez SmarterMail Server via son API REST : état des licences, des services et des files d'attente de messages."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

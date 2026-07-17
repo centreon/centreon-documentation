@@ -1,7 +1,7 @@
 ---
 id: plugin-customization
 title: Personnaliser le comportement d'un plugin
-description: Apprenez à personnaliser le comportement d'un plugin via la macro EXTRAOPTIONS, avec des exemples HTTP et SNMP pour seuils et métriques.
+description: "Apprenez à personnaliser le comportement d'un plugin via la macro EXTRAOPTIONS, avec des exemples HTTP et SNMP pour seuils et métriques."
 ---
 
 Les connecteurs de supervision sont fournis avec une configuration par défaut. Cependant, vous pouvez personnaliser leur comportement (plus précisément, le comportement du plugin, qui exécute la commande de contrôle). Voici quelques exemples avec le connecteur de supervision [**HTTP Server**](../../procedures/applications-protocol-http.md), qui permet de tester la connexion à un site web.

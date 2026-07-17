@@ -1,7 +1,7 @@
 ---
 id: applications-video-openheadend-snmp
 title: OpenHeadend
-description: Monitor OpenHeadend video platforms via SNMP, tracking node usage bitrate and operation status.
+description: "Monitor OpenHeadend video platforms via SNMP, tracking node usage bitrate and operation status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

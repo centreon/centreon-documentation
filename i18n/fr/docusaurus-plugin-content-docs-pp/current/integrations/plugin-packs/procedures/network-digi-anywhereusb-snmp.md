@@ -1,7 +1,7 @@
 ---
 id: network-digi-anywhereusb-snmp
 title: Digi Anywhere USB SNMP
-description: Supervisez les équipements Digi Anywhere USB via SNMP en suivant l'utilisation du CPU, de la mémoire et le trafic des interfaces réseau.
+description: "Supervisez les équipements Digi Anywhere USB via SNMP en suivant l'utilisation du CPU, de la mémoire et le trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

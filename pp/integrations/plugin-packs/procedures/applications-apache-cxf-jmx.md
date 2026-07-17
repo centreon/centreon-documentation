@@ -1,7 +1,7 @@
 ---
 id: applications-apache-cxf-jmx
 title: Apache CXF
-description: Monitor Apache CXF via JMX/Jolokia: track service invocations, in-flight requests, and application or runtime faults.
+description: "Monitor Apache CXF via JMX/Jolokia: track service invocations, in-flight requests, and application or runtime faults."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

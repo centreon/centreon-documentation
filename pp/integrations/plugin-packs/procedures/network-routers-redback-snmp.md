@@ -1,7 +1,7 @@
 ---
 id: network-routers-redback-snmp
 title: RedBack Router SNMP
-description: Monitor RedBack routers via SNMP: CPU, memory, disk usage, hardware components, and network interface traffic and errors.
+description: "Monitor RedBack routers via SNMP: CPU, memory, disk usage, hardware components, and network interface traffic and errors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

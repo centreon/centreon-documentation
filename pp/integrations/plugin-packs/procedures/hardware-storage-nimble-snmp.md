@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-nimble-snmp
 title: Nimble Storage SNMP
-description: Monitor HPE Nimble Storage arrays via SNMP: track I/O throughput, IOPS, latency, and volume space usage.
+description: "Monitor HPE Nimble Storage arrays via SNMP: track I/O throughput, IOPS, latency, and volume space usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

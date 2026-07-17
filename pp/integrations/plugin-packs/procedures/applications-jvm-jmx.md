@@ -1,7 +1,7 @@
 ---
 id: applications-jvm-jmx
 title: JVM JMX
-description: Monitor Java Virtual Machines via JMX and the Jolokia agent: CPU load, memory, garbage collection, threads, and class counts.
+description: "Monitor Java Virtual Machines via JMX and the Jolokia agent: CPU load, memory, garbage collection, threads, and class counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

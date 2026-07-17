@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-storagetek-sl-snmp
 title: Storagetek SL SNMP
-description: Supervisez les bibliothèques de bandes Storagetek SL en SNMP : état matériel des ventilateurs, alimentations, robots, contrôleurs et température.
+description: "Supervisez les bibliothèques de bandes Storagetek SL en SNMP : état matériel des ventilateurs, alimentations, robots, contrôleurs et température."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

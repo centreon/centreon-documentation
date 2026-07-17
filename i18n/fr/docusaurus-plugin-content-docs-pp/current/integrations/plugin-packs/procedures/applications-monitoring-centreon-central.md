@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-centreon-central
 title: Centreon Central
-description: Supervisez un serveur Centreon Central via SNMP et SSH : statistiques du Broker et processus clés comme centengine, httpd et sshd.
+description: "Supervisez un serveur Centreon Central via SNMP et SSH : statistiques du Broker et processus clés comme centengine, httpd et sshd."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

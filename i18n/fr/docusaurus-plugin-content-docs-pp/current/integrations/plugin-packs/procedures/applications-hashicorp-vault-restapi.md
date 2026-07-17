@@ -1,7 +1,7 @@
 ---
 id: applications-hashicorp-vault-restapi
 title: HashiCorp Vault Rest API
-description: Supervisez HashiCorp Vault via l'API REST : statuts seal, init et standby, et performances du stockage Raft.
+description: "Supervisez HashiCorp Vault via l'API REST : statuts seal, init et standby, et performances du stockage Raft."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

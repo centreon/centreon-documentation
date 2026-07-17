@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-forcepoint-sdwan-snmp
 title: Forcepoint Sdwan SNMP
-description: Supervisez les équipements Forcepoint SD-WAN via SNMP : CPU, mémoire, disques, trafic, connexions, état du cluster et disponibilité.
+description: "Supervisez les équipements Forcepoint SD-WAN via SNMP : CPU, mémoire, disques, trafic, connexions, état du cluster et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

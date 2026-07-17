@@ -1,7 +1,7 @@
 ---
 id: applications-bind9-web
 title: Bind9 Web
-description: Monitor Bind9 DNS servers via the Statistics Channel web API, tracking memory usage, server query stats, and zone usage.
+description: "Monitor Bind9 DNS servers via the Statistics Channel web API, tracking memory usage, server query stats, and zone usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

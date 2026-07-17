@@ -1,7 +1,7 @@
 ---
 id: applications-netbackup-nrpe
 title: Symantec Netbackup NSClient++ NRPE
-description: Supervisez Symantec NetBackup via NRPE : état de la déduplication, des lecteurs, des jobs de sauvegarde et utilisation des bandes.
+description: "Supervisez Symantec NetBackup via NRPE : état de la déduplication, des lecteurs, des jobs de sauvegarde et utilisation des bandes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-lenovo-xcc-snmp
 title: Lenovo XCC SNMP
-description: Monitor Lenovo XCC servers via SNMP: hardware sensor status for temperature, voltage, fans, PSUs, disks, and RAID volumes.
+description: "Monitor Lenovo XCC servers via SNMP: hardware sensor status for temperature, voltage, fans, PSUs, disks, and RAID volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

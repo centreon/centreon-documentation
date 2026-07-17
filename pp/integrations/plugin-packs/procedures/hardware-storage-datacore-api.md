@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-datacore-api
 title: Datacore RestApi
-description: Monitor DataCore SANsymphony storage via REST API: track alerts, monitor status, and pool usage.
+description: "Monitor DataCore SANsymphony storage via REST API: track alerts, monitor status, and pool usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

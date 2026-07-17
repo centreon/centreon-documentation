@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-linux-centreon-monitoring-agent
 title: Linux CMA
-description: Monitor Linux systems via the Centreon Monitoring Agent (OpenTelemetry): CPU, memory, disk, load, swap, network, and processes.
+description: "Monitor Linux systems via the Centreon Monitoring Agent (OpenTelemetry): CPU, memory, disk, load, swap, network, and processes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

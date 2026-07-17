@@ -1,7 +1,7 @@
 ---
 id: network-freebox-restapi
 title: Freebox RestAPI
-description: Supervisez les routeurs Freebox via l'API REST : utilisation ADSL, utilisation réseau et état du système.
+description: "Supervisez les routeurs Freebox via l'API REST : utilisation ADSL, utilisation réseau et état du système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

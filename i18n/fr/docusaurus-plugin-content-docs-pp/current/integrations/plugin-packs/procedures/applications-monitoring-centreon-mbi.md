@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-centreon-mbi
 title: Centreon MBI
-description: Supervisez Centreon MBI via NRPE et SNMP : état du datawarehouse du serveur de reporting, tâches en échec, synchronisation NTP et processus clés.
+description: "Supervisez Centreon MBI via NRPE et SNMP : état du datawarehouse du serveur de reporting, tâches en échec, synchronisation NTP et processus clés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

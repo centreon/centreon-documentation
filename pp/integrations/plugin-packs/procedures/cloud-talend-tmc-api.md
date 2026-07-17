@@ -1,7 +1,7 @@
 ---
 id: cloud-talend-tmc-api
 title: Talend TMC API
-description: Monitor Talend TMC via its REST API: remote engines, plans, and tasks execution status, cache, and failure rates.
+description: "Monitor Talend TMC via its REST API: remote engines, plans, and tasks execution status, cache, and failure rates."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

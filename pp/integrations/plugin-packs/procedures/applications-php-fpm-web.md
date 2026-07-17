@@ -1,7 +1,7 @@
 ---
 id: applications-php-fpm-web
 title: PHP FPM
-description: Monitor PHP-FPM via its web status page: active and idle processes, listen queue, and requests per second.
+description: "Monitor PHP-FPM via its web status page: active and idle processes, listen queue, and requests per second."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

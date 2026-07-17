@@ -1,7 +1,7 @@
 ---
 id: network-cyberoam-snmp
 title: Cyberoam SNMP
-description: Supervisez les équipements Cyberoam via SNMP : CPU, mémoire, disques, haute disponibilité, licence, VPN et trafic réseau.
+description: "Supervisez les équipements Cyberoam via SNMP : CPU, mémoire, disques, haute disponibilité, licence, VPN et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

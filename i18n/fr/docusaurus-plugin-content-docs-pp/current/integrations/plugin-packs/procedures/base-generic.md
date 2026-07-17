@@ -1,7 +1,7 @@
 ---
 id: base-generic
 title: Base Pack
-description: Configurez le connecteur de supervision Base Pack pour des modèles d'hôtes et de services couvrant la supervision active, passive et Ping (ICMP).
+description: "Configurez le connecteur de supervision Base Pack pour des modèles d'hôtes et de services couvrant la supervision active, passive et Ping (ICMP)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

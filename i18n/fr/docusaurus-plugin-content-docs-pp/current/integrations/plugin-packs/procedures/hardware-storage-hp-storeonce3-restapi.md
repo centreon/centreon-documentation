@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hp-storeonce3-restapi
 title: HP StoreOnce 3 Rest API
-description: Supervisez les systèmes de stockage HP StoreOnce 3 via l'API REST : usage et statut des clusters, service sets, NAS et FCS.
+description: "Supervisez les systèmes de stockage HP StoreOnce 3 via l'API REST : usage et statut des clusters, service sets, NAS et FCS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-emc-datadomain-snmp
 title: EMC Data Domain SNMP
-description: Supervisez les systèmes de stockage EMC Data Domain via SNMP : systèmes de fichiers, MTrees, réplications, matériel et alertes.
+description: "Supervisez les systèmes de stockage EMC Data Domain via SNMP : systèmes de fichiers, MTrees, réplications, matériel et alertes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

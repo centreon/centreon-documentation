@@ -1,7 +1,7 @@
 ---
 id: network-hpe-athonet-node-exporter-api
 title: HPE Athonet w/ Prometheus API
-description: Supervisez le cœur de réseau 5G HPE Athonet via l'API Prometheus : CPU, mémoire, charge, stockage, licences, interfaces et fonctions du cœur de réseau (CHF, DRA, MME, SMF, UPF, etc.).
+description: "Supervisez le cœur de réseau 5G HPE Athonet via l'API Prometheus : CPU, mémoire, charge, stockage, licences, interfaces et fonctions du cœur de réseau (CHF, DRA, MME, SMF, UPF, etc.)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

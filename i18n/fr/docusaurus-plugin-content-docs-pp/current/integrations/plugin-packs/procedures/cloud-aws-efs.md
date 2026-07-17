@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-efs
 title: Amazon EFS
-description: Supervisez Amazon EFS via l'API CloudWatch : connexions clientes, débit d'E/S en lecture/écriture et solde de crédit de rafale.
+description: "Supervisez Amazon EFS via l'API CloudWatch : connexions clientes, débit d'E/S en lecture/écriture et solde de crédit de rafale."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

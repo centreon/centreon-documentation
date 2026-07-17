@@ -1,7 +1,7 @@
 ---
 id: applications-docker-ssh
 title: Docker SSH
-description: Supervisez vos conteneurs Docker via SSH : statut des conteneurs, utilisation CPU, mémoire, disque et réseau.
+description: "Supervisez vos conteneurs Docker via SSH : statut des conteneurs, utilisation CPU, mémoire, disque et réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

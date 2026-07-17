@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-ibm-ts2900-snmp
 title: IBM TS2900 SNMP
-description: Monitor IBM TS2900 tape libraries via SNMP, tracking robot, controller, power, magazine, and drive status.
+description: "Monitor IBM TS2900 tape libraries via SNMP, tracking robot, controller, power, magazine, and drive status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
