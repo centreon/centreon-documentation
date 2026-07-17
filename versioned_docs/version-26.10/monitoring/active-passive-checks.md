@@ -41,5 +41,6 @@ When a single mode doesn't fully cover your monitoring needs, you can combine ac
 Recommended implementation order:
 
 1. Active system monitoring
-2. Application monitoring
-3. Passive monitoring as a supplement.
+2. Active hardware monitoring (in the case of a physical server, for example)
+3. Active application monitoring via application protocols (HTTP, database connections, etc.)
+4. Supplement by passive monitoring.
