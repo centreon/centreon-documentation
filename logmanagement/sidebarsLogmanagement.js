@@ -33,6 +33,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'centreon-hub'
+        },
+        {
+          type: 'doc',
+          id: 'user-rights'
         }
        ]
     },
