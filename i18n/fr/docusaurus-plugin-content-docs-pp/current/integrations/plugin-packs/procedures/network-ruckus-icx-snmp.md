@@ -1,6 +1,7 @@
 ---
 id: network-ruckus-icx-snmp
 title: Ruckus ICX SNMP
+description: Supervisez les commutateurs Ruckus ICX en SNMP : CPU, mémoire, matériel et trafic des interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

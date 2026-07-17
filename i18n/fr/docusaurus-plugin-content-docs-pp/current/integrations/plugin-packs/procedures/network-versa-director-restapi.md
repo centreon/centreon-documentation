@@ -1,6 +1,7 @@
 ---
 id: network-versa-director-restapi
 title: Versa Director Rest API
+description: Supervisez les appareils Versa Director via l'API REST : statistiques système, mémoire, disque, alarmes et statut des chemins réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

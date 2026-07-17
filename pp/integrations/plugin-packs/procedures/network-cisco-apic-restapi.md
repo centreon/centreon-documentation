@@ -1,6 +1,7 @@
 ---
 id: network-cisco-apic-restapi
 title: Cisco Apic Rest API
+description: Monitor Cisco APIC via REST API: fabric, node, and tenant health status across your ACI infrastructure.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

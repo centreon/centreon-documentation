@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-recovery
 title: Azure Recovery
+description: Supervisez les coffres Azure Backup et Site Recovery via l'API : état des sauvegardes, des travaux de sauvegarde et de la réplication/failover.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

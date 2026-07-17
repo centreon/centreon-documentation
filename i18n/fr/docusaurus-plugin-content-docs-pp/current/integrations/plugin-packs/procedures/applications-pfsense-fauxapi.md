@@ -1,6 +1,7 @@
 ---
 id: applications-pfsense-fauxapi
 title: Pfsense Fauxapi
+description: Supervisez les pare-feux pfSense via l'API FauxAPI : sauvegardes, gateways, règles de pare-feu et état du système.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

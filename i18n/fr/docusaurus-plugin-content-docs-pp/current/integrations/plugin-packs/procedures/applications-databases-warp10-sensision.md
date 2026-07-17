@@ -1,6 +1,7 @@
 ---
 id: applications-databases-warp10-sensision
 title: Warp10 Sensision
+description: Supervisez Warp10 Sensision via son API HTTP : suivez les statistiques des requêtes fetch et l'exécution des scripts et fonctions.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

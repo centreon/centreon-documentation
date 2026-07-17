@@ -1,6 +1,7 @@
 ---
 id: network-ruckus-zonedirector-snmp
 title: Ruckus Zonedirector SNMP
+description: Monitor Ruckus ZoneDirector wireless controllers via SNMP, tracking system and access point status, CPU, memory usage, and traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

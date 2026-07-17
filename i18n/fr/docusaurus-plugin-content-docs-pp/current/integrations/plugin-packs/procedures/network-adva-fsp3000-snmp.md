@@ -1,6 +1,7 @@
 ---
 id: network-adva-fsp3000-snmp
 title: Adva FSP 3000 SNMP
+description: Supervisez les équipements de transport optique Adva FSP 3000 via SNMP : alarmes, trafic des interfaces, mémoire et uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiauthenticator-snmp
 title: Fortinet FortiAuthenticator SNMP
+description: Supervisez Fortinet FortiAuthenticator via SNMP : authentification, CPU, mémoire, disque de logs, haute disponibilité et interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

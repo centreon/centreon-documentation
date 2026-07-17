@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-polycom-dma-snmp
 title: Polycom DMA SNMP
+description: Supervisez Polycom DMA via SNMP : statut des clusters, gestionnaire de conférences, enregistrements des équipements, serveurs et alertes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

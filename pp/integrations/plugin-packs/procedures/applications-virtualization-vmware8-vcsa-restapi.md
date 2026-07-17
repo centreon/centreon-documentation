@@ -1,6 +1,7 @@
 ---
 id: applications-virtualization-vmware8-vcsa-restapi
 title: VMware8 VCSA REST API
+description: Monitor VMware vCenter Server Appliance (VCSA) 8 via REST API: health, updates, uptime, network interfaces, and services.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

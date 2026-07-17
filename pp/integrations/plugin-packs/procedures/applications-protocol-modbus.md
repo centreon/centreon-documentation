@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-modbus
 title: Modbus
+description: Monitor Modbus devices with Centreon via TCP/RTU: install the connector and configure registers, thresholds, and calculated metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

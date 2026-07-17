@@ -1,6 +1,7 @@
 ---
 id: applications-exense-step-restapi
 title: Exense Step REST API
+description: Supervisez Exense Step via l'API REST pour suivre l'exécution des plans, détecter les échecs et contrôler leur durée.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-ssh
 title: Protocol SSH
+description: Supervisez la connectivité SSH d'un serveur distant : statut de connexion et temps de réponse avec le connecteur Centreon Protocol SSH.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

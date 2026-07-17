@@ -1,6 +1,7 @@
 ---
 id: network-stormshield-ssh
 title: Stormshield SSH
+description: Supervisez les pare-feu Stormshield via SSH pour suivre l'utilisation QoS, le trafic et les pics de bande passante.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

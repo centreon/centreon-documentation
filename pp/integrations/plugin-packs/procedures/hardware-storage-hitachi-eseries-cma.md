@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hitachi-eseries-cma
 title: Hitachi E Series CMA
+description: Monitor Hitachi E Series storage arrays via CCI (CMA): efficiency, pair status, path status, pool capacity, and quorum health.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

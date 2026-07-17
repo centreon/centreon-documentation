@@ -1,6 +1,7 @@
 ---
 id: network-microsens-g6-snmp
 title: Microsens G6 SNMP
+description: Monitor Microsens G6 switches via SNMP: CPU, hardware, interfaces, load, memory, SFP ports, and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

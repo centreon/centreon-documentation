@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-telnet
 title: Telnet Scenario
+description: Supervisez des connexions Telnet via un scénario JSON : testez la connexion, les commandes et les réponses attendues sur des hôtes distants.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

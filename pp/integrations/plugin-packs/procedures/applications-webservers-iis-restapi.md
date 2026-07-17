@@ -1,6 +1,7 @@
 ---
 id: applications-webservers-iis-restapi
 title: Microsoft IIS Server Restapi
+description: Monitor Microsoft IIS servers via the REST API: application pool status, website traffic, connections, and request rates.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

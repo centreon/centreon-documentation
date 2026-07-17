@@ -1,6 +1,7 @@
 ---
 id: applications-tosca-restapi
 title: Tosca Rest API
+description: Supervisez les listes d'exécution et le statut des scénarios Tricentis Tosca via l'API REST avec ce connecteur Centreon.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

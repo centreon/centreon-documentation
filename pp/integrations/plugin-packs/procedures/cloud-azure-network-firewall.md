@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-firewall
 title: Azure Firewall
+description: Monitor Azure Firewall via Azure API or CLI: track health, hit counts, and throughput metrics in Centreon.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-health
 title: AWS Health
+description: Supervisez les événements AWS Health via l'API AWS (awscli ou paws) : suivez le nombre d'événements totaux, ouverts, fermés et à venir.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

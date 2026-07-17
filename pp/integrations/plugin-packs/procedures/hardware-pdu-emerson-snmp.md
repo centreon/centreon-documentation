@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-emerson-snmp
 title: Emerson PDU SNMP
+description: Monitor Emerson PDUs via SNMP: global status, power source usage, and receptacle metrics like power, energy, and current.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

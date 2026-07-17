@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-storwize-ssh
 title: IBM Storwize SSH
+description: Supervisez les baies de stockage IBM Storwize via SSH : composants matériels, journaux d'événements, utilisation des pools et réplication.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

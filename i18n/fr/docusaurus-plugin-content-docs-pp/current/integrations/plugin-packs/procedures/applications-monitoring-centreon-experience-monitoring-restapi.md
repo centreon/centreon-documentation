@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-experience-monitoring-restapi
 title: Centreon Experience Monitoring (formerly Quanta) Rest API
+description: Supervisez Centreon Experience Monitoring (anciennement Quanta) via l'API REST : sessions RUM, performance du site et parcours utilisateur.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-kinesis
 title: Amazon Kinesis
+description: Monitor Amazon Kinesis streams via the AWS API: record and stream throughput, latency, and success metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

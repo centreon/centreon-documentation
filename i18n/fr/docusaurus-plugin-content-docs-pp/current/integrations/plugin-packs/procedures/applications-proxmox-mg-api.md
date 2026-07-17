@@ -1,6 +1,7 @@
 ---
 id: applications-proxmox-mg-api
 title: Proxmox Mail Gateway
+description: Supervisez Proxmox Mail Gateway via l'API REST : trafic des mails, spams, virus et version du logiciel.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

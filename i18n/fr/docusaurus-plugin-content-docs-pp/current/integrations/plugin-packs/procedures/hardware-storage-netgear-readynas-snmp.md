@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-netgear-readynas-snmp
 title: Netgear Readynas SNMP
+description: Supervisez les NAS Netgear ReadyNAS via SNMP : CPU, mémoire, charge, stockage et interfaces réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

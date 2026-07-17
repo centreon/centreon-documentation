@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-ntopng-restapi
 title: NtopNG Rest API
+description: Supervisez NtopNG via son API REST : alertes, état netflow, état de la sonde et flux réseau des hôtes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-vplex-restapi
 title: EMC Vplex Rest API
+description: Supervisez le stockage Dell EMC VPLEX via l'API REST : communication des clusters, cluster devices, directors, distributed devices, ventilateurs, alimentations et volumes de stockage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

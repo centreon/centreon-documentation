@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-storage-storageaccount
 title: Azure Storage Account
+description: Monitor Azure Storage Account (Blob, File, Queue, Table) via API: capacity, transactions, latency, throughput, and availability.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

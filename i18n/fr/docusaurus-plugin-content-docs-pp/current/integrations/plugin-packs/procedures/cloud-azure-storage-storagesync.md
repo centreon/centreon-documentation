@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-storage-storagesync
 title: Azure Storage Sync
+description: Supervisez Azure Storage Sync via l'API REST : synchronisation des fichiers, rappels et statut du serveur.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

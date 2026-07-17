@@ -1,6 +1,7 @@
 ---
 id: applications-trendmicro-iwsva-snmp
 title: TrendMicro Iwsva
+description: Supervisez les appliances Trend Micro IWSVA via SNMP : CPU, mémoire, espace disque, charge, swap, connexions proxy et trafic réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

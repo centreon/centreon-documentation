@@ -1,6 +1,7 @@
 ---
 id: applications-skype-2015-mssql
 title: Skype 2015
+description: Supervisez Skype for Business 2015 via sa base de données MSSQL : qualité des appels (QoE) audio, vidéo et partage d'applications, appels de mauvaise qualité et types de sessions.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

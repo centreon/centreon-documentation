@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-security-keyvault
 title: Azure Key Vault
+description: Supervisez Azure Key Vault via l'API REST ou Azure CLI : suivez l'utilisation de l'API, la disponibilité et la capacité des coffres.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

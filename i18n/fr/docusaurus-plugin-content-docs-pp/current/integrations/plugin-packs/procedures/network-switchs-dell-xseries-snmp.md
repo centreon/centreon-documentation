@@ -1,6 +1,7 @@
 ---
 id: network-switchs-dell-xseries-snmp
 title: Dell Xseries SNMP
+description: Supervisez les commutateurs Dell Xseries via SNMP : CPU, composants matériels, interfaces et uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

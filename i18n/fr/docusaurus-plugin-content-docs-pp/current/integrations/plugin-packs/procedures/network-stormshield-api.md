@@ -1,6 +1,7 @@
 ---
 id: network-stormshield-api
 title: Stormshield API
+description: Supervisez les pare-feu Stormshield via l'API REST : CPU, mémoire, matériel, haute disponibilité, interfaces et tunnels VPN.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

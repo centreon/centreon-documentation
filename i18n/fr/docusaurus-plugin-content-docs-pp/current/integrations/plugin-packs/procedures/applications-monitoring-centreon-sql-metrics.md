@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-sql-metrics
 title: Centreon SQL Metrics
+description: Supervisez la base de données temps réel SQL de Centreon : délai des collecteurs, notifications, problèmes, nombre de ressources et partitionnement du stockage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

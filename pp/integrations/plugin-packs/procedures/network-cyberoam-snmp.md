@@ -1,6 +1,7 @@
 ---
 id: network-cyberoam-snmp
 title: Cyberoam SNMP
+description: Monitor Cyberoam network devices via SNMP: CPU, memory, disks, HA status, license expiration, VPN status, and interface traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

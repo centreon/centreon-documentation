@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-ibm-imm-snmp
 title: IBM IMM SNMP
+description: Monitor IBM IMM server management cards via SNMP: fan, temperature, voltage, global status, and event log.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

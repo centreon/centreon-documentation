@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-nimble-restapi
 title: Nimble Storage Rest API
+description: Monitor HPE Nimble Storage arrays via REST API: array space usage, hardware health, and volume I/O performance.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

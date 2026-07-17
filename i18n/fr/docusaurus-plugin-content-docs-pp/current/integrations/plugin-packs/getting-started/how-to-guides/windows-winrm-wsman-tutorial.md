@@ -1,6 +1,7 @@
 ---
 id: windows-winrm-wsman-tutorial
 title: Tutoriel de configuration de Windows WSMAN
+description: Tutoriel pour configurer WinRM/WSMAN, le pare-feu, un utilisateur dédié et Kerberos afin de superviser des serveurs Windows avec Centreon.
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
 id: applications-ericsson-enm-api
 title: Ericsson ENM API
+description: Supervisez Ericsson Network Manager via son API REST : statut de synchronisation des nœuds, unités remplaçables et statut des cellules TDD.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

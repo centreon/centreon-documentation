@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-compute-aks
 title: Azure Kubernetes Service
+description: Monitor Azure Kubernetes Service (AKS) via Azure API or Azure CLI: cluster health, CPU, memory, storage, node/pod state, and traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

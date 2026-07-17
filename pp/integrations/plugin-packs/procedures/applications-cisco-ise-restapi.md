@@ -1,6 +1,7 @@
 ---
 id: applications-cisco-ise-restapi
 title: Cisco ISE
+description: Monitor Cisco ISE via REST API: track active sessions, postured endpoints, and profiler service session counts.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-nokia-isam-snmp
 title: Nokia Isam SNMP
+description: Monitor Nokia ISAM devices via SNMP: CPU, memory, hardware, uptime, interfaces, and SAP usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

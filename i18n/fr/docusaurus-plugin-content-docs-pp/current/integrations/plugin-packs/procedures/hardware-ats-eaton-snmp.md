@@ -1,6 +1,7 @@
 ---
 id: hardware-ats-eaton-snmp
 title: Eaton ATS SNMP
+description: Supervisez les commutateurs de transfert automatique (ATS) Eaton via SNMP : tension et courant des lignes d'entrée/sortie, fréquence, température et humidité.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

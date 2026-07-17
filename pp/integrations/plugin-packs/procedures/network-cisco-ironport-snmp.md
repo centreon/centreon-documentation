@@ -1,6 +1,7 @@
 ---
 id: network-cisco-ironport-snmp
 title: Cisco IronPort SNMP
+description: Monitor Cisco IronPort appliances via SNMP: CPU, memory, hardware health, mail/proxy usage, and interface traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

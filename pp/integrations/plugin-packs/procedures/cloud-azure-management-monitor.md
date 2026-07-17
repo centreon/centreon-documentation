@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-monitor
 title: Azure Monitor
+description: Monitor Azure resources via the Management REST API: collect resource metrics and run Kusto queries against Log Analytics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

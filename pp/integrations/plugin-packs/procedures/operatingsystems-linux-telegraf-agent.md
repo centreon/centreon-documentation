@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-linux-telegraf-agent
 title: Linux Telegraf Agent
+description: Monitor Linux servers with the Telegraf agent over OpenTelemetry: CPU, memory, disk, network, and systemd checks.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-switchs-hirschmann-snmp
 title: Hirschmann switch SNMP
+description: Supervisez les switches Hirschmann en SNMP : CPU, mémoire, matériel, processus, configuration et trafic des interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-classicstorage-storageaccount
 title: Azure Classic Storage
+description: Monitor Azure Classic Storage accounts via REST API or Azure CLI: capacity, transactions, latency, throughput, and availability.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

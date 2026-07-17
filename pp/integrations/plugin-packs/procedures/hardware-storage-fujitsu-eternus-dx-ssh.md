@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-fujitsu-eternus-dx-ssh
 title: Fujitsu Eternus DX SSH
+description: Monitor Fujitsu Eternus DX storage bays via SSH, covering CPU usage, disks, ports, power supply, RAID groups, and volume I/O stats.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-apimanagement
 title: Azure API Management
+description: Monitor Azure API Management via the Azure API: capacity, EventHub events, request duration, and total requests.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

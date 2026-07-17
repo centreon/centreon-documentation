@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-tcp
 title: TCP Protocol
+description: Monitor TCP ports with Centreon: check connection status and measure round-trip response time and packet loss.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

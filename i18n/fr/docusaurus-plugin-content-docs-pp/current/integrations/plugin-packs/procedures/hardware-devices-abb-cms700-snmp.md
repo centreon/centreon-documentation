@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-abb-cms700-snmp
 title: ABB CMS-700 SNMP
+description: Supervisez les centrales de mesure ABB CMS-700 via SNMP : puissance, tension, courant, énergie et mesures des capteurs.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

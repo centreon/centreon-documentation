@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-serverscheck-sensorgateway-snmp
 title: SensorGateway SNMP
+description: Supervisez les passerelles ServersCheck SensorGateway via SNMP en suivant le nombre et l'état des sondes environnementales connectées.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

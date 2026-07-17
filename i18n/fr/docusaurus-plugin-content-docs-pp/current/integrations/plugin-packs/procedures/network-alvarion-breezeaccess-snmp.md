@@ -1,6 +1,7 @@
 ---
 id: network-alvarion-breezeaccess-snmp
 title: Alvarion BreezeACCESS SNMP
+description: Supervisez les liaisons sans fil Alvarion BreezeACCESS via SNMP : signal radio, rapport signal/bruit, interfaces et uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-activemq-jmx
 title: ActiveMQ JMX
+description: Monitor Apache ActiveMQ brokers via JMX using the Jolokia REST API: queue and topic sizes, memory usage, and message throughput.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

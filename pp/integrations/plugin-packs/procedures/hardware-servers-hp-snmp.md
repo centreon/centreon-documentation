@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-hp-snmp
 title: HP Proliant SNMP
+description: Monitor HP Proliant servers via SNMP: CPU, fan, power supply, storage, temperature, and network hardware status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-imap
 title: IMAP Server
+description: Monitor IMAP mail servers via Centreon Plugins: check login connectivity and search mailbox messages with IMAP filters.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

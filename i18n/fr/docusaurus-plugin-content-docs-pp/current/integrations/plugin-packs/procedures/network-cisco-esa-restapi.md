@@ -1,6 +1,7 @@
 ---
 id: network-cisco-esa-restapi
 title: Cisco ESA Rest API
+description: Supervisez Cisco ESA via l'API REST : suivez l'utilisation du CPU, de la mémoire, du swap et des files d'attente de messages.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

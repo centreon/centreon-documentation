@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-ees-snmp
 title: EES UPS SNMP
+description: Monitor Emerson Energy Systems/Vertiv UPS units via SNMP, covering battery, input, rectifier, system, and temperature status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

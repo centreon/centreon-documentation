@@ -1,6 +1,7 @@
 ---
 id: network-huawei-snmp
 title: Huawei Standard SNMP
+description: Monitor Huawei network devices via SNMP: CPU, memory, hardware, uptime, interfaces, and GPON ONT health and traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

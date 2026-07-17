@@ -1,6 +1,7 @@
 ---
 id: network-loadbalancers-netscaler-snmp
 title: Citrix Netscaler SNMP
+description: Supervisez les répartiteurs de charge Citrix NetScaler via SNMP : CPU, mémoire, stockage, état matériel, haute disponibilité, vservers et trafic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

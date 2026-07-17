@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-ldap
 title: LDAP Server
+description: Supervisez des serveurs LDAP via le protocole LDAP : contrôlez l'authentification et effectuez des recherches dans l'annuaire.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

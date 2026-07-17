@@ -1,6 +1,7 @@
 ---
 id: applications-wazuh-restapi
 title: Wazuh Rest API
+description: Supervisez Wazuh via son API REST : statut de connexion des agents, processus du manager et compteurs de logs d'erreurs/avertissements.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

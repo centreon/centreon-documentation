@@ -1,6 +1,7 @@
 ---
 id: network-stormshield-snmp
 title: Stormshield SNMP
+description: Supervisez les pare-feux Stormshield via SNMP : CPU, mémoire, disque, charge, matériel, QoS, VPN et trafic des interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

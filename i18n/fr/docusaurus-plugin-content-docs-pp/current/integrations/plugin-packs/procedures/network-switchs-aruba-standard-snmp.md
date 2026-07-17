@@ -1,6 +1,7 @@
 ---
 id: network-switchs-aruba-standard-snmp
 title: Aruba Standard SNMP
+description: Supervisez les contrôleurs et points d'accès Aruba via SNMP : CPU, mémoire, matériel, licences et trafic réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

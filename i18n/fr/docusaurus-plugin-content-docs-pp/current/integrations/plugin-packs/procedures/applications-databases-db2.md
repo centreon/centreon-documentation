@@ -1,6 +1,7 @@
 ---
 id: applications-databases-db2
 title: DB2 Database
+description: Supervisez vos bases de données IBM DB2 avec ce connecteur : utilisateurs connectés, temps de connexion, utilisation des logs et de l'espace, et statut des tablespaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

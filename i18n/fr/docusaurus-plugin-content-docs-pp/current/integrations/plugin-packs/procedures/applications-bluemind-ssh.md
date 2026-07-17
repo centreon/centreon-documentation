@@ -1,6 +1,7 @@
 ---
 id: applications-bluemind-ssh
 title: BlueMind SSH
+description: Supervisez BlueMind (messagerie d'entreprise) via SSH : moteur principal, authentification, livraison des emails, serveur web et messagerie instantanée.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

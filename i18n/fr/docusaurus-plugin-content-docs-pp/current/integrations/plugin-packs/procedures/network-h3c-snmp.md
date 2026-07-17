@@ -1,6 +1,7 @@
 ---
 id: network-h3c-snmp
 title: H3C Network SNMP
+description: Supervisez les équipements réseau H3C via SNMP : CPU, mémoire, matériel et trafic des interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

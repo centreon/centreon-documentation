@@ -1,6 +1,7 @@
 ---
 id: network-routers-atrica-snmp
 title: Atrica Routeur SNMP
+description: Supervisez les routeurs Atrica via SNMP : trafic des interfaces, paquets rejetés/en erreur, et statut des connexions.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

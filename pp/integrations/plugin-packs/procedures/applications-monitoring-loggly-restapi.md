@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-loggly-restapi
 title: Loggly Rest API
+description: Monitor Loggly via REST API: track matching event counts and unique field values from log queries.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

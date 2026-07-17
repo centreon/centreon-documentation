@@ -1,6 +1,7 @@
 ---
 id: infrastructure-dhcp
 title: DHCP Server
+description: Supervisez la disponibilité d'un serveur DHCP avec le connecteur Centreon DHCP Server, via des modèles d'hôte/service et check_dhcp en CLI.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

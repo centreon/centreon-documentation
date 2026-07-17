@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-hikvision-nvr-snmp
 title: Hikvision NVR SNMP
+description: Monitor Hikvision NVR devices via SNMP: disk usage, memory usage, and system uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

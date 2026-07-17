@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-ec2
 title: Amazon EC2
+description: Supervisez les instances Amazon EC2, les Auto Scaling Groups et les Spot Fleet Requests via l'API AWS, avec le suivi du CPU, du réseau, des disques et du statut.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

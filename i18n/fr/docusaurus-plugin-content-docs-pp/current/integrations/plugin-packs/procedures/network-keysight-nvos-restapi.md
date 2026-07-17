@@ -1,6 +1,7 @@
 ---
 id: network-keysight-nvos-restapi
 title: Keysight NVOS Rest API
+description: Supervisez les équipements réseau Keysight NVOS via l'API REST : matériel, licence, ports, disponibilité et synchronisation horaire.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

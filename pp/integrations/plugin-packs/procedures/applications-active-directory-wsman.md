@@ -1,6 +1,7 @@
 ---
 id: applications-active-directory-wsman
 title: Microsoft Active Directory WSMAN
+description: Monitor Microsoft Active Directory domain controllers via WSMAN, running dcdiag diagnostics to track domain controller health status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

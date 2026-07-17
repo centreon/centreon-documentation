@@ -1,6 +1,7 @@
 ---
 id: applications-apache-cxf-jmx
 title: Apache CXF
+description: Supervisez Apache CXF via JMX/Jolokia : invocations de services, requêtes en cours et défauts applicatifs ou runtime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

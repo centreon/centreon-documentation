@@ -1,6 +1,7 @@
 ---
 id: network-switchs-juniper-ex-snmp
 title: Juniper EX Series SNMP
+description: Monitor Juniper EX Series switches via SNMP: CPU, memory, hardware status, disk usage, and interface traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

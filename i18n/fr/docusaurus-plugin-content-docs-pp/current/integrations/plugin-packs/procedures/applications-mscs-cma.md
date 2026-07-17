@@ -1,6 +1,7 @@
 ---
 id: applications-mscs-cma
 title: Microsoft Cluster Server CMA
+description: Supervisez Microsoft Cluster Server (MSCS) via CMA : statut réseau, noeuds, ressources et groupes de ressources du cluster.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

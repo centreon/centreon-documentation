@@ -1,6 +1,7 @@
 ---
 id: network-netgear-sseries-snmp
 title: Netgear SSeries SNMP
+description: Monitor Netgear S-Series switches via SNMP: CPU utilization, memory usage, hardware status, and network interface traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

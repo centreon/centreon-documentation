@@ -1,6 +1,7 @@
 ---
 id: applications-netbackup-nrpe
 title: Symantec Netbackup NSClient++ NRPE
+description: Monitor Symantec NetBackup via NRPE: deduplication status, drive status and cleaning, job status, and tape usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

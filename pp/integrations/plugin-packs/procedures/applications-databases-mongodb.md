@@ -1,6 +1,7 @@
 ---
 id: applications-databases-mongodb
 title: MongoDB
+description: Monitor MongoDB via its native protocol: connections, queries, collection/database statistics, and replica set replication status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

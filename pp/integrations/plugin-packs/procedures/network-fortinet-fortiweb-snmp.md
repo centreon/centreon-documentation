@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiweb-snmp
 title: Fortinet FortiWeb SNMP
+description: Monitor Fortinet FortiWeb appliances via SNMP: proxy connections, system CPU, memory, and HA status, plus interface traffic and errors.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

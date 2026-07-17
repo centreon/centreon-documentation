@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-geist-snmp
 title: Geist Sensor SNMP
+description: Supervisez les sondes environnementales Geist via SNMP : température, humidité, point de rosée, air, lumière et son.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

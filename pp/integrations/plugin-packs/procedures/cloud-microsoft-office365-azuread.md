@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-azuread
 title: Office 365 Azure AD
+description: Monitor Microsoft Office 365 Azure AD via the Graph API: track directory quota usage with Centreon.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

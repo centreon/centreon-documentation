@@ -1,6 +1,7 @@
 ---
 id: network-teldat-snmp
 title: Teldat SNMP
+description: Supervisez les routeurs Teldat via SNMP en surveillant le CPU, la mémoire, l'uptime, les interfaces réseau et les modules radio cellulaires.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

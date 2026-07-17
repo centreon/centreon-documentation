@@ -1,6 +1,7 @@
 ---
 id: network-versa-snmp
 title: Versa SNMP
+description: Monitor Versa Networks SD-WAN devices via SNMP, covering interfaces, BGP peers, IPsec tunnels, QoS policies, and SD-WAN rules.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

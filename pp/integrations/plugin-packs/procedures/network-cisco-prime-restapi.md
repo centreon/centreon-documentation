@@ -1,6 +1,7 @@
 ---
 id: network-cisco-prime-restapi
 title: Cisco Prime RestAPI
+description: Monitor Cisco Prime access points via REST API: client usage, status, and uptime metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

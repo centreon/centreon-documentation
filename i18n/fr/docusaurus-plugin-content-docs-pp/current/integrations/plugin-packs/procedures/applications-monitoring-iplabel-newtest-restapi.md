@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-iplabel-newtest-restapi
 title: IP-Label Newtest Rest API
+description: Supervisez les scénarios IP-Label Newtest via l'API REST en suivant les statuts (vert, rouge, orange, gris) et le temps d'exécution.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

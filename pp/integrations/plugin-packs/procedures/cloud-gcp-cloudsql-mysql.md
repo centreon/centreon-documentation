@@ -1,6 +1,7 @@
 ---
 id: cloud-gcp-cloudsql-mysql
 title: Google CloudSQL MySQL
+description: Monitor Google Cloud SQL for MySQL via the GCP API: track CPU, InnoDB, network, queries, and storage metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

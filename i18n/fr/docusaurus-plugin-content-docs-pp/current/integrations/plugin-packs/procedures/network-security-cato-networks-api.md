@@ -1,6 +1,7 @@
 ---
 id: network-security-cato-networks-api
 title: Cato Networks API
+description: Supervisez Cato Networks via son API GraphQL : connectivité des sites, événements de sécurité et requêtes personnalisées.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

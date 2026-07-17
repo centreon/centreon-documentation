@@ -1,6 +1,7 @@
 ---
 id: network-sonus-sbc-snmp
 title: Sonus SBC SNMP
+description: Monitor Sonus SBC devices via SNMP: call statistics, channels, CPU, memory, disks, and interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

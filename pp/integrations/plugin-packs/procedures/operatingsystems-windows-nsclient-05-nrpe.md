@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NSClient 0.5 NRPE
+description: Monitor Windows servers via NSClient++ and NRPE: CPU, memory, disks, services, sessions, certificates, and more.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-quantum-dxi-ssh
 title: Quantum DXi Series SSH
+description: Supervisez les baies de stockage Quantum DXi Series via SSH : compactage, déduplication, utilisation disque, santé, mémoire, réseau et débit.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

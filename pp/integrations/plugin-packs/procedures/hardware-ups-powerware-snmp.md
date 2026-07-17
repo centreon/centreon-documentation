@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-powerware-snmp
 title: Powerware UPS SNMP
+description: Monitor Powerware UPS devices via SNMP: battery status, input/output lines, environment, and alarms.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

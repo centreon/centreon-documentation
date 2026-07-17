@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-picos-snmp
 title: PICOS SNMP
+description: Supervisez les commutateurs Pica8 PICOS via SNMP : CPU, mémoire, température, matériel et interfaces réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

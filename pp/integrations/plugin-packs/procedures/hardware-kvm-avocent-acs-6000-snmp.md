@@ -1,6 +1,7 @@
 ---
 id: hardware-kvm-avocent-acs-6000-snmp
 title: Avocent ACS 6000 SNMP
+description: Monitor Avocent ACS 6000 KVM console servers via SNMP: hardware status, CPU load, memory, and swap usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

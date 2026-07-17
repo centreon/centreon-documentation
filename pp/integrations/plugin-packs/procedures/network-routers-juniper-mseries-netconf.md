@@ -1,6 +1,7 @@
 ---
 id: network-routers-juniper-mseries-netconf
 title: Juniper M-Series Netconf
+description: Monitor Juniper M-Series routers via Netconf: CPU, memory, hardware, interfaces, BGP, OSPF, LDP, LSP, and RSVP status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-rad-airmux-snmp
 title: Rad Airmux SNMP
+description: Supervisez les liaisons radio RAD Airmux via SNMP : alarmes, puissance du signal radio, trames erronées, interfaces et uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

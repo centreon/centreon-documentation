@@ -1,6 +1,7 @@
 ---
 id: network-aruba-instant-snmp
 title: Aruba Instant SNMP
+description: Supervisez les points d'accès Aruba Instant via SNMP : usage des AP, CPU, mémoire et statut des SSID.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

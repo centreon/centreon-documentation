@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-paloalto-standard-api
 title: Palo Alto firewall API
+description: Supervisez les pare-feux Palo Alto Networks via l'API XML : composants matériels, haute disponibilité, tunnels VPN IPSec, licences et système.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

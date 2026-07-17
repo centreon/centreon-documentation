@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-juniper-ssg-snmp
 title: Juniper SSG SNMP
+description: Supervisez les pare-feu Juniper SSG via SNMP : CPU, mémoire, matériel, sessions, trafic des interfaces et tunnels VPN.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

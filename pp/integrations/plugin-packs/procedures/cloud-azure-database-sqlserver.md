@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-sqlserver
 title: Azure SQL Server
+description: Monitor Azure SQL Server status via the Azure Monitor API or az CLI, with automatic host discovery, using Centreon's monitoring connector.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

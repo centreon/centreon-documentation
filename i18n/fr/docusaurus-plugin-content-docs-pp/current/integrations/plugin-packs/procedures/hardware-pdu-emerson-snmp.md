@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-emerson-snmp
 title: Emerson PDU SNMP
+description: Supervisez les PDU Emerson via SNMP : statut global, utilisation des sources de courant et métriques des receptacles (puissance, énergie, courant).
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-symmetrix-nsclient-05-restapi
 title: EMC Symmetrix NSClient++ API
+description: Monitor EMC Symmetrix DMX/VMAX storage hardware health via the NSClient++ REST API, including disks, power, and temperature.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

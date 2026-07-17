@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-applicationinsights
 title: Azure Application Insights
+description: Supervisez Azure Application Insights via l'API REST : disponibilité, requêtes, exceptions, CPU, mémoire et pages consultées de vos applications.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

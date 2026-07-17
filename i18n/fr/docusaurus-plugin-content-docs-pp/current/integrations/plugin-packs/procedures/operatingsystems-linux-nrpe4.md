@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-linux-nrpe4
 title: Linux NRPE4
+description: Supervisez les serveurs Linux via le protocole NRPE : CPU, mémoire, charge, disques, processus, services systemd et trafic réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

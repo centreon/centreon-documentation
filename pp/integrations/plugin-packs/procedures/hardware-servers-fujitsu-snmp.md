@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-fujitsu-snmp
 title: Fujitsu Server SNMP
+description: Monitor Fujitsu servers via SNMP, checking hardware status including CPU, fan, PSU, disk, temperature, memory, raid, and voltage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

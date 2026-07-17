@@ -1,6 +1,7 @@
 ---
 id: network-nortel-standard-snmp
 title: Extreme (formerly Nortel/Avaya) SNMP
+description: Monitor Extreme (formerly Nortel/Avaya) network switches via SNMP, covering CPU, memory, hardware status, stack units, and interface traffic and errors.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

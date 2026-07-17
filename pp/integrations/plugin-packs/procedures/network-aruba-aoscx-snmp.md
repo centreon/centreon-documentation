@@ -1,6 +1,7 @@
 ---
 id: network-aruba-aoscx-snmp
 title: ArubaOS-CX SNMP
+description: Monitor Aruba ArubaOS-CX switches via SNMP: CPU, memory, hardware, interfaces, VSF/VSX stacking, and Spanning Tree status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

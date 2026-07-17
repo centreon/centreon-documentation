@@ -1,6 +1,7 @@
 ---
 id: applications-ansible-tower
 title: Ansible Tower
+description: Monitor Ansible Tower via its REST API or the tower-cli tool: track hosts, inventories, job templates, jobs, and schedules.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

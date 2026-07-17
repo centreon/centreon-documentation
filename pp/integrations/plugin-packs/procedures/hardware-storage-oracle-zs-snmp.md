@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-oracle-zs-snmp
 title: Oracle ZS SNMP
+description: Monitor Oracle ZS storage appliances via SNMP: hardware module status, share and project usage, and network interface traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

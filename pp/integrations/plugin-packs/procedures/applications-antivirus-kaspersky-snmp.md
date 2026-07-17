@@ -1,6 +1,7 @@
 ---
 id: applications-antivirus-kaspersky-snmp
 title: Kaspersky
+description: Monitor Kaspersky Security Center via SNMP: antivirus deployment, protection status, updates, events, and network discovery.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

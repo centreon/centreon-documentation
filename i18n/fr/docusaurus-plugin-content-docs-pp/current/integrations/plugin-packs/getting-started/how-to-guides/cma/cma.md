@@ -1,6 +1,7 @@
 ---
 id: cma
 title: Centreon Monitoring Agent
+description: Accédez aux liens vers la documentation actuelle de Centreon Monitoring Agent (CMA), pour les versions OnPrem et Cloud.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

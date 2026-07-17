@@ -1,6 +1,7 @@
 ---
 id: applications-controlm-restapi
 title: Control-M Rest API
+description: Supervisez les jobs BMC Control-M via l'API REST Automation : suivez les jobs réussis, échoués, en cours et en attente.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-exagrid-snmp
 title: Exagrid SNMP
+description: Supervisez les équipements de stockage ExaGrid via SNMP, avec le suivi du statut du serveur et des utilisations landing et retention.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

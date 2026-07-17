@@ -1,6 +1,7 @@
 ---
 id: applications-antivirus-skyhigh-webgateway-snmp
 title: Skyhigh Security Web Gateway SNMP
+description: Monitor Skyhigh Security Web Gateway via SNMP: client connections, HTTP/HTTPS/FTP traffic, malware detections, and virus definition versions.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

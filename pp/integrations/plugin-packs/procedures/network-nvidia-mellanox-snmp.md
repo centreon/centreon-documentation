@@ -1,6 +1,7 @@
 ---
 id: network-nvidia-mellanox-snmp
 title: Nvidia (formerly Mellanox) SNMP
+description: Monitor Nvidia (formerly Mellanox) network switches via SNMP: CPU usage, interfaces, sensors, uptime, and Spanning Tree status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

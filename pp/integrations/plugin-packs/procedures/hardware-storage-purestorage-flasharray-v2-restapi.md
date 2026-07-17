@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-purestorage-flasharray-v2-restapi
 title: Pure Storage FlashArray Rest API v2
+description: Monitor Pure Storage FlashArray via REST API v2: alerts, hardware status, storage arrays, and volume space/IO metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

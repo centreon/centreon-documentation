@@ -1,6 +1,7 @@
 ---
 id: network-huawei-snmp
 title: Huawei Standard SNMP
+description: Supervisez les équipements réseau Huawei via SNMP : CPU, mémoire, matériel, temps de fonctionnement, interfaces, et santé/trafic des ONT GPON.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

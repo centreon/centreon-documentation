@@ -1,6 +1,7 @@
 ---
 id: hardware-telephony-avaya-aes-snmp
 title: Avaya AES SNMP
+description: Monitor Avaya AES servers via SNMP: CPU, memory, load, storage, interfaces, and service status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

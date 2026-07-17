@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-hp-oneview-restapi
 title: HP OneView Rest API
+description: Supervisez les serveurs HP OneView via l'API Rest en suivant les composants matériels ainsi que l'usage et le statut des pools de stockage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

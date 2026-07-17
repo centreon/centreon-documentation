@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-cloudfront
 title: Amazon CloudFront
+description: Monitor Amazon CloudFront via the AWS CloudWatch API: error rates, request counts, and upload/download throughput.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

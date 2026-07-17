@@ -1,6 +1,7 @@
 ---
 id: network-stormshield-ssh
 title: Stormshield SSH
+description: Monitor Stormshield firewalls via SSH to track QoS usage, traffic, and peak bandwidth metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

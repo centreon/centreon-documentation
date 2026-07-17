@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-s3
 title: Amazon S3
+description: Monitor Amazon S3 buckets via the AWS CloudWatch API: track bucket size, object count, and request metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

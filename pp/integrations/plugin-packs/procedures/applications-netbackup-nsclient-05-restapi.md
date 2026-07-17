@@ -1,6 +1,7 @@
 ---
 id: applications-netbackup-nsclient-05-restapi
 title: Netbackup NSClient++ API
+description: Monitor NetBackup via the NSClient++ REST API: deduplication status, drive status, job status, and tape usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

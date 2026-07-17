@@ -1,6 +1,7 @@
 ---
 id: applications-iis-wsman
 title: Microsoft IIS Server WSMAN
+description: Monitor Microsoft IIS Server application pools via WSMAN, tracking pool status and detected pool count.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

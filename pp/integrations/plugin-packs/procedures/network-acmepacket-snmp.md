@@ -1,6 +1,7 @@
 ---
 id: network-acmepacket-snmp
 title: Acme Packet SNMP
+description: Monitor Acme Packet session border controllers via SNMP: hardware, system usage, interfaces, codec, security, and SIP statistics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

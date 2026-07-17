@@ -1,6 +1,7 @@
 ---
 id: network-switchs-mrv-optiswitch-snmp
 title: Mrv Optiswitch SNMP
+description: Monitor MRV Optiswitch network switches via SNMP: environment (CPU, PSU, fan), interface status/traffic, and system uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-polycom-rprm-snmp
 title: Polycom RPRM SNMP
+description: Supervisez les serveurs Polycom RPRM via SNMP : état du cluster, licences, provisionnement, SiteLinks, sites et mises à jour.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-xfusion-ibmc-snmp
 title: xFusion iBMC SNMP
+description: Monitor xFusion iBMC servers via SNMP: CPU, fans, hard disks, memory, PCIe, power supplies, RAID, and temperature.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

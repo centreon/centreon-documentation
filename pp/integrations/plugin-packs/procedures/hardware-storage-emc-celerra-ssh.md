@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-celerra-ssh
 title: EMC Celerra SSH
+description: Monitor EMC Celerra storage systems via SSH: check control station and data mover status with the Getreason service.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

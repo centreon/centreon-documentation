@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-netapp-ontap-oncommandapi
 title: NetApp Ontap OnCommand API
+description: Monitor NetApp ONTAP storage via the OnCommand API: aggregates, clusters, disks, LUNs, nodes, qtrees, snapmirror, and volumes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

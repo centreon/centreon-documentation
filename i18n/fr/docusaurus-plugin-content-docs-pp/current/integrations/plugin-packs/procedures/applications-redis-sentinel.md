@@ -1,6 +1,7 @@
 ---
 id: applications-redis-sentinel
 title: Redis Sentinel
+description: Supervisez Redis Sentinel via redis-cli : statut du quorum, détection des instances et latence de ping des clusters Redis et Sentinel.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

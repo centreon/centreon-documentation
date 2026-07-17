@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-msa2000-snmp
 title: HP MSA2000 SNMP
+description: Monitor HP MSA2000 storage arrays via SNMP: hardware component status and network interface traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

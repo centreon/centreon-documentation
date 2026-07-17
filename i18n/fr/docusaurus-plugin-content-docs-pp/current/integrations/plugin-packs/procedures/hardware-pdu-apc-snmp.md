@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-apc-snmp
 title: APC PDU SNMP
+description: Supervisez les unités de distribution électrique (PDU) APC via SNMP : état matériel, charge par sortie/banc/phase, synchronisation NTP et uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: plugins-guidelines
 title: Plugins development guidelines
+description: Learn best practices for developing Centreon monitoring plugins, covering output formatting, performance data, discovery, and security.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

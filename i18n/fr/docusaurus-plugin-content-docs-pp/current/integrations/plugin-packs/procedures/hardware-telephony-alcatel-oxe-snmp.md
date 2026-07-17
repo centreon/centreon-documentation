@@ -1,6 +1,7 @@
 ---
 id: hardware-telephony-alcatel-oxe-snmp
 title: Alcatel OXE SNMP
+description: Supervisez les systèmes de téléphonie Alcatel OXE via SNMP : CPU, mémoire, swap, espace disque, rôle et état du PBX, utilisation des domaines et trunks.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

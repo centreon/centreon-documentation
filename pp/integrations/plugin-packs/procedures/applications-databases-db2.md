@@ -1,6 +1,7 @@
 ---
 id: applications-databases-db2
 title: DB2 Database
+description: Monitor IBM DB2 databases with this connector: connected users, connection time, log and space usage, and tablespace status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

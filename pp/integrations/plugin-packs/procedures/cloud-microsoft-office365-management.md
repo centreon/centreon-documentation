@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-management
 title: Office 365 Management
+description: Monitor Microsoft Office 365 via the Graph API: service health status, subscription usage, and app credential expiration.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

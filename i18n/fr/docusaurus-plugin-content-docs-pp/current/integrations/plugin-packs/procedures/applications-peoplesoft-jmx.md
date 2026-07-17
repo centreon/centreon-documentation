@@ -1,6 +1,7 @@
 ---
 id: applications-peoplesoft-jmx
 title: Peoplesoft
+description: Supervisez PeopleSoft via JMX et l'agent Jolokia en suivant la longueur de la file d'attente et les sessions ouvertes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

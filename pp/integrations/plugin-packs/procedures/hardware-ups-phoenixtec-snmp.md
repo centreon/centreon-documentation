@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-phoenixtec-snmp
 title: Phoenixtec UPS SNMP
+description: Monitor Phoenixtec UPS devices via SNMP: battery status, input/output line voltage, frequency, and load.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-vone-restapi
 title: Veeam ONE Rest API
+description: Monitor Veeam ONE backup infrastructure via REST API: jobs, proxies, repositories, and license usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

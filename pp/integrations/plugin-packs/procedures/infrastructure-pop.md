@@ -1,6 +1,7 @@
 ---
 id: infrastructure-pop
 title: POP Server
+description: Monitor POP mail servers by checking service availability and connection response time via TCP-based checks.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

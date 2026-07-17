@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-ibm-hmc-ssh
 title: IBM HMC SSH
+description: Supervisez les systèmes gérés par IBM HMC via SSH : erreurs matérielles et statut des LEDs des LPARs physiques et virtuelles.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

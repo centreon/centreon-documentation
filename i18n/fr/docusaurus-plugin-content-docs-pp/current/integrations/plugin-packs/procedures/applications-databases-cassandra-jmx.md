@@ -1,6 +1,7 @@
 ---
 id: applications-databases-cassandra-jmx
 title: Cassandra
+description: Superviser Apache Cassandra via JMX/Jolokia : utilisation du cache, latence et échecs des requêtes clientes, activité des pools de threads.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

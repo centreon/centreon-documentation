@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-apc-snmp
 title: APC UPS SNMP
+description: Monitor APC UPS devices via SNMP: battery status, input/output line metrics, sensors, time offset, and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

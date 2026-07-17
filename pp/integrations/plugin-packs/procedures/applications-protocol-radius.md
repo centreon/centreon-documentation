@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-radius
 title: Radius Service
+description: Monitor RADIUS servers by testing authentication logins and tracking response time.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

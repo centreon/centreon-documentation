@@ -1,6 +1,7 @@
 ---
 id: network-securactive-snmp
 title: Securactive SNMP
+description: Supervisez les applications et réseaux business critiques SecurActive via SNMP, en suivant le statut et la disponibilité des BCA et BCN.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

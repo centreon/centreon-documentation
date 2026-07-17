@@ -1,6 +1,7 @@
 ---
 id: network-stormshield-snmp
 title: Stormshield SNMP
+description: Monitor Stormshield firewalls via SNMP: CPU, memory, disk, load, hardware, QoS, VPN status, and interface traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-gcp-storage
 title: Google Storage
+description: Monitor Google Cloud Storage buckets via the GCP API: object count, and received/sent network volume metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

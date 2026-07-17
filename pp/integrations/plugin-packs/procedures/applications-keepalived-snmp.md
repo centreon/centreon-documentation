@@ -1,6 +1,7 @@
 ---
 id: applications-keepalived-snmp
 title: Keepalived SNMP
+description: Monitor Keepalived VRRP status via SNMP with Centreon, including host/service template setup and plugin options.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

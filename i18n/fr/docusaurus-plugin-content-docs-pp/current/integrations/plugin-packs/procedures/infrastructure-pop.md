@@ -1,6 +1,7 @@
 ---
 id: infrastructure-pop
 title: POP Server
+description: Supervisez les serveurs POP en vérifiant la disponibilité du service et le temps de réponse via des contrôles TCP.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

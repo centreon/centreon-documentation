@@ -1,6 +1,7 @@
 ---
 id: virtualization-linux-libvirt-ssh
 title: Linux Libvirt SSH
+description: Supervisez les hyperviseurs et VM Linux Libvirt via SSH : pools et volumes de stockage, CPU, E/S disque, mémoire, réseau et statut.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

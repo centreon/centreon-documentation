@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-video-appeartv-snmp
 title: Appear TV SNMP
+description: Monitor Appear TV video processing devices via SNMP, tracking alarm status for reliable video infrastructure oversight.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

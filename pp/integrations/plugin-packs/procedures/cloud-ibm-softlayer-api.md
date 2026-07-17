@@ -1,6 +1,7 @@
 ---
 id: cloud-ibm-softlayer-api
 title: IBM Softlayer API
+description: Monitor IBM SoftLayer cloud resources via REST API: track event status and open support tickets.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

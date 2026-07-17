@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-nrpe
 title: Veeam NRPE
+description: Supervisez Veeam Backup & Replication via NRPE : état des jobs, licences, dépôts, jobs sur bande et jobs SureBackup.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

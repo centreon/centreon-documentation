@@ -1,6 +1,7 @@
 ---
 id: network-cisco-apic-restapi
 title: Cisco Apic Rest API
+description: Supervisez Cisco APIC via l'API REST : statut de santé des fabrics, nœuds et tenants de votre infrastructure ACI.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-nokia-isam-snmp
 title: Nokia Isam SNMP
+description: Supervisez les équipements Nokia ISAM via SNMP : CPU, mémoire, matériel, temps de fonctionnement, interfaces et utilisation des SAP.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

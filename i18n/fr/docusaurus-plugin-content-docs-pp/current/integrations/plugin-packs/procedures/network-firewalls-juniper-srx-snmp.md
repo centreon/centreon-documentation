@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-juniper-srx-snmp
 title: Juniper SRX SNMP
+description: Supervisez les pare-feu Juniper SRX via SNMP : utilisation CPU et mémoire, état du matériel, espace disque, trafic des interfaces et sessions.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

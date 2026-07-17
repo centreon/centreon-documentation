@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-vbem-restapi
 title: Veeam Backup Enterprise Manager Rest API
+description: Supervisez Veeam Backup Enterprise Manager via l'API REST : statut des jobs de sauvegarde/réplication et utilisation des dépôts.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

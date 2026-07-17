@@ -1,6 +1,7 @@
 ---
 id: applications-graylog-restapi
 title: Graylog
+description: Supervisez Graylog via l'API REST : suivez les notifications système et contrôlez les résultats de requêtes Lucène.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

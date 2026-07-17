@@ -1,6 +1,7 @@
 ---
 id: network-beeware-snmp
 title: Bee Ware SNMP
+description: Monitor Bee Ware reverse proxies via SNMP, tracking status, CPU usage, memory usage, and child process count.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

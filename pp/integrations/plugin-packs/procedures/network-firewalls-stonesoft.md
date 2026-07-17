@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-stonesoft
 title: Stonesoft SNMP
+description: Monitor Stonesoft firewalls via SNMP: CPU, memory, connections, dropped/rejected packets, disk usage, cluster state, and interface traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

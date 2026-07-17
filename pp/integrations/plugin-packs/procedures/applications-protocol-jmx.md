@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-jmx
 title: JMX value
+description: Monitor JMX numeric values via the Jolokia agent, tracking metrics such as JVM heap usage over HTTP.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

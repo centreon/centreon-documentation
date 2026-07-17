@@ -1,6 +1,7 @@
 ---
 id: applications-github-restapi
 title: GitHub Rest API
+description: Monitor GitHub via REST API: repository commits, issues, pull requests, statistics, and GitHub service status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

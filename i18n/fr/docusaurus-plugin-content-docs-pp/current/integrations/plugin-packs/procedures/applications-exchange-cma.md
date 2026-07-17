@@ -1,6 +1,7 @@
 ---
 id: applications-exchange-cma
 title: Microsoft Exchange CMA
+description: Supervisez Microsoft Exchange via le Centreon Monitoring Agent (CMA) : bases de données, boîtes aux lettres, flux de messagerie, files d'attente et réplication.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

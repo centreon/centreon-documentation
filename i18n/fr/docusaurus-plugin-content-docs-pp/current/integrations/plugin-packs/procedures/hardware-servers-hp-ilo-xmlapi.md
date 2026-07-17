@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-hp-ilo-xmlapi
 title: HP Ilo XMLAPI
+description: Supervisez les serveurs HP via l'API XML iLO : état matériel des ventilateurs, température, alimentations, CPU et mémoire.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

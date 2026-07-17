@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-nsclient-05-restapi
 title: Veeam NSClient++ API
+description: Supervisez Veeam Backup & Replication via l'API REST NSClient++ : état des jobs, licences, dépôts, jobs sur bande et jobs SureBackup.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

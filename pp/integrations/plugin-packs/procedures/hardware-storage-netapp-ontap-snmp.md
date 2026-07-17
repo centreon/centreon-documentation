@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-netapp-ontap-snmp
 title: NetApp Ontap SNMP
+description: Monitor NetApp ONTAP storage systems via SNMP: CPU, disks, aggregates, snapshots, cluster nodes, and hardware health.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-mulesoft-restapi
 title: Mulesoft Anypoint
+description: Monitor Mulesoft Anypoint via REST API: application, server, and cluster status, plus Anypoint MQ queue messages.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

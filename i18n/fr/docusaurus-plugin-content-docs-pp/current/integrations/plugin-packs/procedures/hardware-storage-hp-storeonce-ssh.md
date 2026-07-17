@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-storeonce-ssh
 title: HP StoreOnce SSH
+description: Supervisez les systèmes de stockage HP StoreOnce via SSH en suivant le statut des composants matériels et des ensembles de services.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

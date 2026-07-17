@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-aix-ssh
 title: AIX SSH
+description: Monitor AIX systems via SSH: error reports (errpt), logical volume sync, processes, inodes, storage usage, and command return codes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

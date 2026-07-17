@@ -1,6 +1,7 @@
 ---
 id: network-cisco-standard-snmp
 title: Cisco Standard SNMP
+description: Monitor Cisco switches and routers via SNMP: CPU, memory, interfaces, BGP, HSRP, QoS, and hardware environment.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

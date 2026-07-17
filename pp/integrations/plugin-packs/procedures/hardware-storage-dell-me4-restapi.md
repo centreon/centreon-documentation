@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-me4-restapi
 title: Dell ME4 Rest API
+description: Monitor Dell ME4 storage arrays via REST API: controller statistics, hardware health, volume statistics, and interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

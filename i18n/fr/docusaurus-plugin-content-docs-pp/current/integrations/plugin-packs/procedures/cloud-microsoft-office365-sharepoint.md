@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-sharepoint
 title: Office365 SharePoint
+description: Supervisez Microsoft Office 365 SharePoint via l'API REST : usage des sites, stockage, activité des fichiers et engagement des utilisateurs.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

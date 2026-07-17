@@ -1,6 +1,7 @@
 ---
 id: applications-microsoft-dhcp-snmp
 title: Microsoft DHCP SNMP
+description: Supervisez les serveurs Microsoft DHCP via SNMP : utilisation des sous-réseaux, adresses libres et offres en attente.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

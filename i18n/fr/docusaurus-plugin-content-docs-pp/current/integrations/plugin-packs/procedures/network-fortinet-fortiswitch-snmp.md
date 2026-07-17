@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiswitch-snmp
 title: Fortinet FortiSwitch SNMP
+description: Supervisez vos commutateurs Fortinet FortiSwitch via SNMP : CPU, mémoire, disque, uptime, table ARP et trafic des interfaces réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-ibm-tsm-dsmadmc
 title: IBM Tivoli Storage M
+description: Monitor IBM Tivoli Storage Manager (TSM) via the dsmadmc CLI: activity logs, drives, nodes, sessions, and volumes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

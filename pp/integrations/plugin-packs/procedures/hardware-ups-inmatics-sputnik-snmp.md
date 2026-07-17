@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-inmatics-sputnik-snmp
 title: Inmatics PSU Sputnik SNMP
+description: Monitor Inmatics PSU Sputnik UPS devices via SNMP: alarms, battery status, environment, input/output lines, and output source.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

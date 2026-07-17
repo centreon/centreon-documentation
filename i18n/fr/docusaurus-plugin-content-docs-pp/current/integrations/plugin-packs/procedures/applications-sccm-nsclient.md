@@ -1,6 +1,7 @@
 ---
 id: applications-sccm-nsclient
 title: Microsoft SCCM
+description: Supervisez Microsoft SCCM via NRPE ou REST API (agent centreon-nsclient) : état de la réplication des bases et des sites.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

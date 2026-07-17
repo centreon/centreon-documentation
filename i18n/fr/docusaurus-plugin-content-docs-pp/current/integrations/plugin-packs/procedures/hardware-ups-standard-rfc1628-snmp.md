@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-standard-rfc1628-snmp
 title: UPS Standard SNMP
+description: Supervisez des onduleurs (UPS) via SNMP avec RFC1628 : alarmes, état de la batterie, lignes d'entrée/sortie et source d'alimentation.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

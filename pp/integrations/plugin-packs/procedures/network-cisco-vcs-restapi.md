@@ -1,6 +1,7 @@
 ---
 id: network-cisco-vcs-restapi
 title: Cisco VCS Rest API
+description: Monitor Cisco VCS (Video Communication Server) via REST API: track alerts, calls, HTTP proxy stats, and zones.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

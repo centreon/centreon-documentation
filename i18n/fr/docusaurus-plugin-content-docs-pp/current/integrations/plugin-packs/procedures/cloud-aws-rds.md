@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-rds
 title: Amazon RDS
+description: Supervisez les bases de données Amazon RDS via l'API AWS CloudWatch : connexions, CPU, stockage, réseau et statut des instances.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-elasticpool
 title: Azure Elastic Pool
+description: Monitor Azure SQL Database Elastic Pools via Azure API or Azure CLI, tracking CPU, DTU, storage, sessions, and log usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

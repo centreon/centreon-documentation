@@ -1,6 +1,7 @@
 ---
 id: applications-rrdcached
 title: RRDCached
+description: Supervisez RRDcached en TCP ou socket UNIX : disponibilité via PING et statistiques de file d'attente et de mises à jour en cache.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

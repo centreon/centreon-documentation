@@ -1,6 +1,7 @@
 ---
 id: network-cisco-wlc-snmp
 title: Cisco WLC SNMP
+description: Supervisez les contrôleurs Cisco WLC et leurs points d'accès via SNMP : CPU, mémoire, matériel, statut, utilisateurs et trafic réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-ses
 title: Amazon SES
+description: Monitor Amazon SES via the AWS CloudWatch API: emails sent, delivered, rejected, and marked as spam.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

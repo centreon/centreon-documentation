@@ -1,6 +1,7 @@
 ---
 id: network-ucopia-snmp
 title: Ucopia SNMP
+description: Supervisez les contrôleurs WLAN Ucopia via SNMP : statut des services, température, utilisateurs connectés et statut de la réplication.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

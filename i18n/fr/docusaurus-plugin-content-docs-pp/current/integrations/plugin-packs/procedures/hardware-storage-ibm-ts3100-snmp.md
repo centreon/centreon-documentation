@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-ts3100-snmp
 title: IBM TS3100 SNMP
+description: Supervisez les bibliothèques de bandes IBM TS3100 via SNMP avec Centreon, en surveillant l'état global de l'équipement.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-php-apc-web
 title: PHP APC
+description: Supervisez PHP APC via sa page de statut web en HTTP, en suivant les taux de hits/misses du cache de fichiers et l'utilisation mémoire.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

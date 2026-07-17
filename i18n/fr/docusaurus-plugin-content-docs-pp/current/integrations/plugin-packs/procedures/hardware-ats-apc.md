@@ -1,6 +1,7 @@
 ---
 id: hardware-ats-apc
 title: APC ATS SNMP
+description: Supervisez les commutateurs de transfert automatique (ATS) APC via SNMP : état de l'équipement, tension, courant et puissance en entrée/sortie.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

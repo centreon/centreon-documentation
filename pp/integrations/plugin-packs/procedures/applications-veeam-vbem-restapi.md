@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-vbem-restapi
 title: Veeam Backup Enterprise Manager Rest API
+description: Monitor Veeam Backup Enterprise Manager via REST API: track backup/replica job status and repository space usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

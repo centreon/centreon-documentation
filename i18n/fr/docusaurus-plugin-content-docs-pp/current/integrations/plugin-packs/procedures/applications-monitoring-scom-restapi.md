@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-scom-restapi
 title: SCOM Rest API
+description: Supervisez les alertes Microsoft SCOM 2012/2016 via l'API REST : alertes nouvelles, résolues, planifiées et acquittées.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-evertz-fc7800-snmp
 title: Evertz FC7800 SNMP
+description: Supervisez les équipements Evertz FC7800 via SNMP en surveillant le matériel, la frame line et l'alimentation.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

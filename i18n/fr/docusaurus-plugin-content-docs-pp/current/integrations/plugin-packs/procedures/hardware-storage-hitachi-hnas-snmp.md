@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hitachi-hnas-snmp
 title: Hitachi NAS SNMP
+description: Supervisez le stockage Hitachi NAS via SNMP : état du matériel, du cluster, des interfaces et des volumes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

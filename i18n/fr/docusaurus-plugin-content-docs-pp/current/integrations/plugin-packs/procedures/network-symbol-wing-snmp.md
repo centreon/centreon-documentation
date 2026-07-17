@@ -1,6 +1,7 @@
 ---
 id: network-symbol-wing-snmp
 title: Symbol WiNG SNMP
+description: Supervisez les équipements Symbol WiNG via SNMP : trafic des interfaces, paquets en erreur et utilisation CPU/mémoire des systèmes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

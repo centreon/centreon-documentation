@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-storage-acr
 title: Azure Container Registry
+description: Supervisez Azure Container Registry via les API Azure Monitor et suivez l'utilisation du stockage grâce au connecteur ACR.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

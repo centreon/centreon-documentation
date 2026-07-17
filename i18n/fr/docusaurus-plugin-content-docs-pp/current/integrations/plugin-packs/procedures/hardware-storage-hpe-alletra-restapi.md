@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hpe-alletra-restapi
 title: HPE Alletra REST API
+description: Supervisez les baies de stockage HPE Alletra via l'API REST : état des disques et volumes, capacité, utilisation et licences.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

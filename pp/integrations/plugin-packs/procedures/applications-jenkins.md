@@ -1,6 +1,7 @@
 ---
 id: applications-jenkins
 title: Jenkins API
+description: Monitor Jenkins jobs via the REST API, tracking job status, score percentage, and violation counts.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

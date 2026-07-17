@@ -1,6 +1,7 @@
 ---
 id: plugins-guidelines
 title: Plugins development guidelines
+description: Découvrez les bonnes pratiques pour développer des plugins de supervision Centreon : format de sortie, données de performance, découverte et sécurité.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

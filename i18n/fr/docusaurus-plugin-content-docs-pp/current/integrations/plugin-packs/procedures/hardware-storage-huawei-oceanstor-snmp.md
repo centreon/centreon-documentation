@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-huawei-oceanstor-snmp
 title: Huawei OceanStor SNMP
+description: Supervisez les baies de stockage Huawei OceanStor via SNMP : CPU/mémoire des contrôleurs, matériel, espace des LUNs et des pools de stockage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

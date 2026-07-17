@@ -1,6 +1,7 @@
 ---
 id: applications-redis-rlec-restapi
 title: Redis Labs Enterprise Cluster Rest API
+description: Monitor Redis Labs Enterprise Cluster (RLEC) via REST API: track cluster, database, node, and shard metrics and status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-vone-restapi
 title: Veeam ONE Rest API
+description: Supervisez l'infrastructure de sauvegarde Veeam ONE via API REST : jobs, proxys, dépôts et licences.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

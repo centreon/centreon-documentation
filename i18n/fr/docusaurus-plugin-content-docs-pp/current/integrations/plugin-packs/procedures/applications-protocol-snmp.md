@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-snmp
 title: Generic SNMP
+description: Supervisez tout équipement compatible SNMP grâce à des contrôles génériques d'OID pour des valeurs personnalisées, le temps de réponse et l'uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-hp-ilo-restapi
 title: HP iLO Rest API
+description: Monitor HP iLO hardware via REST API: chassis, drives, fans, power supplies, storage, and temperature status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

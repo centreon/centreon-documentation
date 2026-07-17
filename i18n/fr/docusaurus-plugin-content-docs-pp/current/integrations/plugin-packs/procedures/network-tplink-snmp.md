@@ -1,6 +1,7 @@
 ---
 id: network-tplink-snmp
 title: TP-Link SNMP
+description: Supervisez les équipements réseau TP-Link via SNMP : CPU, mémoire, disponibilité et trafic des interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

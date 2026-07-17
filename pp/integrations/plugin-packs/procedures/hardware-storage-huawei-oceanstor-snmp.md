@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-huawei-oceanstor-snmp
 title: Huawei OceanStor SNMP
+description: Monitor Huawei OceanStor storage systems via SNMP, tracking controller CPU/memory, hardware health, LUN space, and storage pool usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

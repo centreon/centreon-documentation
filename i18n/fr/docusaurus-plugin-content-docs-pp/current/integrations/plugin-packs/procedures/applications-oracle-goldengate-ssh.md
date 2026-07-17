@@ -1,6 +1,7 @@
 ---
 id: applications-oracle-goldengate-ssh
 title: Oracle GoldenGate SSH
+description: Supervisez Oracle GoldenGate en SSH : statut des processus de réplication, décalage (lag) et temps depuis le dernier checkpoint.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-bdt-multistak-snmp
 title: BDT MultiStak SNMP
+description: Supervisez les bibliothèques de bandes BDT MultiStak via SNMP en contrôlant l'état matériel des modules et du dispositif.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

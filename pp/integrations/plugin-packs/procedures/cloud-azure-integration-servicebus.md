@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-integration-servicebus
 title: Azure ServiceBus
+description: Monitor Azure Service Bus namespaces via REST API or Azure CLI: connections, messages, resource usage, and requests.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

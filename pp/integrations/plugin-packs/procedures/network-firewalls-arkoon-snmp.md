@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-arkoon-snmp
 title: Arkoon SNMP
+description: Monitor Arkoon firewalls via SNMP: CPU load, memory, swap, network traffic, packet errors, and process status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

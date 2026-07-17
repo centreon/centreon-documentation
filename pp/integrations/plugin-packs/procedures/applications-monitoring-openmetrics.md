@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-openmetrics
 title: OpenMetrics
+description: Monitor OpenMetrics-compatible applications over HTTP/HTTPS by scraping metrics from files or web endpoints.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

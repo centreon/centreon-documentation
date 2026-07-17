@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-web-appservice
 title: Azure App Service
+description: Supervisez Azure App Service via l'API Azure : temps CPU, mémoire, requêtes HTTP, temps de réponse et santé de l'application.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

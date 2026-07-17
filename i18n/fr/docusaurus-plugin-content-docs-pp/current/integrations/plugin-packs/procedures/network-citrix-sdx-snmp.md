@@ -1,6 +1,7 @@
 ---
 id: network-citrix-sdx-snmp
 title: Citrix SDX
+description: Supervisez les équipements Citrix SDX via SNMP : utilisation des disques, état du matériel et des logiciels, utilisation des dépôts de stockage et des hyperviseurs Xen.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

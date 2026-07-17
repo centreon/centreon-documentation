@@ -1,6 +1,7 @@
 ---
 id: applications-nginx-plus-restapi
 title: Nginx Plus Restapi
+description: Supervisez Nginx Plus via son API REST : trafic et réponses des zones HTTP, connexions et statistiques des handshakes SSL.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-aeg-acm-snmp
 title: AEG ACM SNMP
+description: Supervisez les systèmes d'alimentation AEG ACM en SNMP : état AC, alarmes, batteries, charge et redresseurs.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

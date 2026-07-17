@@ -1,6 +1,7 @@
 ---
 id: network-lenovo-flexsystem-snmp
 title: Lenovo Flexsystem Switch SNMP
+description: Monitor Lenovo Flex System switches via SNMP: CPU, memory, environment, network traffic, packet errors, storage, and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

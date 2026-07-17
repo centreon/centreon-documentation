@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-eva-cli
 title: HP EVA Cli
+description: Monitor HP EVA storage arrays via CLI: hardware health, battery, disk, fan status, and storage usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

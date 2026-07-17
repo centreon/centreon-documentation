@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-freebsd-snmp
 title: FreeBSD SNMP
+description: Monitor FreeBSD systems via SNMP, tracking CPU, memory, swap, disk usage, disk I/O, processes, network traffic, and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

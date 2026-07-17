@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-apc-snmp
 title: APC UPS SNMP
+description: Supervisez les onduleurs APC UPS via SNMP : état de la batterie, métriques des lignes d'entrée/sortie, sondes, décalage horaire et disponibilité.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

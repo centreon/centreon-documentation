@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-himoinsa-snmp
 title: Himoinsa SNMP
+description: Monitor Himoinsa UPS/generator units via SNMP: frequency, fuel level, phase current, status, and voltage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

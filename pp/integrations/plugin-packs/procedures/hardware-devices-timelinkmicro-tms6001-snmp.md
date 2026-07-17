@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-timelinkmicro-tms6001-snmp
 title: Timelinkmicro Tms6001 SNMP
+description: Monitor Timelinkmicro TMS6001 time servers via SNMP: alarms, antenna, frequency, GNSS, satellites, and time quality.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

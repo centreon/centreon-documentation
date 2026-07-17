@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-purestorage-flashblade-v2-restapi
 title: Pure Storage FlashBlade v2 Rest API
+description: Monitor Pure Storage FlashBlade via REST API: track array space usage, filesystem capacity, alerts, and hardware status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

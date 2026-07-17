@@ -1,6 +1,7 @@
 ---
 id: infrastructure-dhcp
 title: DHCP Server
+description: Monitor DHCP server availability with Centreon's DHCP Server connector, using host/service templates and check_dhcp via CLI.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

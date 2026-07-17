@@ -1,6 +1,7 @@
 ---
 id: applications-eclipse-mosquitto-mqtt
 title: Eclipse Mosquitto MQTT
+description: Monitor Eclipse Mosquitto MQTT brokers: connected clients, message statistics, and server uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

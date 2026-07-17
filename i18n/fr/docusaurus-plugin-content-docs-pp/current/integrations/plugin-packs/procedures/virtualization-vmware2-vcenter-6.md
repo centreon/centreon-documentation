@@ -1,6 +1,7 @@
 ---
 id: virtualization-vmware2-vcenter-6
 title: VMware vCenter v6
+description: Supervisez VMware vCenter v6 grâce au daemon Centreon VMware : âge des snapshots et limites CPU, mémoire et disque des VM.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-adic-tape-snmp
 title: Adic Tape SNMP
+description: Supervisez les bandothèques ADIC via SNMP : statut matériel global, lecteurs physiques, sous-systèmes, température et ventilateurs.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

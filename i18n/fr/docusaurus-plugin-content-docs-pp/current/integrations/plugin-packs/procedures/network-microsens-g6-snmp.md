@@ -1,6 +1,7 @@
 ---
 id: network-microsens-g6-snmp
 title: Microsens G6 SNMP
+description: Supervisez les commutateurs Microsens G6 via SNMP : CPU, matériel, interfaces, charge, mémoire, ports SFP et temps de fonctionnement.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

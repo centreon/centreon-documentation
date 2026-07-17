@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hitachi-standard-snmp
 title: Hitachi Standard SNMP
+description: Supervisez les systèmes de stockage Hitachi Standard via SNMP en suivant le statut du matériel, des châssis contrôleurs et des châssis de disques.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

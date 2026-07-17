@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-tftp
 title: TFTP Server
+description: Supervisez des serveurs TFTP avec Centreon en testant l'exécution de commandes distantes et en mesurant leur temps de réponse via le protocole TFTP.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

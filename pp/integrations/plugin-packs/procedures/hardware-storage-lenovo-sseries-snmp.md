@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-lenovo-sseries-snmp
 title: Lenovo S Series SNMP
+description: Monitor Lenovo S Series storage hardware via SNMP: unit, sensor, and port status plus network interface traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

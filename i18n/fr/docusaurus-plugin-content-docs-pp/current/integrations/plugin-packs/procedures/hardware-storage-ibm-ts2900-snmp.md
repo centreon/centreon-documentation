@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-ts2900-snmp
 title: IBM TS2900 SNMP
+description: Supervisez les librairies de bandes IBM TS2900 via SNMP en surveillant l'état du robot, du contrôleur, de l'alimentation, des magasins et des lecteurs.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-php-fpm-web
 title: PHP FPM
+description: Supervisez PHP-FPM via sa page de statut web : processus actifs et inactifs, file d'attente et requêtes par seconde.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-supermicro-superdoctor-snmp
 title: Supermicro SuperDoctor SNMP
+description: Supervisez les serveurs Supermicro via SNMP avec SuperDoctor : statut matériel des capteurs, mémoire, disques et CPU.
 ---
 
 import Tabs from '@theme/Tabs';

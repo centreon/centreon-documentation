@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiweb-snmp
 title: Fortinet FortiWeb SNMP
+description: Supervisez les appliances Fortinet FortiWeb via SNMP : connexions proxy, CPU, mémoire et statut HA du système, ainsi que trafic et erreurs des interfaces réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

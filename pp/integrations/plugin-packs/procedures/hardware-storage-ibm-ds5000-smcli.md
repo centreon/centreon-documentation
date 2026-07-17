@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-ds5000-smcli
 title: IBM DS5000 SMcli
+description: Monitor IBM DS5000 storage arrays via the SMcli CLI, tracking overall health status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

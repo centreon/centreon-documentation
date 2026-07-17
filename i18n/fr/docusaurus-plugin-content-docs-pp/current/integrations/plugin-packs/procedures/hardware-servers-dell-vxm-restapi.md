@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-dell-vxm-restapi
 title: Dell VxRail Manager Rest API
+description: Supervisez Dell VxRail Manager via l'API REST : statut des châssis et alimentations, des hôtes, des cartes réseau et des disques.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

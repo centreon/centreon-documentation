@@ -1,6 +1,7 @@
 ---
 id: network-huawei-wlc-snmp
 title: Huawei WLC SNMP
+description: Monitor Huawei WLC wireless controllers via SNMP: CPU, memory, uptime, hardware, access points, and WLAN status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

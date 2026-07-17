@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-ts3200-snmp
 title: IBM TS3200 SNMP
+description: Monitor IBM TS3200 tape libraries via SNMP by checking the overall global status of the device.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

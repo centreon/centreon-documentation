@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-3par-ssh
 title: HP 3PAR SSH
+description: Supervisez les baies de stockage HP 3PAR via SSH : capacité, utilisation des disques et volumes, état des noeuds, alimentations et cages.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

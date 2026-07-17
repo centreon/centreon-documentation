@@ -1,6 +1,7 @@
 ---
 id: network-routers-atrica-snmp
 title: Atrica Routeur SNMP
+description: Monitor Atrica network routers via SNMP: track interface traffic, packet discards/errors, and connection status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-3par-ssh
 title: HP 3PAR SSH
+description: Monitor HP 3PAR storage arrays over SSH: track capacity, disk and volume usage, node status, PSUs, and cages.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

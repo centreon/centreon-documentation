@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-ds3000-smcli
 title: IBM DS3000 SMcli
+description: Monitor IBM DS3000 storage arrays via the SMcli command-line tool, tracking overall storage health status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

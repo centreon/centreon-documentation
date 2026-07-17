@@ -1,6 +1,7 @@
 ---
 id: network-cisco-callmanager-snmp
 title: Cisco Call Manager SNMP
+description: Supervisez Cisco Call Manager via SNMP en suivant le statut d'enregistrement des téléphones, passerelles et boîtes vocales.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

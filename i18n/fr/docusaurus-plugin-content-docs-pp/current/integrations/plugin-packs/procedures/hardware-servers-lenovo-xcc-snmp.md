@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-lenovo-xcc-snmp
 title: Lenovo XCC SNMP
+description: Supervisez les serveurs Lenovo XCC en SNMP : statut des sondes matérielles (température, tension, ventilateurs, alimentations, disques, volumes RAID).
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

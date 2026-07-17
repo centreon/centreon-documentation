@@ -1,6 +1,7 @@
 ---
 id: network-juniper-trapeze-snmp
 title: Juniper Trapeze SNMP
+description: Supervisez les contrôleurs Wi-Fi Juniper Trapeze via SNMP : statut des points d'accès, utilisateurs connectés, CPU et mémoire.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

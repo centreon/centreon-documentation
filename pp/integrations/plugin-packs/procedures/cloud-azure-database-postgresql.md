@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-postgresql
 title: Azure Database for PostgreSQL
+description: Monitor Azure Database for PostgreSQL via REST API or Azure CLI: connections, CPU, memory, IO, replication lag, storage, and traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

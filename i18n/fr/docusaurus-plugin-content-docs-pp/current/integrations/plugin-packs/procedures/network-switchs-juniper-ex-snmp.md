@@ -1,6 +1,7 @@
 ---
 id: network-switchs-juniper-ex-snmp
 title: Juniper EX Series SNMP
+description: Supervisez les commutateurs Juniper EX Series via SNMP : CPU, mémoire, état matériel, espace disque et trafic des interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

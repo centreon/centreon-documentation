@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-riello-snmp
 title: Riello UPS SNMP
+description: Supervisez les onduleurs Riello via SNMP : alarmes, état de la batterie et métriques des lignes d'entrée/sortie.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

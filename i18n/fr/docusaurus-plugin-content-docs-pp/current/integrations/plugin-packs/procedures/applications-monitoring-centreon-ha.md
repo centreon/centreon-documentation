@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-ha
 title: Centreon-HA
+description: Supervisez les clusters Centreon-HA (Pacemaker) via SSH et SNMP : état des nœuds, contraintes de ressources, quorum et processus du cluster.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-sonicwall-snmp
 title: Sonicwall SNMP
+description: Supervisez les pare-feux SonicWall via SNMP : connexions, CPU, mémoire et trafic des tunnels VPN.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

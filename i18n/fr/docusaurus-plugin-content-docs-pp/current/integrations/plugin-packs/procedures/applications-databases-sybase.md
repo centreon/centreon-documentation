@@ -1,6 +1,7 @@
 ---
 id: applications-databases-sybase
 title: Sybase
+description: Supervisez les bases de données Sybase via des requêtes SQL : processus bloqués, utilisateurs connectés, temps de connexion et espace utilisé.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

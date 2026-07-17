@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-camera-hanwha-snmp
 title: Hanwha camera SNMP
+description: Monitor Hanwha network cameras via SNMP, checking hardware status such as SD card and service/alarm states.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

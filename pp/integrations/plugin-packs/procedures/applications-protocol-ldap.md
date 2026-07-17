@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-ldap
 title: LDAP Server
+description: Monitor LDAP servers via the LDAP protocol: check login authentication and run directory searches for consistent results.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

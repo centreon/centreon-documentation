@@ -1,6 +1,7 @@
 ---
 id: applications-voip-asterisk-ami
 title: Asterisk VoIP AMI
+description: Monitor Asterisk VoIP servers via AMI, tracking active channels, calls, SIP peer status, and Dahdi line status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

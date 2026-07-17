@@ -1,6 +1,7 @@
 ---
 id: network-keysight-nvos-restapi
 title: Keysight NVOS Rest API
+description: Monitor Keysight NVOS network devices via REST API: hardware health, license status, ports, uptime, and time sync.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

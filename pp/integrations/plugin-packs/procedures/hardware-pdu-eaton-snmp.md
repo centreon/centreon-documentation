@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-eaton-snmp
 title: Eaton PDU SNMP
+description: Monitor Eaton PDUs via SNMP: environmental sensors, group and outlet current, voltage, and power.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

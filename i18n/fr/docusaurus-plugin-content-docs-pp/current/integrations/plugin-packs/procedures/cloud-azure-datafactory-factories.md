@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-datafactory-factories
 title: Azure Data Factory
+description: Superviser Azure Data Factory via l'API REST : usage et taille des fabriques, entités et utilisation du runtime d'intégration.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

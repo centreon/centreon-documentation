@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-supermicro-bmc-snmp
 title: Supermicro BMC SNMP
+description: Monitor Supermicro BMC hardware via SNMP, tracking sensor readings to keep server health under control.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

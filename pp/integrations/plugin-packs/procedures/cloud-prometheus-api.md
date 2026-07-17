@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-api
 title: Prometheus Server API
+description: Monitor a Prometheus server via its REST API: track target status and active, dropped, up, down, and unknown target counts.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

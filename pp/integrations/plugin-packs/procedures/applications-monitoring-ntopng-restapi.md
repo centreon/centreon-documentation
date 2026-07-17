@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-ntopng-restapi
 title: NtopNG Rest API
+description: Monitor NtopNG via REST API: alerts, netflow health, probe health, and host traffic flows.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

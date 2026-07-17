@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-ax-mssql
 title: Dynamics AX Database
+description: Supervisez les bases Microsoft Dynamics AX via des requêtes MSSQL pour suivre les erreurs de commandes EDI.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

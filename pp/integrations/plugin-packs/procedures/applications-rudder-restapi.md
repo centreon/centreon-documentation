@@ -1,6 +1,7 @@
 ---
 id: applications-rudder-restapi
 title: Rudder
+description: Monitor Rudder configuration compliance via REST API, tracking node, rule, and global compliance status plus key statistics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

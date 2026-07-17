@@ -1,6 +1,7 @@
 ---
 id: additional-connector-configuration
 title: Configurations additionnelles  
+description: Apprenez à créer des configurations additionnelles dans Centreon pour stocker les identifiants des connecteurs VMWare et les déployer sur vos collecteurs.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

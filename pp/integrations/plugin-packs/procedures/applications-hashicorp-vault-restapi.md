@@ -1,6 +1,7 @@
 ---
 id: applications-hashicorp-vault-restapi
 title: HashiCorp Vault Rest API
+description: Monitor HashiCorp Vault via REST API: track seal, init, and standby status plus Raft storage performance.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

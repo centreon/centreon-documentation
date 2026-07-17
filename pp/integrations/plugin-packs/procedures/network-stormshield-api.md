@@ -1,6 +1,7 @@
 ---
 id: network-stormshield-api
 title: Stormshield API
+description: Monitor Stormshield firewalls via REST API: CPU, memory, hardware, high availability, interfaces, and VPN tunnels.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

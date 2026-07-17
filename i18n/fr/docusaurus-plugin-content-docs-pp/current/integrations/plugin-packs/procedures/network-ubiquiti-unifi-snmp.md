@@ -1,6 +1,7 @@
 ---
 id: network-ubiquiti-unifi-snmp
 title: Ubiquiti UniFi SNMP
+description: Supervisez vos équipements Ubiquiti UniFi via SNMP : CPU, mémoire, disques, interfaces, uptime et points d'accès virtuels.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

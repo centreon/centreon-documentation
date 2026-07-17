@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-map-engine-actuator
 title: Centreon Map Engine
+description: Supervisez la JVM de Centreon Map Engine via son API REST Actuator : charge CPU, mémoire, threads, descripteurs de fichiers et classes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

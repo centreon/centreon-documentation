@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-camera-hanwha-snmp
 title: Hanwha camera SNMP
+description: Supervisez les caméras réseau Hanwha via SNMP en contrôlant le statut du matériel, notamment la carte SD et l'état des services/alarmes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

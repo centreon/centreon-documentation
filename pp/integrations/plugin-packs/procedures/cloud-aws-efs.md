@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-efs
 title: Amazon EFS
+description: Monitor Amazon EFS via the CloudWatch API: client connections, read/write I/O throughput, and burst credit balance.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

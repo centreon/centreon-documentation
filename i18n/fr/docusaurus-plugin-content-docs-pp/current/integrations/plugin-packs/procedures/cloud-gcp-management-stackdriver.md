@@ -1,6 +1,7 @@
 ---
 id: cloud-gcp-management-stackdriver
 title: Google Stackdriver
+description: Supervisez Google Cloud Stackdriver via l'API : collectez des métriques personnalisées avec dimensions, agrégation et seuils configurables.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

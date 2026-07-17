@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-postgresql
 title: Azure Database for PostgreSQL
+description: Supervisez Azure Database for PostgreSQL via l'API REST ou Azure CLI : connexions, CPU, mémoire, IO, réplication, stockage et trafic réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

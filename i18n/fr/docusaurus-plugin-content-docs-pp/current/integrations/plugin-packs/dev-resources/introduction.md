@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Getting started - Plugin development
+description: Découvrez comment utiliser le framework Perl centreon-plugins pour développer vos propres plugins et packs de supervision Centreon.
 ---
 
 import Tabs from '@theme/Tabs';

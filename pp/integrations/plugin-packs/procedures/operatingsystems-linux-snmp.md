@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-linux-snmp
 title: Linux SNMP
+description: Monitor Linux servers via SNMP: CPU, memory, swap, disk space, network traffic, processes, and NTP sync.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

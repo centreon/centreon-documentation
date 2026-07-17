@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-overland-neo-snmp
 title: Overland Neo SNMP
+description: Supervisez les bibliothèques de bandes Overland Neo via SNMP : statut des lecteurs et bibliothèques, comptage des composants et journaux d'événements.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

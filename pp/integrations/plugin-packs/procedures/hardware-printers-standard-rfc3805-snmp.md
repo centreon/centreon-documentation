@@ -1,6 +1,7 @@
 ---
 id: hardware-printers-standard-rfc3805-snmp
 title: Printer standard SNMP
+description: Monitor RFC3805-compliant printers via SNMP: cover status, impressions, marker supply, paper tray usage, and hardware errors.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

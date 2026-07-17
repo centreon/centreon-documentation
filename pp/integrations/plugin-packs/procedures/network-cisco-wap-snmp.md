@@ -1,6 +1,7 @@
 ---
 id: network-cisco-wap-snmp
 title: Cisco WAP SNMP
+description: Monitor Cisco Wireless Access Points via SNMP: connected clients, CPU, memory, uptime, interfaces, and virtual access points.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

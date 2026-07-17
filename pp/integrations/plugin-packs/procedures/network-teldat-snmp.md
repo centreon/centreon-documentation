@@ -1,6 +1,7 @@
 ---
 id: network-teldat-snmp
 title: Teldat SNMP
+description: Monitor Teldat edge routers via SNMP, tracking CPU, memory, uptime, network interfaces, and cellular radio modules.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

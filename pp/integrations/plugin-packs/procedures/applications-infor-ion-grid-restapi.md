@@ -1,6 +1,7 @@
 ---
 id: applications-infor-ion-grid-restapi
 title: Infor ION Grid Rest API
+description: Monitor Infor ION Grid applications and nodes via REST API, tracking status, CPU, heap usage, uptime, and log errors.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

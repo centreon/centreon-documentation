@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-solaris-snmp
 title: Solaris SNMP
+description: Monitor Solaris servers via SNMP: CPU load, disk space, network traffic, packet errors, processes, and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

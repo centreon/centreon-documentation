@@ -1,6 +1,7 @@
 ---
 id: applications-ibmmq-restapi
 title: IBM MQ Rest API
+description: Monitor IBM MQ via its Rest API: queue manager status and connections, and queue message depth, input connections, and oldest message age.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

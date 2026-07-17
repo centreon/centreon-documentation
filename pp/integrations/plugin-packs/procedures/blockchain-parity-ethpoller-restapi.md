@@ -1,6 +1,7 @@
 ---
 id: blockchain-parity-ethpoller-restapi
 title: Parity Ethpoller API
+description: Monitor Parity Ethereum nodes via the Ethpoller REST API: track disk usage, blockchain statistics, and balance changes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

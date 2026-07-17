@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-storwize-ssh
 title: IBM Storwize SSH
+description: Monitor IBM Storwize storage systems via SSH: hardware components, event logs, pool usage, and replication status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

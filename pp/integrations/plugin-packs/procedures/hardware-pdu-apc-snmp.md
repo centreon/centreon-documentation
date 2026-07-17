@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-apc-snmp
 title: APC PDU SNMP
+description: Monitor APC PDUs via SNMP: hardware status, load per outlet/bank/phase, NTP synchronization, and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

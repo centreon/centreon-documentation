@@ -1,6 +1,7 @@
 ---
 id: network-cambium-cnpilot-snmp
 title: Cambium CnPilot SNMP
+description: Supervisez les points d'accès Cambium cnPilot via SNMP : statut de connexion, CPU, mémoire, interfaces et radios.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

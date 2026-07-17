@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-violin-3000-snmp
 title: Violin Memory 3000 SNMP
+description: Supervisez les baies de stockage Violin Memory 3000 via SNMP : ventilateurs, alimentations, alarmes châssis, température et liaisons FC.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

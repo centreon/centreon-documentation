@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-365-nsclient-05-nrpe
 title: Dynamics365 NSClient 0.5 NRPE
+description: Monitor Microsoft Dynamics 365 new sales order files via NSClient++ and NRPE, checking their presence and age.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

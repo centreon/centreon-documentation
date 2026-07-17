@@ -1,6 +1,7 @@
 ---
 id: virtualization-vmware2-esx-wsman
 title: VMware ESX WS-MAN
+description: Supervisez le matériel des serveurs VMware ESXi via WS-MAN : batteries, ventilateurs, mémoire, processeurs et stockage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

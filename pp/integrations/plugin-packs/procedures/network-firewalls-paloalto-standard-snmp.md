@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-paloalto-standard-snmp
 title: Palo Alto firewall SNMP
+description: Monitor Palo Alto firewalls via SNMP: CPU, memory, sessions, interfaces, cluster status, and GlobalProtect tunnels.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

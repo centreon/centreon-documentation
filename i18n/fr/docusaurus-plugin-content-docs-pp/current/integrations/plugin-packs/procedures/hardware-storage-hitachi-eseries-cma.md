@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hitachi-eseries-cma
 title: Hitachi E Series CMA
+description: Supervisez les baies de stockage Hitachi E Series via CCI (CMA) : efficacité, statut des paires, des chemins, des pools et du quorum.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

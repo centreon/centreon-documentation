@@ -1,6 +1,7 @@
 ---
 id: network-digi-sarian-snmp
 title: Digi Sarian SNMP
+description: Supervisez les routeurs Digi Sarian via SNMP en surveillant le CPU, la mémoire, la température, le signal/statut GPRS et le trafic des interfaces réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

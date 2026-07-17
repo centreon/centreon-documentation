@@ -1,6 +1,7 @@
 ---
 id: virtualization-vmware2-vm
 title: VMware VM
+description: Supervisez les machines virtuelles VMware via le SDK VMware : CPU, mémoire, E/S disque, snapshots, thin provisioning et état de VMware Tools.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

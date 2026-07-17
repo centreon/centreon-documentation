@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-resource
 title: Azure Resource
+description: Supervisez les groupes de ressources Azure via l'API Azure : statut des déploiements et nombre de ressources par type (compute, stockage, réseau).
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-switchs-dell-xseries-snmp
 title: Dell Xseries SNMP
+description: Monitor Dell Xseries switches via SNMP: CPU, hardware status, interfaces, and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

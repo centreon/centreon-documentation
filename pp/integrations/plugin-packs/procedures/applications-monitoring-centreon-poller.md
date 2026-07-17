@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-poller
 title: Centreon Poller
+description: Monitor Centreon pollers via SSH and SNMP: Broker statistics and key process status (centengine, gorgoned, ntpd, sshd).
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

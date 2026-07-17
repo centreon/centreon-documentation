@@ -1,6 +1,7 @@
 ---
 id: applications-rudder-restapi
 title: Rudder
+description: Supervisez la conformité de configuration Rudder via l'API REST : conformité des noeuds, des règles, conformité globale et statistiques clés.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

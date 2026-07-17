@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-splunk-api
 title: Splunk
+description: Monitor Splunk via its REST API: index update times, splunkd health, and custom search query results.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

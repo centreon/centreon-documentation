@@ -1,6 +1,7 @@
 ---
 id: applications-exchange-cma
 title: Microsoft Exchange CMA
+description: Monitor Microsoft Exchange via the Centreon Monitoring Agent (CMA): databases, mailboxes, mail flow, queues, and replication health.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

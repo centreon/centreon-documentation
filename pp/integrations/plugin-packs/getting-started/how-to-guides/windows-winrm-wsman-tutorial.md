@@ -1,6 +1,7 @@
 ---
 id: windows-winrm-wsman-tutorial
 title: Windows WSMAN Configuration tutorial
+description: Step-by-step tutorial to configure WinRM/WSMAN, firewall rules, dedicated users, and Kerberos authentication for monitoring Windows servers with Centreon.
 ---
 
 import Tabs from '@theme/Tabs';

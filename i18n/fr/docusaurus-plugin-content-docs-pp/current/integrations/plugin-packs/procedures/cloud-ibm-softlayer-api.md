@@ -1,6 +1,7 @@
 ---
 id: cloud-ibm-softlayer-api
 title: IBM Softlayer API
+description: Supervisez IBM SoftLayer via l'API REST : suivez le statut des événements et les tickets d'assistance ouverts.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-frontdoor
 title: Azure Front Door
+description: Supervisez Azure Front Door via les API Azure ou Azure CLI : santé du backend, disponibilité, latence, requêtes et taille des paquets.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

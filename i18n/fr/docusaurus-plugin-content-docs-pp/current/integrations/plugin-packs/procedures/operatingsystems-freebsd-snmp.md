@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-freebsd-snmp
 title: FreeBSD SNMP
+description: Supervisez les systèmes FreeBSD via SNMP : CPU, mémoire, swap, espace disque, E/S disque, processus, trafic réseau et uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

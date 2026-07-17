@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-redis
 title: Azure Cache for Redis
+description: Monitor Azure Cache for Redis via the Azure API or Azure CLI: cache latency, throughput, CPU, memory, errors, and health.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

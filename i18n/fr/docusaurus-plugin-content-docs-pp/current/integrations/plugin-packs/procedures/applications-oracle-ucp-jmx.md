@@ -1,6 +1,7 @@
 ---
 id: applications-oracle-ucp-jmx
 title: Oracle UCP JMX
+description: Supervisez les pools de connexion Oracle UCP via JMX/Jolokia : utilisation, connexions libres et pourcentage d'utilisation.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

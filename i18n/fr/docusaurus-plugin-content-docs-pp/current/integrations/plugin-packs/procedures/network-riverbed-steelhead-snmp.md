@@ -1,6 +1,7 @@
 ---
 id: network-riverbed-steelhead-snmp
 title: Riverbed SteelHead SNMP
+description: Supervisez les boîtiers Riverbed SteelHead via SNMP : optimisation de la bande passante, connexions, CPU, mémoire, disque, température et statut des interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-windows-telegraf-agent
 title: Windows Telegraf Agent
+description: Monitor Windows servers via the Telegraf agent (OpenTelemetry protocol): NTP sync, pending reboots, sessions, updates, and certificates.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

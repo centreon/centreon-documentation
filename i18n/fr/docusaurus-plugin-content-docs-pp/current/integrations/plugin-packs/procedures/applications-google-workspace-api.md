@@ -1,6 +1,7 @@
 ---
 id: applications-google-workspace-api
 title: Google Workspace
+description: Supervisez la disponibilité des services Google Workspace (Gmail, Drive, Meet...) via l'API de statut, en HTTPS.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

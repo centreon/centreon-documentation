@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-sqldatabase
 title: Azure SQL Database
+description: Monitor Azure SQL Database via the Azure Monitor API or Azure CLI: CPU, memory, storage, sessions, connections, deadlocks, and workers.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

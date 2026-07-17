@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-cifs
 title: Protocol CIFS
+description: Supervisez vos partages de fichiers CIFS via login/mot de passe : connexion, nombre et taille des fichiers, date de modification et scénarios.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

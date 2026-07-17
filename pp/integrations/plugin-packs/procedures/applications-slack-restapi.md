@@ -1,6 +1,7 @@
 ---
 id: applications-slack-restapi
 title: Slack
+description: Monitor Slack via REST API: channel count, member count, and workspace service status (connections, messaging).
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

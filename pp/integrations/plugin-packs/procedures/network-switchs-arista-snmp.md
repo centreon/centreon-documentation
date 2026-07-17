@@ -1,6 +1,7 @@
 ---
 id: network-switchs-arista-snmp
 title: Arista Switch SNMP
+description: Monitor Arista switches via SNMP: BGP peers, CPU, memory, sensors, interface traffic, and packet errors.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

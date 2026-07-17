@@ -1,6 +1,7 @@
 ---
 id: applications-selenium
 title: Selenium
+description: Monitor Selenium test scenarios (Katalon or WAA) via the Selenium server: execution time, step status, and success rate.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

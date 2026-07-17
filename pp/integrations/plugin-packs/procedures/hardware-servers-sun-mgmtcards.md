@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-sun-mgmtcards
 title: Sun MgmtCard
+description: Monitor Sun server hardware (ALOM, ILOM, XSCF, RSC management cards) via Telnet, SSH, or IPMI: disk, fan, PSU, and sensor status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-nimble-snmp
 title: Nimble Storage SNMP
+description: Supervisez les baies de stockage Nimble Storage via SNMP : suivez le débit d'E/S, les IOPS, la latence et l'utilisation des volumes.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

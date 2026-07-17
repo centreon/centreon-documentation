@@ -1,6 +1,7 @@
 ---
 id: develop-with-centreon-plugins
 title: Develop with centreon-plugins
+description: Set up the centreon-plugins framework and follow a step-by-step tutorial to build your own custom plugin and mode.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-dlink-standard-snmp
 title: D-Link standard SNMP
+description: Monitor D-Link network switches via SNMP: CPU, memory, hardware status, interfaces, and stack members.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

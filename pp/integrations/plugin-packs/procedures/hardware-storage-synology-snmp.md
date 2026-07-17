@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-synology-snmp
 title: Synology SNMP
+description: Monitor Synology NAS devices via SNMP: CPU, memory, disk storage, temperature, UPS, and network traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

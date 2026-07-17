@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-virtualnetwork
 title: Azure Virtual Network
+description: Supervisez l'état des peerings Azure Virtual Network via l'API Azure grâce à ce connecteur de supervision Centreon.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

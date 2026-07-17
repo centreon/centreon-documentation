@@ -1,6 +1,7 @@
 ---
 id: cloud-cloudfoundry-api
 title: Cloud Foundry API
+description: Supervisez Cloud Foundry via son API REST : état des applications, instances actives/arrêtées/en échec, et filtrage par organisation ou espace.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

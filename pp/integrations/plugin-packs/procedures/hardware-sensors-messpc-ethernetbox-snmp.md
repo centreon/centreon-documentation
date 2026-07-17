@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-messpc-ethernetbox-snmp
 title: MessPC Ehternetbox SNMP
+description: Monitor MessPC Ethernetbox environmental sensors via SNMP: temperature, humidity, voltage, contact, smoke, and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

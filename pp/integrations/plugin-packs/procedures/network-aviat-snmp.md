@@ -1,6 +1,7 @@
 ---
 id: network-aviat-snmp
 title: Aviat Networks SNMP
+description: Monitor Aviat Networks microwave radio equipment via SNMP, tracking events, sensor status (power, temperature, voltage), and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

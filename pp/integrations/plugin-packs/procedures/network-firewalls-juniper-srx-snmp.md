@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-juniper-srx-snmp
 title: Juniper SRX SNMP
+description: Monitor Juniper SRX firewalls via SNMP: CPU, memory, hardware health, disk usage, interface traffic, and session counts.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

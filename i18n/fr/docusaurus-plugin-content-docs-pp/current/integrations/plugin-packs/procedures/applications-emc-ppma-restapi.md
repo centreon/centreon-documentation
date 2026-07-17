@@ -1,6 +1,7 @@
 ---
 id: applications-emc-ppma-restapi
 title: EMC PPMA Rest API
+description: Supervisez Dell EMC PowerPath Management Appliance (PPMA) via l'API REST : chemins et volumes des hôtes, statuts morts/dégradés.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-hp-vc-snmp
 title: HP Virtual Connect SNMP
+description: Supervisez les modules HP Virtual Connect via SNMP : état du matériel et trafic des interfaces.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

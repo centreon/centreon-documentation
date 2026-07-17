@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-cdn
 title: Azure CDN
+description: Monitor Azure CDN profiles via the Azure REST API: hit ratio, latency, request count, and response size.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

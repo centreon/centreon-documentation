@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-linux-nrpe4
 title: Linux NRPE4
+description: Monitor Linux servers via the NRPE protocol: CPU, memory, load, disks, processes, systemd services, and network traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

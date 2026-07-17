@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-hms-ewon-snmp
 title: HMS Ewon SNMP
+description: Supervisez les équipements HMS Ewon via SNMP : suivez le statut et les valeurs des tags avec ce connecteur Centreon.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

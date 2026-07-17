@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-dell-openmanage-snmp
 title: Dell OpenManage SNMP
+description: Supervisez les serveurs Dell OpenManage via SNMP : statut matériel, ventilateurs, températures, alimentations, stockage et mémoire.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

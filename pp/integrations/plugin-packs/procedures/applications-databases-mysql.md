@@ -1,6 +1,7 @@
 ---
 id: applications-databases-mysql
 title: MySQL/MariaDB
+description: Monitor MySQL/MariaDB via SQL queries: connections, query rates, replication, buffer pools, backups, and database size.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

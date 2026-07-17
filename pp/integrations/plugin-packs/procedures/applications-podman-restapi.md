@@ -1,6 +1,7 @@
 ---
 id: applications-podman-restapi
 title: Podman Rest API
+description: Monitor Podman containers, pods, and system status via the REST API, tracking CPU, memory, network, I/O, and container/pod states.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

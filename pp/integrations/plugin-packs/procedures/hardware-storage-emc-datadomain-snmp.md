@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-datadomain-snmp
 title: EMC Data Domain SNMP
+description: Monitor EMC Data Domain storage systems via SNMP, covering filesystems, Mtrees, replications, hardware health, and alerts.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

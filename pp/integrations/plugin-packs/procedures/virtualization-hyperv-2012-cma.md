@@ -1,6 +1,7 @@
 ---
 id: virtualization-hyperv-2012-cma
 title: Hyper-V 2012 CMA
+description: Monitor Microsoft Hyper-V 2012 nodes and SCVMM via CMA: VM status, integration services, replication, and snapshots.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

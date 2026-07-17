@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-mysql
 title: Azure Database for MySQL
+description: Supervisez Azure Database for MySQL via l'API Azure : connexions, CPU, mémoire, stockage, réplication et trafic réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-cloudfront
 title: Amazon CloudFront
+description: Supervisez Amazon CloudFront via l'API AWS CloudWatch : taux d'erreurs, nombre de requêtes et débits montant/descendant.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

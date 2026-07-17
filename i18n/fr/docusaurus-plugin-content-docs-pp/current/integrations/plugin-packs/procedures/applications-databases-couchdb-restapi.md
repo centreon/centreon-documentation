@@ -1,6 +1,7 @@
 ---
 id: applications-databases-couchdb-restapi
 title: CouchDB Rest API
+description: Supervisez vos serveurs CouchDB via API REST : statut du serveur, statut de compaction, taille et documents des bases.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-kubernetes-api
 title: Kubernetes API
+description: Supervisez les clusters Kubernetes via l'API REST ou kubectl : état des noeuds, des pods, des déploiements et des événements du cluster.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

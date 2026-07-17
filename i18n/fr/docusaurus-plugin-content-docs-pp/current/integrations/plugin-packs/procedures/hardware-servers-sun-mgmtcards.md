@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-sun-mgmtcards
 title: Sun MgmtCard
+description: Supervisez le matériel des serveurs Sun (cartes ALOM, ILOM, XSCF, RSC) via Telnet, SSH ou IPMI : statut des disques, ventilateurs, alimentations et capteurs.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

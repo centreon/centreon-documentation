@@ -1,6 +1,7 @@
 ---
 id: applications-databases-redis
 title: Redis Database
+description: Supervisez les bases de données Redis via redis-cli ou Perl : clients, commandes, connexions, CPU, mémoire, persistance et réplication.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

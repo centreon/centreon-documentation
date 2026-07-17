@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-mac-snmp
 title: Mac SNMP
+description: Supervisez macOS via SNMP : CPU, mémoire, swap, espace disque, E/S disque, trafic réseau, charge et uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

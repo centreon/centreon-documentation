@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-azuread
 title: Office 365 Azure AD
+description: Supervisez Office 365 Azure AD via l'API Graph avec Centreon : suivi du quota d'utilisation de l'annuaire.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-cisco-ise-restapi
 title: Cisco ISE
+description: Supervisez Cisco ISE via l'API REST : sessions actives, terminaux conformes et sessions du service Profiler.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

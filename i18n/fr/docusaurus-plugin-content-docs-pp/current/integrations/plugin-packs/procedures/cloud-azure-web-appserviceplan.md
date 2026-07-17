@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-web-appserviceplan
 title: Azure App Service Plan
+description: Supervisez les plans Azure App Service via l'API REST : CPU, mémoire, transferts de données, files d'attente, sockets, connexions TCP et disponibilité.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

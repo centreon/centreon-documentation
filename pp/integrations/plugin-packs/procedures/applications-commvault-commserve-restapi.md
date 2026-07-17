@@ -1,6 +1,7 @@
 ---
 id: applications-commvault-commserve-restapi
 title: Commvault CommServe Rest API
+description: Monitor Commvault CommServe via REST API: alerts, jobs, media agents, and storage pool usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

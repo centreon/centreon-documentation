@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-fortinet-fortigate-snmp
 title: Fortinet Fortigate SNMP
+description: Supervisez les pare-feux Fortinet FortiGate via SNMP : CPU, mémoire, sessions, tunnels VPN, liens SD-WAN et statut du cluster.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

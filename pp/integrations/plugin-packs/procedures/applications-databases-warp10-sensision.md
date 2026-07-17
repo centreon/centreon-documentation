@@ -1,6 +1,7 @@
 ---
 id: applications-databases-warp10-sensision
 title: Warp10 Sensision
+description: Monitor Warp10 Sensision via its HTTP API: track fetch call/byte statistics and script/function execution metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

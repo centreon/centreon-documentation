@@ -1,6 +1,7 @@
 ---
 id: applications-lync-2013-mssql
 title: Lync 2013
+description: Monitor Microsoft Lync 2013 via its MSSQL database: audio/video QoE, session types, poor calls, and user counts.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

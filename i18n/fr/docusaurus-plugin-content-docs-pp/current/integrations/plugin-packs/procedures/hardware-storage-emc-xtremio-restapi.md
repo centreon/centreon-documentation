@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-xtremio-restapi
 title: EMC Xtremio Rest API
+description: Supervisez le stockage Dell EMC XtremIO via l'API REST : état des clusters, endurance et IOPS des SSD, CPU et état des XenVS.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

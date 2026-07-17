@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-lambda
 title: AWS Lambda
+description: Supervisez les fonctions AWS Lambda via l'API CloudWatch : invocations, erreurs, durée d'exécution et limitations (throttles).
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

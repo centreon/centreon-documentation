@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-unisphere-restapi
 title: EMC Unisphere Rest API
+description: Supervisez les baies de stockage Dell EMC Unisphere via l'API REST : matériel, pools, réplications et ressources de stockage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

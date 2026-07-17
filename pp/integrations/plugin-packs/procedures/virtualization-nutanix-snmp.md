@@ -1,6 +1,7 @@
 ---
 id: virtualization-nutanix-snmp
 title: Nutanix SNMP
+description: Monitor Nutanix hypervisors, VMs, containers, and storage via SNMP: CPU, memory, IOPS, latency, and status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

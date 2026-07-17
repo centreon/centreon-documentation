@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-windows-snmp
 title: Windows SNMP
+description: Supervisez les serveurs Windows via SNMP : CPU, mémoire, swap, espace disque, processus, services, trafic réseau et disponibilité.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

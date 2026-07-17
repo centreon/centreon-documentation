@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-resource
 title: Azure Resource
+description: Monitor Azure resource groups via the Azure API: deployment status and resource counts by type (compute, storage, network).
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

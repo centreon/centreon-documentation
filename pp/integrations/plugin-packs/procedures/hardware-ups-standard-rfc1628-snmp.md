@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-standard-rfc1628-snmp
 title: UPS Standard SNMP
+description: Monitor UPS devices via SNMP using RFC1628, covering alarms, battery status, input/output lines, and output source status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

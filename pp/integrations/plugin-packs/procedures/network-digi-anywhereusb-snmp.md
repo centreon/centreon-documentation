@@ -1,6 +1,7 @@
 ---
 id: network-digi-anywhereusb-snmp
 title: Digi Anywhere USB SNMP
+description: Monitor Digi AnywhereUSB devices via SNMP, tracking CPU usage, memory usage, and network interface traffic.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

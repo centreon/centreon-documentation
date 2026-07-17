@@ -1,6 +1,7 @@
 ---
 id: applications-mscs-nrpe
 title: Microsoft Cluster Server NSClient++ NRPE
+description: Monitor Microsoft Cluster Server (MSCS) via NRPE and NSClient++: track cluster network, node, resource, and resource group status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

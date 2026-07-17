@@ -1,6 +1,7 @@
 ---
 id: network-cambium-epmp-snmp
 title: Cambium ePMP SNMP
+description: Supervisez les équipements Cambium ePMP en SNMP : gain d'antenne, CPU, interfaces réseau, licence et disponibilité.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

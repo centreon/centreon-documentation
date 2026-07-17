@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-management
 title: Office 365 Management
+description: Supervisez Microsoft Office 365 via l'API Graph : statut des services, utilisation des abonnements et expiration des identifiants applicatifs.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

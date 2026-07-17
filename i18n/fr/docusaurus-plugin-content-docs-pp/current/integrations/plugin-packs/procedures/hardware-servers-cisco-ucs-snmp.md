@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-cisco-ucs-snmp
 title: Cisco UCS SNMP
+description: Supervisez les serveurs Cisco UCS via SNMP : état du matériel, erreurs, journaux d'audit, entités de management et service profiles.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

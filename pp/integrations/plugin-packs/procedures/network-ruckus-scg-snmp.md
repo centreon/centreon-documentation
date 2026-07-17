@@ -1,6 +1,7 @@
 ---
 id: network-ruckus-scg-snmp
 title: Ruckus SCG SNMP
+description: Monitor Ruckus SCG wireless controllers via SNMP, covering access point status, SSID usage, CPU, memory, traffic, and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

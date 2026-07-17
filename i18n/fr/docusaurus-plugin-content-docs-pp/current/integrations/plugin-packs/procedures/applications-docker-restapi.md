@@ -1,6 +1,7 @@
 ---
 id: applications-docker-restapi
 title: Docker REST API
+description: Supervisez Docker via son API REST : utilisation CPU, mémoire, E/S disque et trafic des conteneurs, ainsi que le statut des nœuds.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

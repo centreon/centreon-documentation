@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-qsan-nas-snmp
 title: QSAN NAS SNMP
+description: Monitor QSAN NAS storage devices via SNMP: disk, fan, PSU, temperature, and voltage status and metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

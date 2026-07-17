@@ -1,6 +1,7 @@
 ---
 id: network-switchs-brocade-snmp
 title: Brocade Switch SNMP
+description: Supervisez les switchs Brocade via SNMP : CPU, mémoire, état du matériel et trafic/erreurs des interfaces réseau.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

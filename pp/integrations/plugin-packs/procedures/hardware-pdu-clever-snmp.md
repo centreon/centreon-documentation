@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-clever-snmp
 title: Clever PDU SNMP
+description: Monitor Clever PDU power distribution units via SNMP: track power, current, and voltage on power sources.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

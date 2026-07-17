@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-gude-epc-snmp
 title: Gude EPC PDU SNMP
+description: Monitor Gude EPC PDU devices via SNMP, covering power channels, single-port channels, voltage, current, and energy metrics.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

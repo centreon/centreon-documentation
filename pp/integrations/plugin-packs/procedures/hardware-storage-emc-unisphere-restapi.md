@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-unisphere-restapi
 title: EMC Unisphere Rest API
+description: Monitor Dell EMC Unisphere storage systems via REST API: hardware components, storage pools, replications, and storage resources.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

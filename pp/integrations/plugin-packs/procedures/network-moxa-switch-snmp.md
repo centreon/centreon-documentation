@@ -1,6 +1,7 @@
 ---
 id: network-moxa-switch-snmp
 title: Moxa Switch SNMP
+description: Monitor Moxa switches via SNMP: track CPU and memory usage, interface traffic and status, and uptime.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

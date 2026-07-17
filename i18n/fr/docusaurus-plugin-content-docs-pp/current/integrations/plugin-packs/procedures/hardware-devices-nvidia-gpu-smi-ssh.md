@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-nvidia-gpu-smi-ssh
 title: NVIDIA GPU SMI SSH
+description: Supervisez les GPU NVIDIA via SSH : utilisation, mémoire, température, vitesse du ventilateur et consommation électrique.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

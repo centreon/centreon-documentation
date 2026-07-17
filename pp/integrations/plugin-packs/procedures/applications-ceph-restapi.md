@@ -1,6 +1,7 @@
 ---
 id: applications-ceph-restapi
 title: Ceph Rest API
+description: Monitor Ceph clusters via REST API: cluster health status, OSD availability, and pool usage, read/write throughput, and capacity.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

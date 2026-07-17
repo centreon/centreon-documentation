@@ -1,6 +1,7 @@
 ---
 id: network-switchs-brocade-snmp
 title: Brocade Switch SNMP
+description: Monitor Brocade switches via SNMP: CPU, memory, hardware status, and network interface traffic and errors.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

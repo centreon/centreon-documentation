@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-symmetrix-nrpe
 title: EMC Symmetrix NRPE
+description: Monitor EMC Symmetrix storage arrays (DMX and VMAX) via NRPE: hardware component status, temperature, power, and disk health.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-windows-telegraf-agent
 title: Windows Telegraf Agent
+description: Supervisez des serveurs Windows via l'agent Telegraf (protocole OpenTelemetry) : synchronisation NTP, redémarrages en attente, sessions, mises à jour et certificats.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

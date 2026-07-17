@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-jmx
 title: JMX value
+description: Supervisez des valeurs numériques JMX via l'agent Jolokia, par exemple l'utilisation du tas mémoire (heap) d'une JVM en HTTP.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

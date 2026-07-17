@@ -1,6 +1,7 @@
 ---
 id: network-denyall-snmp
 title: DenyAll SNMP (Rohde & Schwarz)
+description: Supervisez les équipements DenyAll (Rohde & Schwarz) via SNMP : CPU, mémoire, charge, espace disque, swap, interfaces et reverse proxy.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

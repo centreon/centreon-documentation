@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-integration-eventgrid
 title: Azure Event Grid
+description: Monitor Azure Event Grid via API or Azure CLI: track event counts, delivery failures, and processing latency.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

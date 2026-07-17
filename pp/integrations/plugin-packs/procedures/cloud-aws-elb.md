@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-elb
 title: AWS ELB
+description: Monitor AWS Elastic Load Balancers (Classic, Application, Network) via the CloudWatch API: connections, HTTP codes, latency, and target health.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

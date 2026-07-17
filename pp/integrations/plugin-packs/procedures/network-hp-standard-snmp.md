@@ -1,6 +1,7 @@
 ---
 id: network-hp-standard-snmp
 title: HP Standard Network SNMP
+description: Monitor HP network devices via SNMP: CPU, memory, hardware, uptime, interface traffic, packet errors, Spanning Tree, and VRRP status.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

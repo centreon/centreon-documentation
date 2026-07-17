@@ -1,6 +1,7 @@
 ---
 id: network-perle-ids-snmp
 title: Perle IDS SNMP
+description: Monitor Perle IDS devices via SNMP: alarms, hardware status, interfaces, CPU, memory, and flash disk usage.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

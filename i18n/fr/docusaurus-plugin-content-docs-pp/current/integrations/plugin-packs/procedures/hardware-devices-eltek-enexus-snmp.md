@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-eltek-enexus-snmp
 title: Eltek eNexus SNMP
+description: Supervisez les systèmes d'alimentation Eltek eNexus via SNMP : alarmes, batterie, charge et sorties.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
