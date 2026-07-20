@@ -35,7 +35,6 @@ Un collecteur est un serveur de supervision installé dans votre infrastructure,
 
 - Il n’a pas d’interface graphique : les ressources qu’il supervise s’affichent dans l’interface utilisateur de la plateforme SaaS.
 
-
 ## Connecteur de supervision
 
 L'expression "connecteur de supervision" désigne un [plugin](#plugin) et son pack :
@@ -46,6 +45,10 @@ Le pack contient la configuration associée au plugin dans Centreon (commandes, 
 
 - [Utiliser des connecteurs de supervision](../monitoring/pluginpacks.md),
 - [Introduction aux connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
+
+## Contrôle
+
+Un contrôle est une opération qui détermine le [statut](#statut) d'une ressource, et peut produire des [métriques](#statut) (données de performance). Le résultat d’un contrôle met à jour la ligne correspondant à la ressource dans la page **Statut des ressources**.
 
 ## Donnée de performance
 
@@ -80,6 +83,14 @@ Principe qui permet qu’un paramètre d’un [modèle](#modèle) soit appliqué
 Un hôte peut avoir les [statuts](#statut) suivants : DISPONIBLE, INDISPONIBLE et INJOIGNABLE.
 
 **Voir aussi** : [Mettre un hôte en supervision](../monitoring/basic-objects/hosts-create.md) et les autres topics de cette section.
+
+## Interface utilisateur
+
+Dans Centreon, l'interface utilisateur est la console principale de votre supervision. Elle permet :
+
+- de configurer toute la supervision de votre infrastructure,
+- des superviser des ressources,
+- de consulter la supervision de tous les serveurs Centreon (tous les [collecteurs](#collecteur)) dans son interface web.
 
 ## Métrique
 
@@ -140,14 +151,6 @@ Est appelé "plugin" une sonde de supervision, c'est-à-dire un binaire exécuta
 ## Ressource
 
 Objet supervisé par une plateforme Centreon (hôtes, services, métaservices).
-
-## Interface utilisateur
-
-Dans Centreon, l'interface utilisateur est la console principale de votre supervision. Elle permet :
-
-- de configurer toute la supervision de votre infrastructure,
-- des superviser des ressources,
-- de consulter la supervision de tous les serveurs Centreon (tous les [collecteurs](#collecteur)) dans son interface web.
 
 ## Service
 
