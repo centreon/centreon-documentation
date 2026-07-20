@@ -71,6 +71,7 @@ In Centreon, the central server is the main console where you monitor resources.
 ## Check
 
 A check is an operation that determines the [status](#status) of a resource, and may also produce [metrics](#metric) (performance data). The result of a check updates the corresponding resource's row on the **Resource Status** page.
+
 A check can be performed either by the monitoring engine ([active check](../monitoring/active-passive-checks.md#active-checks)) or by the device itself ([passive check](../monitoring/active-passive-checks.md#passive-checks)).
 
 ## CLAPI
