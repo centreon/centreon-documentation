@@ -40,7 +40,7 @@ Pour créer un service, allez à la page **Configuration > Services > Services p
 * Le champ **Intervalle normal de contrôle** est exprimé en minutes. Il définit l’intervalle entre chaque vérification lorsque
   le statut du service est OK.
 * Le champ **Intervalle non-régulier de contrôle** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK du service.
-* Les champs **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent le type de contrôle du service.
+* Les champs **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les [contrôles actifs et passifs](../active-passive-checks.md) sur le service.
 * Le champ **Est Volatile**  indique si le service est volatile ou non (d’une manière générale uniquement les services
   passifs sont volatiles).
 

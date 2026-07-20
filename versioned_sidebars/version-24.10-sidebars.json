@@ -248,6 +248,10 @@
             },
             {
               "type": "doc",
+              "id": "monitoring/active-passive-checks"
+            },
+            {
+              "type": "doc",
               "id": "monitoring/metrics"
             },
             {
