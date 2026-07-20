@@ -187,27 +187,53 @@ const config = {
         docsDir: ["i18n", "versioned_docs", "cloud", "pp", "experience-monitoring", "logmanagement"],
         explicitSearchResultPath: true,
         useAllContextsWithNoSearchContext: true,
-        // searchContextByPaths: [
-        //   {
-        //     label: {
-        //       en: "monitoring connectors",
-        //       fr: "connecteurs de supervision",
-        //     },
-        //     path: "pp"
-        //   },
-        //   {
-        //     label: "cloud",
-        //     path: "cloud",
-        //   },
-        //   // {
-        //   //   label: "onPrem",
-        //   //   path: "i18n",
-        //   // },
-        //   // {
-        //   //   label: "onPrem",
-        //   //   path: "versioned_docs",
-        //   // },
-        // ],
+        // Split the search index per documentation section so that a search
+        // only returns results from the section the user is currently browsing.
+        // The homepage (which matches no context) still searches everywhere
+        // thanks to `useAllContextsWithNoSearchContext`.
+        // Note: on-premise versions are isolated automatically by the plugin
+        // (each version has its own index), so no version paths are needed here.
+        // Labels mirror the navbar section names (see
+        // i18n/fr/docusaurus-theme-classic/navbar.json) so the search context
+        // combo box matches the sections users already know. Centreon keeps
+        // these as English product names except "Monitoring Connectors".
+        searchContextByPaths: [
+          {
+            label: {
+              en: "Centreon Infra Monitoring OnPrem",
+              fr: "Centreon Infra Monitoring OnPrem",
+            },
+            path: "docs",
+          },
+          {
+            label: {
+              en: "Centreon Infra Monitoring Cloud",
+              fr: "Centreon Infra Monitoring Cloud",
+            },
+            path: "cloud",
+          },
+          {
+            label: {
+              en: "Monitoring Connectors",
+              fr: "Connecteurs de supervision",
+            },
+            path: "pp",
+          },
+          {
+            label: {
+              en: "Centreon Experience Monitoring",
+              fr: "Centreon Experience Monitoring",
+            },
+            path: "experience-monitoring",
+          },
+          {
+            label: {
+              en: "Centreon Log Management",
+              fr: "Centreon Log Management",
+            },
+            path: "logmanagement",
+          },
+        ],
         language: ["en", "fr"],
       }),
     ],
