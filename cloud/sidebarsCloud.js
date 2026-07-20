@@ -230,6 +230,10 @@ module.exports = {
             {
               "type": "doc",
               "id": "monitoring/monitoring-servers/deploying-a-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/active-passive-checks"
             }
           ]
         },
