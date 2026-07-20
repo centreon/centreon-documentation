@@ -174,7 +174,7 @@ Lorsque votre licence est expirée ou que la limite d'hôtes est dépassée, les
 | Monitoring Connectors (EPP) | Affiche le message : "Your EPP License is not valid" |
 | Auto Discovery (Host/Service Discovery) | Affiche le message : "Oops! License Invalid or Expired" |
 
-Lorsque le nombre d'hôtes de la licence est dépassé, il est toujours possible d'ajouter de nouveaux hôtes, mais ceux-ci ne pourront plus hériter des modèles d'hôtes issues des connecteurs de supervision.
+> Lorsque le nombre d'hôtes de la licence est dépassé, il est toujours possible d'ajouter de nouveaux hôtes, mais ceux-ci ne pourront plus hériter des modèles d'hôtes issues des connecteurs de supervision.
 
 #### Résoudre le problème
 
