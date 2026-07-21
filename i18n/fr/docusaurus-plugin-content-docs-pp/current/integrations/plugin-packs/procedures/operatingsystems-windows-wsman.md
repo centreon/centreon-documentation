@@ -323,12 +323,12 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 | WSMAN_AUTH_METHOD | Define the authentication method. Available methods: 'noauth', 'basic', 'pass', 'digest', 'ntlm', 'gssnegotiate'                         | basic             |             |
 | WSMANEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
-> When using `WSMAN_AUTH_METHOD=gssnegotiate`, a valid Kerberos configuration is required on the machine running the plugin.
-> Before running the plugin, ensure that:
-> - a valid Kerberos ticket is available (verify with `klist`)
-> - the ticket has been obtained using kinit or an equivalent mechanism
-> - the target host name matches the Kerberos Service Principal Name (SPN) registered in Active Directory
-> - the Kerberos client is correctly configured (for example, `/etc/krb5.conf` on Linux)
+> Lorsque vous utilisez `WSMAN_AUTH_METHOD=gssnegotiate`, une configuration Kerberos valide est requise sur la machine exécutant le plugin.
+> Avant d’exécuter le plugin, assurez-vous que :
+> - un ticket Kerberos valide est disponible (vérifiez avec `klist`)
+> - le ticket a été obtenu à l’aide de `kinit` ou d’un mécanisme équivalent
+> - le nom d’hôte cible correspond au nom principal de service (SPN) Kerberos enregistré dans Active Directory
+> - le client Kerberos est correctement configuré (par exemple, `/etc/krb5.conf` sous Linux)
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
