@@ -79,7 +79,7 @@ import TabItem from '@theme/TabItem';
 - [**Cisco Meraki SNMP**](../procedures/network-cisco-meraki-snmp.md) - Added native SNMP v3 host macro.
 - [**Cisco Small Business SNMP**](../procedures/network-switchs-cisco-smallbusiness-standard-snmp.md) - Added native SNMP v3 host macro.
 - [**Cisco WLC SNMP**](../procedures/network-cisco-wlc-snmp.md) - Added native SNMP v3 host macro.
-- [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Added new equipments support for temperature metrics.
+- [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Added support for new devices for temperature metrics.
 - [**Fortinet Fortimanager SNMP**](../procedures/network-fortinet-fortimanager-snmp.md) - Added native SNMP v3 host macro.
 - [**HP Proliant SNMP**](../procedures/hardware-servers-hp-snmp.md) - Added native SNMP v3 host macro.
 - [**Microsoft DHCP SNMP**](../procedures/applications-microsoft-dhcp-snmp.md) - Added native SNMP v3 host macro.
