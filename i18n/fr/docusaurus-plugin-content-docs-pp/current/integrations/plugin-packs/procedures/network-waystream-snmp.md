@@ -43,7 +43,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias      | Modèle de service                    | Description                                        | Découverte |
 |:-----------|:-------------------------------------|:---------------------------------------------------|:----------:|
 | Interfaces | Net-Waystream-Interfaces-SNMP-custom | Contrôle les interfaces                            | X          |
-| Sfp-Port   | Net-Waystream-Sfp-Port-SNMP-custom   | Contrôle les ports sfp                             | X          |
+| Sfp-Port   | Net-Waystream-Sfp-Port-SNMP-custom   | Contrôle les ports SFP                           | X          |
 | Tcpcon     | Net-Waystream-Tcpcon-SNMP-custom     | Contrôle permettant de vérifier les connexions TCP |            |
 | Udpcon     | Net-Waystream-Udpcon-SNMP-custom     | Contrôle permettant de vérifier les connexions UDP |            |
 

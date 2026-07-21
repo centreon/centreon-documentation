@@ -42,7 +42,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                     | Service Description           | Discovery |
 |:--------------|:-------------------------------------|:------------------------------|:---------:|
 | Interfaces    | Net-Waystream-Interfaces-SNMP-custom | Check interfaces              | X         |
-| Sfp-Port      | Net-Waystream-Sfp-Port-SNMP-custom   | Check sfp ports               | X         |
+| Sfp-Port      | Net-Waystream-Sfp-Port-SNMP-custom   | Check SFP ports               | X         |
 | Tcpcon        | Net-Waystream-Tcpcon-SNMP-custom     | Check current TCP connections |           |
 | Udpcon        | Net-Waystream-Udpcon-SNMP-custom     | Check current UDP connections |           |
 
@@ -68,7 +68,7 @@ More information about discovering hosts automatically is available on the [dedi
 | Rule name                         | Description                                                   |
 |:----------------------------------|:--------------------------------------------------------------|
 | Net-Waystream-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
-| Net-Waystream-SNMP-Sfp-Port       | Discover network interfaces and monitor bandwidth utilization |
+| Net-Waystream-SNMP-Sfp-Port       | Discover SFP ports and monitor their status and usage |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
