@@ -194,6 +194,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-dynamics-365-nsclient-05-nrpe'
         },
         {
@@ -375,10 +379,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe'
         },
         {
           type: 'doc',
@@ -2234,6 +2234,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-waystream-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-westermo-standard-snmp'
         },
         {
@@ -2605,6 +2609,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-backup-emc-recoverypoint-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-cma'
         },
         {
           type: 'doc',
