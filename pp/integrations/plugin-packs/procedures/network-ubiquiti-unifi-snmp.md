@@ -40,7 +40,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                          | Service Description | Discovery |
 |:--------------|:------------------------------------------|:--------------------|:---------:|
-| Disks         | Net-Ubiquiti-Unifi-Disks-SNMP-custom      | Check disk usages   |           |
+| Disks         | Net-Ubiquiti-Unifi-Disks-SNMP-custom      | Check disk usage   |           |
 | Interfaces    | Net-Ubiquiti-Unifi-Interfaces-SNMP-custom | Check interfaces    |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.

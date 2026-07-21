@@ -101,7 +101,15 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Packet-Errors-*" label="Packet-Errors-*">
 
-Coming soon
+| Name                                                      | Unit  |
+|:----------------------------------------------------------|:------|
+| *interface_name*#status                                   | N/A   |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
+
+> Applies to the following service templates: Packet-Errors-Generic-Name, Packet-Errors-Global
 
 </TabItem>
 <TabItem value="Traffic-Generic-ID" label="Traffic-Generic-ID">
@@ -114,7 +122,13 @@ Coming soon
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-Coming soon
+| Name                                                 | Unit  |
+|:-----------------------------------------------------|:------|
+| *interface_name*#status                              | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+
+> Applies to the following service templates: Traffic-Generic-Name, Traffic-Global
 
 </TabItem>
 </Tabs>

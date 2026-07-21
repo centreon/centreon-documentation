@@ -5,6 +5,10 @@ title: APC UPS SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Compatibility
+
+This connector is designed to monitor APC Uninterruptible Power Supplies (UPS), including models such as the Galaxy VS series.
+
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **APC UPS SNMP** connector through the

@@ -56,8 +56,8 @@ The connector brings the following service templates (sorted by the host templat
 | Ap-Channel-Noise-Global        | Net-Cisco-Wlc-Ap-Channel-Noise-Global-SNMP-custom        | Check channel noises of all access points        |           |
 | Ap-Users                       | Net-Cisco-Wlc-Ap-Users-SNMP-Access-Point-custom          | Check access point total users                   |           |
 | Ap-Users                       | Net-Cisco-Wlc-Ap-Users-SNMP-custom                       | Check total users of all access points           |           |
-| Traffic-Generic-Id             | Net-Cisco-Wlc-Traffic-Generic-Id-SNMP-custom             | Check traffic of an network interface            |           |
-| Traffic-Generic-Name           | Net-Cisco-Wlc-Traffic-Generic-Name-SNMP-custom           | Check traffic of an network interface            |           |
+| Traffic-Generic-Id             | Net-Cisco-Wlc-Traffic-Generic-Id-SNMP-custom             | Check traffic of a network interface            |           |
+| Traffic-Generic-Name           | Net-Cisco-Wlc-Traffic-Generic-Name-SNMP-custom           | Check traffic of a network interface            |           |
 | Traffic-Global                 | Net-Cisco-Wlc-Traffic-Global-SNMP-custom                 | Check traffic of multiple network interfaces     |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
