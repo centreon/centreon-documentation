@@ -219,7 +219,7 @@ yum install centreon-plugin-Applications-Commvault-Commserve-Restapi
 | COMMSERVEAPIPASSWORD     | Set API password                                                                                                                                   |                   |             |
 | COMMSERVEAPITOKEN        | Set API access token                                                                                                                               |                   |             |
 | COMMSERVEAPIREFRESHTOKEN | Set API refresh token associated to the access token. Refresh token is mandatory when --api-token is used.                                         |                   |             |
-| TOKEN_REFRESH_BEFORE     | Refresh the token when its expiration time is less than C<refresh-before> seconds away.                                                            | 900               |             |
+| TOKEN_REFRESH_BEFORE     | Refresh the token when its expiration time is less than \<refresh-before\> seconds away.                                                            | 900               |             |
 | COMMSERVEAPIPROTO        | Specify https if needed                                                                                                                            | https             |             |
 | COMMSERVEAPIPORT         | API port                                                                                                                                           | 443               |             |
 | COMMSERVEAPIINSTANCE     | Set instance name to differentiate cache files when --api-token and 'token' authentication are used                                                | default           |             |
