@@ -8,6 +8,116 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+### Juillet
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**EMC Symmetrix CMA**](../procedures/hardware-storage-emc-symmetrix-cma.md) - Initial release.
+- [**Waystream SNMP**](../procedures/network-waystream-snmp.md) - Initial release, from a community contribution [PR 5956](https://github.com/centreon/centreon-plugins/pull/5956).
+- [**Dynamics365 CMA**](../procedures/applications-dynamics-365-cma.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**3CX Rest API**](../procedures/applications-voip-3cx-restapi.md) - Added support for versions 20 and above and added **license** mode, based on a [community idea](https://thewatch.centreon.com/ideas/request-to-upgrade-connector-3cx-4418) and community contribution.
+- [**APC PDU SNMP**](../procedures/hardware-pdu-apc-snmp.md) - Added native SNMP v3 host macro.
+- [**APC UPS SNMP**](../procedures/hardware-ups-apc-snmp.md) - Added native SNMP v3 host macro.
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - Changed host status checks output.
+- [**AWS Health**](../procedures/cloud-aws-health.md) - Changed host status checks output.
+- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Changed host status checks output.
+- [**AWS Transit Gateway**](../procedures/cloud-aws-transitgateway.md) - Changed host status checks output.
+- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - Changed host status checks output.
+- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - Changed host status checks output.
+- [**Amazon Backup Vault**](../procedures/cloud-aws-backup.md) - Changed host status checks output.
+- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - Changed host status checks output.
+- [**Amazon CloudTrail**](../procedures/cloud-aws-cloudtrail.md) - Changed host status checks output.
+- [**Amazon CloudWatch Logs**](../procedures/cloud-aws-cloudwatchlogs.md) - Changed host status checks output.
+- [**Amazon CloudWatch**](../procedures/cloud-aws-cloudwatch.md) - Changed host status checks output.
+- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - Changed host status checks output.
+- [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - Changed host status checks output.
+- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Changed host status checks output.
+- [**Amazon EFS**](../procedures/cloud-aws-efs.md) - Changed host status checks output.
+- [**Amazon ElastiCache**](../procedures/cloud-aws-elasticache.md) - Changed host status checks output.
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Changed host status checks output.
+- [**Amazon Kinesis**](../procedures/cloud-aws-kinesis.md) - Changed host status checks output.
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Changed host status checks output.
+- [**Amazon S3**](../procedures/cloud-aws-s3.md) - Changed host status checks output.
+- [**Amazon SES**](../procedures/cloud-aws-ses.md) - Changed host status checks output.
+- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Changed host status checks output.
+- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Changed host status checks output.
+- [**Aruba Instant SNMP**](../procedures/network-aruba-instant-snmp.md) - Added native SNMP v3 host macro.
+- [**Aruba Standard SNMP**](../procedures/network-switchs-aruba-standard-snmp.md) - Added native SNMP v3 host macro.
+- [**ArubaOS-CX SNMP**](../procedures/network-aruba-aoscx-snmp.md) - Added native SNMP v3 host macro.
+- [**Azure App Service Plan**](../procedures/cloud-azure-web-appserviceplan.md) - Changed host status checks output.
+- [**Azure App Service**](../procedures/cloud-azure-web-appservice.md) - Changed host status checks output.
+- [**Azure Application Gateway**](../procedures/cloud-azure-network-appgateway.md) - Changed host status checks output.
+- [**Azure Cache for Redis**](../procedures/cloud-azure-database-redis.md) - Changed host status checks output.
+- [**Azure Classic Storage**](../procedures/cloud-azure-classicstorage-storageaccount.md) - Changed host status checks output.
+- [**Azure Cosmos DB**](../procedures/cloud-azure-database-cosmosdb.md) - Changed host status checks output.
+- [**Azure Event Hubs**](../procedures/cloud-azure-analytics-eventhubs.md) - Changed host status checks output.
+- [**Azure ExpressRoute**](../procedures/cloud-azure-network-expressroute.md) - Changed host status checks output.
+- [**Azure Firewall**](../procedures/cloud-azure-network-firewall.md) - Changed host status checks output.
+- [**Azure Front Door**](../procedures/cloud-azure-network-frontdoor.md) - Changed host status checks output.
+- [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - Changed host status checks output.
+- [**Azure Kubernetes Service**](../procedures/cloud-azure-compute-aks.md) - Changed host status checks output.
+- [**Azure Policies States**](../procedures/cloud-azure-policyinsights-policystates.md) - Changed host status checks output.
+- [**Azure Public IP**](../procedures/cloud-azure-network-publicip.md) - Changed host status checks output.
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Changed host status checks output.
+- [**Azure SQL Managed Instance**](../procedures/cloud-azure-database-sqlmanagedinstance.md) - Changed host status checks output.
+- [**Azure SQL Server**](../procedures/cloud-azure-database-sqlserver.md) - Changed host status checks output.
+- [**Azure Storage Account**](../procedures/cloud-azure-storage-storageaccount.md) - Changed host status checks output.
+- [**Azure Storage Sync**](../procedures/cloud-azure-storage-storagesync.md) - Changed host status checks output.
+- [**Azure Traffic Manager**](../procedures/cloud-azure-network-trafficmanager.md) - Changed host status checks output.
+- [**Azure VPN Gateway**](../procedures/cloud-azure-network-vpngateway.md) - Changed host status checks output.
+- [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Changed host status checks output.
+- [**Azure Virtual Machine**](../procedures/cloud-azure-compute-virtualmachine.md) - Changed host status checks output.
+- [**Azure Virtual Network**](../procedures/cloud-azure-network-virtualnetwork.md) - Changed host status checks output.
+- [**Brocade Switch SNMP**](../procedures/network-switchs-brocade-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco ASA SNMP**](../procedures/network-firewalls-cisco-asa-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Added MRxx devices handling.
+- [**Cisco Meraki SNMP**](../procedures/network-cisco-meraki-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Small Business SNMP**](../procedures/network-switchs-cisco-smallbusiness-standard-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco WLC SNMP**](../procedures/network-cisco-wlc-snmp.md) - Added native SNMP v3 host macro.
+- [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Added new equipments support for temperature metrics.
+- [**Fortinet Fortimanager SNMP**](../procedures/network-fortinet-fortimanager-snmp.md) - Added native SNMP v3 host macro.
+- [**HP Proliant SNMP**](../procedures/hardware-servers-hp-snmp.md) - Added native SNMP v3 host macro.
+- [**Microsoft DHCP SNMP**](../procedures/applications-microsoft-dhcp-snmp.md) - Added native SNMP v3 host macro.
+- [**Mobotix Camera SNMP**](../procedures/hardware-devices-camera-mobotix-snmp.md) - Enhanced **system** mode with SD card availability checks.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Added RMAN Catalog support.
+- [**Palo Alto firewall API**](../procedures/network-firewalls-paloalto-standard-api.md) - Added **certificates** and **health** modes and host discovery to handle Panorama.
+- [**Powerware UPS SNMP**](../procedures/hardware-ups-powerware-snmp.md) - Added native SNMP v3 host macro.
+- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Added tags to host discovery, from on a [community idea](https://thewatch.centreon.com/ideas/proxmox-ve-tags-support-5602).
+- [**Qnap SNMP**](../procedures/hardware-storage-qnap-snmp.md) - Added native SNMP v3 host macro.
+- [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - Added native SNMP v3 host macro.
+- [**Ubiquiti UniFi SNMP**](../procedures/network-ubiquiti-unifi-snmp.md) - Added native SNMP v3 host macro.
+- [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Added tags to host discovery.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Enhanced message when using wrong powershell version with veeam 13.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Enhanced message when using wrong powershell version with veeam 13.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Enhanced message when using wrong powershell version with veeam 13.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Enhanced message when using wrong powershell version with veeam 13.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added timeout macro to all native CMA checks.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Improved `gssnegotiate` authentication support.
+- [**pfSense SNMP**](../procedures/network-firewalls-pfsense-snmp.md) - Added native SNMP v3 host macro.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Fixed the `devices.total.online.count` counter.
+- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Fixed a token expiration issue.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed a bad query issue revealed by a previous fix.
+- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Fixed authentication failures and caching issues.
+- [**Rubrik Security Cloud GraphQL API**](../procedures/applications-rubrik-graphql.md) - Fixed display of job details in long output in **jobs** mode.
+- [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Removed 4000 VMs limit for `vm-count` counter.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Fixed Veeam job retrieval in **job-status** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Fixed Veeam job retrieval in **job-status** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Fixed Veeam job retrieval in **job-status** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Fixed Veeam job retrieval in **job-status** mode.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Fixed `CRITICALSTATUS` macro default value.
+
+</TabItem>
+</Tabs>
+
 ### Juin
 
 > **Attention information importante :** [**Nmap CLI**](../procedures/applications-nmap-cli.md) - `nmap` does not install automatically anymore.
