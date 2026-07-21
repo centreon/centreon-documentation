@@ -41,9 +41,9 @@ Le connecteur apporte les modèles de service suivants
 |:---------------------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|:----------:|
 | Disk-Global          | HW-Storage-Qnap-Disk-Global-SNMP-custom          | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques   |     X      |
 | Pools                | HW-Storage-Qnap-Pools-SNMP-custom                | Contrôle les pools                                                                                                        |            |
-| Traffic-Generic-Id   | HW-Storage-Qnap-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau                                                                         |            |
-| Traffic-Generic-Name | HW-Storage-Qnap-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau                                                                         |            |
-| Traffic-Global       | HW-Storage-Qnap-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau                                                                 |     X      |
+| Traffic-Generic-Id   | HW-Storage-Qnap-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau                                                                         |            |
+| Traffic-Generic-Name | HW-Storage-Qnap-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau                                                                         |            |
+| Traffic-Global       | HW-Storage-Qnap-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau                                                                 |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 

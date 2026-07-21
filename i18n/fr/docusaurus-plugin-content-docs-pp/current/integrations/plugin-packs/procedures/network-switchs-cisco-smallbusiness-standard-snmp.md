@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias       | Modèle de service                             | Description                                                                                                               |
 |:------------|:----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
 | Cpu         | Net-Cisco-Sb-Standard-Cpu-SNMP-custom         | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU |
-| Environment | Net-Cisco-Sb-Standard-Environment-SNMP-custom | Contrôle l'état du matériel (Ventilateurs, alimentations)                                                                 |
+| Environment | Net-Cisco-Sb-Standard-Environment-SNMP-custom | Contrôle l'état du matériel (ventilateurs, alimentations)                                                                 |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Sb-Standard-SNMP-custom** est utilisé.
 
@@ -42,9 +42,9 @@ Le connecteur apporte les modèles de service suivants
 | Packet-Errors-Global       | Net-Cisco-Sb-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau |     X      |
 | Spanning-Tree              | Net-Cisco-Sb-Standard-SpanningTree-SNMP-custom               | Contrôle l'état du protocole Spanning Tree sur les interfaces                       |            |
 | Stack                      | Net-Cisco-Sb-Standard-Stack-SNMP-custom                      | Contrôle les membres du stack                                                       |            |
-| Traffic-Generic-Id         | Net-Cisco-Sb-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau                                   |            |
-| Traffic-Generic-Name       | Net-Cisco-Sb-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                   |            |
-| Traffic-Global             | Net-Cisco-Sb-Standard-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau de plusieurs interfaces réseau                           |     X      |
+| Traffic-Generic-Id         | Net-Cisco-Sb-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau                                   |            |
+| Traffic-Generic-Name       | Net-Cisco-Sb-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                   |            |
+| Traffic-Global             | Net-Cisco-Sb-Standard-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau de plusieurs interfaces réseau                           |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 

@@ -57,9 +57,9 @@ Le connecteur apporte les modèles de service suivants
 | Ap-Channel-Noise-Global        | Net-Cisco-Wlc-Ap-Channel-Noise-Global-SNMP-custom        | Contrôle le bruit sur les canaux de l'ensemble des relais (AP)          |            |
 | Ap-Users                       | Net-Cisco-Wlc-Ap-Users-SNMP-Access-Point-custom          | Contrôle le nombre d'utilisateurs du point d'accès                      |            |
 | Ap-Users                       | Net-Cisco-Wlc-Ap-Users-SNMP-custom                       | Contrôle le nombre d'utilisateurs sur l'ensemble des relais (AP)        |            |
-| Traffic-Generic-Id             | Net-Cisco-Wlc-Traffic-Generic-Id-SNMP-custom             | Contrôle le traffic réseau d'une interface réseau                       |            |
-| Traffic-Generic-Name           | Net-Cisco-Wlc-Traffic-Generic-Name-SNMP-custom           | Contrôle le traffic réseau d'une interface réseau                       |            |
-| Traffic-Global                 | Net-Cisco-Wlc-Traffic-Global-SNMP-custom                 | Contrôle le traffic réseau de plusieurs interfaces réseau               |     X      |
+| Traffic-Generic-Id             | Net-Cisco-Wlc-Traffic-Generic-Id-SNMP-custom             | Contrôle le trafic réseau d'une interface réseau                       |            |
+| Traffic-Generic-Name           | Net-Cisco-Wlc-Traffic-Generic-Name-SNMP-custom           | Contrôle le trafic réseau d'une interface réseau                       |            |
+| Traffic-Global                 | Net-Cisco-Wlc-Traffic-Global-SNMP-custom                 | Contrôle le trafic réseau de plusieurs interfaces réseau               |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 

@@ -5,6 +5,10 @@ title: APC UPS SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Compatibilité
+
+Ce connecteur est conçu pour superviser les onduleurs APC UPS, y compris les modèles de la série Galaxy VS.Collapse commentCommen
+
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **APC UPS SNMP** 

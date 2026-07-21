@@ -102,7 +102,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Packet-Errors-*" label="Packet-Errors-*">
 
-Coming soon
+| Nom                                                       | Unité |
+|:----------------------------------------------------------|:------|
+| *interface_name*#status                                   | N/A   |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
+
+> Concerne les modèles de service suivants : Packet-Errors-Generic-Name, Packet-Errors-Global
 
 </TabItem>
 <TabItem value="Traffic-Generic-ID" label="Traffic-Generic-ID">
@@ -115,7 +123,13 @@ Coming soon
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-Coming soon
+|:-----------------------------------------------------|:------|
+| *interface_name*#status                              | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+
+> Concerne les modèles de service suivants : Traffic-Generic-Name, Traffic-Global
+
 
 </TabItem>
 </Tabs>
