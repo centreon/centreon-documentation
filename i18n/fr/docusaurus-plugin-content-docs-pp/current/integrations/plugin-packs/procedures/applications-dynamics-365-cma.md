@@ -6,23 +6,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CMAprerequisites from './_cma-prerequisites.mdx';
 
-Le connecteur **Dynamics365 CMA** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent - CMA). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
+## Dépendances du connecteur de supervision
 
-Pour plus d'informations sur le fonctionnement de l'agent lui-même:
-
-<Tabs groupId="version" queryString>
-<TabItem value="OnPrem" label="OnPrem">
-
-Lisez [la documentation CMA pour Centreon OnPrem](/docs/cma).
-(Ce lien vous redirige vers la dernière version de la documentation OnPrem. Utilisez le sélecteur de version dans le coin supérieur droit pour passer à une autre version si nécessaire.)
-
-</TabItem>
-<TabItem value="Cloud" label="Cloud">
-
-Lisez [la documentation CMA pour Centreon Cloud](/cloud/cma/cma-setup).
-
-</TabItem>
-</Tabs>
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Dynamics365 CMA** depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
 ## Contenu du pack
 

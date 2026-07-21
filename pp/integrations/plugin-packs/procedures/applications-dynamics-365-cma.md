@@ -6,23 +6,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CMAprerequisites from './_cma-prerequisites.mdx';
 
-The **Dynamics365 CMA** connector supplies templates and commands to be used with the Centreon Monitoring Agent (CMA). This is an observability agent implementing the OpenTelemetry protocol.
+## Connector dependencies
 
-For more information about the Centreon Monitoring Agent itself:
-
-<Tabs groupId="version" queryString>
-<TabItem value="OnPrem" label="OnPrem">
-
-Read [the CMA documentation for Centreon OnPrem](/docs/cma).
-(This link redirects you to the latest version of the OnPrem documentation. Use the version selector in the upper right corner to switch to another version if necessary.)
-
-</TabItem>
-<TabItem value="Cloud" label="Cloud">
-
-Read [the CMA documentation for Centreon Cloud](/cloud/cma/cma-setup).
-
-</TabItem>
-</Tabs>
+The following monitoring connectors will be installed when you install the **Dynamics365 CMA** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
 ## Pack assets
 
