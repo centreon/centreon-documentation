@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**EMC Symmetrix CMA**](../procedures/hardware-storage-emc-symmetrix-cma.md) - Initial release.
-- [**Waystream SNMP**](../procedures/network-waystream-snmp.md) - Initial release, from a community contribution [PR 5956](https://github.com/centreon/centreon-plugins/pull/5956).
+- [**Waystream SNMP**](../procedures/network-waystream-snmp.md) - Initial release, from a community contribution ([PR 5956](https://github.com/centreon/centreon-plugins/pull/5956)).
 - [**Dynamics365 CMA**](../procedures/applications-dynamics-365-cma.md) - Initial release.
 
 </TabItem>
@@ -87,15 +87,15 @@ import TabItem from '@theme/TabItem';
 - [**Oracle Database**](../procedures/applications-databases-oracle.md) - Added RMAN Catalog support.
 - [**Palo Alto firewall API**](../procedures/network-firewalls-paloalto-standard-api.md) - Added **certificates** and **health** modes and host discovery to handle Panorama.
 - [**Powerware UPS SNMP**](../procedures/hardware-ups-powerware-snmp.md) - Added native SNMP v3 host macro.
-- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Added tags to host discovery, from on a [community idea](https://thewatch.centreon.com/ideas/proxmox-ve-tags-support-5602).
+- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Added tags to host discovery, from a [community idea](https://thewatch.centreon.com/ideas/proxmox-ve-tags-support-5602).
 - [**Qnap SNMP**](../procedures/hardware-storage-qnap-snmp.md) - Added native SNMP v3 host macro.
 - [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - Added native SNMP v3 host macro.
 - [**Ubiquiti UniFi SNMP**](../procedures/network-ubiquiti-unifi-snmp.md) - Added native SNMP v3 host macro.
 - [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Added tags to host discovery.
-- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Enhanced message when using wrong powershell version with veeam 13.
-- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Enhanced message when using wrong powershell version with veeam 13.
-- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Enhanced message when using wrong powershell version with veeam 13.
-- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Enhanced message when using wrong powershell version with veeam 13.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Enhanced message displayed when using wrong powershell version with veeam 13.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Enhanced message displayed when using wrong powershell version with veeam 13.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Enhanced message displayed when using wrong powershell version with veeam 13.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Enhanced message displayed when using wrong powershell version with veeam 13.
 - [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added timeout macro to all native CMA checks.
 - [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Improved `gssnegotiate` authentication support.
 - [**pfSense SNMP**](../procedures/network-firewalls-pfsense-snmp.md) - Added native SNMP v3 host macro.
