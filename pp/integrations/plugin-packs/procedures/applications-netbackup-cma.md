@@ -154,7 +154,7 @@ the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
-This connector relies on an integration supported by Centreon Engine and does not need a plugin.
+Ce connecteur s'appuie sur une intégration prise en charge par Centreon Engine et ne nécessite pas de plugin.
 
 ## Using the monitoring connector
 
