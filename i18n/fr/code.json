@@ -435,7 +435,7 @@
     "description": "The label for search bar to see all results outside a context"
   },
   "theme.SearchPage.searchContext.everywhere": {
-    "message": "Partout",
+    "message": "Toutes les sections",
     "description": "The label for search page to search everywhere"
   }
 }

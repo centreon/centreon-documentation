@@ -200,36 +200,36 @@ const config = {
         searchContextByPaths: [
           {
             label: {
-              en: "Centreon Infra Monitoring OnPrem",
-              fr: "Centreon Infra Monitoring OnPrem",
+              en: "Infra Monitoring OnPrem",
+              fr: "Infra Monitoring OnPrem",
             },
             path: "docs",
           },
           {
             label: {
-              en: "Centreon Infra Monitoring Cloud",
-              fr: "Centreon Infra Monitoring Cloud",
+              en: "Infra Monitoring Cloud",
+              fr: "Infra Monitoring Cloud",
             },
             path: "cloud",
           },
           {
             label: {
-              en: "Monitoring Connectors",
-              fr: "Connecteurs de supervision",
+              en: "Infra Monitoring - Monitoring Connectors",
+              fr: "Infra Monitoring - Connecteurs de supervision",
             },
             path: "pp",
           },
           {
             label: {
-              en: "Centreon Experience Monitoring",
-              fr: "Centreon Experience Monitoring",
+              en: "Experience Monitoring",
+              fr: "Experience Monitoring",
             },
             path: "experience-monitoring",
           },
           {
             label: {
-              en: "Centreon Log Management",
-              fr: "Centreon Log Management",
+              en: "Log Management",
+              fr: "Log Management",
             },
             path: "logmanagement",
           },
