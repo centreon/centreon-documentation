@@ -257,7 +257,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 
 | Macro        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check. Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | cpu               |             |
+| COMPONENT    | Which component to check | cpu               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).     | --verbose         |             |
 
 </TabItem>
@@ -265,7 +265,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 
 | Macro        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check. Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | fan               |             |
+| COMPONENT    | Which component to check | fan               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).     | --verbose         |             |
 
 </TabItem>
@@ -281,7 +281,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 
 | Macro        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check. Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | network           |             |
+| COMPONENT    | Which component to check | network           |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).     | --verbose         |             |
 
 </TabItem>
@@ -289,7 +289,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 
 | Macro        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check. Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | pc                |             |
+| COMPONENT    | Which component to check | pc                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).     | --verbose         |             |
 
 </TabItem>
@@ -297,7 +297,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 
 | Macro        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check. Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | psu               |             |
+| COMPONENT    | Which component to check | psu               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).     | --verbose         |             |
 
 </TabItem>
@@ -305,7 +305,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 
 | Macro        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check. Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | storage           |             |
+| COMPONENT    | Which component to check | storage           |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).     | --verbose         |             |
 
 </TabItem>
@@ -313,7 +313,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 
 | Macro        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check. Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | temperature       |             |
+| COMPONENT    | Which component to check | temperature       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).     | --verbose         |             |
 
 </TabItem>
