@@ -83,9 +83,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                                                   | Description |
 |:------------------------------------------------------------------|:------------|
-| Net-Cisco-Meraki-Cloudcontroller-Restapi-Vpn-Tunnels-Network-Name |             |
-| Net-Cisco-Meraki-RestAPI-Device                                   |             |
-| Net-Cisco-Meraki-RestAPI-Tag                                      |             |
+| Net-Cisco-Meraki-Cloudcontroller-Restapi-Vpn-Tunnels-Network-Name | Découvre les tunnels VPN en se basant sur les noms des réseaux |
+| Net-Cisco-Meraki-RestAPI-Device                                   | Découvre les équipements et supervise le statut                |
+| Net-Cisco-Meraki-RestAPI-Tag                                      | Découvre les tags                                              |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
