@@ -154,7 +154,7 @@ the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
-<CMAprerequisites />
+Ce connecteur s'appuie sur une intégration prise en charge par Centreon Engine et ne nécessite pas de plugin.
 
 ## Using the monitoring connector
 
