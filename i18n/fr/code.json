@@ -421,5 +421,21 @@
   "Monitoring Connectors": {
     "message": "Connecteurs de supervision",
     "description": "The label for the monitoring connectors"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Voir tous les résultats",
+    "description": "The label for search bar to see all results"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Voir tous les résultats dans « {context} »",
+    "description": "The label for search bar to see all results within a context"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Voir tous les résultats en dehors de « {context} »",
+    "description": "The label for search bar to see all results outside a context"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Partout",
+    "description": "The label for search page to search everywhere"
   }
 }
