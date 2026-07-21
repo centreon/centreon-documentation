@@ -115,7 +115,7 @@ Dans le menu **Configuration > Commandes > Connecteurs**, cliquez sur **Ajouter*
 | Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                               |
 | Description du connecteur | Centreon Monitoring Agent                                                                                                                                                               |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `App-Dynamics-365-CMA-*`                                                                                         |
+| Utilisé par la commande   | Sélectionner toutes les commandes dont le nom correspond à `App-Dynamics-365-CMA-*`                                                                                         |
 | Statut du connecteur      | Activé                                                                                                                                                                                      |
 
 ### Plugin
