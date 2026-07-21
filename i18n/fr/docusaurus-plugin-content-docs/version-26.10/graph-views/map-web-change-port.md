@@ -42,6 +42,19 @@ Attendez que le service Centreon MAP ait fini de démarrer (~30 secondes à une 
 
 Vérifiez que votre serveur est opérationnel et accessible sur le nouveau port que vous avez défini, en entrant l'URL suivante dans votre navigateur web :
 
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
 ```shell
-http://<MAP_IP>:<NEW_PORT>/centreon-map/api/latest/actuator/health
+http://<MAP_IP>:<8080>/centreon-map/api/latest/actuator/health
 ```
+
+</TabItem>
+<TabItem value="HTTPS" label="HTTPS">
+
+```shell
+https://<MAP_IP>:<8443>/centreon-map/api/latest/actuator/health
+```
+
+</TabItem>
+</Tabs>
