@@ -31,9 +31,9 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- [Broker] Fixed a coredump caused by a dangling pointer when the cache file grows and relocates in memory.
-- [Broker] Fixed cbd storing old connections that no longer exists.
-- [Broker] Fixed handle of empty response from mariadb in specific cases.
+- [Broker] Fixed a crash caused by a dangling pointer that occurred when the cache file grew and was moved to a new location in memory.
+- [Broker] Fixed an issue where cbd was storing old connections that no longer existed.
+- [Broker] Fixed an issue where centreon-broker could lose monitoring data during database purge operations caused by a MariaDB 10.11.11 regression (empty error packets).
 
 </details>
 
@@ -125,8 +125,8 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- [CMA] Fixed agent failing to start with hostnames with less than 5 characters.
-- [CMA] File native check can now trigger alerts on empty result set.
+- [CMA] Fixed an issue where the agent failed to start with hostnames less than 5 characters long.
+- [CMA] The File native check now supports alert triggering on empty result sets, allowing you to detect missing files or empty directories using warning-status and critical-status conditions.
 
 </details>
 
