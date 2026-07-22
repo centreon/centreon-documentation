@@ -1,6 +1,7 @@
 ---
 id: reports-publication-rule
 title: Publier vos rapports
+description: "Configurer des règles de publication pour partager automatiquement les rapports MBI générés"
 ---
 
 import Tabs from '@theme/Tabs';

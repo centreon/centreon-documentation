@@ -1,6 +1,7 @@
 ---
 id: ot-easyvista-rest-api
 title: EasyVista RestAPI
+description: "Configure the EasyVista REST API stream connector for ticket creation"
 ---
 
 The EasyVista Open Tickets provider uses the EasyVista Rest API to open incidents about your monitoring alerts.
