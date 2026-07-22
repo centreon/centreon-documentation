@@ -1,7 +1,7 @@
 ---
 id: chart-management
 title: Chart management
-description: Introduction to performance and history graphs in Centreon
+description: "Introduction to performance and history graphs in Centreon"
 ---
 
 Centreon can be used to generate graphs from monitoring information. There are two types of graph:

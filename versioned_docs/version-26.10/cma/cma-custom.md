@@ -1,7 +1,7 @@
 ---
 id: cma-custom
 title: Using custom plugins with CMA
-description: Run custom Bash, Perl, Python, or PowerShell plugins with CMA
+description: "Run custom Bash, Perl, Python, or PowerShell plugins with CMA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

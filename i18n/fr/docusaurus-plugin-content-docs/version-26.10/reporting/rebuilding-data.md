@@ -1,7 +1,7 @@
 ---
 id: rebuilding-data
 title: Reconstruire les données MBI
-description: Reconstruire les données MBI après un changement de configuration ou pour réparer des trous
+description: "Reconstruire les données MBI après un changement de configuration ou pour réparer des trous"
 ---
 
 ## En quoi consiste la reconstruction des données ?

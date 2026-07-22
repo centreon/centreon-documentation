@@ -1,7 +1,7 @@
 ---
 id: disaster-recovery
 title: Reprise après sinistre
-description: Préparer sauvegardes et collecteurs de secours pour assurer la résilience
+description: "Préparer sauvegardes et collecteurs de secours pour assurer la résilience"
 ---
 
 Pour que votre plateforme résiste aux pannes, assurez-vous de faire des sauvegardes, stockées sur un autre serveur. Vous pouvez :

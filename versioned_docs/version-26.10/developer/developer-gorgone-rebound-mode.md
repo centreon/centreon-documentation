@@ -1,7 +1,7 @@
 ---
 id: developer-gorgone-rebound-mode
 title : Configuring Gorgone in rebound mode
-description: Configure Gorgone rebound mode to relay communication through a third server
+description: "Configure Gorgone rebound mode to relay communication through a third server"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: map-web-monitoring
 title: Monitoring your MAP server
-description: Monitor your Centreon MAP server using the dedicated connector
+description: "Monitor your Centreon MAP server using the dedicated connector"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

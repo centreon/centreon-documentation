@@ -1,7 +1,7 @@
 ---
 id: communications
 title: Communications
-description: Présentation des modes de communication entre Central, Remote et les collecteurs
+description: "Présentation des modes de communication entre Central, Remote et les collecteurs"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

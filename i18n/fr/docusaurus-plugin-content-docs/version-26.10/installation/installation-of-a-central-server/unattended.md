@@ -1,7 +1,7 @@
 ---
 id: unattended-install-central
 title: Installation silencieuse d'un serveur central
-description: Installer rapidement un serveur central à l'aide d'un script
+description: "Installer rapidement un serveur central à l'aide d'un script"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

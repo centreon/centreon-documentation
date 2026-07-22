@@ -1,7 +1,7 @@
 ---
 id: ba-settings
 title: Settings
-description: Configure default and user-specific settings for Business Activities
+description: "Configure default and user-specific settings for Business Activities"
 ---
 
 ## Default Settings

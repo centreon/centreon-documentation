@@ -1,7 +1,7 @@
 ---
 id: rest-api-v2
 title: Utiliser l'API v2 avec Postman
-description: Créer une collection Postman pour explorer l'API REST v2
+description: "Créer une collection Postman pour explorer l'API REST v2"
 ---
 
 Cette page décrit comment utiliser [l'API v2](https://docs-api.centreon.com/api/centreon-web/25.10/) de Centreon Web avec Postman

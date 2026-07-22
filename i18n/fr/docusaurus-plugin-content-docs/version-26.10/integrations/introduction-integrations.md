@@ -1,7 +1,7 @@
 ---
 id: introduction-integrations
 title: Intégrations
-description: Introduction aux intégrations tierces disponibles avec Centreon
+description: "Introduction aux intégrations tierces disponibles avec Centreon"
 ---
 
 ## Connecter Centreon à vos autres outils

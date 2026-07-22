@@ -1,7 +1,7 @@
 ---
 id: services-discovery
 title: Discovering services automatically
-description: Configure discovery rules and commands to create services automatically
+description: "Configure discovery rules and commands to create services automatically"
 ---
 
 ## Launch a manual scan

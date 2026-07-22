@@ -1,7 +1,7 @@
 ---
 id: using-packages
 title: Using packages
-description: Install a Centreon central server using RPM or DEB packages
+description: "Install a Centreon central server using RPM or DEB packages"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

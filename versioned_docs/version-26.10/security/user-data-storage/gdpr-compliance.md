@@ -1,7 +1,7 @@
 ---
 id: gdpr-compliance
 title: GDPR compliance
-description: GDPR compliance for user data stored in MSP deployments
+description: "GDPR compliance for user data stored in MSP deployments"
 ---
 
 > This content is intended for users of Centreon in a Managed Service Provider (MSP) context.

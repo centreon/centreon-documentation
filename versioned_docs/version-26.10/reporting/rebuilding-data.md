@@ -1,7 +1,7 @@
 ---
 id: rebuilding-data
 title: Rebuilding MBI data
-description: Rebuild MBI data after configuration changes or to repair gaps
+description: "Rebuild MBI data after configuration changes or to repair gaps"
 ---
 
 ## What does rebuilding data mean?

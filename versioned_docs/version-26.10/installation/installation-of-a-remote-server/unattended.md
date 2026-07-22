@@ -1,7 +1,7 @@
 ---
 id: unattended-install-remote
 title: Unattended installation of a remote server
-description: Install a remote server quickly using an unattended script
+description: "Install a remote server quickly using an unattended script"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

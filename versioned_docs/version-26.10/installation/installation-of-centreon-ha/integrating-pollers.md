@@ -1,7 +1,7 @@
 ---
 id: integrating-pollers
 title: Integrating new pollers in a Centreon HA cluster
-description: Authorize and configure pollers to work with a Centreon HA cluster
+description: "Authorize and configure pollers to work with a Centreon HA cluster"
 ---
 
 ## Obtaining the central nodes' thumbprints

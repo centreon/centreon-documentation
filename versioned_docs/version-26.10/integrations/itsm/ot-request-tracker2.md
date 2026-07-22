@@ -1,7 +1,7 @@
 ---
 id: ot-request-tracker-restapi
 title: Request Tracker RestAPI
-description: Retrieve Request Tracker queues and open tickets via REST API
+description: "Retrieve Request Tracker queues and open tickets via REST API"
 ---
 
 ## How it works

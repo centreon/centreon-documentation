@@ -1,7 +1,7 @@
 ---
 id: cma-certificates
 title: Configurer les certificats
-description: Configurer les certificats TLS pour la communication agent-collecteur CMA
+description: "Configurer les certificats TLS pour la communication agent-collecteur CMA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

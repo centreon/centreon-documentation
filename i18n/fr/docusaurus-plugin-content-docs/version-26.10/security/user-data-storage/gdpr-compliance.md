@@ -1,7 +1,7 @@
 ---
 id: gdpr-compliance
 title: Conformité RGPD
-description: Conformité RGPD pour les données utilisateur stockées en contexte MSP
+description: "Conformité RGPD pour les données utilisateur stockées en contexte MSP"
 ---
 
 > Ce contenu s'adresse aux personnes utilisant Centreon via un fournisseur de services gérés (MSP).

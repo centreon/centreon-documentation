@@ -1,7 +1,7 @@
 ---
 id: ot-mail
 title: Mail
-description: Créer des tickets dans n'importe quel outil ITSM en envoyant un e-mail d'alerte
+description: "Créer des tickets dans n'importe quel outil ITSM en envoyant un e-mail d'alerte"
 ---
 
 ## How it works

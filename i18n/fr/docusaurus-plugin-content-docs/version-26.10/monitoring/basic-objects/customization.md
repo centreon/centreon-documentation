@@ -1,7 +1,7 @@
 ---
 id: customization
 title: Changer les paramètres de votre compte Centreon
-description: Personnaliser le mode d'affichage, la langue et la page par défaut de votre compte Centreon
+description: "Personnaliser le mode d'affichage, la langue et la page par défaut de votre compte Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: Introduction à l'installation de votre plateforme de supervision Centreon
+description: "Introduction à l'installation de votre plateforme de supervision Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

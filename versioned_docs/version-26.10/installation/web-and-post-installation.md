@@ -1,7 +1,7 @@
 ---
 id: web-and-post-installation
 title: Web And Post Installation
-description: Complete the web setup wizard and initialize your monitoring
+description: "Complete the web setup wizard and initialize your monitoring"
 ---
 
 ## Web installation

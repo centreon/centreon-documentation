@@ -1,7 +1,7 @@
 ---
 id: monitoring
 title: Monitoring
-description: Configure general options for the real-time monitoring interface
+description: "Configure general options for the real-time monitoring interface"
 ---
 
 This section covers the general options of the real-time monitoring interface.

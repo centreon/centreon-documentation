@@ -1,7 +1,7 @@
 ---
 id: commands
 title: Commands
-description: Configure commands, whitelists, and connectors used to run monitoring checks
+description: "Configure commands, whitelists, and connectors used to run monitoring checks"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

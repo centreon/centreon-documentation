@@ -1,7 +1,7 @@
 ---
 id: notif-advanced
 title: To go further
-description: Customize notification commands and forward events with stream connectors
+description: "Customize notification commands and forward events with stream connectors"
 ---
 
 ## Commands

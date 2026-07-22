@@ -1,7 +1,7 @@
 ---
 id: cma
 title: Introduction à l'agent CMA
-description: Introduction à l'agent de supervision Centreon et ses cas d'usage
+description: "Introduction à l'agent de supervision Centreon et ses cas d'usage"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

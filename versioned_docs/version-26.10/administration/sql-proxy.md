@@ -1,7 +1,7 @@
 ---
 id: sql-proxy
 title: Optimizing database traffic
-description: Set up ProxySQL to offload read queries from the real-time database
+description: "Set up ProxySQL to offload read queries from the real-time database"
 ---
 
 > This procedure concerns very large production environments with numerous users, that face interface response time issues.

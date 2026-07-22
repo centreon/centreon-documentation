@@ -1,7 +1,7 @@
 ---
 id: using-virtual-machines
 title: À partir d'une VM
-description: Installer un serveur central à partir d'une machine virtuelle prête à l'emploi
+description: "Installer un serveur central à partir d'une machine virtuelle prête à l'emploi"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

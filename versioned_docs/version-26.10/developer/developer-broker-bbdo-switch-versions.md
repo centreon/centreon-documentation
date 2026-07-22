@@ -1,7 +1,7 @@
 ---
 id: developer-broker-bbdo-switch-versions
 title: Switching versions of BBDO
-description: Procedure to manually switch the BBDO protocol version on your servers
+description: "Procedure to manually switch the BBDO protocol version on your servers"
 ---
 
 From Centreon 25.10, BBDO v2 is deprecated. When you upgrade your Centreon version, the central server automatically switches to BBDO v3 (remote servers and pollers will use BBDO v3 automatically once you deploy the configuration). However, here is a procedure for switching versions manually if necessary.

@@ -1,7 +1,7 @@
 ---
 id: medias
 title: Media
-description: Add and synchronize images used across the Centreon interface
+description: "Add and synchronize images used across the Centreon interface"
 ---
 
 Media are images used by the Centreon web interface. These images are used to

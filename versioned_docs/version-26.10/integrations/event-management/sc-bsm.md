@@ -1,7 +1,7 @@
 ---
 id: sc-hp-bsm
 title: BSM
-description: Send Centreon state change events to Micro Focus BSM
+description: "Send Centreon state change events to Micro Focus BSM"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

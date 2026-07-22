@@ -1,7 +1,7 @@
 ---
 id: contacts-templates
 title: Using contact templates
-description: Create contact templates to standardize user configuration and LDAP imports
+description: "Create contact templates to standardize user configuration and LDAP imports"
 ---
 
 ## Contact Templates

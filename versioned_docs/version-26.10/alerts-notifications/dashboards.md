@@ -1,7 +1,7 @@
 ---
 id: dashboards
 title: Dashboards
-description: Create dashboards, add widgets, and manage playlists for monitoring
+description: "Create dashboards, add widgets, and manage playlists for monitoring"
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.

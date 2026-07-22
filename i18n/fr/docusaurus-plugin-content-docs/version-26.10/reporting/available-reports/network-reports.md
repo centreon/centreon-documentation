@@ -1,7 +1,7 @@
 ---
 id: network-reports
 title: Rapports de réseau
-description: Rapports sur l'utilisation de la bande passante et la répartition du trafic réseau
+description: "Rapports sur l'utilisation de la bande passante et la répartition du trafic réseau"
 ---
 
 ## Réseau

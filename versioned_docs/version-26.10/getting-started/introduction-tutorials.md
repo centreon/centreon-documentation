@@ -1,7 +1,7 @@
 ---
 id: introduction-tutorials
 title: Introduction
-description: Overview of Centreon's getting started tutorials
+description: "Overview of Centreon's getting started tutorials"
 ---
 
 Centreon provides tutorials to quickly take advantage of the features of our solution.

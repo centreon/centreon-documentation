@@ -1,7 +1,7 @@
 ---
 id: contacts
 title: Contacts/Users
-description: Overview of user accounts, notifications, and unblocking locked users
+description: "Overview of user accounts, notifications, and unblocking locked users"
 ---
 
 In Centreon, users can:

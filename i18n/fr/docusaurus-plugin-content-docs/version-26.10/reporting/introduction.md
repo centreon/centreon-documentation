@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction à Centreon MBI
-description: Introduction à Centreon MBI et aux rapports qu'il génère
+description: "Introduction à Centreon MBI et aux rapports qu'il génère"
 ---
 
 ## Qu'est-ce que Centreon MBI ?

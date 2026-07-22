@@ -1,7 +1,7 @@
 ---
 id: notif-flapping
 title: Flapping
-description: Detect and configure flapping to reduce repeated alert notifications
+description: "Detect and configure flapping to reduce repeated alert notifications"
 ---
 
 ## Introduction

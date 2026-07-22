@@ -1,7 +1,7 @@
 ---
 id: developer-gorgone-pull-mode
 title : Configuring Gorgone in pull mode
-description: Configure Gorgone pull mode for pollers behind a firewall
+description: "Configure Gorgone pull mode for pollers behind a firewall"
 ---
 
 This procedure describes how to configure Gorgone between a distant poller and a central server.

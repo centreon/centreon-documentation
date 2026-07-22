@@ -1,7 +1,7 @@
 ---
 id: centreon-ui
 title: Centreon UI
-description: Configurer les options générales de l'interface web et du proxy
+description: "Configurer les options générales de l'interface web et du proxy"
 ---
 
 ### Options générales

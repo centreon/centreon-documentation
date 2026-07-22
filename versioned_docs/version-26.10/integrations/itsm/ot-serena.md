@@ -1,7 +1,7 @@
 ---
 id: ot-serena
 title: Serena
-description: Open Serena incidents from monitoring alerts via SOAP API
+description: "Open Serena incidents from monitoring alerts via SOAP API"
 ---
 
 ## How it works

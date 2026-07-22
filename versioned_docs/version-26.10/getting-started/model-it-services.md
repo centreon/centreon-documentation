@@ -1,7 +1,7 @@
 ---
 id: model-it-services
 title: Model your IT services
-description: How to model IT services and applications with Centreon BAM
+description: "How to model IT services and applications with Centreon BAM"
 ---
 
 import Tabs from '@theme/Tabs';

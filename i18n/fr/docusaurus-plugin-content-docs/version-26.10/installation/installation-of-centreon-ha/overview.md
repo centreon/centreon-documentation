@@ -1,7 +1,7 @@
 ---
 id: overview
 title: Fonctionnement de Centreon HA
-description: Comment un cluster Centreon HA bascule et se rétablit
+description: "Comment un cluster Centreon HA bascule et se rétablit"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

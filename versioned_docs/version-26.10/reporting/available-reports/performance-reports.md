@@ -1,7 +1,7 @@
 ---
 id: performance-reports
 title: Performance reports
-description: Reports on host and service metric performance using RRD graphs
+description: "Reports on host and service metric performance using RRD graphs"
 ---
 
 ### Host-Graphs-V2

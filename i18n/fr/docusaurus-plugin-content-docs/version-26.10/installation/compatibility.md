@@ -1,7 +1,7 @@
 ---
 id: compatibility
 title: Compatibilité
-description: Navigateurs, systèmes d'exploitation et SGBD compatibles avec Centreon
+description: "Navigateurs, systèmes d'exploitation et SGBD compatibles avec Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

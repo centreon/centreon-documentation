@@ -1,7 +1,7 @@
 ---
 id: ldap
 title: Connecting Centreon to an LDAP directory
-description: Connect Centreon to an LDAP directory for user authentication
+description: "Connect Centreon to an LDAP directory for user authentication"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

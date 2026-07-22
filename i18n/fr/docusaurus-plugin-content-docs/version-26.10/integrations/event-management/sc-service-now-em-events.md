@@ -1,7 +1,7 @@
 ---
 id: sc-service-now-em-events
 title: ServiceNow Event Manager Events
-description: Envoyer les événements d'hôtes et de services vers ServiceNow Event Manager
+description: "Envoyer les événements d'hôtes et de services vers ServiceNow Event Manager"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

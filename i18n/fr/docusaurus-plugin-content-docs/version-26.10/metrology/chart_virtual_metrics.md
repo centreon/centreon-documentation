@@ -1,7 +1,7 @@
 ---
 id: chart-virtual-metrics
 title: Métriques virtuelles
-description: Créer des métriques virtuelles avec l'agrégation CDEF et VDEF
+description: "Créer des métriques virtuelles avec l'agrégation CDEF et VDEF"
 ---
 
 ## Definition

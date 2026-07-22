@@ -1,7 +1,7 @@
 ---
 id: availability-events-reports
 title: Rapports disponibilité et événements
-description: Rapports sur la disponibilité des hôtes et services, les interruptions et les événements
+description: "Rapports sur la disponibilité des hôtes et services, les interruptions et les événements"
 ---
 
 ### Hostgroups-Incidents-1

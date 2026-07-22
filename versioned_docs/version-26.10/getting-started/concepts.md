@@ -1,7 +1,7 @@
 ---
 id: concepts
 title: Monitoring basics
-description: Introduction to hosts, services, and how Centreon monitoring works
+description: "Introduction to hosts, services, and how Centreon monitoring works"
 ---
 
 ## What does Centreon monitor?

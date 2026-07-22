@@ -1,7 +1,7 @@
 ---
 id: services-templates
 title: Using service templates
-description: Use service templates to standardize and simplify service creation
+description: "Use service templates to standardize and simplify service creation"
 ---
 
 ## Definition

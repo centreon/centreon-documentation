@@ -1,7 +1,7 @@
 ---
 id: prerequisites
 title: Prerequisites
-description: Sizing guidelines to determine your Centreon platform requirements
+description: "Sizing guidelines to determine your Centreon platform requirements"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

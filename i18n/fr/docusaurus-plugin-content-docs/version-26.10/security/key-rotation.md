@@ -1,7 +1,7 @@
 ---
 id: key-rotation
 title: Rotation de clés
-description: Faire tourner les clés utilisées pour signer les paquets Centreon
+description: "Faire tourner les clés utilisées pour signer les paquets Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

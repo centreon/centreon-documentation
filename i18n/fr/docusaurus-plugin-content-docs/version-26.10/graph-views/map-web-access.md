@@ -1,7 +1,7 @@
 ---
 id: map-web-access
 title: Gérer les droits d'accès dans MAP
-description: Gérer les privilèges et droits d'accès aux vues Centreon MAP
+description: "Gérer les privilèges et droits d'accès aux vues Centreon MAP"
 ---
 
 Cette page explique comment les utilisateurs accédent aux cartes en fonction de privilèges bien définis.

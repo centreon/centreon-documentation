@@ -1,7 +1,7 @@
 ---
 id: chart-template
 title: Graph template
-description: Configure graph templates to shape the layout of your graphs
+description: "Configure graph templates to shape the layout of your graphs"
 ---
 
 ## Definition

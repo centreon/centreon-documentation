@@ -1,7 +1,7 @@
 ---
 id: sc-splunk-metrics
 title: Splunk Metrics
-description: Host and service performance metrics delivery to Splunk's Event Collector
+description: "Host and service performance metrics delivery to Splunk's Event Collector"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

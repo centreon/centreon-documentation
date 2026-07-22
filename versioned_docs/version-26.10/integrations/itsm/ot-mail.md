@@ -1,7 +1,7 @@
 ---
 id: ot-mail
 title: Mail
-description: Create tickets in any ITSM tool by sending alert emails
+description: "Create tickets in any ITSM tool by sending alert emails"
 ---
 
 ## How it works

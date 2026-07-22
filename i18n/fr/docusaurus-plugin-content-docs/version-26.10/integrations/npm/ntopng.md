@@ -1,7 +1,7 @@
 ---
 id: ntopng
 title: Widget NtopNG
-description: Afficher les données d'utilisation réseau NtopNG dans un widget de vue personnalisée
+description: "Afficher les données d'utilisation réseau NtopNG dans un widget de vue personnalisée"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

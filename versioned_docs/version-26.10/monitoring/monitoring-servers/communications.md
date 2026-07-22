@@ -1,7 +1,7 @@
 ---
 id: communications
 title: Communications
-description: Overview of communication modes between Central, Remote, and pollers
+description: "Overview of communication modes between Central, Remote, and pollers"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

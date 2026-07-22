@@ -1,7 +1,7 @@
 ---
 id: centreon-ui
 title: Centreon UI
-description: Configure general Centreon web interface and proxy options
+description: "Configure general Centreon web interface and proxy options"
 ---
 
 This part covers the configuration of the general options of the Centreon web

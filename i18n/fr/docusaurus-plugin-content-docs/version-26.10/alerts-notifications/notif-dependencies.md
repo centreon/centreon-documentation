@@ -1,7 +1,7 @@
 ---
 id: notif-dependencies
 title: Les dépendances
-description: Réduire le nombre d'alertes grâce aux dépendances physiques et logiques
+description: "Réduire le nombre d'alertes grâce aux dépendances physiques et logiques"
 ---
 
 ## Principe

@@ -1,7 +1,7 @@
 ---
 id: services-create
 title: Mettre un service en supervision
-description: Comment mettre un service en supervision à l'aide de modèles, de la découverte ou de l'API
+description: "Comment mettre un service en supervision à l'aide de modèles, de la découverte ou de l'API"
 ---
 
 Un service est un point de contrôle, ou indicateur, à superviser sur un hôte. Par exemple : pourcentage d’utilisation partition sur un

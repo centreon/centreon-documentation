@@ -1,7 +1,7 @@
 ---
 id: ldap
 title: Connecter Centreon à un annuaire LDAP
-description: Connecter Centreon à un annuaire LDAP pour authentifier les utilisateurs
+description: "Connecter Centreon à un annuaire LDAP pour authentifier les utilisateurs"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

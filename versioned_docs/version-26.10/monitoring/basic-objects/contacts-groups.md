@@ -1,7 +1,7 @@
 ---
 id: contacts-groups
 title: Using contact groups
-description: Group contacts together to simplify notifications and access control
+description: "Group contacts together to simplify notifications and access control"
 ---
 
 ### Contact Groups

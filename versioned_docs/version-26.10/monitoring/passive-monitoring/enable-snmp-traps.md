@@ -1,7 +1,7 @@
 ---
 id: enable-snmp-traps
 title: Enable SNMP Traps
-description: Configure the architecture and services that process incoming SNMP traps
+description: "Configure the architecture and services that process incoming SNMP traps"
 ---
 
 ## Description

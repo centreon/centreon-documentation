@@ -1,7 +1,7 @@
 ---
 id: anomaly-detection
 title: Anomaly detection
-description: Detect abnormal service behavior using dynamic thresholds and predictive models
+description: "Detect abnormal service behavior using dynamic thresholds and predictive models"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

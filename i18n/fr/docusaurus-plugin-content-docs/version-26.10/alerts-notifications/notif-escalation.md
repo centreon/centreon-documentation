@@ -1,7 +1,7 @@
 ---
 id: notif-escalation
 title: Les escalades de notifications
-description: Faire remonter les notifications vers différents groupes de contacts
+description: "Faire remonter les notifications vers différents groupes de contacts"
 ---
 
 ## Definition

@@ -1,7 +1,7 @@
 ---
 id: event-log
 title: Event Logs
-description: View status changes and sent notifications in the event log
+description: "View status changes and sent notifications in the event log"
 ---
 
 Use event logs to:

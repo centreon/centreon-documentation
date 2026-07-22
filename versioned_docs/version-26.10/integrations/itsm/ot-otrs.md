@@ -1,7 +1,7 @@
 ---
 id: ot-otrs-restapi
 title: OTRS RestAPI
-description: Configure the OTRS REST API connector and import the webservice
+description: "Configure the OTRS REST API connector and import the webservice"
 ---
 
 ## How it works

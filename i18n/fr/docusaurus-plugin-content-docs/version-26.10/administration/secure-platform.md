@@ -1,7 +1,7 @@
 ---
 id: secure-platform
 title: Sécurisez votre plateforme
-description: Sécuriser Centreon avec SELinux, pare-feu, HTTPS et autres mesures
+description: "Sécuriser Centreon avec SELinux, pare-feu, HTTPS et autres mesures"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

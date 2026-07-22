@@ -1,7 +1,7 @@
 ---
 id: autodisco-aws
 title: Use Autodiscovery to monitor AWS EC2 instances
-description: Use Autodiscovery to detect and monitor AWS EC2 instances
+description: "Use Autodiscovery to detect and monitor AWS EC2 instances"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: sc-canopsis-events
 title: Canopsis Events
-description: Send host, service, acknowledgement, and downtime events to Canopsis
+description: "Send host, service, acknowledgement, and downtime events to Canopsis"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

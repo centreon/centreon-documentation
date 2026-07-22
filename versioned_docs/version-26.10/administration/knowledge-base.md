@@ -1,7 +1,7 @@
 ---
 id: knowledge-base
 title: Knowledge Base
-description: Link Centreon hosts and services to wiki procedures via Knowledge Base
+description: "Link Centreon hosts and services to wiki procedures via Knowledge Base"
 ---
 
 ## Introduction

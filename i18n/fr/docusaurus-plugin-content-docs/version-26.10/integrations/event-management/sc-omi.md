@@ -1,7 +1,7 @@
 ---
 id: sc-hp-omi
 title: HP OMI
-description: Configurer le stream connector qui envoie des événements vers HP OMI
+description: "Configurer le stream connector qui envoie des événements vers HP OMI"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

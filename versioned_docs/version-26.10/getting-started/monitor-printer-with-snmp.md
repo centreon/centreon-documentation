@@ -1,7 +1,7 @@
 ---
 id: monitor-printer-snmp
 title: Monitor a printer with SNMP
-description: Monitor a network printer using the SNMP protocol
+description: "Monitor a network printer using the SNMP protocol"
 ---
 
 Go to the **Configuration \> Monitoring Connectors** menu and install the **Printer Standard** Monitoring Connector:

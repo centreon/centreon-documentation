@@ -1,7 +1,7 @@
 ---
 id: api-tokens
 title: API tokens
-description: Generate and manage API tokens for third-party application access
+description: "Generate and manage API tokens for third-party application access"
 ---
 
 Using an API token, a third-party application can call the Centreon API to perform actions in Centreon (webhooks).

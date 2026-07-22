@@ -1,7 +1,7 @@
 ---
 id: metrics
 title: Understanding metrics
-description: How metrics, thresholds, and performance data work in Centreon services
+description: "How metrics, thresholds, and performance data work in Centreon services"
 ---
 
 ## What is a metric?

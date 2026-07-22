@@ -1,7 +1,7 @@
 ---
 id: add-a-remote-server-to-configuration
 title: Rattacher un serveur distant à un serveur central
-description: Configurer et connecter un nouveau serveur distant à un serveur central
+description: "Configurer et connecter un nouveau serveur distant à un serveur central"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

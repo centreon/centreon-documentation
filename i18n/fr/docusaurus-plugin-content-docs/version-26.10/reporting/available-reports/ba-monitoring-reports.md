@@ -1,7 +1,7 @@
 ---
 id: ba-monitoring-reports
 title: Rapports d'activité métier (BAM)
-description: Rapports sur la disponibilité et la performance des activités et vues métier
+description: "Rapports sur la disponibilité et la performance des activités et vues métier"
 ---
 
 ### BV-BA-Availabilities-1

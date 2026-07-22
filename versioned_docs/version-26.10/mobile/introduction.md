@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: Introduction to the Centreon mobile application
+description: "Introduction to the Centreon mobile application"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: ha-prerequisites
 title: Prérequis pour une architecture HA
-description: Prérequis de dimensionnement et de flux réseau pour une architecture HA
+description: "Prérequis de dimensionnement et de flux réseau pour une architecture HA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

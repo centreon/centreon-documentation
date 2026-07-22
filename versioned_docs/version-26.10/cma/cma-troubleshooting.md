@@ -1,7 +1,7 @@
 ---
 id: cma-troubleshooting
 title: Troubleshooting CMA
-description: Troubleshoot CMA connection, logging, and status refresh issues
+description: "Troubleshoot CMA connection, logging, and status refresh issues"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

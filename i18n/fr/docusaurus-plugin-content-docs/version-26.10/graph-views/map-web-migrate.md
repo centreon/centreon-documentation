@@ -1,7 +1,7 @@
 ---
 id: map-web-migrate
 title: Migrer l'extension
-description: Migrer votre serveur Centreon MAP vers un nouveau serveur
+description: "Migrer votre serveur Centreon MAP vers un nouveau serveur"
 ---
 
 Cette section explique comment déplacer le serveur Centreon MAP vers un autre serveur.

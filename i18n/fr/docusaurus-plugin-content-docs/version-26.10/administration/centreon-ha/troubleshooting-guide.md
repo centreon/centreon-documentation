@@ -1,7 +1,7 @@
 ---
 id: troubleshooting-guide
 title: Dépanner la HA
-description: Diagnostiquer et résoudre les problèmes courants du cluster Centreon HA
+description: "Diagnostiquer et résoudre les problèmes courants du cluster Centreon HA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

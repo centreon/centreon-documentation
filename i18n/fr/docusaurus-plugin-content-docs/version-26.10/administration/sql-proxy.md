@@ -1,7 +1,7 @@
 ---
 id: sql-proxy
 title: Optimiser le trafic vers les bases de données
-description: Mettre en place ProxySQL pour délester les requêtes de lecture
+description: "Mettre en place ProxySQL pour délester les requêtes de lecture"
 ---
 
 > Cette procédure concerne les très gros environnements de production avec de nombreux utilisateurs, devant faire face à des problèmes de temps de réponse de l'interface.

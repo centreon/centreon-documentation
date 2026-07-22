@@ -1,7 +1,7 @@
 ---
 id: logs
 title: Liste des logs Centreon
-description: Liste de référence des fichiers de logs Centreon et leur usage
+description: "Liste de référence des fichiers de logs Centreon et leur usage"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

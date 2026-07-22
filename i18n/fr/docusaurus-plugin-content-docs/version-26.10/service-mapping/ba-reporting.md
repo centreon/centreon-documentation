@@ -1,7 +1,7 @@
 ---
 id: ba-reporting
 title: Reporting
-description: Consulter les rapports de disponibilité et recalculer les statistiques des BA
+description: "Consulter les rapports de disponibilité et recalculer les statistiques des BA"
 ---
 
 Consulter à tout moment les évolutions des données archivées et

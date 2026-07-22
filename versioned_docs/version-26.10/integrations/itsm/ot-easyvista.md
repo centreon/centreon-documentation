@@ -1,7 +1,7 @@
 ---
 id: ot-easyvista
 title: EasyVista API SOAP
-description: Legacy SOAP API connector for opening EasyVista tickets from alerts
+description: "Legacy SOAP API connector for opening EasyVista tickets from alerts"
 ---
 
 > **SOAP** Service Manager web services are no longer maintained, so we recommend that you use the [**Rest API** version](./ot-easyvista-rest-api.md) to benefit from the latest enhancements and features.

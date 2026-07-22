@@ -1,7 +1,7 @@
 ---
 id: platform
 title: Éléments d'une plateforme Centreon
-description: Présentation des serveurs centraux, distants, collecteurs et du CMA
+description: "Présentation des serveurs centraux, distants, collecteurs et du CMA"
 ---
 
 Selon vos besoins, votre plateforme peut être constituée de plusieurs éléments : un [serveur central](#serveur-central), un ou plusieurs [serveurs distants](#serveur-distant), et un ou plusieurs [collecteurs](#collecteur).

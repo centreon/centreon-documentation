@@ -1,7 +1,7 @@
 ---
 id: advanced-configuration
 title: Configuration avancée
-description: Configurer les paramètres avancés de Centreon Broker, le flux pare-feu et l'authentification
+description: "Configurer les paramètres avancés de Centreon Broker, le flux pare-feu et l'authentification"
 ---
 
 ## Centreon Broker et pare-feu

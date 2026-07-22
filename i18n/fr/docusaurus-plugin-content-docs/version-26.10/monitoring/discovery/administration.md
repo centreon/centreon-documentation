@@ -1,7 +1,7 @@
 ---
 id: administration
 title: Administration
-description: Mettre à jour, désinstaller et configurer le module Auto Discovery et Gorgone
+description: "Mettre à jour, désinstaller et configurer le module Auto Discovery et Gorgone"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

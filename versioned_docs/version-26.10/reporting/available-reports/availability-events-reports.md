@@ -1,7 +1,7 @@
 ---
 id: availability-events-reports
 title: Availability and Events reports
-description: Reports covering host and service availability, outages, and exception events
+description: "Reports covering host and service availability, outages, and exception events"
 ---
 
 ### Hostgroups-Incidents-1

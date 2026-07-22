@@ -1,7 +1,7 @@
 ---
 id: introduction-integrations
 title: Integrations
-description: Introduction to third-party integrations available in Centreon
+description: "Introduction to third-party integrations available in Centreon"
 ---
 
 ## Introduction to third-party integrations

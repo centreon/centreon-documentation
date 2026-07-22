@@ -1,7 +1,7 @@
 ---
 id: notif-configuration
 title: Configurer les notifications
-description: Configurer et dépanner les notifications pour hôtes, services et contacts
+description: "Configurer et dépanner les notifications pour hôtes, services et contacts"
 ---
 
 ## Prérequis

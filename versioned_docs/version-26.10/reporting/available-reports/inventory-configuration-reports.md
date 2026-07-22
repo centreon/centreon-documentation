@@ -1,7 +1,7 @@
 ---
 id: inventory-configuration-reports
 title: Inventory and Configuration reports
-description: Reports listing host and service configuration inventory and unclassified resources
+description: "Reports listing host and service configuration inventory and unclassified resources"
 ---
 
 ### Hostgroups-Host-Templates

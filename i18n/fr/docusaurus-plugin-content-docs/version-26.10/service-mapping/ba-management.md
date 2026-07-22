@@ -1,7 +1,7 @@
 ---
 id: ba-management
 title: Gestion
-description: Configurer les activités métier, les indicateurs et les vues métier
+description: "Configurer les activités métier, les indicateurs et les vues métier"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

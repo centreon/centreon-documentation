@@ -1,7 +1,7 @@
 ---
 id: update-centreon-ha
 title: Mise à jour d'une plateforme Centreon HA
-description: Effectuer une mise à jour mineure d'une plateforme Centreon HA
+description: "Effectuer une mise à jour mineure d'une plateforme Centreon HA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

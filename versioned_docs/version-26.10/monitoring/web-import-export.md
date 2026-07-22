@@ -1,7 +1,7 @@
 ---
 id: web-import-export
 title: Import/Export
-description: Export and import Centreon configuration objects between platforms using AWIE
+description: "Export and import Centreon configuration objects between platforms using AWIE"
 ---
 
 import Tabs from '@theme/Tabs';

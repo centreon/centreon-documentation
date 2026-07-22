@@ -1,7 +1,7 @@
 ---
 id: logging-configuration-changes
 title: Journalisation des modifications de configuration
-description: Suivre et auditer les modifications de configuration des utilisateurs
+description: "Suivre et auditer les modifications de configuration des utilisateurs"
 ---
 
 ## Principe

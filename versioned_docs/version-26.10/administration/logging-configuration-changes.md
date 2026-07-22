@@ -1,7 +1,7 @@
 ---
 id: logging-configuration-changes
 title: Logging configuration changes
-description: Track and audit configuration changes made by Centreon users
+description: "Track and audit configuration changes made by Centreon users"
 ---
 
 ## Principle

@@ -1,7 +1,7 @@
 ---
 id: ba-monitoring-reports
 title: Business Activity Monitoring reports
-description: Reports on the availability and performance of Business Activities and views
+description: "Reports on the availability and performance of Business Activities and views"
 ---
 
 ### BV-BA-Availabilities-1

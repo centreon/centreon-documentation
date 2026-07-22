@@ -1,7 +1,7 @@
 ---
 id: ot-easyvista-rest-api
 title: EasyVista API Rest
-description: Configurer le connecteur EasyVista API Rest pour la création de tickets
+description: "Configurer le connecteur EasyVista API Rest pour la création de tickets"
 ---
 
 Le fournisseur EasyVista Open Tickets utilise l'API Rest EasyVista pour ouvrir des incidents sur vos alertes de supervision.

@@ -1,7 +1,7 @@
 ---
 id: concepts
 title: MBI concepts
-description: Key vocabulary and concepts used throughout Centreon MBI
+description: "Key vocabulary and concepts used throughout Centreon MBI"
 ---
 
 MBI is an extension of Centreon with its own vocabulary and concepts. This section breaks down the key concepts to understanding Centreon MBI. Note that this section expects you to be familiar with the [regular Centreon vocabulary](../resources/glossary.md).

@@ -1,7 +1,7 @@
 ---
 id: disaster-recovery
 title: Disaster recovery
-description: Prepare backups and standby pollers to keep your platform resilient
+description: "Prepare backups and standby pollers to keep your platform resilient"
 ---
 
 For your platform to be resilient to failure, make sure you have backups stored on another server. You can:

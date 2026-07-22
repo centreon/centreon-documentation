@@ -1,7 +1,7 @@
 ---
 id: manage-alerts
 title: Manage alerts
-description: Acknowledge alerts, set downtime, add comments, and manage checks
+description: "Acknowledge alerts, set downtime, add comments, and manage checks"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

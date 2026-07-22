@@ -1,7 +1,7 @@
 ---
 id: virtualization-reports
 title: Virtualization reports
-description: Reports on VMware cluster, ESX host, and virtual machine performance
+description: "Reports on VMware cluster, ESX host, and virtual machine performance"
 ---
 
 ### VMWare-Cluster-Performances-1

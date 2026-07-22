@@ -1,7 +1,7 @@
 ---
 id: cma-troubleshooting
 title: Dépanner l'agent CMA
-description: Dépanner les problèmes de connexion, de journalisation et de statut CMA
+description: "Dépanner les problèmes de connexion, de journalisation et de statut CMA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

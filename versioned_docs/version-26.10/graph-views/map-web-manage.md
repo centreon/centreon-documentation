@@ -1,7 +1,7 @@
 ---
 id: map-web-manage
 title: Managing maps in MAP
-description: Manage, share, and delete maps from the Centreon MAP interface
+description: "Manage, share, and delete maps from the Centreon MAP interface"
 ---
 
 This topic provides information about how to perform actions on your maps from the Centreon MAP interface. You can create two types of map:

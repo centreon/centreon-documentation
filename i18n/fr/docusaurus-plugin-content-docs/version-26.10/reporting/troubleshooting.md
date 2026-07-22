@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Dépanner MBI
-description: Diagnostiquer et résoudre les problèmes courants de Centreon MBI
+description: "Diagnostiquer et résoudre les problèmes courants de Centreon MBI"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

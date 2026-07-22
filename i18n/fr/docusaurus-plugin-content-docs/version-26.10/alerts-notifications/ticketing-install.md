@@ -1,7 +1,7 @@
 ---
 id: ticketing-install
 title: Installation d'Open Tickets
-description: Installer et sauvegarder le module Centreon Open Tickets
+description: "Installer et sauvegarder le module Centreon Open Tickets"
 ---
 
 import Tabs from '@theme/Tabs';

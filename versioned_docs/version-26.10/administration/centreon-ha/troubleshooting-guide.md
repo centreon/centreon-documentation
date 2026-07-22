@@ -1,7 +1,7 @@
 ---
 id: troubleshooting-guide
 title: Troubleshooting HA
-description: Diagnose and fix common Centreon HA cluster resource issues
+description: "Diagnose and fix common Centreon HA cluster resource issues"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

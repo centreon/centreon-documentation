@@ -1,7 +1,7 @@
 ---
 id: platform
 title: Elements of a Centreon platform
-description: Overview of central servers, remote servers, pollers, and CMA
+description: "Overview of central servers, remote servers, pollers, and CMA"
 ---
 
 According to your needs, your platform can consist of several elements: a [central server](#central-server), one or several [remote servers](#remote-server), and one or several [pollers](#poller).

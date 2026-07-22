@@ -1,7 +1,7 @@
 ---
 id: actions
 title: What actions can you take?
-description: Acknowledge resources, plan downtime, or force a check from Resources Status
+description: "Acknowledge resources, plan downtime, or force a check from Resources Status"
 ---
 
 Once you have [set up your monitoring](first-supervision.md) and resources are being successfully monitored, go to **Monitoring > Resources Status** to track the status of resources in real time.

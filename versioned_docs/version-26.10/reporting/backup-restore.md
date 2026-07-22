@@ -1,7 +1,7 @@
 ---
 id: backup-restore
 title: Backing up and restoring MBI
-description: Back up and restore your Centreon MBI central and reporting servers
+description: "Back up and restore your Centreon MBI central and reporting servers"
 ---
 
 import Tabs from '@theme/Tabs';

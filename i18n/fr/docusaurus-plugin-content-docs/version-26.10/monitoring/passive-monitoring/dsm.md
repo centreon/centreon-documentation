@@ -1,7 +1,7 @@
 ---
 id: dsm
 title: Dynamic Service Management
-description: Attribuer les événements des traps SNMP à des emplacements avec Dynamic Service Management
+description: "Attribuer les événements des traps SNMP à des emplacements avec Dynamic Service Management"
 ---
 
 import Tabs from '@theme/Tabs';

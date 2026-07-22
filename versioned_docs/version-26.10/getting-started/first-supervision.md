@@ -1,7 +1,7 @@
 ---
 id: first-supervision
 title: Prerequisites
-description: Install monitoring connectors and deploy your first configuration
+description: "Install monitoring connectors and deploy your first configuration"
 ---
 
 This tutorial describes how to install the monitoring templates supplied free of charge with the Centreon solution

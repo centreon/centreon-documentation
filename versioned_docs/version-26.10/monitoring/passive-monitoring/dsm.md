@@ -1,7 +1,7 @@
 ---
 id: dsm
 title: Dynamic Service Management
-description: Assign SNMP trap events to slots with Dynamic Service Management
+description: "Assign SNMP trap events to slots with Dynamic Service Management"
 ---
 
 import Tabs from '@theme/Tabs';

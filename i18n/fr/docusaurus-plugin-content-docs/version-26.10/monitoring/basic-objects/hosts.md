@@ -1,7 +1,7 @@
 ---
 id: hosts
 title: Créer un hôte manuellement
-description: Référence détaillée des champs de configuration, notifications et dépendances d'un hôte
+description: "Référence détaillée des champs de configuration, notifications et dépendances d'un hôte"
 ---
 
 Pour créer un hôte manuellement :

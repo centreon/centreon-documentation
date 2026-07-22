@@ -1,7 +1,7 @@
 ---
 id: monitor-ups-snmp
 title: Superviser un onduleur en SNMP
-description: Superviser un onduleur à l'aide du protocole SNMP
+description: "Superviser un onduleur à l'aide du protocole SNMP"
 ---
 
 Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervision** et installez le connecteur de supervision **UPS Standard** :

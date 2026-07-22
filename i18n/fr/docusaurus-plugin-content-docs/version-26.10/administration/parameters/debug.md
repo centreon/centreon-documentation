@@ -1,7 +1,7 @@
 ---
 id: debug
 title: Débogage
-description: Activer la journalisation de débogage des processus Centreon
+description: "Activer la journalisation de débogage des processus Centreon"
 ---
 
 Cette partie permet d'activer le niveau *debug* de la journalisation

@@ -1,7 +1,7 @@
 ---
 id: map-web-advanced
 title: Paramètres avancés dans MAP
-description: Configurer les paramètres avancés de calcul du statut hérité dans MAP
+description: "Configurer les paramètres avancés de calcul du statut hérité dans MAP"
 ---
 
 ## Définir les paramètres de calcul du statut

@@ -1,7 +1,7 @@
 ---
 id: extensions
 title: Extensions
-description: Installer et gérer les extensions Centreon depuis l'administration
+description: "Installer et gérer les extensions Centreon depuis l'administration"
 ---
 
 Les extensions permettent d'ajouter des fonctionnalités supplémentaires à

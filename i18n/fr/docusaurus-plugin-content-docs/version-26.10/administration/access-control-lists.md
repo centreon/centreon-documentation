@@ -1,7 +1,7 @@
 ---
 id: access-control-lists
 title: Gérer les droits des utilisateurs Centreon (ACL)
-description: Gérer les droits via les groupes d'accès et les filtres sur ressources, menus et actions
+description: "Gérer les droits via les groupes d'accès et les filtres sur ressources, menus et actions"
 ---
 
 Vous pouvez donner des droits aux [utilisateurs](../monitoring/basic-objects/contacts.md) de Centreon :

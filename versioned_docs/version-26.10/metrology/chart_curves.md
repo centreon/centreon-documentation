@@ -1,7 +1,7 @@
 ---
 id: chart-curves
 title: Curves
-description: Configure curves to customize how performance graphs are displayed
+description: "Configure curves to customize how performance graphs are displayed"
 ---
 
 ## Definition

@@ -1,7 +1,7 @@
 ---
 id: notif-dependencies
 title: Dependencies
-description: Reduce alert fatigue with physical and logical object dependencies
+description: "Reduce alert fatigue with physical and logical object dependencies"
 ---
 
 ## Principle

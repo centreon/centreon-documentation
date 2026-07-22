@@ -1,7 +1,7 @@
 ---
 id: openid
 title: Configurer une authentification par OpenId Connect
-description: Configurer l'authentification via un fournisseur OpenID Connect
+description: "Configurer l'authentification via un fournisseur OpenID Connect"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

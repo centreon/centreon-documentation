@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Troubleshooting MBI
-description: Diagnose and fix common issues with Centreon MBI
+description: "Diagnose and fix common issues with Centreon MBI"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: notif-config-for-teams
 title: Microsoft Teams notifications
-description: Configure Centreon alerts to notify Microsoft Teams channels
+description: "Configure Centreon alerts to notify Microsoft Teams channels"
 ---
 
 import Tabs from '@theme/Tabs';

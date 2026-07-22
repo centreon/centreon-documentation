@@ -1,7 +1,7 @@
 ---
 id: sc-service-now-incident-events
 title: ServiceNow Incident Events
-description: Create ServiceNow incidents from Centreon host and service events
+description: "Create ServiceNow incidents from Centreon host and service events"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: rrdtool
 title: RRDTool
-description: Définir le chemin du binaire RRDTool utilisé par Centreon
+description: "Définir le chemin du binaire RRDTool utilisé par Centreon"
 ---
 
 Cette partie permet de configurer le chemin vers le moteur de génération des

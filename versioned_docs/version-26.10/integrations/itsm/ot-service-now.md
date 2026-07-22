@@ -1,7 +1,7 @@
 ---
 id: ot-servicenow
 title: ServiceNow
-description: Open ServiceNow incidents via REST API with OAuth authentication
+description: "Open ServiceNow incidents via REST API with OAuth authentication"
 ---
 
 ## How it works

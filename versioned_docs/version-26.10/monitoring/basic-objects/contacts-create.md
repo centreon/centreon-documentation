@@ -1,7 +1,7 @@
 ---
 id: contacts-create
 title: Creating contacts/users manually
-description: Create a user manually and configure notification and authentication settings
+description: "Create a user manually and configure notification and authentication settings"
 ---
 
 To create a user, go to **Configuration > Users > Contacts/Users**, then click **Add**.

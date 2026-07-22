@@ -1,7 +1,7 @@
 ---
 id: ntopng
 title: Widget NtopNG
-description: Display network usage data from NtopNG in a custom view widget
+description: "Display network usage data from NtopNG in a custom view widget"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

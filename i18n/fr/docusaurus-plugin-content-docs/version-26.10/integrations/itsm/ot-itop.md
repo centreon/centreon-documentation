@@ -1,7 +1,7 @@
 ---
 id: ot-itop
 title: iTop
-description: Récupérer les données iTop et ouvrir des tickets via l'API Rest
+description: "Récupérer les données iTop et ouvrir des tickets via l'API Rest"
 ---
 
 ## How it works

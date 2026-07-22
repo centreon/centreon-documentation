@@ -1,7 +1,7 @@
 ---
 id: event-console
 title: Event consoles
-description: Deprecated interfaces for viewing host and service status details
+description: "Deprecated interfaces for viewing host and service status details"
 ---
 
 > Some of these interfaces are **deprecated** and replaced by the

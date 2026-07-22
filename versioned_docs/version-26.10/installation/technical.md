@@ -1,7 +1,7 @@
 ---
 id: technical
 title: Technical information
-description: Network flows, users, groups, and software dependencies for Centreon servers
+description: "Network flows, users, groups, and software dependencies for Centreon servers"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

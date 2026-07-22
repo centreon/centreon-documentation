@@ -1,7 +1,7 @@
 ---
 id: storage-reports
 title: Rapports de stockage
-description: Rapports sur la capacité de stockage disque allouée et utilisée par groupe d'hôtes
+description: "Rapports sur la capacité de stockage disque allouée et utilisée par groupe d'hôtes"
 ---
 
 ### Hostgroups-Storage-Capacity-1

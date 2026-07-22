@@ -1,7 +1,7 @@
 ---
 id: download
 title: Téléchargements
-description: Formats disponibles pour télécharger et installer Centreon
+description: "Formats disponibles pour télécharger et installer Centreon"
 ---
 
 De manière générale, les logiciels Open Source fournis par Centreon sont disponibles sous [3 formats](../installation/compatibility.md#système-dexploitation) :

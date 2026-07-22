@@ -1,7 +1,7 @@
 ---
 id: overview
 title: How Centreon HA works
-description: How a Centreon HA cluster fails over and recovers
+description: "How a Centreon HA cluster fails over and recovers"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

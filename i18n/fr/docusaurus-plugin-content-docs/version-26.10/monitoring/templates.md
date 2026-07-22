@@ -1,7 +1,7 @@
 ---
 id: templates
 title: Les modèles d'objets
-description: Utiliser des modèles d'hôtes, de services et de contacts pour accélérer la configuration
+description: "Utiliser des modèles d'hôtes, de services et de contacts pour accélérer la configuration"
 ---
 
 ## Définition

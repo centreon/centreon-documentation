@@ -1,7 +1,7 @@
 ---
 id: install
 title: Installer l'extension Centreon BAM
-description: Installer et activer la licence de l'extension Centreon BAM
+description: "Installer et activer la licence de l'extension Centreon BAM"
 ---
 
 import Tabs from '@theme/Tabs';

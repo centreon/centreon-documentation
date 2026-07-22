@@ -1,7 +1,7 @@
 ---
 id: developer-module  
 title: Comment écrire un module
-description: Développer et packager un module Centreon personnalisé
+description: "Développer et packager un module Centreon personnalisé"
 ---
 
 Vous souhaitez créer un nouveau module pour Centreon ou adapter un module existant ? Vous êtes au bon endroit !

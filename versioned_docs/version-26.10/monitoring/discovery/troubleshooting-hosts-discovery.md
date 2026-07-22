@@ -1,7 +1,7 @@
 ---
 id: troubleshooting-hosts-discovery
 title: Troubleshooting host discovery issues
-description: Fix common errors encountered during host discovery jobs
+description: "Fix common errors encountered during host discovery jobs"
 ---
 
 ## No more host discovery jobs appear in the Discovery page

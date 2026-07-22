@@ -1,7 +1,7 @@
 ---
 id: pluginpacks
 title: Monitoring Connectors
-description: Install, update, and uninstall Monitoring Connectors to monitor your infrastructure
+description: "Install, update, and uninstall Monitoring Connectors to monitor your infrastructure"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

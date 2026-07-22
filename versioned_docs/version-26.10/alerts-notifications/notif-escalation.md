@@ -1,7 +1,7 @@
 ---
 id: notif-escalation
 title: Escalation
-description: Escalate notifications to different contact groups over time
+description: "Escalate notifications to different contact groups over time"
 ---
 
 ## Definition

@@ -1,7 +1,7 @@
 ---
 id: groups
 title: Groups
-description: Group hosts and services together for ACLs, reports, and filtering
+description: "Group hosts and services together for ACLs, reports, and filtering"
 ---
 
 ## Description

@@ -1,7 +1,7 @@
 ---
 id: unattended-install-poller
 title: Installation silencieuse d'un collecteur
-description: Installer rapidement un collecteur à l'aide d'un script
+description: "Installer rapidement un collecteur à l'aide d'un script"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

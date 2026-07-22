@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: Présentation des API disponibles pour la configuration et les données temps réel
+description: "Présentation des API disponibles pour la configuration et les données temps réel"
 ---
 
 Centreon met à disposition plusieurs API pour manipuler ou récupérer la

@@ -1,7 +1,7 @@
 ---
 id: network-reports
 title: Network reports
-description: Reports on network interface bandwidth usage and traffic distribution
+description: "Reports on network interface bandwidth usage and traffic distribution"
 ---
 
 ### Hostgroup-Traffic-By-Interface-And-Bandwith-Ranges

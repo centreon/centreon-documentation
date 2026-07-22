@@ -1,7 +1,7 @@
 ---
 id: upgrade-mariadb
 title: Upgrading MariaDB
-description: Upgrade MariaDB to the version required by your Centreon release
+description: "Upgrade MariaDB to the version required by your Centreon release"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: known-issues
 title: Problèmes connus
-description: Problèmes connus et contournements pour la plateforme Centreon
+description: "Problèmes connus et contournements pour la plateforme Centreon"
 ---
 
 Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.

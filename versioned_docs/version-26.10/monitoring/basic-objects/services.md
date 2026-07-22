@@ -1,7 +1,7 @@
 ---
 id: services
 title: Creating services manually
-description: Detailed reference for service configuration fields, notifications, and relations
+description: "Detailed reference for service configuration fields, notifications, and relations"
 ---
 
 To create a service manually, go to **Configuration \> Services > Services by host** and then click **Add**.
