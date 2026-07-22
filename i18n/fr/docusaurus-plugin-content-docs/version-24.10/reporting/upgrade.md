@@ -1,6 +1,7 @@
 ---
 id: upgrade
 title: Monter de version l'extension
+description: "Monter de version Centreon MBI vers une nouvelle version majeure"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

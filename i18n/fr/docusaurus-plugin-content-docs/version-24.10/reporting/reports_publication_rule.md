@@ -1,3 +1,9 @@
+---
+id: reports-publication-rule
+title: Règles de publication des rapports
+description: "Configurer des règles de publication pour partager automatiquement les rapports MBI générés"
+---
+
 Règles de publication des rapports \{#publication_rules\}
 ==================================
 

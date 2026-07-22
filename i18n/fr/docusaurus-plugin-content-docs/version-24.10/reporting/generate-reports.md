@@ -1,6 +1,7 @@
 ---
 id: manage-reports
 title: Générer des rapports
+description: "Créer et gérer des tâches planifiées pour générer, publier et consulter les rapports Centreon MBI"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

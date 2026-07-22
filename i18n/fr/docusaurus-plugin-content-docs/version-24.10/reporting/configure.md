@@ -1,6 +1,7 @@
 ---
 id: configure
 title: Configurer
+description: "Configurer les ACL, les options générales et la rétention des données pour Centreon MBI"
 ---
 
 ## Gestion des accès aux rapports & tâches planifiées (ACL)

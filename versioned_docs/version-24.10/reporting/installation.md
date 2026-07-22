@@ -1,6 +1,7 @@
 ---
 id: installation
 title: Install the Centreon MBI extension
+description: "Install and configure the Centreon MBI reporting server and interface"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

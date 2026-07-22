@@ -1,6 +1,7 @@
 ---
 id: manage-reports
 title: Generate reports
+description: "Create and manage jobs to generate, publish, and access Centreon MBI reports"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

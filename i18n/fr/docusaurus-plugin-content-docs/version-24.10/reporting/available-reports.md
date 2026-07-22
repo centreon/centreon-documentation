@@ -1,6 +1,7 @@
 ---
 id: reports
 title: Les rapports disponibles
+description: "Catalogue des rapports Centreon MBI disponibles avec leur contenu et leurs paramètres"
 ---
 
 Tous ces rapports sont génériques et leur paramétrage se base sur les

@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Concepts
+description: "Key vocabulary and concepts used throughout Centreon MBI"
 ---
 
 ## Availability & events

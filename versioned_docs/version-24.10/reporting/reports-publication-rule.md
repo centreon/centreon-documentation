@@ -1,3 +1,9 @@
+---
+id: reports-publication-rule
+title: Report publication rules
+description: "Configure publication rules to share generated MBI reports automatically"
+---
+
 Report publication rules \{#publication_rules\}
 =========================
 

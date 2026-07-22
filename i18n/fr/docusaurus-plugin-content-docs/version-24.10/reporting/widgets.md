@@ -1,6 +1,7 @@
 ---
 id: widgets
 title: Les widgets
+description: "Aperçu des widgets MBI disponibles pour les tableaux de bord et vues personnalisées"
 ---
 
 Les widgets de Centreon MBI s"utilisent dans les [vues personnalisées](../getting-started/create-custom-view.md) de Centreon. Il vous est de ce fait possible de créer des

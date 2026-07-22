@@ -1,6 +1,7 @@
 ---
 id: configure
 title: Configure
+description: "Configure ACL restrictions, general options, and data retention for Centreon MBI"
 ---
 
 ## Jobs & reports access restrictions (ACL)

@@ -1,6 +1,7 @@
 ---
 id: reports
 title: Available reports
+description: "Catalog of available Centreon MBI reports with their content and parameters"
 ---
 
 We have included a set of generic reports that you can reconfigure for your

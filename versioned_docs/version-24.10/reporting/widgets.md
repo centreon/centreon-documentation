@@ -1,6 +1,7 @@
 ---
 id: widgets
 title: Widgets
+description: "Overview of the MBI widgets available for dashboards and custom views"
 ---
 
 Centreon MBI widgets are used in Centreon [custom views](../getting-started/create-custom-view.md). This means you can now use dashboards to create real-time AND
