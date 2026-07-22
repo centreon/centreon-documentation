@@ -1,6 +1,6 @@
 ---
 id: report-development
-title: Report development
+title: Creating custom reports
 ---
 
 Compatibility: BIRT 4.20.0+

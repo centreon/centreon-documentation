@@ -1,6 +1,6 @@
 ---
 id: report-development
-title: Dév. de rapport
+title: Créer des rapports personnalisés
 ---
 
 Compatibilité : BIRT 4.20.0+

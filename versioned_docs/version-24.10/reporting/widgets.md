@@ -1,9 +1,15 @@
 ---
 id: widgets
-title: Widgets
+title: MBI Widgets
 ---
 
-Centreon MBI widgets are used in Centreon [custom views](../getting-started/create-custom-view.md). This means you can now use dashboards to create real-time AND
+> The following Centreon MBI widgets are available in [Dashboards](../alerts-notifications/dashboards.md):
+> - Business Activity availability
+> - Business Activity Availability History
+> - Hostgroup Availability History
+> - Metric Capacity planning
+
+MBI widgets are also used in Centreon [custom views](../alerts-notifications/custom-views.md). This means you can use custom views to create real-time AND
 reporting statistics (e.g., for availability, applications, and
 performance).
 
@@ -11,8 +17,8 @@ performance).
 
 A list of available widgets appears below.
 
-> To update ACLs, click "Update ACL Resources" in the "Report
-> Parameters" menu under the Centreon MBI general options.
+> To update ACLs, click **Update Resources ACL** in the **Report
+> Parameters** tab under the Centreon MBI general options.
 
 ## Availability & events
 
@@ -533,4 +539,3 @@ alerts of one BA per month over the last 12 months.
 **Example**
 
 ![image](../assets/reporting/guide/mbi-ba-availability-graph-month_param.png)
-
