@@ -1,6 +1,6 @@
 ---
 id: docker-requirement-central
-title : Configuring Centreon for receiving docker poller connection
+title: Configuring Centreon to receive a Docker poller connection
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,22 +9,22 @@ This procedure describes how to configure Gorgone (a submodule of Centreon) betw
 
 - In pullwss mode, the poller opens a WebSocket connection to the Central.
 
-- Because the connection uses HTTP(S), certificates are needed to secure the connection. To simplify certificate lifecycle management, apache (which already host the Centreon web interface) is used as a reverse proxy to terminate the TLS connection and forward the traffic to Gorgone.
+- Because the connection uses HTTP(S), certificates are needed to secure the connection. To simplify certificate lifecycle management, Apache (which already hosts the Centreon web interface) is used as a reverse proxy to terminate the TLS connection and forward the traffic to Gorgone.
 
 ### Installation requirements
 
-Ensure the Central server and Gorgone are already installed and up to date to the last major version.
+Ensure the Central server and Gorgone are already installed and up to date with the latest major version.
 
->Requirement : If not already done, configure certificates for apache, you can see the documentation to auto generate them [here](../administration/secure-platform.md#secure-the-web-server-with-https).
+> Requirement: If not already done, configure certificates for Apache. See the documentation to auto-generate them [here](../administration/secure-platform.md#secure-the-web-server-with-https).
 
-> The poller must be able to reach the Central server and use the last major version of Centreon.
+> The poller must be able to reach the Central server and use the latest major version of Centreon.
 
 ### Configure Gorgone
 
-In previous version of Centreon, gorgone could listen for pullwss connections directly on the network if manually configured to do so. Starting with version 26.10, the recommended method is to use Apache as a reverse proxy for Gorgone.
+In previous versions of Centreon, Gorgone could listen for pullwss connections directly on the network if manually configured to do so. Starting with version 26.10, the recommended method is to use Apache as a reverse proxy for Gorgone.
 If you already use pullwss, see the [compatibility mode](#apache-reverse-proxy-configuration) section below.
 
-update the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows:
+Update the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows:
 
 ```yaml
 gorgone:
@@ -43,7 +43,7 @@ gorgone:
       enable: true
 ```
 
-the `nodes` module should already be present, and do not need modifications in a default installation. The proxy module is already present too, but not the `httpserver` sub-key, which you should add.
+The `nodes` module should already be present, and does not need modification in a default installation. The proxy module is already present too, but not the `httpserver` sub-key, which you should add.
 
 Explanation of the configuration:
 
@@ -58,14 +58,14 @@ systemctl restart gorgoned
 
 ### Configure Apache as a reverse proxy
 
-## apache modules prerequisites
+## Apache modules prerequisites
 
 Make sure the `proxy_wstunnel` Apache module is enabled:
 
   <Tabs groupId="sync">
 
   <TabItem value="Alma / RHEL / Oracle Linux 8/9" label="Alma / RHEL / Oracle Linux 8/9">
-   contrary to deb packages, alma9 httpd package already have proxy_wstunnel module enabled by default, nothing to do.
+   Contrary to deb packages, the Alma 9 httpd package already has the proxy_wstunnel module enabled by default, so there is nothing to do.
   </TabItem>
 
   <TabItem value="Debian 13" label="Debian 13">
@@ -80,20 +80,20 @@ Make sure the `proxy_wstunnel` Apache module is enabled:
 
 ### Apache reverse proxy configuration
 
-Starting from 26.10, apache already redirect the traffic from `/gorgone/pullwss/websocket` to gorgone.
+Starting from 26.10, Apache already redirects the traffic from `/gorgone/pullwss/websocket` to Gorgone.
 
-If this is the first time you setup pullwss on your Central, you don't need to do anything.
+If this is the first time you set up pullwss on your Central, you don't need to do anything.
 
-If you already used pullwss in previous version, you have multiples options : 
-- Update all poller to the same version, and configure them to acces the central on port 443.
-- If you can not update all poller in the same time, you can add an apache configuration to hold the legacy pullwss port 8086, and redirect the traffic to gorgone. This is explained in the next section.
+If you already used pullwss in a previous version, you have multiple options:
+- Update all pollers to the same version, and configure them to access the Central on port 443.
+- If you cannot update all pollers at the same time, you can add an Apache configuration to keep the legacy pullwss port 8086, and redirect the traffic to Gorgone. This is explained in the next section.
 
 #### Old poller configuration with no certificate (plain HTTP)
 
-This section should be used only if you already configured pullwss in previous version of Centreon, and you have many pollers that cannot be reconfigured easily.
+This section should be used only if you already configured pullwss in a previous version of Centreon, and you have many pollers that cannot be reconfigured easily.
 
-there is an example of apache configuration to redirect the traffic from port 8086 to gorgone to keep the older poller working.
-Please note that using pullwss without TLS is not recommended in production, and this configuration is only for compatibility with old poller that cannot be configured to use TLS.
+Below is an example of an Apache configuration to redirect the traffic from port 8086 to Gorgone to keep the older pollers working.
+Please note that using pullwss without TLS is not recommended in production, and this configuration is only for compatibility with old pollers that cannot be configured to use TLS.
 
   <Tabs groupId="sync">
 
@@ -115,9 +115,9 @@ Please note that using pullwss without TLS is not recommended in production, and
 
 #### Old poller configuration with certificate (HTTPS)
 
-This section should be used only if you already configured pullwss in previous version of Centreon, and you have many pollers that cannot be reconfigured easily.
+This section should be used only if you already configured pullwss in a previous version of Centreon, and you have many pollers that cannot be reconfigured easily.
 
-there is an example of apache configuration to redirect the traffic from port 8086 to gorgone to keep the older poller working.
+Below is an example of an Apache configuration to redirect the traffic from port 8086 to Gorgone to keep the older pollers working.
 
   <Tabs groupId="sync">
 
@@ -140,5 +140,5 @@ there is an example of apache configuration to redirect the traffic from port 80
 
 ## Poller configuration
 
-You can now add a poller in the Central web interface, and configure it as a "docker" poller.
-Once done, you can use the one line command to configure the poller to connect to the Central using pullwss.
+You can now add a poller in the Central web interface and configure it as a "docker" poller.
+Once done, you can use the one-line command to configure the poller to connect to the Central using pullwss.
