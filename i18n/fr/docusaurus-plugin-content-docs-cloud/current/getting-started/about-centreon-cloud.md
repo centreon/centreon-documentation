@@ -1,6 +1,7 @@
 ---
 id: about-centreon-cloud
 title: À propos de Centreon Cloud
+description: FAQ sur Centreon Cloud portant sur les garanties de SLA, l'hébergement et la conservation des données, la sécurité et la maintenance
 ---
 
 ## Qu'est-ce que Centreon Cloud ?

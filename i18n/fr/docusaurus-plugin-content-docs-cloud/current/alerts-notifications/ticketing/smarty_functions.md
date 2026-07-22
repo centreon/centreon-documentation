@@ -1,6 +1,7 @@
 ---
 id: ticketing-advanced-smarty-functions
 title: Fonctions Smarty Open Tickets
+description: Référence des fonctions Smarty pour insérer groupes d'hôtes et de services, sévérités, catégories et macros dans les tickets
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

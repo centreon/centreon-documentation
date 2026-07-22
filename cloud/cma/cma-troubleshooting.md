@@ -1,6 +1,7 @@
 ---
 id: cma-troubleshooting
 title: Troubleshooting CMA
+description: Troubleshoot Centreon Monitoring Agent connectivity, service status, and log errors on hosts and pollers
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

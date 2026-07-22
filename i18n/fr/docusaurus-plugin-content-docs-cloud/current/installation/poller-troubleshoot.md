@@ -1,6 +1,7 @@
 ---
 id: poller-troubleshoot
 title: Dépanner vos collecteurs
+description: Scénarios étape par étape pour dépanner les problèmes de déploiement de configuration et d'envoi de données des collecteurs Centreon Cloud
 ---
 
 import Tabs from '@theme/Tabs';

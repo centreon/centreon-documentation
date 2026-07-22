@@ -1,6 +1,7 @@
 ---
 id: ot-jira
 title: Jira
+description: Configurez le fournisseur de tickets Jira qui se connecte à Jira Cloud via l'API REST de Jira
 ---
 
 ## How it works

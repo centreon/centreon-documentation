@@ -1,6 +1,7 @@
 ---
 id: ba-management
 title: Manage Business Activities
+description: Configure Business Activities, indicators (KPIs), boolean rules, and Business Views to model IT services in Centreon BAM
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

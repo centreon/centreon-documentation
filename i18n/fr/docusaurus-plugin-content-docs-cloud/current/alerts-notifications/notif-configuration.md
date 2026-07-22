@@ -1,6 +1,7 @@
 ---
 id: notif-configuration
 title: Configurer les notifications
+description: Comment créer des règles de notification qui définissent quand et à qui Centreon Cloud envoie des emails d'alerte
 ---
 
 Par défaut, aucune notification n'est envoyée par Centreon Cloud. Pour activer les emails de notification pour des ressources spécifiques, vous devez créer des règles de notification.

@@ -1,6 +1,7 @@
 ---
 id: poller-secure
 title: Sécuriser vos collecteurs
+description: Recommandations pour sécuriser vos collecteurs : mots de passe, SELinux, firewalld, journaux SIEM, sauvegardes et reprise après sinistre
 ---
 
 import Tabs from '@theme/Tabs';

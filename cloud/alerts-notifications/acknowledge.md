@@ -1,6 +1,7 @@
 ---
 id: acknowledge
 title: Acknowledging an alert
+description: How to acknowledge an alert to pause notifications, and how to disacknowledge it from the Resources Status page
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

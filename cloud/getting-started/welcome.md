@@ -1,4 +1,8 @@
-# Getting started with Centreon Cloud
+---
+id: welcome
+title: Getting started with Centreon Cloud
+description: Landing page for the Centreon Cloud Getting Started section, linking to onboarding guides and tutorials
+---
 
 Welcome to Centreon Cloud!
 

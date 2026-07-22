@@ -1,6 +1,7 @@
 ---
 id: active-passive-checks
 title: Active vs passive checks
+description: Difference between active and passive checks, their collection methods, and how to choose or combine them
 ---
 
 A check is an operation that determines the [status](../alerts-notifications/concepts.md) of a resource, and may also produce [metrics](./metrics.md) (performance data).The result of a check updates the corresponding resource's row on the **Resource Status** page.

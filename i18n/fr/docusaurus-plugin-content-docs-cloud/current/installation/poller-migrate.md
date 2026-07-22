@@ -1,6 +1,7 @@
 ---
 id: poller-migrate
 title: Migrer un collecteur vers une autre machine hôte
+description: Comment migrer un collecteur vers une nouvelle machine hôte en installant un nouveau serveur et en y déplaçant vos ressources supervisées
 ---
 
 import Tabs from '@theme/Tabs';

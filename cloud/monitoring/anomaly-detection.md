@@ -1,6 +1,7 @@
 ---
 id: anomaly-detection
 title: Anomaly detection
+description: How to configure and use the Centreon Anomaly Detection module, which detects deviations from normal service behavior
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

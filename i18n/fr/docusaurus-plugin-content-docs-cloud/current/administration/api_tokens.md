@@ -1,6 +1,7 @@
 ---
 id: api-tokens
 title: Utiliser les API Centreon Cloud
+description: Comment générer et utiliser des jetons d'API pour s'authentifier auprès des API Centreon Cloud, BAM, Autodiscovery et MAP
 ---
 
 import Tabs from '@theme/Tabs';

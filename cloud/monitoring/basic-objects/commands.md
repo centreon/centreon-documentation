@@ -1,6 +1,7 @@
 ---
 id: commands
 title: Commands
+description: How to create custom check commands, manage the command whitelist, and use SSH and Perl optimization connectors
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

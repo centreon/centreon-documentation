@@ -1,6 +1,7 @@
 ---
 id: event-log
 title: Journal des évènements
+description: Comment consulter les changements de statut et les notifications envoyées dans le journal d'évènements, et les exporter en CSV ou XML
 ---
 
 Le journal d'évènements permet de :

@@ -1,6 +1,7 @@
 ---
 id: notif-flapping
 title: Flapping
+description: How Centreon Engine detects flapping hosts and services, and the flapping thresholds used in Centreon Cloud
 ---
 
 ## Introduction

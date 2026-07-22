@@ -1,6 +1,7 @@
 ---
 id: cma-certificates
 title: Configurer les certificats
+description: Configurer les connexions TLS, TLS non sécurisé et non chiffrées de test entre l'agent de supervision Centreon et le collecteur
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

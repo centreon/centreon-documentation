@@ -1,6 +1,7 @@
 ---
 id: create-dashboard
 title: Créer votre premier tableau de bord
+description: Tutoriel vidéo pour créer votre premier tableau de bord Centreon Cloud et y ajouter des widgets pour visualiser vos ressources
 ---
 
 Commencez par créer des tableaux de bord et ajoutez des widgets spécialement conçus pour optimiser votre expérience utilisateur. Bénéficiez ensuite d'options de visualisation de données pour afficher et suivre vos ressources en temps réel.

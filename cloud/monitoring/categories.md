@@ -1,6 +1,7 @@
 ---
 id: categories
 title: Categories and severities
+description: How to create host and service categories and severities to organize, filter, and prioritize monitored resources
 ---
 
 Categories allow you to:

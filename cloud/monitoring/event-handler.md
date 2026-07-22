@@ -1,6 +1,7 @@
 ---
 id: event-handler
 title: Event handler (auto remediation)
+description: How to configure event handlers to automatically run remediation scripts on host or service state changes
 ---
 
 ## Introduction

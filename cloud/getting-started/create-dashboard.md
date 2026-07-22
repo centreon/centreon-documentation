@@ -1,6 +1,7 @@
 ---
 id: create-dashboard
 title: Creating your first dashboard
+description: Video tutorial for creating your first Centreon Cloud dashboard and adding widgets to visualize your resources
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.

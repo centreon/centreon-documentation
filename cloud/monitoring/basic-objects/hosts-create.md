@@ -1,6 +1,7 @@
 ---
 id: hosts-create
 title: Monitoring a host
+description: How to monitor a host by assigning it a Monitoring Connector template, whether created manually or via autodiscovery
 ---
 
 A host is any entity that has an IP address corresponding to a resource of the information system. Example: A server, network printer, NAS server, temperature sensor, IP camera, etc.

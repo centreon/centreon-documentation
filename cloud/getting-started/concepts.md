@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Centreon basics
+description: Introduction to Centreon monitoring concepts, including hosts, services, metrics, templates, and Monitoring Connectors
 ---
 
 ## What does Centreon monitor?

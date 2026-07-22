@@ -1,6 +1,7 @@
 ---
 id: pluginpacks
 title: Monitoring Connectors
+description: What a Monitoring Connector is, how to install one, and how to apply it to monitor a host or service
 ---
 
 ## What is a Monitoring Connector?

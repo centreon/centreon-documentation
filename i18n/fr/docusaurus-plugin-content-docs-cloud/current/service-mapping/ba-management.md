@@ -1,6 +1,7 @@
 ---
 id: ba-management
 title: Gestion
+description: Configurer les activités métier, les indicateurs (KPI), les règles booléennes et les vues métier pour modéliser vos services informatiques dans Centreon BAM
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

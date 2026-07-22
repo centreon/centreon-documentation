@@ -1,6 +1,7 @@
 ---
 id: event-log
 title: Event Logs
+description: How to view status changes and sent notifications in the Event Logs page, and export them to CSV or XML
 ---
 
 Use event logs to:

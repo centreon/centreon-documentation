@@ -1,6 +1,7 @@
 ---
 id: custom-views
 title: Vues personnalisées (legacy)
+description: Comment créer, éditer, partager et faire tourner les vues personnalisées (legacy) composées de widgets
 ---
 
 > Veuillez noter que la page **Vues personnalisées** ne sera plus disponible lors de nouvelles installations.

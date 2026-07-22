@@ -1,6 +1,7 @@
 ---
 id: macros
 title: Les macros
+description: Référence des macros standard et personnalisées utilisées dans les commandes de contrôle, y compris les macros d'hôte, de service et de notification
 ---
 
 Une macro est une variable qui définit une valeur utilisée par une commande pour contrôler des hôtes ou des services. Les macros vous permettent de personnaliser les contrôles en définissant une valeur particulière pour chaque hôte ou service contrôlé par le me^me modèle: la valeur de la macro pour un hôte ou service sepécifique est défini par l'utilisateur dans la formulaire de configuration de l'hôte ou du service.

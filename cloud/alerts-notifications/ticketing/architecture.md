@@ -1,6 +1,7 @@
 ---
 id: ticketing-advanced-architecture
 title: Architecture and debugging of Open Tickets
+description: Diagram and log file reference for debugging the Open Tickets workflow across Centreon components
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

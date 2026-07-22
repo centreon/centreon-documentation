@@ -1,6 +1,7 @@
 ---
 id: event-handler
 title: Gestionnaire d'évènements (auto-remédiation)
+description: Comment configurer des gestionnaires d'évènements pour exécuter automatiquement des scripts de remédiation lors d'un changement d'état d'un hôte ou d'un service
 ---
 
 ## Introduction

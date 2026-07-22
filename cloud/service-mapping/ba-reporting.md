@@ -1,6 +1,7 @@
 ---
 id: ba-reporting
 title: Report Business Activities
+description: View Business Activity availability reports and manually rebuild reporting statistics using the BAM rebuild-events script
 ---
 
 You can view history data at any time on the

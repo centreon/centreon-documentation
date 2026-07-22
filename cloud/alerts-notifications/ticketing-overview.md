@@ -1,6 +1,7 @@
 ---
 id: ticketing-overview
 title: Managing tickets
+description: Overview of the Open Tickets module for creating incident tickets in an ITSM tool from Centreon Cloud
 ---
 
 The **Centreon Open Tickets** community module enables you to integrate Centreon with an incident ticket management system (ITSM tool, called a "provider").

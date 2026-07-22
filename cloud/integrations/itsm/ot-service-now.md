@@ -1,6 +1,7 @@
 ---
 id: ot-servicenow
 title: ServiceNow
+description: Configure the ServiceNow open-tickets provider using the ServiceNow REST API, compatible with Madrid, London, and New York releases
 ---
 
 ## How it works

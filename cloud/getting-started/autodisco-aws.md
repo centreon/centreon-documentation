@@ -1,6 +1,7 @@
 ---
 id: autodisco-aws
 title: Monitor AWS EC2 instances using autodiscovery
+description: Step-by-step tutorial to detect and monitor AWS EC2 instances automatically using the Autodiscovery module
 ---
 
 In this tutorial, we will use the Autodiscovery module to detect AWS EC2 instances and monitor them.

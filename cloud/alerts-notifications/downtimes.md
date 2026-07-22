@@ -1,6 +1,7 @@
 ---
 id: downtimes
 title: Planning downtime
+description: How to set fixed or flexible downtime on resources, and configure recurrent downtime periods
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

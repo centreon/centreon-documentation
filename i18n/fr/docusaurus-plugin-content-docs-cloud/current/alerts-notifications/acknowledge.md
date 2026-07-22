@@ -1,6 +1,7 @@
 ---
 id: acknowledge
 title: Acquitter une alerte
+description: Comment acquitter une alerte pour suspendre les notifications, et comment la désacquitter depuis la page Statut des ressources
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: centreon-cloud-trial
 title: About the Centreon Cloud trial
+description: Details about the Centreon Cloud free trial, including its features, host limits, and how to set up a trial organization
 ---
 
 ## What is the Centreon Cloud trial?

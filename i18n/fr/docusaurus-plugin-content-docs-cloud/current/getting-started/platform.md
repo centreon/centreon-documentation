@@ -1,6 +1,7 @@
 ---
 id: platform
 title: Étapes de mise en place
+description: Étapes pour mettre en place votre plateforme Centreon Cloud, de la création de l'organisation à l'installation des collecteurs et connecteurs
 ---
 
 ## Comment obtenir une plateforme prête à la supervision ?

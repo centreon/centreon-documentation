@@ -1,6 +1,7 @@
 ---
 id: cma-troubleshooting
 title: Dépanner l'agent CMA
+description: Dépanner la connectivité, le statut du service et les erreurs de logs de l'agent de supervision Centreon sur les hôtes et les collecteurs
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

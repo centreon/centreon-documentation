@@ -1,6 +1,7 @@
 ---
 id: authentication-tokens
 title: Jetons d'authentification
+description: Présentation des jetons d'authentification API et CMA, de qui peut les créer, et comment les générer, désactiver ou supprimer
 ---
 
 import Tabs from '@theme/Tabs';

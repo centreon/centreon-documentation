@@ -1,6 +1,7 @@
 ---
 id: poller-monitor
 title: Superviser vos collecteurs
+description: Comment configurer un collecteur pour superviser un autre collecteur à l'aide du connecteur de supervision Centreon Poller
 ---
 
 import Tabs from '@theme/Tabs';

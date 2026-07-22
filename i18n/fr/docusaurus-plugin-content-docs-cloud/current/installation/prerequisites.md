@@ -1,6 +1,7 @@
 ---
 id: prerequisites
 title: Prérequis
+description: Prérequis d'OS, de matériel et de réseau à respecter avant d'installer un collecteur Centreon Cloud
 ---
 
 > **IMPORTANT** : Le collecteur est un composant déployé dans l'infrastructure des clients. Son administration (infrastructure matérielle, virtuelle, OS, sécurité, supervision et couches applicatives Centreon etc) est ainsi à l'entière responsabilité des clients, selon les termes des [Conditions Générales d'Utilisation](https://www.centreon.com/legal/en/centreon-cloud-services-terms-row).

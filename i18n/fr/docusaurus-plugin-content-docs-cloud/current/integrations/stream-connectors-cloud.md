@@ -1,6 +1,7 @@
 ---
 id: stream-connectors-cloud
 title: Stream connectors
+description: Liste des stream connectors disponibles dans Centreon Cloud pour envoyer les données de supervision vers des systèmes tiers
 ---
 
 Utilisez les stream connectors pour envoyer les données collectées par Centreon vers des systèmes tiers. Contactez votre Customer Success Manager afin de mettre en place une telle intégration.
