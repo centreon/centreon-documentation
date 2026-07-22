@@ -1,13 +1,13 @@
 ---
-id: network-aruba-aoscx-snmp
-title: ArubaOS-CX SNMP
+id: network-waystream-snmp
+title: Waystream SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **ArubaOS-CX SNMP** connector through the
+The following monitoring connectors will be installed when you install the **Waystream SNMP** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,34 +15,36 @@ The following monitoring connectors will be installed when you install the **Aru
 
 ### Templates
 
-The Monitoring Connector **ArubaOS-CX SNMP** brings a host template:
+The Monitoring Connector **Waystream SNMP** brings a host template:
 
-* **Net-Aruba-Aoscx-SNMP-custom**
+* **Net-Waystream-SNMP-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Aruba-Aoscx-SNMP-custom" label="Net-Aruba-Aoscx-SNMP-custom">
+<TabItem value="Net-Waystream-SNMP-custom" label="Net-Waystream-SNMP-custom">
 
-| Service Alias | Service Template                     | Service Description                                  |
-|:--------------|:-------------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Aruba-Aoscx-Cpu-SNMP-custom      | Check CPU                                            |
-| Hardware      | Net-Aruba-Aoscx-Hardware-SNMP-custom | Check hardware                                       |
-| Memory        | Net-Aruba-Aoscx-Memory-SNMP-custom   | Check memory                                         |
-| Uptime        | Net-Aruba-Aoscx-Uptime-SNMP-custom   | Time since the system has been working and available |
-| Vsf           | Net-Aruba-Aoscx-Vsf-SNMP-custom      | Check virtual switching fabric                       |
-| Vsx           | Net-Aruba-Aoscx-Vsx-SNMP-custom      | Check virtual switching extension                    |
+| Service Alias | Service Template                       | Service Description                                             |
+|:--------------|:---------------------------------------|:----------------------------------------------------------------|
+| Arp           | Net-Waystream-Arp-SNMP-custom          | Check ARP table.                                                |
+| Cpu           | Net-Waystream-Cpu-SNMP-custom          | Check the rate of utilization of CPU                            |
+| Cpu-Detailed  | Net-Waystream-Cpu-Detailed-SNMP-custom | Check the detailed rate of utilization of CPU for the machine.  |
+| Hardware      | Net-Waystream-Hardware-SNMP-custom     | Check the state of hardware components                          |
+| Memory        | Net-Waystream-Memory-SNMP-custom       | Check machine memory usage                                      |
+| Ntp           | Net-Waystream-Ntp-SNMP-custom          | Check time offset compared to a NTP server                      |
+| Uptime        | Net-Waystream-Uptime-SNMP-custom       | Time since the equipment has been working and available         |
 
-> The services listed above are created automatically when the **Net-Aruba-Aoscx-SNMP-custom** host template is used.
+> The services listed above are created automatically when the **Net-Waystream-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                         | Service Description                                                    | Discovery |
-|:--------------|:-----------------------------------------|:-----------------------------------------------------------------------|:---------:|
-| Interfaces    | Net-Aruba-Aoscx-Interfaces-SNMP-custom   | Check interfaces                                                       |     X     |
-| Spanning-Tree | Net-Aruba-Aoscx-SpanningTree-SNMP-custom | Monitor the status of the Spanning Tree Protocol on network interfaces |     X     |
-| Stack         | Net-Aruba-Aoscx-Stack-SNMP-custom        | Check stack members                                                    |           |
+| Service Alias | Service Template                     | Service Description           | Discovery |
+|:--------------|:-------------------------------------|:------------------------------|:---------:|
+| Interfaces    | Net-Waystream-Interfaces-SNMP-custom | Check interfaces              | X         |
+| Sfp-Port      | Net-Waystream-Sfp-Port-SNMP-custom   | Check SFP ports               | X         |
+| Tcpcon        | Net-Waystream-Tcpcon-SNMP-custom     | Check current TCP connections |           |
+| Udpcon        | Net-Waystream-Udpcon-SNMP-custom     | Check current UDP connections |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -55,18 +57,18 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name   | Description                                                                                                                                                                                                                                          |
-|:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Aruba-Aoscx-SNMP-custom** host template. |
+| Rule name   | Description                                                                                                                                                                                                                                        |
+|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Waystream-SNMP-custom** host template. |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
 #### Service discovery
 
-| Rule name                               | Description                                                                                  |
-|:----------------------------------------|:---------------------------------------------------------------------------------------------|
-| Net-Aruba-Aoscx-SNMP-Interface-Name     | Discover network interfaces and monitor bandwidth utilization                                |
-| Net-Aruba-Aoscx-SNMP-Spanning-Tree-Name | Discover the network interfaces in order to monitor the status of the Spanning Tree Protocol |
+| Rule name                         | Description                                                   |
+|:----------------------------------|:--------------------------------------------------------------|
+| Net-Waystream-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
+| Net-Waystream-SNMP-Sfp-Port       | Discover SFP ports and monitor their status and usage |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -76,25 +78,46 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
+<TabItem value="Arp" label="Arp">
+
+| Name                        | Unit  |
+|:----------------------------|:------|
+| arp.total.entries.count     | count |
+| arp.duplicate.macaddr.count | count |
+| arp.duplicate.ipaddr.count  | count |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
+
+| Name                                       | Unit |
+|:-------------------------------------------|:-----|
+| cpu.utilization.percentage                 | %    |
+| *cpu_core*#core.cpu.utilization.percentage | %    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
 | Name                                 | Unit |
 |:-------------------------------------|:-----|
-| *modules*#cpu.utilization.percentage | %    |
+| cpu.user.utilization.percentage      | %    |
+| cpu.nice.utilization.percentage      | %    |
+| cpu.system.utilization.percentage    | %    |
+| cpu.idle.utilization.percentage      | %    |
+| cpu.interrupt.utilization.percentage | %    |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
 | Name                       | Unit  |
 |:---------------------------|:------|
-| hardware.psu.count         | count |
-| psu status                 | N/A   |
+| hardware. fan.count        | count |
+| fan status                 | N/A   |
 | hardware.temperature.count | count |
 | temperature status         | N/A   |
-| hardware.fan.count         | count |
-| fan status                 | N/A   |
-| hardware.fantray.count     | count |
-| fantray status             | N/A   |
+| hardware.voltage .count    | count |
+| voltage  status            | N/A   |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -112,26 +135,51 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Name                              | Unit |
-|:----------------------------------|:-----|
-| *modules*#memory.usage.percentage | %    |
+| Name                    | Unit |
+|:------------------------|:-----|
+| memory.usage.bytes      | B    |
+| memory.free.bytes       | B    |
+| memory.usage.percentage | %    |
 
 </TabItem>
-<TabItem value="Spanning-Tree" label="Spanning-Tree">
+<TabItem value="Ntp" label="Ntp">
 
-| Name   | Unit |
-|:-------|:-----|
-| status | N/A  |
+| Name                | Unit |
+|:--------------------|:-----|
+| time.offset.seconds | s    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Stack" label="Stack">
+<TabItem value="Sfp-Port" label="Sfp-Port">
 
-| Name          | Unit |
-|:--------------|:-----|
-| member-status | N/A  |
-| port-status   | N/A  |
+| Name                          | Unit |
+|:------------------------------|:-----|
+| status                        | N/A  |
+| port.input.power.milliwatt    | mW   |
+| port.input.power.dbm          | dBm  |
+| port.output.power.milliwatt   | mW   |
+| port.output.power.dbm         | dBm  |
+| port.bias.current.milliampere | mA   |
+| port.bitrate.bitspersecond    | b/s  |
+| port.temperature.celsius      | C    |
+| port.voltage.volt             | V    |
+
+</TabItem>
+<TabItem value="Tcpcon" label="Tcpcon">
+
+| Name                              | Unit  |
+|:----------------------------------|:------|
+| service.connections.tcp.count     | count |
+| application.connections.tcp.count | count |
+
+</TabItem>
+<TabItem value="Udpcon" label="Udpcon">
+
+| Name                              | Unit  |
+|:----------------------------------|:------|
+| service.connections.udp.count     | count |
+| application.connections.udp.count | count |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -143,45 +191,20 @@ Here is the list of services for this connector, detailing all metrics and statu
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Vsf" label="Vsf">
-
-| Name                                        | Unit  |
-|:--------------------------------------------|:------|
-| status                                      | N/A   |
-| stack.members.total.count                   | count |
-| member-status                               | N/A   |
-| *members*~member.cpu.utilization.percentage | %     |
-| *members*~member.memory.usage.percentage    | %     |
-
-</TabItem>
-<TabItem value="Vsx" label="Vsx">
-
-| Name                                  | Unit  |
-|:--------------------------------------|:------|
-| device-status                         | N/A   |
-| isl-status                            | N/A   |
-| *vsx*~vsx.isl.packets.in.count        | count |
-| *vsx*~vsx.isl.packets.out.count       | count |
-| keepalive-status                      | N/A   |
-| *vsx*~vsx.keepalive.packets.in.count  | count |
-| *vsx*~vsx.keepalive.packets.out.count | count |
-
-</TabItem>
 </Tabs>
 
 ## Prerequisites
 
 ### SNMP Configuration
 
-The SNMP agent must be enabled and configured on the resource. 
-Please refer to the official documentation from the manufacturer/publisher. 
+The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation from the manufacturer/publisher. 
 Your resource may require a list of addresses authorized to query it to be set up. 
 Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
-The target equipment must be reachable from the Centreon Poller on the UDP/161 SNMP
-port.
+The target resource must be reachable from the Centreon poller on the UDP/161
+SNMP port.
 
 ## Installing the monitoring connector
 
@@ -199,34 +222,34 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-aruba-aoscx-snmp
+dnf install centreon-pack-network-waystream-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-aruba-aoscx-snmp
+dnf install centreon-pack-network-waystream-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-network-aruba-aoscx-snmp
+apt install centreon-pack-network-waystream-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-aruba-aoscx-snmp
+yum install centreon-pack-network-waystream-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **ArubaOS-CX SNMP** connector through
+2. Whatever the license type (*online* or *offline*), install the **Waystream SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -246,28 +269,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Aruba-Aoscx-Snmp
+dnf install centreon-plugin-Network-Waystream-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Aruba-Aoscx-Snmp
+dnf install centreon-plugin-Network-Waystream-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-network-aruba-aoscx-snmp
+apt install centreon-plugin-network-waystream-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
+yum install centreon-plugin-Network-Waystream-Snmp
 ```
 
 </TabItem>
@@ -279,7 +302,7 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **Net-Aruba-Aoscx-SNMP-custom** template to the host.
+3. Apply the **Net-Waystream-SNMP-custom** template to the host.
 
 | Macro                   | Description                                                                                                                                                            | Default value | Mandatory |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -288,7 +311,7 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 | SNMP_V3_PRIV_PROTOCOL   | SNMP v3 only: Privacy protocol (`privProtocol`) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C |               |           |
 | SNMP_V3_AUTH_PASSPHRASE | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the  --authprotocol option                                                               |               |           |
 | SNMP_V3_PRIV_PASSPHRASE | SNMP v3 only: Privacy pass phrase (`privPassword`) to encrypt messages using the protocol defined in the --privprotocol option                                         |               |           |
-| SNMPEXTRAOPTIONS        | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                               |               |           |
+| SNMP_EXTRA_OPTIONS      | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                               |               |           |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -298,125 +321,202 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
+<TabItem value="Arp" label="Arp">
+
+| Macro                      | Description                                                                                                                                      | Default value | Mandatory |
+|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTER_MACADDR             | Filter mac addresses (can be a regexp)                                                                                                           |               |           |
+| FILTER_IPADDR              | Filter IP addresses (can be a regexp)                                                                                                            |               |           |
+| WARNING_DUPLICATE_IPADDR   | Threshold                                                                                                                                        |               |           |
+| CRITICAL_DUPLICATE_IPADDR  | Threshold                                                                                                                                        |               |           |
+| WARNING_DUPLICATE_MACADDR  | Threshold                                                                                                                                        |               |           |
+| CRITICAL_DUPLICATE_MACADDR | Threshold                                                                                                                                        |               |           |
+| WARNING_TOTAL_ENTRIES      | Threshold                                                                                                                                        |               |           |
+| CRITICAL_TOTAL_ENTRIES     | Threshold                                                                                                                                        |               |           |
+| EXTRA_OPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro                  | Description                                                                                                                                      | Default value | Mandatory |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| FILTERMODULENAME       | Filter modules by name (can be a regexp)                                                                                                         |               |           |
-| WARNINGCPUUTILIZATION  | Threshold                                                                                                                                        |               |           |
-| CRITICALCPUUTILIZATION | Threshold                                                                                                                                        |               |           |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
+| Macro            | Description                                                                                                                                      | Default value | Mandatory |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING_AVERAGE  | Warning threshold average CPU utilization                                                                                                        |               |           |
+| CRITICAL_AVERAGE | Critical threshold average CPU utilization                                                                                                       |               |           |
+| WARNING_CORE     | Warning thresholds for each CPU core                                                                                                             |               |           |
+| CRITICAL_CORE    | Critical thresholds for each CPU core                                                                                                            |               |           |
+| EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+
+</TabItem>
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
+
+| Macro              | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING_IDLE       | Threshold in percentage                                                                                                                          |               |           |
+| CRITICAL_IDLE      | Threshold in percentage                                                                                                                          |               |           |
+| WARNING_INTERRUPT  | Threshold in percentage                                                                                                                          |               |           |
+| CRITICAL_INTERRUPT | Threshold in percentage                                                                                                                          |               |           |
+| WARNING_NICE       | Threshold in percentage                                                                                                                          |               |           |
+| CRITICAL_NICE      | Threshold in percentage                                                                                                                          |               |           |
+| WARNING_SYSTEM     | Threshold in percentage                                                                                                                          |               |           |
+| CRITICAL_SYSTEM    | Threshold in percentage                                                                                                                          |               |           |
+| WARNING_USER       | Threshold in percentage                                                                                                                          |               |           |
+| CRITICAL_USER      | Threshold in percentage                                                                                                                          |               |           |
+| EXTRA_OPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                                                                      | Default value | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| COMPONENT    | Which component to check. Can be: `psu`, `temperature`, `fan`, `fantray`                                                                         | .*            |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
+| Macro                      | Description                                                                                                                            | Default value | Mandatory |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| COMPONENT                  | Which component to check. Can be: `fan`, `temperature`, `voltage`                                                                      | .*            |           |
+| NO_COMPONENT               | Define the expected status if no components are found                                                                                  | critical      |           |
+| WARNING                    | Set warning threshold for `temperature`, `fan`, `voltage` (syntax: type,regexp,threshold) Example: --warning='temperature,.*,30'       |               |           |
+| CRITICAL                   | Set critical threshold for `temperature`, `fan`, `voltage` (syntax: type,regexp,threshold) Example: --warning='temperature,.*,50'      |               |           |
+| WARNING_COUNT_FAN          | Threshold                                                                                                                              |               |           |
+| CRITICAL_COUNT_FAN         | Threshold                                                                                                                              |               |           |
+| WARNING_COUNT_TEMPERATURE  | Threshold                                                                                                                              |               |           |
+| CRITICAL_COUNT_TEMPERATURE | Threshold                                                                                                                              |               |           |
+| WARNING_COUNT_VOLTAGE      | Threshold                                                                                                                              |               |           |
+| CRITICAL_COUNT_VOLTAGE     | Threshold                                                                                                                              |               |           |
+| EXTRA_OPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                                         | Default value                                             | Mandatory |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:---------:|
-| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                            | ifname                                                    |           |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                   | ifname                                                    |           |
-| INTERFACENAME      | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                                                           |           |
-| WARNINGINDISCARD   | Thresholds                                                                                                                                                          |                                                           |           |
-| CRITICALINDISCARD  | Thresholds                                                                                                                                                          |                                                           |           |
-| WARNINGINERROR     | Thresholds                                                                                                                                                          |                                                           |           |
-| CRITICALINERROR    | Thresholds                                                                                                                                                          |                                                           |           |
-| WARNINGINTRAFFIC   | Thresholds                                                                                                                                                          |                                                           |           |
-| CRITICALINTRAFFIC  | Thresholds                                                                                                                                                          |                                                           |           |
-| WARNINGOUTDISCARD  | Thresholds                                                                                                                                                          |                                                           |           |
-| CRITICALOUTDISCARD | Thresholds                                                                                                                                                          |                                                           |           |
-| WARNINGOUTERROR    | Thresholds                                                                                                                                                          |                                                           |           |
-| CRITICALOUTERROR   | Thresholds                                                                                                                                                          |                                                           |           |
-| WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                                          |                                                           |           |
-| CRITICALOUTTRAFFIC | Thresholds                                                                                                                                                          |                                                           |           |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |           |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}    |                                                           |           |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose --no-skipped-counters                           |           |
+| Macro                     | Description                                                                                                                                                         | Default value                                    | Mandatory |
+|:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:---------:|
+| INTERFACE_NAME            | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                                                  |           |
+| SPEED                     | Set interface speed for incoming/outgoing traffic (in Mb)                                                                                                           |                                                  |           |
+| SPEED_IN                  | Set interface speed for incoming traffic (in Mb)                                                                                                                    |                                                  |           |
+| SPEED_OUT                 | Set interface speed for outgoing traffic (in Mb)                                                                                                                    |                                                  |           |
+| WARNING_IN_BCAST          | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_IN_BCAST         | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_IN_DISCARD        | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_IN_DISCARD       | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_IN_ERROR          | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_IN_ERROR         | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_IN_MCAST          | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_IN_MCAST         | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_IN_TRAFFIC        | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_IN_TRAFFIC       | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_IN_UCAST          | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_IN_UCAST         | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_OUT_BCAST         | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_OUT_BCAST        | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_OUT_DISCARD       | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_OUT_DISCARD      | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_OUT_ERROR         | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_OUT_ERROR        | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_OUT_MCAST         | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_OUT_MCAST        | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_OUT_TRAFFIC       | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_OUT_TRAFFIC      | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_OUT_UCAST         | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_OUT_UCAST        | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_STATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}    |                                                  |           |
+| CRITICAL_STATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} ne "up" |           |
+| WARNING_TOTAL_ADMIN_DOWN  | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_TOTAL_ADMIN_DOWN | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_TOTAL_ADMIN_UP    | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_TOTAL_ADMIN_UP   | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_TOTAL_OPER_DOWN   | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_TOTAL_OPER_DOWN  | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_TOTAL_OPER_UP     | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_TOTAL_OPER_UP    | Thresholds                                                                                                                                                          |                                                  |           |
+| WARNING_TOTAL_PORT        | Thresholds                                                                                                                                                          |                                                  |           |
+| CRITICAL_TOTAL_PORT       | Thresholds                                                                                                                                                          |                                                  |           |
+| EXTRA_OPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |                                                  |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                   | Description                                                                                                                                      | Default value | Mandatory |
-|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| FILTERMODULENAME        | Filter modules by name (can be a regexp)                                                                                                         |               |           |
-| WARNINGMEMORYUSAGEPRCT  | Threshold                                                                                                                                        |               |           |
-| CRITICALMEMORYUSAGEPRCT | Threshold                                                                                                                                        |               |           |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
+| Macro               | Description                                                                                                                                      | Default value | Mandatory |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| UNITS               | Units of thresholds ('%', 'absolute') (deprecated. Please use new counters directly)                                                             | %             |           |
+| WARNING_USAGE       | Threshold in bytes                                                                                                                               |               |           |
+| CRITICAL_USAGE      | Threshold in bytes                                                                                                                               |               |           |
+| WARNING_USAGE_FREE  | Threshold in bytes                                                                                                                               |               |           |
+| CRITICAL_USAGE_FREE | Threshold in bytes                                                                                                                               |               |           |
+| WARNING_USAGE_PRCT  | Threshold in percentage                                                                                                                          |               |           |
+| CRITICAL_USAGE_PRCT | Threshold in percentage                                                                                                                          |               |           |
+| EXTRA_OPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
-<TabItem value="Spanning-Tree" label="Spanning-Tree">
+<TabItem value="Ntp" label="Ntp">
 
-| Macro          | Description                                                                                                                                                               | Default value                    | Mandatory |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:---------:|
-| FILTERPORT     | Filter on port description (can be a regexp)                                                                                                                              | .*                               |           |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{op\_status\}, %\{admin\_status\}, %\{port\}, %\{index\} | %\{state\} =~ /blocking\|broken/ |           |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{op\_status\}, %\{admin\_status\}, %\{port\}, %\{index\}  |                                  |           |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                    | --verbose                        |           |
+| Macro           | Description                                                                                                                                                     | Default value | Mandatory |
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| NTP_HOSTNAME    | Set the NTP hostname (if not set, localtime is used)                                                                                                            |               |           |
+| NTP_PORT        | Set the NTP port                                                                                                                                                | 123           |           |
+| TIMEZONE        | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'                                                 |               |           |
+| WARNING_OFFSET  | Time warning threshold range (in seconds), in the format -n:n (e.g., -5:5). Returns WARNING when the offset is less than -n seconds or greater than n seconds   |               |           |
+| CRITICAL_OFFSET | Time critical threshold range (in seconds), in the format -n:n (e.g., -5:5). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds |               |           |
+| EXTRA_OPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                          |               |           |
 
 </TabItem>
-<TabItem value="Stack" label="Stack">
+<TabItem value="Sfp-Port" label="Sfp-Port">
 
-| Macro                | Description                                                                                                                                                                                                                   | Default value                                             | Mandatory |
-|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:---------:|
-| CRITICALMEMBERSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%\{role\} ne %\{roleLast\}'). You can use the following variables: %\{role\}, %\{roleLast\}, %\{state\}, %\{stateLast\}                               | %\{role\} ne %\{roleLast\}                                |           |
-| WARNINGMEMBERSTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{role\}, %\{roleLast\}, %\{state\}, %\{stateLast\}                                                          |                                                           |           |
-| CRITICALPORTSTATUS   | Define the conditions to match for the status to be CRITICAL (Default: '%\{admin\_status\} eq "up"  and %\{oper\_status\} ne "up"'). You can use the following variables: %\{admin\_status\}, %\{oper\_status\}, %\{display\} | %\{admin\_status\} eq "up"  and %\{oper\_status\} ne "up" |           |
-| WARNINGPORTSTATUS    | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{admin\_status\}, %\{oper\_status\}, %\{display\}                                                           |                                                           |           |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                        | --verbose                                                 |           |
+| Macro                        | Description                                                                                                                                                                                                              | Default value                                                                                                                                                                                                     | Mandatory |
+|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|
+| INCLUDE_PORT                 | Filter ports by index (can be a regexp)                                                                                                                                                                                  |                                                                                                                                                                                                                   |           |
+| EXCLUDE_PORT                 | Excludes ports by index (can be a regexp)                                                                                                                                                                                |                                                                                                                                                                                                                   |           |
+| INCLUDE_SERIAL               | Filter ports by serial (can be a regexp)                                                                                                                                                                                 |                                                                                                                                                                                                                   |           |
+| EXCLUDE_SERIAL               | Excludes ports by serial (can be a regexp)                                                                                                                                                                               |                                                                                                                                                                                                                   |           |
+| INCLUDE_INTERFACE            | Filter ports by interface name (can be a regexp). Can be used only together with --add-interface-name                                                                                                                    |                                                                                                                                                                                                                   |           |
+| EXCLUDE_INTERFACE            | Excludes ports by interface name (can be a regexp). Can be used only together with --add-interface-name                                                                                                                  |                                                                                                                                                                                                                   |           |
+| UNKNOWN_STATUS               | Define the conditions to match for the status to be WARNING'). You can use the following variables: %\{status\}, %\{temp\_status\}, %\{tx\_power\_status\}, %\{rx\_power\_status\}, %\{bias\_status\}, %\{volt\_status\} | '%\{status\} =~ /ok/ && (%\{temp\_status\} =~ /unknown/ \|\| %\{tx\_power\_status\} =~ /unknown/ \|\| %\{rx\_power\_status\} =~ /unknown/ \|\| %\{bias\_status\} =~ /unknown/ \|\| %\{volt\_status\} =~ /unknown/ |           |
+| WARNING_BIAS_CURRENT         | Threshold in mA                                                                                                                                                                                                          |                                                                                                                                                                                                                   |           |
+| CRITICAL_BIAS_CURRENT        | Threshold in mA                                                                                                                                                                                                          |                                                                                                                                                                                                                   |           |
+| WARNING_BITRATE              | Threshold in b/s                                                                                                                                                                                                         |                                                                                                                                                                                                                   |           |
+| CRITICAL_BITRATE             | Threshold in b/s                                                                                                                                                                                                         |                                                                                                                                                                                                                   |           |
+| WARNING_RX_INPUT_POWER       | Threshold in mW                                                                                                                                                                                                          |                                                                                                                                                                                                                   |           |
+| CRITICAL_RX_INPUT_POWER      | Threshold in mW                                                                                                                                                                                                          |                                                                                                                                                                                                                   |           |
+| WARNING_RX_INPUT_POWER_DBM   | Threshold in decibel-milliwatts                                                                                                                                                                                          |                                                                                                                                                                                                                   |           |
+| CRITICAL_RX_INPUT_POWER_DBM  | Threshold in decibel-milliwatts                                                                                                                                                                                          |                                                                                                                                                                                                                   |           |
+| WARNING_STATUS               | Threshold                                                                                                                                                                                                                |                                                                                                                                                                                                                   |           |
+| CRITICAL_STATUS              | Threshold                                                                                                                                                                                                                |                                                                                                                                                                                                                   |           |
+| WARNING_TEMPERATURE          | Threshold in C                                                                                                                                                                                                           |                                                                                                                                                                                                                   |           |
+| CRITICAL_TEMPERATURE         | Threshold in C                                                                                                                                                                                                           |                                                                                                                                                                                                                   |           |
+| WARNING_TX_OUTPUT_POWER      | Threshold in mW                                                                                                                                                                                                          |                                                                                                                                                                                                                   |           |
+| CRITICAL_TX_OUTPUT_POWER     | Threshold in mW                                                                                                                                                                                                          |                                                                                                                                                                                                                   |           |
+| WARNING_TX_OUTPUT_POWER_DBM  | Threshold in decibel-milliwatts                                                                                                                                                                                          |                                                                                                                                                                                                                   |           |
+| CRITICAL_TX_OUTPUT_POWER_DBM | Threshold in decibel-milliwatts                                                                                                                                                                                          |                                                                                                                                                                                                                   |           |
+| WARNING_VOLT                 | Threshold in Volts                                                                                                                                                                                                       |                                                                                                                                                                                                                   |           |
+| CRITICAL_VOLT                | Threshold in Volts                                                                                                                                                                                                       |                                                                                                                                                                                                                   |           |
+| EXTRA_OPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                   |                                                                                                                                                                                                                   |           |
+
+</TabItem>
+<TabItem value="Tcpcon" label="Tcpcon">
+
+| Macro         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Default value | Mandatory |
+|:--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FORCE_RFC     | Select the RFC to use for TCP connections. Allowed values: `auto`, `rfc4022`, `rfc1213`. With 'auto', the plugin uses RFC 4022 and falls back to RFC 1213 if it is not supported                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `auto`        |           |
+| SERVICE       | Check TCP connections following rules: tag,\[type\],\[state\],\[port-src\],\[port-dst\],\[filter-ip-src\],\[filter-ip-dst\],\[threshold-warning\],\[threshold-critical\]  Example to test SSH connections on the server: --service="ssh,,,22,,,,10,20"   =item \<tag\>  Name to identify service (must be unique and couldn't be 'total').  =item \<type\>  regexp - can use 'ipv4', 'ipv6'. Empty means all.  =item \<state\>  regexp - can use `finWait1`, `established`,... Empty means all (minus listen).  =item \<filter-ip-*\>  regexp - can use to exclude or include some IPs.  =item \<threshold-*\>  nagios-perfdata - number of connections.  =back |               |           |
+| APPLICATION   | Check TCP connections of multiple services: tag,\[services\],\[threshold-warning\],\[threshold-critical\]  Example: --application="web,http\|https,100,200"  =item \<tag\>  Name to identify application (must be unique).  =item \<services\>  List of services (used the tag name. Separated by '\|').  =item \<threshold-*\>  nagios-perfdata - number of connections                                                                                                                                                                                                                                                                                        |               |           |
+| WARNING       | Warning threshold for total connections                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |               |           |
+| CRITICAL      | Critical threshold for total connections                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |               |           |
+| EXTRA_OPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |               |           |
+
+</TabItem>
+<TabItem value="Udpcon" label="Udpcon">
+
+| Macro         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Default value | Mandatory |
+|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SERVICE       | Check UDP connections following rules: tag,\[type\],\[port\],\[filter-ip\],\[threshold-warning\],\[threshold-critical\]  Example to test NTP connections on the server: --service="ntp,,123,1,2"  =item \<tag\>  Name to identify service (must be unique and couldn't be 'total').  =item \<type\>  regexp - can use 'ipv4', 'ipv6'. Empty means all.  =item \<filter-ip\>  regexp - can use to exclude or include some IPs.  =item \<threshold-*\>  nagios-perfdata - number of connections.  =back |               |           |
+| APPLICATION   | Check UDP connections of multiple services: tag,\[services\],\[threshold-warning\],\[threshold-critical\]  Example: --application="web,http\|https,1,2"  =item \<tag\>  Name to identify application (must be unique).  =item \<services\>  List of services (used the tag name. Separated by '\|').  =item \<threshold-*\>  nagios-perfdata - number of connections                                                                                                                                  |               |           |
+| WARNING       | Warning threshold for total connections                                                                                                                                                                                                                                                                                                                                                                                                                                                               |               |           |
+| CRITICAL      | Critical threshold for total connections                                                                                                                                                                                                                                                                                                                                                                                                                                                              |               |           |
+| EXTRA_OPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                                                                                                                                                                                                                                |               |           |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                                                                      | Default value    | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:---------:|
-| UNIT         | Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds     |                  |           |
-| WARNING      | Warning threshold                                                                                                                                |                  |           |
-| CRITICAL     | Critical threshold                                                                                                                               |                  |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --check-overload |           |
-
-</TabItem>
-<TabItem value="Vsf" label="Vsf">
-
-| Macro                   | Description                                                                                                                                       | Default value                                                    | Mandatory |
-|:------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------:|
-| WARNINGCPUUTILIZATION   | Threshold                                                                                                                                         |                                                                  |           |
-| CRITICALCPUUTILIZATION  | Threshold                                                                                                                                         |                                                                  |           |
-| CRITICALMEMBERSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{role\}, %\{roleLast\}, %\{id\} | %\{role\} ne %\{roleLast\} \|\| %\{status\} !~ /ready\|booting/i |           |
-| WARNINGMEMBERSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{role\}, %\{roleLast\}, %\{id\}  |                                                                  |           |
-| WARNINGMEMBERSTOTAL     | Threshold                                                                                                                                         |                                                                  |           |
-| CRITICALMEMBERSTOTAL    | Threshold                                                                                                                                         |                                                                  |           |
-| WARNINGMEMORYUSAGEPRCT  | Threshold                                                                                                                                         |                                                                  |           |
-| CRITICALMEMORYUSAGEPRCT | Threshold                                                                                                                                         |                                                                  |           |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                    | %\{status\} !~ /no\_split/i                                      |           |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                     |                                                                  |           |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).            | --verbose                                                        |           |
-
-</TabItem>
-<TabItem value="Vsx" label="Vsx">
-
-| Macro                       | Description                                                                                                                                      | Default value                                            | Mandatory |
-|:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:---------:|
-| WARNINGDEVICESTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{role\}, %\{config\_sync\}                   |                                                          |           |
-| CRITICALDEVICESTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{role\}, %\{config\_sync\}                  |                                                          |           |
-| WARNINGISLPACKETSIN         | Threshold                                                                                                                                        |                                                          |           |
-| CRITICALISLPACKETSIN        | Threshold                                                                                                                                        |                                                          |           |
-| WARNINGISLPACKETSOUT        | Threshold                                                                                                                                        |                                                          |           |
-| CRITICALISLPACKETSOUT       | Threshold                                                                                                                                        |                                                          |           |
-| CRITICALISLSTATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{isl\_status\}                              | %\{isl\_status\} =~ /outSync/                            |           |
-| WARNINGISLSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{isl\_status\}                               |                                                          |           |
-| WARNINGKEEPALIVEPACKETSIN   | Threshold                                                                                                                                        |                                                          |           |
-| CRITICALKEEPALIVEPACKETSIN  | Threshold                                                                                                                                        |                                                          |           |
-| WARNINGKEEPALIVEPACKETSOUT  | Threshold                                                                                                                                        |                                                          |           |
-| CRITICALKEEPALIVEPACKETSOUT | Threshold                                                                                                                                        |                                                          |           |
-| CRITICALKEEPALIVESTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{keepalive\_status\}                        | %\{keepalive\_status\} =~ /outofSyncEstablished\|failed/ |           |
-| WARNINGKEEPALIVESTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{keepalive\_status\}                         |                                                          |           |
-| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose                                                |           |
+| Macro           | Description                                                                                                                                      | Default value    | Mandatory |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:---------:|
+| UNIT            | Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds     | s                |           |
+| WARNING_UPTIME  | Warning threshold                                                                                                                                |                  |           |
+| CRITICAL_UPTIME | Critical threshold                                                                                                                               |                  |           |
+| EXTRA_OPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --check-overload |           |
 
 </TabItem>
 </Tabs>
@@ -430,27 +530,23 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_aruba_aoscx_snmp.pl \
-	--plugin=network::aruba::aoscx::snmp::plugin \
-	--mode=spanning-tree \
-	--hostname=10.0.0.1 \
+/usr/lib/centreon/plugins/centreon_waystream_snmp.pl \
+	--plugin=network::waystream::snmp::plugin  \
+	--mode=sfp-port \
+	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community' \
 	--snmp-username='username' \
 	--authpassphrase='' \
 	--authprotocol='' \
 	--privpassphrase='' \
-	--privprotocol=''  \
-	--filter-port='.*' \
-	--warning-status='' \
-	--critical-status='%\{state\} =~ /blocking|broken/' \
-	--verbose
+	--privprotocol=''
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: All spanning trees are ok 
+OK: input power: 79110 mW input power: 89610 dBm output power: 32824 mW output power: 56977 dBm Bias Current : 83033 mA Bitrate : 29414 29414/s temperature: 75898 C Voltage : 89348 V | 'port.input.power.milliwatt'=79110mW;;;; 'port.input.power.dbm'=89610dBm;;;; 'port.output.power.milliwatt'=32824mW;;;; 'port.output.power.dbm'=56977dBm;;;; 'port.bias.current.milliampere'=83033mA;;;; 'port.bitrate.bitspersecond'=29414b/s;;;; 'port.temperature.celsius'=75898C;;;; 'port.voltage.volt'=89348V;;;; 
 ```
 
 ### Troubleshooting
@@ -469,26 +565,29 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_aruba_aoscx_snmp.pl \
-	--plugin=network::aruba::aoscx::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_waystream_snmp.pl \
+	--plugin=network::waystream::snmp::plugin  \
 	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                | Linked service template                  |
-|:------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/cpu.pm)]                    | Net-Aruba-Aoscx-Cpu-SNMP-custom          |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/hardware.pm)]          | Net-Aruba-Aoscx-Hardware-SNMP-custom     |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                 | Net-Aruba-Aoscx-Interfaces-SNMP-custom   |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]        | Used for service discovery               |
-| list-spanning-trees [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listspanningtrees.pm)] | Used for service discovery               |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/memory.pm)]              | Net-Aruba-Aoscx-Memory-SNMP-custom       |
-| spanning-tree [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/spanningtree.pm)]            | Net-Aruba-Aoscx-SpanningTree-SNMP-custom |
-| stack [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/stack.pm)]                | Net-Aruba-Aoscx-Stack-SNMP-custom        |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                         | Net-Aruba-Aoscx-Uptime-SNMP-custom       |
-| vsf [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/vsf.pm)]                    | Net-Aruba-Aoscx-Vsf-SNMP-custom          |
-| vsx [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/aruba/aoscx/snmp/mode/vsx.pm)]                    | Net-Aruba-Aoscx-Vsx-SNMP-custom          |
+| Mode                                                                                                                              | Linked service template                |
+|:----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
+| arp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/arp.pm)]                             | Net-Waystream-Arp-SNMP-custom          |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpu.pm)]                             | Net-Waystream-Cpu-SNMP-custom          |
+| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/waystream/snmp/mode/cpudetailed.pm)]   | Net-Waystream-Cpu-Detailed-SNMP-custom |
+| force_new_perfdata [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/1.pm)]                                   | Not used in this Monitoring Connector  |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/waystream/snmp/mode/hardware.pm)]          | Net-Waystream-Hardware-SNMP-custom     |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]               | Net-Waystream-Interfaces-SNMP-custom   |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]      | Used for service discovery             |
+| list-sfp-ports [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/waystream/snmp/mode/listsfpport.pm)] | Used for service discovery             |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/waystream/snmp/mode/memory.pm)]              | Net-Waystream-Memory-SNMP-custom       |
+| ntp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/ntp.pm)]                             | Net-Waystream-Ntp-SNMP-custom          |
+| sfp-port [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/waystream/snmp/mode/sfpport.pm)]           | Net-Waystream-Sfp-Port-SNMP-custom     |
+| tcpcon [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/tcpcon.pm)]                       | Net-Waystream-Tcpcon-SNMP-custom       |
+| udpcon [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/udpcon.pm)]                       | Net-Waystream-Udpcon-SNMP-custom       |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                       | Net-Waystream-Uptime-SNMP-custom       |
 
 ### Available options
 
@@ -563,39 +662,65 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
+<TabItem value="Arp" label="Arp">
+
+| Option                       | Description                             |
+|:-----------------------------|:----------------------------------------|
+| --filter-macaddr             | Filter mac addresses (can be a regexp). |
+| --filter-ipaddr              | Filter IP addresses (can be a regexp).  |
+| --warning-duplicate-ipaddr   | Threshold.                              |
+| --critical-duplicate-ipaddr  | Threshold.                              |
+| --warning-duplicate-macaddr  | Threshold.                              |
+| --critical-duplicate-macaddr | Threshold.                              |
+| --warning-total-entries      | Threshold.                              |
+| --critical-total-entries     | Threshold.                              |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Option                   | Description                                                                                                               |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-xxx            | Warning threshold.                                                                                                        |
-| --critical-xxx           | Critical threshold.                                                                                                       |
-| --filter-module-name     | Filter modules by name (can be a regexp).                                                                                 |
-| --warning-* --critical-* | Thresholds. Can be: 'cpu-utilization' (%).                                                                                |
+| Option             | Description                                 |
+|:-------------------|:--------------------------------------------|
+| --use-ucd          | Use UCD MIB for CPU average.                |
+| --warning-average  | Warning threshold average CPU utilization.  |
+| --critical-average | Critical threshold average CPU utilization. |
+| --warning-core     | Warning thresholds for each CPU core        |
+| --critical-core    | Critical thresholds for each CPU core       |
+
+</TabItem>
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
+
+| Option               | Description              |
+|:---------------------|:-------------------------|
+| --warning-idle       | Threshold in percentage. |
+| --critical-idle      | Threshold in percentage. |
+| --warning-interrupt  | Threshold in percentage. |
+| --critical-interrupt | Threshold in percentage. |
+| --warning-nice       | Threshold in percentage. |
+| --critical-nice      | Threshold in percentage. |
+| --warning-system     | Threshold in percentage. |
+| --critical-system    | Threshold in percentage. |
+| --warning-user       | Threshold in percentage. |
+| --critical-user      | Threshold in percentage. |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Option               | Description                                                                                                                                                                                                         |
-|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          | Which component to check (default: '.*'). Can be: `psu`, `temperature`, `fan`, `fantray`.                                                                                                                           |
-| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=fan,1.1                                                                     |
-| --absent-problem     | Return an error if a component is not 'present' (default is skipping). It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'. |
-| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                          |
-| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,status,regexp). Example: --threshold-overload='fan,WARNING,string'                |
-| --warning            | Set warning threshold for 'temperature', 'fan.speed', 'psu.power' (syntax: section,\[instance,\]status,regexp) Example: --warning='temperature,.*,30' --warning='fan.speed,.*,1000'                                 |
-| --critical           | Set critical threshold for 'temperature', 'fan.speed', 'psu.power' (syntax: section,\[instance,\]status,regexp) Example: --critical='temperature,.*,40'                                                             |
-| --warning-count-*    | Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                        |
-| --critical-count-*   | Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                       |
+| Option               | Description                                                                                                                                                                                                                    |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          | Which component to check (default: '.*'). Can be: `fan`, `temperature`, `voltage`.                                                                                                                                             |
+| --filter             | Exclude the items given as a comma-separated list (example: --filter=temperature --filter=fan). You can also exclude items from specific instances: --filter=fan,1                                                             |
+| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                                     |
+| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='temperature,CRITICAL,^(?!(ok)$)' |
+| --warning            | Set warning threshold for `temperature`, `fan`, `voltage` (syntax: type,regexp,threshold) Example: --warning='temperature,.*,30'                                                                                               |
+| --critical           | Set critical threshold for `temperature`, `fan`, `voltage` (syntax: type,regexp,threshold) Example: --warning='temperature,.*,50'                                                                                              |
+| --warning-count-*    | Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                   |
+| --critical-count-*   | Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                  |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
 | Option                                          | Description                                                                                                                                                                                                                                 |
 |:------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters                               | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                   |
-| --warning-xxx                                   | Warning threshold.                                                                                                                                                                                                                          |
-| --critical-xxx                                  | Critical threshold.                                                                                                                                                                                                                         |
 | --memcached                                     | Memcached server to use (only one server).                                                                                                                                                                                                  |
 | --redis-server                                  | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                             |
 | --redis-attribute                               | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                     |
@@ -679,49 +804,102 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Option                   | Description                                                                                                               |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-xxx            | Warning threshold.                                                                                                        |
-| --critical-xxx           | Critical threshold.                                                                                                       |
-| --filter-module-name     | Filter modules by name (can be a regexp).                                                                                 |
-| --warning-* --critical-* | Thresholds. Can be: 'memory-usage-prct' (%).                                                                              |
+| Option                | Description                                                                                         |
+|:----------------------|:----------------------------------------------------------------------------------------------------|
+| --units               | Units of thresholds (default: '%') ('%', 'absolute') (deprecated. Please use new counters directly) |
+| --free                | Thresholds are on free space left (deprecated. Please use new counters directly)                    |
+| --warning-usage       | Threshold in bytes.                                                                                 |
+| --critical-usage      | Threshold in bytes.                                                                                 |
+| --warning-usage-free  | Threshold in bytes.                                                                                 |
+| --critical-usage-free | Threshold in bytes.                                                                                 |
+| --warning-usage-prct  | Threshold in percentage.                                                                            |
+| --critical-usage-prct | Threshold in percentage.                                                                            |
 
 </TabItem>
-<TabItem value="Spanning-Tree" label="Spanning-Tree">
+<TabItem value="Ntp" label="Ntp">
 
-| Option            | Description                                                                                                                                                                                                                                         |
-|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                           |
-| --warning-xxx     | Warning threshold.                                                                                                                                                                                                                                  |
-| --critical-xxx    | Critical threshold.                                                                                                                                                                                                                                 |
-| --filter-port     | Filter on port description (can be a regexp).                                                                                                                                                                                                       |
-| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{op\_status\}, %\{admin\_status\}, %\{port\}, %\{index\}.                                                                           |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{op\_status\} =~ /up/ && %\{state\} =~ /blocking\|broken/'). You can use the following variables: %\{state\}, %\{op\_status\}, %\{admin\_status\}, %\{port\}, %\{index\}. |
+| Option            | Description                                                                                                                                                      |
+|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --oid             | Override default OID.                                                                                                                                            |
+| --warning-offset  | Time warning threshold range (in seconds), in the format -n:n (e.g., -5:5). Returns WARNING when the offset is less than -n seconds or greater than n seconds.   |
+| --critical-offset | Time critical threshold range (in seconds), in the format -n:n (e.g., -5:5). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
+| --ntp-hostname    | Set the NTP hostname (if not set, localtime is used).                                                                                                            |
+| --ntp-port        | Set the NTP port (default: 123).                                                                                                                                 |
+| --timezone        | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.                                                 |
 
 </TabItem>
-<TabItem value="Stack" label="Stack">
+<TabItem value="Sfp-Port" label="Sfp-Port">
 
-| Option                   | Description                                                                                                                                                                                                                   |
-|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                     |
-| --warning-xxx            | Warning threshold.                                                                                                                                                                                                            |
-| --critical-xxx           | Critical threshold.                                                                                                                                                                                                           |
-| --unknown-member-status  | Define the conditions to match for the status to be UNKNOWN (Default: ''). You can use the following variables: %\{role\}, %\{roleLast\}, %\{state\}, %\{stateLast\}                                                          |
-| --warning-member-status  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{role\}, %\{roleLast\}, %\{state\}, %\{stateLast\}                                                          |
-| --critical-member-status | Define the conditions to match for the status to be CRITICAL (Default: '%\{role\} ne %\{roleLast\}'). You can use the following variables: %\{role\}, %\{roleLast\}, %\{state\}, %\{stateLast\}                               |
-| --unknown-port-status    | Define the conditions to match for the status to be UNKNOWN (Default: ''). You can use the following variables: %\{admin\_status\}, %\{oper\_status\}, %\{display\}                                                           |
-| --warning-port-status    | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{admin\_status\}, %\{oper\_status\}, %\{display\}                                                           |
-| --critical-port-status   | Define the conditions to match for the status to be CRITICAL (Default: '%\{admin\_status\} eq "up"  and %\{oper\_status\} ne "up"'). You can use the following variables: %\{admin\_status\}, %\{oper\_status\}, %\{display\} |
+| Option                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|:------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached                                     | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --redis-server                                  | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                       |
+| --redis-attribute                               | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                               |
+| --redis-db                                      | Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --failback-file                                 | Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --memexpiration                                 | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --statefile-dir                                 | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                |
+| --statefile-suffix                              | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                        |
+| --statefile-concat-cwd                          | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                           |
+| --statefile-format                              | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                 |
+| --statefile-key                                 | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --statefile-cipher                              | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                    |
+| --include-port                                  | Filter ports by index (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --exclude-port                                  | Excludes ports by index (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --include-serial                                | Filter ports by serial (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --exclude-serial                                | Excludes ports by serial (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --include-interface                             | Filter ports by interface name (can be a regexp). Can be used only together with --add-interface-name.                                                                                                                                                                                                                                                                                                                                                |
+| --exclude-interface                             | Excludes ports by interface name (can be a regexp). Can be used only together with --add-interface-name.                                                                                                                                                                                                                                                                                                                                              |
+| --add-interface-name                            | Add the corresponding interface name when set. Used for the instance name in performance data, too.                                                                                                                                                                                                                                                                                                                                                   |
+| --unknown-status                                | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /ok/ && (%\{temp\_status\} =~ /unknown/ \|\| %\{tx\_power\_status\} =~ /unknown/ \|\| %\{rx\_power\_status\} =~ /unknown/ \|\| %\{bias\_status\} =~ /unknown/ \|\| %\{volt\_status\} =~ /unknown/)'). You can use the following variables: %\{status\}, %\{temp\_status\}, %\{tx\_power\_status\}, %\{rx\_power\_status\}, %\{bias\_status\}, %\{volt\_status\} |
+| --warning-status                                | Threshold.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --critical-status                               | Threshold.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --warning-bias-current                          | Threshold in mA.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --critical-bias-current                         | Threshold in mA.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --warning-bitrate                               | Threshold in b/s.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --critical-bitrate                              | Threshold in b/s.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --warning-rx-input-power                        | Threshold in mW.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --critical-rx-input-power                       | Threshold in mW.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --warning-rx-input-power-dbm                    | Threshold in decibel-milliwatts.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --critical-rx-input-power-dbm                   | Threshold in decibel-milliwatts.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --warning-temperature                           | Threshold in C.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --critical-temperature                          | Threshold in C.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --warning-tx-output-power                       | Threshold in mW.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --critical-tx-output-power                      | Threshold in mW.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --warning-tx-output-power-dbm                   | Threshold in decibel-milliwatts.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --critical-tx-output-power-dbm                  | Threshold in decibel-milliwatts.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --warning-volt                                  | Threshold in Volts.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --critical-volt                                 | Threshold in Volts.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --reload-cache-time                             | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                                                                                                                                                                           |
+| --display-transform-src --display-transform-dst | Modify the interface name displayed by using a regular expression.  Example: adding `--display-transform-src='eth' --display-transform-dst='ens'`  will replace all occurrences of 'eth' with 'ens'                                                                                                                                                                                                                                                   |
+| --show-cache                                    | Display cache interface data.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+</TabItem>
+<TabItem value="Tcpcon" label="Tcpcon">
+
+| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|:--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning     | Warning threshold for total connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --critical    | Critical threshold for total connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --force-rfc   | Select the RFC to use for TCP connections. Allowed values: `auto`, `rfc4022`, `rfc1213` (default: `auto`). With 'auto', the plugin uses RFC 4022 and falls back to RFC 1213 if it is not supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --service     | Check TCP connections following rules: tag,\[type\],\[state\],\[port-src\],\[port-dst\],\[filter-ip-src\],\[filter-ip-dst\],\[threshold-warning\],\[threshold-critical\]  Example to test SSH connections on the server: --service="ssh,,,22,,,,10,20"   =item \<tag\>  Name to identify service (must be unique and couldn't be 'total').  =item \<type\>  regexp - can use 'ipv4', 'ipv6'. Empty means all.  =item \<state\>  regexp - can use `finWait1`, `established`,... Empty means all (minus listen).  =item \<filter-ip-*\>  regexp - can use to exclude or include some IPs.  =item \<threshold-*\>  nagios-perfdata - number of connections.  =back |
+| --application | Check TCP connections of multiple services: tag,\[services\],\[threshold-warning\],\[threshold-critical\]  Example: --application="web,http\|https,100,200"  =item \<tag\>  Name to identify application (must be unique).  =item \<services\>  List of services (used the tag name. Separated by '\|').  =item \<threshold-*\>  nagios-perfdata - number of connections.                                                                                                                                                                                                                                                                                       |
+
+</TabItem>
+<TabItem value="Udpcon" label="Udpcon">
+
+| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning     | Warning threshold for total connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --critical    | Critical threshold for total connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --service     | Check UDP connections following rules: tag,\[type\],\[port\],\[filter-ip\],\[threshold-warning\],\[threshold-critical\]  Example to test NTP connections on the server: --service="ntp,,123,1,2"  =item \<tag\>  Name to identify service (must be unique and couldn't be 'total').  =item \<type\>  regexp - can use 'ipv4', 'ipv6'. Empty means all.  =item \<filter-ip\>  regexp - can use to exclude or include some IPs.  =item \<threshold-*\>  nagios-perfdata - number of connections.  =back |
+| --application | Check UDP connections of multiple services: tag,\[services\],\[threshold-warning\],\[threshold-critical\]  Example: --application="web,http\|https,1,2"  =item \<tag\>  Name to identify application (must be unique).  =item \<services\>  List of services (used the tag name. Separated by '\|').  =item \<threshold-*\>  nagios-perfdata - number of connections.                                                                                                                                 |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
 | Option                 | Description                                                                                                                                                                                                                                 |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters      | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                   |
-| --warning-xxx          | Warning threshold.                                                                                                                                                                                                                          |
-| --critical-xxx         | Critical threshold.                                                                                                                                                                                                                         |
 | --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                  |
 | --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                             |
 | --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                     |
@@ -743,49 +921,14 @@ All available options for each service template are listed below:
 | --unit                 | Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                                                               |
 
 </TabItem>
-<TabItem value="Vsf" label="Vsf">
-
-| Option                   | Description                                                                                                                                                                                                                     |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                       |
-| --warning-xxx            | Warning threshold.                                                                                                                                                                                                              |
-| --critical-xxx           | Critical threshold.                                                                                                                                                                                                             |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}                                                                                                                   |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                                                                                                   |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /no\_split/i'). You can use the following variables: %\{status\}                                                                         |
-| --unknown-member-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{role\}, %\{roleLast\}, %\{id\}                                                                                |
-| --warning-member-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{role\}, %\{roleLast\}, %\{id\}                                                                                |
-| --critical-member-status | Define the conditions to match for the status to be CRITICAL (default: '%\{role\} ne %\{roleLast\} \|\| %\{status\} !~ /ready\|booting/i'). You can use the following variables: %\{status\}, %\{role\}, %\{roleLast\}, %\{id\} |
-| --warning-* --critical-* | Thresholds. Can be: 'members-total', 'memory-usage-prct', 'cpu-utilization'.                                                                                                                                                    |
-
-</TabItem>
-<TabItem value="Vsx" label="Vsx">
-
-| Option                      | Description                                                                                                                                                                                     |
-|:----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters           | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                       |
-| --warning-xxx               | Warning threshold.                                                                                                                                                                              |
-| --critical-xxx              | Critical threshold.                                                                                                                                                                             |
-| --unknown-device-status     | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{role\}, %\{config\_sync\}                                                                  |
-| --warning-device-status     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{role\}, %\{config\_sync\}                                                                  |
-| --critical-device-status    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{role\}, %\{config\_sync\}                                                                 |
-| --unknown-isl-status        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{isl\_status\}                                                                              |
-| --warning-isl-status        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{isl\_status\}                                                                              |
-| --critical-isl-status       | Define the conditions to match for the status to be CRITICAL (default: '%\{isl\_status\} =~ /outSync/'). You can use the following variables: %\{isl\_status\}                                  |
-| --unknown-keepalive-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{keepalive\_status\}                                                                        |
-| --warning-keepalive-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{keepalive\_status\}                                                                        |
-| --critical-keepalive-status | Define the conditions to match for the status to be CRITICAL (default: '%\{keepalive\_status\} =~ /outofSyncEstablished\|failed/'). You can use the following variables: %\{keepalive\_status\} |
-| --warning-* --critical-*    | Thresholds. Can be: 'isl-packets-in', 'isl-packets-out', 'keepalive-packets-in', 'keepalive-packets-out'.                                                                                       |
-
-</TabItem>
 </Tabs>
 
 All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_aruba_aoscx_snmp.pl \
-	--plugin=network::aruba::aoscx::snmp::plugin \
-	--mode=spanning-tree \
+/usr/lib/centreon/plugins/centreon_waystream_snmp.pl \
+	--plugin=network::waystream::snmp::plugin  \
+	--mode=sfp-port \
 	--help
 ```
