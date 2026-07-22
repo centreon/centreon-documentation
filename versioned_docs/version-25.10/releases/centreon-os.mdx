@@ -97,12 +97,11 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 <details>
   <summary>Bug fixes</summary>
-- [Broker] Fixed a coredump caused by a dangling pointer when the cache file grows and relocates in memory.
-- [Broker] Fixed a coredump caused by a dangling pointer when the cache file grows and relocates in memory.
-- [Broker] Fixed cbd storing old connections that no longer exists.
-- [Broker] Fixed handle of empty response from mariadb in specific cases.
-- [Centengine] Fixed an issue where time period was only active on time range exception day.
-- [Packaging] Fixed missing file libcentreon_pb_bbdo.so.debug on Collect.
+- [Broker] Fixed a crash caused by a dangling pointer that occurred when the cache file grew and was moved to a new location in memory.
+- [Broker] Fixed an issue where cbd was storing old connections that no longer existed.
+- [Broker] Fixed an issue where centreon-broker could lose monitoring data during database purge operations caused by a MariaDB 10.11.11 regression (empty error packets).
+- [Centengine] Fixed time periods being applied only on exception days instead of their normal schedule.
+- [Packaging] Added missing **libcentreon_pb_bbdo.so.debug** file to Collect .
 
 </details>
 
@@ -141,9 +140,9 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- [CMA] Fixed agent failing to start with hostnames with less than 5 characters.
-- [CMA] Timeperiods are now handled for checks cheduling and freshness calculation.
-- [Packaging] Fixed missing file libcentreon_pb_bbdo.so.debug on CMA.
+- [CMA] Fixed an issue where the agent failed to start with hostnames less than 5 characters long.
+- [CMA] Time periods are now correctly taken into account for check scheduling and freshness calculations.
+- [Packaging] Added missing **libcentreon_pb_bbdo.so.debug** file to CMA.
 
 </details>
 
