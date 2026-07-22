@@ -1,7 +1,7 @@
 ---
 id: security
 title: Centreon Cloud security management
-description: Overview of the security governance, infrastructure, data protection, and vulnerability response practices applied to Centreon Cloud
+description: "Overview of the security governance, infrastructure, data protection, and vulnerability response practices applied to Centreon Cloud"
 ---
 
 ## Introduction

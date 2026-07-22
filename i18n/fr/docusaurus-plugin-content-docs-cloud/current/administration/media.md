@@ -1,7 +1,7 @@
 ---
 id: media
 title: Gérer les médias
-description: Comment ajouter et gérer les fichiers image utilisés par l'interface web de Centreon, tels que les icônes de ressources et les fonds de carte
+description: "Comment ajouter et gérer les fichiers image utilisés par l'interface web de Centreon, tels que les icônes de ressources et les fonds de carte"
 ---
 
 Les médias sont des images utilisées par l'interface web de Centreon. Ces images

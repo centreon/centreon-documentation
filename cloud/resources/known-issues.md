@@ -1,7 +1,7 @@
 ---
 id: known-issues
 title: Centreon Cloud known issues
-description: List of known issues in Centreon Cloud on Resource Access Management, notifications, configuration, and login
+description: "List of known issues in Centreon Cloud on Resource Access Management, notifications, configuration, and login"
 ---
 
 The following paragraphs detail issues which are known to Centreon and will be fixed in coming releases. 

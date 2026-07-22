@@ -1,7 +1,7 @@
 ---
 id: ot-easyvista
 title: EasyVista API SOAP
-description: Configurez le fournisseur de tickets EasyVista SOAP, désormais obsolète et remplacé par la version API REST d'EasyVista
+description: "Configurez le fournisseur de tickets EasyVista SOAP, désormais obsolète et remplacé par la version API REST d'EasyVista"
 ---
 
 > **SOAP** Service Manager web services are no longer maintained, so we recommend that you use the [**Rest API** version](./ot-easyvista-rest-api.md) to benefit from the latest enhancements and features.

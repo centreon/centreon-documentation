@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Dépanner Centreon Cloud
-description: Liste des liens vers les ressources de dépannage dans la documentation Centreon Cloud
+description: "Liste des liens vers les ressources de dépannage dans la documentation Centreon Cloud"
 ---
 
 Cette page répertorie les rubriques de dépannage disponibles dans cette documentation. Cliquez sur un élément pour accéder à un contenu plus détaillé.

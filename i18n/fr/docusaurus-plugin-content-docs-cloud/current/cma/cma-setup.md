@@ -1,7 +1,7 @@
 ---
 id: cma-setup
 title: Configurer l’environnement de l’agent
-description: Guide étape par étape pour configurer, installer et déployer l'agent de supervision Centreon sur des hôtes Linux et Windows
+description: "Guide étape par étape pour configurer, installer et déployer l'agent de supervision Centreon sur des hôtes Linux et Windows"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

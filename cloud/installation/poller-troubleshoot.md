@@ -1,7 +1,7 @@
 ---
 id: poller-troubleshoot
 title: Troubleshooting your pollers
-description: Step-by-step scenarios to troubleshoot configuration deployment and data collection issues on Centreon Cloud pollers
+description: "Step-by-step scenarios to troubleshoot configuration deployment and data collection issues on Centreon Cloud pollers"
 ---
 
 import Tabs from '@theme/Tabs';

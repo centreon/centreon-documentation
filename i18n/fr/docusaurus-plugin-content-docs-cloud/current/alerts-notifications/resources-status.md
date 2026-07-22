@@ -1,7 +1,7 @@
 ---
 id: resources-status
 title: Page Statut des ressources
-description: Comment utiliser la page Statut des ressources pour visualiser, filtrer, rechercher et traiter les alertes sur les hôtes et services
+description: "Comment utiliser la page Statut des ressources pour visualiser, filtrer, rechercher et traiter les alertes sur les hôtes et services"
 ---
 
 La vue **Supervision > Statut des ressources** est votre vue principale

@@ -1,7 +1,7 @@
 ---
 id: interface
 title: Aperçu de l'interface Centreon
-description: Visite guidée de l'interface Centreon Cloud, avec les menus, le bandeau supérieur, le mode sombre et les paramètres de langue
+description: "Visite guidée de l'interface Centreon Cloud, avec les menus, le bandeau supérieur, le mode sombre et les paramètres de langue"
 ---
 
 ## Accéder à l'interface utilisateur

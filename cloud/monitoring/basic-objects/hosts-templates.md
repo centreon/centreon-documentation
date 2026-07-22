@@ -1,7 +1,7 @@
 ---
 id: hosts-templates
 title: Using host templates
-description: How host templates work, their inheritance types, and how to configure them in Centreon
+description: "How host templates work, their inheritance types, and how to configure them in Centreon"
 ---
 
 ## Definition

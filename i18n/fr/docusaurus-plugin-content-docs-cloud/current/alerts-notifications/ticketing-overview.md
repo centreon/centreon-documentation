@@ -1,7 +1,7 @@
 ---
 id: ticketing-overview
 title: Gérer des tickets
-description: Présentation du module Open Tickets permettant de créer des tickets d'incident dans un outil ITSM depuis Centreon Cloud
+description: "Présentation du module Open Tickets permettant de créer des tickets d'incident dans un outil ITSM depuis Centreon Cloud"
 ---
 
 Le module communautaire **Centreon Open Tickets** permet d'intégrer Centreon à un système de gestion de tickets d'incidents (outil ITSM, appelé « provider »).

@@ -1,7 +1,7 @@
 ---
 id: pluginpacks
 title: Utiliser des connecteurs de supervision
-description: Ce qu'est un connecteur de supervision, comment l'installer, et comment l'appliquer pour superviser un hôte ou un service
+description: "Ce qu'est un connecteur de supervision, comment l'installer, et comment l'appliquer pour superviser un hôte ou un service"
 ---
 
 ## Qu'est-ce qu'un connecteur de supervision?

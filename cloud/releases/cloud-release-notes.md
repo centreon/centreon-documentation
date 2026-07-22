@@ -1,7 +1,7 @@
 ---
 id: cloud-release-notes
 title: Centreon Cloud release notes
-description: Release notes for Centreon Cloud, detailing new features, improvements, and fixes for each release
+description: "Release notes for Centreon Cloud, detailing new features, improvements, and fixes for each release"
 ---
 
 ## June 22nd, 2026

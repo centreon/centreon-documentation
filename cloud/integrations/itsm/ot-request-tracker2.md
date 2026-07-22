@@ -1,7 +1,7 @@
 ---
 id: ot-request-tracker-restapi
 title: Request Tracker RestAPI
-description: Configure the Request Tracker open-tickets provider using version 2.0 of its REST API to open incidents
+description: "Configure the Request Tracker open-tickets provider using version 2.0 of its REST API to open incidents"
 ---
 
 ## How it works

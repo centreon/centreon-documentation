@@ -1,7 +1,7 @@
 ---
 id: poller-update-upgrade
 title: Mettre à jour/monter de version un collecteur
-description: Comment mettre à jour ou monter de version un collecteur vers la dernière version à l'aide de la commande d'installation
+description: "Comment mettre à jour ou monter de version un collecteur vers la dernière version à l'aide de la commande d'installation"
 ---
 
 import Tabs from '@theme/Tabs';

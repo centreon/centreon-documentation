@@ -1,7 +1,7 @@
 ---
 id: authentication-tokens
 title: Authentication tokens
-description: Overview of API and CMA authentication tokens, who can create them, and how to generate, disable, or delete them
+description: "Overview of API and CMA authentication tokens, who can create them, and how to generate, disable, or delete them"
 ---
 
 import Tabs from '@theme/Tabs';

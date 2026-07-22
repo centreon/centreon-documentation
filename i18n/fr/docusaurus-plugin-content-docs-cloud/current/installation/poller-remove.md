@@ -1,7 +1,7 @@
 ---
 id: poller-remove
 title: Supprimer un collecteur de votre architecture
-description: Comment supprimer un collecteur de votre architecture en toute sécurité après avoir déplacé ses ressources supervisées
+description: "Comment supprimer un collecteur de votre architecture en toute sécurité après avoir déplacé ses ressources supervisées"
 ---
 
 import Tabs from '@theme/Tabs';

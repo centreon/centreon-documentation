@@ -1,7 +1,7 @@
 ---
 id: categories
 title: Catégories et criticités
-description: Comment créer des catégories d'hôtes et de services ainsi que des criticités pour organiser, filtrer et prioriser les ressources supervisées
+description: "Comment créer des catégories d'hôtes et de services ainsi que des criticités pour organiser, filtrer et prioriser les ressources supervisées"
 ---
 
 Les catégories vous permettent :

@@ -1,7 +1,7 @@
 ---
 id: hosts
 title: Creating hosts manually
-description: Full list of fields to fill in when creating a host manually in Centreon, from general information to scheduling options
+description: "Full list of fields to fill in when creating a host manually in Centreon, from general information to scheduling options"
 ---
 
 To create a host manually:

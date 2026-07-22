@@ -1,7 +1,7 @@
 ---
 id: ram
 title: Granting users rights on resources
-description: How to create and manage resource access rules that determine which users can see specific resources in Centreon Cloud
+description: "How to create and manage resource access rules that determine which users can see specific resources in Centreon Cloud"
 ---
 
 Resource access rules allow you to grant users the right to see specific [resources](../resources/glossary.md#resource) and image folders.

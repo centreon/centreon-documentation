@@ -1,7 +1,7 @@
 ---
 id: active-passive-checks
 title: Contrôles actifs vs contrôles passifs
-description: Différence entre contrôles actifs et passifs, leurs méthodes de collecte, et comment les choisir ou les combiner
+description: "Différence entre contrôles actifs et passifs, leurs méthodes de collecte, et comment les choisir ou les combiner"
 ---
 
 Un contrôle est une opération qui détermine le [statut](../alerts-notifications/concepts.md) d'une ressource, et peut produire des [métriques](./metrics.md) (données de performance). Le résultat d’un contrôle met à jour la ligne correspondant à la ressource dans la page **Statut des ressources**.

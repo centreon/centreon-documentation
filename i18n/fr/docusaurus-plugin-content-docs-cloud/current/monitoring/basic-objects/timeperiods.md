@@ -1,7 +1,7 @@
 ---
 id: timeperiods
 title: Les périodes temporelles
-description: Comment définir des périodes temporelles et des exceptions horaires pour contrôler quand les contrôles sont exécutés
+description: "Comment définir des périodes temporelles et des exceptions horaires pour contrôler quand les contrôles sont exécutés"
 ---
 
 ## Définition

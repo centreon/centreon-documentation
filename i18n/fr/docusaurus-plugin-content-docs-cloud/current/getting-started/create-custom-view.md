@@ -1,7 +1,7 @@
 ---
 id: create-custom-view
 title: Comment créer une vue personnalisée ?
-description: Tutoriel pas à pas pour créer votre première vue personnalisée et y ajouter des widgets tels que TOP 10 CPU et Global Health
+description: "Tutoriel pas à pas pour créer votre première vue personnalisée et y ajouter des widgets tels que TOP 10 CPU et Global Health"
 ---
 
 Rendez-vous au menu **Home > Custom Views** et cliquez sur l'icône crayon situé tout à droite de l'interface pour activer

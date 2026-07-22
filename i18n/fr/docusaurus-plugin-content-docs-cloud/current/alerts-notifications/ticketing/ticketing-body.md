@@ -1,7 +1,7 @@
 ---
 id: ticketing-advanced-body
 title: Personnaliser les tickets
-description: Comment personnaliser le modèle du corps des tickets Open Tickets avec la syntaxe Smarty, du texte statique et des champs dynamiques
+description: "Comment personnaliser le modèle du corps des tickets Open Tickets avec la syntaxe Smarty, du texte statique et des champs dynamiques"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

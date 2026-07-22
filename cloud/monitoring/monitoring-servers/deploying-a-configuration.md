@@ -1,7 +1,7 @@
 ---
 id: deploying-a-configuration
 title: Deploying a configuration
-description: How to export and deploy configuration changes to pollers and the Centreon SaaS platform
+description: "How to export and deploy configuration changes to pollers and the Centreon SaaS platform"
 ---
 
 When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically. For the changes to be taken into account, you must deploy the configuration.

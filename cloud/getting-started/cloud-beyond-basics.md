@@ -1,7 +1,7 @@
 ---
 id: cloud-beyond-basics
 title: Centreon Cloud beyond basics
-description: Overview of advanced Centreon Cloud features to explore after the basics, such as groups, notifications, and Auto Discovery
+description: "Overview of advanced Centreon Cloud features to explore after the basics, such as groups, notifications, and Auto Discovery"
 ---
 
 Now that you have learned the basics about Centreon Cloud, you are ready to know more about how to use it.

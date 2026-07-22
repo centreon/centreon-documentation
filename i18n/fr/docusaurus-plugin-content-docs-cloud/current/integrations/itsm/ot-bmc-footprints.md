@@ -1,7 +1,7 @@
 ---
 id: ot-bmc-footprints
 title: BMC Footprints
-description: Configurez le fournisseur de tickets BMC Footprints qui utilise l'API SOAP pour ouvrir des incidents dans BMC Footprints 11.x
+description: "Configurez le fournisseur de tickets BMC Footprints qui utilise l'API SOAP pour ouvrir des incidents dans BMC Footprints 11.x"
 ---
 
 ## How it works

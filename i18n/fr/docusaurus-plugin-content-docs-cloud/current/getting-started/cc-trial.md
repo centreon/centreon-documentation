@@ -1,7 +1,7 @@
 ---
 id: centreon-cloud-trial
 title: L'offre d'essai Centreon Cloud
-description: Détails sur l'offre d'essai gratuite Centreon Cloud, ses fonctionnalités, ses limites d'hôtes et la création d'une organisation d'essai
+description: "Détails sur l'offre d'essai gratuite Centreon Cloud, ses fonctionnalités, ses limites d'hôtes et la création d'une organisation d'essai"
 ---
 
 ## Que comprend l'offre d'essai Centreon Cloud ?

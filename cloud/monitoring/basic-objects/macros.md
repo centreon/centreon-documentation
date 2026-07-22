@@ -1,7 +1,7 @@
 ---
 id: macros
 title: Macros
-description: Reference of standard and custom macros used in check commands, including host, service, and notification macros
+description: "Reference of standard and custom macros used in check commands, including host, service, and notification macros"
 ---
 A macro is a variable that defines a value to be used in a [command](commands.md) when checking hosts or services. Macros allow you to customize checks by defining a particular value for each host or service being checked by the same template: the value of the macro for a specific host of service is defined by the user in the configuration form for the host or the service.
 

@@ -1,7 +1,7 @@
 ---
 id: ba-settings
 title: Settings
-description: Configure default impact values and personalized user overview settings for Business Activities and KPIs
+description: "Configure default impact values and personalized user overview settings for Business Activities and KPIs"
 ---
 
 ## Default Settings

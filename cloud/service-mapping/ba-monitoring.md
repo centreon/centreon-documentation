@@ -1,7 +1,7 @@
 ---
 id: ba-monitoring
 title: Monitor Business Activities
-description: View and interpret real-time Business Activity status, health level, and KPI details in Centreon BAM monitoring pages
+description: "View and interpret real-time Business Activity status, health level, and KPI details in Centreon BAM monitoring pages"
 ---
 
 After adding, editing or deleting the BAs, KPIs and BVs, the objects

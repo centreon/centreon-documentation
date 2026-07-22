@@ -1,7 +1,7 @@
 ---
 id: ot-easyvista-rest-api
 title: EasyVista RestAPI
-description: Configurez le fournisseur de tickets EasyVista utilisant l'API REST d'EasyVista, y compris les champs personnalisés et les tests du connecteur
+description: "Configurez le fournisseur de tickets EasyVista utilisant l'API REST d'EasyVista, y compris les champs personnalisés et les tests du connecteur"
 ---
 
 The EasyVista Open Tickets provider uses the EasyVista Rest API to open incidents about your monitoring alerts.

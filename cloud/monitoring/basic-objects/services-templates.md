@@ -1,7 +1,7 @@
 ---
 id: services-templates
 title: Using service templates
-description: How service templates work, their inheritance rules, and best practices for linking them to host templates
+description: "How service templates work, their inheritance rules, and best practices for linking them to host templates"
 ---
 
 ## Definition

@@ -1,7 +1,7 @@
 ---
 id: monitor-cisco-router-with-snmp
 title: Monitor your first Cisco router
-description: Step-by-step tutorial to monitor a Cisco router using SNMP and the Cisco standard Monitoring Connector
+description: "Step-by-step tutorial to monitor a Cisco router using SNMP and the Cisco standard Monitoring Connector"
 ---
 
 ## Monitoring a Cisco Router with SNMP

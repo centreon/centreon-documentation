@@ -1,7 +1,7 @@
 ---
 id: ot-easyvista
 title: EasyVista API SOAP
-description: Configure the deprecated EasyVista SOAP API open-tickets provider, superseded by the EasyVista REST API version
+description: "Configure the deprecated EasyVista SOAP API open-tickets provider, superseded by the EasyVista REST API version"
 ---
 
 > **SOAP** Service Manager web services are no longer maintained, so we recommend that you use the [**Rest API** version](./ot-easyvista-rest-api.md) to benefit from the latest enhancements and features.

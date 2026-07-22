@@ -1,7 +1,7 @@
 ---
 id: monitor-windows-server-with-snmp
 title: Monitor your first Windows host
-description: Step-by-step tutorial to install, configure, and monitor a Windows server using SNMP and the Windows SNMP Monitoring Connector
+description: "Step-by-step tutorial to install, configure, and monitor a Windows server using SNMP and the Windows SNMP Monitoring Connector"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

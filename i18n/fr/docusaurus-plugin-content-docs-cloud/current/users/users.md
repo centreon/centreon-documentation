@@ -1,7 +1,7 @@
 ---
 id: users
 title: Les utilisateurs dans Centreon Cloud
-description: Présentation des rôles utilisateurs, de leurs droits, et de la création ou suppression d'utilisateurs dans une organisation Centreon Cloud
+description: "Présentation des rôles utilisateurs, de leurs droits, et de la création ou suppression d'utilisateurs dans une organisation Centreon Cloud"
 ---
 
 Dans Centreon Cloud, les utilisateurs/contacts peuvent :

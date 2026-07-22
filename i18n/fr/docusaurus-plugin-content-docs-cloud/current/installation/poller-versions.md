@@ -1,7 +1,7 @@
 ---
 id: poller-versions
 title: Versions des collecteurs
-description: Comment connaître la version de votre collecteur, quelle version utiliser, et la fréquence des mises à jour Centreon
+description: "Comment connaître la version de votre collecteur, quelle version utiliser, et la fréquence des mises à jour Centreon"
 ---
 
 ## Comment connaître la version de mon collecteur ?

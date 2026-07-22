@@ -1,7 +1,7 @@
 ---
 id: groups
 title: Groups
-description: How to create host groups and service groups to organize resources and manage access rules
+description: "How to create host groups and service groups to organize resources and manage access rules"
 ---
 
 ## Description

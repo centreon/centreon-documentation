@@ -1,7 +1,7 @@
 ---
 id: chart-virtual-metrics
 title: Métriques virtuelles
-description: Comment créer des métriques virtuelles avec la notation RPN pour agréger les données de plusieurs courbes Centreon
+description: "Comment créer des métriques virtuelles avec la notation RPN pour agréger les données de plusieurs courbes Centreon"
 ---
 
 ## Definition

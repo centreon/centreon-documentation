@@ -1,7 +1,7 @@
 ---
 id: prerequisites
 title: Prerequisites
-description: OS, hardware, and network requirements to meet before installing a Centreon Cloud poller
+description: "OS, hardware, and network requirements to meet before installing a Centreon Cloud poller"
 ---
 
 > **IMPORTANT**: The poller is a component that is deployed in the customers' infrastructure. Its administration (material and virtual infrastructure, OS, security, monitoring and Centreon applicative layers, etc) is solely the responsibility of the customers, as per the [Terms and Conditions](https://www.centreon.com/legal/en/centreon-cloud-services-terms-row).

@@ -1,7 +1,7 @@
 ---
 id: ba-settings
 title: Paramètres
-description: Configurer les valeurs d'impact par défaut et les paramètres personnalisés d'affichage pour les activités métier et les KPI
+description: "Configurer les valeurs d'impact par défaut et les paramètres personnalisés d'affichage pour les activités métier et les KPI"
 ---
 
 ## Paramètres par défaut

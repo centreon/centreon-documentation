@@ -1,7 +1,7 @@
 ---
 id: ticketing
 title: Configurer Open Tickets
-description: Comment les administrateurs configurent les règles de notification, macros et widgets pour activer la création de tickets dans Centreon Cloud
+description: "Comment les administrateurs configurent les règles de notification, macros et widgets pour activer la création de tickets dans Centreon Cloud"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

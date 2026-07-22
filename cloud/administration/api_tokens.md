@@ -1,7 +1,7 @@
 ---
 id: api-tokens
 title: Using APIs with Centreon Cloud
-description: How to generate and use API tokens to authenticate with the Centreon Cloud, BAM, Autodiscovery, and MAP APIs
+description: "How to generate and use API tokens to authenticate with the Centreon Cloud, BAM, Autodiscovery, and MAP APIs"
 ---
 
 import Tabs from '@theme/Tabs';

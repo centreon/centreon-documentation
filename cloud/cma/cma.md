@@ -1,7 +1,7 @@
 ---
 id: cma
 title: Introduction to CMA
-description: Overview of the Centreon Monitoring Agent (CMA), its use cases, supported OSs and applications, and connection modes
+description: "Overview of the Centreon Monitoring Agent (CMA), its use cases, supported OSs and applications, and connection modes"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

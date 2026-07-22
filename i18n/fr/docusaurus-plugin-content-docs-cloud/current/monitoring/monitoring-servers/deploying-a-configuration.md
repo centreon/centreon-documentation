@@ -1,7 +1,7 @@
 ---
 id: deploying-a-configuration
 title: Déployer une configuration
-description: Comment exporter et déployer les changements de configuration vers les collecteurs et la plateforme SaaS Centreon
+description: "Comment exporter et déployer les changements de configuration vers les collecteurs et la plateforme SaaS Centreon"
 ---
 
 Lorsque vous créez, supprimez ou modifiez des objets via le menu

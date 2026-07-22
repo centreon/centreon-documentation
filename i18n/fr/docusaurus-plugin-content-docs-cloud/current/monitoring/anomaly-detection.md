@@ -1,7 +1,7 @@
 ---
 id: anomaly-detection
 title: Anomaly Detection
-description: Comment configurer et utiliser le module Anomaly Detection de Centreon, qui détecte les déviations du comportement normal d'un service
+description: "Comment configurer et utiliser le module Anomaly Detection de Centreon, qui détecte les déviations du comportement normal d'un service"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

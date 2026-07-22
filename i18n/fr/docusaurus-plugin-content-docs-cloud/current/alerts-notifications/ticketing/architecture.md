@@ -1,7 +1,7 @@
 ---
 id: ticketing-advanced-architecture
 title: Architecture et débuggage d'Open Tickets
-description: Schéma et référence des fichiers de logs pour déboguer le fonctionnement d'Open Tickets à travers les composants Centreon
+description: "Schéma et référence des fichiers de logs pour déboguer le fonctionnement d'Open Tickets à travers les composants Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

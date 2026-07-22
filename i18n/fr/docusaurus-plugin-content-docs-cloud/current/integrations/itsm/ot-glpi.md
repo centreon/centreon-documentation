@@ -1,7 +1,7 @@
 ---
 id: ot-glpi
 title: GLPI
-description: Configurez le fournisseur de tickets GLPI utilisant l'ancien plugin webservice, compatible avec GLPI 8.5 à 9.0
+description: "Configurez le fournisseur de tickets GLPI utilisant l'ancien plugin webservice, compatible avec GLPI 8.5 à 9.0"
 ---
 
 ## How it works

@@ -1,7 +1,7 @@
 ---
 id: ot-glpi
 title: GLPI
-description: Configure the GLPI open-tickets provider using the legacy webservice plugin, compatible with GLPI 8.5 to 9.0
+description: "Configure the GLPI open-tickets provider using the legacy webservice plugin, compatible with GLPI 8.5 to 9.0"
 ---
 
 ## How it works

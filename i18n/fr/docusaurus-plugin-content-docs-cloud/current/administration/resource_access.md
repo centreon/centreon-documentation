@@ -1,7 +1,7 @@
 ---
 id: ram
 title: Attribuer des droits aux utilisateurs sur les ressources
-description: Comment créer et gérer les règles d'accès aux ressources qui déterminent quels utilisateurs peuvent voir quelles ressources dans Centreon Cloud
+description: "Comment créer et gérer les règles d'accès aux ressources qui déterminent quels utilisateurs peuvent voir quelles ressources dans Centreon Cloud"
 ---
 
 Les règles d'accès aux ressources vous permettent d'attribuer aux utilisateurs le droit de voir des [ressources](../resources/glossary.md#ressource) spécifiques et des dossiers d'images.

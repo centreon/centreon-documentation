@@ -1,7 +1,7 @@
 ---
 id: submit
 title: Submitting a status
-description: How to manually submit a status, output, and performance data for a passively checked service
+description: "How to manually submit a status, output, and performance data for a passively checked service"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

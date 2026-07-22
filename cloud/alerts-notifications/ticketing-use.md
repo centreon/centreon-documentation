@@ -1,7 +1,7 @@
 ---
 id: ticketing-use
 title: Using Open Tickets
-description: How operators open and close ITSM tickets from dashboard or custom view widgets in Centreon Cloud
+description: "How operators open and close ITSM tickets from dashboard or custom view widgets in Centreon Cloud"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

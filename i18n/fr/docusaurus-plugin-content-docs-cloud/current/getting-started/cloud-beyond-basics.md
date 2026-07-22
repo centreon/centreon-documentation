@@ -1,7 +1,7 @@
 ---
 id: cloud-beyond-basics
 title: Pour aller plus loin dans Centreon Cloud
-description: Panorama des fonctionnalités avancées de Centreon Cloud à explorer après les bases, comme les groupes, les notifications et la découverte automatique
+description: "Panorama des fonctionnalités avancées de Centreon Cloud à explorer après les bases, comme les groupes, les notifications et la découverte automatique"
 ---
 
 Maintenant que vous avez acquis les bases de Centreon Cloud, vous êtes prêt à en savoir plus sur son utilisation.
