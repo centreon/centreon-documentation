@@ -161,7 +161,7 @@ systemctl restart centreon-map-engine
 ```
 
 Centreon MAP server is now configured to respond to requests from HTTPS. The
-default listening port automatically switches to **9443** (instead of 8081).
+default listening port automatically switches to **9443** (or a port previously configured) instead of 8081.
 
 To use a different port, set the following parameter in
 **/etc/centreon-map/map-config.properties**:
