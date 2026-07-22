@@ -170,9 +170,7 @@ To use a different port, set the following parameter in
 centreon-map.port=9443
 ```
 
-> See the [dedicated
-> procedure](map-web-advanced-configuration.md#change-the-centreon-map-servers-port)
-> for more details on changing the port.
+To change the default port, refer to the [dedicated procedure](./map-web-change-port.md).
 
 > Don't forget to modify the URL on Centreon side in the **MAP server address**
 > field in the **Administration > Extensions > Map > Options** menu.
