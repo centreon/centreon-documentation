@@ -1,6 +1,7 @@
 ﻿---
 id: collector
 title: Configuration complète de collecteur (sources de logs multiples)
+description: Configurer un collecteur OpenTelemetry pour collecter plusieurs sources de logs sur un même hôte
 ---
 
 import Tabs from '@theme/Tabs';
@@ -8,11 +9,9 @@ import TabItem from '@theme/TabItem';
 
 La section [Configurations simples de collecteur](opentelemetry-collector.md) fournit un fichier de configuration permettant de mettre en place la collecte des logs à partir d'une machine Windows. La procédure ci-dessous est plus adaptée aux cas où plusieurs types de journaux sont collectés sur le même hôte (sous Windows comme sous Linux).
 
-:::tip Gagnez du temps avec les modèles Centreon
-
-Centreon met à disposition [des modèles de configuration prêts à l'emploi pour les sources de logs les plus courantes](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main). Utilisez-les comme point de départ pour configurer rapidement votre collecteur.
-
-:::
+> **Gagnez du temps avec les modèles Centreon**
+>
+> Centreon met à disposition [des modèles de configuration prêts à l'emploi pour les sources de logs les plus courantes](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main). Utilisez-les comme point de départ pour configurer rapidement votre collecteur.
 
 Si vous rencontrez des problèmes, consultez la page [Dépanner votre installation](collector-troubleshooting.md).
 

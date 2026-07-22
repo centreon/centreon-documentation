@@ -25,6 +25,10 @@ Acknowledging a resource does not mean that the incident is over. It will be ove
 
 **See also**: [Acknowledging an alert](../alerts-notifications/acknowledge.md).
 
+## Agent
+
+An agent is a software component, provided by Centreon (e.g. Centreon Monitoring Agent) or by a third party (e.g. NSClient), installed on a resource to be monitored and designed to locally collect technical data about that resource (states, indicators, events) and then transmit it to the monitoring platform, either directly or through a [poller](#poller).
+
 ## Alert
 
 An alert is one of the following statuses: **Warning**, **Down**, **Critical**, **Unknown**.
@@ -63,6 +67,12 @@ In Centreon, the central server is the main console where you monitor resources.
 - configure the monitoring of your whole infrastructure,
 - monitor resources
 - see what all your Centreon servers monitor (central server, [remote servers](#remote-server) and [pollers](#poller)), using its web interface.
+
+## Check
+
+A check is an operation that determines the [status](#status) of a resource, and may also produce [metrics](#metric) (performance data). The result of a check updates the corresponding resource's row on the **Resource Status** page.
+
+A check can be performed either by the monitoring engine ([active check](../monitoring/active-passive-checks.md#active-checks)) or by the device itself ([passive check](../monitoring/active-passive-checks.md#passive-checks)).
 
 ## CLAPI
 

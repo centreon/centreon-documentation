@@ -1,11 +1,12 @@
 ﻿---
 id: user-journey-best-practices
 title: Bonnes pratiques des Parcours Utilisateurs
---- 
+description: Bonnes pratiques pour choisir des sélecteurs CSS, y compris avec des iframes
+---
 
 ## Gestion des iframes
 
-Vu la façon dont Experience Monitoring gère la possible présence d’iframes dans une page, un point important est à prendre en compte dans ce cas de figure précis. Si des iframes sont présentes et que nous souhaitons manipuler des sélecteurs CSS, il est nécessaire de choisir des selecteurs CSS qui sont soit à l'intérieur d'une iframe, soit à l'extérieur, mais **PAS** des selecteurs qui "traversent" les 2 contextes, ce qui ne fonctionnera pas. 
+Vu la façon dont Experience Monitoring gère la possible présence d’iframes dans une page, un point important est à prendre en compte dans ce cas de figure précis. Si des iframes sont présentes et que nous souhaitons manipuler des sélecteurs CSS, il est nécessaire de choisir des sélecteurs CSS qui sont soit à l'intérieur d'une iframe, soit à l'extérieur, mais **PAS** des sélecteurs qui "traversent" les 2 contextes, ce qui ne fonctionnera pas. 
 
 Voici un exemple explicatif, imaginons que le code HTML est architecturé comme ceci :
 
@@ -49,7 +50,7 @@ Voici un exemple explicatif, imaginons que le code HTML est architecturé comme 
 iframe #my-form
 ```
 
-⇒ ne fonctionne pas car #my-form est déja dans le document de l'iframe.
+⇒ ne fonctionne pas car #my-form est déjà dans le document de l'iframe.
 
 >**Quand on veut un élément qui est à l'intérieur d'une iframe, on doit faire comme si TOUT ce qu'il y a en dehors du CONTENU de l'iframe n'existait pas.**
 
@@ -85,7 +86,7 @@ iframe #my-form
     
     **Il est toujours préférable de choisir une vérification** car elle ne demandera pas de micro-réglage de la durée pour conserver le parcours utilisateur stable elle n'impactera pas les mesures de l'interaction (le wait est décompté dans le Hero Time)
     
-    Il existe certains cas ou l'action wait est nécessaire car il n'est pas possible d'ajouter une vérification, par exemple :
+    Il existe certains cas où l'action wait est nécessaire car il n'est pas possible d'ajouter une vérification, par exemple :
     
     - La page ajoute des event handlers après le onLoad : l'action souhaitée peut donc être déclenchée avant d'être prête à être traitée par la page (c'est un bug du site mais cela peut se produire plus facilement avec la sonde puisque celle-ci est bien plus rapide qu'un utilisateur)
     - Une action modifie la page mais il n'est pas possible de mettre une vérification sur cette modification. Par exemple si la modification concerne un attribut autre que "id" ou "class", qui n'est donc pas monitoré, on pourra recourir au wait (mais il conviendra de se demander d'abord si cette action à un quelconque intérêt)
@@ -130,7 +131,7 @@ iframe #my-form
     
     Cela permet d'une part de valider le code de retour de l'appel AJAX, mais aussi de s'assurer que le Hero Time est bien représentatif des éléments les plus importants de la page.
     
-### Nettoyer les vérification de requête des paramètres superflus
+### Nettoyer les vérifications de requête des paramètres superflus
     
     Certaines requêtes incluent des paramètres qui peuvent varier :
     
@@ -209,7 +210,7 @@ iframe #my-form
     En effet, si on teste cette chaine avec la console de Chrome, alors que le bouton est grisé on voit que le sélecteur CSS ne renvoi rien. Par contre, dès que la taille du produit a été sélectionnée et que la classe .disabled disparait, alors le sélecteur CSS va renvoyer l'objet. Au sens du scénario Experience Monitoring, cet élément **#product-addtocart-button:not(.disabled)** apparait ! C'est donc un parfait test pour vérifier que le bouton d'ajout au panier est désormais dé-grisé, avant d'envisager de le cliquer.
     
     Exemple 3 :
-    La formulation :not() peut s'appliquer à d'autres éléments que les classes. En l'occurence, Experience Monitoring surveille également l'apparition et la disparition des paramètres "disabled" ou "disable" au sein des objets du DOM, car il est fréquent que l'aspect "grisé" d'un bouton soit stocké sous forme d'un paramètre et non d'une classe (attention à ces subtilités qui sont spécifique à chaque site !).
+    La formulation :not() peut s'appliquer à d'autres éléments que les classes. En l'occurrence, Experience Monitoring surveille également l'apparition et la disparition des paramètres "disabled" ou "disable" au sein des objets du DOM, car il est fréquent que l'aspect "grisé" d'un bouton soit stocké sous forme d'un paramètre et non d'une classe (attention à ces subtilités qui sont spécifique à chaque site !).
     Vous pouvez donc avoir un bouton qui ressemble à ça :
 
     ```css
@@ -245,7 +246,7 @@ iframe #my-form
     Quand les boutons ont des classes ou des ID bien explicites, il est préférable de les utiliser pour réaliser les actions clics, ainsi en cas de léger changement d'URL, le scénario Experience Monitoring va s'adapter et faire sa navigation toujours correctement comme le ferait un internaute.
     Notre recommandation est d'utiliser cette formule pour :
     
-    - aller sur des URLs dont la formulation n'est pas amené a changer, exemple : "www.site.com/checkout/cart/".
+    - aller sur des URLs dont la formulation n'est pas amené à changer, exemple : "www.site.com/checkout/cart/".
     - ou bien, quand les ID, classes et autres éléments de la page rendent la sélection du bon lien trop incertaine. Dans ce cas il y a un compromis à faire. Exemple, si vous souhaitez cliquer sur une catégorie spécifique au sein d'un menu et que votre sélecteur CSS revient à cliquer sur le 8ème élément d'une liste... dites-vous qu'il est probable qu'un micro-changement sur le site décale votre clic et envoi votre scénario sur la mauvaise page. Dans ce cas, n'hésitez pas à utiliser la formulation a[href="https://www.xxxxx.com/"]**.**
     
     **button[data-role="change-store"]**
@@ -261,7 +262,7 @@ iframe #my-form
     
     Cette expression est donc réservée aux interactions avec des objets dont les paramètres **n'ont pas changé** depuis le chargement du code HTML initial. Si vous avez un doute sur le fait que le paramètre soit bien présent dans le code HTML initial, vous pouvez vous rendre dans la console de Chrome, dans l'onglet Network, puis cliquer sur la toute première requête de la page, puis cliquer dans l'onglet "Response". Vous verrez alors s'afficher le code HTML initial, tel qu'il a été transmis à votre navigateur avant d'éventuelles modifications réalisés par le code javascript. Un "CTRL-F" pour rechercher l'élément vous amènera directement au bon endroit.
     
-    Il peut être par exemple tentant de vouloir détecter un changement sur le paramètre "display" (exemple : un objet qui mais ce paramètre malheureusement beaucoup trop de changement pour être surveillé sans une très forte dégradation des performances.
+    Il peut être tentant de surveiller un changement d'attribut `display`, mais de tels attributs fluctuent souvent trop fréquemment pour être surveillés sans impact majeur sur les performances.
     
     **button[id^="checkout-"]**
     

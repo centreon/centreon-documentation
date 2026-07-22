@@ -11,27 +11,36 @@ Check commands are used by the monitoring engine to check the status of a host o
 
 Most commands are provided by the Monitoring Connectors you have installed and are ready to use. However, if these commands do not meet your needs (e.g. they have too many or too few arguments) you can create new ones (custom commands). You need to create one command per plugin and per [mode](../../resources/glossary.md#mode). Custom commands are an advanced feature.
 
-Commands can be configured in the following menu: **Configuration > Commands > Checks**.
+Commands can be configured in the following menu: **Configuration > Commands > Commands**.
 
 > By default, only custom commands (i.e. user-created commands) are displayed. All commands provided by Monitoring Connectors are read-only ("locked") and hidden. Check the "Locked elements" box to show these commands.
 
 ## Creating a custom check command
 
-1. Go to **Configuration > Commands > Checks**.
+1. Go to **Configuration > Commands > Commands**.
 2. Click **Add**.
 3. Fill in the following fields:
 
-   * **Command Name**: defines the name of the command. This name will appear in the list of commands in the host and service template creation forms.
-   * **Command Line**: the actual command that will be executed when a check is made. The syntax is that of Nagios. You need to specify:
+   * **Name**: This name will appear in the list of commands in the host and service template creation forms.
+   * **Command type**: in Centreon Cloud, only **Check** and **Miscellaneous** are available. **Miscellaneous** commands are used with [event handlers](../event-handler.md).
+   * **Command Line**: the actual command that will be executed when a check is made. The syntax is that of Nagios. Use the lists on the left to insert variables quickly and/or type your own contents. You need to specify:
 
-      * the application or script executed by the command (path and filename). For Centreon or Nagios plugins, use a variable so that Centreon can find the path to the plugins folder on any OS (the variable is defined on the **Configuration > Pollers > Resources** page). If you are using your own plugins, specify the path where you have stored the plugins.
-      * the [mode](../../resources/glossary.md#mode) of the plugin to use.
-      * any parameter you want to pass to the plugin in this mode. For Centreon plugins, refer to the documentation of the plugin in the [Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction) section.
-      * You can use [macros](macros.md) (host macros or service macros) to make your command more generic, but it is not compulsory. The macros's name will appear in the configuration form for the host or service so that you can give it a specific value for each host or service you use it with.
+      * A macro that represents the path to the script executed by the command (with no filename). For Centreon or Nagios plugins, use a variable so that Centreon can find the path to the plugins folder on any OS (the variable is defined on the **Configuration > Pollers > Global macros** page). If you are using your own plugins, specify the path where you have stored the plugins. Default values appear in **Poller global macros**, but you can also type the path to your own plugin you have stored somewhere else.
 
-   * **Describe macros**: add a description to custom macros. This description will be visible when using the command in a host or service configuration form.
-   * **Connectors**: use the **[Perl Connector](#perl-connector)** or the **[SSH Connector](#ssh-connector)** to reduce the consumption of resources of the plugin. The Perl connector can be used with all commands except **check_icmp** and **check_nrpe**.
-   * **Graph template**: link the command to a graph template.
+      Examples:
+
+         * $CENTREONPLUGINS$ if the plugin you are using is in the same place as Centreon plugins (like centreon_linux_snmp.pl)
+         * $USER1$ if the plugin you are using is in the same place as Nagios plugins (like check_icmp)
+         * /custom/path/ if the plugin you are using is in a custom location
+         * create the global macro $MYPLUGINS$  if the path is /custom/path/ on one poller and /alt/path/ on another one. This way you may use the same command for the same plugin found in various places depending on the poller.
+
+      * The name of the plugin you want to use (stored in the path specified in the poller global macro). **Installed plugins** allows you to select Nagios plugins. Examples: `centreon_linux_snmp.pl`, `check_icmp`...
+      * Any option you want to pass to the plugin in this [mode](../../resources/glossary.md#mode). For Centreon plugins, refer to the documentation of the plugin in the [Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction) section. Examples: `--community=public`, `--warning=1`, `--verbose`...
+      * Instead of hardcoding an option value, you can use [macros](macros.md) (host macros or service macros) to make your command more generic, but it is not compulsory. The macros's name will appear in the configuration form for the host or service so that you can give it a specific value for each host or service you use it with. You can use [**Standard macros**](./macros.md#standard-macros), or create you own [custom macros](./macros.md#custom-macros). Exampls: `--hostname='$HOSTADDRESS$'`, `--warning='$_SERVICEWARNING$'`, `--community='$_HOSTSNMPCOMMUNITY$'`...
+
+   * **Enable shell syntax**: check this box if your command uses shell functions (pipes, redirects, wildcards...). Note that commands requiring the shell slow down the monitoring server.
+
+   * **Optimization connectors**: use the **[Perl Connector](#perl-connector)** or the **[SSH Connector](#ssh-connector)** to reduce the consumption of resources of the plugin. The Perl connector can be used with all commands provided by Centreon that use Perl plugins (.pl). It is not compatible with commands that use **check_icmp** and **check_nrpe**.
 
 4. Click **Save**. The command now appears in the **Check command** list in the host or service template configuration pages.
 
@@ -190,3 +199,42 @@ apt install centreon-connector-perl
 
 </TabItem>
 </Tabs>
+
+#### Less fork mode
+
+> **Beta feature:** This mode has not yet been validated for all Centreon plugins. Test it on a limited number of pollers with your specific plugins before deploying at scale in production.
+
+In addition to avoiding Perl recompilation, the Perl connector supports a **less fork** mode. In standard mode, a child process is spawned for each check then immediately killed. In less fork mode, child processes are reused across multiple checks, dramatically reducing CPU usage.
+
+**Performance measurements** (50 hosts × 10 services each):
+
+| Mode | CPU usage |
+|------|-----------|
+| Engine without connector | 85% |
+| Perl connector – standard (fork per check) | 38% |
+| Perl connector – less fork (process reuse) | **11%** |
+
+**How it works**
+
+The `--child-max-reuse-script` option controls how many checks a child process can execute before being killed:
+
+- Default value: `1` (each child dies after one check — classic fork behavior)
+- Less fork mode: set to a higher value, e.g. `100`
+
+The connector also automatically kills a child process if it exceeds the following thresholds:
+- `--child-max-memory-increase-percent` (default: 10%): memory increase since first check
+- `--child-max-fd-increase-percent` (default: 10%): file descriptor increase since first check
+- `--child-max-thread` (default: 10): number of threads created
+- `--idle-child-ttl` (default: 15 min): idle time without any check
+
+**Usage**
+
+The **Perl Connector Less Fork** connector is pre-configured on your poller. To benefit from less fork mode, go to **Configuration > Commands > Checks** and select **Perl Connector Less Fork** in the **Connectors** field of each check command you want to optimize, if it is not already set.
+
+**Per-command override**
+
+You can also override the reuse limit for a specific command by inserting the keyword directly in the command line, between the script path and the script's arguments:
+
+```shell
+/usr/lib/nagios/plugins/check_something.pl --child-max-reuse-script 5 --arg1 value1
+```

@@ -1,6 +1,7 @@
-﻿---
+---
 id: log-explorer
 title: Using the log explorer
+description: Search and filter logs in the log explorer for root-cause analysis
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -50,6 +51,17 @@ Click a log to see all related information in the **Log details** panel, includi
 * You can open several logs in the panel.
 * Copy or download the whole log in json format from the **Raw OTel log** section.
 * The search bar will inspect attribute names and values.
+
+## Summarizing logs
+
+You can automatically generate a summary of all logs matching a query. The summary identifies recurring issues, groups them by type, lists their likely root causes, and suggests next steps to resolve them.
+
+Click the **Log Summary** button next to the time range selector to open the summary in a new tab.
+
+![image](assets/log-summary-button.png)
+
+* Summaries are only available for queries returning 2,000 lines or fewer.
+* You may need to authorize new tabs for the same domain in your browser.
 
 ## Rearranging columns
 

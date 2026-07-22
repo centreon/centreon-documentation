@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Cette page décrit comment installer Centreon MAP. Il est recommandé d'installer MAP sur un serveur dédié. Toutefois, si vous ne disposez pas de gros volumes de données, vous pouvez l'installer sur le serveur central.
 
+> Si vous prévoyez d'utiliser MAP en HTTPS, veuillez noter que la sécurisation du protocole HTTPS nécessite une configuration tant sur la plateforme Centreon que sur le serveur MAP. Il est donc préférable d'en tenir compte avant de commencer l'installation. Reportez-vous à la section [Sécurisation de MAP en HTTPS](#sécuriser-map-en-https) pour connaître la procédure complète.
+
 ## Licence
 
 Si vous avez besoin d'une [licence](../administration/licenses.md) supplémentaire pour Centreon MAP, veuillez contacter l'[équipe support de Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
@@ -510,6 +512,47 @@ apt update
 </TabItem>
 </Tabs>
 
+<Tabs groupId="os" queryString>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm
+dnf config-manager --enable mysql-8.4-lts-community
+dnf module disable mysql
+dnf install mysql-community-server
+systemctl start mysqld
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y mysql-server mysql
+dnf install -y centreon-mysql
+systemctl enable --now mysqld
+echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
+systemctl daemon-reload
+systemctl restart mysqld
+systemctl list-units --type=service | grep -i mysql
+sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
+sudo systemctl start mysqld
+sudo systemctl status mysqld
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt update
+apt install -y centreon-mysql
+# Select "Use Legacy Authentication Method"
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+</Tabs>
+
 Ensuite, activez et redémarrez MySQL :
 
 ```shell
@@ -935,7 +978,7 @@ Exécutez la commande suivante pour vérifier que le service **centreon-map-engi
   Voici un exemple de résultat :
   
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)
@@ -1046,7 +1089,7 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
   Voici un exemple de résultat :
   
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)
@@ -1058,6 +1101,10 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
   ```
 
 Vous pouvez maintenant utiliser le module MAP en accédant à la page **Supervision > Map**.
+
+## Sécuriser MAP en HTTPS
+
+Si vous souhaitez utiliser MAP en HTTPS, vous devez sécuriser à la fois votre plateforme Centreon et MAP.
 
 - Suivez cette [procédure](../administration/secure-platform.md) pour sécuriser votre plateforme Centreon.
 - Suivez cette [procédure](../graph-views/secure-your-map-platform.md) pour sécuriser MAP.
