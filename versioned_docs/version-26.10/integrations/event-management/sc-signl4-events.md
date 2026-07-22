@@ -1,6 +1,7 @@
 ---
 id: sc-signl4-events
 title: Signl4 Events
+description: Send host and service status events from Centreon to Signl4
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

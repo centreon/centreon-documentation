@@ -1,6 +1,7 @@
 ---
 id: compatibility
 title: Compatibility
+description: Supported browsers, operating systems, and DBMS versions for Centreon
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

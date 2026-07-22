@@ -1,6 +1,7 @@
 ---
 id: developer-widget
 title : How to write a widget
+description: Develop a custom widget for Centreon custom views
 ---
 
 Centreon offers a custom view system which allows the user to view one or more widgets on the same page:

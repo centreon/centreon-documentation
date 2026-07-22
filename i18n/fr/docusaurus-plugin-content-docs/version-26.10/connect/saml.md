@@ -1,6 +1,7 @@
 ---
 id: saml
 title: Configurer une authentification par SAML
+description: Configurer l'authentification via un fournisseur SAML
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

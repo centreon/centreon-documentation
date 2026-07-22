@@ -1,6 +1,7 @@
 ---
 id: sc-kafka-events
 title: Kafka Events
+description: Publier les évènements hôtes, services et BA vers un topic Kafka
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

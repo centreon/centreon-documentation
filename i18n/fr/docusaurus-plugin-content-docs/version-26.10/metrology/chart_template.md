@@ -1,6 +1,7 @@
 ---
 id: chart-template
 title: Modèles de graphiques
+description: Configurer des modèles pour mettre en forme vos graphiques
 ---
 
 ## Définition

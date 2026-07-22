@@ -1,6 +1,7 @@
 ---
 id: create-custom-view
 title: Creating a custom view
+description: Create your first custom view using dashboard widgets
 ---
 
 ## What is a custom view?

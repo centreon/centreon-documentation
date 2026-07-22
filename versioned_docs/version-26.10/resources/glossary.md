@@ -1,6 +1,7 @@
 ---
 id: glossary
 title: Glossary of Centreon concepts
+description: Definitions of key Centreon monitoring concepts and terms
 ---
 
 ## ACL

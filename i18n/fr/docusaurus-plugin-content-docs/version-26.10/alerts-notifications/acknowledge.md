@@ -1,6 +1,7 @@
 ---
 id: acknowledge
 title: Acquitter une alerte
+description: Acquitter une alerte pour suspendre les notifications jusqu'à résolution
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

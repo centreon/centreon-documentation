@@ -1,6 +1,7 @@
 ---
 id: services-create-disco
 title: Créer des services automatiquement
+description: Créer automatiquement des services grâce aux modèles ou à la découverte
 ---
 
 Les services peuvent être créés automatiquement de plusieurs façons :

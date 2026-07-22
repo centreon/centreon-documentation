@@ -1,6 +1,7 @@
 ---
 id: monitor-mysql-server
 title: Monitor a MySQL or MariaDB database
+description: Monitor a MySQL or MariaDB database using Centreon
 ---
 
 import Tabs from '@theme/Tabs';

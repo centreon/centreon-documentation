@@ -1,6 +1,7 @@
 ---
 id: glossary
 title: Glossaire des concepts Centreon
+description: Définitions des principaux concepts de supervision Centreon
 ---
 
 ## ACL

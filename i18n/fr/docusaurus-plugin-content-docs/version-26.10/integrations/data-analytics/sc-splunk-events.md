@@ -1,6 +1,7 @@
 ---
 id: sc-splunk-events
 title: Splunk Events
+description: Envoyer les évènements d'état hôtes et services vers le collecteur de services Splunk
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

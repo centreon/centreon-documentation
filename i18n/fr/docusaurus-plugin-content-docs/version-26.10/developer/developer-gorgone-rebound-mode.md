@@ -1,6 +1,7 @@
 ---
 id: developer-gorgone-rebound-mode
 title : Configurer Gorgone en mode rebound
+description: Configurer le mode rebound de Gorgone via un serveur relais
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

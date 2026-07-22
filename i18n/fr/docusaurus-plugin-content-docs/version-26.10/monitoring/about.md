@@ -1,6 +1,7 @@
 ---
 id: about
 title: Principes de base de la supervision
+description: Introduction aux hôtes, services, sondes et commandes dans la supervision Centreon
 ---
 
 Voici quelques notions propres à Centreon :

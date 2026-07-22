@@ -1,6 +1,7 @@
 ---
 id: technical
 title: Informations techniques
+description: Flux réseau, utilisateurs, groupes et dépendances logicielles de Centreon
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

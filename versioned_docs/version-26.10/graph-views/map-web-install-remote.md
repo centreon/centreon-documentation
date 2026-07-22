@@ -1,6 +1,7 @@
 ---
 id: map-web-install-remote
 title: Installing MAP on a remote server
+description: Install Centreon MAP on a remote poller server
 ---
 
 ## Centreon MAP installation for a Centreon remote server

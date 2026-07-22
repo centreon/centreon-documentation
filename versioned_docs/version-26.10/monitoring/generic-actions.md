@@ -1,6 +1,7 @@
 ---
 id: generic-actions
 title: Generic actions
+description: Add, duplicate, mass change, enable, disable, and delete configuration objects
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

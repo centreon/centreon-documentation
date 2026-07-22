@@ -1,6 +1,7 @@
 ---
 id: timeperiods
 title: Time periods
+description: Define time periods for scheduling checks and notifications
 ---
 
 ## Definition

@@ -1,6 +1,7 @@
 ---
 id: pluginpacks
 title: Utiliser des connecteurs de supervision
+description: Installer, mettre à jour et désinstaller des connecteurs de supervision
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

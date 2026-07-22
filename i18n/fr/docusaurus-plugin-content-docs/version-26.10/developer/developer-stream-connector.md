@@ -1,6 +1,7 @@
 ---
 id: developer-stream-connector  
 title: Comment écrire un Stream Connector
+description: Tutoriel pour écrire des Stream Connectors Lua, avec un exemple InfluxDB
 ---
 
 ## Vue d'ensemble

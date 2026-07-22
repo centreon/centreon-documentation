@@ -1,6 +1,7 @@
 ---
 id: interface
 title: Découvrir l'interface web Centreon
+description: Présentation de l'interface web Centreon, ses menus et sa personnalisation
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

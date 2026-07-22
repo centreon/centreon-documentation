@@ -1,6 +1,7 @@
 ---
 id: medias
 title: Medias
+description: Ajouter et synchroniser les images utilisées dans l'interface Centreon
 ---
 
 Les médias sont des images utilisées par l'interface web de Centreon. Ces images

@@ -1,6 +1,7 @@
 ---
 id: introduction-tutorials
 title: Introduction
+description: Présentation des tutoriels de prise en main de Centreon
 ---
 
 Centreon propose des tutoriels pour profiter rapidement des fonctionnalités de notre solution.

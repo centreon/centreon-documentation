@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-25-10
 title: Upgrade from Centreon 25.10
+description: Upgrade a Centreon platform from version 25.10 to a newer release
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

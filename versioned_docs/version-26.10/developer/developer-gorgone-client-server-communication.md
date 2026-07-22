@@ -1,6 +1,7 @@
 ---
 id: developer-gorgone-client-server-communication
 title : Managing client/server communication
+description: Configure encrypted key-based communication between Gorgone clients and servers
 ---
 
 Centreon Gorgone is the component that allows communication from the central server to the pollers and remote servers. In addition, Gorgone deploys the configuration of the monitoring engines.

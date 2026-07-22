@@ -1,6 +1,7 @@
 ---
 id: notif-concept
 title: Fonctionnement des notifications
+description: Comprendre le déroulement du processus de notification dans Centreon
 ---
 
 Avant qu'un contact soit notifié au sein de Centreon, il est nécessaire

@@ -1,6 +1,7 @@
 ---
 id: sc-datadog-metrics
 title: Datadog Metrics
+description: Forward host and service performance metrics from perf_data to Datadog
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

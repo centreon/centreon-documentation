@@ -1,6 +1,7 @@
 ---
 id: administration
 title: Administration
+description: Update, uninstall, and configure the Auto Discovery module and its Gorgone settings
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hosts
 title: Creating hosts manually
+description: Detailed reference for host configuration fields, notifications, and dependencies
 ---
 
 To create a host manually:

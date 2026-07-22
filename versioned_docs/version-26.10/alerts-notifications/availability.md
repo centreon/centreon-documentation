@@ -1,6 +1,7 @@
 ---
 id: availability
 title: Availability reports
+description: View availability rates for hosts, host groups, or service groups
 ---
 
 ## Availability reports

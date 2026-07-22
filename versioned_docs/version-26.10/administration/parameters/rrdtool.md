@@ -1,6 +1,7 @@
 ---
 id: rrdtool
 title: RRDTool
+description: Define the path to the RRDTool binary used by Centreon
 ---
 
 This procedure lets you define the path to the RRDTool binary.

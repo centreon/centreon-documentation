@@ -1,6 +1,7 @@
 ---
 id: services-create
 title: Monitoring a service
+description: How to monitor a service using templates, discovery, or the API
 ---
 
 A service is a check point, or indicator, to be monitored on a host, e.g.: percentage of partition used on a server, ink level in a printer.

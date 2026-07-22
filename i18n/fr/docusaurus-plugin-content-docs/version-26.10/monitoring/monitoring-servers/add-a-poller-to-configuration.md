@@ -1,6 +1,7 @@
 ---
 id: add-a-poller-to-configuration
 title: Rattacher un collecteur à un serveur central ou distant
+description: Configurer et connecter un nouveau collecteur à un serveur central ou distant
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

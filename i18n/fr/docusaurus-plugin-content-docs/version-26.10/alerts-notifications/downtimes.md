@@ -1,6 +1,7 @@
 ---
 id: downtimes
 title: Planifier un temps d'arrêt
+description: Planifier des temps d'arrêt fixes ou récurrents pour éviter les faux positifs
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

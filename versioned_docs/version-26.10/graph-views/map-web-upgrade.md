@@ -1,6 +1,7 @@
 ---
 id: map-web-upgrade
 title: Upgrading MAP
+description: Upgrade Centreon MAP to a new major version
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

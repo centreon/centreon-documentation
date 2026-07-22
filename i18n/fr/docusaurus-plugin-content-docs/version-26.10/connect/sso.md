@@ -1,6 +1,7 @@
 ---
 id: sso
 title: Configurer une authentification par SSO
+description: Configurer l'authentification Web SSO via le serveur Apache
 ---
 
 L'authentification Web SSO repose sur le serveur Web Apache. C'est Apache qui, selon sa configuration, se charge

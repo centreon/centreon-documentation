@@ -1,6 +1,7 @@
 ---
 id: monitoring-dem-mip
 title: Maltem Insight Performances Rest API 
+description: Connect to the MIP REST API to monitor user experience scenarios
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

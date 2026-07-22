@@ -1,6 +1,7 @@
 ---
 id: services-templates
 title: Utiliser des modèles de services
+description: Utiliser les modèles de services pour standardiser et simplifier leur création
 ---
 
 ## Définition

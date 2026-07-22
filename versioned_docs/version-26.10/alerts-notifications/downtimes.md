@@ -1,6 +1,7 @@
 ---
 id: downtimes
 title: Planning downtime
+description: Schedule fixed or recurring downtime to suppress false-positive alerts
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

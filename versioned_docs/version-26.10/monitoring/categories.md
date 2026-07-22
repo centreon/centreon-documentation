@@ -1,6 +1,7 @@
 ---
 id: categories
 title: Categories and severities
+description: Organize hosts and services using categories and severity levels
 ---
 
 Categories allow you to:

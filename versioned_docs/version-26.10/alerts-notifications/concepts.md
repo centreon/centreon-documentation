@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Possible statuses of a resource
+description: Understand host and service statuses, states, and status types
 ---
 
 Statuses show the availability of a host, and the availability or performance of a service. Each status has a

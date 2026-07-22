@@ -1,6 +1,7 @@
 ---
 id: autodisco-aws
 title: Utiliser Autodiscovery pour découvrir des instances AWS EC2
+description: Utiliser Autodiscovery pour détecter et superviser des instances AWS EC2
 ---
 
 import Tabs from '@theme/Tabs';

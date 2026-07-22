@@ -1,6 +1,7 @@
 ---
 id: cma-certificates
 title: Configuring certificates
+description: Configure TLS certificates for secure CMA agent-poller communication
 ---
 
 import Tabs from '@theme/Tabs';

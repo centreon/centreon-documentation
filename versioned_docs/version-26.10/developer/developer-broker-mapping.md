@@ -1,6 +1,7 @@
 ---
 id: developer-broker-mapping
 title: Centreon Broker Event Mapping
+description: Reference of NEB and Storage event properties exchanged by Centreon Broker
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

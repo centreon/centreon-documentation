@@ -1,6 +1,7 @@
 ---
 id: manage-alerts
 title: Gestion des alertes
+description: Acquitter des alertes, planifier des temps d'arrêt et gérer les contrôles
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

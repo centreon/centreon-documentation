@@ -1,6 +1,7 @@
 ---
 id: sc-canopsis-events
 title: Canopsis Events
+description: Envoyer les évènements hôtes, services, acquittements et maintenances vers Canopsis
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

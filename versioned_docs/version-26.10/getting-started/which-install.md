@@ -1,6 +1,7 @@
 ---
 id: which-install
 title: Which installation should I choose?
+description: Choose the right Centreon installation method for your needs
 ---
 
 There are several ways to install Centreon. Which one suits your needs best?

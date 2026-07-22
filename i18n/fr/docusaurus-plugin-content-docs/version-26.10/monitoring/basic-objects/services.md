@@ -1,6 +1,7 @@
 ---
 id: services
 title: Créer un service manuellement
+description: Référence détaillée des champs de configuration, notifications et relations d'un service
 ---
 
 Pour créer un service, allez à la page **Configuration > Services > Services par hôtes**, puis cliquez sur **Ajouter**.

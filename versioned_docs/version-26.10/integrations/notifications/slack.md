@@ -1,6 +1,7 @@
 ---
 id: slack-notifications
 title: Slack notifications
+description: Send Centreon alerts to a Slack channel via webhook
 ---
 
 You can post notifications directly to a Slack channel using a Slack incoming webhook and a custom notification command in Centreon.

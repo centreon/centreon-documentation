@@ -1,6 +1,7 @@
 ---
 id: advanced-configuration
 title: Advanced configuration
+description: Configure advanced Centreon Broker settings, firewall flow, and authentication
 ---
 
 ## Centreon Broker and the firewall

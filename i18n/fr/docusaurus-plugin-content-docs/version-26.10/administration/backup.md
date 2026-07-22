@@ -1,6 +1,7 @@
 ---
 id: backup
 title: Sauvegarder et restaurer votre serveur central
+description: Configurer, exécuter et restaurer les sauvegardes du serveur central
 ---
 
 ## Fonctionnement

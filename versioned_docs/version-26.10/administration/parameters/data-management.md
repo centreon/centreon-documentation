@@ -1,6 +1,7 @@
 ---
 id: data-management
 title: Data management
+description: Set retention durations for logs, performance data, and reports
 ---
 
 By accessing the **Administration > Parameters > Options** menu, you can define

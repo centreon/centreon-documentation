@@ -1,6 +1,7 @@
 ---
 id: notif-advanced
 title: Pour aller plus loin
+description: Personnaliser les commandes de notification et transférer les évènements
 ---
 
 ## Commandes

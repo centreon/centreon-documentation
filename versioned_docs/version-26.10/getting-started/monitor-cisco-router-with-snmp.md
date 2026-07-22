@@ -1,6 +1,7 @@
 ---
 id: monitor-cisco-router-with-snmp
 title: Monitor your first Cisco router
+description: Monitor a Cisco router using the SNMP protocol
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
 id: introduction-map
 title: Introduction à Centreon MAP
+description: Introduction à Centreon MAP et à ses vues graphiques de supervision
 ---
 
 Centreon MAP est une solution intégralement disponible dans l'interface web Centreon tout en vous proposant la meilleure expérience possible pour créer, visualiser et partager des représentations graphiques de votre infrastructure supervisée.

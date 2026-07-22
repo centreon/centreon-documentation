@@ -1,6 +1,7 @@
 ---
 id: sc-opsgenie-events
 title: Opsgenie Events
+description: Send host and service status events from Centreon to Opsgenie
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

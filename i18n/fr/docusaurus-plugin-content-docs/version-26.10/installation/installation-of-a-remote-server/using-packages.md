@@ -1,6 +1,7 @@
 ---
 id: using-packages
 title: À partir des paquets
+description: Installer et enregistrer un serveur distant à partir des paquets RPM ou DEB
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

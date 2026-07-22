@@ -1,6 +1,7 @@
 ---
 id: backup
 title: Back up and restore your central server
+description: Configure, run, and restore backups of the Centreon central server
 ---
 
 ## How it works

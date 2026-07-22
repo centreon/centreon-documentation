@@ -1,6 +1,7 @@
 ---
 id: upgrade
 title: Upgrade the extension
+description: Upgrade Centreon MBI to a new major version
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: operating-guide
 title: Operating guide
+description: Check cluster status, perform failovers, and manage Centreon HA
 ---
 
 > Unless otherwise stated, all commands in this page must be run as `root`.

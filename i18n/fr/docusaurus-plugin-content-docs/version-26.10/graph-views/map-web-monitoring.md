@@ -1,6 +1,7 @@
 ---
 id: map-web-monitoring
 title: Superviser votre serveur Centreon MAP
+description: Superviser votre serveur Centreon MAP à l'aide du connecteur dédié
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

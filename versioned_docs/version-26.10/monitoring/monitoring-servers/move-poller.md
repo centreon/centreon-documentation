@@ -1,6 +1,7 @@
 ---
 id: move-poller
 title: Attach a poller to a different remote server
+description: Reattach a poller from one remote server to another
 ---
 
 Here is the procedure for attaching a poller from the Centreon Central server to a Remote Server, or from one Remote Server

@@ -1,6 +1,7 @@
 ---
 id: troubleshooting
 title: Troubleshooting your Centreon platform
+description: Index of troubleshooting resources for your Centreon platform
 ---
 
 This page lists the troubleshooting items available in this documentation. Click an item to access more detailed content.

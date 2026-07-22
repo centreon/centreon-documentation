@@ -1,6 +1,7 @@
 ---
 id: inventory-configuration-reports
 title: Rapports d'inventaire et de configuration
+description: Rapports sur l'inventaire de configuration des hôtes, services et ressources non classées
 ---
 
 ## Inventaire et configuration

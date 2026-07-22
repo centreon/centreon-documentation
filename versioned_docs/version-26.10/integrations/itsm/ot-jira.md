@@ -1,6 +1,7 @@
 ---
 id: ot-jira
 title: Jira
+description: Create Jira Cloud issues from Centreon alerts via REST API
 ---
 
 ## How it works

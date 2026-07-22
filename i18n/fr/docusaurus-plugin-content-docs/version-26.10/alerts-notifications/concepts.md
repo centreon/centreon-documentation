@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Statuts possibles d'une ressource
+description: Comprendre les statuts, états et types de statut des ressources
 ---
 
 Les statuts indiquent la disponibilité d'un hôte, et la disponibilité ou la performance d'un service. Chaque

@@ -1,6 +1,7 @@
 ---
 id: share
 title: Giving access to jobs and reports in Centreon
+description: Share MBI jobs and generated reports with non-admin users
 ---
 
 * Administrators can see and edit all jobs (created by all users on the platform), and can see all generated reports.

@@ -1,6 +1,7 @@
 ---
 id: map-web-update
 title: Mettre à jour MAP
+description: Mettre à jour votre installation Centreon MAP vers une nouvelle version
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: availability
 title: Rapports de disponibilité
+description: Consulter les taux de disponibilité des hôtes et groupes de ressources
 ---
 
 ## Rapports de disponibilité

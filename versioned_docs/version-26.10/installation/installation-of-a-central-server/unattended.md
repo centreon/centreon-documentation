@@ -1,6 +1,7 @@
 ---
 id: unattended-install-central
 title: Unattended installation of a central server
+description: Install a central server quickly using an unattended script
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

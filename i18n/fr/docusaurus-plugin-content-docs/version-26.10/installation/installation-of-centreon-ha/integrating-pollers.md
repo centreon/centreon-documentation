@@ -1,6 +1,7 @@
 ---
 id: integrating-pollers
 title: Intégrer des collecteurs dans un cluster Centreon HA
+description: Autoriser et configurer des collecteurs dans un cluster Centreon HA
 ---
 
 ## Obtention des empreintes des nœuds centraux

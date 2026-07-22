@@ -1,6 +1,7 @@
 ---
 id: data-analytics-overview
 title: Data Analytics
+description: Présentation des stream connectors Centreon pour l'analyse de données
 ---
 
 Envoyez vos données vers des solutions spécialisées dans le traitement,

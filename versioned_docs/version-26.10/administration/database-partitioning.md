@@ -1,6 +1,7 @@
 ---
 id: database-partitioning
 title: Database partitioning
+description: Configure and monitor MariaDB table partitioning for Centreon databases
 ---
 
 ## Overview

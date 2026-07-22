@@ -1,6 +1,7 @@
 ---
 id: create-snmp-traps-definitions
 title: Définition des Traps SNMP
+description: Importer ou créer manuellement des définitions de traps SNMP et de constructeurs
 ---
 
 ## Ajouter un constructeur

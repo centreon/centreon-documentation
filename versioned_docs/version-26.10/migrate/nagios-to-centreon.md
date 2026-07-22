@@ -1,6 +1,7 @@
 ---
 id: nagios-to-centreon
 title: Nagios Reader to Centreon CLAPI
+description: Convert Nagios configuration files into Centreon CLAPI import commands
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

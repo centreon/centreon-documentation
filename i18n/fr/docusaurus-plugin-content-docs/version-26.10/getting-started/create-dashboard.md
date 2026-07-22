@@ -1,6 +1,7 @@
 ---
 id: create-dashboard
 title: Créer votre premier tableau de bord
+description: Créez votre premier tableau de bord et ajoutez des widgets
 ---
 
 Commencez par créer des tableaux de bord et ajoutez des widgets spécialement conçus pour optimiser votre expérience utilisateur. Bénéficiez ensuite d'options de visualisation de données pour afficher et suivre vos ressources en temps réel.

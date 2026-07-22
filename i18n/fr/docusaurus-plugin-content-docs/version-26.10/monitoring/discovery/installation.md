@@ -1,6 +1,7 @@
 ---
 id: installation
 title: Installation
+description: Installer le module Auto Discovery sur le serveur Central
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: backup-poller
 title: Sauvegarder et restaurer vos collecteurs
+description: Sauvegarder les données des collecteurs et préparer un collecteur de secours
 ---
 
 ## Cas n°1 : Faire des sauvegardes pour pouvoir installer un nouveau collecteur à partir de zéro

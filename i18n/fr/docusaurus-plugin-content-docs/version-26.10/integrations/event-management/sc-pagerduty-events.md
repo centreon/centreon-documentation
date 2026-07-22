@@ -1,6 +1,7 @@
 ---
 id: sc-pagerduty-events
 title: PagerDuty Events
+description: Envoyer les événements d'hôtes et de services de Centreon vers PagerDuty
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

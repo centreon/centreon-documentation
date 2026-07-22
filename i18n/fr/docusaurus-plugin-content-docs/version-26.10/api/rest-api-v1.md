@@ -1,6 +1,7 @@
 ---
 id: rest-api-v1
 title: Rest API (v1)
+description: Utiliser l'API REST v1 pour la configuration et les données temps réel
 ---
 
 > Cette documentation n'est disponible qu'en anglais.

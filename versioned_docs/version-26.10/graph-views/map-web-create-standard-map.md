@@ -1,6 +1,7 @@
 ---
 id: map-web-create-standard-map
 title: Creating a standard map
+description: Create and customize standard maps using the MAP editor
 ---
 
 This topic describes how to create standard maps and how to customize them using the MAP editing mode.

@@ -1,6 +1,7 @@
 ---
 id: profiling-reports
 title: Profiling reports
+description: Detailed per-host reports on availability, CPU, memory and storage usage
 ---
 
 ### Host-Detail-2

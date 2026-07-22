@@ -1,6 +1,7 @@
 ---
 id: templates
 title: Templates
+description: Use host, service, and contact templates to speed up configuration
 ---
 
 ## Definition

@@ -1,6 +1,7 @@
 ---
 id: upgrade-mariadb
 title: Mettre à jour MariaDB
+description: Mettre à jour MariaDB vers la version requise par votre Centreon
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: update
 title: Update the extension
+description: Update the Centreon BAM extension package and interface module
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: data-management
 title: Gestion des données
+description: Définir les durées de rétention des journaux, données et rapports
 ---
 
 En accédant au menu **Administration > Paramètres > Options**, il est possible

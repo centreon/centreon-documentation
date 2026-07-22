@@ -1,6 +1,7 @@
 ---
 id: ot-bmc-remedy
 title: BMC Remedy
+description: Créer des incidents BMC Remedy à partir des alertes via l'API SOAP
 ---
 
 ## How it works

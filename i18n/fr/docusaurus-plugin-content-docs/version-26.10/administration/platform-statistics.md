@@ -1,6 +1,7 @@
 ---
 id: platform-statistics
 title: Statistiques de la plateforme
+description: Consulter les statistiques de performance de Broker et d'Engine
 ---
 
 Le statut de la plate-forme Centreon est disponible via le menu **Administration > Statut de la plateforme**.

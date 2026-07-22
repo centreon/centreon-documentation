@@ -1,6 +1,7 @@
 ---
 id: add-a-poller-to-configuration
 title: Attach a poller to a central or a remote server
+description: Configure and connect a new poller to a central or remote server
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: sc-service-now-em-events
 title: ServiceNow Event Manager Events
+description: Send host and service status events to ServiceNow Event Manager
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

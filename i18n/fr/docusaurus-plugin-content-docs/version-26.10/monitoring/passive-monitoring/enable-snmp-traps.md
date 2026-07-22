@@ -1,6 +1,7 @@
 ---
 id: enable-snmp-traps
 title: Activer les Traps SNMP
+description: Configurer l'architecture et les services de traitement des traps SNMP entrants
 ---
 
 ## Description

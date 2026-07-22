@@ -1,6 +1,7 @@
 ---
 id: monitoring
 title: Supervision
+description: Configurer les options générales de l'interface de supervision temps réel
 ---
 
 Cette partie traite des options générales de l'interface de supervision temps

@@ -1,6 +1,7 @@
 ---
 id: submit
 title: Submitting a status
+description: Manually submit a status result for a passively checked service
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

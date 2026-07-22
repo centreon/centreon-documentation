@@ -1,6 +1,7 @@
 ---
 id: chart-virtual-metrics
 title: Virtual metrics
+description: Create virtual metrics using CDEF and VDEF aggregation
 ---
 
 ## Definition

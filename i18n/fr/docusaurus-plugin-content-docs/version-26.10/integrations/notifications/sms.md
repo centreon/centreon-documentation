@@ -1,6 +1,7 @@
 ---
 id: sms-notifications
 title: Notifications SMS
+description: Envoyer des alertes d'hôtes et de services par SMS via OVH SMS
 ---
 
 Vous pouvez envoyer des notifications par SMS en utilisant un fournisseur SMS et une commande de notification personnalisée dans Centreon.

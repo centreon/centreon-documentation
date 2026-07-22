@@ -1,6 +1,7 @@
 ---
 id: backup-poller
 title: Back up and restore your pollers
+description: Back up poller data and set up a standby poller for disaster recovery
 ---
 
 ## Case n°1: Making backups to be able to install a new poller from scratch

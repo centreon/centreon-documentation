@@ -1,6 +1,7 @@
 ---
 id: macros
 title: Macros
+description: Reference for standard, custom, and global macros used in commands
 ---
 
 A macro is a variable used to retrieve certain values.

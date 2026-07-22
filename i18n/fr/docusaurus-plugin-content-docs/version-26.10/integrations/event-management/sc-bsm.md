@@ -1,6 +1,7 @@
 ---
 id: sc-hp-bsm
 title: BSM
+description: Envoyer les changements d'état de Centreon vers Micro Focus BSM
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

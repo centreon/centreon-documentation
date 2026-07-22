@@ -1,6 +1,7 @@
 ---
 id: update-centreon-ha
 title: Updating a Centreon HA platform
+description: Perform minor updates on a Centreon HA platform
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

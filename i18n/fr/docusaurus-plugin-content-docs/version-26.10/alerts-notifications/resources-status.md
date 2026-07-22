@@ -1,6 +1,7 @@
 ---
 id: resources-status
 title: Page Statut des ressources
+description: Suivre, filtrer et traiter les évènements des ressources depuis une page unique
 ---
 
 La vue **Supervision > Statut des ressources** est votre vue principale

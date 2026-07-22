@@ -1,6 +1,7 @@
 ---
 id: cma-setup
 title: Setting up the agent's environment
+description: Set up and configure Centreon Monitoring Agent on pollers and hosts
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

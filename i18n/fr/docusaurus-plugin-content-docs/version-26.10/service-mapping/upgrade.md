@@ -1,6 +1,7 @@
 ---
 id: upgrade
 title: Monter de version l'extension
+description: Monter de version l'extension Centreon BAM et sa licence
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

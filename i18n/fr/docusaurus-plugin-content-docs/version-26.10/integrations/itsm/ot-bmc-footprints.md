@@ -1,6 +1,7 @@
 ---
 id: ot-bmc-footprints
 title: BMC Footprints
+description: Ouvrir des incidents BMC Footprints à partir des alertes via l'API SOAP
 ---
 
 ## How it works

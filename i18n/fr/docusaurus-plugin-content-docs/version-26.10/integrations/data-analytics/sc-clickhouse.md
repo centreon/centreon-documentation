@@ -1,6 +1,7 @@
 ---
 id: sc-clickhouse
 title: Clickhouse
+description: Insérer les métriques de performance hôtes et services dans une table Clickhouse
 ---
 
 import Tabs from '@theme/Tabs';

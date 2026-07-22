@@ -1,6 +1,7 @@
 ---
 id: known-issues
 title: Known issues
+description: Known issues and workarounds for the Centreon platform
 ---
 
 Below is a list of known issues and/or bugs you may encounter.

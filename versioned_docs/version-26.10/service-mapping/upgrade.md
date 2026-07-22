@@ -1,6 +1,7 @@
 ---
 id: upgrade
 title: Upgrade the extension
+description: Upgrade the Centreon BAM extension and its license
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

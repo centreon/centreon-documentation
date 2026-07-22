@@ -1,6 +1,7 @@
 ---
 id: contacts-groups
 title: Utiliser des groupes de contacts
+description: Regrouper des contacts pour simplifier les notifications et le contrôle d'accès
 ---
 
 ### Les groupes de contacts

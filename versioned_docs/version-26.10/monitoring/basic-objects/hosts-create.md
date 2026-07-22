@@ -1,6 +1,7 @@
 ---
 id: hosts-create
 title: Monitoring a host
+description: How to monitor a host using templates or automatic discovery
 ---
 
 A host is any entity that has an IP address corresponding to a resource of the information system. e.g.: A server, network printer, NAS server, temperature sensor, IP camera, etc.

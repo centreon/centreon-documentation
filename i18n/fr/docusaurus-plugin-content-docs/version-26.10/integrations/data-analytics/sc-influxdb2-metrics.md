@@ -1,6 +1,7 @@
 ---
 id: sc-influxdb2-metrics
 title: InfluxDB 2 Metrics
+description: Envoyer les métriques de performance hôtes et services vers un bucket InfluxDB 2
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

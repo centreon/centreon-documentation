@@ -1,6 +1,7 @@
 ---
 id: cma-setup
 title: Configurer l’environnement de l’agent
+description: Configurer et déployer l'agent de supervision Centreon sur pollers et hôtes
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

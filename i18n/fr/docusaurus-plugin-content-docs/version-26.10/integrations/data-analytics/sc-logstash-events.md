@@ -1,6 +1,7 @@
 ---
 id: sc-logstash-events
 title: Logstash Events
+description: Transmettre les évènements d'état hôtes et services vers le plugin HTTP Logstash
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

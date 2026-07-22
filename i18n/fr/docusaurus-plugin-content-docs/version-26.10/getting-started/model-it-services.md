@@ -1,7 +1,7 @@
 ---
 id: model-it-services
 title: Modéliser un service IT
-description: Tutoriel BAM
+description: Comment modéliser des services IT avec Centreon BAM
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

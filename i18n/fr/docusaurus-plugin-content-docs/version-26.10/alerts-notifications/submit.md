@@ -1,6 +1,7 @@
 ---
 id: submit
 title: Soumettre un résultat
+description: Soumettre manuellement un résultat pour un service à contrôle passif
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: event-log
 title: Journal des évènements
+description: Consulter les changements de statut et les notifications envoyées
 ---
 
 Le journal d'évènements permet de :

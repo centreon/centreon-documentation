@@ -1,6 +1,7 @@
 ---
 id: widgets
 title: Widgets
+description: Afficher le statut des activités métier via des widgets de tableau de bord
 ---
 
 > Les widgets Centreon BAM suivants sont disponibles dans les [Tableaux de bord](../alerts-notifications/dashboards.md) :

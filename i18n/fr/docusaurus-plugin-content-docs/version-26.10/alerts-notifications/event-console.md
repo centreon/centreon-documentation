@@ -1,6 +1,7 @@
 ---
 id: event-console
 title: Consoles d'évènements
+description: Interfaces dépréciées pour visualiser le statut des hôtes et services
 ---
 
 > Certaines de ces interfaces sont **dépréciées** et remplacées par la page

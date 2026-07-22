@@ -1,6 +1,7 @@
 ---
 id: notif-email
 title: Email notifications
+description: Set up a local SMTP server to send email notifications
 ---
 
 The standard way notifications are sent in Centreon is by email. Follow the [Configuring notifications](./notif-configuration.md) procedure to set these up.

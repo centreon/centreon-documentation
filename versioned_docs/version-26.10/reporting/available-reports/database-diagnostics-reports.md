@@ -1,6 +1,7 @@
 ---
 id: database-diagnostics-reports
 title: Database diagnostics reports
+description: Diagnostic reports that verify aggregated availability and performance data
 ---
 
 ### Content-diagnostic

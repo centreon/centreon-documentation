@@ -1,6 +1,7 @@
 ---
 id: hosts-switch-poller
 title: Modifier le serveur de supervision pour un hôte
+description: Changer le serveur de supervision attribué à un ou plusieurs hôtes
 ---
 
 Si vous voulez modifier le serveur de supervision qui supervise un hôte, vous devez éditer la configuration de l'hôte, puis déployer la configuration de l'ancien et du nouveau serveur de supervision.

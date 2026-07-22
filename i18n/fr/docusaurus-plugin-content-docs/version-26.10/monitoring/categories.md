@@ -1,6 +1,7 @@
 ---
 id: categories
 title: Catégories et criticités
+description: Organiser les hôtes et services à l'aide de catégories et de niveaux de criticité
 ---
 
 Les catégories vous permettent :

@@ -1,6 +1,7 @@
 ---
 id: monitor-linux-server-with-snmp
 title: Superviser votre premier serveur Linux
+description: Superviser un serveur Linux à l'aide du protocole SNMP
 ---
 
 import Tabs from '@theme/Tabs';

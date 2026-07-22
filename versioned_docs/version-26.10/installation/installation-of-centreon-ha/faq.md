@@ -1,6 +1,7 @@
 ---
 id: ha-faq
 title: Centreon HA general FAQ
+description: Frequently asked questions about Centreon HA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

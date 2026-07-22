@@ -1,6 +1,7 @@
 ---
 id: map-web-troubleshooting
 title: MAP troubleshooting
+description: Troubleshoot common installation and configuration issues in MAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

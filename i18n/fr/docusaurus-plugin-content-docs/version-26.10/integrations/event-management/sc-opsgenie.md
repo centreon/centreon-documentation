@@ -1,6 +1,7 @@
 ---
 id: sc-opsgenie-events
 title: Opsgenie Events
+description: Envoyer les événements d'hôtes et de services de Centreon vers Opsgenie
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

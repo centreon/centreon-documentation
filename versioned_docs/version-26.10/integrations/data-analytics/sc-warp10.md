@@ -1,6 +1,7 @@
 ---
 id: sc-warp10
 title: Warp10
+description: Send Centreon host and service events to a Warp10 time series database
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

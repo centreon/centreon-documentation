@@ -1,6 +1,7 @@
 ---
 id: clapi
 title: Command Line API (v1) - CLAPI
+description: Manage Centreon configuration using the Command Line API
 ---
 
 ## Overview

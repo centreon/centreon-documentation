@@ -1,6 +1,7 @@
 ---
 id: share
 title: Donner accès aux rapports et tâches dans Centreon
+description: Partager les tâches et rapports générés de MBI avec des utilisateurs non administrateurs
 ---
 
 * Les administrateurs peuvent voir et modifier toutes les tâches (créées par tous les utilisateurs de la plateforme) et peuvent voir tous les rapports générés.

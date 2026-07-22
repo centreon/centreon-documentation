@@ -1,6 +1,7 @@
 ---
 id: map-web-backup-restore
 title: Backing up and restoring your MAP server
+description: Back up and restore your Centreon MAP server configuration and database
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

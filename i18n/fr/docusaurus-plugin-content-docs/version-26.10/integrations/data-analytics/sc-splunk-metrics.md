@@ -1,6 +1,7 @@
 ---
 id: sc-splunk-metrics
 title: Splunk Metrics
+description: Envoi des métriques de performance hôtes et services vers le collecteur de services Splunk
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

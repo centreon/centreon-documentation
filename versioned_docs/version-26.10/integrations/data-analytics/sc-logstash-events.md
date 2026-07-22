@@ -1,6 +1,7 @@
 ---
 id: sc-logstash-events
 title: Logstash Events
+description: Forward host and service status events to a Logstash HTTP endpoint
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

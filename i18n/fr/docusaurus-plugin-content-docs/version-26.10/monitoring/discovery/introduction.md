@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction
+description: Présentation du module Auto Discovery et de son fonctionnement
 ---
 
 > Centreon Auto Discovery est une **extension** Centreon qui nécessite une [licence](../../administration/licenses.md) valide.

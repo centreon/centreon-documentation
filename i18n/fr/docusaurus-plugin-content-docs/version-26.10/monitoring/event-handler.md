@@ -1,6 +1,7 @@
 ---
 id: event-handler
 title: Auto Remediation
+description: Configurer des gestionnaires d'événements pour corriger automatiquement les problèmes
 ---
 
 ## Introduction

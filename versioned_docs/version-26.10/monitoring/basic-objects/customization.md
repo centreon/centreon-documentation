@@ -1,6 +1,7 @@
 ---
 id: customization
 title: Changing your Centreon account's settings
+description: Customize your Centreon account's display mode, language, and default page
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
