@@ -1,5 +1,6 @@
 ﻿---
 id: cloud-configuration-of-agents
+description: Configurer un hostid unique pour les agents en environnement autoscaling
 title: Installer l'agent dans un environnement en autoscaling
 --- 
 

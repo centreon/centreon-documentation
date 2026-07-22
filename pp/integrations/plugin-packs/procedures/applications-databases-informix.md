@@ -192,7 +192,6 @@ wget http://search.cpan.org/CPAN/authors/id/J/JO/JOHNL/DBD-Informix-2013.0521.ta
 tar xzf DBD-Informix-2013.0521.tar.gz
 cd DBD-Informix-2013.0521
 export INFORMIXDIR=/home/informix/sdkclient
-export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 export PATH=${PATH}:/home/informix/sdkclient/bin
 export LD_LIBRARY_PATH=/home/informix/sdkclient/lib/esql/:/home/informix/sdkclient/lib/
 export DBD_INFORMIX_USERNAME=root
@@ -231,7 +230,7 @@ Then:
 
 ### About the user account
 
-The safest way to retrieve information from the Oracle server is to create a dedicated user for Centreon.
+The safest way to retrieve information from the Informix server is to create a dedicated user for Centreon.
 This user account must have the read permission on `sysmaster` database.
 
 ## Installing the monitoring connector

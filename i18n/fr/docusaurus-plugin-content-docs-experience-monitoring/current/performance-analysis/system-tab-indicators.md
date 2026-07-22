@@ -1,5 +1,6 @@
 ﻿---
 id: system-tab-indicators
+description: Interpréter les indicateurs d'infrastructure serveur comme la bande passante et la RAM
 title: Comprendre les indicateurs de l’onglet Système
 --- 
 

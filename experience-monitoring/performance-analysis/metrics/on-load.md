@@ -1,7 +1,8 @@
 ---
 id: on-load
 title: OnLoad
---- 
+description: OnLoad metric for full page and resource load time
+---
 
 OnLoad measures when the page is loaded, excluding asynchronous and deferred loads.
 

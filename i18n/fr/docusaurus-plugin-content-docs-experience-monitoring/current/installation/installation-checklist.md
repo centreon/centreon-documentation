@@ -1,5 +1,6 @@
 ﻿---
 id: installation-checklist
+description: Prérequis et adresses IP à autoriser avant d'activer les fonctionnalités
 title: Checklist d'installation Experience Monitoring
 ---
 

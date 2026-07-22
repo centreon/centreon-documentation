@@ -1,6 +1,7 @@
 ---
 id: network-data
 title: Données Réseau
+description: Introduction aux vérifications par ping du module Données Réseau
 ---
 
 Le module **Données Réseau** permet d'avoir une vue d'ensemble de la réactivité du site au fil du temps grâce à une sonde réseau qui le contacte régulièrement.

@@ -1,7 +1,8 @@
 ﻿---
 id: synthetic-monitoring
 title: Les Parcours Utilisateurs
---- 
+description: Introduction au module de supervision synthétique Parcours Utilisateurs
+---
 
 **Parcours Utilisateurs** est le module de surveillance synthétique d'Experience Monitoring.
 Une sonde est configurée pour naviguer régulièrement sur votre site, en suivant un parcours prédéfini afin de mesurer divers indicateurs de performance web.

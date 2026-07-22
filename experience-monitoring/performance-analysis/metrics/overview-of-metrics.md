@@ -1,7 +1,8 @@
 ﻿---
 id: overview-of-metrics
 title: Overview of metrics
---- 
+description: Directory of all Experience Monitoring performance metrics
+---
 
 Experience Monitoring offers several performance metrics listed in this topic. Click any metric to open a dedicated page with more details.
 

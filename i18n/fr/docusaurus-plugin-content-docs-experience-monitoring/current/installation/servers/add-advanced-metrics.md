@@ -1,5 +1,6 @@
 ﻿---
 id: add-advanced-metrics
+description: Installer des agents d'application pour Apache, MySQL, Redis, et plus
 title: Installer des agents d'application
 --- 
 

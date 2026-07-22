@@ -1,6 +1,7 @@
 ---
 id: create-a-scenario
 title: Créer un parcours utilisateur
+description: Configurer une sonde de parcours utilisateur et ses différentes étapes
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

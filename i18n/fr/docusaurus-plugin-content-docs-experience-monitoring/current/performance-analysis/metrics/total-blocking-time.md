@@ -1,5 +1,6 @@
 ---
 id: total-blocking-time
+description: Métrique Web Vitals TBT pour le temps de blocage du thread principal
 title: TBT - Total Blocking Time (Web Vital)
 --- 
 

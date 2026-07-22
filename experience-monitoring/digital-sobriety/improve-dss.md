@@ -1,6 +1,7 @@
 ---
 id: improve-dss
 title: Improving your Digital Sobriety Score
+description: Use per-step recommendations to raise your Digital Sobriety Score
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

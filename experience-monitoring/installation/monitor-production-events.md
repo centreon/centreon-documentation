@@ -1,6 +1,7 @@
 ---
 id: monitor-production-events
 title: Adding event markers to charts
+description: Mark deployments and config changes on performance graphs via API
 ---
 
 When something changes in production — a new deployment, a configuration update, a scheduled task — it can directly affect your monitoring data. Correlating these events with performance metrics helps you understand whether a spike in errors or a drop in availability is linked to a recent change.

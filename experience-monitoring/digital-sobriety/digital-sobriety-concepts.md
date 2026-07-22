@@ -1,6 +1,7 @@
 ---
 id: digital-sobriety-concepts
 title: Digital Sobriety concepts
+description: How the Digital Sobriety Score measures environmental impact
 ---
 
 Although websites are immaterial, they rely on physical infrastructure: servers, networks, and end-user devices that all consume energy. 

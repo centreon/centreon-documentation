@@ -1,6 +1,7 @@
 ---
 id: stm-zones
 title: Superviser des parcours utilisateur non-publics (beta fermée)
+description: Mettre en place une zone privée pour superviser des parcours internes non publics
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
 id: business-data-results
 title: Understanding business data results
+description: Compare Business Data traffic to RUM and use it in dashboards
 ---
 
 The Business Data module displays traffic and conversion metrics sourced from your analytics tool (Google Analytics or Matomo). Correlate the technical performance of your site and your sales. A key thing to do is to [plot events onto your graphs](../installation/monitor-production-events.md) so as to explain changes.

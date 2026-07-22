@@ -1,6 +1,7 @@
 ﻿---
 id: glossary
 title: Glossary of Centreon Log Management terms
+description: Definitions of key Centreon Log Management terms
 ---
 
 ## Alert event

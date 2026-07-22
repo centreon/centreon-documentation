@@ -1,5 +1,6 @@
 ﻿---
 id: install-php-magento-orocommerce-profiler
+description: Installer le profileur PHP obsolète pour Magento et OroCommerce
 title: Installer le profileur PHP
 ---
 

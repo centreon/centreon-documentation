@@ -76,7 +76,7 @@ const config = {
       removeLegacyPostBuildHeadAttribute: true,
       useCssCascadeLayers: true,
     },
-    experimental_faster: {
+    faster: {
       swcJsLoader: true,
       swcJsMinimizer: true,
       swcHtmlMinimizer: true,
@@ -89,16 +89,16 @@ const config = {
   },
 
   title: 'Centreon Documentation',
-  tagline: '',
+  tagline: 'Centreon Documentation - Infra Monitoring, Experience Monitoring, Log Management',
   url: 'https://docs.centreon.com',
   baseUrl,
-  onBrokenLinks: archivedVersion || !cloud || !pp || !experienceMonitoring ? 'log' : 'throw',
+  onBrokenLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !experienceMonitoring ? 'log' : 'throw',
+      onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
     }
   },
-  onBrokenAnchors: archivedVersion || !cloud || !pp || !experienceMonitoring ? 'log' : 'throw',
+  onBrokenAnchors: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -113,7 +113,7 @@ const config = {
   },
 ],
 
-  noIndex: false,
+  noIndex: !!archivedVersion,
 
   i18n: {
     defaultLocale: 'en',
@@ -170,10 +170,6 @@ const config = {
         },
         gtag: {
           trackingID: 'G-BGL69N5GPJ',
-          anonymizeIP: true,
-        },
-        googleAnalytics: {
-          trackingID: 'UA-8418698-13',
           anonymizeIP: true,
         },
       }),
@@ -521,4 +517,3 @@ const config = {
 };
 
 export default config;
-
