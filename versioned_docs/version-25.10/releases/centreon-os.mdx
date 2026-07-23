@@ -30,30 +30,31 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- structured logging of every command/query bus dispatch and uncaught exception on the new kernel (backport).
-- [administration] centreon web is now able to connect to db using tls 1.3.
-- [dashboards] status grid widget: a new filter based on the resource state (unhandled, acknowledged, in downtime, flapping) has been added for the condensed view.
-- [resource status] performance has been drastically improved for many search use cases.
-- [unattended] added support for php84, el10 and deb13.
-- [upgrade] upgrades are now fully traced in a dedicated upgrade.log file, making migrations easier to troubleshoot.
-- [web] new logging system for centreon-web.
+- Added structured logging for all command/query bus dispatches and uncaught exceptions on the new kernel.
+- [Administration] Centreon Web is now able to connect to the database using TLS 1.3.
+- [Dashboards] Status grid widget: a new filter based on the resource state (unhandled, acknowledged, in downtime, flapping) has been added for the condensed view.
+- [Resource status] Performance has been drastically improved for many search use cases.
+- [Upgrade] Upgrades are now fully traced in a dedicated upgrade.log file, making migrations easier to troubleshoot.
+- [Web] A new logging system has been implemented for centreon-web.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [api] fixed duplicate host templates being silently accepted by the service template api.
-- [configuration] fixed an issue where the '_' character no longer was a valid character in address definitions.
-- [configuration] fixed stream connector (lua) parameters disappearing after deleting one of them in a broker configuration.
-- [configuration] fixed the incorrect centreon monitoring agent install command for pollers that caused a 404 error.
-- [dashboards] it is now possible for users to share a dashboard with:contact groups part of a common acl access group.individual contacts listed in the contact groups they belong to.
-- [graphs] non-admin users can now export meta service performance graphs as csv.
-- [installation] fixed an issue where the installation wizard would not appear after a fresh install.
-- [resource status] fixed an error when resources had a severity level above 100.
-- [resource status] fixed filtering with spaces around hyphens.
-- [web] fixed an issue causing sso logout to fail due to invalid format in sso logout request.
-- [web] fixed an issue in the extension manager where typing in the search bar or using type/status filters had no effect.
+- [API] Fixed an issue where duplicate host templates were silently accepted by the service template API.
+- [Configuration] Fixed an issue where the '_' character was no longer valid in address definitions.
+- [Configuration] Fixed stream connector (lua) parameters disappearing after deleting one of them in a Broker configuration.
+- [Configuration] Fixed the incorrect Centreon Monitoring Agent install command for pollers that caused a 404 error.
+- [Dashboards] It is now possible for users to share a dashboard with:
+   * contact groups part of a common acl access group.
+   * individual contacts listed in the contact groups they belong to.
+- [Graphs] Non-admin users can now export metaservice performance graphs as CSV.
+- [Installation] Fixed an issue where the installation wizard would not appear after a fresh install.
+- [Resource status] Fixed an error where resources had a severity level above 100.
+- [Resource status] Fixed filtering with spaces around hyphens.
+- [Web] Fixed an issue causing SSO logout to fail due to an invalid format in SSO logout request.
+- [Web] Fixed an issue in the extension manager where typing in the search bar or using type/status filters had no effect.
 
 </details>
 
@@ -62,7 +63,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- [open tickets] fixed “insufficient privileges” error when opening a ticket from a custom view without notification rules access.
+- [Open tickets] Fixed “insufficient privileges” error when opening a ticket from a custom view without notification rules access.
 
 </details>
 
