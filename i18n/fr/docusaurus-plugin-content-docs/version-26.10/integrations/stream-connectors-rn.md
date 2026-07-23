@@ -6,6 +6,27 @@ title: Stream connectors release notes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## 2026
+
+### July
+
+<Tabs groupId="sync">
+<TabItem value="Enhancement" label="Enhancement">
+
+- [**Clickhouse Metrics**](data-analytics/sc-clickhouse.md) - Added a way for stream connectors to store data. For more technical information, see [PR 205](https://github.com/centreon/centreon-stream-connector-scripts/pull/205).
+- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Added bulk events. For more technical information, see [PR 274](https://github.com/centreon/centreon-stream-connector-scripts/pull/274).
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Fixed `scheduled_downtime_depth` value that could be above 1. Fixed an issue where events were never sent when a status change occurred during a downtime.
+- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Properly escape host names in tags.
+- [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Fixed incorrect usage of broker v2 API.
+- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed downtime names/IDs that weren't unique. Fixed a library that wasn't properly detecting the status of a host/service in a downtime event.
+
+</TabItem>
+</Tabs>
+
 ## 2025
 
 ### February
