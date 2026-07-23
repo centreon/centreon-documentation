@@ -16,6 +16,7 @@ import TabItem from '@theme/TabItem';
 - [**Clickhouse Metrics**](data-analytics/sc-clickhouse.md) - Added a way for stream connectors to store data for more technical information see [PR 205](https://github.com/centreon/centreon-stream-connector-scripts/pull/205).
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Added bulk events, for more technical information see [PR 274](https://github.com/centreon/centreon-stream-connector-scripts/pull/274).
 
+</TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Fixed `scheduled_downtime_depth` value that can be above 1 and fixed an issue when a status change during a downtime, the event was never sent.
