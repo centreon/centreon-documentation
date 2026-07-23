@@ -5,6 +5,7 @@ title: Stream connectors release notes
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
 ## 2026
 
 ### July
