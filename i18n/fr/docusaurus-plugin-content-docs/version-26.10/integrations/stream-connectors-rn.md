@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 ### February
 
 <Tabs groupId="sync">
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed downtimes.
 - [**ServiceNow Incident**](event-management/sc-service-now-em-events.md) - Fixed oauth refresh token parameters.
@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 ### September
 
 <Tabs groupId="sync">
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Fixed return code when payload is empty.
 
@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
 ### August
 
 <Tabs groupId="sync">
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed an issue with **max_buffer_size** parameter in Splunk stream connector.
 - [**Clickhouse**](data-analytics/sc-clickhouse.md) - Added a protection on metric names containing spaces.
@@ -154,7 +154,7 @@ import TabItem from '@theme/TabItem';
 ### February
 
 <Tabs groupId="sync">
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Fixed an issue occuring when checking if an event was monitored by an accepted poller.
 
@@ -173,7 +173,7 @@ import TabItem from '@theme/TabItem';
 - [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Added a new **add_queue_metadata** method to properly add metadata to a queue.
 
 </TabItem>
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - The long output of the stream connector was incorrectly using the standard output, leading to loss of data.
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Used the correct cache entry when checking the state of a service in a downtime event.
