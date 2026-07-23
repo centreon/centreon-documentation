@@ -1,5 +1,6 @@
 ﻿---
 id: largest-contentful-paint
+description: Métrique Web Vitals LCP pour la vitesse de chargement perçue
 title: LCP - Largest Contentful Paint (Web Vital)
 --- 
 

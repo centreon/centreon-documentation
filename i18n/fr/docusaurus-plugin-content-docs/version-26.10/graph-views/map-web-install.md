@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Cette page décrit comment installer Centreon MAP. Il est recommandé d'installer MAP sur un serveur dédié. Toutefois, si vous ne disposez pas de gros volumes de données, vous pouvez l'installer sur le serveur central.
 
+> Si vous prévoyez d'utiliser MAP en HTTPS, veuillez noter que la sécurisation du protocole HTTPS nécessite une configuration tant sur la plateforme Centreon que sur le serveur MAP. Il est donc préférable d'en tenir compte avant de commencer l'installation. Reportez-vous à la section [Sécurisation de MAP en HTTPS](#sécuriser-map-en-https) pour connaître la procédure complète.
+
 ## Licence
 
 Si vous avez besoin d'une [licence](../administration/licenses.md) supplémentaire pour Centreon MAP, veuillez contacter l'[équipe support de Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
@@ -975,7 +977,7 @@ Exécutez la commande suivante pour vérifier que le service **centreon-map-engi
   Voici un exemple de résultat :
   
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)
@@ -1086,7 +1088,7 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
   Voici un exemple de résultat :
   
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)
@@ -1098,6 +1100,10 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
   ```
 
 Vous pouvez maintenant utiliser le module MAP en accédant à la page **Supervision > Map**.
+
+## Sécuriser MAP en HTTPS
+
+Si vous souhaitez utiliser MAP en HTTPS, vous devez sécuriser à la fois votre plateforme Centreon et MAP.
 
 - Suivez cette [procédure](../administration/secure-platform.md) pour sécuriser votre plateforme Centreon.
 - Suivez cette [procédure](../graph-views/secure-your-map-platform.md) pour sécuriser MAP.

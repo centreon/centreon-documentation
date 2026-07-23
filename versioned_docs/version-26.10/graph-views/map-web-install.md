@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 This topic describes how to install Centreon MAP. We recommend that you install MAP on a dedicated server. However, if you do not have large volumes of data, you can install it on the central server.
 
+> If you plan to use MAP in HTTPS, please note that securing the HTTPS protocol requires configuration on both the Centreon platform and the MAP server. It is therefore easier to plan for this before beginning the installation. See the [Secure MAP in HTTPS](#secure-map-in-https) section for the full procedure.
+
 ## License
 
 If you need an additional [license](../administration/licenses.md) for Centreon MAP, please contact the [Centreon support
@@ -980,7 +982,7 @@ Run the following command to check that the **centreon-map-engine** service is p
   This is an example of results:
 
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)
@@ -1094,7 +1096,7 @@ By default, the MAP module is not enabled. Perform the following procedure to en
   This is an example of results:
 
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)

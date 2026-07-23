@@ -85,7 +85,7 @@ apt update
 Mettez à jour l'ensemble des composants :
 
 ```shell
-apt install --only-upgrade centreon\*
+apt install --only-upgrade "centreon*"
 ```
 
 </TabItem>

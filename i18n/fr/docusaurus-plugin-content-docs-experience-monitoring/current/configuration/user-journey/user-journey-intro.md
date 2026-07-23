@@ -1,6 +1,7 @@
 ---
 id: user-journey-intro
 title: Parcours utilisateur
+description: Fonctionnalités clés et prérequis de la fonctionnalité Parcours Utilisateurs
 ---
 
 Les parcours utilisateur vous permettent de configurer une sonde pour naviguer régulièrement sur votre site en suivant un chemin prédéfini, en mesurant divers indicateurs de performance web.

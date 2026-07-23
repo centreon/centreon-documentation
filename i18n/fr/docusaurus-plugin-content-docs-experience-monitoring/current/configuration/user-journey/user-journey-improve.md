@@ -1,6 +1,7 @@
 ---
 id: user-journey-improve
 title: Optimiser votre site
+description: Utiliser des recommandations étape par étape pour optimiser la performance du site
 ---
 
 En utilisant les données collectées par la [sonde de recommandations](https://docs.centreon.com/experience-monitoring/configuration/configuration/user-journey/create-a-scenario/#daily-recommendations-audits), Experience Monitoring vous propose des suggestions pour optimiser votre site web.

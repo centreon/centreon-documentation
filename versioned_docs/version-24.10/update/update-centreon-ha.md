@@ -69,7 +69,7 @@ apt update
 Update all components:
 
 ```shell
-apt install --only-upgrade centreon\*
+apt install --only-upgrade "centreon*"
 ```
 
 </TabItem>

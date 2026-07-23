@@ -1,6 +1,7 @@
 ---
 id: notifications
 title: Paramétrer des notifications
+description: Configurer des canaux de notification par webhook pour les évènements d'alerte
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

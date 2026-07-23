@@ -1,6 +1,7 @@
 ---
 id: centreon-hub
 title: User portal (Centreon Hub)
+description: Manage organizations, user accounts, and access via Centreon Hub
 ---
 
 Centreon Hub is a module that:

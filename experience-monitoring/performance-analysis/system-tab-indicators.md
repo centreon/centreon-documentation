@@ -1,6 +1,7 @@
 ---
 id: system-tab-indicators
 title: Understanding the System tab indicators
+description: Interpret server infrastructure indicators like bandwidth and RAM
 ---
 
 The **System data** page shows the health of the server infrastructure hosting your web application. Use it to diagnose whether a performance issue originates from your application code or from the underlying infrastructure.

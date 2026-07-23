@@ -1,6 +1,7 @@
 ---
 id: performing-load-tests
 title: Tests de montée en charge
+description: Configurer et lancer un test de montée en charge sur un parcours utilisateur
 ---
 
 Les tests de montée en charge génèrent un trafic important sur votre site afin d'évaluer sa réponse. Un [parcours utilisateur](../configuration/user-journey/user-journey-intro.md) fonctionnel est requis, car le trafic généré par le test naviguera sur le site en suivant le parcours utilisateur sélectionné.
