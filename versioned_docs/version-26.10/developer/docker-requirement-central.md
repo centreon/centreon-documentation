@@ -11,7 +11,10 @@ This procedure describes how to configure Gorgone (a submodule of Centreon) betw
 
 - Because the connection uses HTTP(S), certificates are needed to secure the connection. To simplify certificate lifecycle management, Apache (which already hosts the Centreon web interface) is used as a reverse proxy to terminate the TLS connection and forward the traffic to Gorgone.
 
-### Installation requirements
+## Installation requirements
+
+If you are using Centreon cloud, you can skip shit configuration, and directly use the one-line command to configure the poller to connect to the Central using pullwss.
+You can retrieve this command in the Centreon web interface, in the poller configuration page.
 
 Ensure the Central server and Gorgone are already installed and up to date with the latest major version.
 
@@ -19,35 +22,38 @@ Ensure the Central server and Gorgone are already installed and up to date with 
 
 > The poller must be able to reach the Central server and use the latest major version of Centreon.
 
-### Configure Gorgone
+## Configure Gorgone
 
 In previous versions of Centreon, Gorgone could listen for pullwss connections directly on the network if manually configured to do so. Starting with version 26.10, the recommended method is to use Apache as a reverse proxy for Gorgone.
 If you already use pullwss, see the [compatibility mode](#apache-reverse-proxy-configuration) section below.
 
-Update the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows:
+Update the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** on the central as follows:
 
 ```yaml
 gorgone:
   modules:
+    - name: nodes
+      package: "gorgone::modules::core::nodes::hooks"
+      enable: true
+      
     - name: proxy
       package: "gorgone::modules::core::proxy::hooks"
       enable: true
       httpserver:
         enable: true
         ssl: false
-        address: "127.0.0.1"
+        address: "localhost"
         port: 8087
 
-    - name: nodes
-      package: "gorgone::modules::core::nodes::hooks"
-      enable: true
 ```
+
+Please note this file is a yaml file, so indentation are important. Use 2 spaces for each indentation level.
 
 The `nodes` module should already be present, and does not need modification in a default installation. The proxy module is already present too, but not the `httpserver` sub-key, which you should add.
 
 Explanation of the configuration:
 
-- `ssl: false` and `address: "127.0.0.1"`: Gorgone only accepts connections from the local machine, in plain HTTP. Apache is the one terminating TLS for the pollers and forwarding the traffic locally, so Gorgone itself does not need a certificate.
+- `ssl: false` and `address: "localhost"`: Gorgone only accepts connections from the local machine, in plain HTTP. Apache is the one terminating TLS for the pollers and forwarding the traffic locally, so Gorgone itself does not need a certificate.
 - `port: 8087`: internal port used only for the connection between Apache and Gorgone on the same host. It should not be exposed to the network.
 
 Restart Gorgone after this change:
@@ -56,7 +62,20 @@ Restart Gorgone after this change:
 systemctl restart gorgoned
 ```
 
-### Configure Apache as a reverse proxy
+Check gorgone correctly listen to port 8087:
+
+```shell
+sudo ss -tnlp | grep 8087
+```
+
+Should return one line similar to this:
+
+```text
+LISTEN 0      4096                [::1]:8087          [::]:*    users:(("gorgone-proxy-h",pid=2305,fd=28))
+```
+
+
+## Configure Apache as a reverse proxy
 
 ## Apache modules prerequisites
 
@@ -80,9 +99,16 @@ Make sure the `proxy_wstunnel` Apache module is enabled:
 
 ### Apache reverse proxy configuration
 
-Starting from 26.10, Apache already redirects the traffic from `/gorgone/pullwss/websocket` to Gorgone.
+Centreon offers an example of a configuration file to enable HTTPS and serving gorgone as a reverse proxy, available in the following directory: `/usr/share/centreon/examples/centreon.apache.https.conf`
 
-If this is the first time you set up pullwss on your Central, you don't need to do anything.
+if your configuration is specific, this is the required configuration to add inside your Apache virtual host:
+
+```apache
+    <IfModule mod_proxy_wstunnel.c>
+        ProxyPass "/${base_uri}/gorgone/pullwss/websocket"  "ws://localhost:8087/"
+        ProxyPassReverse "/${base_uri}/gorgone/pullwss/websocket"  "ws://localhost:8087/"
+    </IfModule>
+```
 
 If you already used pullwss in a previous version, you have multiple options:
 - Update all pollers to the same version, and configure them to access the Central on port 443.
@@ -92,8 +118,8 @@ If you already used pullwss in a previous version, you have multiple options:
 
 This section should be used only if you already configured pullwss in a previous version of Centreon, and you have many pollers that cannot be reconfigured easily.
 
-Below is an example of an Apache configuration to redirect the traffic from port 8086 to Gorgone to keep the older pollers working.
-Please note that using pullwss without TLS is not recommended in production, and this configuration is only for compatibility with old pollers that cannot be configured to use TLS.
+Centreon offers an example of an Apache configuration file to redirect the traffic from port 8086 to Gorgone to keep the older pollers working.
+Please note that using pullwss without TLS is not recommended in production, and should be migrated as soon as possible. This configuration is only for compatibility with old pollers that cannot be configured to use TLS.
 
   <Tabs groupId="sync">
 
@@ -117,7 +143,7 @@ Please note that using pullwss without TLS is not recommended in production, and
 
 This section should be used only if you already configured pullwss in a previous version of Centreon, and you have many pollers that cannot be reconfigured easily.
 
-Below is an example of an Apache configuration to redirect the traffic from port 8086 to Gorgone to keep the older pollers working.
+Centreon offers an example of an Apache configuration file to redirect the traffic from port 8086 to Gorgone to keep the older pollers working.
 
   <Tabs groupId="sync">
 
