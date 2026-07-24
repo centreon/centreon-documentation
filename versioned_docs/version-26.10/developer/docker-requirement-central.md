@@ -18,7 +18,7 @@ You can retrieve this command in the Centreon web interface, in the poller confi
 
 Ensure the Central server and Gorgone are already installed and up to date with the latest major version.
 
-> Requirement: If not already done, configure certificates for Apache. See the documentation to auto-generate them [here](../administration/secure-platform.md#secure-the-web-server-with-https).
+> Requirement: If not already done, configure certificates for Apache. See the documentation to auto-generate them [here](../administration/secure-platform.md).
 
 > The poller must be able to reach the Central server and use the latest major version of Centreon.
 
@@ -143,7 +143,7 @@ Please note that using pullwss without TLS is not recommended in production, and
 
 This section should be used only if you already configured pullwss in a previous version of Centreon, and you have many pollers that cannot be reconfigured easily.
 
-Centreon offers an example of an Apache configuration file to redirect the traffic from port 8086 to Gorgone to keep the older pollers working.
+Centreon offers an example of an apache configuration file to redirect the traffic from port 8086 to Gorgone to keep the older pollers working.
 
   <Tabs groupId="sync">
 
