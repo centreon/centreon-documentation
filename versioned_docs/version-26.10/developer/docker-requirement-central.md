@@ -18,7 +18,7 @@ You can retrieve this command in the Centreon web interface, in the poller confi
 
 Ensure the Central server and Gorgone are already installed and up to date with the latest major version.
 
-> Requirement: If not already done, configure certificates for Apache. See the documentation to auto-generate them [here](../administration/secure-platform.md).
+> Requirement: If not already done, configure certificates for Apache. See the documentation to auto-generate them TODO
 
 > The poller must be able to reach the Central server and use the latest major version of Centreon.
 
