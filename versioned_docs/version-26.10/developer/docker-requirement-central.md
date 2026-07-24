@@ -13,14 +13,14 @@ This procedure describes how to configure Gorgone (a submodule of Centreon) betw
 
 ## Installation requirements
 
-If you are using Centreon cloud, you can skip shit configuration, and directly use the one-line command to configure the poller to connect to the Central using pullwss.
+If you are using Centreon cloud, you can skip this configuration, and directly use the one-line command to configure the poller to connect to the Central using pullwss.
 You can retrieve this command in the Centreon web interface, in the poller configuration page.
 
 Ensure the Central server and Gorgone are already installed and up to date with the latest major version.
 
-> Requirement: If not already done, configure certificates for Apache. See the documentation to auto-generate them TODO
+> Requirement: If not already done, configure certificates for Apache. See the documentation to auto-generate them [here](../administration/secure-platform.md).
 
-> The poller must be able to reach the Central server and use the latest major version of Centreon.
+> The poller must be able to reach the Central server. Docker poller are available starting from version 26.10. Older versions of Centreon poller are still compatible if used in VM mode.
 
 ## Configure Gorgone
 
@@ -111,7 +111,7 @@ if your configuration is specific, this is the required configuration to add ins
 ```
 
 If you already used pullwss in a previous version, you have multiple options:
-- Update all pollers to the same version, and configure them to access the Central on port 443.
+- Update all pollers to the same version, and configure them to access the Central on port 443 (Recommended).
 - If you cannot update all pollers at the same time, you can add an Apache configuration to keep the legacy pullwss port 8086, and redirect the traffic to Gorgone. This is explained in the next section.
 
 #### Old poller configuration with no certificate (plain HTTP)
@@ -163,8 +163,39 @@ Centreon offers an example of an apache configuration file to redirect the traff
   </TabItem>
   </Tabs>
 
-
 ## Poller configuration
 
 You can now add a poller in the Central web interface and configure it as a "docker" poller.
 Once done, you can use the one-line command to configure the poller to connect to the Central using pullwss.
+
+## debug installation
+
+If your installation does not work, there is multiples thing you can check: 
+
+- does the poller can reach the central on port 443? you can check from the poller with the command `nc -zv <central_hostname> 443`
+- Does gorgone correctly listen on port 8087 ?
+```bash
+curl --header "Connection: Upgrade" --header "Upgrade: websocket" http://localhost:8087/
+```
+Expected output is:
+```text
+HTTP/1.1 101 Switching Protocols
+Connection: Upgrade
+Sec-WebSocket-Accept: Kfh9QIsMVZcl6xEPYxPHzW8SZ8w=
+Server: Mojolicious (Perl)
+Upgrade: websocket
+```
+
+- Does Apache2 redirect the traffic to gorgone correctly ?
+```bash
+curl -v --header "Connection: Upgrade" --header "Upgrade: websocket" https://localhost:443/centreon/gorgone/pullwss/websocket
+```
+Expected output is:
+```text
+< HTTP/1.1 101 Switching Protocols
+< Connection: Upgrade
+< Sec-WebSocket-Accept: Kfh9QIsMVZcl6xEPYxPHzW8SZ8w=
+< Server: Mojolicious (Perl)
+< Upgrade: websocket
+```
+If you see an html page indicating `You need to enable JavaScript to run this app.` the apache reverse proxy is not correctly configured, and the traffic is redirected to the Centreon web interface instead of gorgone. Check your apache configuration and restart apache after any change.
