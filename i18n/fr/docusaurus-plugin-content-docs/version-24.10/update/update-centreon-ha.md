@@ -22,6 +22,22 @@ pcs property set maintenance-mode=true
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
+### Modifier le script centreon_central_sync script (MBI uniquement)
+
+Cette étape n'est nécessaire que si vous utilisez [MBI](../reporting/introduction.md). Modifiez le script `/usr/share/centreon-ha/bin/centreon_central_sync` aux lignes suivantes :
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua"],
+```
+
+Pour que les rapports soient toujours téléchargeables, remplacez ces lignes par :
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua", "/var/lib/centreon/centreon-bi-server/archives"],
+```
+
 ### Mise à jour de Centreon-Web
 
 Lancer la mise à jour sur les deux serveurs centraux :
@@ -69,7 +85,7 @@ apt update
 Mettez à jour l'ensemble des composants :
 
 ```shell
-apt install --only-upgrade centreon\*
+apt install --only-upgrade "centreon*"
 ```
 
 </TabItem>

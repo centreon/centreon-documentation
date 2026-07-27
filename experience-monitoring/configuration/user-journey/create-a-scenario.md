@@ -1,6 +1,7 @@
 ﻿---
 id: create-a-scenario
 title: Creating a User Journey
+description: Configure a user journey probe and its individual steps
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

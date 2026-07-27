@@ -1,6 +1,7 @@
 ﻿---
 id: collector
 title: Configuration manuelle de collecteur
+description: Configurer un collecteur OpenTelemetry pour collecter plusieurs sources de logs sur un même hôte
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ﻿---
 id: receive-and-configure-alerts
 title: Receive and configure alerts
+description: Configure email, SMS, Slack, or webhook alert channels
 ---
 
 Alerts are available **by email with all licenses**.

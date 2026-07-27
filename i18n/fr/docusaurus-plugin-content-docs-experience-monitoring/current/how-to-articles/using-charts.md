@@ -1,6 +1,7 @@
 ﻿---
 id: using-charts
 title: Utiliser les graphiques
+description: Zoomer, filtrer, annoter et exporter les graphiques Experience Monitoring
 ---
 
 Une grande partie des informations collectées par Experience Monitoring est convertie en graphiques pour en faciliter la lecture.

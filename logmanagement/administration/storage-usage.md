@@ -1,6 +1,7 @@
 ---
 id: storage-usage
 title: Keeping track of storage usage
+description: Monitor the storage usage of your Centreon Log Management platform
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

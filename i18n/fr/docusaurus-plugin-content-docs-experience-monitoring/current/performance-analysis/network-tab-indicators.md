@@ -1,5 +1,6 @@
 ﻿---
 id: network-tab-indicators
+description: Comprendre les données de temps de réponse réseau basées sur le ping
 title: Données réseau
 ---
 

@@ -1,6 +1,7 @@
 ---
 id: alert-events
 title: Définir des règles d'alerte
+description: Créer des règles d'alerte pour détecter des schémas de logs anormaux et générer des évènements d'alerte
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

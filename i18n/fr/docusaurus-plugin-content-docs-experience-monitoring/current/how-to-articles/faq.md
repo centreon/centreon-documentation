@@ -1,6 +1,7 @@
 ﻿---
 id: faq
 title: FAQ agents
+description: Ports de pare-feu et adresses IP requis pour l'agent de supervision
 ---
 
 ## Quels ports du pare-feu doivent être ouverts pour l'agent Experience Monitoring ?

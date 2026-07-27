@@ -844,6 +844,8 @@ dnf update centreon\*
 dnf update centreon\*
 ```
 
+> Si vous avez installé MariaDB depuis leurs dépôts officiels, il se peut que vous rencontriez des problèmes de conflits. Suivez notre [procédure sur le sujet](../resources/known-issues.md#vous-avez-un-conflit-entre-les-paquets-mysql-common-et-mariadb-common) pour une solution de contournement.
+
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 

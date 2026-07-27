@@ -1,7 +1,8 @@
 ﻿---
 id: hero-time
 title: Hero Time
---- 
+description: Hero Time metric for measuring step interaction duration
+---
 
 ## Concept
 

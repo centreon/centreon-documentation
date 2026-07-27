@@ -1,5 +1,6 @@
 ﻿---
 id: errors-and-unavailability-front-end
+description: Diagnostiquer les incidents de parcours utilisateur grâce aux captures d'écran d'échec
 title: Comprendre les erreurs & indisponibilités dans Experience Monitoring
 --- 
 

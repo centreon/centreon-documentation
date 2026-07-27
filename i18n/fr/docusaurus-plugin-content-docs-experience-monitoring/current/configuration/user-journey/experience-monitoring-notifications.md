@@ -1,6 +1,7 @@
 ---
 id: user-journey-notifications
 title: Recevoir et configurer les notifications
+description: Configurer des notifications pour les parcours utilisateur en échec ou hors délai
 ---
 
 Vous pouvez configurer Experience Monitoring pour vous envoyer une notification lorsque l'un de vos [parcours utilisateur](./user-journey-intro.md) échoue ou dépasse le délai d'attente.

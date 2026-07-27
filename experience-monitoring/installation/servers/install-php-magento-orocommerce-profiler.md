@@ -1,6 +1,7 @@
 ---
 id: install-php-magento-orocommerce-profiler
 title: Install the PHP profiler
+description: Install the deprecated PHP profiler for Magento and OroCommerce
 ---
 
 import Tabs from '@theme/Tabs';
