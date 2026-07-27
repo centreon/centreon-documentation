@@ -1,6 +1,7 @@
 ---
 id: meta-services
 title: Créer des méta-services
+description: "Comment configurer un méta-service pour agréger les métriques de plusieurs services via une opération mathématique"
 ---
 
 ## Définition

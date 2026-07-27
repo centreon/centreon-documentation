@@ -1,6 +1,7 @@
 ---
 id: mcp-server
 title: Serveur MCP Centreon
+description: "Présentation du serveur MCP Centreon, de ses 23 outils répartis en sept domaines fonctionnels, et de leur utilisation par les IA"
 ---
 
 > Le serveur MCP Centreon est fonctionnalité nouvelle et en rapide évolution. Durant ses phases initiales, la principale source de documentation sera le fichier README du [projet GitHub](https://github.com/centreon/centreon-mcp).

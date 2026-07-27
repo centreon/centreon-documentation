@@ -1,6 +1,7 @@
 ---
 id: monitor-linux-server-with-snmp
 title: Superviser votre premier serveur Linux
+description: "Tutoriel pas à pas pour superviser un serveur Linux avec SNMP et le connecteur de supervision Linux SNMP"
 ---
 
 ## Superviser un serveur Linux avec SNMP

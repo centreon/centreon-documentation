@@ -1,6 +1,7 @@
 ---
 id: ot-request-tracker-restapi
 title: Request Tracker RestAPI
+description: "Configurez le fournisseur de tickets Request Tracker utilisant la version 2.0 de son API REST pour ouvrir des incidents"
 ---
 
 ## How it works

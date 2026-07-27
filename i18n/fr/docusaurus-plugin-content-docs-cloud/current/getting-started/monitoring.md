@@ -1,6 +1,7 @@
 ---
 id: monitoring
 title: Comment mettre mon premier hôte en supervision ?
+description: "Comment configurer et superviser votre premier hôte dans Centreon Cloud en le liant à un collecteur et à un modèle de connecteur de supervision"
 ---
 
 Assurez-vous d'avoir lu la page [Bases de la supervision](concepts.md) avant de mettre votre première ressource en supervision.

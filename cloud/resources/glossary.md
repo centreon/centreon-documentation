@@ -1,6 +1,7 @@
 ---
 id: glossary
 title: Glossary of Centreon concepts
+description: "Definitions of the key concepts and terms used throughout the Centreon Cloud documentation"
 ---
 
 ## Acknowledgement

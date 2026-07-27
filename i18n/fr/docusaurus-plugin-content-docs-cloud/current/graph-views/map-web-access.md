@@ -1,6 +1,7 @@
 ---
 id: map-web-access
 title: Gérer les droits d'accès dans MAP
+description: "Gérer les rôles et privilèges des utilisateurs MAP pour contrôler qui peut voir, modifier, partager ou supprimer les cartes"
 ---
 
 Cette page explique comment les utilisateurs accèdent aux cartes en fonction de privilèges bien définis.
