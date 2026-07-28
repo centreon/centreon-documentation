@@ -517,10 +517,12 @@ Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur C
 -t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
-Exemple:
+Si vous utilisez une [URI personnalisée](../../administration/secure-platform/#uri-personnalisée), ajoutez-la à la fin de la commande, au format suivant : **/uri_personnalisée**.
+
+Exemple (avec une URI personnalisée) :
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
+/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1 /monitoring
 ```
 
 > Remplacez **\<IP_TARGET_NODE\>** par l'adresse IP du serveur Central auquel vous voulez rattacher le serveur distant (adresse IP vue par le serveur distant).
