@@ -43,8 +43,9 @@ explicitly — don't skip it, and don't invent issues to seem thorough.
    product-specific folders `logmanagement`/`experience-monitoring` take precedence
    over the infra folders `versioned_docs`/`cloud`/`pp`), else by asking — then load
    `common.csv` + that product's file, product-specific rows overriding `common` on
-   conflict. Flag any place where the approved term (`FR`) is not used.
-5. **Links & anchors** — from the script output: broken/unreachable external URLs
+   conflict. Flag any place where the approved term (`FR`) is not used. Report deviations
+   as issues; do not rewrite silently.
+6. **Links & anchors** — from the script output: broken/unreachable external URLs
    (by HTTP status) and internal anchors whose target heading doesn't exist.
    Note login-gated URLs as "could not verify", not broken.
 
