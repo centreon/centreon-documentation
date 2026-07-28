@@ -1,6 +1,7 @@
 ---
 id: ot-servicenow
 title: ServiceNow
+description: "Configurez le fournisseur de tickets ServiceNow utilisant l'API REST de ServiceNow, compatible avec les versions Madrid, London et New York"
 ---
 
 ## How it works

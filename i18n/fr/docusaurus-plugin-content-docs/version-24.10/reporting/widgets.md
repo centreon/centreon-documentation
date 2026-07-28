@@ -1,20 +1,24 @@
 ---
 id: widgets
-title: Les widgets
+title: Widgets MBI
 description: "Aperçu des widgets MBI disponibles pour les tableaux de bord et vues personnalisées"
 ---
 
-Les widgets de Centreon MBI s"utilisent dans les [vues personnalisées](../getting-started/create-custom-view.md) de Centreon. Il vous est de ce fait possible de créer des
-dashboard combinant des données temps réel ET des données agrégées
+> Les widgets Centreon MBI suivants sont disponibles dans [Dashboards](../alerts-notifications/dashboards.md) :
+> - Disponibilité de l’Activité Métier
+> - Historique de la disponibilité d’une Activité Métier
+> - Historique de la disponibilité des groupes d’hôtes
+> - Metric capacity planning
+
+Les widgets de Centreon MBI s'utilisent également dans les [vues personnalisées](../getting-started/create-custom-view.md) de Centreon. Il vous est de ce fait possible de créer des
+vues combinant des données temps réel ET des données agrégées
 (disponibilité, application, performance etc..)
 
 ![image](../assets/reporting/guide/dashboard.png)
 
 Ci-dessous la liste des widgets de reporting disponibles :
 
-> Dans le cas d'une mise à jour des ACLs, cliquez sur "Update ACL
-> Resources" dans les options générales de Centreon MBI, onglet "Report
-> Parameters"
+> Dans le cas d'une mise à jour des ACLs, cliquez sur **Update Resources ACL** dans les options générales de Centreon MBI, onglet **Paramètre des rapports**
 
 
 ## Disponibilité et événements
@@ -125,7 +129,7 @@ d'hôtes , par mois.
 #### Description
 
 Ce widget vous permet de connaître la fiabilité (MTBF) et la
-mainteabilité (MTRS) de vos ressources ainsi que l'efficacité des
+maintenabilité (MTRS) de vos ressources ainsi que l'efficacité des
 équipes dans la prise en compte des évènements (MTTA). Ces informations
 sont affichées sous forme de Top. Des informations additionnelles sont
 associées au widget afin de faciliter la prise de décision : statut en

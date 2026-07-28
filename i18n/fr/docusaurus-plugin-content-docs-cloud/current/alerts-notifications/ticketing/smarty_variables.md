@@ -1,6 +1,7 @@
 ---
 id: ticketing-advanced-smarty-variables
 title: Variables Smarty Open Tickets
+description: "Référence des variables Smarty pour insérer des informations sur l'hôte, le service et l'utilisateur dans le corps du ticket"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

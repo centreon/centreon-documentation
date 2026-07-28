@@ -1,6 +1,7 @@
 ---
 id: cma
 title: Introduction à l'agent CMA
+description: "Présentation de l'agent de supervision Centreon (CMA), ses cas d'usage, les OS et applications supportés, et les modes de connexion"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

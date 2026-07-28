@@ -920,7 +920,9 @@ The output should look like this:
   Configuration completed, enjoy !
   ```
 
-This script generates the **map-config.properties** file.
+This script generates the **map-config.properties** file. It also automatically grants the required privileges on the **centreon_map** tables of the MAP database to the database user.
+
+> You only need to grant these privileges manually if your databases are administered separately (for example, by DBAs) and **configure.sh** cannot apply them automatically. In that case, the following privileges are required on the **centreon_map** tables: ALTER, CREATE, CREATE TEMPORARY TABLES, DELETE, DROP, INDEX, INSERT, LOCK TABLES, SELECT, SHOW DATABASES, UPDATE.
 
 #### Custom URI 
 

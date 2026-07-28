@@ -1,6 +1,7 @@
 ---
 id: stream-connectors-cloud
 title: Stream connectors
+description: "List of stream connectors available in Centreon Cloud to forward monitoring data to third-party systems"
 ---
 
 Use stream connectors to forward data collected by Centreon to third-party systems. Please contact your Customer Success Manager if you need to set up such an integration.

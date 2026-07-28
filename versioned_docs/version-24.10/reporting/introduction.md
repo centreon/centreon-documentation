@@ -1,64 +1,58 @@
 ---
 id: introduction
-title: Introduction to Centreon MBI
+title: Introduction to MBI
 description: "Introduction to Centreon MBI and the reports it generates"
 ---
 
-## Complete reporting with Centreon MBI
+## What is Centreon MBI?
 
-The reporting capabilities in Centreon rely on the **Centreon Monitoring Business Intelligence (MBI)** extension.
+Centreon Monitoring Business Intelligence (MBI) is an extension that is used to generate reports on host groups, host categories and service categories. MBI requires users to [prepare their data](preparing-data.md) carefully so that reports can be generated.
+We highly recommend you read our documentation to avoid running into issues. You can start with our [concepts](concepts.md) page.
 
-> Centreon MBI is a Centreon **extension** that requires a valid [license](../administration/licenses.md). To
-> purchase one and retrieve the necessary repositories, contact
+> Centreon MBI is a Centreon **extension** that requires a valid [license](../administration/licenses.md).
+> To purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
 
-Centreon Monitoring Business Intelligence (MBI) is a software tool
-designed to help business users make critical decisions and to
-facilitate management of an IT environment. Centreon MBI analyzes data
-from monitored events, performance counters and capacity accessed from Centreon, providing you with
-full visibility of your infrastructures and application activities
-through *ITIL compliant* reporting.
+## What does MBI do?
 
-
-Generate insightful statistics using our 30+ reports designs\...
+Centreon MBI runs [jobs](concepts.md#jobs) to generate reports. MBI has more than 30 different ready-to-use templates (report "designs").
 
 ![image](../assets/reporting/first_page.png)
 
-Centreon MBI provides a full package of standard reports that address:
+Reports address:
 
--   Capacity planning and management
--   Availability management
--   SLA (Service Level Agreement) management
--   Performance management.
+* Capacity planning and management
+* Availability management
+* SLA (Service Level Agreement) management
+* Performance management.
 
-**Here are some examples of reports available in Centreon MBI**: [Reports examples](../assets/reporting/Centreon-MBI-Sample-Reports.pdf)
+ This allows for an overview of the performance of the selected resources over a given period of time. These reports can be configured to be generated once or on a regular basis (i.e. once per day, week, month...). This will help you keep track of your IT environment with monthly uptime reports, weekly infrastructure performance summaries...
 
-or simply create your own reporting dashboard using our widgets.
+## What kind of data can appear on the reports ?
 
-![image](../assets/reporting/dashboard.png)
+Reports can display data about:
+- Host groups
+- Host categories
+- Service categories
+- Business views
+- Business activities
 
-Main features:
+Although data [must be organized into groups and categories](preparing-data.md#making-your-resources-available-to-mbi), some reports allow you to see the details of statuses and metrics for hosts and services.
 
--   Scheduling and generation of standalone reports in PDF, Excel, Word
-    and Powerpoint formats
--   Visualization of web & interactive statistics using reporting
-    widgets that are Centreon-compatible
--   Publication of reports by e-mail and other standard protocols (FTP,
-    CIFS, etc.)
--   Access control to reports
--   Administration and user interface integrated into Centreon
--   Report development libraries
+MBI also creates reports on availability by converting checks into [events](concepts.md#event). Note that MBI only takes into account [HARD statuses](../alerts-notifications/concepts.md#status-types) when calculating availability.
+
+Note that reports only contain data up to the previous day. The data for each day is [aggregated by the ETL the following day](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated).
 
 ## What are the possible output formats?
   
 * MBI generates reports in different formats: PDF, CSV, XLSX, DOCX, PPTX, ODT, ODS, ODP.
 * * Not all reports can be exported to every format. See our [table of supported formats](#supported-formats) below.
-* By default, these reports can be downloaded from the **Reports view** page, but they can also be configured to be sent to specific people when generated.
+* By default, these reports can be downloaded from the **Reports view** page, but they can also be [configured to be sent to specific people when generated](reports-publication-rule.md).
 * Report data can also be displayed in your Centreon [custom views](../alerts-notifications/custom-views.md) using dedicated [widgets](widgets.md).
 
 ### Supported formats
 
-| Category | Report | PDF | CSV\*| XLSX | DOCX | PPTX | ODT | ODS | ODP |
+| Category | Report | PDF | CSV\* | XLSX | DOCX | PPTX | ODT | ODS | ODP |
 |---|---|---|---|---|---|---|---|---|---|
 | **Business activity monitoring** | BV-BA-Availabilities-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |
 | | BA-Availability-1 | BEST | Non-Ok | OK | OK | OK | OK | OK | OK |

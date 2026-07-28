@@ -1,6 +1,6 @@
 ---
 id: report-development
-title: Report development
+title: Creating custom reports
 description: "Develop custom report designs for Centreon MBI using BIRT"
 ---
 

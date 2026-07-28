@@ -1,6 +1,7 @@
 ---
 id: monitor-cisco-router-with-snmp
 title: Superviser votre premier routeur Cisco
+description: "Tutoriel pas à pas pour superviser un routeur Cisco avec SNMP et le connecteur de supervision Cisco standard"
 ---
 
 ## Superviser un routeur Cisco avec SNMP
