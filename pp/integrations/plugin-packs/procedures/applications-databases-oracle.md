@@ -16,9 +16,10 @@ The following monitoring connectors will be installed when you install the **Ora
 
 ### Templates
 
-The Monitoring Connector **Oracle Database** brings a host template:
+The Monitoring Connector **Oracle Database** brings 2 host templates:
 
 * **App-DB-Oracle-custom**
+* **App-DB-Rman-Catalog-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
@@ -40,6 +41,17 @@ The connector brings the following service templates (sorted by the host templat
 > The services listed above are created automatically when the **App-DB-Oracle-custom** host template is used.
 
 > If **Discovery** is checked, it means a service discovery rule exists for this service template.
+
+</TabItem>
+<TabItem value="App-DB-Rman-Catalog-custom" label="App-DB-Rman-Catalog-custom">
+
+| Service Alias        | Service Template                           | Service Description                                                                       |
+|:---------------------|:-------------------------------------------|:------------------------------------------------------------------------------------------|
+| Connection-Time      | App-DB-Rman-Catalog-Connection-Time-custom | Check the connection time to the server. This time is given in seconds                    |
+| Rman-Backup-Age      | App-DB-Rman-Catalog-Backup-Age-custom      | Check RMAN backup age through an RMAN Recovery Catalog                                    |
+| Rman-Backup-Problems | App-DB-Rman-Catalog-Backup-Problems-custom | Check RMAN backup errors of the server during the last three days through an RMAN Recovery Catalog |
+
+The services listed above are created automatically when the **App-DB-Rman-Catalog-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
@@ -624,6 +636,9 @@ apt install centreon-plugin-applications-databases-oracle
 
 ### Using a host template provided by the connector
 
+<Tabs groupId="sync">
+<TabItem value="App-DB-Oracle-custom" label="App-DB-Oracle-custom">
+
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **App-DB-Oracle-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
@@ -638,6 +653,27 @@ apt install centreon-plugin-applications-databases-oracle
 | ORACLESID         | Database SID                              | SID           |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</TabItem>
+<TabItem value="App-DB-Rman-Catalog-custom" label="App-DB-Rman-Catalog-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-DB-Rman-Catalog-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro             | Description           | Default value | Mandatory |
+|:------------------|:----------------------|:--------------|:---------:|
+| RMAN_USERNAME     | User name used to connect to the RMAN catalog                 | USERNAME          |             |
+| RMAN_PASSWORD     | Password for the defined RMAN catalog                         | PASSWORD          |             |
+| RMAN_PORT         | RMAN used to connect to the RMAN catalog  | 1521              |             |
+| RMAN_SERVICE_NAME | Service Name of the RMAN catalog database  |                   |             |
+| RMAN_SID          | SID of the RMAN catalog database | SID               |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</TabItem>
+</Tabs>
 
 ### Using a service template provided by the connector
 
@@ -1065,6 +1101,7 @@ All generic options are listed here:
 | --port                                     | Database Server Port.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --sid                                      | Database SID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --servicename                              | Database Service Name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --component-type                           | Define the component to monitor. Can be `database` or `rman_catalog` (default: `database`). This enables the use of `rman-backup-problems` and `rman-backup-age` modes when an external RMAN catalog is used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --container                                | Change container (does an alter session set container command).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 #### Modes options

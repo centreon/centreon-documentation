@@ -1,7 +1,8 @@
 ---
 id: speed-index
 title: Speed Index
---- 
+description: Speed Index metric for how fast visual content renders
+---
 
 ## What Speed Index measures
 

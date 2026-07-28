@@ -1,6 +1,7 @@
 ---
 id: services-discovery
 title: Découvrir des services automatiquement
+description: "Comment lancer des découvertes manuelles et configurer des règles de découverte pour créer des services automatiquement"
 ---
 
 ## Lancer une découverte manuellement

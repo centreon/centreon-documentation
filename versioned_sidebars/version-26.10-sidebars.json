@@ -252,6 +252,10 @@
             },
             {
               "type": "doc",
+              "id": "monitoring/active-passive-checks"
+            },
+            {
+              "type": "doc",
               "id": "monitoring/metrics"
             },
             {
@@ -775,9 +779,13 @@
               "type": "doc",
               "id": "graph-views/map-web-migrate"
             },
+           {
+              "type": "doc",
+              "id": "graph-views/map-web-monitoring"
+            },
             {
               "type": "doc",
-              "id": "graph-views/map-web-advanced-configuration"
+              "id": "graph-views/map-web-change-port"
             },
             {
               "type": "doc",

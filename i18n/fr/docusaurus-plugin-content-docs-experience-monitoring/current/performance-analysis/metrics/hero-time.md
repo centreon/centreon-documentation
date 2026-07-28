@@ -1,5 +1,6 @@
 ﻿---
 id: hero-time
+description: Métrique Hero Time pour mesurer la durée d'interaction d'une étape
 title: Hero Time
 --- 
 

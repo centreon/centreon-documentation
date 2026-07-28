@@ -1,5 +1,6 @@
 ---
 id: troubleshooting
+description: Résoudre les problèmes courants de connexion et d'accès au compte
 title: Dépanner Experience Monitoring
 ---
 

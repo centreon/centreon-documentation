@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Cette page décrit comment installer Centreon MAP. Il est recommandé d'installer MAP sur un serveur dédié. Toutefois, si vous ne disposez pas de gros volumes de données, vous pouvez l'installer sur le serveur central.
 
+> Si vous prévoyez d'utiliser MAP en HTTPS, veuillez noter que la sécurisation du protocole HTTPS nécessite une configuration tant sur la plateforme Centreon que sur le serveur MAP. Il est donc préférable d'en tenir compte avant de commencer l'installation. Reportez-vous à la section [Sécurisation de MAP en HTTPS](#sécuriser-map-en-https) pour connaître la procédure complète.
+
 ## Licence
 
 Si vous avez besoin d'une [licence](../administration/licenses.md) supplémentaire pour Centreon MAP, veuillez contacter l'[équipe support de Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
@@ -911,7 +913,9 @@ Voici ce que vous devez voir en sortie :
   Configuration completed, enjoy !
   ```
 
-Ce script crée le fichier **map-config.properties**.
+Ce script crée le fichier **map-config.properties**. Il accorde également automatiquement à l'utilisateur de la base de données les privilèges requis sur les tables **centreon_map** de la base de données MAP.
+
+> Vous ne devez accorder ces privilèges manuellement que si vos bases de données sont administrées séparément (par exemple par des DBA) et que **configure.sh** ne peut pas les appliquer automatiquement. Dans ce cas, les privilèges suivants sont requis sur les tables **centreon_map** : ALTER, CREATE, CREATE TEMPORARY TABLES, DELETE, DROP, INDEX, INSERT, LOCK TABLES, SELECT, SHOW DATABASES, UPDATE.
 
 #### URI personnalisée 
 
@@ -1096,6 +1100,10 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
   ```
 
 Vous pouvez maintenant utiliser le module MAP en accédant à la page **Supervision > Map**.
+
+## Sécuriser MAP en HTTPS
+
+Si vous souhaitez utiliser MAP en HTTPS, vous devez sécuriser à la fois votre plateforme Centreon et MAP.
 
 - Suivez cette [procédure](../administration/secure-platform.md) pour sécuriser votre plateforme Centreon.
 - Suivez cette [procédure](../graph-views/secure-your-map-platform.md) pour sécuriser MAP.

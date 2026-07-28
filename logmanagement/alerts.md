@@ -1,6 +1,7 @@
 ---
 id: alert-events
 title: Defining alert rules
+description: Create alert rules to detect abnormal log patterns and trigger alert events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

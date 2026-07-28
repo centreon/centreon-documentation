@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 This topic describes how to install Centreon MAP. We recommend that you install MAP on a dedicated server. However, if you do not have large volumes of data, you can install it on the central server.
 
+> If you plan to use MAP in HTTPS, please note that securing the HTTPS protocol requires configuration on both the Centreon platform and the MAP server. It is therefore easier to plan for this before beginning the installation. See the [Secure MAP in HTTPS](#secure-map-in-https) section for the full procedure.
+
 ## License
 
 If you need an additional [license](../administration/licenses.md) for Centreon MAP, please contact the [Centreon support
@@ -917,7 +919,9 @@ The output should look like this:
   Configuration completed, enjoy !
   ```
 
-This script generates the **map-config.properties** file.
+This script generates the **map-config.properties** file. It also automatically grants the required privileges on the **centreon_map** tables of the MAP database to the database user.
+
+> You only need to grant these privileges manually if your databases are administered separately (for example, by DBAs) and **configure.sh** cannot apply them automatically. In that case, the following privileges are required on the **centreon_map** tables: ALTER, CREATE, CREATE TEMPORARY TABLES, DELETE, DROP, INDEX, INSERT, LOCK TABLES, SELECT, SHOW DATABASES, UPDATE.
 
 #### Custom URI 
 

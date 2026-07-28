@@ -89,7 +89,7 @@ const config = {
   },
 
   title: 'Centreon Documentation',
-  tagline: '',
+  tagline: 'Centreon Documentation - Infra Monitoring, Experience Monitoring, Log Management',
   url: 'https://docs.centreon.com',
   baseUrl,
   onBrokenLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
@@ -113,7 +113,7 @@ const config = {
   },
 ],
 
-  noIndex: false,
+  noIndex: !!archivedVersion,
 
   i18n: {
     defaultLocale: 'en',
@@ -187,27 +187,53 @@ const config = {
         docsDir: ["i18n", "versioned_docs", "cloud", "pp", "experience-monitoring", "logmanagement"],
         explicitSearchResultPath: true,
         useAllContextsWithNoSearchContext: true,
-        // searchContextByPaths: [
-        //   {
-        //     label: {
-        //       en: "monitoring connectors",
-        //       fr: "connecteurs de supervision",
-        //     },
-        //     path: "pp"
-        //   },
-        //   {
-        //     label: "cloud",
-        //     path: "cloud",
-        //   },
-        //   // {
-        //   //   label: "onPrem",
-        //   //   path: "i18n",
-        //   // },
-        //   // {
-        //   //   label: "onPrem",
-        //   //   path: "versioned_docs",
-        //   // },
-        // ],
+        // Split the search index per documentation section so that a search
+        // only returns results from the section the user is currently browsing.
+        // The homepage (which matches no context) still searches everywhere
+        // thanks to `useAllContextsWithNoSearchContext`.
+        // Note: on-premise versions are isolated automatically by the plugin
+        // (each version has its own index), so no version paths are needed here.
+        // Labels mirror the navbar section names (see
+        // i18n/fr/docusaurus-theme-classic/navbar.json) so the search context
+        // combo box matches the sections users already know. Centreon keeps
+        // these as English product names except "Monitoring Connectors".
+        searchContextByPaths: [
+          {
+            label: {
+              en: "Infra Monitoring OnPrem",
+              fr: "Infra Monitoring OnPrem",
+            },
+            path: "docs",
+          },
+          {
+            label: {
+              en: "Infra Monitoring Cloud",
+              fr: "Infra Monitoring Cloud",
+            },
+            path: "cloud",
+          },
+          {
+            label: {
+              en: "Infra Monitoring - Monitoring Connectors",
+              fr: "Infra Monitoring - Connecteurs de supervision",
+            },
+            path: "pp",
+          },
+          {
+            label: {
+              en: "Experience Monitoring",
+              fr: "Experience Monitoring",
+            },
+            path: "experience-monitoring",
+          },
+          {
+            label: {
+              en: "Log Management",
+              fr: "Log Management",
+            },
+            path: "logmanagement",
+          },
+        ],
         language: ["en", "fr"],
       }),
     ],

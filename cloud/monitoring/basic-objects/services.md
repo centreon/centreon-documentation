@@ -1,6 +1,7 @@
 ---
 id: services
 title: Creating services manually
+description: "Full list of fields to fill in when creating a service manually in Centreon, from general information to classification"
 ---
 
 To create a service manually, go to **Configuration > Services > Services by host** and then click **Add**.

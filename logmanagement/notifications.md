@@ -1,6 +1,7 @@
 ---
 id: notifications
 title: Setting up notifications
+description: Configure webhook notification channels for triggered alert events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

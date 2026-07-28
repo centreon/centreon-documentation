@@ -1,6 +1,7 @@
 ---
 id: start-with-pollers
 title: Getting started with pollers
+description: "Introduction to pollers in Centreon Cloud, covering installation, security, updates, and troubleshooting"
 ---
 
 ## Definition and architecture

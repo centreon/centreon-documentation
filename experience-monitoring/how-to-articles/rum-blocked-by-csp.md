@@ -1,6 +1,7 @@
 ---
 id: rum-blocked-by-csp
 title: Troubleshooting RUM
+description: Fix a Content Security Policy blocking RUM data collection
 ---
 
 ## A strict Content Security Policy (CSP) blocks the RUM data collection

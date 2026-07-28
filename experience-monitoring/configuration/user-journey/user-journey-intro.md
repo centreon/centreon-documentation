@@ -1,6 +1,7 @@
 ---
 id: user-journey-intro
 title: User Journeys
+description: Key capabilities and dependencies of the User Journeys feature
 ---
 
 User journeys allow you to configure a probe to regularly navigate your site following a pre-established path, measuring various web performance indicators.

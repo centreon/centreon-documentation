@@ -150,5 +150,9 @@
   "sidebar.cloud.category.Customizing tickets": {
     "message": "Personnaliser les tickets",
     "description": "The label for category Customizing tickets in sidebar cloud"
+  },
+  "sidebar.cloud.category.Troubleshooting Centreon Cloud": {
+    "message": "Dépanner Centreon Cloud",
+    "description": "The label for category Troubleshooting Centreon Cloud in sidebar cloud"
   }
 }

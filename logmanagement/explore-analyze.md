@@ -1,6 +1,7 @@
 ﻿---
 id: explore-analyze
 title: Exploring and analyzing logs
+description: Overview of the ways to explore and analyze logs in Centreon Log Management
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

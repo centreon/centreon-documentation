@@ -1,19 +1,19 @@
 ---
-id: map-web-advanced-configuration
-title: Configuration avancée dans MAP
+id: map-web-monitoring
+title: Superviser votre serveur Centreon MAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit les procédures avancées de configuration de votre système Centreon MAP.
+Cette page décrit comment superviser votre serveur Centreon MAP après installation.
 
 > Veuillez noter que les endpoints spécifiés dans cette page ont été mis à jour suite à la dépréciation de la version bêta. Depuis la version 24.10, `beta` est remplacé par `latest` dans les chemins d'accès.
 
-## Superviser votre serveur Centreon MAP après installation
+## Installer le connecteur Centreon MAP Engine
 
 Centreon fournit un [connecteur de supervision et un plugin](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator) pour superviser votre serveur Centreon MAP.
 
-### Configurer vos services
+## Configurer vos services
 
 Accédez à votre interface web Centreon. Allez à la page **Configuration > Hôtes > Hôtes**, puis cliquez sur **Ajouter**.
 
@@ -58,46 +58,3 @@ https://<MAP_IP>:8443/centreon-map/api/latest/actuator/health.
 
 </TabItem>
 </Tabs>
-
-## Changer le port du serveur Centreon MAP
-
-> Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
-
-Par défaut, le serveur Centreon MAP écoute et envoie des informations via le port 8080.
-Si vous avez configuré le SSL (voir [Configuration HTTPS/TLS](./secure-your-map-platform.md#configuration-du-serveur-map)), utilisez le port 8443.
-
-Vous pouvez modifier ce port (par exemple, si un pare-feu sur votre réseau le bloque).
-
-Sur votre serveur Centreon MAP, arrêtez le service centreon-map :
-
-```shell
-systemctl stop centreon-map
-```
-
-Modifiez le fichier de paramètres **map-config.properties** situé dans **/etc/centreon-map** :
-
-```shell
-vi /etc/centreon-map/map-config.properties
-```
-
-Ajoutez la ligne suivante à la section MAP SERVER :
-
-```text
-centreon-map.port=XXXX
-```
-
-> Remplacez *XXXX* par le port que vous souhaitez.
-
-Redémarrez ensuite le serveur MAP de Centreon :
-
-```shell
-systemctl start centreon-map
-```
-
-Attendez que le service Centreon MAP ait fini de démarrer (~30 secondes à une minute).
-
-Vérifiez que votre serveur est opérationnel et accessible sur le nouveau port que vous avez défini, en entrant l'URL suivante dans votre navigateur web :
-
-```shell
-http://<MAP_IP>:<NEW_PORT>/centreon-map/api/latest/actuator/health
-```

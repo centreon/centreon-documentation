@@ -1,7 +1,8 @@
 ﻿---
 id: errors-and-unavailability-front-end
 title: Understanding errors & unavailability
---- 
+description: Diagnose user journey incidents using failure screenshots
+---
 
 ## Troubleshooting user journey incidents
 

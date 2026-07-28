@@ -1,6 +1,7 @@
 ---
 id: rum-intro
 title: What is Real User Monitoring?
+description: How RUM captures 100% of real traffic without sampling
 ---
 
 RUM lets you analyze the actual experience of users on your site in real time. RUM data captures 100% of real traffic to a site - meaning every time any user loads a page or clicks a link, a performance data point is recorded.
