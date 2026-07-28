@@ -517,7 +517,7 @@ Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur C
 -t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
-Si vous utilisez une [URI personnalisée](../../administration/secure-platform/#uri-personnalisée), ajoutez-la à la fin de la commande, au format suivant : **/uri_personnalisée**.
+Si vous utilisez une [URI personnalisée](../../administration/secure-platform.md#uri-personnalisée), ajoutez-la à la fin de la commande, au format suivant : **/uri_personnalisée**.
 
 Exemple (avec une URI personnalisée) :
 
