@@ -1,6 +1,7 @@
 ---
 id: architectures
 title: Architectures
+description: "Choisir l'architecture de supervision adaptée à la taille de votre plateforme"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

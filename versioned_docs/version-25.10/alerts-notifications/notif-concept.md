@@ -1,6 +1,7 @@
 ---
 id: notif-concept
 title: How notifications work
+description: "Understand the step-by-step notification process in Centreon"
 ---
 
 Before a contact can be notified in Centreon, it is necessary to go

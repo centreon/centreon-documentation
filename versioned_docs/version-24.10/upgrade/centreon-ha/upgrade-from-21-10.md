@@ -1,6 +1,7 @@
 ---
 id: upgrade-centreon-ha-from-21-10
 title: Upgrade Centreon HA from Centreon 21.10
+description: "Upgrade a Centreon HA cluster from version 21.10 to 24.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

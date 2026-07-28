@@ -1,6 +1,7 @@
 ---
 id: electric-consumption-reports
 title: Electric consumption reports
+description: "Report on the electric consumption of UPS-connected hosts"
 ---
 
 ### Hostgroup-Electricity-Consumption-1

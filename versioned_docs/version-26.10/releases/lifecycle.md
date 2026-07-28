@@ -1,6 +1,7 @@
 ---
 id: lifecycle
 title: Product lifecycle policy
+description: "Centreon's version numbering, release frequency, and support policy"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

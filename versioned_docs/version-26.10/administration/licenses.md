@@ -1,6 +1,7 @@
 ---
 id: licenses
 title: Licenses
+description: "Obtain, add, and troubleshoot online or offline Centreon licenses"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

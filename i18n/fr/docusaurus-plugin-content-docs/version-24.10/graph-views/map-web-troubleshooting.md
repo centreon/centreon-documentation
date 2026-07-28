@@ -1,6 +1,7 @@
 ---
 id: map-web-troubleshooting
 title: Dépannage de MAP
+description: "Dépanner les incidents courants d'installation et de configuration de MAP"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

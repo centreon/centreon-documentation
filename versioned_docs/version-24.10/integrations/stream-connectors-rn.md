@@ -1,6 +1,7 @@
 ---
 id: stream-connectors-rn
 title: Stream connectors release notes
+description: "Release notes and changelog for Centreon stream connectors"
 ---
 
 import Tabs from '@theme/Tabs';

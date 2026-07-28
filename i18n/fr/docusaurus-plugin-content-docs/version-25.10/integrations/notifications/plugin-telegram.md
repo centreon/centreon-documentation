@@ -1,6 +1,7 @@
 ---
 id: plugin-telegram
 title: Notifications Telegram
+description: "Envoyer des alertes d'hôtes et de services vers Telegram via un bot"
 ---
 
 ## Introduction

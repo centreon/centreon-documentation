@@ -1,6 +1,7 @@
 ---
 id: widgets
 title: Widgets
+description: "Display live Business Activity status widgets on dashboards"
 ---
 
 > The following Centreon BAM widgets are available in [Dashboards](../alerts-notifications/dashboards.md):

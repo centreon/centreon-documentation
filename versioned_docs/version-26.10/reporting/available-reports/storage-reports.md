@@ -1,6 +1,7 @@
 ---
 id: storage-reports
 title: Storage reports
+description: "Reports on allocated and used disk storage capacity across host groups"
 ---
 
 ### Hostgroups-Storage-Capacity-1

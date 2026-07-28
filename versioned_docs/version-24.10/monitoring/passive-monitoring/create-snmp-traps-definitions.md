@@ -1,6 +1,7 @@
 ---
 id: create-snmp-traps-definitions
 title: Create SNMP Traps definitions
+description: "Import or manually create SNMP trap definitions and manufacturers"
 ---
 
 ## Add a manufacturer
