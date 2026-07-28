@@ -45,7 +45,7 @@ explicitly — don't skip it, and don't invent issues to seem thorough.
    `common.csv` + that product's file, product-specific rows overriding `common` on
    conflict. Flag any place where the approved term (`FR`) is not used. Report deviations
    as issues; do not rewrite silently.
-6. **Links & anchors** — from the script output: broken/unreachable external URLs
+5. **Links & anchors** — from the script output: broken/unreachable external URLs
    (by HTTP status) and internal anchors whose target heading doesn't exist.
    Note login-gated URLs as "could not verify", not broken.
 
